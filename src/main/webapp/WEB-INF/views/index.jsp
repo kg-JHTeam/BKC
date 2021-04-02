@@ -29,10 +29,10 @@
     
     <title>BKC</title>
 </head>
-	<!-- main-desktop-header -->
-	
-	<jsp:include page="include/header/main_desktop_header.jsp"/>
-	
+   <!-- main-desktop-header -->
+   
+   <jsp:include page="include/header/main_desktop_header.jsp"/>
+   
     <!--desktop main page-->
     <div class="main-wrap">
 
@@ -102,6 +102,24 @@
                             <span>매장 찾기</span>
                         </a>
                     </div>
+                    <!--
+                    <ul class="shop_categorylist">
+                        <li class="categor_delivery">
+                            <span>
+                                "집에서 편안하게 "<br>
+                                "받을 수 있는"
+                            </span>
+                            <em>딜리버리</em>
+                        </li>
+                        <li class="categor_king">
+                            <span>
+                                "집에서 편안하게 "<br>
+                                "받을 수 있는"
+                            </span>
+                            <em>딜리버리</em>
+                        </li>
+                    </ul>
+                    -->
                 </div>
             </div>
         </div>
@@ -122,51 +140,12 @@
                 </div>
             </div>
         </div>
-
-        <!--footer menu-->
-        <div class="footer-menu-zone">
-            <div class="content-wrap">
-                <div>
-                    <a href=""><span>메뉴</span></a><br><br>
-                    <a href="">치킨메뉴</a><br><br>
-                    <a href="">사이드메뉴</a><br><br>
-                    <a href="">비어존메뉴</a><br><br>
-                </div>
-                <div>
-                    <a href=""><span>매장</span></a><br><br>
-                    <a href="">매장찾기</a><br><br>
-                </div>
-                <div>
-                    <a href=""><span>이벤트</span></a><br><br>
-                    <a href="">이벤트</a><br><br>
-                    <a href="">신규매장</a><br><br>
-                </div>
-                <div>
-                    <a href=""><span>BRAND</span></a><br><br>
-                    <a href="">BKC 스토리</a><br><br>
-                    <a href="">CEO 인사말</a><br><br>
-                    <a href="">연혁</a><br><br>
-                    <a href="">WHY BKC</a><br><br>
-                    <a href="">BKC NEWS</a><br><br>
-                </div>
-                <div class="last-div">
-                    <a href=""><span>고객센터</span></a><br><br>
-                    <a href="">공지사항</a><br><br>
-                    <a href="">BKC앱이용안내</a><br><br>
-                    <a href="">FAQ</a><br><br>
-                    <a href="">문의</a><br><br>
-                    <a href="">가맹점모집</a><br><br>
-                    <a href="">인재채용</a><br><br>
-                </div>
-            </div>
-        </div>
-    </div>
     <!--end of main page-->
     
     <!-- main-desktop-footer -->
     <jsp:include page="include/footer/main_desktop_footer.jsp"/>
-	<!-- 모바일 -->
-	<jsp:include page="include/header/main_mobile_header.jsp"/>
+   <!-- 모바일 -->
+   <jsp:include page="include/header/main_mobile_header.jsp"/>
     <!--mobile-main page-->
     <div class="m-main-wrap">
     
@@ -218,21 +197,11 @@
                 <div class="delivery"></div>
             </div>
         </div>
-        
+
         <!-- 매장 찾기 -->
         <div class="m-store-zone">
             <div class="center-wrap">
-                <div class="content-wrap">
-                <br>
-                    <h1>매장찾기</h1>
-                    <h4>고객님 주변에 있는 BKC를 찾아보세요!</h4>
-                    <br>
-                    <div class="c_btn_1">
-                        <a href="#">
-                            <span>매장 찾기</span>
-                        </a>
-                    </div>
-                </div>
+                매장찾기
             </div>
         </div>
 
@@ -252,6 +221,6 @@
         </div>
     </div>
     <!--end of m-main page-->
-   	<jsp:include page="include/footer/main_mobile_footer.jsp"/>
+      <jsp:include page="include/footer/main_mobile_footer.jsp"/>
 </body>
 </html>

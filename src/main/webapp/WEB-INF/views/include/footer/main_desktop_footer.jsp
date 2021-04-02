@@ -8,6 +8,43 @@
 </head>
 <body>
     <!--footer-->
+     <!--footer menu-->
+     <div class="footer-menu-zone">
+            <div class="content-wrap">
+                <div>
+                    <a href=""><span>메뉴</span></a><br><br>
+                    <a href="">치킨메뉴</a><br><br>
+                    <a href="">사이드메뉴</a><br><br>
+                    <a href="">비어존메뉴</a><br><br>
+                </div>
+                <div>
+                    <a href=""><span>매장</span></a><br><br>
+                    <a href="">매장찾기</a><br><br>
+                </div>
+                <div>
+                    <a href=""><span>이벤트</span></a><br><br>
+                    <a href="">이벤트</a><br><br>
+                    <a href="">신규매장</a><br><br>
+                </div>
+                <div>
+                    <a href=""><span>BRAND</span></a><br><br>
+                    <a href="">BKC 스토리</a><br><br>
+                    <a href="">CEO 인사말</a><br><br>
+                    <a href="">연혁</a><br><br>
+                    <a href="">WHY BKC</a><br><br>
+                    <a href="">BKC NEWS</a><br><br>
+                </div>
+                <div class="last-div">
+                    <a href=""><span>고객센터</span></a><br><br>
+                    <a href="">공지사항</a><br><br>
+                    <a href="">BKC앱이용안내</a><br><br>
+                    <a href="">FAQ</a><br><br>
+                    <a href="">문의</a><br><br>
+                    <a href="">가맹점모집</a><br><br>
+                    <a href="">인재채용</a><br><br>
+                </div>
+            </div>
+     </div>
     <div class="footer">
         <!--web_container -->
         <div class="web_container">

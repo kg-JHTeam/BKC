@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../resources/css/include/main-gnb.css">
     <link  rel="stylesheet" href="../resources/css/subpages/brand/newsNewItemview.css"/>
   
- 	<!--font google web font -->
+    <!--font google web font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     
@@ -27,10 +27,10 @@
     <title>BrandStory</title>
 </head>
 <body>
-	<!-- main-header -->
-	<jsp:include page="../../include/header/main_desktop_header.jsp"/>
-	<jsp:include page="../../include/header/main_mobile_header.jsp"/>
-	
+   <!-- main-header -->
+   <jsp:include page="../../include/header/main_desktop_header.jsp"/>
+   <jsp:include page="../../include/header/main_mobile_header.jsp"/>
+   
     <section>
         <div class="contentsBox01 bg_w">
             <div class="web_container">
@@ -39,17 +39,17 @@
                     <div class="tab01 bdBot">
                         <ul>
                             <li>
-                                <button type="button" onclick="location.href='./story.html'">
+                                <button type="button" onclick="location.href='${pageContext.request.contextPath }/brand/brandStory.do'">
                                     <span>버거킹 스토리</span>
                                 </button>
                             </li>
                             <li>
-                                <button type="button" onclick="location.href='./whybkc.html'">
+                                <button type="button" onclick="location.href='${pageContext.request.contextPath }/brand/whybkc.do'">
                                     <span>WHY 버거킹</span>
                                 </button>
                             </li>
                             <li class="on">
-                                <button type="button" onclick="location.href='./newsNewItem.html'">
+                                <button type="button" onclick="location.href='${pageContext.request.contextPath }/brand/newsNewItem.do'">
                                     <span>버거킹 NEWS</span>
                                 </button>
                             </li>
@@ -176,7 +176,7 @@
     <a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
     
     <!-- main-footer -->
-	<jsp:include page="../../include/footer/main_desktop_footer.jsp"/>
-	<jsp:include page="../../include/footer/main_mobile_footer.jsp"/>
+   <jsp:include page="../../include/footer/main_desktop_footer.jsp"/>
+   <jsp:include page="../../include/footer/main_mobile_footer.jsp"/>
 </body>
 </html>

@@ -22,13 +22,15 @@ button {
 .contentsBox01{
     padding: 50px 0 120px;
     width: 100vw;
+    top:100px;
+    position: relative;
 }
-.web_container {
-    max-width: 1184px;
+.contentsBox01 > .web_container {
+   width: 1184px;
     margin: 0 auto;
     padding: 0 20px;
 }
-.subtitWrap {
+.contentsBox01 > .web_container > .subtitWrap {
     position: relative;
     margin-bottom: 26px;
 }
@@ -364,6 +366,5 @@ button {
         padding-bottom: 33px;
     }
 }
-
 
 
