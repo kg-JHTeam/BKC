@@ -21,9 +21,9 @@
                 <ul>
                     <li><a href="#">메뉴소개</a><span></span>
                         <ul>
-                        <li><a href="${pageContext.request.contextPath }/menu/menu">치킨메뉴</a></li>
-                        <li><a href="${pageContext.request.contextPath }/menu/menu">사이드메뉴</a></li>
-                        <li><a href="${pageContext.request.contextPath }/menu/menu">비어존메뉴</a></li>
+                        <li><a href="${pageContext.request.contextPath }/menu/menu.do">치킨메뉴</a></li>
+                        <li><a href="${pageContext.request.contextPath }/menu/menu.do">사이드메뉴</a></li>
+                        <li><a href="${pageContext.request.contextPath }/menu/menu.do">비어존메뉴</a></li>
                         </ul>
                     </li>
                     <li><a href="#">매장소개</a><span></span>
@@ -39,9 +39,9 @@
                     </li>
                     <li><a href="#">BRAND</a><span></span>
                         <ul>
-                           <li><a href="${pageContext.request.contextPath }/brand/story">BKC 스토리</a></li>
-                        	<li><a href="${pageContext.request.contextPath }/brand/whybkc">WHY BKC</a></li>
-                        	<li><a href="${pageContext.request.contextPath }/brand/newsNewItem">BKC NEWS</a></li>
+                          <li><a href="${pageContext.request.contextPath }/brand/brandStory.do">BKC 스토리</a></li>
+                          <li><a href="${pageContext.request.contextPath }/brand/whybkc.do">WHY BKC</a></li>
+                          <li><a href="${pageContext.request.contextPath }/brand/newsNewItem.do">BKC NEWS</a></li>
                         </ul>
                     </li>
                     <li><a href="#">고객센터</a>

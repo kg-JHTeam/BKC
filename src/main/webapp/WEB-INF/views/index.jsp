@@ -14,23 +14,24 @@
         href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
     
     <!--slick & jQuery-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/slick/slick.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/slick/slick-theme.css">
-    <script src="${pageContext.request.contextPath }/resources/jquery/jquery-3.6.0.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/slick/slick.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/slick/slide.js"></script>
+    <link rel="stylesheet" href="resources/slick/slick.css">
+    <link rel="stylesheet" href="resources/slick/slick-theme.css">
+    <script src="resources/jquery/jquery-3.6.0.min.js"></script>
+    <script src="resources/slick/slick.js"></script>
+    <script src="resources/slick/slide.js"></script>
     
     <!--css-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main/main-gnb.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main/main.css">
+    <link rel="stylesheet" href="resources/css/include/main-gnb.css">
+    <link rel="stylesheet" href="resources/css/main/main.css">
     
     <!-- js -->
-    <script src="${pageContext.request.contextPath }/resources/js/main/main-gnb.js"></script>
+    <script src="resources/js/include/main-gnb.js"></script>
     
     <title>BKC</title>
 </head>
 	<!-- main-desktop-header -->
-	<jsp:include page="../include/header/main_desktop_header.jsp"/>
+	
+	<jsp:include page="include/header/main_desktop_header.jsp"/>
 	
     <!--desktop main page-->
     <div class="main-wrap">
@@ -181,14 +182,12 @@
     <!--end of main page-->
     
     <!-- main-desktop-footer -->
-	<jsp:include page="../include/footer/main_desktop_footer.jsp"/>
-	
-	
+    <jsp:include page="include/footer/main_desktop_footer.jsp"/>
 	<!-- 모바일 -->
-	<jsp:include page="../include/header/main_mobile_header.jsp"/>
+	<jsp:include page="include/header/main_mobile_header.jsp"/>
     <!--mobile-main page-->
     <div class="m-main-wrap">
-        
+    
         <!-- 이미지 슬라이드 -->
         <div class="m-imgslide-zone">
             <div class="slide">
@@ -261,8 +260,6 @@
         </div>
     </div>
     <!--end of m-main page-->
-
-    <jsp:include page="../include/footer/main_mobile_footer.jsp"/>
+   	<jsp:include page="include/footer/main_mobile_footer.jsp"/>
 </body>
-
 </html>
