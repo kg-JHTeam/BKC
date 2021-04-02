@@ -20,9 +20,9 @@
             <ul class="nav">
                 <li class="menu-title"><a href="#">메뉴소개</a>
                     <ul class="sub-con">
-                        <li><a href="${pageContext.request.contextPath }/menu/menu">치킨메뉴</a></li>
-                        <li><a href="${pageContext.request.contextPath }/menu/menu">사이드메뉴</a></li>
-                        <li><a href="${pageContext.request.contextPath }/menu/menu">비어존메뉴</a></li>
+                        <li><a href="${pageContext.request.contextPath }/menu/menu.do">치킨메뉴</a></li>
+                        <li><a href="${pageContext.request.contextPath }/menu/menu.do">사이드메뉴</a></li>
+                        <li><a href="${pageContext.request.contextPath }/menu/menu.do">비어존메뉴</a></li>
                     </ul>
                 </li>
                 <li class="menu-title"><a href="${pageContext.request.contextPath }/">매장소개</a>
@@ -38,9 +38,9 @@
                 </li>
                 <li class="menu-title"><a href="#">BRAND</a>
                     <ul class="sub-con">
-                        <li><a href="${pageContext.request.contextPath }/brand/story">BKC 스토리</a></li>
-                        <li><a href="${pageContext.request.contextPath }/brand/whybkc">WHY BKC</a></li>
-                        <li><a href="${pageContext.request.contextPath }/brand/newsNewItem">BKC NEWS</a></li>
+                        <li><a href="${pageContext.request.contextPath }/brand/brandStory.do">BKC 스토리</a></li>
+                        <li><a href="${pageContext.request.contextPath }/brand/whybkc.do">WHY BKC</a></li>
+                        <li><a href="${pageContext.request.contextPath }/brand/newsNewItem.do">BKC NEWS</a></li>
                     </ul>
                 </li>
             </ul>
@@ -48,7 +48,7 @@
         <div class="full-cover"> </div>
         <!--딜리버리 로고-->
         <div class="images">
-            <a href="${pageContext.request.contextPath }/delivery/">
+            <a href="${pageContext.request.contextPath }/delivery.do">
                 <img id="delivery-logo" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/add/delevery.gif"
                     alt="bkc deliverylogo" />
             </a>

@@ -7,11 +7,11 @@
     
     <!-- jquery -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/jquery/jquery-3.6.0.min.js"></script> 
+    <script src="../resources/jquery/jquery-3.6.0.min.js"></script> 
     
     <!--css-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main/main-gnb.css">
-    <link  rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/brand/newsNewItemview.css"/>
+    <link rel="stylesheet" href="../resources/css/include/main-gnb.css">
+    <link  rel="stylesheet" href="../resources/css/subpages/brand/newsNewItemview.css"/>
   
  	<!--font google web font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,15 +21,15 @@
         href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
     
     <!-- js -->
-    <script src="${pageContext.request.contextPath }/resources/js/brand/menuitem.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/main/main-gnb.js"></script>
+    <script src="../resources/js/subpages/brand/menuitem.js"></script>
+    <script src="../resources/js/include/main-gnb.js"></script>
     
     <title>BrandStory</title>
 </head>
 <body>
 	<!-- main-header -->
-	<jsp:include page="../include/header/main_desktop_header.jsp"/>
-	<jsp:include page="../include/header/main_mobile_header.jsp"/>
+	<jsp:include page="../../include/header/main_desktop_header.jsp"/>
+	<jsp:include page="../../include/header/main_mobile_header.jsp"/>
 	
     <section>
         <div class="contentsBox01 bg_w">
@@ -175,8 +175,8 @@
     
     <a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
     
-    <!-- main-desktop-footer -->
-	<jsp:include page="../include/footer/main_desktop_footer.jsp"/>
-	<jsp:include page="../include/footer/main_mobile_footer.jsp"/>
+    <!-- main-footer -->
+	<jsp:include page="../../include/footer/main_desktop_footer.jsp"/>
+	<jsp:include page="../../include/footer/main_mobile_footer.jsp"/>
 </body>
 </html>
