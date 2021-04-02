@@ -11,7 +11,6 @@
 		<property name="username" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>
 	</bean>
-	<context:property-placeholder location="../../props/jdbc.properties" />
 	
 	<context:component-scan base-package="com.bkc.dao"></context:component-scan>
 </beans>
