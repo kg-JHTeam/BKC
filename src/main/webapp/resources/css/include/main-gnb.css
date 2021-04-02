@@ -166,7 +166,62 @@ a {
 
     /* - ------------------헤더 끝- ---------------------*/ 
 
-    /*  - ------------------푸터 시작--------------------- */
+   /* 푸터 시작 */
+   /* footer-menu-zone */
+    .footer-menu-zone {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        position: relative;
+        background: #f9f8f4;
+        background-image: url(" https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/bg/bg_potato1.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y:100%;
+    }
+   
+    .footer-menu-zone  > .content-wrap{
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        height: 450px;
+        text-align: left;
+        margin-bottom: 11rem;
+    }
+
+    .footer-menu-zone  > .content-wrap > div{
+        padding-left:1rem;
+        margin-top:2rem;
+        width:20%;
+        border-right: 1px dashed #89513a;
+        border-width: thin;
+    }
+
+    .footer-menu-zone  > .content-wrap > .last-div{
+        padding-left:1rem;
+        margin-top:2rem;
+        width:20%;
+        border-right-style: none;
+    }
+
+    .footer-menu-zone  > .content-wrap > div > a{
+        padding-top:1rem;
+        margin-bottom: 2rem;
+        font-size:1.3rem;
+        color:#89513a;
+    }
+    .footer-menu-zone  > .content-wrap > div > a > span{
+        font-weight: bold;
+        font-size:1.95rem;
+        color:#89513a;
+    }
+    
+    /*  - ------------------밑에 푸터 시작--------------------- */
     .footer{
         left: 0;
         bottom: 0;

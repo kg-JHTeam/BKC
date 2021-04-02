@@ -196,7 +196,6 @@
     }
     .store-zone > .center-wrap > .content-wrap > .c_btn_1  > a{
         color:white;
-       
         font-size:1.5rem;
     }
     /* delivery-zone */ 
@@ -254,59 +253,7 @@
         align-items: right;
     }
 
-    /* footer-menu-zone */
-    .footer-menu-zone {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-        justify-content: space-around;
-        text-align: center;
-        align-items: center;
-        position: relative;
-        background: #f9f8f4;
-        background-image: url(" https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/bg/bg_potato1.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position-y:100%;
-    }
-   
-    .footer-menu-zone  > .content-wrap{
-        display: flex;
-        flex-direction: row;
-        width: 80%;
-        height: 450px;
-        text-align: left;
-        margin-bottom: 11rem;
-    }
-
-    .footer-menu-zone  > .content-wrap > div{
-        padding-left:1rem;
-        margin-top:2rem;
-        width:20%;
-        border-right: 1px dashed #89513a;
-        border-width: thin;
-    }
-
-    .footer-menu-zone  > .content-wrap > .last-div{
-        padding-left:1rem;
-        margin-top:2rem;
-        width:20%;
-        border-right-style: none;
-    }
-
-    .footer-menu-zone  > .content-wrap > div > a{
-        padding-top:1rem;
-        margin-bottom: 2rem;
-        font-size:1.3rem;
-        color:#89513a;
-    }
-    .footer-menu-zone  > .content-wrap > div > a > span{
-        font-weight: bold;
-        font-size:1.95rem;
-        color:#89513a;
-    }
+    
 
 /* - ------------------메인끝 - ---------------------*/
 /* 화면 너비가 0 ~ 765 : 모바일 */
@@ -323,7 +270,7 @@
         flex-direction: row;
         top:35px;
         width: 100%;
-        height: auto;
+        height :auto;
         margin: 0 auto;
         justify-content: space-around;
         text-align: center;
@@ -332,11 +279,11 @@
     }
     .m-imgslide-zone > .slide {
         width: 100%;
-        height: 100%;
+        height :auto;
     }
     .m-imgslide-zone > .slide > ul {
-        width: 100%;
-        height :42vh;
+        width: auto;
+        height :24vh;
     }
     .imgslide-zone > .slid  e > ul >img  {
         text-align: center;
@@ -434,7 +381,8 @@
         width:100%;
         height: 410px;
     }
-
+   
+    
     .m-app-delivery-zone > .center-wrap > .app{
         height:100%;
         width:50%;
@@ -454,6 +402,7 @@
         background-size: contain;
     }
 
+/*------------------------------------------------------------------수정중...*/
     /* store-zone */
     .m-store-zone{
         display: flex;
@@ -464,14 +413,37 @@
         justify-content: space-around;
         text-align: center;
         align-items: center;
-        position: relative;
-        background: white;
+        background: #f2ebe6;
     }
 
     .m-store-zone > .center-wrap{
         width:100%;
+        margin: 0 auto;
         background: white;
         height:250px;
+    }
+
+    .m-store-zone > .center-wrap > .content-wrap{
+        margin: 50px 30px 20px;
+        height: 210px;
+        font-weight: bold;
+        font-size:1.0rem;
+    }
+
+    .m-store-zone > .center-wrap > .content-wrap > h4{
+        font-weight: lighter;
+    }
+
+    .m-store-zone > .center-wrap > .content-wrap > .c_btn_1 {
+        height:2.0rem;
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/%EC%A3%BC%ED%99%A9%EC%83%89/bg_red1.png");
+        background-position: 50% 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .m-store-zone > .center-wrap > .content-wrap > .c_btn_1  > a{
+        color:white;
+        font-size:1.3rem;
     }
 
     /* delivery-zone */ 
