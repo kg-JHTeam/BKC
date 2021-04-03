@@ -21,7 +21,6 @@
         href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
     
     <!-- js -->
-    <script src="../resources/js/subpages/brand/menuitem.js"></script>
     <script src="../resources/js/include/main-gnb.js"></script>
     
     <title>BrandStory</title>
@@ -124,7 +123,7 @@
                                     </div>
                                     <div class="cont">
                                         <p class="tit">
-                                            <strong>플랜트 바비큐 와퍼</strong>
+                                            <strong>바비큐 와퍼</strong>
                                         </p>
                                         <p class="txt_intro">불맛 가득한 식물성 패티와 진한 바비큐 소스의 조화</p>
                                     </div>
@@ -172,6 +171,9 @@
             </div>
         </div>
     </section>
+    
+    <!-- js -->
+    <script src="../resources/js/subpages/brand/menuitem.js"></script>
     
     <a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
     

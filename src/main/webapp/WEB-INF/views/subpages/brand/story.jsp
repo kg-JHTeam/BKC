@@ -19,7 +19,6 @@
 <script src="../resources/jquery/jquery-3.6.0.min.js"></script>
 
 <!-- js -->
-<script src="../resources/js/subpages/brand/menuitem.js"></script>
 <script src="../resources/js/include/main-gnb.js"></script>
 
 <!--css-->
@@ -52,7 +51,7 @@
                         <span>WHY 버거킹</span>
                      </button>
                   </li>
-                  <li class="on">
+                  <li>
                      <button type="button"
                         onclick="location.href='${pageContext.request.contextPath }/brand/newsNewItem.do'">
                         <span>버거킹 NEWS</span>
@@ -232,7 +231,10 @@
          </div>
       </div>
    </div>
-
+	
+	<!-- js -->
+    <script src="../resources/js/subpages/brand/menuitem.js"></script>
+	
    <a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
 
    <!-- main-footer -->
