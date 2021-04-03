@@ -43,12 +43,12 @@
                                     <span>버거킹 스토리</span>
                                 </button>
                             </li>
-                            <li>
+                            <li class="on">
                                 <button type="button" onclick="location.href='${pageContext.request.contextPath }/brand/whybkc.do'">
                                     <span>WHY 버거킹</span>
                                 </button>
                             </li>
-                            <li class="on">
+                            <li>
                                 <button type="button" onclick="location.href='${pageContext.request.contextPath }/brand/newsNewItem.do'">
                                     <span>버거킹 NEWS</span>
                                 </button>
@@ -199,6 +199,10 @@
             </div>
         </div>
     </section>
+    
+    <!-- js -->
+    <script src="../resources/js/subpages/brand/menuitem.js"></script>
+    
     <a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
     
    <!-- main-footer -->
