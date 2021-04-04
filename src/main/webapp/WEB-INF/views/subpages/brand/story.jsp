@@ -14,8 +14,7 @@
    href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
 
 <!-- jQuery -->
-<script
-   src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../resources/jquery/jquery-3.6.0.min.js"></script>
 
 <!-- js -->
@@ -23,8 +22,7 @@
 
 <!--css-->
 <link rel="stylesheet" href="../resources/css/include/main-gnb.css">
-<link rel="stylesheet"
-   href="../resources/css/subpages/brand/storyview.css" />
+<link rel="stylesheet" href="../resources/css/subpages/brand/storyview.css?v=<%=System.currentTimeMillis() %>" />
 
 <title>BrandStory</title>
 </head>
@@ -34,7 +32,7 @@
    <jsp:include page="../../include/header/main_mobile_header.jsp" />
 
    <div class="contentsBox01 bg_w">
-      <div class="web_container">
+      <div class="story_web_container">
          <div class="subtitWrap">
             <h3 class="page_tit">브랜드 스토리</h3>
             <div class="tab01 bdBot">
@@ -62,7 +60,7 @@
          </div>
       </div>
       <div class="tab_storyWrap">
-         <ul class="web_container tab_storyBtn m_shadow">
+         <ul class= "story_web_container tab_storyBtn m_shadow">
             <li class="on">
                <button type="button" id="about">ABOUT BKC</button>
             </li>
@@ -70,7 +68,7 @@
                <button type="button" id="history">HISTORY</button>
             </li>
          </ul>
-         <div class="tab_aboutCon web_container" id="abo">
+         <div class="tab_aboutCon story_web_container" id="abo">
             <div class="about01">
                <h3>CEO 인사</h3>
                <p>고객 여러분, 안녕하십니까. 항상 bkc에 많은 관심과 응원을 보내주시는 고객 여러분께 깊은 감사의 말씀을
@@ -87,10 +85,7 @@
             </div>
             <div class="about02">
                <h3>BKC KOREA</h3>
-               <p>새로운 배달중심 레귤러 매장의 bi는 노란색을 메인 컬러로 사용하여 '희망과 행복, 즐거움'을
-                  내포하고있습니다. 밝게 빛나는 태양의 색이기도 한 노란색은 고객 한분 한분께 밝고 행복한 기운을 전하고 싶은 bkc의
-                  마음과 같습니다. 'Better & Happier Choice'라는 슬로건 아래 한상 건강하고 밝은 브랜드 이미지를
-                  전달 하고자 노력하였습니다.</p>
+               <p>새로운 배달중심 레귤러 매장의 bi는 노란색을 메인 컬러로 사용하여 '희망과 행복, 즐거움'을 내포하고있습니다. 밝게 빛나는 태양의 색이기도 한 노란색은 고객 한분 한분께 밝고 행복한 기운을 전하고 싶은 bkc의 마음과 같습니다. 'Better &#38; Happier Choice'라는 슬로건 아래 한상 건강하고 밝은 브랜드 이미지를 전달 하고자 노력하였습니다.</p>
             </div>
          </div>
          <div class="tab_historyWrap" id="his" style="display: none;">
