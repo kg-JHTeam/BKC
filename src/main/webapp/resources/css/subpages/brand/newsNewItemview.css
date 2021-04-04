@@ -28,12 +28,12 @@ button {
     position: relative;
 }
 
-.contentsBox01 > .web_container {
+.contentsBox01 .web_container {
    width: 1184px;
     margin: 0 auto;
     padding: 0 20px;
 }
-.contentsBox01 > .web_container > .subtitWrap {
+.contentsBox01 .web_container .subtitWrap {
     position: relative;
     margin-bottom: 26px;
 }
