@@ -3,6 +3,7 @@
     .m-main-wrap {
         display: none;
     }
+    
     /* - ------------------메인 시작- ---------------------*/
     /* 이미지 슬라이더 zone */
     .imgslide-zone{
@@ -262,6 +263,7 @@
     .m-main-wrap{
         display: block;
     }
+    
     /* 이미지 슬라이더 zone */
     .m-imgslide-zone{
         margin:0px;
@@ -269,28 +271,30 @@
         display: flex;
         flex-direction: row;
         top:35px;
-        width: 100%;
-        height :auto;
         margin: 0 auto;
         justify-content: space-around;
         text-align: center;
         align-items: center;
         position: relative;
+        width:100%;
+        height:100%;
     }
+    
     .m-imgslide-zone > .slide {
-        width: 100%;
-        height :auto;
+    	width:100%;
+        height:auto;
     }
     .m-imgslide-zone > .slide > ul {
         width: auto;
-        height :24vh;
     }
-    .imgslide-zone > .slid  e > ul >img  {
+    .imgslide-zone > .slide > ul >img  {
         text-align: center;
         align-items: center;
         font-weight: bold;
         text-align: center;
         object-fit: cover;
+        width:auto;
+        height:auto;
     }
     
     /* youtube- zone*/

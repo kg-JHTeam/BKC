@@ -102,24 +102,6 @@
                             <span>매장 찾기</span>
                         </a>
                     </div>
-                    <!--
-                    <ul class="shop_categorylist">
-                        <li class="categor_delivery">
-                            <span>
-                                "집에서 편안하게 "<br>
-                                "받을 수 있는"
-                            </span>
-                            <em>딜리버리</em>
-                        </li>
-                        <li class="categor_king">
-                            <span>
-                                "집에서 편안하게 "<br>
-                                "받을 수 있는"
-                            </span>
-                            <em>딜리버리</em>
-                        </li>
-                    </ul>
-                    -->
                 </div>
             </div>
         </div>
@@ -141,11 +123,12 @@
             </div>
         </div>
     <!--end of main page-->
-    
     <!-- main-desktop-footer -->
     <jsp:include page="include/footer/main_desktop_footer.jsp"/>
-   <!-- 모바일 -->
-   <jsp:include page="include/header/main_mobile_header.jsp"/>
+    </div>
+    
+    <!-- 모바일 -->
+    <jsp:include page="include/header/main_mobile_header.jsp"/>
     <!--mobile-main page-->
     <div class="m-main-wrap">
     
@@ -201,7 +184,16 @@
         <!-- 매장 찾기 -->
         <div class="m-store-zone">
             <div class="center-wrap">
-                매장찾기
+             <div class="content-wrap">
+                    <h1>매장찾기</h1>
+                    <h4>고객님 주변에 있는 BKC를 찾아보세요!</h4>
+                    <br>
+                    <div class="c_btn_1">
+                        <a href="#">
+                            <span>매장 찾기</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -221,6 +213,6 @@
         </div>
     </div>
     <!--end of m-main page-->
-      <jsp:include page="include/footer/main_mobile_footer.jsp"/>
+    <jsp:include page="include/footer/main_mobile_footer.jsp"/>
 </body>
 </html>
