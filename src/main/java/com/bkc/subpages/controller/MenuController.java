@@ -1,4 +1,4 @@
-package com.bkc.subpages.menu.controller;
+package com.bkc.subpages.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,7 @@ public class MenuController {
 	
 	@RequestMapping(value = "/menu.do", method = RequestMethod.GET)
 	public String whybkc() {
-		return "/menu/menu";
+		return "subpages//menu/menu";
 	}
 }
 
