@@ -11,7 +11,7 @@
     
     <!--css-->
     <link rel="stylesheet" href="../resources/css/include/main-gnb.css">
-    <link  rel="stylesheet" href="../resources/css/subpages/brand/newsNewItemview.css"/>
+    <link  rel="stylesheet" href="../resources/css/subpages/brand/newsNewItemview.css?v=<%=System.currentTimeMillis() %>" />
   
     <!--font google web font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">

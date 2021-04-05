@@ -21,7 +21,7 @@
     
     <!--css-->
     <link rel="stylesheet" href="../resources/css/include/main-gnb.css">
-    <link  rel="stylesheet" href="../resources/css/subpages/brand/whybkcview.css"/>
+    <link  rel="stylesheet" href="../resources/css/subpages/brand/whybkcview.css?v=<%=System.currentTimeMillis() %>" />
     
     <title>BrandStory</title>
 </head>
@@ -30,10 +30,9 @@
    <!-- main-header -->
    <jsp:include page="../../include/header/main_desktop_header.jsp"/>
    <jsp:include page="../../include/header/main_mobile_header.jsp"/>
-
     <section>
         <div class="contentsBox01 bg_w">
-            <div class="web_container">
+            <div class="why_web_container">
                 <div class="subtitWrap">
                     <h3 class="page_tit">브랜드 스토리</h3>
                     <div class="tab01 bdBot">
@@ -57,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <div class="web_container">
+            <div class="why_web_container">
                 <div class="tab_cont">
                     <ul class="tab03 item5">
                         <li class="on">
@@ -80,10 +79,10 @@
             </div>
         </div>
         <div class="tab_cont bg_w real" id="chickentab">
-            <div class="web_container">
+            <div class="why_web_container">
                 <h4 class="MOB m_subtit">Real Whopper</h4>
                 <div class="realwhopper_title">
-                    <img src="./reachicken_title.png">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/real+chicken/reachicken_title.png">
                 </div>
                 <div class="realwhopper_text">
                     <p>
@@ -100,17 +99,17 @@
         </div>
         <div class="tab_cont bg_w" id="freshtab" style="display: none;">
             <div class="material_intro01">
-                <div class="web_container">
+                <div class="why_web_container">
                     <h4 class="MOB m_subtit">신선한 재료 소개</h4>
                     <dl class="beef">
                         <dt>
-                            <img src="high_oleic sunflower_oil.png" alt="100% OLIVE">
+                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%EC%8B%A0%EC%84%A0%ED%95%9C+%EC%9E%AC%EB%A3%8C/high_oleic%20sunflower_oil.png" alt="100% OLIVE">
                         </dt>
                         <dd>깨끗한 치킨 BHC는 나쁜 콜레스테롤 수치를 저하시키고 혈액순환을 돕는 불포화지방산과 비타민E가 풍부한 고올레산 해바라기유를 튀김유로 사용하여 소비자들의 건강보호에 앞장서고 있습니다.</dd>
                     </dl>
                     <dl class="vegetable">
                         <dt class="WEB">
-                            <img src="fresh_chicken.png" alt="FRESH CHICKEN">
+                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%EC%8B%A0%EC%84%A0%ED%95%9C+%EC%9E%AC%EB%A3%8C/fresh_chicken.png" alt="FRESH CHICKEN">
                         </dt>
                         <dt class="MOB">
                             <img src="fresh_chicken.png" alt="FRESH CHICKEN">
@@ -122,7 +121,7 @@
                     </dl>
                     <dl class="pickle">
                         <dt>
-                            <img src="research_development.png">
+                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%EC%8B%A0%EC%84%A0%ED%95%9C+%EC%9E%AC%EB%A3%8C/research_development.png">
                         </dt>
                         <dd>
                             맛의 모든 것을 연구한다
@@ -136,7 +135,7 @@
                 </div>
             </div>
             <div class="material_intro02">
-                <div class="web_container">
+                <div class="why_web_container">
                     <h4 class="tit">
                         <span>고객만족</span>
                         <span>을위한</span>
@@ -171,7 +170,7 @@
             </div>
         </div>
         <div class="tab_cont bg_w" id="naturetab" style="display: none;">
-            <div class="web_container contribution">
+            <div class="why_web_container contribution">
                 <h4 class="MOB m_subtit">화경/사회공헌 활동</h4>
                 <div class="contribution_swipe">
                     <div class="slick-initialized slick-slider">
@@ -181,7 +180,7 @@
                                     <div>
                                         <div class="cont" style="width: 100%; display: inline-block;">
                                             <div class="image">
-                                                <img src="img_contribution.png">
+                                                <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%ED%99%98%EA%B2%BD%EC%82%AC%ED%9A%8C%EA%B3%B5%ED%97%8C/img_contribution.png">
                                             </div>
                                             <div class="text">
                                                 <p>나눔과 상생의 정신 BSR</p>
@@ -199,7 +198,6 @@
             </div>
         </div>
     </section>
-    
     <!-- js -->
     <script src="../resources/js/subpages/brand/menuitem.js"></script>
     

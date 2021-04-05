@@ -36,9 +36,18 @@ a {
     justify-content: space-around;
     text-align: center;
     align-items: center;
-    position: relative;
+    
 }
-
+#header-wrap {
+	text-align: center;
+	visibility: visible;
+	margin: 0 auto;
+	height:100px; /*높이 */
+	background: white;
+	position: fixed;
+	z-index: 1000000;
+	top:0;
+}
 
 /* ---------------------데스크 탑용 ---------------------CSS*/
 /* 모바일 reset */
@@ -52,16 +61,6 @@ a {
     display: none;
 }
 
-    /* 헤더 */
-    #header-wrap {
-        text-align: center;
-        visibility: visible;
-        margin: 0 auto;
-        height:100px; /*높이 */
-        background: white;
-        position: fixed;
-        z-index: 1000000;
-    }
 
     #header-wrap .images {
         width: 25%;
