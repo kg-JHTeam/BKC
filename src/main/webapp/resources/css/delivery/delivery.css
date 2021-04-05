@@ -37,7 +37,7 @@ nav>ul>li>a {
 
 .content>.content_container {
     padding: 75px 20px 0;
-    background: url(../img/logo/bkc_downbackground.png) no-repeat 100% 100%;
+    background: url(../../delivery_img/logo/bkc_downbackground.png) no-repeat 100% 100%;
 }
 
 .content_container {
@@ -105,7 +105,7 @@ em {
 }
 
 .defaultlogin_tit::before {
-    background-image: url(../img/login/default_loginico.png);
+    background-image: url(../../delivery_img/login/default_loginico.png);
     content: "";
     position: absolute;
     left: 0;
@@ -169,7 +169,7 @@ input[type=tel] {
     font-weight: 400;
     color: #000;
     vertical-align: middle;
-    background: url(../img/login/loginline.png) repeat-x 0 100%;
+    background: url(../../delivery_img/login/loginline.png) repeat-x 0 100%;
     border: none;
     border-radius: 0;
     box-sizing: border-box;
@@ -190,7 +190,7 @@ input[type=tel] {
 
 .btn_del01 {
     text-indent: -9999em;
-    background: url(../img/login/del_btn.png) no-repeat 50%;
+    background: url(../../delivery_img/login/del_btn.png) no-repeat 50%;
     background-size: 18px auto;
 }
 
@@ -203,11 +203,11 @@ button {
 }
 
 .btn_view01.on {
-    background-image: url(../img/login/pass_view.png);
+    background: url(../../delivery_img/login/pass_view.png) no-repeat 50%;
 }
 
 .btn_view01 {
-    background: url(../img/login/pass_hide.png) no-repeat 50%;
+    background: url(../../delivery_img/login/pass_hide.png) no-repeat 50%;
     text-indent: -9999em;
 }
 
@@ -246,12 +246,12 @@ input[type="checkbox" i] {
 
 input[type=checkbox]:checked+::before {
     content: "";
-    background-image: url(../img/button/btn_checbox_checked.png);
+    background-image: url(../../delivery_img/button/btn_checbox_checked.png);
 }
 
 input[type=checkbox]+::before {
     content: "";
-    background: url(../img/button/btn_checkbox.png) no-repeat 0;
+    background: url(../../delivery_img/button/btn_checkbox.png) no-repeat 0;
 }
 
 input[type=checkbox]+::before,
@@ -285,7 +285,7 @@ input[type=radio]+::before {
 }
 
 .btn01.m.orange {
-    background: url(../img/button/bg_o1.png) no-repeat 0 0;
+    background: url(../../delivery_img/button/bg_o1.png) no-repeat 0 0;
     background-size: 100% 100%;
 }
 
@@ -293,7 +293,7 @@ input[type=radio]+::before {
     height: 68px;
     font-size: 1.5rem;
     line-height: 46px;
-    background: url(../img/button/btn-black.png);
+    background: url(../../delivery_img/button/btn-black.png);
     border-radius: 0;
 }
 
@@ -363,7 +363,7 @@ input[type=radio]+::before {
 }
 
 .tit_ico::before {
-    background-image: url(../img/login/simple_login.png);
+    background-image: url(../../delivery_img/login/simple_login.png);
     content: "";
     position: absolute;
     left: 0;
@@ -396,7 +396,7 @@ input[type=radio]+::before {
     color: hsla(0, 0%, 100%, .8);
     line-height: 54px;
     text-align: center;
-    background: #1ec800 url(../img/login/naverico.gif) no-repeat 21px;
+    background: #1ec800 url(../../delivery_img/login/naverico.gif) no-repeat 21px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 16%);
 }
@@ -421,7 +421,7 @@ input[type=radio]+::before {
     line-height: 54px;
     text-align: center;
     color: #3c1e20;
-    background: #ffeb00 url(../img/login/kakaoico.gif) no-repeat 21px;
+    background: #ffeb00 url(../../delivery_img/login/kakaoico.gif) no-repeat 21px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 16%);
 }
@@ -575,7 +575,7 @@ button:hover span {
     padding: 20px 10px 22px;
     font-size: 1.625rem;
     line-height: 34px;
-    background: url(../img/button/btn-black.png);
+    background: url(../../delivery_img/button/btn-black.png);
     background-size: 100% 100%;
     display: inline-block;
     font-weight: 700;
@@ -595,6 +595,10 @@ button:hover span {
     margin: 15px 0;
     background: #fff;
     box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+}
+
+.menu2 {
+    display: none;
 }
 
 .nonmember_order dl {
@@ -644,11 +648,14 @@ button:hover span {
     width: 30px;
     height: 63px;
     margin: 0;
+    position: absolute;
+    top: 10px;
+    right: 60px;
 }
 
 .btn_del02 {
     text-indent: -9999em;
-    background: url(../img/login/del_btn.png) no-repeat 50%;
+    background: url(../../delivery_img/login/del_btn.png) no-repeat 50%;
     background-size: 18px auto;
 }
 
@@ -671,7 +678,7 @@ button:hover span {
     padding: 20px 10px 22px;
     font-size: 1.625rem;
     line-height: 34px;
-    background: url(../img/button/btn-black.png) no-repeat 50%;
+    background: url(../../delivery_img/button/btn-black.png) no-repeat 50%;
     background-size: 100% 100%;
     display: inline-block;
     font-weight: 700;
@@ -690,7 +697,7 @@ button:hover span {
     width: 52px;
     height: 52px;
     text-indent: -9999em;
-    background: url(../img/button/btn_top.png) no-repeat 0 0;
+    background: url(../../delivery_img/button/btn_top.png) no-repeat 0 0;
     z-index: 50;
     display: none;
 }
