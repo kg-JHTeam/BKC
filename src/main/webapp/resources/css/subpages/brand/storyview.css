@@ -19,6 +19,15 @@ button {
     overflow: visible;
     cursor: pointer;
 }
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+.contentsWrap .page_tit{
+	margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
 .contentsBox01{
     padding: 50px 0 120px;
     width: 100vw;
@@ -28,15 +37,11 @@ button {
 .story_web_container{
 	max-width: 1184px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 .contentsBox01 > .story_web_container > .subtitWrap {
     position: relative;
     margin-bottom: 26px;
-}
-.page_tit {
-    margin-bottom: 15px;
-    font-size: 2.5rem;
-    line-height: 100%;
 }
 .subtitWrap .tab01 {
     position: absolute;
@@ -94,6 +99,8 @@ button {
     float: left;
     width: 50%;
     border-bottom: 2px solid #000;
+    box-sizing: border-box;
+    height: 80px;
 }
 .tab_storyBtn li button{
     width: 100%;
