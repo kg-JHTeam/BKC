@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +14,10 @@
      <div class="footer-menu-zone">
             <div class="content-wrap">
                 <div>
-                    <a href=""><span>메뉴</span></a><br><br>
-                    <a href="">치킨메뉴</a><br><br>
-                    <a href="">사이드메뉴</a><br><br>
-                    <a href="">비어존메뉴</a><br><br>
+                    <a href="${contextPath}/menu/menu.do"><span>메뉴</span></a><br><br>
+                    <a href="${contextPath}/menu/menu.do">치킨메뉴</a><br><br>
+                    <a href="${contextPath}/menu/menu.do">사이드메뉴</a><br><br>
+                    <a href="${contextPath}/menu/menu.do">비어존메뉴</a><br><br>
                 </div>
                 <div>
                     <a href=""><span>매장</span></a><br><br>
@@ -27,12 +29,12 @@
                     <a href="">신규매장</a><br><br>
                 </div>
                 <div>
-                    <a href=""><span>BRAND</span></a><br><br>
-                    <a href="">BKC 스토리</a><br><br>
+                    <a href="#"><span>BRAND</span></a><br><br>
+                    <a href="${contextPath}/brand/brandStory.do">BKC 스토리</a><br><br>
                     <a href="">CEO 인사말</a><br><br>
                     <a href="">연혁</a><br><br>
-                    <a href="">WHY BKC</a><br><br>
-                    <a href="">BKC NEWS</a><br><br>
+                    <a href="${contextPath}/brand/whybkc.do">WHY BKC</a><br><br>
+                    <a href="${contextPath}/brand/newsNewItem.do">BKC NEWS</a><br><br>
                 </div>
                 <div class="last-div">
                     <a href=""><span>고객센터</span></a><br><br>
