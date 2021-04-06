@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +9,12 @@
 <title>main_desktop_header</title>
 </head>
 <body>
+	
     <!--Desktop - header-->
     <div id="header-wrap">
         <!--메인 로고-->
         <div class="images">
-            <a href="${pageContext.request.contextPath }/">
+            <a href="${contextPath }/">
                 <img id="main-logo" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png"
                     alt="bkc mainlogo" /></a>
         </div>
@@ -20,27 +23,27 @@
             <ul class="nav">
                 <li class="menu-title"><a href="#">메뉴소개</a>
                     <ul class="sub-con">
-                        <li><a href="${pageContext.request.contextPath }/menu/menu.do">치킨메뉴</a></li>
-                        <li><a href="${pageContext.request.contextPath }/menu/menu.do">사이드메뉴</a></li>
-                        <li><a href="${pageContext.request.contextPath }/menu/menu.do">비어존메뉴</a></li>
+                        <li><a href="${contextPath}/menu/menu.do">치킨메뉴</a></li>
+                        <li><a href="${contextPath}/menu/menu.do">사이드메뉴</a></li>
+                        <li><a href="${contextPath}/menu/menu.do">비어존메뉴</a></li>
                     </ul>
                 </li>
-                <li class="menu-title"><a href="${pageContext.request.contextPath }/">매장소개</a>
+                <li class="menu-title"><a href="${contextPath}/">매장소개</a>
                     <ul class="sub-con">
-                        <li><a href="${pageContext.request.contextPath }/">매장찾기</a></li>
+                        <li><a href="${contextPath}/">매장찾기</a></li>
                     </ul>
                 </li>
-                <li class="menu-title"><a href="${pageContext.request.contextPath }/">이벤트</a>
+                <li class="menu-title"><a href="${contextPath}/">이벤트</a>
                     <ul class="sub-con">
-                        <li><a href="${pageContext.request.contextPath }/">이벤트</a></li>
-                        <li><a href="${pageContext.request.contextPath }/">신규매장</a></li>
+                        <li><a href="${contextPath}/">이벤트</a></li>
+                        <li><a href="${contextPath}/">신규매장</a></li>
                     </ul>
                 </li>
                 <li class="menu-title"><a href="#">BRAND</a>
                     <ul class="sub-con">
-                        <li><a href="${pageContext.request.contextPath }/brand/brandStory.do">BKC 스토리</a></li>
-                        <li><a href="${pageContext.request.contextPath }/brand/whybkc.do">WHY BKC</a></li>
-                        <li><a href="${pageContext.request.contextPath }/brand/newsNewItem.do">BKC NEWS</a></li>
+                        <li><a href="${contextPath}/brand/brandStory.do">BKC 스토리</a></li>
+                        <li><a href="${contextPath}/brand/whybkc.do">WHY BKC</a></li>
+                        <li><a href="${contextPath}/brand/newsNewItem.do">BKC NEWS</a></li>
                     </ul>
                 </li>
             </ul>
@@ -48,7 +51,7 @@
         <div class="full-cover"> </div>
         <!--딜리버리 로고-->
         <div class="images">
-            <a href="${pageContext.request.contextPath }/delivery/delivery.do">
+            <a href="${contextPath}/delivery/delivery.do">
                 <img id="delivery-logo" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/add/delevery.gif"
                     alt="bkc deliverylogo" />
             </a>
