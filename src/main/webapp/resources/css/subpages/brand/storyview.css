@@ -1,3 +1,25 @@
+/* 네비부분 */
+.locationWrap {
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+    margin: 100px 0 0 0;
+}
+.locationWrap .story_web_container {
+    overflow: hidden;
+}
+.locationWrap a {
+    color: #fff;
+}
+.page_navi>* {
+    float: left;
+}
+.page_navi {
+    float: left;
+    font-size: 1.1rem;
+}
+/* 중간부분 */
 .btn_top {
     position: fixed;
     right: 20px;
@@ -30,7 +52,6 @@ button {
 }
 .contentsBox01{
     padding: 50px 0 120px;
-    margin: 100px 0 0 0;
 }
 .story_web_container{
 	max-width: 1184px;
@@ -229,6 +250,9 @@ button {
 /* ---------------------모바일 태블릿 용 ---------------------CSS*/
 /* 화면 너비가 0 ~ 765 : 모바일 */
 @media all and (max-width: 765px) {
+	.WEB {
+    display: none!important;
+	}
 	.contentsWrap {
     padding-top: 57px;
 	}

@@ -56,9 +56,6 @@ a {
     display: none;
 }
 /* 모바일 푸터 가리기*/
-.footer-menu-zone{
-	display:none!important;
-}
 /* 모바일 푸터 */
 .m-footer-wrap {
     display: none;
@@ -475,6 +472,9 @@ a {
     /* - ------------------헤더 끝- ---------------------*/
     
      /* - ------------------푸터 시작- ---------------------*/
+     .footer-menu-zone{
+		display:none!important;
+	 }
      .m-footer-wrap {
         left: 0;
         bottom: 0;
