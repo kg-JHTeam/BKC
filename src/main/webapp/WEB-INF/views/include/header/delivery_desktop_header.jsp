@@ -21,12 +21,12 @@
             <div class="head-util">
                 <div>
                     <div><a href="${contextPath}/"><span>브랜드홈</span></a></div>
-                    <div class="top_login"><a href="#"><span>로그인</span></a></div>
+                    <div class="top_login"><a href="${contextPath}/delivery/delivery.do"><span>로그인</span></a></div>
                     <div><a href="#"><span>고객센터</span></a></div>
                 </div>
                 <div class="signup">
                     <img class="button_black" src="../resources/delivery_img/button/btn-black.png" alt="button-black">
-                    <a href="#"><span>회원가입</span></a>
+                    <a href="${contextPath}/delivery/join.do"><span>회원가입</span></a>
                     <img class="rightarrow" src="../resources/delivery_img/button/rightarrow.png" alt="rightarrow">
                 </div>
             </div>

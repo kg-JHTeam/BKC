@@ -13,6 +13,12 @@ public class DeliveryController {
 		System.out.println("delivery 페이지 이동");
 		return "delivery/delivery";
 	}
+	
+	@RequestMapping(value = "/join.do", method = RequestMethod.GET)
+	public String join() {
+		System.out.println("회원가입 페이지 이동");
+		return "delivery/join";
+	}
 }
 
 
