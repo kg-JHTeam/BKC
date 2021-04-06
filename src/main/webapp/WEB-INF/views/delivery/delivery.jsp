@@ -26,7 +26,7 @@
 	 <!--navigation bar-->
         <nav class="locationWrap">
             <ul>
-                <li><a href="#">HOME</a></li> >
+                <li><a href="#">HOME</a></li> 
                 <li><a href="#">로그인</a></li>
             </ul>
         </nav>
