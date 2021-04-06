@@ -51,7 +51,7 @@
         <div class="full-cover"> </div>
         <!--딜리버리 로고-->
         <div class="images">
-            <a href="${contextPath}/delivery.do">
+            <a href="${contextPath}/delivery/delivery.do">
                 <img id="delivery-logo" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/add/delevery.gif"
                     alt="bkc deliverylogo" />
             </a>
