@@ -13,7 +13,6 @@ public class DeliveryController {
 		System.out.println("delivery 페이지 이동");
 		return "delivery/delivery";
 	}
-	
 }
 
 
