@@ -1,0 +1,326 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: #000;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+ul,li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+.wrap{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+button {
+    vertical-align: middle;
+    margin: 0;
+    color: #000;
+    background: none;
+    outline: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+}
+.contentsBox01 {
+	position:relative;
+	top:100px;
+    width: 100%;
+    padding: 50px 0 1000px;
+}
+
+.contentsBox01 > .web_container {
+    margin: 0 auto;
+    padding: 0 350px;
+}
+.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+.subtitWrap .tab01 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -17.5px 0 0;
+}
+.subtitWrap .tab01 button {
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 3px 0;
+}
+.page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+.tab01 {
+    margin-bottom: 20px;
+    overflow: none;
+}
+.tab01 ul {
+    display: table;
+}
+.tab01 li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.tab01 a > *,
+.tab01 button > * {
+    vertical-align: middle;
+}
+.tab01 li.on a,
+.tab01 li.on button {
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+.tab01 button {
+    height: 54px;
+    padding: 5px 0;
+}
+.tab01 a,
+.tab01 button {
+    display: inline-block;
+    padding: 10px 1px;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0;
+}
+.tab_storyWrap {
+    margin-top: 60px;
+}
+.tab_storyBtn {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.tab_storyBtn li {
+    float: left;
+    width: 50%;
+    border-bottom: 2px solid #000;
+}
+.tab_storyBtn li button {
+    width: 100%;
+    height: 100%;
+    padding: 23px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: silver;
+    background: #f2f2f2;
+    border-left: 1px solid #fff;
+}
+.tab_storyBtn li.on {
+    border-bottom: none;
+}
+.tab_storyBtn li.on button {
+    border: 2px solid #000;
+    border-bottom: 0;
+    color: #000;
+    background: #fff;
+}
+.tab_storyBtn li.on+li button {
+    border-left: none;
+}
+.tab_storyBtn:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.MOB {
+    display: none!important;
+}
+.btn01 {
+    display: inline-block;
+    width: 256px;
+    height: 68px;
+    font-size: 1.5rem;
+    padding: 12px 10px 10px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    line-height: 46px;
+    background: url("../img/bg_btn01_normal.192da552.png") no-repeat 50%;
+    background-size: 100% 100%;
+    border-radius: 0;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+    border: none;
+}
+.eventBox {
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 30px;
+}
+.eventBox button {
+    float: left;
+    width: 50%;
+    margin-bottom: 5%;
+    margin-right: 0;
+}
+.eventBox p {
+    float: left;
+    font-size: 1.625rem;
+    font-weight: 700;
+    margin-top: 15px;
+}
+.eventBox img {
+    float: left;
+}
+.eventBox li span img {
+    width: 100%;
+}
+.eventWrap .c_btn {
+    margin-top: 0;
+}
+.c_btn {
+    margin: -330px 0 80px;
+    text-align: center;
+    overflow: hidden;
+}
+.c_btn:last-child {
+    margin-bottom: 0;
+}
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url("image/top.png") no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+@media all and (max-width: 765px) {
+    .contentsBox01 {
+        padding: 0!important;
+    }
+    .web_container,
+    .web_container02 {
+        min-width: 320px;
+        padding: 0;
+    }
+    .subtitWrap {
+        min-height: 56px;
+        margin: 0;
+        padding: 20px 0 10px;
+        background: #fff;
+    }
+    .subtitWrap .page_tit {
+        margin: 0;
+        padding: 0 16px 10px;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .subtitWrap .tab01:last-child {
+        margin-bottom: -10px;
+    }
+    .subtitWrap .tab01 {
+        position: static;
+        margin: 0;
+    }
+    .subtitWrap .tab01 button {
+        height: 56px;
+        border-width: 3px 0;
+        font-size: 1rem;
+    }
+    .tab01 ul {
+        display: table;
+        width: 100%;
+        background: #fff;
+    }
+    .tab01 li {
+        display: table-cell;
+        padding: 0;
+        text-align: center;
+    }
+    .tab_storyWrap {
+        margin-top: 0;
+    }
+    .tab_storyWrap {
+        margin-top: 0;
+    }
+    .tab_storyBtn {
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .tab_storyBtn li {
+        position: relative;
+        border: none;
+    }
+    .tab_storyBtn li.on button {
+        border: 0;
+        color: #000;
+        background: none;
+    }
+    .tab_storyBtn li button {
+        padding: 15px 0;
+        font-size: 0.938em;
+        background: none;
+    }
+    .tab_storyBtn li:before {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -6px;
+        content: "";
+        width: 1px;
+        height: 12px;
+        background: #e4e4e4;
+    }
+    .tab_aboutCon {
+        padding: 30px 15px 0;
+    }
+    .eventBox {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .eventBox button {
+        float: left;
+        width: 100%;
+        margin-bottom: 5%;
+        margin-right: 0;
+
+    }
+    .eventBox p {
+        float: left;
+        font-size: 1.625rem;
+        font-weight: 700;
+        margin-top: 15px;
+    }
+    .c_btn {
+        margin: 910px 110px 0;
+        position: absolute;
+    }
+    .btn_top {
+        position: fixed;
+        right: 20px;
+        bottom: 316px;
+        width: 52px;
+        height: 52px;
+        text-indent: -9999em;
+        background: url("image/top.png") no-repeat 0 0;
+        z-index: 50;
+        display: none;
+    }
+}
