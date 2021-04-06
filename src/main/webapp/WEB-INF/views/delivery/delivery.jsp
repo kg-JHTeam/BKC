@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -30,8 +32,8 @@
 	 <!--navigation bar-->
         <nav class="locationWrap">
             <ul>
-                <li><a href="#">HOME</a></li> 
-                <li><a href="#">로그인</a></li>
+                <li><a href="${contextPath}/">HOME</a></li>&nbsp;&nbsp; 
+                <li><a href="${contextPath}/delivery/delivery.do">로그인</a></li>
             </ul>
         </nav>
         <!--content login-->
@@ -80,7 +82,7 @@
                                 <a href="#" class="btn01 m orange">
                                     <span>로그인</span>
                                 </a>
-                                <a href="#" class="btn01 m">
+                                <a href="${contextPath}/delivery/join.do" class="btn01 m">
                                     <span>회원가입</span>
                                 </a>
                             </div>
