@@ -1,6 +1,4 @@
-section {
-    width: 100vw;
-}
+
 .btn_top {
     position: fixed;
     right: 20px;
@@ -22,22 +20,33 @@ button {
     overflow: visible;
     cursor: pointer;
 }
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+.contentsWrap .page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+.eventWrap .contentsBox01{
+    padding: 50px 0 120px;
+}
 .contentsBox01{
-    padding: 50px 0 45px;
-    top:100px;
-    position: relative;
+	padding: 50px 0 45px;
+    margin: 100px 0 0 0;
 }
 
-.contentsBox01 .web_container {
-   width: 1184px;
+.news_web_container {
+    max-width: 1184px;
     margin: 0 auto;
     padding: 0 20px;
 }
-.contentsBox01 .web_container .subtitWrap {
+.subtitWrap {
     position: relative;
     margin-bottom: 26px;
 }
-.page_tit {
+.page_tit .contestWrap {
     margin-bottom: 15px;
     font-size: 2.5rem;
     line-height: 100%;
@@ -50,7 +59,7 @@ button {
 }
 .tab01{
     margin-bottom: 20px;
-    overflow: none;
+    overflow: auto;
 }
 .tab01 ul {
     display: table;
@@ -197,10 +206,14 @@ strong {
 /* ---------------------모바일 태블릿 용 ---------------------CSS*/
 /* 화면 너비가 0 ~ 765 : 모바일 */
 @media all and (max-width: 765px) {
+	.contentsWrap {
+    padding-top: 57px;
+}
     .contentsBox01 {
         padding: 0!important;
+        margin: 0;
     }
-    .web_container {
+    .news_web_container {
         min-width: 320px;
         padding: 0;
     }

@@ -55,7 +55,10 @@ a {
 #m-header-wrap {
     display: none;
 }
-
+/* 모바일 푸터 가리기*/
+.footer-menu-zone{
+	display:none!important;
+}
 /* 모바일 푸터 */
 .m-footer-wrap {
     display: none;

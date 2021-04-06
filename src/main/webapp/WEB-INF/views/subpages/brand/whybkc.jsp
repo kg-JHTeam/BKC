@@ -30,7 +30,7 @@
    <!-- main-header -->
    <jsp:include page="../../include/header/main_desktop_header.jsp"/>
    <jsp:include page="../../include/header/main_mobile_header.jsp"/>
-    <section>
+    <div class="contentsWrap">
         <div class="contentsBox01 bg_w">
             <div class="why_web_container">
                 <div class="subtitWrap">
@@ -112,7 +112,7 @@
                             <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%EC%8B%A0%EC%84%A0%ED%95%9C+%EC%9E%AC%EB%A3%8C/fresh_chicken.png" alt="FRESH CHICKEN">
                         </dt>
                         <dt class="MOB">
-                            <img src="fresh_chicken.png" alt="FRESH CHICKEN">
+                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%EC%8B%A0%EC%84%A0%ED%95%9C+%EC%9E%AC%EB%A3%8C/fresh_chicken.png" alt="FRESH CHICKEN">
                         </dt>
                         <dd>
                             BKC는 닭고기 중에서도 최상급인 Golden Zone 국내산 닭고기 (10호/무게 950g~1050g) 만을 사용합니다.
@@ -197,7 +197,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- js -->
     <script src="../resources/js/subpages/brand/menuitem.js"></script>
     

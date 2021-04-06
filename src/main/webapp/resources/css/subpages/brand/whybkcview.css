@@ -1,6 +1,4 @@
-section{
-	width: 100vw;
-}
+
 .btn_top {
     position: fixed;
     right: 20px;
@@ -21,6 +19,10 @@ button {
     border: none;
     overflow: visible;
     cursor: pointer;
+}
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
 }
 .contentsBox01{
     padding: 50px 0 45px;
@@ -130,6 +132,7 @@ button {
     display: none!important;
 }
 img {
+	width:100%;
     max-width: 100%;
     max-height: 100%;
     vertical-align: top;
@@ -304,8 +307,12 @@ img {
 /* ---------------------모바일 태블릿 용 ---------------------CSS*/
 /* 화면 너비가 0 ~ 765 : 모바일 */
 @media all and (max-width: 765px) {
+	.contentsWrap {
+    padding-top: 57px;
+	}
     .contentsBox01 {
         padding: 0!important;
+        margin: 0;
     }
     .why_web_container {
         min-width: 320px;
@@ -438,12 +445,12 @@ img {
         top: 0;
         width: 91px;
         height: 115px;
-        background: url(oil_icon.png) no-repeat 0 0;
+        background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%EC%8B%A0%EC%84%A0%ED%95%9C+%EC%9E%AC%EB%A3%8C/oil_icon.png) no-repeat 0 0;
         background-size: 100% auto;
     }
     .material_intro01 dt {
-        height: 20px;
-    }
+    	height: 20px;
+	}
     .material_intro01 dd {
         margin-top: 10px;
         font-size: .875rem;
