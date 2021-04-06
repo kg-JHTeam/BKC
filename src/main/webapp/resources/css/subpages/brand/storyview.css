@@ -30,16 +30,14 @@ button {
 }
 .contentsBox01{
     padding: 50px 0 120px;
-    width: 100vw;
-    top:100px;
-    position: relative;
+    margin: 100px 0 0 0;
 }
 .story_web_container{
 	max-width: 1184px;
     margin: 0 auto;
     padding: 0 20px;
 }
-.contentsBox01 > .story_web_container > .subtitWrap {
+.subtitWrap {
     position: relative;
     margin-bottom: 26px;
 }
@@ -91,16 +89,10 @@ button {
 .tab_storyWrap {
     margin-top: 60px;
 }
-.tab_storyBtn {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
 .tab_storyBtn li{
     float: left;
     width: 50%;
     border-bottom: 2px solid #000;
-    box-sizing: border-box;
-    height: 80px;
 }
 .tab_storyBtn li button{
     width: 100%;
@@ -237,6 +229,9 @@ button {
 /* ---------------------모바일 태블릿 용 ---------------------CSS*/
 /* 화면 너비가 0 ~ 765 : 모바일 */
 @media all and (max-width: 765px) {
+	.contentsWrap {
+    padding-top: 57px;
+	}
     .bdBot {
         border-bottom: 1px solid #f2f2f2;
     }
@@ -249,6 +244,7 @@ button {
     }
     .contentsBox01 {
         padding: 0!important;
+        margin: 0;
     }
     .story_web_container, .web_container02 {
         min-width: 320px;

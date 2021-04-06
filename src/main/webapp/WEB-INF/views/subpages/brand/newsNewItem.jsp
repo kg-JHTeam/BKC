@@ -30,9 +30,9 @@
    <jsp:include page="../../include/header/main_desktop_header.jsp"/>
    <jsp:include page="../../include/header/main_mobile_header.jsp"/>
    
-    <section>
+    <div class="contentsWrap eventWrap">
         <div class="contentsBox01 bg_w">
-            <div class="web_container">
+            <div class="news_web_container">
                 <div class="subtitWrap">
                     <h3 class="page_tit">브랜드 스토리</h3>
                     <div class="tab01 bdBot">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <div class="web_container">
+            <div class="news_web_container">
                 <div class="tab_cont">
                     <ul class="tab_storyBtn m_shadow">
                         <li class="on">
@@ -170,7 +170,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     
     <!-- js -->
     <script src="../resources/js/subpages/brand/menuitem.js"></script>
