@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:security="http://www.springframework.org/schema/security"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-5.2.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-<!--  
-	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:jdbc-user-service data-source-ref="" />
-			<security:password-encoder />
-		</security:authentication-provider>
-	</security:authentication-manager>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/security
+        https://www.springframework.org/schema/security/spring-security.xsd">
 	
-	
-	<security:http auto-config="false" use-expressions="true"
-		jaas-api-provision="true">
-		<security:intercept-url pattern="/" access="permitAll"  />
-		<security:intercept-url pattern="*.do" access="permitAll" />
-		<security:intercept-url pattern="*.mdo" access="hasRole('ROLE_USER')" />
-		<security:intercept-url />
-		<security:form-login login-page="/login"
-			authentication-failure-url="/login?error" />
-		<security:logout />
-	</security:http>-->
-	
-</beans>
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user authorities="ROLE_ADMIN" name="admin"  password="{noop}admin" />
+				<user authorities="ROLE_USER" name="manager" password="{noop}manager" />
+			</user-service>
+		</authentication-provider>
+		
+		<!-- DB 설계후 DB에 관리자 추가 -->
+		<!--  <authentication-provider>
+			<jdbc-user-service data-source-ref="dataSource"
+				authorities-by-username-query="select id, authority from authories where id =?"
+				users-by-username-query="select id, password, enable from users where id =?" />
+		</authentication-provider>-->
+	</authentication-manager>
+
+	<http auto-config="true" use-expressions="true">
+		<intercept-url pattern="/" access="permitAll" />
+		<intercept-url pattern="/*.mdo" access="hasRole('ROLE_ADMIN')" />	<!-- 관리자만 들어갈 수 있음. -->
+		<intercept-url pattern="/*.do" access="permitAll"/>
+		<intercept-url pattern="/resources/**" access="permitAll" />
+		
+		<!-- 관리자 로그인 페이지  -->
+		<form-login login-page="/adminLogin"  authentication-failure-url="/adminLogin?error" />
+	</http>
+</beans:beans>
