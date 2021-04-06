@@ -16,6 +16,10 @@
     <!-- js -->
     <script src="../resources/jquery/jquery-3.6.0.min.js"></script>
     <script src="../resources/js/delivery/delivery.js"></script>
+
+    <!-- kakao login -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="../resources/js/delivery/kakaoLogin.js"></script>
     <title>로그인</title>
 </head>
 <body>
@@ -100,7 +104,7 @@
                                 </a>
                             </li>
                             <li class="kakao">
-                                <a href="#">
+                                <a href="javascript:kakaoLogin();">
                                     <span>카카오톡 로그인</span>
                                 </a>
                             </li>
