@@ -144,7 +144,7 @@
         height:100%;
         width:50%;
         background: #ffbd4e;
-        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/bg/bugerApp.png");
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/bugerapp.png");
         background-position: 50% 50%;
         background-repeat: no-repeat;
     }
@@ -152,7 +152,7 @@
         height:100%;
         width:50%;
         background: #ffa423;
-        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/bg/delivery.png");
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/delivery.png");
         background-position: 50% 50%;
         background-repeat: no-repeat;
     }
@@ -190,7 +190,7 @@
 
     .store-zone > .center-wrap > .content-wrap > .c_btn_1 {
         height:2.6rem;
-        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/%EC%A3%BC%ED%99%A9%EC%83%89/bg_red1.png");
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_o1.png");
         background-position: 50% 50%;
         background-size: contain;
         background-repeat: no-repeat;
@@ -220,7 +220,7 @@
         background: black;
         color:white;
         height:160px;
-        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/bg/bg_fire1.png");
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_fire1.png");
         background-position-y:70%;
         background-position-x:60%;
         background-size : cover;
@@ -391,7 +391,7 @@
         height:100%;
         width:50%;
         background: #ffbd4e;
-        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/bg/bugerApp.png");
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/bugerapp.png");
         background-position: 50% 50%;
         background-repeat: no-repeat;
         background-size: contain;
@@ -400,7 +400,7 @@
         height:100%;
         width:50%;
         background: #ffa423;
-        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/bg/delivery.png");
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/delivery.png");
         background-position: 50% 50%;
         background-repeat: no-repeat;
         background-size: contain;
@@ -440,7 +440,7 @@
 
     .m-store-zone > .center-wrap > .content-wrap > .c_btn_1 {
         height:2.0rem;
-        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/%EC%A3%BC%ED%99%A9%EC%83%89/bg_red1.png");
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_o1.png");
         background-position: 50% 50%;
         background-size: contain;
         background-repeat: no-repeat;
@@ -469,7 +469,7 @@
         padding-bottom: 1.4rem;
         background: black;
         color:white;
-        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/bg/bg_fire1.png");
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_fire1.png");
         background-position-y:70%;
         background-position-x:60%;
         background-size : cover;

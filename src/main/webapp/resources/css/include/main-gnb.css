@@ -130,7 +130,7 @@ a {
         height:360px;
         display: none;
         background: rgba(255, 255, 255, 1);
-        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/bg/bugerKing1.png");
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/buggerking1.png");
         background-position: 92% 100%;
         background-repeat: no-repeat;
     }
@@ -178,7 +178,7 @@ a {
         align-items: center;
         position: relative;
         background: #f9f8f4;
-        background-image: url(" https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/bg/bg_potato1.png");
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/footer/footerimg.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position-y:100%;
