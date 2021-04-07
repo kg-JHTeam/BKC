@@ -12,7 +12,8 @@
 		<authentication-provider>
 			<user-service>
 				<user authorities="ROLE_ADMIN" name="admin"  password="{noop}admin" />
-				<user authorities="ROLE_USER" name="manager" password="{noop}manager" />
+				<user authorities="ROLE_MANAGER" name="manager" password="{noop}manager" />
+				<user authorities="ROLE_MEMBER" name="member" password="{noop}member" />
 			</user-service>
 		</authentication-provider>
 		
@@ -23,14 +24,26 @@
 				users-by-username-query="select id, password, enable from users where id =?" />
 		</authentication-provider>-->
 	</authentication-manager>
-
+	
 	<http auto-config="true" use-expressions="true">
-		<intercept-url pattern="/" access="permitAll" />
-		<intercept-url pattern="/*.mdo" access="hasRole('ROLE_ADMIN')" />	<!-- 관리자만 들어갈 수 있음. -->
-		<intercept-url pattern="/*.do" access="permitAll"/>
 		<intercept-url pattern="/resources/**" access="permitAll" />
+		<intercept-url pattern="/" access="permitAll" />
+		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/*.do" access="permitAll"/>
+		<intercept-url pattern="/delivery/*.do" access="hasAnyRole('ROLE_MEMBER','ROLE_MANAGER','ROLE_ADMIN')"/>	<!-- 딜리버리 관련페이지는 멤버로 로그인을 해야지만 들어 갈 수 있음.  -->
+		<intercept-url pattern="/*.mdo" access="hasAnyRole('ROLE_MANAGER','ROLE_ADMIN')" />	<!-- 매장 관리자만 들어갈 수 있음. -->
+		<intercept-url pattern="/*.ad" access="hasRole('ROLE_ADMIN')" />	<!-- 홈페이지 관리자만 들어갈 수 있음. -->
 		
-		<!-- 관리자 로그인 페이지  -->
-		<form-login login-page="/adminLogin"  authentication-failure-url="/adminLogin?error" />
+		<!-- 통합 로그인 페이지  -->
+		<form-login login-page="/login" authentication-failure-url="/login?error" />
+
+		<!-- 로그아웃  -->
+		<logout />
+		
+		<!-- 
+			## 로그인 이후 URL을 통해 관리자 페이지로 가는 형식 
+			admin.ad : 홈페이지관리자
+			admin.mdo : 매장관리자
+		 -->
 	</http>
 </beans:beans>

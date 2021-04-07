@@ -6,14 +6,14 @@
 <html>
 <head>
     <meta http-equiv="refresh" content="0;url=dist/index.html">
-    <title>BKC 홈페이지 관리자 페이지</title>
+    <title>BKC 매장 관리자 페이지</title>
     <script language="javascript"> 
-    window.location.href = "${contextPath}/goAdminPage.ad" 
+    window.location.href = "${contextPath}/goAdminPage.mdo" 
     </script>
 </head>
 
 <body>
-    Go to <a href="${contextPath}/goAdminPage.ad">/dist/index.html</a>
+    Go to <a href="${contextPath}/goAdminPage.mdo">/dist/index.html</a>
 </body>
 
 </html>

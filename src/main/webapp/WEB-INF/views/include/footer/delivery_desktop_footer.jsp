@@ -23,7 +23,7 @@
                     <a href="https://www.facebook.com/burgerkingkorea " target="_blank " class="facebook ">
                         <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/sns/facebook_s.png " alt="facebook ">
                     </a>
-                    <a href="https://www.instagram.com/burgerkingkorea " target="_blank " class="insta ">
+                    <a href="https://www.instagram.com/bhc_chicken_official/?igshid=16tcbhequ830e " target="_blank " class="insta ">
                         <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/sns/instagram_s.png " alt="instagram ">
                     </a>
                 </div>

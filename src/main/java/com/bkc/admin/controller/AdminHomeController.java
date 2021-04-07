@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminHomeController {
 
-	@RequestMapping(value = "/admin.mdo", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin.ad", method = RequestMethod.GET)
 	public String adminPage() {
-		System.out.println("admin 페이지 이동");
+		System.out.println("/admin.ad");
 		return "admin/adminPage";
 	}
 	
-	@RequestMapping(value = "/goAdminPage.mdo", method = RequestMethod.GET)
+	@RequestMapping(value = "/goAdminPage.ad", method = RequestMethod.GET)
 	public String goAdminPage() {
-		System.out.println("admin 페이지 이동");
+		System.out.println("/goAdminPage.ad");
 		return "admin/dist/index";
 	}
 }

@@ -70,7 +70,7 @@
 
         <!--딜리버리 로고-->
         <div class="m-delivery-btn">
-            <a href="#">
+            <a href="${contextPath}/delivery/delivery.do">
                 <img id="m-delivery-btn-img"
                     src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/delivery/delivery_inf.png" />
             </a>

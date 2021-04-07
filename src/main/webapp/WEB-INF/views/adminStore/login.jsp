@@ -14,8 +14,8 @@
   </head>
   <body>  
         <div class="container">
-        <form class="form-signin" method="post" action="${contextPath}/admin.ad">
-        <h5 class="form-signin-heading">BKC 홈페이지 관리자 로그인 </h5>
+        <form class="form-signin" method="post" action="${contextPath}/adminStore.mdo">
+        <h2 class="form-signin-heading">BKC 매장 관리자 로그인 </h2>
         
         <!-- 로그인 실패시 에러메시지 여기다 나오게함.  -->
         <c:if test="${not empty errorMsg}">
@@ -37,7 +37,7 @@
         </p>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>        
 		<button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
-      	</form>
-</div>
+      </form>
+      </div>
 </body>
 </html>
