@@ -59,11 +59,11 @@
                 <p>사업자 등록번호 101-86-76277 | (주)BKR 대표이사 문영주</p>
                 <p>Copyright 2019 BKR Co., Ltd. All right Reserved</p>
                 <div class="sns">
-                    <a href="https://www.facebook.com/burgerkingkorea" target="_blank" class="facebook">
+                    <a href="https://www.facebook.com/bhcchicken" target="_blank" class="facebook">
                         <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/facebook_s.png"
                             alt="facebook">
                     </a>
-                    <a href="https://www.instagram.com/burgerkingkorea" target="_blank" class="insta">
+                    <a href="https://www.instagram.com/bhc_chicken_official/?igshid=16tcbhequ830e" target="_blank" class="insta">
                         <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/instagram_s.png"
                             alt="instagram">
                     </a>

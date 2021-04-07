@@ -63,7 +63,7 @@
 					<button type="button">이벤트</button>
 				</li>
 				<li id="new">
-					<button type="button">신규매장</button>
+					<button type="button" >신규매장</button>
 				</li>
 			</ul>
 			<!-- 이벤트, 신규 매장 이미지 -->
