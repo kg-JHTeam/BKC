@@ -35,8 +35,8 @@
                 </li>
                 <li class="menu-title"><a href="${contextPath}/">이벤트</a>
                     <ul class="sub-con">
-                        <li><a href="${contextPath}/event/eventPage.do">이벤트</a></li>
-                        <li><a href="${contextPath}/">신규매장</a></li>
+                        <li><a href="${contextPath}/event/eventPageAll.do">이벤트</a></li>
+                        <li><a href="${contextPath}/event/eventPageNew.do">신규매장</a></li>
                     </ul>
                 </li>
                 <li class="menu-title"><a href="#">BRAND</a>

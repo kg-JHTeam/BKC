@@ -35,8 +35,8 @@
                     </li>
                     <li><a href="#">이벤트</a><span></span>
                         <ul>
-                            <li><a href="#">이벤트</a></li>
-                            <li><a href="#">신규매장</a></li>
+                            <li><a href="${contextPath}/event/eventPageAll.do">이벤트</a></li>
+                            <li><a href="${contextPath}/event/eventPageNew.do">신규매장</a></li>
                         </ul>
                     </li>
                     <li><a href="#">BRAND</a><span></span>
