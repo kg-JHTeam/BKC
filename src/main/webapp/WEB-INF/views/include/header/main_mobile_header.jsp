@@ -63,7 +63,7 @@
         <!--메인 로고-->
         <div class="m-images">
             <a href="${contextPath}/">
-                <img id="m-main-logo" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png"
+                <img id="m-main-logo" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/bkclogo.png"
                     alt="bkc mainlogo" />
             </a>
         </div>
@@ -72,7 +72,7 @@
         <div class="m-delivery-btn">
             <a href="#">
                 <img id="m-delivery-btn-img"
-                    src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/add/delevery.gif" />
+                    src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/delivery/delivery_inf.png" />
             </a>
         </div>
     </div>

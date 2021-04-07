@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon"
-        href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
+        href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
     
     <!--slick & jQuery-->
     <link rel="stylesheet" href="resources/slick/slick.css">
@@ -40,9 +40,12 @@
         <div class="imgslide-zone">
             <div class="slide">
                 <ul class="slider autoplay">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/%EB%A9%94%EC%9D%B8+%EC%9D%B4%EB%B2%A4%ED%8A%B8_%EA%B8%B8%EA%B2%8C/img_main_banner_1.png">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/%EB%A9%94%EC%9D%B8+%EC%9D%B4%EB%B2%A4%ED%8A%B8_%EA%B8%B8%EA%B2%8C/img_main_banner_2.png">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/%EB%A9%94%EC%9D%B8+%EC%9D%B4%EB%B2%A4%ED%8A%B8_%EA%B8%B8%EA%B2%8C/img_main_banner_3.png">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner1.png">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner2.png">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner3.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner4.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner5.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner6.png">
                 </ul>
             </div>
         </div>
@@ -59,23 +62,23 @@
         <div class="sns-zone">
             <div class="sns">
                 <div>
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/sns/facebook_b.png"
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/facebook_b.png"
                         alt="facebook">
-                    <a href="https://instagram.com/bhc_chicken_official?igshid=16tcbhequ830e">
+                    <a href="https://www.facebook.com/bhcchicken" target="_blank">
                         <span>FACEBOOK</span>
                     </a>
                 </div>
                 <div class="center">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/sns/youtube_b.png"
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/youtube_b.png"
                         alt="youtube">
-                    <a href="https://instagram.com/bhc_chicken_official?igshid=16tcbhequ830e">
+                    <a href="https://www.youtube.com/user/gnsbhc" target="_blank">
                         <span>YOUTUBE</span>
                     </a>
                 </div>
                 <div>
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/sns/instagram_b.png"
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/instagram_b.png"
                         alt="instagram">
-                    <a href="https://instagram.com/bhc_chicken_official?igshid=16tcbhequ830e">
+                    <a href="https://instagram.com/bhc_chicken_official?igshid=16tcbhequ830e" target="_blank">
                         <span>INSTAGRAM</span>
                     </a>
                 </div>
@@ -132,13 +135,16 @@
     <!--mobile-main page-->
     <div class="m-main-wrap">
     
-        <!-- 이미지 슬라이드 -->
+        <!-- 이미지 슬라이드 / 추가되어야함.-->
         <div class="m-imgslide-zone">
             <div class="slide">
                 <ul class="slider autoplay">
-                <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/banner/potatoking_banner1.jpg">
-                <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/banner/goldking_banner.jpg">
-                <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/banner/wing_banner.jpg">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner1.png">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner2.png">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner3.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner4.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner5.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner6.png">
                 </ul>
             </div>
         </div>
@@ -156,19 +162,25 @@
         <div class="m-sns-zone">
             <div class="sns">
                 <div>
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/sns/facebook_b.png"
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/facebook_b.png"
                         alt="facebook">
-                    <span>FACEBOOK</span>
+                    <a href="https://www.facebook.com/bhcchicken" target="_blank">
+                        <span>FACEBOOK</span>
+                    </a>
                 </div>
                 <div class="center">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/sns/youtube_b.png"
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/youtube_b.png"
                         alt="youtube">
-                    <span>YOUTUBE</span>
+                    <a href="https://www.youtube.com/user/gnsbhc" target="_blank">
+                        <span>YOUTUBE</span>
+                    </a>
                 </div>
                 <div>
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/sns/instagram_b.png"
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/instagram_b.png"
                         alt="instagram">
-                    <span>INSTAGRAM</span>
+                    <a href="https://instagram.com/bhc_chicken_official?igshid=16tcbhequ830e" target="_blank">
+                        <span>INSTAGRAM</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -205,7 +217,7 @@
                         <p>딜리버리 전화주문 안내 10:00–22:00 <br>
                             연중무휴 (매장별로 상이할 수 있습니다.)</p>
                         <div>
-                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/icon/call.png" />
+                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/call.png" />
                             1599-5577
                         </div>
                 </div>

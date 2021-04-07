@@ -52,7 +52,7 @@
         <div class="web_container">
             <div class="copyright">
                 <h2 class="logo">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/logo/maingraylogo.png"
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/bkclogo_bw.png"
                         alt="BKC Logo">
                 </h2>
                 <p>서울 종로구 삼봉로 71 G 타워 2층 주식회사 비케이알 | 전화주문 1599-0505</p>
@@ -60,11 +60,11 @@
                 <p>Copyright 2019 BKR Co., Ltd. All right Reserved</p>
                 <div class="sns">
                     <a href="https://www.facebook.com/burgerkingkorea" target="_blank" class="facebook">
-                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/sns/facebook_s.png"
+                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/facebook_s.png"
                             alt="facebook">
                     </a>
                     <a href="https://www.instagram.com/burgerkingkorea" target="_blank" class="insta">
-                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/sns/instagram_s.png"
+                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/instagram_s.png"
                             alt="instagram">
                     </a>
                 </div>
