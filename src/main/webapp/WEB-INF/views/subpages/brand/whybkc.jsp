@@ -97,7 +97,7 @@
             <div class="why_web_container">
                 <h4 class="MOB m_subtit">Real Whopper</h4>
                 <div class="realwhopper_title">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/real+chicken/reachicken_title.png">
+                    <img class="realChicken" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/realchicken/reachicken_title.png">
                 </div>
                 <div class="realwhopper_text">
                     <p>
@@ -118,16 +118,16 @@
                     <h4 class="MOB m_subtit">신선한 재료 소개</h4>
                     <dl class="beef">
                         <dt>
-                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%EC%8B%A0%EC%84%A0%ED%95%9C+%EC%9E%AC%EB%A3%8C/high_oleic%20sunflower_oil.png" alt="100% OLIVE">
+                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/freshingredient/high_oleic sunflower_oil.png">
                         </dt>
                         <dd>깨끗한 치킨 BHC는 나쁜 콜레스테롤 수치를 저하시키고 혈액순환을 돕는 불포화지방산과 비타민E가 풍부한 고올레산 해바라기유를 튀김유로 사용하여 소비자들의 건강보호에 앞장서고 있습니다.</dd>
                     </dl>
                     <dl class="vegetable">
                         <dt class="WEB">
-                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%EC%8B%A0%EC%84%A0%ED%95%9C+%EC%9E%AC%EB%A3%8C/fresh_chicken.png" alt="FRESH CHICKEN">
+                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/freshingredient/fresh_chicken.png" alt="FRESH CHICKEN">
                         </dt>
                         <dt class="MOB">
-                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%EC%8B%A0%EC%84%A0%ED%95%9C+%EC%9E%AC%EB%A3%8C/fresh_chicken.png" alt="FRESH CHICKEN">
+                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/freshingredient/fresh_chicken.png" alt="FRESH CHICKEN">
                         </dt>
                         <dd>
                             BKC는 닭고기 중에서도 최상급인 Golden Zone 국내산 닭고기 (10호/무게 950g~1050g) 만을 사용합니다.
@@ -136,7 +136,7 @@
                     </dl>
                     <dl class="pickle">
                         <dt>
-                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%EC%8B%A0%EC%84%A0%ED%95%9C+%EC%9E%AC%EB%A3%8C/research_development.png">
+                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/freshingredient/research_development.png">
                         </dt>
                         <dd>
                             맛의 모든 것을 연구한다
@@ -195,7 +195,7 @@
                                     <div>
                                         <div class="cont" style="width: 100%; display: inline-block;">
                                             <div class="image">
-                                                <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%ED%99%98%EA%B2%BD%EC%82%AC%ED%9A%8C%EA%B3%B5%ED%97%8C/img_contribution.png">
+                                                <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/greenmove/img_contribution.png">
                                             </div>
                                             <div class="text">
                                                 <p>나눔과 상생의 정신 BSR</p>
