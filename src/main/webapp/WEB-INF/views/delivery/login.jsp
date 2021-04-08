@@ -65,7 +65,7 @@
                             <div class="inpbox">
                                 <label>
                                     <span class="hide">ID</span>
-                                    <input type="text" class="id_email" id="username" name="username" placeholder="아이디 (이메일)" required autofocus>
+                                    <input type="text" class="id_email" id="userid" name="userid" placeholder="아이디 (이메일)" required autofocus>
                                     <button type="button" tabindex="-1" class="btn_del01" style="display: none;">
                                         <span>입력 텍스트 삭제</span>
                                     </button>
@@ -74,7 +74,7 @@
                             <div class="inpbox">
                                 <label class="pass">
                                     <span class="hide">PASSWORD</span>
-                                    <input type="password" id="password" name="password" placeholder="비밀번호" required>
+                                    <input type="password" id="userpw" name="userpw" placeholder="비밀번호" required>
                                     <button type="button" tabindex="-1" class="btn_view01">
                                         <span>입력텍스트보기</span>
                                     </button>

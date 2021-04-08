@@ -1,21 +1,41 @@
-package com.bkc.delivery.vo;
+package com.bkc.user.vo;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 
 public class UserVO {
+	
+	@NotEmpty
+	@Size(min=5, max=50)
 	private String userid;
+	
+	@NotEmpty
 	private String userpw;
+	
+	@NotEmpty
+	@Size(min=1, max=10)
 	private String name;
 	private boolean sms_agree;
 	private boolean email_agree;
-	private boolean enabled;
-	private String phone;
-	private int regist_type;
-	private String store_serial;
 	
+	@NotEmpty
+	private boolean enabled;
+	
+	@NotEmpty
+	@Size(min=1, max=13)
+	private String phone;
+	
+	@NotEmpty
+	private int regist_type;	//간편 로그인 
+	
+	@Size(min=1, max=20)
+	private String store_serial;
 	
 	public String getUserid() {
 		return userid;
 	}
+	
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
