@@ -64,102 +64,45 @@
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
-                                	회원관리
+                                	매장 정보 관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">매장관리자 리스트 </a>
-                                    <a class="nav-link" href="#">회원 리스트</a>
-                                    <a class="nav-link" href="#">비회원 리스트</a>
-                                    <a class="nav-link" href="#">탈퇴회원 리스트</a>
-                                    <a class="nav-link" href="#">휴면회원 리스트</a>
-                                    <a class="nav-link" href="#">e-mail 관리</a>
-                                    <a class="nav-link" href="#">SMS 관리</a>
+                                    <a class="nav-link" href="#">매장 정보 수정 </a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCoupons" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-barcode"></i></i></div>
-                                	쿠폰관리
+                                	재고 관리 
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseCoupons" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                	<a class="nav-link" href="#">쿠폰배포 </a>
-                                    <a class="nav-link" href="#">새 쿠폰 추가 </a>
-                                    <a class="nav-link" href="#">쿠폰 리스트</a>
-                                    <a class="nav-link" href="#">쿠폰 수정</a>
-                                    <a class="nav-link" href="#">쿠폰 삭제</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                	홈페이지 관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseMainpage" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        	메인페이지관리
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseMainpage" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="">메인배너 관리</a>
-                                            <a class="nav-link" href="">유튜브광고 관리</a>
-                                            <a class="nav-link" href="">메인로고 관리</a>
-                                            <a class="nav-link" href="">홈페이지메뉴 관리</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseSubpage" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        	서브페이지 관리
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseSubpage" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="">BKC 메뉴 관리</a>
-                                            <a class="nav-link" href="">BKC 이벤트 게시판 관리</a>
-                                            <a class="nav-link" href="">BKC 신규매장 게시판 관리</a>
-                                            <a class="nav-link" href="">공지사항 게시판 관리</a>
-                                            <a class="nav-link" href="">FAQ 게시판 관리</a>
-                                            <a class="nav-link" href="">신제품 게시판 관리</a>
-                                            <a class="nav-link" href="">광고 게시판 관리</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseDeliverypage" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        	딜리버리페이지관리
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseDeliverypage" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="">주문리스트</a>
-                                            <a class="nav-link" href="">주문취소리스트</a>
-                                            <a class="nav-link" href="">결제관리</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseFooter" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        	푸터 관리
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseFooter" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="">이용약관 관리</a>
-                                            <a class="nav-link" href="">개인정보취급방침 관리</a>
-                                            <a class="nav-link" href="">법적고지 관리</a>
-                                            <a class="nav-link" href="">사업자 정보 관리</a>
-                                        </nav>
-                                    </div>
+                                	<a class="nav-link" href="#">재고리스트 </a>
+                                	<a class="nav-link" href="#">재고주문 </a>
+                                    <a class="nav-link" href="#">재고현황 </a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStatics" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                	판매 통계
+                                	매출 정산 
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseStatics" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">매장별 판매 현황 </a>
-                                    <a class="nav-link" href="#">제품별 판매 현황</a>
+                                    <a class="nav-link" href="#">매출 현황 </a>
+                                    <a class="nav-link" href="#">재고 현황</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStatics" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                	점원 관리
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseStatics" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="#">점원 리스트   </a>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
@@ -228,7 +171,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area mr-1"></i>
-                                        Area Chart Example
+                                       	월별 매출 현황
                                     </div>
                                     <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                                 </div>
@@ -237,7 +180,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar mr-1"></i>
-                                        Bar Chart Example
+                                       	월별 매출 현황
                                     </div>
                                     <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                                 </div>
@@ -246,19 +189,19 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                DataTable Example
+                               	 직원리스트
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
+                                                <th>이름</th>
+                                                <th>직책</th>
+                                                <th>출생</th>
+                                                <th>나이</th>
+                                                <th>입사일</th>
+                                                <th>시급</th>
                                             </tr>
                                         </thead>
                                         <tfoot>

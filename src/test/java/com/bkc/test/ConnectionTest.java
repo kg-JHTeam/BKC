@@ -6,10 +6,10 @@ import java.sql.DriverManager;
 import org.junit.Test;
 
 public class ConnectionTest {
-	private static final String DRIVER = "${jdbc.driverClassName}";
-	private static final String URL = "${jdbc.url}";
-	private static final String ID = "${jdbc.username}";
-	private static final String PASS = "${jdbc.password}";
+	private static final String DRIVER = "org.postgresql.Driver";
+	private static final String URL = "jdbc:postgresql://bkc.crukuxijvpsk.us-east-2.rds.amazonaws.com:5432/bkc";
+	private static final String ID = "bkc";
+	private static final String PASS = "bkc1234!!";
 
 	@Test
 	public void testConnection() throws Exception {
