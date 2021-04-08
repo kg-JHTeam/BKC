@@ -12,12 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <!-- favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
-    <!-- css -->
-    <link rel="stylesheet" href="../resources/css/include/delivery-gnb.css">
-    <link rel="stylesheet" href="../resources/css/delivery/join.css">
+  	
+  	<!-- css -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/include/delivery-gnb.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/delivery/join.css">
+   
     <!-- js -->
-    <script src="../resources/jquery/jquery-3.6.0.min.js"></script>
-    <script src="../resources/js/delivery/delivery.js"></script>
+    <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
+    <script src="${contextPath}/resources/js/delivery/delivery.js"></script>
 	<title>회웡가입</title>
 </head>
 <body>
@@ -29,8 +31,8 @@
 	<nav class="locationWrap">
 	    <ul>
 	        <li><a href="${contextPath}/">HOME</a></li>&nbsp;&nbsp;
-	        <li><a href="${contextPath}/delivery/login">로그인</a></li>&nbsp;&nbsp;
-	        <li><a href="${contextPath}/delivery/join.do">회원가입</a></li>
+	        <li><a href="${contextPath}/login">로그인</a></li>&nbsp;&nbsp;
+	        <li><a href="${contextPath}/join">회원가입</a></li>
 	    </ul>
 	</nav>
 	<!--content login-->

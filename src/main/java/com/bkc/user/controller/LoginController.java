@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -30,6 +31,13 @@ public class LoginController {
 		
 		logger.info("로그인 실행 : "+model.toString());
 		return "delivery/login";
+	}
+	
+	//회원가입 페이지로 
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public String join() {
+		System.out.println("회원가입 페이지 이동");
+		return "delivery/join";
 	}
 }
 
