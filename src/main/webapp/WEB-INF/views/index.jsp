@@ -40,12 +40,12 @@
         <div class="imgslide-zone">
             <div class="slide">
                 <ul class="slider autoplay">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner1.png">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner2.png">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner3.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner4.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner5.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner6.png">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner1.png">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner2.png">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner3.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner4.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner5.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner6.png">
                 </ul>
             </div>
         </div>
@@ -139,12 +139,12 @@
         <div class="m-imgslide-zone">
             <div class="slide">
                 <ul class="slider autoplay">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner1.png">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner2.png">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner3.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner4.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner5.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/banner/main_banner6.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner1.png">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner2.png">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner3.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner4.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner5.png">
+                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner6.png">
                 </ul>
             </div>
         </div>

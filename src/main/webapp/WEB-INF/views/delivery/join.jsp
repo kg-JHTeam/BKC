@@ -29,7 +29,7 @@
 	<nav class="locationWrap">
 	    <ul>
 	        <li><a href="${contextPath}/">HOME</a></li>&nbsp;&nbsp;
-	        <li><a href="${contextPath}/delivery/delivery.do">로그인</a></li>&nbsp;&nbsp;
+	        <li><a href="${contextPath}/delivery/login">로그인</a></li>&nbsp;&nbsp;
 	        <li><a href="${contextPath}/delivery/join.do">회원가입</a></li>
 	    </ul>
 	</nav>

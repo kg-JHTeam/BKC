@@ -50,19 +50,16 @@
                 <!-- default login -->
                 <form class="login_container" method="post" action="<c:url value='login'/>" id="loginForm">
                 <!-- 로그인 로직 수행 구현 필요 -->
-                
-                   <!-- 로그인 실패시 에러메시지 여기다 나오게함.  -->
-		           <c:if test="${not empty errorMsg}">
-		              <div style="color:#ff0000"> <h6> ${errorMsg}</h6> </div>
-		           </c:if>
-		           
-		           <!-- 로그아웃 한 경우 여기다 나오게함.  -->
-		           <c:if test="${not empty logoutMsg}">
-		              <div style="color:#0000ff"> <h6> ${logoutMsg}</h6> </div>
-		           </c:if>
 		           
                     <div class="login">
-                        <h3 class="defaultlogin_tit">일반로그인
+                        <h3 class="defaultlogin_tit">일반로그인<br>
+                        <!-- 로그인 실패시 에러메시지 여기다 나오게함.  -->
+			            <c:if test="${not empty errorMsg}">
+			               <span style="color:#ff0000"> ${errorMsg}</span>
+			            </c:if>
+			            <c:if test="${not empty logoutMsg}">
+		             	 <span style="color:#0000ff"> ${logoutMsg}</span> 
+		           		</c:if>
                         </h3>
                         <div class="cont">
                             <div class="inpbox">
