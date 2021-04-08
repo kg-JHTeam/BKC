@@ -16,7 +16,7 @@
             <div class="footer_menu">
                 <div class="c_btn_1">
                     <div class="c_btn_1_item">
-                        <a href="#">이용약관</a>
+                        <a href="${contextPath}/law/term.do">이용약관</a>
                     </div>
                     <div class="c_btn_1_line">|</div>
                     <div class="c_btn_1_item" id="c_btn_1_center">
