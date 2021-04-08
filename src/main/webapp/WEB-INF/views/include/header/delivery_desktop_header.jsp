@@ -26,7 +26,7 @@
                 </div>
                 <div class="signup">
                     <img class="button_black" src="../resources/delivery_img/button/btn-black.png" alt="button-black">
-                    <a href="${contextPath}/delivery/join.do"><span>회원가입</span></a>
+                    <a href="${contextPath}/join"><span>회원가입</span></a>
                     <img class="rightarrow" src="../resources/delivery_img/button/rightarrow.png" alt="rightarrow">
                 </div>
             </div>

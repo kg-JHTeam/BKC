@@ -27,8 +27,7 @@
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query="select USERID, USERPW, ENABLED from USERMEMBER where USERID =?"
-				authorities-by-username-query="select USERID, AUTHORITY from AUTHORITY where USERID =?"
-			 />
+				authorities-by-username-query="select USERID, AUTHORITY from AUTHORITY where USERID =?"/>
 		</authentication-provider>
 	</authentication-manager>
 	
