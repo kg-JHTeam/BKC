@@ -30,6 +30,7 @@
    <!-- main-header -->
    <jsp:include page="../../include/header/main_desktop_header.jsp" />
    <jsp:include page="../../include/header/main_mobile_header.jsp" />
+   
    <div class="contentsWrap eventWrap">
        <div class="locationWrap WEB">
           <div class="story_web_container">
