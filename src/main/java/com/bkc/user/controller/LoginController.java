@@ -1,17 +1,30 @@
 package com.bkc.user.controller;
 
+
+import java.security.Principal;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bkc.user.service.UserServiceImpl;
+
 @Controller
 public class LoginController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	
+	//@Autowired
+	//private LoginServiceImpl loginService;
 	
 	//login 처리
 	@RequestMapping("/login")
@@ -27,9 +40,14 @@ public class LoginController {
 			model.addAttribute("logoutMsg", "로그아웃 되었습니다.");
 		}
 		
-		//로그인시 - 비밀번호 암호화
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		System.out.println(principal.toString());
 		
 		logger.info("로그인 실행 : "+model.toString());
+		
+		//loginService에서 로그인시 암호화 
+		//loginService.login();
+		
 		return "delivery/login";
 	}
 	

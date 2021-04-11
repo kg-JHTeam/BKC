@@ -1,62 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans:beans xmlns="http://www.springframework.org/schema/security"
+<beans:beans
+	xmlns="http://www.springframework.org/schema/security"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/security https://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-		
-    <context:component-scan base-package="com.bkc.*.dao"/>
-    
-    <!-- bcrypt 비밀번호 암호화    
-	<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" /> -->
+
+	<context:component-scan
+		base-package="com.bkc.*.dao" />
+
+	<!-- bcrypt 비밀번호 암호화 -->
+	<beans:bean id="bcryptPasswordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
 	<authentication-manager>
 	
-		<!-- <authentication-provider>
-			<user-service>
-				<user authorities="ROLE_ADMIN" name="admin"  password="{noop}admin" />
-				<user authorities="ROLE_MANAGER" name="manager" password="{noop}manager" />
-				<user authorities="ROLE_MEMBER" name="member" password="{noop}member" />
-			</user-service>
-		</authentication-provider> -->
-		
-		<!-- DB에서 로그인 인증 실행  -->
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="select USERID, USERPW, ENABLED from USERMEMBER where USERID =?"
-				authorities-by-username-query="select USERID, AUTHORITY from AUTHORITY where USERID =?"/>
+				users-by-username-query="SELECT USERID as username, PASSWORD, ENABLED FROM usermember WHERE USERID=?"
+				authorities-by-username-query="
+				SELECT USERID as username,
+				CASE WHEN USERGRADE='01' THEN 'ROLE_ADMIN' 
+				 	 WHEN USERGRADE='02' THEN 'ROLE_MANAGER' 
+				 	 WHEN USERGRADE='03' THEN 'ROLE_USER'
+				END authority 
+				FROM usermember WHERE USERID =?" />
+				
+			<!-- <password-encoder ref="bcryptPasswordEncoder"/> -->
 		</authentication-provider>
 	</authentication-manager>
-	
+
 	<http auto-config="true" use-expressions="true">
-	    <!-- 세션 관리 -->
-    	<session-management>
-	      	<!-- 동일 ID의 세션 최대수가 한 개, 그 이상일 경우는 기존 세션 무효화 -->
-	      	<concurrency-control max-sessions="1" expired-url="/"/>
-    	</session-management>
-    	
-		<intercept-url pattern="/resources/**" access="permitAll" />
+		<!-- 세션 관리 -->
+		<session-management>
+			<!-- 동일 ID의 세션 최대수가 한 개, 그 이상일 경우는 기존 세션 무효화 -->
+			<concurrency-control max-sessions="1"
+				expired-url="/" />
+		</session-management>
+
+		<intercept-url pattern="/resources/**"
+			access="permitAll" />
 		<intercept-url pattern="/" access="permitAll" />
 		<intercept-url pattern="/login" access="permitAll" />
-		<intercept-url pattern="/*.do" access="permitAll"/>
-		<intercept-url pattern="/delivery/*.do" access="hasAnyRole('ROLE_MEMBER','ROLE_MANAGER','ROLE_ADMIN')"/>	<!-- 딜리버리 관련페이지는 멤버로 로그인을 해야지만 들어 갈 수 있음.  -->
-		<intercept-url pattern="/*.mdo" access="hasAnyRole('ROLE_MANAGER','ROLE_ADMIN')" />	<!-- 매장 관리자만 들어갈 수 있음. -->
-		<intercept-url pattern="/*.ad" access="hasRole('ROLE_ADMIN')" />	<!-- 홈페이지 관리자만 들어갈 수 있음. -->
-		
-		<!-- 통합 로그인 페이지  -->
-		<form-login login-page="/login"
-			authentication-failure-url="/login?error" username-parameter="userid" password-parameter="userpw"/>
+		<intercept-url pattern="/*.do" access="permitAll" />
+		<intercept-url pattern="/delivery/*.do"
+			access="isAuthenticated()" />	<!-- 딜리버리 관련페이지는 멤버로 로그인을 해야지만 들어 갈 수 있음. -->
+		<intercept-url pattern="/*.mdo"
+			access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" />	<!-- 매장 관리자만 들어갈 수 있음. -->
+		<intercept-url pattern="/*.ad"
+			access="hasRole('ROLE_ADMIN')" />	<!-- 홈페이지 관리자만 들어갈 수 있음. -->
 
-		<!-- 로그아웃  -->
-		<logout invalidate-session="true"/>
-		
+		<!-- 통합 로그인 페이지 -->
+		<form-login login-page="/login"
+			authentication-failure-url="/login?error" username-parameter="userid"
+			password-parameter="userpw" />
+
+		<!-- 로그아웃 -->
+		<logout invalidate-session="true" />
+
 		<!-- 
-			## 로그인 이후 URL을 통해 관리자 페이지로 가는 형식 
-			admin.ad : 홈페이지관리자
-			admin.mdo : 매장관리자
-		 -->
+	     ## 로그인 이후 URL을 통해 관리자 페이지로 가는 형식
+		 admin.ad : 홈페이지관리자 
+		 admin.mdo : 매장관리자
+		  -->
+
 	</http>
 </beans:beans>
