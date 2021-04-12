@@ -2,11 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="UserDAO">
-	<resultMap type="UserVO" id="userResult">
+	<resultMap type="UserVO" id="UserVO">
 		<result property="userId" column="USERID" />
 		<result property="password" column="PASSWORD" />
 		<result property="name" column="NAME" />
 	</resultMap>
 
+	<!-- Crud 구현 -->
+	<!-- cRud -->
+	<select id="getAdminUserList" resultType="UserVO">
+		<![CDATA[
+		SELECT * FROM usermember WHERE usergrade = 1 
+		]]>
+	</select>
+	
+	<select id="getManagerUserList" resultType="UserVO">
+		<![CDATA[
+		SELECT * FROM usermember WHERE usergrade = 2  
+		]]>
+	</select>
+	<select id="getUserList" resultType="UserVO">
+		<![CDATA[
+		SELECT * FROM usermember  
+		]]>
+	</select>
+	
+	<!-- Crud -->
+	<!-- 회원가입 -->  
+	<insert id="userInsert">
+		<![CDATA[
+		INSERT INTO usermember(
+		userid, password, name, sms_agree, email_agree, phone, regist_type)
+		VALUES (#{userid}, #{password}, #{name}, #{sms_agree}, #{email_agree}, #{phone}, #{regist_type});
+		]]>
+	</insert>
 	
 </mapper>

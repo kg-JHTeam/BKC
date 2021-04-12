@@ -17,7 +17,6 @@
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
 	<authentication-manager>
-	
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query="SELECT USERID as username, PASSWORD, ENABLED FROM usermember WHERE USERID=?"
@@ -28,8 +27,7 @@
 				 	 WHEN USERGRADE='03' THEN 'ROLE_USER'
 				END authority 
 				FROM usermember WHERE USERID =?" />
-				
-			<!-- <password-encoder ref="bcryptPasswordEncoder"/> -->
+			<password-encoder ref="bcryptPasswordEncoder" hash="bcrypt" />
 		</authentication-provider>
 	</authentication-manager>
 

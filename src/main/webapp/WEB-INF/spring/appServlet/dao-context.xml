@@ -33,13 +33,18 @@
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		<property name="mapperLocations" value="classpath:mapper/**/*mapping.xml"></property>
 	</bean>
 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
     	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-
+	
+	<bean id="userDao" class="com.bkc.user.dao.UserDAOImpl">
+  		<property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
 	<context:component-scan base-package="com.bkc.*"></context:component-scan>
 
 </beans>
