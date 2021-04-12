@@ -3,99 +3,114 @@ package com.bkc.user.vo;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.ToString;
 
 public class UserVO {
-	
-	@NotEmpty
-	@Size(min=5, max=50)
+	@NotEmpty(message="필수 항목입니다.")
+	@Size(min=5, max=25, message="길이가 맞지않아요.")
 	private String userid;
 	
-	@NotEmpty
-	private String userpw;
+	@NotEmpty(message="필수 항목입니다.")
+	@Size(min=4, max=8, message="길이가 맞지않아요.")
+	private String password;
 	
-	@NotEmpty
-	@Size(min=1, max=10)
+	@NotEmpty(message="필수 항목입니다.")
+	@Size(min=1, max=5, message="길이가 맞지않아요.")
 	private String name;
+	
+	@NotEmpty(message="필수 항목입니다.")
+	@Size(min=8, max=13,message="길이가 맞지않아요.")
+	private String phone;
+	
 	private boolean sms_agree;
 	private boolean email_agree;
 	
-	@NotEmpty
-	private boolean enabled;
+	private int enabled; //default 1
 	
-	@NotEmpty
-	@Size(min=1, max=13)
-	private String phone;
-	
-	@NotEmpty
 	private int regist_type;	//간편 로그인 
 	
-	@Size(min=1, max=20)
-	private String store_serial;
-	
+	private int usergrade;	//default 03
+
 	public String getUserid() {
 		return userid;
 	}
-	
+
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public String getUserpw() {
-		return userpw;
+
+	public String getPassword() {
+		return password;
 	}
-	public void setUserpw(String userpw) {
-		this.userpw = userpw;
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public boolean isSms_agree() {
-		return sms_agree;
-	}
-	public void setSms_agree(boolean sms_agree) {
-		this.sms_agree = sms_agree;
-	}
-	public boolean isEmail_agree() {
-		return email_agree;
-	}
-	public void setEmail_agree(boolean email_agree) {
-		this.email_agree = email_agree;
-	}
-	public boolean isEnabled() {
-		return enabled;
-	}
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+
 	public String getPhone() {
 		return phone;
 	}
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	public boolean isSms_agree() {
+		return sms_agree;
+	}
+
+	public void setSms_agree(boolean sms_agree) {
+		this.sms_agree = sms_agree;
+	}
+
+	public boolean isEmail_agree() {
+		return email_agree;
+	}
+
+	public void setEmail_agree(boolean email_agree) {
+		this.email_agree = email_agree;
+	}
+
+	public int getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
+
 	public int getRegist_type() {
 		return regist_type;
 	}
+
 	public void setRegist_type(int regist_type) {
 		this.regist_type = regist_type;
 	}
-	
-	public String getStore_serial() {
-		return store_serial;
+
+	public int getUsergrade() {
+		return usergrade;
 	}
-	public void setStore_serial(String store_serial) {
-		this.store_serial = store_serial;
+
+	public void setUsergrade(int usergrade) {
+		this.usergrade = usergrade;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "UserVO [userid=" + userid + ", userpw=" + userpw + ", name=" + name + ", sms_agree=" + sms_agree
-				+ ", email_agree=" + email_agree + ", enabled=" + enabled + ", phone=" + phone + ", regist_type="
-				+ regist_type + "]";
+		return "UserVO [userid=" + userid + ", password=" + password + ", name=" + name + ", phone=" + phone
+				+ ", sms_agree=" + sms_agree + ", email_agree=" + email_agree + ", enabled=" + enabled
+				+ ", regist_type=" + regist_type + ", usergrade=" + usergrade + "]";
 	}
-	
-	
+
 	
 }

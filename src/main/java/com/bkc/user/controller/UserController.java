@@ -9,39 +9,46 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bkc.user.service.UserServiceImpl;
+import com.bkc.user.service.UserService;
 import com.bkc.user.vo.UserVO;
 
 
-//@Controller
+@Controller
 public class UserController {
+	
 	@Autowired
-	private UserServiceImpl userService;
+	private UserService userService;
 
 	// 회원 리스트 출력
-	@RequestMapping("/showusers")
+	@RequestMapping(value ="/showusers",  method= {RequestMethod.GET, RequestMethod.POST})
 	public String showUsers(Model model) {
 		return "showusers";
 	}
 
 	// 회원 가입
-	@RequestMapping("/createuser")
-	public String createUser(Model model, @Valid UserVO user, BindingResult result) {
+	@RequestMapping(value ="/joinuser",  method= {RequestMethod.GET, RequestMethod.POST})
+	public String createUser(Model model, @ModelAttribute("user") @Valid UserVO user, BindingResult result) {
 		if(result.hasErrors()) {
 			System.out.println("== Form data does not validated ==");
-			
 			List<ObjectError> errors = result.getAllErrors();
+			
 			for(ObjectError error:errors) {
 				System.out.println(error.getDefaultMessage());
 			}
-			
-			return "join";  //에러났을때 -> 모델 가져가면서 join으로 
+			return "delivery/joindetail";  //에러났을때 -> 모델 가져가면서 join으로 
 		}
 		
-		userService.insert(user); //성공한 경우 
-		return "usercreated";
+		if(userService.insert(user)) {
+			//service 로직 수행 성공
+			return "delivery/joinsucess";
+		} else {
+			//service 로직 수행중 문제 발생
+			return "delivery/joindetail";
+		}
 	}
 
 	// 회원 수정

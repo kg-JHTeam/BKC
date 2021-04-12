@@ -20,7 +20,7 @@
     <!-- js -->
     <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
     <script src="${contextPath}/resources/js/delivery/delivery.js"></script>
-	<title>회웡가입</title>
+	<title>회원가입</title>
 </head>
 <body>
 	<div id="wrap">
@@ -58,7 +58,7 @@
                         <h3 class="defaultlogin_tit">이메일 회원가입
                         </h3>
                         <div class="c_btn">
-                            <a href="#" class="btn02 st03">
+                            <a href="${contextPath}/joindetail" class="btn02 st03">
                                 <span>BKC 회원가입</span>
                             </a>
                         </div>
