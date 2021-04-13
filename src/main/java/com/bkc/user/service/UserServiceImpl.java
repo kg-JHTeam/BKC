@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService{
         String encPassword = passwordEncoder.encode(user.getPassword()); //비밀번호 암호화 수행.
         user.setPassword(encPassword);	//비밀번호 암호화 시켜서 넣기.
         System.out.println("암호화된 비밀번호 : "+user.getPassword());	//검사
+        
         return userDao.insertUser(user);
 	}
 
