@@ -54,7 +54,8 @@
 
 		<!-- 통합 로그인 페이지 -->
 		<form-login login-page="/login"
-			authentication-failure-url="/login?error" username-parameter="userid"
+			authentication-failure-url="/login.do?error" 
+			username-parameter="userid"
 			password-parameter="userpw" />
 
 		<!-- 로그아웃 -->

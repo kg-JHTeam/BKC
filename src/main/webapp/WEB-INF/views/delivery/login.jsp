@@ -48,7 +48,7 @@
                 </h2>
                 
                 <!-- default login -->
-                <form class="login_container" method="post" action="<c:url value='login'/>" id="loginForm">
+                <form class="login_container" method="post" action="<c:url value='login.do'/>" id="loginForm">
                 <!-- 로그인 로직 수행 구현 필요 -->
 		           
                     <div class="login">
@@ -74,7 +74,7 @@
                             <div class="inpbox">
                                 <label class="pass">
                                     <span class="hide">PASSWORD</span>
-                                    <input type="password" id="userpw" name="userpw" placeholder="비밀번호" required>
+                                    <input type="password" id="password" name="password" placeholder="비밀번호" required>
                                     <button type="button" tabindex="-1" class="btn_view01">
                                         <span>입력텍스트보기</span>
                                     </button>
