@@ -28,9 +28,9 @@
                         <li><a href="${contextPath}/menu/menu.do">비어존메뉴</a></li>
                     </ul>
                 </li>
-                <li class="menu-title"><a href="${contextPath}/">매장소개</a>
+                <li class="menu-title"><a href="${contextPath}"/>매장소개</a>
                     <ul class="sub-con">
-                        <li><a href="${contextPath}/">매장찾기</a></li>
+                        <li><a href="${contextPath}/map/store.do">매장찾기</a></li>
                     </ul>
                 </li>
                 <li class="menu-title"><a href="${contextPath}/">이벤트</a>
