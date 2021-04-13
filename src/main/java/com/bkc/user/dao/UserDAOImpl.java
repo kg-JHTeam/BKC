@@ -33,7 +33,6 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	
 	public List<UserVO> getManagerUserList(UserVO user) {
 		return sqlSession.selectList("getManagerUserList", user);
 	}
@@ -55,6 +54,11 @@ public class UserDAOImpl implements UserDAO {
 		} else {
 			return false;
 		}
-		
+	}
+	
+	//비밀번호 찾기
+	@Override
+	public UserVO passwdCheck(UserVO vo) {
+		return sqlSession.selectOne("UserDAO.passwdCheck", vo);
 	}
 }

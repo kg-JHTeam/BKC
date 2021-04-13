@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService{
 	public UserVO selectOne(String userid) {
 		return null;
 	}
+	
 	public List<UserVO> getUserList(UserVO user) {
 		return userDao.getUserList(user);
 	}
@@ -49,6 +50,19 @@ public class UserServiceImpl implements UserService{
 	//회원삭제 
 	@Override
 	public void delete(UserVO user) {
+		
+	}
+	
+	//비밀번호 체크
+	@Override
+	public UserVO passwdCheck(UserVO vo) {
+		System.out.println("UserServiceImpl passwdCheck(vo)");
+		return userDao.passwdCheck(vo);
+	}
+	
+	//비밀번호 변경 
+	@Override
+	public void updatePasswd(UserVO vo) {
 		
 	}
 }

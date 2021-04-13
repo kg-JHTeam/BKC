@@ -10,6 +10,17 @@
 
 	<!-- Crud 구현 -->
 	<!-- cRud -->
+	<!-- 로그인 관련  -->
+	<!-- 1) 패스워드 체크 -->
+	<select id="passwdCheck" resultType="UserVO">
+		<![CDATA[
+		SELECT *
+		FROM usermember
+		WHERE userid=#{userid}
+		]]>
+	</select>
+	
+	
 	<select id="getAdminUserList" resultType="UserVO">
 		<![CDATA[
 		SELECT * FROM usermember WHERE usergrade = 1 
