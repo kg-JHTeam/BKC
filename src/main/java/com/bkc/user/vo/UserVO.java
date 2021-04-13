@@ -8,20 +8,20 @@ import lombok.Getter;
 import lombok.ToString;
 
 public class UserVO {
-	@NotEmpty(message="필수 항목입니다.")
-	@Size(min=5, max=25, message="길이가 맞지않아요.")
+	@NotEmpty(message="필수정보입니다.")
+	@Size(min=5, max=25, message="이메일 주소를 다시 확인해주세요.")
 	private String userid;
 	
-	@NotEmpty(message="필수 항목입니다.")
+	@NotEmpty(message="필수정보입니다.")
 	@Size(min=4, max=8, message="길이가 맞지않아요.")
 	private String password;
 	
-	@NotEmpty(message="필수 항목입니다.")
-	@Size(min=1, max=5, message="길이가 맞지않아요.")
+	@NotEmpty(message="필수정보입니다.")
+	@Size(min=2, max=10, message="길이가 맞지않아요.")
 	private String name;
 	
-	@NotEmpty(message="필수 항목입니다.")
-	@Size(min=8, max=13,message="길이가 맞지않아요.")
+	@NotEmpty(message="필수정보입니다.")
+	@Size(min=8, max=13,message="휴대폰번호가 올바르지 않습니다.")
 	private String phone;
 	
 	private boolean sms_agree;

@@ -33,6 +33,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	
 	public List<UserVO> getManagerUserList(UserVO user) {
 		return sqlSession.selectList("getManagerUserList", user);
 	}
@@ -47,7 +48,7 @@ public class UserDAOImpl implements UserDAO {
 	public boolean insertUser(UserVO user) {
 		System.out.println("inserUser 수행");
 		System.out.println(user);
-		System.out.println(sqlSession);  //sqlSession이 없다. 
+		System.out.println(sqlSession);  
 		int success = sqlSession.insert("userInsert", user); 
 		if(success == 1) {
 			return true;

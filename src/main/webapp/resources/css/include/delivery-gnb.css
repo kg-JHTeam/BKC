@@ -95,7 +95,7 @@ h1 {
     background: #fff;
     -webkit-box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
     box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
-    z-index: 2;
+    z-index: 9999999999999999999999;
 }
 
 .head_menu:after {
