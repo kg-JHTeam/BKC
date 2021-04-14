@@ -1,10 +1,8 @@
-package com.bkc.customerService.notice.service;
+package com.bkc.customerService.service;
 
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
-import com.bkc.customerService.notice.vo.NoticeVO;
+import com.bkc.customerService.vo.NoticeVO;
 
 public interface NoticeService {
 	

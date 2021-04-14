@@ -101,7 +101,8 @@
 									<input type="text" class="search-txt" name=""
 										placeholder="제목 + 내용">
 								</div>
-								<button type="button" class="btn_search"></button>
+								<button type="button" class="btn_search">
+								</button>
 							</div>
 						</div>
 						<div class="board_list">

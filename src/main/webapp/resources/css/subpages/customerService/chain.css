@@ -1,0 +1,817 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Do Hyeon', sans-serif;
+
+}
+
+body {
+    min-height: 100%;
+    color: #000;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+li,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+input[type=radio] {
+    position: relative;
+    float: left;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+    color: black;
+    border: none;
+    opacity: 1;
+}
+
+input[type="radio" i] {
+    background-color: initial;
+    cursor: pointer;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0 5px;
+    padding: initial;
+    border: initial;
+}
+
+input[type=text] {
+    float: left;
+    width: auto;
+    height: 40px;
+    margin: 0;
+    padding: 0 25px 3px 0;
+    font-size: 1.25rem;
+    color: #000;
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
+select {
+    overflow: visible !important;
+    display: table-cell;
+}
+
+.rotate {
+    position: relative;
+    outline: 0;
+    width: 25px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_rotate.png") no-repeat 50%;
+    cursor: pointer;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.close {
+    display: block;
+    height: 0;
+}
+
+
+/* 데스크 탑용 CSS*/
+@media(min-width: 766px) {
+
+.web_container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#contents-wrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+.contentsBox > .web_container > .subtitle-wrap {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .page_title {
+    width: 15%;
+    height: auto;
+    padding: 50px 0 45px;
+    margin: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+    position: absolute;
+    right: 30;
+    top: 50%;
+    margin: 0 0 20px;
+    overflow: hidden;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu button {
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 0 0;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0);
+    color: #b8b8b8;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu button:hover {
+    color: #2e2e2e;
+}
+
+.contentsBox > .web_container > .subtitle-wrap .r_option {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-left: 15em;
+    font-size: 1.25rem;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    font-weight: 300;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu .on button {
+    border-width: 0 0 3px 0;
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+
+.contentsBox > .web_container > .tab_content {
+    max-width: 1080px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.branch-wrap {
+    width: 100%;
+    height: auto;
+    margin: 30px 0;
+    padding: 80px 0 330px;
+    font-size: 1.125rem;
+    line-height: 156%;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/franchise.png") no-repeat 100% 100%;
+    background-position: 30% right;
+    background-size: 550px;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+.branch-wrap >.msgbox {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: auto;
+    margin: 30px 0;
+    padding: 34px 16px 0;
+    font-size: 1.125rem;
+}
+
+.branch-wrap >.msgbox >.keyword {
+    height: 37px;
+    margin-bottom: 20px;
+    text-indent: -99999em;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/txt_king01.jpg") no-repeat top;
+    background-size: auto 100%;
+}
+
+.branch-wrap >.msgbox >.branch_tit {
+    padding: 20px 0 20px 0;
+    font-size: 2rem;
+}
+
+.branch-wrapbg {
+    height: auto;
+    padding: 34px 16px 0;
+}
+
+.branch_location, .branch_square {
+    margin: 10px 0 0 0 ;
+}
+
+
+.loctxt,
+.sqtxt {
+    background-color: #f2ebe6;
+    margin: 10px 0 20px;
+    width: 100%;
+    height: auto;
+}
+
+.form-wrap {
+    width: 100%;
+    height: auto;
+    margin: 34px 16px 0;
+}
+
+.form-wrap >.step {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: table;
+}
+
+.form-wrap >.step> li {
+    display: table-cell;
+}
+
+.form-wrap > .step >.step1 {
+    padding: 100px 6.25% 50px 6.25%;
+    position: relative;
+    float: left;
+    width: auto;
+    height: auto;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/ico_branch_step01.png") no-repeat;
+    background-size: 100px;
+    background-position-x: 30px;
+}
+
+.form-wrap > .step >.step2 {
+    padding: 100px 6.25% 50px 6.25%;
+    position: relative;
+    float: left;
+    width: auto;
+    height: auto;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/ico_branch_step02.png") no-repeat;
+    background-size: 100px;
+    background-position-x: 30px;
+}
+
+.form-wrap > .step >.step3 {
+    padding: 100px 6.25% 50px 6.25%;
+    position: relative;
+    float: left;
+    width: auto;
+    height: auto;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/ico_branch_step03.png") no-repeat;
+    background-size: 100px;
+    background-position-x: 30px;
+}
+
+.form-wrap > .step >.step4 {
+    padding: 100px 6.25% 50px 6.25%;
+    position: relative;
+    float: left;
+    width: auto;
+    height: auto;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/ico_branch_step04.png") no-repeat;
+    background-size: 100px;
+    background-position-x: 30px;
+}
+
+.c_btn {
+    padding: 50px 10px 10px 10px;
+    text-align: center;
+    float: right;
+}
+
+.c_btn > .btn_regform {
+    margin-top: 20px;
+    position: relative;
+    padding: 12px 10px 10px;
+    width: auto;
+    min-width: 158px;
+    font-size: 1.125rem;
+    height: 48px;
+    line-height: 26px;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_o3.png") no-repeat 0 0;
+    background-size: 100% 100%;
+    color: #fff;
+}
+
+/*팝업창-데스크탑*/
+.popup {
+    transform: translateX(-50%);
+    left: 50%;
+    top: 5%;
+    background: #fff;
+    position: absolute;
+    max-width: 568px;
+    height: 80%;
+    display: none;
+    overflow: hidden;
+    padding:30px;
+}
+
+.popup .pop_tit{
+    width: 100%;
+}
+
+.agree-cont textarea {
+    width: 90%;
+    height: 100px;
+    resize: none;
+    border: 1px solid #dedede;
+}
+
+.popup-apply{
+    position: relative;
+}
+.popup-apply .btn_close{
+    position: absolute;
+    left:30px;
+    top:20px;
+}
+
+.popup-apply .popup-agree{
+    margin-top: 10px;
+}
+.popup-apply .agree-cont textarea{
+    width: 100%;
+
+}
+.popup-apply .btn_regform_full{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.poptxt {
+    /*margin: 30px;*/
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-size: 1.25rem;
+
+}
+
+.poptxt .row + .row{
+    margin-top: 5px;
+}
+.poptxt .row input{
+    width: 100%;
+    float: none;
+}
+
+.popup-agree {
+    /*margin: 30px;*/
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-size: 0.875rem;
+}
+
+.pop_tit h1 {
+    /*position: absolute;*/
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    border-bottom: 2px #000;
+}
+
+.btn_close {
+    border: none;
+    margin: 5px;
+    outline: none;
+    float: left;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: url(" https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/reaction/close.png") no-repeat 50%;
+}
+
+/*팝업창 뒷배경*/
+.popup-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png") no-repeat 0 0;
+    z-index: 50;
+}
+
+
+
+}
+
+/*모바일용*/
+@media all and (max-width: 765px) {
+
+    #location-wrap {
+        display: none!important;
+    }
+
+    #location-wrap .web_container,
+    .page_navi {
+        display: none;
+        text-align: center;
+    }
+
+    .web_container {
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap > .page_title {
+        margin: 15px;
+        text-align: center;
+        line-height: 100%;
+        font-size: 1.5rem;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap {
+        position: relative;
+        margin-bottom: 28px;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin: 40px 0 20px;
+        overflow-x: auto;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on > .tabmenu > ul {
+        width: 100%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu > li {
+        position: absolute;
+        width: 16.666%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu a > *,
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu button > * {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .tabmenu button {
+        height: 35px;
+        font-size: 1.125rem;
+        border-width: 0 0;
+        outline: 0;
+        background-color: rgba(255, 255, 255, 0);
+        color: #b8b8b8;
+        white-space: nowrap;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap >.tabmenu button:hover {
+        color: #2e2e2e;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .r_option {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-left: 15em;
+        font-size: 1.25rem;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li {
+        position: relative;
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li.on button {
+        border-width: 0 0 3px 0;
+        color: #e22219;
+        border-bottom-color: #e22219;
+    }
+
+    .hide {
+        position: absolute!important;
+        left: -10000px;
+        top: -10000px;
+        visibility: hidden;
+    }
+
+    .branch-wrap {
+        height: auto;
+        padding: 34px 16px 220px;
+        background: url(" https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/franchise.png") no-repeat bottom;
+        background-size: 360px auto;
+    }
+
+    .branch-wrap >.msgbox {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin: 30px 0;
+        font-size: 1.125rem;
+    }
+
+    .branch-wrap >.msgbox >.keyword  {
+        height: 37px;
+        margin-bottom: 20px;
+        text-indent: -99999em;
+        background: url(" https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/txt_king01_mobile.jpg") no-repeat top;
+        background-size: auto 100%;
+    }
+
+    .branch_location, .branch_square {
+        margin: 10px 0 0 0 ;
+    }
+
+    .branch-wrapbg {
+        height: auto;
+        padding: 34px 16px 0;
+    }
+
+    .loctxt,
+    .sqtxt {
+        background-color: #f2ebe6;
+        margin: 10px 0 20px;
+        width: 100%;
+        height: auto;
+    }
+
+    
+.form-wrap >.step {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: table;
+}
+
+.form-wrap >.step> li {
+    display: inline-block;
+}
+
+.form-wrap > .step >.step1 {
+    padding: 70px 5% 50px 5%;
+    position: relative;
+    float: left;
+    width: auto;
+    height: auto;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/ico_branch_step01.png") no-repeat;
+    background-size: 50%;
+    background-position-x: 30px;
+}
+
+.form-wrap > .step >.step2 {
+    padding: 70px 5% 50px 5;
+    position: relative;
+    float: left;
+    width: auto;
+    height: auto;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/ico_branch_step02.png") no-repeat;
+    background-size: 50%;
+    background-position-x: 30px;
+}
+
+.form-wrap > .step >.step3 {
+    padding: 70px 5% 50px 5%;
+    position: relative;
+    float: left;
+    width: auto;
+    height: auto;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/ico_branch_step03.png") no-repeat;
+    background-size: 50%;
+    background-position-x: 30px;
+}
+
+.form-wrap > .step >.step4 {
+    padding: 70px 5% 50px 5%;
+    position: relative;
+    float: left;
+    width: auto;
+    height: auto;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/ico_branch_step04.png") no-repeat;
+    background-size: 50%;
+    background-position-x: 30px;
+}
+
+
+    .c_btn {
+        vertical-align: initial;
+        padding: 10px;
+    }
+
+    .c_btn > .btn_regform{
+        margin-top: 20px;
+        position: relative;
+        padding: 12px 10px 10px;
+        width: auto;
+        min-width: 158px;
+        font-size: 1.125rem;
+        height: 48px;
+        line-height: 26px;
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_o3.png") no-repeat 0 0;
+        background-size: 100% 100%;
+        color: #fff;
+    }
+
+    /*팝업창*/
+
+    .popup-wrap > .popup {
+        left: 0;
+        top: 0;
+        background: #fff;
+        position: absolute;
+        max-width: 568px;
+        height: 80%;
+        display: none;
+        overflow: hidden;
+        padding:30px;
+    }
+    
+    .popup-wrap > .popup > .pop_tit{
+        width: 100%;
+    }
+    
+    .agree-cont textarea {
+        width: 90%;
+        height: 100px;
+        resize: none;
+        border: 1px solid #dedede;
+    }
+    
+    .popup{
+        position: relative;
+    }
+    .popup-wrap > .popup > .pop_tit > .btn_close{
+        position: absolute;
+        left:30px;
+        top:20px;
+    }
+    
+    .popup-apply .popup-agree{
+        margin-top: 10px;
+    }
+    .popup-apply .agree-cont textarea{
+        width: 100%;
+    
+    }
+    .popup-apply .btn_regform_full{
+        text-align: center;
+        margin-top: 15px;
+    }
+    
+    .popup-wrap > .popup > .poptxt {
+        /*margin: 30px;*/
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        font-size: 1.25rem;
+    
+    }
+    
+    .poptxt .row + .row{
+        margin-top: 5px;
+    }
+    .poptxt .row input{
+        width: 100%;
+        float: none;
+    }
+    
+    .popup-agree {
+        /*margin: 30px;*/
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        font-size: 0.875rem;
+    }
+    
+    .pop_tit h1 {
+        /*position: absolute;*/
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        border-bottom: 2px #000;
+    }
+    
+    .btn_close {
+        border: none;
+        margin: 5px;
+        outline: none;
+        float: left;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background: url(" https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/reaction/close.png") no-repeat 50%;
+    }
+
+    .popup-wrap {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-wrap>.popup>.poptxt > dl >dt {
+        margin: 0;
+        width: 25%;
+        padding-right: 10px;
+        font-size: 1.125rem;
+    }
+
+    .pop_tit {
+        top: 0;
+        width: 90%;
+        height: 40px;
+        text-align: center;
+        border-bottom: 2px #000;
+    }
+
+    .btn_close {
+        border: none;
+        margin: 5px;
+        outline: none;
+        float: left;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/reaction/close.png") no-repeat 50%;
+    }
+
+    }
+
+    .btn_acc {
+        float: right;
+        position: relative;
+        overflow-x: hidden;
+        width: 30px;
+        height: auto;
+        border: none;
+        outline: none;
+        text-indent: -9999em;
+        background: url("../CS_UI/img/btn_rotate_small.png") no-repeat;
+    }
+
+    .btn_regform_full {
+        display: inline-block;
+        width: 100%;
+        height: 20px;
+        padding: 20px 10px;
+        font-weight: 700;
+        font-size: 1.125rem;
+        color: #fff;
+        text-align: center;
+        background: url("../CS_UI/img/bg_red2.png") no-repeat;
+        background-position-x: center;
+        background-size: auto 100%;
+    }
+
+    .btn_top {
+        position: fixed;
+        right: 20px;
+        bottom: 316px;
+        width: 52px;
+        height: 52px;
+        text-indent: -9999em;
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png") no-repeat 0 0;
+        z-index: 50;
+    }
+
+    

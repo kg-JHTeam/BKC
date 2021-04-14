@@ -1,4 +1,4 @@
-package com.bkc.customerService.notice.vo;
+package com.bkc.customerService.vo;
 
 public class PageMaker {
 
@@ -60,8 +60,7 @@ public class PageMaker {
 	            	sb.append("<li class='page-item'><a class='page-link' href=\"javascript:void(0);\"  ");
 	            	sb.append("onclick=\"goPaging("+page+");\""); 
 	            	sb.append(">Previous</a></li>");      
-	            }
-	            
+	            }	            
 	            
 	            // 페이지 목록 출력
 	            for (int i = 0; i < oneBlockCount; i++) {	

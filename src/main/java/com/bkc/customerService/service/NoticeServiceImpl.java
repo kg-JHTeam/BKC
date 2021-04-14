@@ -1,14 +1,12 @@
-package com.bkc.customerService.notice.service;
+package com.bkc.customerService.service;
 
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bkc.customerService.notice.dao.NoticeDAO;
-import com.bkc.customerService.notice.vo.NoticeVO;
+import com.bkc.customerService.dao.NoticeDAO;
+import com.bkc.customerService.vo.NoticeVO;
 
 @Service
 public class NoticeServiceImpl implements NoticeService{
@@ -25,6 +23,7 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeDao.getNoticeTotalCnt(notice);
 	}
 
+	//
 	@Override
 	public List<NoticeVO> getNoticeList(NoticeVO notice) {
 		return noticeDao.getNoticeList(notice);

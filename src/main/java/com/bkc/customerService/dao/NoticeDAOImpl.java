@@ -1,14 +1,12 @@
-package com.bkc.customerService.notice.dao;
+package com.bkc.customerService.dao;
 
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bkc.customerService.notice.vo.NoticeVO;
+import com.bkc.customerService.vo.NoticeVO;
 
 @Repository
 public class NoticeDAOImpl implements NoticeDAO {

@@ -14,7 +14,6 @@
 		</select>
 	
 
-
 	<select id="getNoticeList"  resultType="NoticeVO">
 	
 	   SELECT *
