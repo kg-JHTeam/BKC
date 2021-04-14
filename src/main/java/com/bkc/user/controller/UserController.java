@@ -35,7 +35,7 @@ public class UserController {
 	// login 처리
 	@RequestMapping(value="/login", method={ RequestMethod.GET, RequestMethod.POST })
 	public String doLogin(@RequestParam(value = "error", required = false) String error,
-			@RequestParam(value = "logout", required = false) String logout, Model model, UserVO vo) {
+			@RequestParam(value = "logout", required = false) String logout, Model model) {
 		if (error != null) {
 			model.addAttribute("errorMsg", "유효하지 않은 회원 입니다.");
 		}
@@ -86,7 +86,6 @@ public class UserController {
 	@RequestMapping("/modifyuser")
 	public String modifyUser(Model model, @Valid UserVO user, BindingResult result) {
 		// @Valid를 통해 자동 객체 검증
-
 		return "modifyuser";
 	}
 
@@ -94,7 +93,15 @@ public class UserController {
 	@RequestMapping("/deleteuser")
 	public String deleteUser(Model model, @Valid UserVO user, BindingResult result) {
 		// 회원 탈퇴 하지만 enabled만 유효하지 않게 설정 1-> 0 유효하지 않은 회원
-
 		return "deleteuser";
 	}
+	
+	//Admin
+	//회원 리스트 출력 
+	@RequestMapping("/getUserList.ad")
+	public String getUserList(Model model) {
+		
+		return "getUserList";
+	}
+	
 }

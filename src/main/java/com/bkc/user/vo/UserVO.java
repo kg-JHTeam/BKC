@@ -1,6 +1,8 @@
 package com.bkc.user.vo;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
@@ -9,19 +11,20 @@ import lombok.ToString;
 
 public class UserVO {
 	@NotEmpty(message="필수정보입니다.")
-	@Size(min=5, max=25, message="이메일 주소를 다시 확인해주세요.")
+	@Email(message="이메일 형식만 가능합니다.") 
 	private String userid;
 	
 	@NotEmpty(message="필수정보입니다.")
-	@Size(min=4, max=60, message="길이가 맞지않아요.")
+	@Pattern(regexp="(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,20}",
+    message = "비밀번호는 영문 대,소문자와 숫자, 특수기호가 적어도 1개 이상씩 포함된 8자 ~ 20자의 비밀번호여야 합니다.")
 	private String password;
 	
 	@NotEmpty(message="필수정보입니다.")
-	@Size(min=2, max=10, message="길이가 맞지않아요.")
+	@Size(min=2, max=10, message="길이가 맞지 않아요.")
 	private String name;
 	
 	@NotEmpty(message="필수정보입니다.")
-	@Size(min=8, max=13,message="휴대폰번호가 올바르지 않습니다.")
+	@Pattern(regexp = "^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$", message="휴대폰번호가 올바르지 않습니다.")
 	private String phone;
 	
 	private boolean sms_agree;
@@ -111,6 +114,4 @@ public class UserVO {
 				+ ", sms_agree=" + sms_agree + ", email_agree=" + email_agree + ", enabled=" + enabled
 				+ ", regist_type=" + regist_type + ", usergrade=" + usergrade + "]";
 	}
-
-	
 }
