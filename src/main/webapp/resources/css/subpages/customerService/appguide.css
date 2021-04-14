@@ -1,0 +1,856 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Do Hyeon', sans-serif;
+
+}
+
+body {
+    min-height: 100%;
+    color: #000;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+li,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+input[type=radio] {
+    position: relative;
+    float: left;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+    color: black;
+    border: none;
+    opacity: 1;
+}
+
+input[type="radio" i] {
+    background-color: initial;
+    cursor: pointer;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0 5px;
+    padding: initial;
+    border: initial;
+}
+
+input[type=text] {
+    float: left;
+    width: auto;
+    height: 40px;
+    margin: 0;
+    padding: 0 25px 3px 0;
+    font-size: 1.25rem;
+    color: #000;
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
+select {
+    overflow: visible !important;
+    display: table-cell;
+}
+
+.rotate {
+    position: relative;
+    outline: 0;
+    width: 25px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_rotate.png") no-repeat 50%;
+    cursor: pointer;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.close {
+    display: block;
+    height: 0;
+}
+
+
+/* 데스크 탑용 CSS*/
+@media(min-width: 766px) {
+
+.web_container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#contents-wrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+.contentsBox > .web_container > .subtitle-wrap {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .page_title {
+    width: 15%;
+    height: auto;
+    padding: 50px 0 45px;
+    margin: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+    position: absolute;
+    right: 30;
+    top: 50%;
+    margin: 0 0 20px;
+    overflow: hidden;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu button {
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 0 0;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0);
+    color: #b8b8b8;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu button:hover {
+    color: #2e2e2e;
+}
+
+.contentsBox > .web_container > .subtitle-wrap .r_option {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-left: 15em;
+    font-size: 1.25rem;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    font-weight: 300;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu .on button {
+    border-width: 0 0 3px 0;
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+
+.contentsBox > .web_container > .tab_content {
+    max-width: 1080px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.tab_content > .app-down >.subtitle-wrap {
+    margin-bottom: 27px;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.tab_content > .app-down >.txt {
+    font-size: 1.1rem;
+}
+
+.tab_content > .app-guide {
+    margin: 30px 0;
+    padding: 0;
+    text-align: center;
+}
+
+.tab_content > .app-guide >.app-down-img > img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+}
+
+.tab_content > .app-down >.store-down {
+    margin-bottom: 30px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.tab_content > .app-down >.store-down >.store_down {
+    position: relative;
+    float: left;
+    width: 60%;
+    height: auto;
+    padding: 80px 150px 0 0;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: left;
+    word-break: break-all;
+}
+
+.tab_content > .app-down >.store-down> .store_down> dd> .btn_area > a {
+    width: 204px;
+    height: 64px;
+    margin: 10px 20px 10px 0;
+    text-indent: -9999em;
+    display: inline-block;
+
+}    
+
+.tab_content > .app-down >.store-down > dl:last-child {
+    position: relative;
+    float: right;
+    width: 40%;
+    height: auto;
+    padding: 80px 0 0;
+    text-align: center;
+    word-break: break-all;
+}
+
+.tab_content > .app-down >.store-down > dl > dt {
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 1.875rem;
+    white-space: nowrap;
+}
+
+.tab_content > .app-down >.store-down > dl > dd > p {
+    max-width: 60%;
+    font-size: 1.25rem;
+}
+
+.tab_content > .app-down >.store-down > dl:last-child > dd > p {
+    max-width: 400px;
+
+}
+
+.tab_content > .app-down >.store-down > dl :last-child >dt {
+    position: absolute;
+    text-align: center;
+    float: right;
+}
+
+.tab_content > .app-down >.store-down> .store_down> dd> .btn_area > a {
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_googleplay.png") no-repeat 0 0;
+}
+
+.tab_content > .app-down >.store-down> .store_down> dd> .btn_area > a:last-child {
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_appstore.png") no-repeat 0 0;
+}
+
+.tab_content > .app-down >.store-down > dl:last-child > dd >.QRcode > img {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.contentsBox > .web_container > .tab_content > .app-down >.app-guide {
+    padding: 50px 0 0;
+}
+
+.tab_content > .app-down >.app-guide> .subtitle-wrap {
+    width: 100%;
+    text-align: left;
+    margin-top: 60px;
+    margin-bottom: 27px;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab_content > .app-down >.app-guide> p {
+    text-align: left;
+    margin-bottom: 50px;
+    position: relative;
+    font-size: 1.25rem;
+}
+
+.tab_content > .app-down >.app-guide>.guide_list>.guide-wrap {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.tab_content > .app-down >.app-guide>.guide_list>.guide-wrap li{
+    display: inline-block;
+    text-align: center;
+    min-width: 21%;
+    padding: 0 3px;
+}
+
+.contentsBox > .web_container > .tab_content > .app-down >.app-guide>.guide_list>li {
+    display: inline-block;
+    min-width: 21%;
+    padding: 0 3px;
+}
+
+.tab_content > .app-down >.app-guide>.guide_list>.delivery, .store_search, .coupon {
+    display: block;
+    width: 218px;
+    height: 90px;
+    margin: 0 auto;
+    padding-top: 135px;
+    font-size: 1.125rem;
+    color: #89513a;
+    text-align: center;
+    line-height: 123%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.tab_content > .app-down >.app-guide>.guide_list>.delivery {
+    background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_appguide_delivery.png");
+}
+
+.tab_content > .app-down >.app-guide>.guide_list>.guide_list>.store_search {
+    background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_appguide_search.png");
+}
+
+.tab_content > .app-down >.app-guide>.guide_list>.guide_list>.guide_list>.coupon {
+    background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/Sbg_appguide_coupon.png");
+}
+
+.app-down >.popup-wrap>.popup-app {
+    margin-left: -250px;
+    left: 50%;
+    top: 5%;
+    background: #fff;
+    position: absolute;
+    width: 500px;
+    height: 90%;
+    display: none;
+    overflow: hidden;
+}
+
+.app-down >.popup-wrap >.popup-app >.popup-app_tit {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    border-bottom: 2px #000;
+}
+
+.app-down >.popup-wrap >.popup-app >.popup-app_tit > h1 {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    border-bottom: 2px #000;
+}
+
+.app-down >.popup-wrap>.popup-app>.popup-tabmenu >ul {
+    top: 50px;
+    position: relative;
+    height: 20px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 18px;
+    background: #000;
+}
+
+.app-down >.popup-wrap>.popup-app>.popup-tabmenu> ul>li {
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    font-weight: 300;
+}
+
+.app-down >.popup-wrap>.popup-app>.popup-tabmenu button {
+    height: 20px;
+    font-size: 1.125rem;
+    border-width: 0 0;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0);
+    color: #fff;
+    white-space: nowrap;
+}
+
+
+.app-down >.popup-wrap>.popup-app>.popup-tabcont {
+    top: 60px;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.app-down >.popup-wrap>.popup-app>.popup-tabcont > div > div > div > img {
+    width: 50%;
+    position: fixed;
+    height: auto;
+    top: 100px;
+}
+
+.app-guide> .web_order_caution>.title-wrap {
+    width: 100%;
+    text-align: left;
+    margin-top: 60px;
+    margin-bottom: 37px;
+    font-size: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid #000;
+}
+
+
+
+.web_order_caution>.subtxt>.subtitle1,
+.web_order_caution>.subtxt>.subtitle2,
+.web_order_caution>.subtxt>.subtitle3 {
+    padding: 0 0 0 12px;
+    text-align: left;
+    font-size: 1.25rem;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.web_order_caution>.subtxt>.txtlist1 li,
+.web_order_caution>.subtxt>.txtlist2 li,
+.web_order_caution>.subtxt>.txtlist3 li {
+    text-align: left;
+    position: relative;
+    padding-left: 12px;
+}
+
+.web_order_caution>.btn_caution {
+    position: relative;
+        outline: 0;
+        width: 25px;
+        height: 20px;
+        border: none;
+        outline: none;
+        background: url(" https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/btn_rotate.png") no-repeat 50%;
+        cursor: pointer;
+}
+
+}
+
+/*모바일용*/
+@media all and (max-width: 765px) {
+
+    #location-wrap {
+        display: none!important;
+    }
+
+    #location-wrap .web_container,
+    .page_navi {
+        display: none;
+        text-align: center;
+    }
+
+    .web_container {
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap > .page_title {
+        margin: 15px;
+        text-align: center;
+        line-height: 100%;
+        font-size: 1.5rem;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap {
+        position: relative;
+        margin-bottom: 28px;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin: 40px 0 20px;
+        overflow-x: auto;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on > .tabmenu > ul {
+        width: 100%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu > li {
+        position: absolute;
+        width: 16.666%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu a > *,
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu button > * {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .tabmenu button {
+        height: 35px;
+        font-size: 1.125rem;
+        border-width: 0 0;
+        outline: 0;
+        background-color: rgba(255, 255, 255, 0);
+        color: #b8b8b8;
+        white-space: nowrap;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap >.tabmenu button:hover {
+        color: #2e2e2e;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .r_option {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-left: 15em;
+        font-size: 1.25rem;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li {
+        position: relative;
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li.on button {
+        border-width: 0 0 3px 0;
+        color: #e22219;
+        border-bottom-color: #e22219;
+    }
+
+    .hide {
+        position: absolute!important;
+        left: -10000px;
+        top: -10000px;
+        visibility: hidden;
+    }
+
+    .contentsBox > .web_container > .tab_content >.app-down {
+        margin: 30px 0;
+        padding: 34px 0;
+        text-align: center;
+    }
+
+    .contentsBox > .web_container > .tab_content >.app-down > h4 {
+        font-size: 2rem;
+    }
+
+    .tab_content > .app-down > .app-down-img > img {
+        max-width: 100%;
+        max-height: auto;
+        vertical-align: top;
+    }
+
+    .tab_content > .app-down >.store-down {
+        width: auto;
+        height: auto;
+        margin-bottom: 30px;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .app-down >.store-down> .store_down> dd> .btn_area {
+        width: auto;
+        height: auto;
+        margin: 0;
+        position: relative;
+    }
+
+    .app-down >.store-down> .store_down> dd> .btn_area > a {
+        width: 204px;
+        height: 70px;
+        position: relative;
+        margin: 0 5px;
+        text-indent: -9999em;
+        display: inline-block;
+    }
+
+    .tab_content > .app-down >.store-down > .store_down {
+        position: relative;
+        float: none;
+        width: 100%;
+        min-height: 140px;
+        padding: 24px 0 16px;
+        -webkit-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        word-break: break-all;
+    }
+
+    .tab_content > .app-down >.store-down > dl > .store_down {
+        padding-right: 0;
+    }
+
+    .tab_content > .app-down >.store-down > dl > .store-down > dl:last-child {
+        position: relative;
+        float: none;
+        width: 100%;
+        min-height: 140px;
+        padding: 24px 0 16px;
+        -webkit-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        word-break: break-all;
+    }
+
+    .tab_content > .app-down >.store-down > dl > dt {
+        margin: 0;
+        padding: 0;
+        display: block;
+        margin-bottom: 30px;
+        font-weight: 700;
+        font-size: 1.875rem;
+        white-space: nowrap;
+    }
+
+    .tab_content > .app-down > .store-down dl:last-child dt {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        margin: 30px 0;
+        font-weight: 700;
+        font-size: 1.875rem;
+        white-space: nowrap;
+    }
+
+    .tab_content > .app-down > .store-down > dl > dd > p {
+        margin-bottom: 30px;
+    }
+
+    .tab_content > .app-down >.store-down> .store_down> dd> .btn_area > a  {
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_googleplay.png") no-repeat 0 0;
+    }
+    .tab_content > .app-down >.store-down> .store_down> dd> .btn_area > a:last-child {
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_appstore.png") no-repeat 0 0;
+    }
+
+    .app-down > .store-down > dl :last-child > dt {
+        position: absolute;
+        text-align: center;
+        float: right;
+    }
+
+    .app-down >.store-down>.WEB > .QRcode >img {
+        display: inline-block;
+        position: relative;
+        width: 80%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .app-down > .app-guide {
+        padding: 0;
+    }
+
+    .app-down >.app-guide >.subtitle-wrap {
+        width: 100%;
+        margin-top: 60px;
+        margin-bottom: 27px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .app-down >.app-guide> h4{
+        font-size: 2rem;
+    }
+
+    .app-down >.app-guide>.txt {
+        float: left;
+        margin-bottom: 50px;
+        position: relative;
+        font-size: 1.25rem;
+    }
+
+    .app-guide > .guide_list  li {
+        display: inline-block;
+        min-width: 31%;
+        padding: 0 3px;
+    }
+
+    .app-guide > .guide_list  a {
+        display: block;
+        width: 218px;
+        height: 90px;
+        margin: 0 auto;
+        padding-top: 135px;
+        font-size: 1.125rem;
+        color: #89513a;
+        text-align: center;
+        line-height: 123%;
+        background-repeat: no-repeat;
+        background-position: top;
+    }
+
+    .guide_list .delivery {
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_appguide_delivery_mobile.png");
+    }
+
+    .guide_list .store_search {
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_appguide_search_mobile.png");
+    }
+
+    .guide_list .coupon {
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_appguide_coupon_mobile.png");
+    }
+
+    .app-down > .popup-wrap {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .app-down > .popup-wrap > .popup-app {
+        margin-left: -250px;
+        left: 50%;
+        top: 5%;
+        background: #fff;
+        position: absolute;
+        width: 500px;
+        height: 90%;
+        display: none;
+        overflow: hidden;
+    }
+
+    .app-down > .popup-wrap > .popup-app > .popup-app_tit {
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        text-align: center;
+        border-bottom: 2px #000;
+    }
+
+    .app-down > .popup-wrap > .popup-app > .popup-app_tit h1 {
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        text-align: center;
+        border-bottom: 2px #000;
+    }
+
+    .app-down > .popup-wrap > .popup-app >.popup-tabmenu ul {
+        top: 50px;
+        position: relative;
+        height: 20px;
+        padding: 10px 0;
+        color: #fff;
+        line-height: 18px;
+        background: #000;
+    }
+
+    .app-down > .popup-wrap > .popup-app >.popup-tabmenu ul li {
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
+        font-weight: 300;
+    }
+
+    .app-down > .popup-wrap > .popup-app > .popup-tabmenu button {
+        height: 20px;
+        font-size: 1.125rem;
+        border-width: 0 0;
+        outline: 0;
+        background-color: rgba(255, 255, 255, 0);
+        color: #fff;
+        white-space: nowrap;
+    }
+
+    .app-down > .popup-wrap > .popup-app > .popup-tabcont {
+        top: 60px;
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .app-guide > .web_order_caution > .title-wrap {
+        width: 100%;
+        text-align: left;
+        margin-top: 60px;
+        margin-bottom: 37px;
+        font-size: 2rem;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 2px solid #000;
+    }
+
+    .app-guide > .web_order_caution > .subtxt {
+        display: none;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+    .app-guide > .web_order_caution > .subtxt > .subtitle1,
+    .app-guide > .web_order_caution > .subtxt > .subtitle2,
+    .app-guide > .web_order_caution > .subtxt > .subtitle3 {
+        text-align: left;
+        font-size: 1.25rem;
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .app-guide > .web_order_caution > .subtxt > .txtlist1 li,
+    .app-guide > .web_order_caution > .subtxt > .txtlist2 li,
+    .app-guide > .web_order_caution > .subtxt > .txtlist3 li {
+        text-align: left;
+        position: relative;
+        padding-left: 12px;
+    }
+
+    .btn_caution {
+        position: relative;
+            outline: 0;
+            width: 25px;
+            height: 20px;
+            border: none;
+            outline: none;
+            background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/btn_rotate.png") no-repeat 50%;
+            cursor: pointer;
+    }
+}
+

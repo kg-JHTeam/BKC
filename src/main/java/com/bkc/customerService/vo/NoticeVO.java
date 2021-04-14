@@ -1,4 +1,4 @@
-package com.bkc.customerService.notice.vo;
+package com.bkc.customerService.vo;
 
 import java.sql.Timestamp;
 

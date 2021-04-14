@@ -1,0 +1,487 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Do Hyeon', sans-serif;
+
+}
+
+body {
+    min-height: 100%;
+    color: #000;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+li,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+input[type=radio] {
+    position: relative;
+    float: left;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+    color: black;
+    border: none;
+    opacity: 1;
+}
+
+input[type="radio" i] {
+    background-color: initial;
+    cursor: pointer;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0 5px;
+    padding: initial;
+    border: initial;
+}
+
+input[type=text] {
+    float: left;
+    width: auto;
+    height: 40px;
+    margin: 0;
+    padding: 0 25px 3px 0;
+    font-size: 1.25rem;
+    color: #000;
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
+select {
+    overflow: visible !important;
+    display: table-cell;
+}
+
+.rotate {
+    position: relative;
+    outline: 0;
+    width: 25px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_rotate.png") no-repeat 50%;
+    cursor: pointer;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.close {
+    display: block;
+    height: 0;
+}
+
+
+/* 데스크 탑용 CSS*/
+@media(min-width: 766px) {
+
+.web_container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#contents-wrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+.contentsBox > .web_container > .subtitle-wrap {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .page_title {
+    width: 15%;
+    height: auto;
+    padding: 50px 0 45px;
+    margin: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+    position: absolute;
+    right: 30;
+    top: 50%;
+    margin: 0 0 20px;
+    overflow: hidden;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu button {
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 0 0;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0);
+    color: #b8b8b8;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu button:hover {
+    color: #2e2e2e;
+}
+
+.contentsBox > .web_container > .subtitle-wrap .r_option {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-left: 15em;
+    font-size: 1.25rem;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    font-weight: 300;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu .on button {
+    border-width: 0 0 3px 0;
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+
+.contentsBox > .web_container > .tab_content {
+    max-width: 1080px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.faq >.faq_category {
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.faq >.faq_category>.btn_switch {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.faq >.faq_category>.btn_switch input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.faq >.faq_category>.btn_switch input+* {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    padding: 5px 10px;
+    font-size: 1.25rem;
+    color: #fff;
+    text-align: center;
+    line-height: 38px;
+    background: #8d8d8d;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.faq>.faq_category>.btn_switch input:checked+* {
+    background: #2e2e2e;
+}
+
+.faq > .faq-wrap {
+    /*position: absolute;*/
+    width: 100%;
+    /*height: auto;*/
+}
+
+.faqlist {
+    padding: 10px;
+    position: absolute;
+    width: 1080px;
+    height: auto;
+}
+
+.faqlist >.faq-title {
+    width: 90%;
+    text-align: left;
+}
+
+.faqlist> .faq-title >p:first-child {
+    width: auto;
+    position: relative;
+    color: #b8b8b8;
+}
+
+.faqlist> .faq-title > p:last-child {
+    float: left;
+    width: 90%;
+    color: #000;
+}
+
+.faqlist >.faq-title> .btn_faq {
+    float: right;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: none;
+    outline: none;
+    text-indent: -9999em;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_rotate.png") no-repeat 50%;
+}
+
+.faqlist >.faqtxt {
+    margin-top: 20px;
+    padding: 2px;
+    background-color: whitesmoke;
+    display: none;
+    width: 90%;
+    height: 64px;
+    float: left;
+}
+
+.faqlist >.faqtxt > p {
+    text-align: left;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+}
+
+/*모바일용*/
+@media all and (max-width: 765px) {
+
+    #location-wrap {
+        display: none!important;
+    }
+
+    #location-wrap .web_container,
+    .page_navi {
+        display: none;
+        text-align: center;
+    }
+
+    .web_container {
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap > .page_title {
+        margin: 15px;
+        text-align: center;
+        line-height: 100%;
+        font-size: 1.5rem;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap {
+        position: relative;
+        margin-bottom: 28px;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin: 40px 0 20px;
+        overflow-x: auto;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on > .tabmenu > ul {
+        width: 100%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu > li {
+        position: absolute;
+        width: 16.666%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu a > *,
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu button > * {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .tabmenu button {
+        height: 35px;
+        font-size: 1.125rem;
+        border-width: 0 0;
+        outline: 0;
+        background-color: rgba(255, 255, 255, 0);
+        color: #b8b8b8;
+        white-space: nowrap;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap >.tabmenu button:hover {
+        color: #2e2e2e;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .r_option {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-left: 15em;
+        font-size: 1.25rem;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li {
+        position: relative;
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li.on button {
+        border-width: 0 0 3px 0;
+        color: #e22219;
+        border-bottom-color: #e22219;
+    }
+
+    .hide {
+        position: absolute!important;
+        left: -10000px;
+        top: -10000px;
+        visibility: hidden;
+    }
+
+    .faq_category {
+        width: 100%;
+        margin-bottom: 24px;
+        overflow: hidden;
+    }
+
+    .faq_category label {
+        float: left;
+        width: 31%;
+        margin: 0 1% 6px;
+    }
+
+    .btn_switch {
+        width: 32%;
+        height: auto;
+        display: inline-block;
+        font-size: 0.5rem;
+        font-weight: 300;
+        cursor: pointer;
+    }
+
+    .btn_switch input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    .btn_switch input+* {
+        display: inline-block;
+        width: 100%;
+        height: auto;
+        padding: 5px 10px;
+        font-size: 1rem;
+        color: #fff;
+        text-align: center;
+        line-height: 38px;
+        background: #8d8d8d;
+        border-radius: 5px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .btn_switch input:checked+* {
+        background: #2e2e2e;
+    }
+
+    .faq-wrap {
+        position: absolute;
+        width: 100%;
+    }
+
+    .faq-wrap .faqlist {
+        position: absolute;
+        width: 100%;
+        height: auto;
+    }
+
+    .faq-wrap .faq-title {
+        width: 90%;
+        text-align: left;
+    }
+
+    .faq-wrap .faq-title p:first-child {
+        width: 80%;
+        position: relative;
+        color: #b8b8b8;
+    }
+
+    .faq-title p:last-child {
+        float: left;
+        width: 90%;
+        color: #000;
+    }
+
+    .btn_faq {
+        float: right;
+        position: relative;
+        overflow-x: hidden;
+        width: 20px;
+        height: 20px;
+        border: none;
+        outline: none;
+        text-indent: -9999em;
+        background: url(" https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/btn_rotate.png") no-repeat 50%;
+    }
+
+    .faqtxt {
+        margin-top: 20px;
+        padding: 2px;
+        background-color: whitesmoke;
+        display: none;
+        width: 90%;
+        height: 64px;
+        float: left;
+        height: auto;
+    }
+
+    .faqtxt p {
+        text-align: left;
+        font-size: 1.1rem;
+        color: #000;
+    }
+
+    
+}
+

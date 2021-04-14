@@ -4,7 +4,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.bkc.user.vo.UserVO" alias="UserVO" />
-		<typeAlias type="com.bkc.customerService.notice.vo.NoticeVO" alias="NoticeVO" />
+		<typeAlias type="com.bkc.customerService.vo.NoticeVO" alias="NoticeVO" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

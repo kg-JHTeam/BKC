@@ -1,4 +1,4 @@
-package com.bkc.customerService.notice.controller;
+package com.bkc.customerService.controller;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bkc.customerService.notice.service.NoticeService;
-import com.bkc.customerService.notice.vo.NoticeVO;
-import com.bkc.customerService.notice.vo.PageMaker;
-import com.bkc.customerService.notice.vo.SearchVO;
+import com.bkc.customerService.service.NoticeService;
+import com.bkc.customerService.vo.NoticeVO;
+import com.bkc.customerService.vo.PageMaker;
+import com.bkc.customerService.vo.SearchVO;
 
 @Controller
 @RequestMapping(value = "/customerService")

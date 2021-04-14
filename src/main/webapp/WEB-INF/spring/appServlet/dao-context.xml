@@ -45,7 +45,7 @@
   		<property name="sqlSession" ref="sqlSession" />
 	</bean>
 	
-	<bean id="noticeDao" class="com.bkc.customerService.notice.dao.NoticeDAOImpl">
+	<bean id="noticeDao" class="com.bkc.customerService.dao.NoticeDAOImpl">
 		<property name="sqlSession" ref="sqlSession" />
 	</bean>
 	

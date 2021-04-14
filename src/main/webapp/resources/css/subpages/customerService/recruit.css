@@ -1,0 +1,350 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Do Hyeon', sans-serif;
+
+}
+
+body {
+    min-height: 100%;
+    color: #000;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+li,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+input[type=radio] {
+    position: relative;
+    float: left;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+    color: black;
+    border: none;
+    opacity: 1;
+}
+
+input[type="radio" i] {
+    background-color: initial;
+    cursor: pointer;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0 5px;
+    padding: initial;
+    border: initial;
+}
+
+input[type=text] {
+    float: left;
+    width: auto;
+    height: 40px;
+    margin: 0;
+    padding: 0 25px 3px 0;
+    font-size: 1.25rem;
+    color: #000;
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
+select {
+    overflow: visible !important;
+    display: table-cell;
+}
+
+.rotate {
+    position: relative;
+    outline: 0;
+    width: 25px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_rotate.png") no-repeat 50%;
+    cursor: pointer;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.close {
+    display: block;
+    height: 0;
+}
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png") no-repeat 0 0;
+    z-index: 50;
+}
+
+
+/* 데스크 탑용 CSS*/
+@media(min-width: 766px) {
+
+.web_container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#contents-wrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+.contentsBox > .web_container > .subtitle-wrap {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .page_title {
+    width: 15%;
+    height: auto;
+    padding: 50px 0 45px;
+    margin: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+    position: absolute;
+    right: 30;
+    top: 50%;
+    margin: 0 0 20px;
+    overflow: hidden;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu button {
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 0 0;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0);
+    color: #b8b8b8;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu button:hover {
+    color: #2e2e2e;
+}
+
+.contentsBox > .web_container > .subtitle-wrap .r_option {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-left: 15em;
+    font-size: 1.25rem;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    font-weight: 300;
+}
+
+.contentsBox > .web_container > .subtitle-wrap > .tabmenu .on button {
+    border-width: 0 0 3px 0;
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+
+.contentsBox > .web_container > .tab_content {
+    max-width: 1080px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.tab_content > .app-down >.subtitle-wrap {
+    margin-bottom: 27px;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+
+.recruit-wrap {
+    max-width: 100%;
+    height: auto;
+    padding: 0 0 0 50%;
+    margin-top: 40px;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/emlpoyment.png") no-repeat;
+    background-position: 50% left;
+    background-size: 50% auto;
+    word-wrap: normal;
+    word-break: keep-all;
+    position: relative;
+    text-align: center;
+}
+
+.recruit-wrap > .msgbox > h5 {
+    font-size: 3rem;
+}
+
+.recruit-wrap > .msgbox > p {
+    width: 100%;
+    height: 47%;
+    font-size: 1.5rem;
+}
+
+
+}
+
+/*모바일용*/
+@media all and (max-width: 765px) {
+
+    #location-wrap {
+        display: none!important;
+    }
+
+    #location-wrap .web_container,
+    .page_navi {
+        display: none;
+        text-align: center;
+    }
+
+    .web_container {
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap > .page_title {
+        margin: 15px;
+        text-align: center;
+        line-height: 100%;
+        font-size: 1.5rem;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap {
+        position: relative;
+        margin-bottom: 28px;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin: 40px 0 20px;
+        overflow-x: auto;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on > .tabmenu > ul {
+        width: 100%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu > li {
+        position: absolute;
+        width: 16.666%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu a > *,
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu button > * {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .tabmenu button {
+        height: 35px;
+        font-size: 1.125rem;
+        border-width: 0 0;
+        outline: 0;
+        background-color: rgba(255, 255, 255, 0);
+        color: #b8b8b8;
+        white-space: nowrap;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap >.tabmenu button:hover {
+        color: #2e2e2e;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .r_option {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-left: 15em;
+        font-size: 1.25rem;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li {
+        position: relative;
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li.on button {
+        border-width: 0 0 3px 0;
+        color: #e22219;
+        border-bottom-color: #e22219;
+    }
+
+    .recruit-wrap {
+        max-width: 100%;
+        height: auto;
+        padding: 0 16px 60%;
+        margin-top: 40px;
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/emlpoyment.png") no-repeat;
+        background-position: 50% bottom;
+        background-size: 70% auto;
+        word-wrap: normal;
+        word-break: keep-all;
+        position: relative;
+        text-align: center;
+    }
+
+    .msgbox > h5 {
+        font-size: 2.5rem;
+    }
+
+    .recruit_status > img {
+        height: 50px;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+   
+    
+}
+
