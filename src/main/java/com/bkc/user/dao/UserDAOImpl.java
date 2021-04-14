@@ -1,19 +1,9 @@
 package com.bkc.user.dao;
 
-import java.io.InputStream;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.sql.DataSource;
-import javax.validation.Valid;
 
 import org.apache.ibatis.session.SqlSession;
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.bkc.user.vo.UserVO;
@@ -36,10 +26,11 @@ public class UserDAOImpl implements UserDAO {
 	public List<UserVO> getManagerUserList(UserVO user) {
 		return sqlSession.selectList("getManagerUserList", user);
 	}
-
+	
+	//회원 리스트 출력
 	@Override
-	public List<UserVO> getUserList(UserVO user) {
-		return sqlSession.selectList("getUserList", user);
+	public List<UserVO> getUserList() {
+		return sqlSession.selectList("getUserList");
 	}
 	
 	//회원가입
