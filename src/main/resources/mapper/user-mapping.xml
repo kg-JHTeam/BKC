@@ -34,7 +34,12 @@
 	
 	<select id="getUserList" resultType="UserVO">
 		<![CDATA[
-		SELECT * FROM usermember  
+		SELECT * FROM usermember WHERE usergrade = 3 
+		]]>
+	</select>
+	<select id="getNonUserList" resultType="UserVO">
+		<![CDATA[
+		SELECT * FROM usermember WHERE regist_type = 0
 		]]>
 	</select>
 	

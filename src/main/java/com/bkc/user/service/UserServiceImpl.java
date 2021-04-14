@@ -28,9 +28,15 @@ public class UserServiceImpl implements UserService{
 	public List<UserVO> getUserList() {
 		return userDao.getUserList();
 	}
+	//매장관리자 조회
 	@Override
 	public List<UserVO> getManagerUserList() {
 		return userDao.getManagerUserList();
+	}
+	//비회원 조회
+	@Override
+	public List<UserVO> getNonUserList() {
+		return userDao.getNonUserList();	
 	}
 	//회원가입
 	public boolean insert(UserVO user) {
@@ -67,6 +73,5 @@ public class UserServiceImpl implements UserService{
 	public void updatePasswd(UserVO vo) {
 		
 	}
-
 	
 }

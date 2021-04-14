@@ -17,17 +17,23 @@ public class UserDAOImpl implements UserDAO {
 	   this.sqlSession = sqlSession;
 	}
 	
-	@Override
-	public List<UserVO> getManagerUserList() {
-		return sqlSession.selectList("getManagerUserList");
-	}
-	
-	//회원 리스트 출력
+	// 회원 리스트 출력
 	@Override
 	public List<UserVO> getUserList() {
 		return sqlSession.selectList("getUserList");
 	}
 	
+	// 매장 관리자 출력
+	@Override
+	public List<UserVO> getManagerUserList() {
+		return sqlSession.selectList("getManagerUserList");
+	}
+	
+	// 비회원 출력
+	@Override
+	public List<UserVO> getNonUserList() {
+		return sqlSession.selectList("getNonUserList");
+	}
 	//회원가입
 	@Override
 	public boolean insertUser(UserVO user) {
@@ -47,4 +53,6 @@ public class UserDAOImpl implements UserDAO {
 	public UserVO passwdCheck(UserVO vo) {
 		return sqlSession.selectOne("UserDAO.passwdCheck", vo);
 	}
+
+	
 }
