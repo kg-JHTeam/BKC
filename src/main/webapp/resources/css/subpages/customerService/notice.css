@@ -1,0 +1,384 @@
+@charset "utf-8";
+
+
+
+.close {
+    display: block;
+    height: 0;
+}
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png") no-repeat 0 0;
+    z-index: 50;
+}
+
+
+/* 데스크 탑용 CSS*/
+
+@media(min-width: 766px) {
+	.contentsBox01 {
+    	padding: 50px 0 45px;
+	}
+
+    .web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+    }
+    
+    .locationWrap {
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+    margin: 100px 0 0 0;
+    }
+    
+    
+	.locationWrap .story_web_container {
+		overflow: hidden;
+	}
+	.locationWrap a {
+		color: #fff;
+	}
+	.page_navi>* {
+		float: left;
+	}
+	.page_navi {
+		float: left;
+		font-size: 1.1rem;
+	}
+	
+	#contents-wrap {
+	top: 57.6px;
+        min-height: 450px;
+        margin: 0 auto;
+    }
+
+    .contentsBox> .web_container >.subtitle-wrap {
+        position: relative-top;
+        margin-bottom: 28px;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap > .page_title {
+    	top: 157.6px;
+        width: 15%;
+        height: auto;
+        padding: 50px 0 45px;
+        margin: 15px;
+        font-size: 2.5rem;
+        line-height: 100%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+        position: absolute;
+        right: 200px;
+        margin: 0 0 20px;
+        overflow: hidden;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .tabmenu button {
+        height: 35px;
+        font-size: 1.125rem;
+        border-width: 0 0;
+        outline: 0;
+        background-color: rgba(255, 255, 255, 0);
+        color: #b8b8b8;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap >.tabmenu button:hover {
+        color: #2e2e2e;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .r_option {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-left: 15em;
+        font-size: 1.25rem;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu > ul > li {
+        position: relative;
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
+        font-weight: 300;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu > .on button {
+        border-width: 0 0 3px 0;
+        color: #e22219;
+        border-bottom-color: #e22219;
+    }
+
+    .contentsBox > .web_container > .tab_content {
+        max-width: 1080px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on >.search-wrap {
+        margin: 30px 0;
+        padding: 34px 50px;
+        text-align: center;
+        background: #f2ebe6;
+    }
+    
+    .contentsBox > .web_container > .tab_content> .on >.search-wrap>.search-wrap2 {
+        width: 100%;
+        text-align: center;
+        height: 66px;
+        padding: 10px;
+    }
+    .contentsBox > .web_container > .tab_content> .on >.search-wrap>.search-wrap2>.searchbox {
+        display: inline-block;
+        min-height: 100%;
+        width: 504px;
+        margin: 0;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on >.search-wrap>.search-wrap2>.searchbox .search-txt {
+        width: 90%;
+        height: 54px;
+        line-height: 50px;
+        margin: 0 15pt;
+        border: 0;
+        outline: 0;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on >.search-wrap>.search-wrap2 .btn_search{
+        width: 54px;
+        content: "";
+        height: 54px;
+        left: 68%;
+        top: 219px;
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_search.png") no-repeat 50%;
+        border: 0;
+        outline: 0;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on>.board_list {
+        padding-bottom: 75px;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on>.board_list>.tablelist1 {
+        width: 100%;
+        height: auto;
+        padding: 0 20px;
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+        table-layout: fixed;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on>.board_list> .tablelist1 thead tr {
+        background: #fafafa;
+        border: 0 solid #000;
+        border-width: 2px 0;
+        border-bottom-color: #e5e5e5;
+    }
+
+    .tab_content> .on>.board_list>.tablelist1 tbody td,
+    .tab_content> .on>.board_list>.tablelist1 tbody th {
+        height: 56px;
+        padding: 10px;
+        font-size: 1.125rem;
+        text-align: center;
+        vertical-align: middle;
+        
+    }
+    
+    .board_paging {
+    	text-align: center;
+    	width: 50%;
+    	height: 30px;
+    	display: table;
+    }
+    
+    .board_paging > li {
+   		display: table-cell;
+    }
+
+}
+
+
+/*모바일용*/
+@media all and (max-width: 765px) {
+
+    #locationWrap_WEB {
+        display: none!important;
+    }
+
+    #location-wrap .web_container,
+    .page_navi {
+        display: none;
+        text-align: center;
+    }
+
+    .web_container {
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap > .page_title {
+        margin: 15px;
+        text-align: center;
+        line-height: 100%;
+        font-size: 1.5rem;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap {
+        position: relative;
+        margin-bottom: 28px;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin: 40px 0 20px;
+        overflow-x: auto;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on > .tabmenu > ul {
+        width: 100%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu > li {
+        position: absolute;
+        width: 16.666%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu a > *,
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu button > * {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .tabmenu button {
+        height: 35px;
+        font-size: 1.125rem;
+        border-width: 0 0;
+        outline: 0;
+        background-color: rgba(255, 255, 255, 0);
+        color: #b8b8b8;
+        white-space: nowrap;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap >.tabmenu button:hover {
+        color: #2e2e2e;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .r_option {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-left: 15em;
+        font-size: 1.25rem;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li {
+        position: relative;
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li.on button {
+        border-width: 0 0 3px 0;
+        color: #e22219;
+        border-bottom-color: #e22219;
+    }
+
+    .hide {
+        position: absolute!important;
+        left: -10000px;
+        top: -10000px;
+        visibility: hidden;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on >.search-wrap {
+    	position: relative;
+        margin: 0 0 30px;
+        padding: 10px;
+        text-align: center;
+        background: #f2ebe6;
+    }
+    .contentsBox > .web_container > .tab_content> .on >.search-wrap > .search-wrap2 {
+        width: 100%;
+        height: 66px;
+        text-align: center;
+
+    }
+    .contentsBox > .web_container > .tab_content> .on >.search-wrap > .search-wrap2 > .searchbox {
+        width: 60%;
+        display: inline-block;
+        min-height: 100%;
+        margin: 0;
+        display: table-cell;
+    }
+
+    .tab_content> .on >.search-wrap > .search-wrap2 > .searchbox,
+    .tab_content> .on >.search-wrap > .search-wrap2 >.search-txt {
+        width: 330px;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on >.search-wrap>.search-wrap2>.searchbox .search-txt {
+        left:50%;
+        margin-left: -165px;
+        width: 330px;
+        text-align: center;
+        height: 50px;
+        border: 0;
+        outline: 0;
+        margin: 10px;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on >.search-wrap > .search-wrap2 > .btn_search {
+        width: 54px;
+        position: fixed;
+        left: 396px;
+        top: 185px;
+        height: 54px;
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_search.png") no-repeat 50%;
+        border: 0;
+        outline: 0;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on> .board_list {
+        padding-bottom: 75px;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on>.board_list> .tablelist1 thead tr {
+        background: #fafafa;
+        border: 0 solid #000;
+        border-width: 2px 0;
+        border-bottom-color: #e5e5e5;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on>.board_list>.tablelist1 {
+        width: 100%;
+        height: auto;
+        padding: 0 20px;
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+        table-layout: fixed;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on>.board_list>.tablelist1 tbody td,
+    .contentsBox > .web_container > .tab_content> .on>.board_list>.tablelist1 tbody th {
+        height: 56px;
+        padding: 10px;
+        font-size: 1.125rem;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+}
