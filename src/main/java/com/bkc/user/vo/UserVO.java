@@ -13,7 +13,7 @@ public class UserVO {
 	private String userid;
 	
 	@NotEmpty(message="필수정보입니다.")
-	@Size(min=4, max=8, message="길이가 맞지않아요.")
+	@Size(min=4, max=60, message="길이가 맞지않아요.")
 	private String password;
 	
 	@NotEmpty(message="필수정보입니다.")

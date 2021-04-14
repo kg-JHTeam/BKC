@@ -5,8 +5,10 @@ import javax.validation.Valid;
 import com.bkc.user.vo.UserVO;
 
 public interface UserService {
+	
 	//회원 조회
 	public UserVO selectOne(String userid);
+	
 	//회원 가입
 	public boolean insert(@Valid UserVO user);
 	
@@ -15,9 +17,6 @@ public interface UserService {
 	
 	//회원 삭제 -> enabled 만 1->0으로 변경
 	public void delete(@Valid UserVO user);
-	
-	//로그인 	-> 시큐리티에서 구현됨.
-	//로그아웃 	-> 시큐리티에서 구현됨.
 	
 	//비밀번호 체크 
 	public UserVO passwdCheck(UserVO vo);
