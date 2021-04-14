@@ -45,6 +45,10 @@
   		<property name="sqlSession" ref="sqlSession" />
 	</bean>
 	
+	<bean id="noticeDao" class="com.bkc.customerService.notice.dao.NoticeDAOImpl">
+		<property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
 	<context:component-scan base-package="com.bkc.*"></context:component-scan>
 
 </beans>
