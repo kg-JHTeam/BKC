@@ -25,7 +25,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">매장관리자 리스트 </a>
+                                    <a class="nav-link" href="${contextPath}/admin/userManagerlist.ad">매장관리자 리스트 </a>
                                     <a class="nav-link" href="${contextPath}/admin/userlist.ad">회원 리스트</a>
                                     <a class="nav-link" href="#">비회원 리스트</a>
                                     <a class="nav-link" href="#">탈퇴회원 리스트</a>

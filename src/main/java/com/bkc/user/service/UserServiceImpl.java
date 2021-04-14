@@ -28,7 +28,10 @@ public class UserServiceImpl implements UserService{
 	public List<UserVO> getUserList() {
 		return userDao.getUserList();
 	}
-
+	@Override
+	public List<UserVO> getManagerUserList() {
+		return userDao.getManagerUserList();
+	}
 	//회원가입
 	public boolean insert(UserVO user) {
 		System.out.println("암호화 전 비밀번호  : " + user.getPassword());   
