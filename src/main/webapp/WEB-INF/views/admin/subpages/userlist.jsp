@@ -12,41 +12,15 @@
         <title>BKC 홈페이지 관리자 페이지 </title>
     </head>
     <body class="sb-nav-fixed">
-        <<!-- firstHeader -->
+    	<!-- firstHeader -->
         <jsp:include page="../include/firstHeader.jsp"/>
-        
         <div id="layoutSidenav">
-            <!-- secondHeader -->
+        	<!-- secondHeader -->
             <jsp:include page="../include/secondHeader.jsp"/>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                        <!-- 매출 현황 -->
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area mr-1"></i>
-                                        	월별 매출 현황
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar mr-1"></i>
-                                       	 월별 매출 현황
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                        </div>
-                        
+                        <h1 class="mt-4">회원 리스트 </h1>
                         <!-- 회원 리스트  -->
                         <div class="card mb-4">
                             <div class="card-header">
@@ -77,6 +51,7 @@
                                             </tr>
                                         </tfoot>
                                         <tbody>
+                                        
                                             <tr>
                                                 <td>Tiger Nixon</td>
                                                 <td>System Architect</td>
@@ -141,6 +116,7 @@
                                                 <td>2010/10/14</td>
                                                 <td>$327,900</td>
                                             </tr>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -148,31 +124,20 @@
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                
+                <!-- firstHeader -->
+        		<jsp:include page="../include/footer.jsp"/>
             </div>
         </div>
+        
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="${contextPath }/resources/js/admin/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-       
         <script src="${contextPath }/resources/assets/demo/chart-area-demo.js"></script>
         <script src="${contextPath }/resources/assets/demo/chart-bar-demo.js"></script>
-        
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        
         <script src="${contextPath }/resources/assets/demo/datatables-demo.js"></script>
     </body>
 </html>

@@ -32,6 +32,15 @@
 <script src="${contextPath}/resources/js/delivery/delivery.js"></script>
 <script src="${contextPath}/resources/js/delivery/joindetail/joindetail.js"></script>
 
+	<script>
+	function checkPhoneError(){
+		var message= '<sf:errors path="phone" class="error" />' + '\n';
+	    if (msg.length > 0 ) {
+	    	 alert(message);
+	    }
+	}
+    </script>
+
 <title>회원가입</title>
 </head>
 <body>
@@ -68,11 +77,12 @@
             <div class="cont_division">
                 <ul class="write_base">
                     <li class="item must">
-                        <sf:input class="control" type="text" path="userid" maxlength="20" style="ime-mode:disabled" autocapitalize="off" autocomplete="off" placeholder="아이디 (이메일 형식)"/>
+                        <sf:input class="control" type="text" path="userid" maxlength="40" style="ime-mode:disabled" autocapitalize="off" autocomplete="off" placeholder="아이디 (이메일 형식)"/>
                         <sf:errors path="userid" class="error"/><br>
                     </li>
                     <li class="item must">
-                        <sf:password class="control" path="password" autocapitalize="off" maxlength="16" autocomplete="off" placeholder="비밀번호 (8~16자리 영문 대소문자, 숫자, 특수문자 중 3가지 이상 조합 )"/>
+                        <sf:password class="control" path="password" autocapitalize="off" maxlength="16" autocomplete="off" 
+                        placeholder="비밀번호 (8자 ~20자리 영문 대소문자와 숫자,특수기호가 적어도 1개 이상 조합 )"/>
                         <sf:errors path="password" class="error"/><br>
                     </li>
                 </ul>
@@ -97,7 +107,7 @@
                         <li class="certi_list item must" id="phone_certi_list">
                             <div class="input_collect item">
                                 <label for="sms_cellnum" class="tit_inp fullsize_input except">연락처</label> 
-                                <sf:input class="control" type="text" path="phone" placeholder="'-' 없이 입력"/>
+                                <sf:input class="control" type="text" path="phone" placeholder="'-' 없이 입력" onblur="checkPhoneError();"/>
                         		<sf:errors path="phone" class="error" /><br>
                             </div>
                             <button type="button" class="btn_back btn_cert_pop" data-popupid="layer_pop_byphone"><span>인증</span></button>
@@ -168,7 +178,7 @@
         </ul>
     </div>
     	<div class="btn_join">
-    		<input type="submit" value="회원가입 완료"  id="btn_submit" class="inp_join"/>
+    		<input type="submit" value="회원가입 완료"  id="btn_submit" class="inp_join" />
         </div>
     </sf:form>	<!-- form 태그 끝 -->
     </div>
