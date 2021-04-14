@@ -18,13 +18,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
-	public List<UserVO> getAdminUserList(UserVO user) {
-		return sqlSession.selectList("getAdminUserList", user);
-	}
-
-	@Override
-	public List<UserVO> getManagerUserList(UserVO user) {
-		return sqlSession.selectList("getManagerUserList", user);
+	public List<UserVO> getManagerUserList() {
+		return sqlSession.selectList("getManagerUserList");
 	}
 	
 	//회원 리스트 출력
