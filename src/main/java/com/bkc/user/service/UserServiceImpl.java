@@ -5,9 +5,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.bkc.subpages.controller.CustomerServiceController;
 import com.bkc.user.dao.UserDAO;
 import com.bkc.user.vo.UserVO;
 
@@ -19,7 +21,7 @@ public class UserServiceImpl implements UserService{
 	private UserDAO userDao;
 	
 	@Inject
-    private PasswordEncoder passwordEncoder;
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	//회원 조회 
 	@Override
@@ -33,11 +35,11 @@ public class UserServiceImpl implements UserService{
 	
 	//회원가입
 	public boolean insert(UserVO user) {
-		//암호화 로직 수행 
+		System.out.println("암호화 전 비밀번호  : " + user.getPassword());   
+		//BCryptPasswordEncoder로 암호화 로직 수행 
         String encPassword = passwordEncoder.encode(user.getPassword()); //비밀번호 암호화 수행.
-        user.setPassword(encPassword);	//비밀번호 암호화 시켜서 넣기.
-        System.out.println("암호화된 비밀번호 : "+user.getPassword());	//검사
-        
+        user.setPassword(encPassword.trim());	//비밀번호 암호화 시켜서 넣기.
+        System.out.println("암호화된 비밀번호 : " + user.getPassword());	//검사
         return userDao.insertUser(user);
 	}
 

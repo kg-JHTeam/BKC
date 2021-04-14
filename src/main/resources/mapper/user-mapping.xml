@@ -20,7 +20,6 @@
 		]]>
 	</select>
 	
-	
 	<select id="getAdminUserList" resultType="UserVO">
 		<![CDATA[
 		SELECT * FROM usermember WHERE usergrade = 1 
@@ -32,6 +31,7 @@
 		SELECT * FROM usermember WHERE usergrade = 2  
 		]]>
 	</select>
+	
 	<select id="getUserList" resultType="UserVO">
 		<![CDATA[
 		SELECT * FROM usermember  

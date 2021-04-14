@@ -6,6 +6,7 @@
 		<typeAlias type="com.bkc.user.vo.UserVO" alias="UserVO" />
 		<typeAlias type="com.bkc.customerService.notice.vo.NoticeVO" alias="NoticeVO" />
 	</typeAliases>
+	
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />

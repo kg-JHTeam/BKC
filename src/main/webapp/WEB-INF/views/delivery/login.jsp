@@ -48,7 +48,7 @@
                 </h2>
                 
                 <!-- default login -->
-                <form class="login_container" method="post" action="<c:url value='login.do'/>" id="loginForm">
+                <form class="login_container" method="post" action="<c:url value='login'/>" id="loginForm">
                 <!-- 로그인 로직 수행 구현 필요 -->
 		           
                     <div class="login">

@@ -15,7 +15,7 @@
 	<!-- bcrypt 비밀번호 암호화 -->
 	<beans:bean id="bcryptPasswordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-
+		
 	<authentication-manager>
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
@@ -27,11 +27,11 @@
 				 	 WHEN USERGRADE='03' THEN 'ROLE_USER'
 				END authority 
 				FROM usermember WHERE USERID =?" />
+				
 				<!-- 로그인 시 비밀번호를 암호화해서 DB에서 조회한 비밀번호와 비교  -->
-			<password-encoder ref="bcryptPasswordEncoder" />
+				<password-encoder ref="bcryptPasswordEncoder" />
 		</authentication-provider>
 	</authentication-manager>
-
 	<http auto-config="true" use-expressions="true">
 		<!-- 세션 관리 -->
 		<session-management>
@@ -54,18 +54,12 @@
 
 		<!-- 통합 로그인 페이지 -->
 		<form-login login-page="/login"
-			authentication-failure-url="/login.do?error" 
+			authentication-failure-url="/login?error" 
 			username-parameter="userid"
-			password-parameter="userpw" />
+			password-parameter="password"
+		/>
 
 		<!-- 로그아웃 -->
 		<logout invalidate-session="true" />
-
-		<!-- 
-	     ## 로그인 이후 URL을 통해 관리자 페이지로 가는 형식
-		 admin.ad : 홈페이지관리자 
-		 admin.mdo : 매장관리자
-		  -->
-
 	</http>
 </beans:beans>
