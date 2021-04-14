@@ -67,7 +67,6 @@
 											<th>이름</th>
 											<th>핸드폰번호</th>
 											<th>회원/비회원 정보</th>
-											<th>회원등급</th>
 											<th>이메일 동의여부</th>
 											<th>SNS 동의여부</th>
 											<th>탈퇴/휴면 여부</th>
@@ -79,16 +78,12 @@
 												<td><c:out value="${user.userid}"/></td>
 												<td>${user.name}</td>
 												<td>${user.phone}</td>
-												<td>${user.regist_type}</td>
 												<td><c:choose>
-														<c:when test="${user.usergrade eq 1 }">
-															홈페이지 관리자
-														</c:when>
-														<c:when test="${user.usergrade eq 2 }">
-															매장 관리자
+														<c:when test="${user.regist_type eq 1 }">
+															회원
 														</c:when>
 														<c:otherwise>
-															회원
+															비회원
 														</c:otherwise>
 													</c:choose></td>
 												<td><c:choose>

@@ -27,9 +27,9 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="${contextPath}/admin/userManagerlist.ad">매장관리자 리스트 </a>
                                     <a class="nav-link" href="${contextPath}/admin/userlist.ad">회원 리스트</a>
-                                    <a class="nav-link" href="#">비회원 리스트</a>
-                                    <a class="nav-link" href="#">탈퇴회원 리스트</a>
-                                    <a class="nav-link" href="#">휴면회원 리스트</a>
+                                    <a class="nav-link" href="${contextPath}/admin/userNonlist.ad">비회원 리스트</a>
+                                    <a class="nav-link" href="${contextPath}/admin/userSignoutList.ad">탈퇴회원 리스트</a>
+                                    <a class="nav-link" href="${contextPath}/admin/userDormantlist.ad">휴면회원 리스트</a>
                                     <a class="nav-link" href="#">e-mail 관리</a>
                                     <a class="nav-link" href="#">SMS 관리</a>
                                 </nav>

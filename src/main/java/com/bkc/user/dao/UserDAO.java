@@ -20,7 +20,9 @@ public interface UserDAO {
 
 	// 매장 관리자 회원 조회
 	public List<UserVO> getManagerUserList();
-
+	
+	// 비회원 조회
+	public List<UserVO> getNonUserList();
 	// 로그인 및 시큐리티 관련
 	// 비밀번호 찾기
 	public UserVO passwdCheck(UserVO vo);
