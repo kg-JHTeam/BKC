@@ -23,19 +23,16 @@ public class UserServiceImpl implements UserService{
 	@Inject
 	private BCryptPasswordEncoder passwordEncoder;
 	
-	//회원 조회 
+	//회원조회 - Admin
 	@Override
-	public UserVO selectOne(String userid) {
-		return null;
+	public List<UserVO> getUserList() {
+		return userDao.getUserList();
 	}
-	
-	public List<UserVO> getUserList(UserVO user) {
-		return userDao.getUserList(user);
-	}
-	
+
 	//회원가입
 	public boolean insert(UserVO user) {
 		System.out.println("암호화 전 비밀번호  : " + user.getPassword());   
+		
 		//BCryptPasswordEncoder로 암호화 로직 수행 
         String encPassword = passwordEncoder.encode(user.getPassword()); //비밀번호 암호화 수행.
         user.setPassword(encPassword.trim());	//비밀번호 암호화 시켜서 넣기.
@@ -67,4 +64,6 @@ public class UserServiceImpl implements UserService{
 	public void updatePasswd(UserVO vo) {
 		
 	}
+
+	
 }

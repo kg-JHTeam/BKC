@@ -1,13 +1,15 @@
 package com.bkc.user.service;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import com.bkc.user.vo.UserVO;
 
 public interface UserService {
 	
-	//회원 조회
-	public UserVO selectOne(String userid);
+	//전체 회원 조회
+	public List<UserVO> getUserList();
 	
 	//회원 가입
 	public boolean insert(@Valid UserVO user);
