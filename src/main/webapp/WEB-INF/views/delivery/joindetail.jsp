@@ -23,6 +23,8 @@
 	href="${contextPath}/resources/css/include/delivery-gnb.css">
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/delivery/join.css">
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/delivery/joindetail.css">
 	
 <!-- 추가 -->
 <link href="${contextPath}/resources/css/delivery/joindetail.css" media="all" rel="stylesheet" type="text/css" >
@@ -67,7 +69,7 @@
     <!-- s: 개인회원 -->
 	<div id="member_personal" class="member_cate">
 	<!-- form 시작  -->
-    <sf:form method="post" action="${pageContext.request.contextPath}/joinuser" modelAttribute="user">
+    <sf:form method="post" action="${pageContext.request.contextPath}/joinuser" modelAttribute="user" id="smsForm">
             <!-- Default 값 들어감 -->
             <sf:hidden path="enabled" value="1"/>
             <sf:hidden path="regist_type" value="1"/>
@@ -110,7 +112,7 @@
                                 <sf:input class="control" type="text" path="phone" placeholder="'-' 없이 입력" onblur="checkPhoneError();"/>
                         		<sf:errors path="phone" class="error" /><br>
                             </div>
-                            <button type="button" class="btn_back btn_cert_pop" data-popupid="layer_pop_byphone"><span>인증</span></button>
+                            <button type="button" onclick="sendSMS('sendSms')" class="btn_back btn_cert_pop" data-popupid="layer_pop_byphone"><span>인증</span></button>
                         </li>
                         <li class="item must">
                             <label class="tit_inp">이름</label>
@@ -180,6 +182,71 @@
     	<div class="btn_join">
     		<input type="submit" value="회원가입 완료"  id="btn_submit" class="inp_join" />
         </div>
+        
+        
+     <!-- 팝업 될 레이어 --> 
+     <div class="modal"> 
+         <div class="modal-content"> 
+             <span class="close-button">&times;</span> 
+             <h1 class="title">인증번호 확인</h1> 
+               <label for="email"><p class="txt" id="sms_layer_sub_title" name="sms_layer_sub_title">010-6313-5712로 인증번호가 발송되었습니다.<br>카카오톡으로 전달받은 인증번호를 입력해주세요.<br>(실패 시 SMS 전송)</p>
+        </label> 
+        <table class="tbl_fieldset">
+            <caption></caption>
+            <colgroup>
+                <col style="width:130px;">
+                <col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <th>인증번호</th>
+                <td>
+                    <input type="text" id="sms_code" name="sms_code" value="" class="sri_input" style="width:96px;">
+                    <button type="button" class="btn_basic_type04 confirm-action person">확인</button>
+                    <span class="expiredin" id="confirm_remain_sms_time_area" name="confirm_remain_sms_time_area"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table><!-- 
+               <textarea name="message" placeholder="Test Message" required="required"></textarea> -->
+               <div class="bottom_btn_wrap">
+              
+               <input type="button" id="cancel" value="인증번호 재발송"> 
+               <input type="button" id="cancel" value="인증번호 완료"> 
+            </div> 
+         </div> 
+     </div>
+     <script>
+    function sendSMS(pageName){
+
+        console.log("문자를 전송합니다.");
+        $("#smsForm").attr("action", pageName + ".do"); //위에 있는 폼태그를 컨트롤러로 전송한다.
+        $("#smsForm").submit();
+        
+         var modal = document.querySelector(".modal"); 
+         var trigger = document.querySelector(".btn_cert_pop"); 
+         var closeButton = document.querySelector(".close-button"); 
+         var cancelButton = document.querySelector("#cancel");
+
+        console.log(modal);
+
+        function toggleModal() { 
+             modal.classList.toggle("show-modal"); 
+
+         }
+
+        function windowOnClick(event) { 
+             if (event.target === modal) { 
+                 toggleModal(); 
+             } 
+         }
+         trigger.addEventListener("click", toggleModal); 
+         closeButton.addEventListener("click", toggleModal); 
+         cancel.addEventListener("click", toggleModal); 
+         window.addEventListener("click", windowOnClick); 
+
+    }
+     </script>
     </sf:form>	<!-- form 태그 끝 -->
     </div>
 </div>
