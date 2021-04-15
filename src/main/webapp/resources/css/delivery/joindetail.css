@@ -817,200 +817,107 @@ a.btn_basic_type05{padding:6px 13px 8px;box-sizing:border-box}
 .area_social_login.social_apple .txt:before {background-position:-80px 0}
 
 
-
-
 /* 휴대폰 인증 팝업 */
 
-     body{ 
-         text-align: left; 
-         display: block; 
-         margin: 0 auto; 
-         font-size: 16px; 
-         color: #999; 
-     } 
-     h1{ 
-         font-family: 'Oswald', sans-serif; 
-         font-size: 30px; 
-         color: #216182; 
-         text-align: left;
-     } 
-     #sms_layer_sub_title {
-     	text-align: center;
-     	padding: 19px 0;
+.modal {
+    text-align: left;
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal > .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px 1.5rem;
+    width: 500px;
+    height: 350px;
+    border-radius: 0.5rem;
+}
+.modal > .modal-content > .close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+.modal > .modal-content > .close-button:hover {
+    background-color: darkgray;
+}
+.modal > .modal-content > .title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    color: #216182;
+    text-align: left;
+}
+.modal > .modal-content > .txt {
+    text-align: center;
+    padding: 19px 0;
     min-height: 87px;
     border: 1px solid #eaeaea;
     box-sizing: border-box;
     background-color: #f8f8f8;
-     }
-     label { 
-         display: block; 
-         margin-top: 20px; 
-         letter-spacing: 2px; 
-     } 
-     form { 
-         margin: 0 auto; 
-         width: 459px; 
-     } 
-     button {
-     	position: absolute;
-     }
-     input, textarea { 
-         width: 439px; 
-         height: 27px; 
-         background-color: #efefef; 
-         border-radius: 6px; 
-         border: 1px solid #dedede; 
-         padding: 10px; 
-         margin-top: 3px; 
-         font-size: 0.9em; 
-         color: #3a3a3a; 
-     } 
-         input:focus, textarea:focus{ 
-             border: 1px solid #97d6eb; 
-         } 
-     
-     textarea{ 
-         height: 60px; 
-         background-color: #efefef; 
-     } 
-     #submit{ 
-         width: 127px; 
-         height: 48px; 
-         text-align: center; 
-         border: none; 
-         margin-top: 20px; 
-         cursor: pointer; 
-     } 
-     #submit:hover{ 
-         color: #fff; 
-         background-color: #216282; 
-         opacity: 0.9; 
-     } 
-     #cancel { 
-         width: 127px; height: 48px; 
-         text-align: center; 
-         border: none; 
-         margin-top: 20px; 
-         cursor: pointer; 
-     } 
-     #cancel:hover{ 
-         color: #fff; 
-         background-color: #216282; 
-         opacity: 0.9; 
-     }
+    display: block;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+.modal > .modal-content > .bottom_btn_wrap > #submit {
+    width: 127px;
+    height: 48px;
+    text-align: center;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.modal > .modal-content > .bottom_btn_wrap > #submit:hover {
+    color: #fff;
+    background-color: #216282;
+    opacity: 0.9;
+}
+.modal > .modal-content > .bottom_btn_wrap > #cancel {
+    width: 127px;
+    height: 48px;
+    text-align: center;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.modal > .modal-content > .bottom_btn_wrap > #cancel:hover {
+    color: #fff;
+    background-color: #216282;
+    opacity: 0.9;
+}
 
-    .modal { 
-         position: fixed; 
-         left: 0; 
-         top: 0; 
-         width: 100%; 
-         height: 100%; 
-         background-color: rgba(0, 0, 0, 0.5); 
-         opacity: 0; 
-         visibility: hidden; 
-         transform: scale(1.1); 
-         transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s; 
-     } 
-     .modal-content { 
-         position: absolute; 
-         top: 50%; 
-         left: 50%; 
-         transform: translate(-50%, -50%); 
-         background-color: white; 
-         padding: 30px 1.5rem; 
-         width: 500px; 
-         height: 350px; 
-         border-radius: 0.5rem; 
-     } 
-     .bottom_btn_wrap {
+.modal > .modal-content > .bottom_btn_wrap {
     text-align: center;
     margin-top: 10px;
 }
-     .close-button { 
-         float: right; 
-         width: 1.5rem; 
-         line-height: 1.5rem; 
-         text-align: left; 
-         cursor: pointer; 
-         border-radius: 0.25rem; 
-         background-color: lightgray; 
-     } 
-     .close-button:hover { 
-         background-color: darkgray; 
-     } 
-     .show-modal { 
-         opacity: 1; 
-         visibility: visible; 
-         transform: scale(1.0); 
-         transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; 
-     } 
-    
-.layer_identify.open {
-    display: block;
-}
-.layer_identify {
-    box-sizing: border-box;
-    padding: 35px 30px 30px;
-    width: 456px;
-    border: 1px solid #444;
-    margin-left: -228px;
-    position: absolute;
-    top: 300px;
-    left: 50%;
-    box-shadow: 0 1px 1px 1px rgba(0,0,0,0.12);
-    background: #fff;
-    z-index: 999;
-}
-.layer_identify h4 {
-    margin-top: 0px;
-    margin-bottom: 12px;
-    color: #444;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: left;
-    letter-spacing: -1px;
-}
-.layer_identify .btn_layer_close {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 17px;
-    height: 17px;
-    border: 0 none;
-    background: url("12.PNG") no-repeat 50% 50%;
-}
-.layer_identify .box_txt_identify {
-    /* padding: 19px 0; */
-    min-height: 87px;
-    border: 1px solid #eaeaea;
-    box-sizing: border-box;
-    background-color: #f8f8f8;
-}
-.layer_identify .box_txt_identify .txt {
-    font-size: 14px;
-    color: #444;
-    line-height: 22px;
-    letter-spacing: -1px;
-    text-align: center;
-}
-.tbl_fieldset button, input {
-    vertical-align: middle;
-}.tbl_fieldset {
+.modal > .modal-content > .tbl_fieldset {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
     border-bottom: #eaeaea 1px solid;
     margin-top: 15px;
-}.layer_identify .alert_txt {
-    font-size: 12px;
-    margin-top: 6px;
-    margin-bottom: 0;
-}.layer_identify .bottom_btn_wrap {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 0;
-}.tbl_fieldset th {
-    padding: 9px 0px 9px 20px;
+}
+.modal > .modal-content > .tbl_fieldset th {
+    padding: 9px 0 9px 20px;
     border-top: #eaeaea 1px solid;
     background: #f7f7f7;
     color: #666;
@@ -1019,14 +926,15 @@ a.btn_basic_type05{padding:6px 13px 8px;box-sizing:border-box}
     font-weight: normal;
     letter-spacing: -1px;
 }
-.tbl_fieldset td {
-    padding: 9px 0px 9px 15px;
+.modal > .modal-content > .tbl_fieldset td {
+    padding: 9px 0 9px 15px;
     border-top: #eaeaea 1px solid;
     background: #fff;
     color: #444;
     text-align: left;
-    font-size: 0px;
-}.btn_basic_type04 {
+    font-size: 0;
+}
+.modal > .modal-content > .tbl_fieldset > .btn_basic_type04 {
     display: inline-block;
     height: 32px;
     padding: 5px 13px 9px;
@@ -1038,44 +946,5 @@ a.btn_basic_type05{padding:6px 13px 8px;box-sizing:border-box}
     font-size: 13px;
     letter-spacing: -1px;
     vertical-align: top;
-}
-.sri_input[type='text'] {
-    height: 32px;
-    padding: 0 11px 1px 11px;
-    box-sizing: border-box;
-    border: 1px solid #dbdbdb;
-    margin-right: 6px;
-    line-height: 28px;
-    background: #fff;
-    color: #444;
-    vertical-align: middle;
-    font-size: 13px;
-}.layer_identify .bottom_btn_wrap button:first-child, .layer_identify .bottom_btn_wrap a:first-child {
-    margin-left: 0;
-}
-.layer_identify .bottom_btn_wrap button, .layer_identify .bottom_btn_wrap a {
-    margin-left: 5px;
-}
-.btn_basic_type01 {
-    display: inline-block;
-    height: 32px;
-    padding: 5px 13px 9px;
-    border: 1px solid #ababab;
-    box-sizing: border-box;
-    background-color: #fff;
-    color: #444;
-    font-size: 13px;
-    letter-spacing: -1px;
-    vertical-align: top;
-}.btn_basic_type05 {
-    display: inline-block;
-    height: 32px;
-    padding: 5px 13px 9px;
-    border: 1px solid #5f75eb;
-    box-sizing: border-box;
-    background-color: #6b80f1;
-    color: #fff;
-    font-size: 13px;
-    letter-spacing: -1px;
-    vertical-align: top;
+    position: absolute;
 }
