@@ -14,5 +14,8 @@ public interface BannerService {
 
 	// 배너 상세 출력
 	public BannerVO getBanner(int seq); //seq받아서 출력 
+
+	// 사용중인 배너 조회
+	public List<BannerVO> getBannerUsedList();
 	
 }

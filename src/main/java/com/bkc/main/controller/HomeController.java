@@ -32,7 +32,7 @@ public class HomeController {
 	public String home(HttpServletRequest request, Model model) {
 		
 		//배너 추가
-		List<BannerVO> banners =  bannerService.getBannerList();
+		List<BannerVO> banners =  bannerService.getBannerUsedList();
 		model.addAttribute("banners", banners);
 		
 		//접속관련 로그 정보 입력
