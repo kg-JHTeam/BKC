@@ -47,7 +47,7 @@
 </head>
 <body>
 	<div id="wrap">
-		<!-- join desktop header -->
+ 		<!-- join desktop header -->
 		<jsp:include page="../include/header/delivery_desktop_header.jsp" />
 		<!-- desktop join page -->
 		<!--navigation bar-->
@@ -212,16 +212,16 @@
                <div class="bottom_btn_wrap">
               
                <input type="button" id="cancel" value="인증번호 재발송"> 
-               <input type="button" id="submit" value="인증번호 완료"> 
+               <input type="button" id="cancel" value="인증번호 완료"> 
             </div> 
          </div> 
      </div>
      <script>
     function sendSMS(pageName){
 
-        //console.log("문자를 전송합니다.");
-        //$("#smsForm").attr("action", pageName + ".do"); //위에 있는 폼태그를 컨트롤러로 전송한다.
-        //$("#smsForm").submit();
+        console.log("문자를 전송합니다.");
+        $("#smsForm").attr("action", pageName + ".do"); //위에 있는 폼태그를 컨트롤러로 전송한다.
+        $("#smsForm").submit();
         
          var modal = document.querySelector(".modal"); 
          var trigger = document.querySelector(".btn_cert_pop"); 

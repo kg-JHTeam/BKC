@@ -60,6 +60,7 @@ public class UserController {
 		return "delivery/joindetail";
 	}
 
+	
 	// 회원 가입
 	@RequestMapping(value = "/joinuser", method = { RequestMethod.GET, RequestMethod.POST })
 	public String createUser(Model model, @ModelAttribute("user") @Valid UserVO user, BindingResult result) {
@@ -94,14 +95,6 @@ public class UserController {
 	public String deleteUser(Model model, @Valid UserVO user, BindingResult result) {
 		// 회원 탈퇴 하지만 enabled만 유효하지 않게 설정 1-> 0 유효하지 않은 회원
 		return "deleteuser";
-	}
-	
-	//Admin
-	//회원 리스트 출력 
-	@RequestMapping("/getUserList.ad")
-	public String getUserList(Model model) {
-		
-		return "getUserList";
 	}
 	
 }

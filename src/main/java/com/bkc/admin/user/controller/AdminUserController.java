@@ -22,7 +22,7 @@ public class AdminUserController {
 	public String showUsers(Model model) {
 		List<UserVO> users = userService.getUserList();
 		model.addAttribute("users", users);
-		return "admin/subpages/userlist";
+		return "admin/subpages/user/userlist";
 	}
 
 	//매장관리자 리스트 출력
@@ -30,7 +30,7 @@ public class AdminUserController {
 	public String showManagerUsers(Model model) {
 		List<UserVO> users = userService.getManagerUserList();
 		model.addAttribute("users", users);
-		return "admin/subpages/managerlist";
+		return "admin/subpages/user/managerlist";
 	}
 
 	//비회원 리스트 출력
@@ -38,7 +38,7 @@ public class AdminUserController {
 	public String showNonUsers(Model model) {
 		List<UserVO> users = userService.getNonUserList();
 		model.addAttribute("users", users);
-		return "admin/subpages/nonUserlist";
+		return "admin/subpages/user/nonUserlist";
 	}
 
 	//탈퇴회원 리스트 출력
@@ -46,7 +46,7 @@ public class AdminUserController {
 	public String showSignoutUsers(Model model) {
 		List<UserVO> users = userService.getManagerUserList();
 		model.addAttribute("users", users);
-		return "admin/subpages/managerlist";
+		return "admin/subpages/user/managerlist";
 	}
 
 	//휴면회원 리스트 출력
@@ -54,6 +54,6 @@ public class AdminUserController {
 	public String showDormantUsers(Model model) {
 		List<UserVO> users = userService.getManagerUserList();
 		model.addAttribute("users", users);
-		return "admin/subpages/managerlist";
+		return "admin/subpages/user/managerlist";
 	}
 }
