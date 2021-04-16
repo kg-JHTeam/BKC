@@ -9,7 +9,12 @@
 	</resultMap>
 	<select id="getBannerList" resultType="BannerVO">
 		<![CDATA[
-			SELECT * FROM banner  
+			SELECT * FROM banner 
+		]]>
+	</select>
+	<select id="getBannerUsedList" resultType="BannerVO">
+		<![CDATA[
+			SELECT * FROM banner where use_status = 'true'
 		]]>
 	</select>
 	<select id="getBanner" resultType="BannerVO">

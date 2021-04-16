@@ -16,13 +16,20 @@ public class BannerServiceImpl implements BannerService{
 	
 	@Override
 	public List<BannerVO> getBannerList() {
-		System.out.println("bannerService.getBannerList()");
 		return bannerDao.getBannerList();
 	}
 
 	@Override
+	public List<BannerVO> getBannerUsedList() {
+		return bannerDao.getBannerUsedList();
+	}
+	
+	@Override
 	public BannerVO getBanner(int seq) {
-		System.out.println("bannerService.getBanner(String seq)");
 		return bannerDao.getBanner(seq);
 	}
+
+	
+
+	
 }
