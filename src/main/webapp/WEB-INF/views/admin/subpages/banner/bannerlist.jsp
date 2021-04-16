@@ -50,7 +50,7 @@
 											<th>아이디값</th>
 											<th>제목</th>
 											<th>이미지(이미지를 클릭하면 자세히 볼 수 있습니다.)</th>
-											<th>사용여부(O/X)</th>
+											<th>사용여부</th>
 											<th>수정</th>
 											<th>삭제</th>
 										</tr>
@@ -68,10 +68,10 @@
 												<td>
 													<c:choose>
 														<c:when test="${banner.use_status eq true }">
-															O
+															<input class="btn btn-info" type="button" value="사용중"/>
 														</c:when>
 														<c:otherwise>
-															X
+															<input class="btn btn-danger" type="button" value="미사용중"/>
 														</c:otherwise>
 													</c:choose>
 												</td>
