@@ -99,10 +99,10 @@
                                 </a>
                             </div>
                             <div class="login_menu">
-                                <a href="#">
+                                <a href="${contextPath}/userfind">
                                     <span>아이디 찾기</span>
                                 </a>
-                                <a href="#">
+                                <a href="${contextPath}/userfind">
                                     <span>비밀번호 찾기</span>
                                 </a>
                             </div>
