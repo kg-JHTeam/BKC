@@ -10,11 +10,13 @@ public interface UserService {
 	
 	//전체 회원 조회
 	public List<UserVO> getUserList();
+	
 	//비회원 조회
 	public List<UserVO> getNonUserList();
 	
 	//매장관리자 회원 조회
 	public List<UserVO> getManagerUserList();
+	
 	//회원 가입
 	public boolean insert(@Valid UserVO user);
 	

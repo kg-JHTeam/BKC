@@ -136,7 +136,6 @@ public class PageMaker {
 		 double retVal = Math.ceil(_totalPage / this.oneBlockCount);
 		 System.out.println("토탈 블럭 :"+retVal);
 		 return (int)(retVal);       
-	 }
-	    
+		}
 
-}
+	}
