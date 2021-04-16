@@ -60,6 +60,13 @@ public class UserController {
 		return "delivery/joindetail";
 	}
 
+	// 아이디 & 비밀번호 찾기 페이지로 이동
+	@RequestMapping(value = "/userfind", method = { RequestMethod.GET, RequestMethod.POST })
+	public String userfind() {
+		System.out.println("아이디 & 비밀번호 찾기 페이지 이동");
+		return "delivery/userfind";
+	}
+	
 	// 회원 가입
 	@RequestMapping(value = "/joinuser", method = { RequestMethod.GET, RequestMethod.POST })
 	public String createUser(Model model, @ModelAttribute("user") @Valid UserVO user, BindingResult result) {
