@@ -20,4 +20,9 @@ public class BannerDAOImpl implements BannerDAO {
 		return sqlSession.selectList("getBannerList");
 	}
 
+	@Override
+	public BannerVO getBanner(int seq) {
+		return sqlSession.selectOne("getBanner", seq);
+	}
+
 }

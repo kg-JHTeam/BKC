@@ -62,7 +62,7 @@
 												<td>${banner.title}</td>
 												<td id="bannerimgCol">
 													<a href="${banner.path}" target="_blank" >
-														<img src="${banner.path}" alt="이미지" id="bannerimg"/>
+														<img src="${banner.path}" alt="이미지" id="bannerimg" class="img-responsive center-block"/>
 													</a>
 												</td>
 												<td>
@@ -76,7 +76,7 @@
 													</c:choose>
 												</td>
 												<td>
-													<input class="btn btn-primary" type="button" value="수정">
+													<input class="btn btn-primary" type="button" value="수정" onClick="location.href='${contextPath}/admin/bannerDetail.ad?seq=${banner.img_seq}'"/>
 												</td>
 												<td>
 													<input class="btn btn-danger" type="button" value="삭제">

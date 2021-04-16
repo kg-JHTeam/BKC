@@ -56,8 +56,7 @@
 		<form-login login-page="/login"
 			authentication-failure-url="/login?error" 
 			username-parameter="userid"
-			password-parameter="password"
-		/>
+			password-parameter="password"/>
 
 		<!-- 로그아웃 -->
 		<logout invalidate-session="true" />

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -40,12 +42,9 @@
         <div class="imgslide-zone">
             <div class="slide">
                 <ul class="slider autoplay">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner1.png">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner2.png">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner3.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner4.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner5.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner6.png">
+                	<c:forEach var="banner" items="${banners}">
+                		<img src="${banner.path}"/>
+                	</c:forEach>
                 </ul>
             </div>
         </div>
@@ -139,12 +138,9 @@
         <div class="m-imgslide-zone">
             <div class="slide">
                 <ul class="slider autoplay">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner1.png">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner2.png">
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner3.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner4.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner5.png">
-                	<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/main_banner6.png">
+                	<c:forEach var="banner" items="${banners}">
+                		<img src="${banner.path}"/>
+                	</c:forEach>
                 </ul>
             </div>
         </div>

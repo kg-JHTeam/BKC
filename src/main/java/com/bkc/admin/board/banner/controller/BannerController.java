@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bkc.admin.board.banner.service.BannerService;
 import com.bkc.admin.board.banner.vo.BannerVO;
@@ -32,4 +33,30 @@ public class BannerController {
 		return "admin/subpages/banner/bannerlist";
 	}
 	
+	//배너 상세 출력
+	@RequestMapping(value = "/admin/bannerDetail.ad", method = RequestMethod.GET)
+	public String showBanner(Model model, @RequestParam("seq") int seq) {
+		BannerVO banner = bannerService.getBanner(seq);
+		
+		System.out.println("seq : " + seq  );
+		System.out.println("banner : " + banner.toString());
+		
+		model.addAttribute("banner", banner);
+		
+		return "admin/subpages/banner/bannerContent";
+	}
+	
+	//배너 수정 
+	@RequestMapping(value = "/admin/modifyBanner.ad", method = RequestMethod.GET)
+	public String modifyBanner(Model model, 
+			@RequestParam("seq") int seq) {
+		BannerVO banner = bannerService.getBanner(seq);
+		
+		System.out.println("seq : " + seq  );
+		System.out.println("banner : " + banner.toString());
+		
+		model.addAttribute("banner", banner);
+		
+		return "admin/subpages/banner/bannerContent";
+	}
 }

@@ -13,4 +13,7 @@ public interface BannerDAO {
 	//배너 리스트 조회 
 	public List<BannerVO> getBannerList();
 
+	//배너 상세 조회
+	public BannerVO getBanner(int seq);
+
 }
