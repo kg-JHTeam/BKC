@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bkc.admin.board.banner.service.BannerService;
 import com.bkc.admin.board.banner.vo.BannerVO;
-import com.bkc.user.vo.UserVO;
-
 
 @Controller
 public class BannerController {
@@ -23,6 +21,13 @@ public class BannerController {
 	@RequestMapping(value = "/admin/bannerlist.ad", method = RequestMethod.GET)
 	public String showBannerList(Model model) {
 		List<BannerVO> banners =  bannerService.getBannerList();
+		
+		/*
+		for(int i=0; i<banners.size(); i++) {
+			BannerVO banner = banners.get(i);
+			System.out.println(banner.toString());
+		}*/
+		
 		model.addAttribute("banners", banners);
 		return "admin/subpages/banner/bannerlist";
 	}
