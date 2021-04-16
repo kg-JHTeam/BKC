@@ -1,4 +1,4 @@
-package com.bkc.user.controller.sms;
+package com.bkc.user.sms;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -26,7 +26,7 @@ public class SMSController {
         String api_key = "NCSGGM7FUQCUJQMR"; //위에서 받은 api key를 추가
         String api_secret = "5PENVLCAQYEN4ZTLNQRO3BGXYRFICZJL";  //위에서 받은 api secret를 추가
 
-        com.bkc.user.controller.sms.Coolsms coolsms = new com.bkc.user.controller.sms.Coolsms(api_key, api_secret);
+        com.bkc.user.sms.Coolsms coolsms = new com.bkc.user.sms.Coolsms(api_key, api_secret);
         //이 부분은 홈페이지에서 받은 자바파일을 추가한다음 그 클래스를 import해야 쓸 수 있는 클래스이다.
         
 

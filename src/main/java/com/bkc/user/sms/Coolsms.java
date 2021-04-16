@@ -1,4 +1,4 @@
-package com.bkc.user.controller.sms;
+package com.bkc.user.sms;
 
 import java.util.HashMap;
 import java.util.Properties;
