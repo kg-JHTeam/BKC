@@ -1,4 +1,4 @@
-package com.bkc.user.controller.sms;
+package com.bkc.user.sms;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
