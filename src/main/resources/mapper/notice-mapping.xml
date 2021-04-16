@@ -15,7 +15,6 @@
 	
 
 	<select id="getNoticeList"  resultType="NoticeVO">
-	
 	   SELECT *
 	   FROM(
 				SELECT A.*,

@@ -16,6 +16,7 @@ public class BannerServiceImpl implements BannerService{
 	
 	@Override
 	public List<BannerVO> getBannerList() {
+		System.out.println("bannerService.getBannerList()");
 		return bannerDao.getBannerList();
 	}
 
