@@ -20,4 +20,9 @@ public class BannerServiceImpl implements BannerService{
 		return bannerDao.getBannerList();
 	}
 
+	@Override
+	public BannerVO getBanner(int seq) {
+		System.out.println("bannerService.getBanner(String seq)");
+		return bannerDao.getBanner(seq);
+	}
 }

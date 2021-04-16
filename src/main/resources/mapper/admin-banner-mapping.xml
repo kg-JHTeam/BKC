@@ -12,5 +12,9 @@
 			SELECT * FROM banner  
 		]]>
 	</select>
-	
+	<select id="getBanner" resultType="BannerVO">
+		<![CDATA[
+			SELECT * FROM banner where img_seq=	#{seq}
+		]]>
+	</select>
 </mapper>
