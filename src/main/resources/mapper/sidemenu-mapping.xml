@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SideMenuDAO">
+
+	<!-- 전체 사이드메뉴 조회 -->
+	<select id="getSidemenuList" resultType="SidemenuVO">
+		<![CDATA[
+		SELECT * FROM side_menu
+		]]>
+	</select>
+	<!-- 사이드메뉴 디테일 -->
+	<select id="getSidemenu" resultType="SidemenuVO">
+		SELECT * FROM side_menu
+		WHERE seq=#{seq}
+	</select>
+
+</mapper>
