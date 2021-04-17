@@ -22,7 +22,7 @@
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/subpages/map/mapstyle.css">
 <!-- js -->
-<script src="js/jquery-3.6.0.min.js"></script>
+
 <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
 <script src="${contextPath}/resources/js/subpages/map/menu.js"></script>
 
