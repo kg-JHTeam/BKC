@@ -23,9 +23,9 @@
             <ul class="nav">
                 <li class="menu-title"><a href="#">메뉴소개</a>
                     <ul class="sub-con">
-                        <li><a href="${contextPath}/menu/menu.do">치킨메뉴</a></li>
-                        <li><a href="${contextPath}/menu/menu.do">사이드메뉴</a></li>
-                        <li><a href="${contextPath}/menu/menu.do">비어존메뉴</a></li>
+                        <li><a href="${contextPath}/menuInform/chickenMenu.do">치킨메뉴</a></li>
+                        <li><a href="${contextPath}/menuInform/sideMenu.do">사이드메뉴</a></li>
+                        <li><a href="${contextPath}/menuInform/beerZone.do">비어존메뉴</a></li>
                     </ul>
                 </li>
                 <li class="menu-title"><a href="${contextPath}"/>매장소개</a>
