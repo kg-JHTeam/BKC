@@ -25,11 +25,13 @@ public class BannerServiceImpl implements BannerService{
 	}
 	
 	@Override
-	public BannerVO getBanner(int seq) {
-		return bannerDao.getBanner(seq);
+	public BannerVO getBanner(int img_seq) {
+		return bannerDao.getBanner(img_seq);
 	}
 
-	
-
+	@Override
+	public int changeStatus(int img_seq) {
+		return bannerDao.changeStatus(img_seq);		
+	}
 	
 }

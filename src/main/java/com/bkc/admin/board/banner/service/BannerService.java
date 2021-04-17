@@ -17,5 +17,8 @@ public interface BannerService {
 
 	// 사용중인 배너 조회
 	public List<BannerVO> getBannerUsedList();
+
+	// 배너 status 변경
+	public int changeStatus(int img_seq);
 	
 }

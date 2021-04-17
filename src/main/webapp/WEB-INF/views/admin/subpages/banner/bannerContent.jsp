@@ -24,6 +24,37 @@
 		text-align: center;
 	}
 </style>
+<script>
+// 사용 미사용  변경  
+function status(status){
+	var btn = document.getElementById("status_id");
+	var value = btn.value;
+	var use_status = document.getElementById("use_status");
+	if(value == "사용"){
+		var input = confirm("배너를 사용하지 않겠습니까?");
+		if(input == true){
+			//배너 미사용으로 변경. 
+			//use_status -> false
+			btn.className = "btn btn-danger";
+			btn.value = "미사용"
+			use_status.value = false;
+		} else{
+			return;
+		}
+	} else{
+		var input = confirm("배너를 사용하도록 변경하시겠습니까?");
+		if(input == true){
+			//배너 사용으로 변경.
+			//use_status -> true
+			btn.className = "btn btn-info";
+			btn.value = "사용"
+			use_status.value = true;
+		} else{
+			return;
+		}
+	}
+} 
+</script>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -38,9 +69,9 @@
 					<div class="card mb-4">
 						<div class="card-body">
 							<div class="table-responsive">
-								<form role="form" action="/board/register" method="post">
+								<form role="form" action="${contextPath}/admin/modifyBanner.ad" method="post">
 									<div class="form-group" id="imgDetail">
-										<p>이미지 상세 </p>
+										<h4>이미지 상세 </h4><br>
 										<a href="${banner.path}" target="_blank"  target="_blank">
 												<img src="${banner.path}" alt="이미지" id="bannerimg" class="img-responsive"/>
 										</a>
@@ -61,15 +92,24 @@
 									</div>
 									<div class="form-group">
 										<label>이미지 주소 </label>
-										<input class="form-control" name='path' value="${banner.path}" />
+										<input class="form-control" name='path' value="${banner.path}" disabled/>
 									</div>
 									
 									<div class="form-group">
 										<label>사용여부</label>
 									</div>
 									<div>
-										<button type="submit" class="btn btn-primary">등록</button>
-										<button type="reset" class="btn btn-primary">리셋</button>
+										<button type="submit" class="btn btn-primary">수정 완료</button>
+										<button type="reset" class="btn btn-success">리셋</button>
+										<c:choose>
+											<c:when test="${banner.use_status eq true }">
+												<input class="btn btn-info" type="button" value="사용" onclick="javascript:status(true)" id="status_id"/>
+											</c:when>
+											<c:otherwise>
+												<input class="btn btn-danger" type="button" value="미사용" onclick="javascript:status(false)" id="status_id"/>
+											</c:otherwise>
+										</c:choose>
+										<input type="hidden" name='use_status' value="${banner.use_status}" id="use_status"/>
 									</div>
 								</form>
 							</div>
