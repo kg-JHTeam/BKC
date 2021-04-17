@@ -6,6 +6,7 @@
 		<typeAlias type="com.bkc.user.vo.UserVO" alias="UserVO" />
 		<typeAlias type="com.bkc.customerService.vo.NoticeVO" alias="NoticeVO" />
 		<typeAlias type="com.bkc.admin.board.banner.vo.BannerVO" alias="BannerVO" />
+		<typeAlias type="com.bkc.menuInform.vo.SideMenuVO" alias="SideMenuVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
