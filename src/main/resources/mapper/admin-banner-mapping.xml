@@ -22,17 +22,23 @@
 			SELECT * FROM banner where img_seq=	#{img_seq}
 		]]>
 	</select>
-    
 	<update id="changeStatus">
 		<![CDATA[
 			UPDATE
 				banner
-			SET use_status = 
-				(CASE WHEN use_status='true'  THEN 'false'
-					  WHEN use_status='false' THEN 'true'
+			SET use_status =
+				(CASE WHEN use_status=true  THEN false
+					  WHEN use_status=false THEN true
 				END)
 			WHERE
 				img_seq = #{img_seq};
 		]]>
 	</update>
+	<delete id="deleteBanner">
+		<![CDATA[
+			DELETE FROM banner
+			WHERE
+				img_seq = #{img_seq};
+		]]>
+	</delete>
 </mapper>

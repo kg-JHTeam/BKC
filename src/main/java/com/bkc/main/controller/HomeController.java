@@ -34,7 +34,7 @@ public class HomeController {
 		//배너 추가
 		List<BannerVO> banners =  bannerService.getBannerUsedList();
 		model.addAttribute("banners", banners);
-		
+		 
 		//접속관련 로그 정보 입력
 		String url = request.getRequestURL().toString();
 		String clientIPaddr = request.getRemoteAddr();

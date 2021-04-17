@@ -11,43 +11,42 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>BKC 홈페이지 관리자 페이지</title>	
+<title>BKC 홈페이지 관리자 페이지</title>
 <style>
-	#bannerimgCol{
-		text-align: center;
-	}
-	#bannerimg{
-		width:385.2px;
-		height:231.6px;
-	}
-	#insertBanner{
-		position: relative;
-        margin-bottom: 0.5%;
-    	margin-left: 91%
-	}
+#bannerimgCol {
+	text-align: center;
+}
+
+#bannerimg {
+	width: 385.2px;
+	height: 231.6px;
+}
+
+#insertBanner {
+	position: relative;
+	margin-bottom: 0.5%;
+	margin-left: 91%
+}
 </style>
 
 <script>
 function status(status,id){
 	var btn = document.getElementById(id);
 	var value = btn.value;
-	var use_status = document.getElementById("use_status");
 	if(value == "사용"){
 		var input = confirm("배너를 사용하지 않겠습니까?");
 		if(input == true){
+			
 			//배너 미사용으로 변경. 
 			//use_status -> false
 			btn.className = "btn btn-danger";
-			btn.value = "미사용"
-			use_status.value = false;
+			btn.value = "미사용";
 			
 			//DB에서 처리
-			img_seq = id;
-			use_status = false;
-			var contextpath = "<c:out value='${contextPath}'/>"
-			//현재창에서 다른페이지로 이동합니다.
-		    window.location.href= contextpath+"/admin/changeStatusBanner.ad";
-		    
+			var img_seq = id;
+			var contextpath = "<c:out value='${contextPath}'/>";
+			
+		    window.location.href= contextpath+"/admin/changeStatusBanner.ad?img_seq="+id;
 		} else{
 			return;
 		}
@@ -58,17 +57,34 @@ function status(status,id){
 			//use_status -> true
 			btn.className = "btn btn-info";
 			btn.value = "사용"
-			use_status.value = true;
 			
 			//DB에서 처리
-			img_seq = id;
-			use_status = true;
+			var img_seq = id;
+			var contextpath = "<c:out value='${contextPath}'/>";
 			
+			window.location.href= contextpath+"/admin/changeStatusBanner.ad?img_seq="+id;
 			
 		} else{
 			return;
 		}
 	}
+} 
+
+function deleteBanner(id){
+	var btn = document.getElementById(id);
+	var value = btn.value;
+		var input = confirm("정말로 배너를 삭제 하시겠습니까?");
+		if(input == true){
+			//DB에서 처리
+			var img_seq = id;
+			var contextpath = "<c:out value='${contextPath}'/>";
+			
+		    window.location.href= contextpath+"/admin/deleteBanner.ad?img_seq="+id;
+			
+			alert("삭제되었습니다.");
+		} else{
+			return;
+		}
 } 
 </script>
 
@@ -89,7 +105,8 @@ function status(status,id){
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<input class="btn btn-success" type="button" value="배너 업로드" id="insertBanner" >
+								<input class="btn btn-success" type="button" value="배너 업로드"
+									id="insertBanner">
 								<table class="table" id="dataTable" width="100%">
 									<thead>
 										<tr>
@@ -106,27 +123,27 @@ function status(status,id){
 											<tr>
 												<td>${banner.img_seq}</td>
 												<td>${banner.title}</td>
-												<td id="bannerimgCol">
-													<a href="${banner.path}" target="_blank" >
-														<img src="${banner.path}" alt="이미지" id="bannerimg" class="img-responsive center-block"/>
-													</a>
-												</td>
-												<td>
-													<c:choose>
+												<td id="bannerimgCol"><a href="${banner.path}"
+													target="_blank"> <img src="${banner.path}" alt="이미지"
+														id="bannerimg" class="img-responsive center-block" />
+												</a></td>
+												<td><c:choose>
 														<c:when test="${banner.use_status eq true }">
-															<input class="btn btn-info" type="button" value="사용" onclick="javascript:status(${banner.use_status} ,${banner.img_seq})" id= "${banner.img_seq}"/>
+															<input class="btn btn-info" type="button" value="사용"
+																onclick="javascript:status(${banner.use_status} ,${banner.img_seq})"
+																id="${banner.img_seq}" />
 														</c:when>
 														<c:otherwise>
-															<input class="btn btn-danger" type="button" value="미사용" onclick="javascript:status(${banner.use_status} ,${banner.img_seq})" id="${banner.img_seq}"/>
+															<input class="btn btn-danger" type="button" value="미사용"
+																onclick="javascript:status(${banner.use_status} ,${banner.img_seq})"
+																id="${banner.img_seq}" />
 														</c:otherwise>
-													</c:choose>
+													</c:choose></td>
+												<td><input class="btn btn-primary" type="button"
+													value="수정"
+													onClick="location.href='${contextPath}/admin/bannerDetail.ad?seq=${banner.img_seq}'" />
 												</td>
-												<td>
-													<input class="btn btn-primary" type="button" value="수정" onClick="location.href='${contextPath}/admin/bannerDetail.ad?seq=${banner.img_seq}'"/>
-												</td>
-												<td>
-													<input class="btn btn-danger" type="button" value="삭제">
-												</td>
+												<td><input class="btn btn-danger" type="button" value="삭제" onclick="javascript:deleteBanner(${banner.img_seq})"></td>
 											</tr>
 										</c:forEach>
 									</tbody>
