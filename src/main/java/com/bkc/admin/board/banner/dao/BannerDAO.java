@@ -18,7 +18,10 @@ public interface BannerDAO {
 	// 배너 상세 조회
 	public BannerVO getBanner(int seq);
 
-	//배너 status 변경
+	// 배너 status 변경
 	public int changeStatus(int img_seq);
+
+	// 배너 삭제
+	public int deleteBanner(int img_seq);
 
 }

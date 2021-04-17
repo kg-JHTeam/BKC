@@ -33,5 +33,10 @@ public class BannerServiceImpl implements BannerService{
 	public int changeStatus(int img_seq) {
 		return bannerDao.changeStatus(img_seq);		
 	}
+
+	@Override
+	public int deleteBanner(int img_seq) {
+		return bannerDao.deleteBanner(img_seq);		
+	}
 	
 }

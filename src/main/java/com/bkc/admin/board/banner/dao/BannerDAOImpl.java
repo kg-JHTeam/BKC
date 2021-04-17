@@ -35,4 +35,9 @@ public class BannerDAOImpl implements BannerDAO {
 		return sqlSession.insert("changeStatus", img_seq);
 	}
 
+	@Override
+	public int deleteBanner(int img_seq) {
+		return sqlSession.insert("deleteBanner", img_seq);
+	}
+
 }
