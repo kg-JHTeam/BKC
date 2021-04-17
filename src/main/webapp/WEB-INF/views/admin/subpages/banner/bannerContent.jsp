@@ -30,7 +30,6 @@ function status(status){
 	var btn = document.getElementById("status_id");
 	var value = btn.value;
 	var use_status = document.getElementById("use_status");
-	
 	if(value == "사용"){
 		var input = confirm("배너를 사용하지 않겠습니까?");
 		if(input == true){
@@ -93,7 +92,7 @@ function status(status){
 									</div>
 									<div class="form-group">
 										<label>이미지 주소 </label>
-										<input class="form-control" name='path' value="${banner.path}" />
+										<input class="form-control" name='path' value="${banner.path}" disabled/>
 									</div>
 									
 									<div class="form-group">

@@ -26,8 +26,13 @@ public class BannerDAOImpl implements BannerDAO {
 	}
 	
 	@Override
-	public BannerVO getBanner(int seq) {
-		return sqlSession.selectOne("getBanner", seq);
+	public BannerVO getBanner(int img_seq) {
+		return sqlSession.selectOne("getBanner", img_seq);
+	}
+
+	@Override
+	public int changeStatus(int img_seq) {
+		return sqlSession.insert("changeStatus", img_seq);
 	}
 
 }

@@ -29,29 +29,25 @@
 
 <script>
 function status(status,id){
-	if(status ==true){
+	var btn = document.getElementById(id);
+	var value = btn.value;
+	var use_status = document.getElementById("use_status");
+	if(value == "사용"){
 		var input = confirm("배너를 사용하지 않겠습니까?");
 		if(input == true){
 			//배너 미사용으로 변경. 
 			//use_status -> false
+			btn.className = "btn btn-danger";
+			btn.value = "미사용"
+			use_status.value = false;
 			
-			var form = {
-	                id: "",
-	                use_status: false
-	        }
-			
-	        $.ajax({
-	            url: "requestObject",
-	            type: "POST",
-	            data: form,
-	            success: function(data){
-	                $('#result').text(data);
-	            },
-	            error: function(){
-	                alert("simpleWithObject err");
-	            }
-	        });
-			
+			//DB에서 처리
+			img_seq = id;
+			use_status = false;
+			var contextpath = "<c:out value='${contextPath}'/>"
+			//현재창에서 다른페이지로 이동합니다.
+		    window.location.href= contextpath+"/admin/changeStatusBanner.ad";
+		    
 		} else{
 			return;
 		}
@@ -60,22 +56,15 @@ function status(status,id){
 		if(input == true){
 			//배너 사용으로 변경.
 			//use_status -> true
-			var form = {
-	                id: "",
-	                use_status: true
-	        }
+			btn.className = "btn btn-info";
+			btn.value = "사용"
+			use_status.value = true;
 			
-	        $.ajax({
-	            url: "requestObject",
-	            type: "POST",
-	            data: form,
-	            success: function(data){
-	                $('#result').text(data);
-	            },
-	            error: function(){
-	                alert("simpleWithObject err");
-	            }
-	        });
+			//DB에서 처리
+			img_seq = id;
+			use_status = true;
+			
+			
 		} else{
 			return;
 		}
@@ -125,10 +114,10 @@ function status(status,id){
 												<td>
 													<c:choose>
 														<c:when test="${banner.use_status eq true }">
-															<input class="btn btn-info" type="button" value="사용" onclick="javascript:status(true,${banner.img_seq})"/>
+															<input class="btn btn-info" type="button" value="사용" onclick="javascript:status(${banner.use_status} ,${banner.img_seq})" id= "${banner.img_seq}"/>
 														</c:when>
 														<c:otherwise>
-															<input class="btn btn-danger" type="button" value="미사용" onclick="javascript:status(false,${banner.img_seq})"/>
+															<input class="btn btn-danger" type="button" value="미사용" onclick="javascript:status(${banner.use_status} ,${banner.img_seq})" id="${banner.img_seq}"/>
 														</c:otherwise>
 													</c:choose>
 												</td>

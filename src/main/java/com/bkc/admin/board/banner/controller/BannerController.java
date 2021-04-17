@@ -51,12 +51,6 @@ public class BannerController {
 	public String modifyBanner(Model model, @RequestParam("seq") int seq) {
 		BannerVO banner = bannerService.getBanner(seq);
 		
-		//img_seq
-		//title
-		//content
-		//path
-		//use_status
-		
 		System.out.println("seq : " + seq);
 		System.out.println("banner : " + banner.toString());
 
@@ -66,9 +60,15 @@ public class BannerController {
 	}
 
 	// 배너 사용/미사용 변경
-	@RequestMapping(value = "/admin/changeStatusBanner.ad", method = RequestMethod.POST)
-	@ResponseBody
-	public String changeStatusBanner() {
-		return "redirect:";
+	@RequestMapping(value = "/admin/changeStatusBanner.ad", method = RequestMethod.GET)
+	public String changeStatusBanner(Model model, 
+			@RequestParam("img_seq") int img_seq,
+			@RequestParam("use_status") Boolean use_status){
+			if(bannerService.changeStatus(img_seq)==1) {
+				System.out.println("변경완료");
+			} else {
+				System.out.println("변경실패 ");
+			}
+		return "redirect:/admin/bannerlist.ad";
 	}
 }
