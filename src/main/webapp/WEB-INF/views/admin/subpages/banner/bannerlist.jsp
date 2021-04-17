@@ -23,9 +23,66 @@
 	#insertBanner{
 		position: relative;
         margin-bottom: 0.5%;
-    	margin-left: 93%
+    	margin-left: 91%
 	}
 </style>
+
+<script>
+function status(status,id){
+	if(status ==true){
+		var input = confirm("배너를 사용하지 않겠습니까?");
+		if(input == true){
+			//배너 미사용으로 변경. 
+			//use_status -> false
+			
+			var form = {
+	                id: "",
+	                use_status: false
+	        }
+			
+	        $.ajax({
+	            url: "requestObject",
+	            type: "POST",
+	            data: form,
+	            success: function(data){
+	                $('#result').text(data);
+	            },
+	            error: function(){
+	                alert("simpleWithObject err");
+	            }
+	        });
+			
+		} else{
+			return;
+		}
+	} else{
+		var input = confirm("배너를 사용하도록 변경하시겠습니까?");
+		if(input == true){
+			//배너 사용으로 변경.
+			//use_status -> true
+			var form = {
+	                id: "",
+	                use_status: true
+	        }
+			
+	        $.ajax({
+	            url: "requestObject",
+	            type: "POST",
+	            data: form,
+	            success: function(data){
+	                $('#result').text(data);
+	            },
+	            error: function(){
+	                alert("simpleWithObject err");
+	            }
+	        });
+		} else{
+			return;
+		}
+	}
+} 
+</script>
+
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -43,7 +100,7 @@
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<input class="btn btn-success" type="button" value="배너 추가" id="insertBanner">
+								<input class="btn btn-success" type="button" value="배너 업로드" id="insertBanner" >
 								<table class="table" id="dataTable" width="100%">
 									<thead>
 										<tr>
@@ -68,10 +125,10 @@
 												<td>
 													<c:choose>
 														<c:when test="${banner.use_status eq true }">
-															<input class="btn btn-info" type="button" value="사용중"/>
+															<input class="btn btn-info" type="button" value="사용" onclick="javascript:status(true,${banner.img_seq})"/>
 														</c:when>
 														<c:otherwise>
-															<input class="btn btn-danger" type="button" value="미사용중"/>
+															<input class="btn btn-danger" type="button" value="미사용" onclick="javascript:status(false,${banner.img_seq})"/>
 														</c:otherwise>
 													</c:choose>
 												</td>
