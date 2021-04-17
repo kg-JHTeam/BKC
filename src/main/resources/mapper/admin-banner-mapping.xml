@@ -26,7 +26,7 @@
 		<![CDATA[
 			UPDATE
 				banner
-			SET use_status = 
+			SET use_status =
 				(CASE WHEN use_status=true  THEN false
 					  WHEN use_status=false THEN true
 				END)
@@ -34,7 +34,6 @@
 				img_seq = #{img_seq};
 		]]>
 	</update>
-	
 	<delete id="deleteBanner">
 		<![CDATA[
 			DELETE FROM banner

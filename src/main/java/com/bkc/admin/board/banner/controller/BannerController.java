@@ -1,14 +1,19 @@
 package com.bkc.admin.board.banner.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
+import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.bkc.admin.aws.AwsS3;
 import com.bkc.admin.board.banner.service.BannerService;
 import com.bkc.admin.board.banner.vo.BannerVO;
 
@@ -17,7 +22,9 @@ public class BannerController {
 
 	@Autowired
 	private BannerService bannerService;
-
+	
+	//public AwsS3 awss3 = AwsS3.getInstance();
+	
 	// 배너 리스트 출력.
 	@RequestMapping(value = "/admin/bannerlist.ad", method = RequestMethod.GET)
 	public String showBannerList(Model model) {
@@ -63,6 +70,14 @@ public class BannerController {
 	//배너 삭제
 	@RequestMapping(value = "/admin/deleteBanner.ad", method = RequestMethod.GET)
 	public String deleteBanner(Model model, @RequestParam("img_seq") int img_seq){
+		
+		//AWS에서 삭제 
+//		BannerVO banner = bannerService.getBanner(img_seq);
+//		int index = banner.getPath().indexOf("/", 20);
+//		String key = banner.getPath().substring(index+1);
+//		System.out.println("key : "+ key + "|" + "index : " + index);
+//		awss3.delete(key);
+		
 		//DB에서 삭제
 		if(bannerService.deleteBanner(img_seq)==1) {
 			System.out.println("배너 삭제 완료");
@@ -70,7 +85,8 @@ public class BannerController {
 			System.out.println("배너 삭제 실패 ");
 		}
 		
-		//AWS에서 삭제 
+		System.out.println("삭제 완료");
+		
 		return "redirect:/admin/bannerlist.ad";
 	}
 }
