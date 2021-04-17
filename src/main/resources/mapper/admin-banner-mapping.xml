@@ -7,25 +7,21 @@
 		<result property="content" column="content" />
 		<result property="use_status" column="use_status" />
 	</resultMap>
-	
 	<select id="getBannerList" resultType="BannerVO">
 		<![CDATA[
 			SELECT * FROM banner 
 		]]>
 	</select>
-	
 	<select id="getBannerUsedList" resultType="BannerVO">
 		<![CDATA[
 			SELECT * FROM banner where use_status = 'true'
 		]]>
 	</select>
-	
 	<select id="getBanner" resultType="BannerVO">
 		<![CDATA[
 			SELECT * FROM banner where img_seq=	#{img_seq}
 		]]>
 	</select>
-    
 	<update id="changeStatus">
 		<![CDATA[
 			UPDATE
@@ -46,5 +42,4 @@
 				img_seq = #{img_seq};
 		]]>
 	</delete>
-	
 </mapper>

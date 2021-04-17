@@ -53,23 +53,21 @@ public class BannerController {
 	@RequestMapping(value = "/admin/changeStatusBanner.ad", method = RequestMethod.GET)
 	public String changeStatusBanner(Model model, @RequestParam("img_seq") int img_seq){
 			if(bannerService.changeStatus(img_seq)==1) {
-				System.out.println("변경완료");
+				System.out.println("배너 변경 완료");
 			} else {
-				System.out.println("변경실패 ");
+				System.out.println("배너 변경 실패 ");
 			}
 		return "redirect:/admin/bannerlist.ad";
 	}
 	
 	//배너 삭제
-	// /admin/deleteBanner.ad?img_seq="+id";
 	@RequestMapping(value = "/admin/deleteBanner.ad", method = RequestMethod.GET)
 	public String deleteBanner(Model model, @RequestParam("img_seq") int img_seq){
-		
 		//DB에서 삭제
 		if(bannerService.deleteBanner(img_seq)==1) {
-			System.out.println("변경완료");
+			System.out.println("배너 삭제 완료");
 		} else {
-			System.out.println("변경실패 ");
+			System.out.println("배너 삭제 실패 ");
 		}
 		
 		//AWS에서 삭제 

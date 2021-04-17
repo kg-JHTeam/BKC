@@ -79,7 +79,7 @@ function deleteBanner(id){
 			var img_seq = id;
 			var contextpath = "<c:out value='${contextPath}'/>";
 			
-		    //window.location.href= contextpath+"/admin/deleteBanner.ad?img_seq="+id;
+		    window.location.href= contextpath+"/admin/deleteBanner.ad?img_seq="+id;
 			
 			alert("삭제되었습니다.");
 		} else{
