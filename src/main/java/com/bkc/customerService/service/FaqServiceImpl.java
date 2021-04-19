@@ -23,4 +23,9 @@ public class FaqServiceImpl implements FaqService{
 	public int FaqTotalCnt(FaqVO faqVO) {
 		return dao.FaqTotalCnt(faqVO);
 	}
+	
+	@Override
+	public List<FaqVO> AdminFaqList(FaqVO faqVO){
+		return dao.AdminFaqList(faqVO);
+	}
 }

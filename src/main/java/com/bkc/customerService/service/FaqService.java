@@ -9,4 +9,6 @@ public interface FaqService {
 	public List<FaqVO> FaqList(FaqVO faqVO);
 	
 	public int FaqTotalCnt(FaqVO faqVO);
+	
+	public List<FaqVO> AdminFaqList(FaqVO faqVO);
 }

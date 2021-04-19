@@ -17,15 +17,18 @@ import com.bkc.customerService.vo.PageMaker;
 import com.bkc.customerService.vo.SearchVO;
 
 @Controller
-@RequestMapping(value = "/customerService", method = RequestMethod.GET)
 public class FaqController {
 	
 	@Autowired
 	private FaqService service;
 	
-	@RequestMapping(value = "/faq.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/customerService/faq.do", method = RequestMethod.GET)
 	public String FaqList(SearchVO searchVO, FaqVO faqvo, Model model) {
 		
+		if(faqvo.getCategory() == null) {
+			faqvo.setCategory("");
+		}
+		System.out.println(faqvo.getCategory());
 		int totalPage = service.FaqTotalCnt(faqvo);
 		
 		PageMaker pager = new PageMaker(searchVO.getPageNum(), totalPage);
@@ -34,10 +37,23 @@ public class FaqController {
 		faqvo.setEnd(pager.getEndPage(pager.getBeginPage())); // 한페이지의 끝번호 
 		
 		List<FaqVO> FaqList = service.FaqList(faqvo);
+		model.addAttribute("Faqvo", faqvo);
 		model.addAttribute("FaqList", FaqList);
 		model.addAttribute("pageing", pager.getPager());
 		model.addAttribute("totalSize", totalPage);
+		
 		return "subpages/customerService/faq";
+	}
+	
+	//Admin
+	//홈페이지관리자 페이지 faq 조회
+	@RequestMapping(value = "/admin/faqlist.ad", method = RequestMethod.GET)
+	public String AdminFaqList(FaqVO faqvo, Model model) {
+		
+		List<FaqVO> AdminFaqList = service.AdminFaqList(faqvo);
+		model.addAttribute("AdminFaqList", AdminFaqList);
+		
+		return "admin/subpages/faq/faqlist";
 	}
 
 }

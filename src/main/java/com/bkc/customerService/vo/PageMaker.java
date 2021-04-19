@@ -46,9 +46,7 @@ public class PageMaker {
 		StringBuffer sb = new StringBuffer();
 		
 		if(totalRows > 0){
-			   sb.append("<li class='page-item'><a class='page-link' href=\"javascript:void(0);\"  ");
-			   sb.append("onclick=\"goPaging(0);\""); 
-			   sb.append(">First</a></li>");           
+			        
 	           
 			   // 현재 나열된 페이지가 11페이지 이상일 경우
 	            // 이전 10페이지 출력
@@ -94,9 +92,7 @@ public class PageMaker {
 	                sb.append(">Next "+oneBlockCount+"</a></li>");
 	            }
 	            
-	         	sb.append("<li class='page-item'><a class='page-link'  href=\"javascript:void(0);\"   ");
-	        	sb.append("onclick=\"goPaging("+(totalPage - 1)+");\"");
-	        	sb.append(">Last</a>");   
+	         	
 		}
 		
 		
