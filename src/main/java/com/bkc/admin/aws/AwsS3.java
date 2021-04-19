@@ -17,7 +17,6 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 
 public class AwsS3 {
-
 	private AmazonS3 s3Client;
 	private Regions clientRegion = Regions.AP_NORTHEAST_2;
 	private String bucket = "bkcbuc"; // 버킷 명

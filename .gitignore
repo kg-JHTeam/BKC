@@ -17,12 +17,12 @@ local.properties
 
 # ignore properties file
 config.properties
-
-# ignore properties file
-config.properties
 credentials.properties
 jdbc.properties
-*.properties
+.properties
+!jdbc.properties
+!credentials.properties
+
 
 # External tool builders
 .externalToolBuilders/
