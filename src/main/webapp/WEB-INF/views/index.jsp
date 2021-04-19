@@ -28,7 +28,6 @@
     
     <!-- js -->
     <script src="resources/js/include/main-gnb.js"></script>
-    <script src="resources/js/subpages/menuInform/menuInform.js"></script>
     
     <title>BKC</title>
 </head>
@@ -49,7 +48,7 @@
                 </ul>
             </div>
         </div>
-		<div style="height: 99px"></div>
+
         <!-- 유튜브 비디오 -->
         <div class="youtube-zone">
             <iframe id="youtube" src="https://www.youtube.com/embed/W4WsqeBC47E" title="YouTube video player"
@@ -223,6 +222,5 @@
     </div>
     <!--end of m-main page-->
     <jsp:include page="include/footer/main_mobile_footer.jsp"/>
-    <a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
 </body>
 </html>

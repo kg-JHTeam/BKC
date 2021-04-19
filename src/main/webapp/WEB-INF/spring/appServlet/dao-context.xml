@@ -41,13 +41,6 @@
     	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
-	<bean id="userDao" class="com.bkc.user.dao.UserDAOImpl">
-  		<property name="sqlSession" ref="sqlSession" />
-	</bean>
-	
-	<bean id="bannerDao" class="com.bkc.admin.board.banner.dao.BannerDAOImpl">
-		<property name="sqlSession" ref="sqlSession" />
-	</bean>
 	
 	<bean id="noticeDao" class="com.bkc.customerService.dao.NoticeDAOImpl">
 		<property name="sqlSession" ref="sqlSession" />
