@@ -20,9 +20,9 @@ config.properties
 credentials.properties
 jdbc.properties
 .properties
-*
 !jdbc.properties
 !credentials.properties
+
 
 # External tool builders
 .externalToolBuilders/
