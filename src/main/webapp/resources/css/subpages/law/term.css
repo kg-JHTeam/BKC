@@ -1,4 +1,14 @@
 /* 네비부분 */
+.btnlaw {
+    margin: 0;
+    color: #000;
+    vertical-align: middle;
+    background: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+    outline: 0;
+}
 .locationWrap {
     padding: 10px 0;
     color: #fff;
@@ -48,7 +58,7 @@
     top: 50%;
     margin: -17.5px 0 0;
 }
-.tab01 {
+.tab_cont .tab01 {
     margin-bottom: 20px;
 }
 .tab01 ul {
@@ -86,17 +96,7 @@
     border: 0 solid transparent;
     border-width: 4px 0;
 }
-button {
-    margin: 0;
-    color: #000;
-    vertical-align: middle;
-    background: 0;
-    border: none;
-    overflow: visible;
-    cursor: pointer;
-    outline: 0;
-}
-.hide {
+.tab_cont .hide {
     position: absolute!important;
     left: -10000px;
     top: -10000px;
@@ -114,7 +114,7 @@ button {
     box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
 }
 .container02.policyWrap .titbox {
-    min-height: 100px;
+    min-height: 0px;
     margin: 0!important;
 }
 .container02>.titbox:first-child {
@@ -122,7 +122,7 @@ button {
     font-size: 1.375rem;
     background: #f8f8f8;
 }
-.titbox {
+.container02.policyWrap .titbox {
     position: relative;
     padding-right: 5em;
 }
@@ -140,17 +140,25 @@ button {
     color: #2e2e2e;
     line-height: 30px;
 }
-.acc_tit {
+.historyWrap .acc_tit {
     position: relative;
     padding: 10px 20px 10px 0;
 }
-.btn_acc {
+.historyWrap .acc_tit .btn_acc {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     text-indent: -9999em;
+    margin: 0;
+    color: #000;
+    vertical-align: middle;
+    background: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+    outline: 0;
 }
 .historyWrap .btn_acc:after {
     right: 0;
@@ -185,7 +193,7 @@ button {
     -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 30%);
     box-shadow: 0 2px 10px rgb(0 0 0 / 30%);
 }
-.acc_cont {
+.historyWrap > .acc_cont {
     position: relative;
     height: 0;
     overflow: hidden;
@@ -222,7 +230,7 @@ button {
     padding: 55px 65px;
     overflow: auto;
 }
-.auth_cont {
+.policyWrap > .auth_cont {
     padding: 24px 36px;
     font-size: 1.125rem;
     line-height: 145%;
@@ -239,4 +247,79 @@ button {
 	height: auto;
 	overflow: inherit;
 	opacity: 1;
+}
+
+
+.policy_switch .switch01 {
+    margin-right: 15px;
+}
+.policy_switch > .switch01 {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    cursor: pointer;
+}.switch01 input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+input[type=checkbox], input[type=radio] {
+    position: absolute;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    opacity: 0;
+}.policy_switch .switch01 input+* {
+    padding: 5px 20px;
+}
+.switch01 input:checked+* {
+    background: #2e2e2e;
+}
+.switch01 input+* {
+    display: inline-block;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 1.25rem;
+    color: #fff;
+    text-align: center;
+    line-height: 38px;
+    background: #8d8d8d;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}.switch01 input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+.container02.policyWrap .titbox {
+    min-height: 50px;
+    margin: 0!important;
+    padding: 26px 280px 26px 55px;
+}
+.policyWrap > .titbox {
+    position: relative;
+    padding-right: 5em;
 }
