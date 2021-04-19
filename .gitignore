@@ -19,7 +19,7 @@ local.properties
 config.properties
 credentials.properties
 jdbc.properties
-*.properties
+.properties
 
 # External tool builders
 .externalToolBuilders/
