@@ -54,10 +54,10 @@
                 <h2 class="logo">
                     <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/bkclogo_bw.png"
                         alt="BKC Logo">
-                </h2>
-                <p>서울 종로구 삼봉로 71 G 타워 2층 주식회사 비케이알 | 전화주문 1599-0505</p>
-                <p>사업자 등록번호 101-86-76277 | (주)BKR 대표이사 문영주</p>
-                <p>Copyright 2019 BKR Co., Ltd. All right Reserved</p>
+                </h2>	
+                <p>${bi.address} | 전화주문 ${bi.tel}</p>
+                <p>사업자 등록번호 ${bi.business_num} | (주)BKR 대표이사  ${bi.ceo_name}</p>
+                <p>Copyright ${bi.copyright}</p>
                 <div class="sns">
                     <a href="https://www.facebook.com/bhcchicken" target="_blank" class="facebook">
                         <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/facebook_s.png"
