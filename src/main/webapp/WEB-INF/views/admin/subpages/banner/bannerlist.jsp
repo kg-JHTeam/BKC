@@ -106,6 +106,7 @@ function deleteBanner(id){
 						<div class="card-body">
 							<div class="table-responsive">
 								<input class="btn btn-success" type="button" value="배너 업로드"
+									onclick="location.href='${contextPath}/admin/bannerUploadpage.ad'"
 									id="insertBanner">
 								<table class="table" id="dataTable" width="100%">
 									<thead>

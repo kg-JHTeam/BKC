@@ -94,10 +94,6 @@ function status(status){
 										<label>이미지 주소 </label>
 										<input class="form-control" name='path' value="${banner.path}" disabled/>
 									</div>
-									
-									<div class="form-group">
-										<label>사용여부</label>
-									</div>
 									<div>
 										<button type="submit" class="btn btn-primary">수정 완료</button>
 										<button type="reset" class="btn btn-success">리셋</button>

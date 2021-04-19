@@ -23,5 +23,8 @@ public interface BannerService {
 
 	//배너 삭제 
 	public int deleteBanner(int img_seq);
+
+	//배너 등록 
+	public int insertBanner(BannerVO vo);
 	
 }

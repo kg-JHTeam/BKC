@@ -24,4 +24,7 @@ public interface BannerDAO {
 	// 배너 삭제
 	public int deleteBanner(int img_seq);
 
+	// 배너 추가
+	public int insertBanner(BannerVO vo);
+
 }
