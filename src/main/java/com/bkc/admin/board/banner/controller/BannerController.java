@@ -8,6 +8,7 @@ import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,16 +46,16 @@ public class BannerController {
 	}
 	
 	// 배너 등록 페이지 이동.
-	@RequestMapping(value = "/admin/bannerUploadpage.ad",  method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/admin/bannerUploadpage.ad",  method = {RequestMethod.GET})
 	public String insertBanner() {
 		return "admin/subpages/banner/bannerUploadpage";
 	}
-	
+
 	// 실제 배너 추가
-	@RequestMapping(value = "/admin/bannerUpload.ad",  method = {RequestMethod.GET, RequestMethod.POST}) 
-	public String bannerUpload(Model model, MultipartFile banner,
-			@RequestParam("title") String title,
-			@RequestParam("content") String content
+	@RequestMapping(value = "/admin/bannerUpload.ad" , method =  {RequestMethod.GET, RequestMethod.POST})
+	public String bannerUpload( 
+			@RequestParam MultipartFile banner,
+			@RequestParam String title, @RequestParam String content
 			) throws IOException, PSQLException {
 		
 		// aws s3 파일 업로드 처리 
@@ -64,7 +65,7 @@ public class BannerController {
 		vo.setContent(content);
 		vo.setUse_status(true);
 		
-		InputStream is = banner.getInputStream();  //파일이 안들어옴. 
+		InputStream is = banner.getInputStream();  
 		String key = banner.getOriginalFilename();
 		String contentType = banner.getContentType();
 		long contentLength = banner.getSize();
@@ -93,7 +94,6 @@ public class BannerController {
 		
 		System.out.println("seq : " + seq);
 		System.out.println("banner : " + banner.toString());
-
 		model.addAttribute("banner", banner);
 
 		return "admin/subpages/banner/bannerContent";

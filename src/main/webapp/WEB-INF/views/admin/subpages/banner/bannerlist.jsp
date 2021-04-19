@@ -138,6 +138,7 @@ function deleteBanner(id){
 															<input class="btn btn-danger" type="button" value="미사용"
 																onclick="javascript:status(${banner.use_status} ,${banner.img_seq})"
 																id="${banner.img_seq}" />
+															<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
 														</c:otherwise>
 													</c:choose></td>
 												<td><input class="btn btn-primary" type="button"
