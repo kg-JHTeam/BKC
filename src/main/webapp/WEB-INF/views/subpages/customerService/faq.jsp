@@ -91,27 +91,27 @@
                <h4 class="hide">FAQ</h4>
                <div class="faq_category">
                   <label class="switch01">
-                     <input type="radio"name="faqcategory" checked="checked">
+                     <input type="radio" name="faqcategory" onclick="location.href='${pageContext.request.contextPath }/customerService/faq.do'" ${Faqvo.category == "" ? "checked" : ""}>
                      <span>전체</span>
                   </label>
                   <label class="switch01">
-                     <input type="radio"name="faqcategory">
+                     <input type="radio" name="faqcategory" onclick="location.href='${pageContext.request.contextPath }/customerService/faq.do?category=제품'" ${Faqvo.category == "제품" ? "checked" : ""}>
                      <span>제품/품질/서비스</span>
                   </label>
                   <label class="switch01">
-                     <input type="radio"name="faqcategory">
+                     <input type="radio" name="faqcategory" onclick="location.href='${pageContext.request.contextPath }/customerService/faq.do?category=딜리버리'" ${Faqvo.category == "딜리버리" ? "checked" : ""}>
                      <span>딜리버리 주문</span>
                   </label>
                   <label class="switch01">
-                     <input type="radio"name="faqcategory">
+                     <input type="radio" onclick="location.href='${pageContext.request.contextPath }/customerService/faq.do?category=임대'"name="faqcategory" ${Faqvo.category == "임대" ? "checked" : ""}>
                      <span>임대/가맹</span>
                   </label>
                   <label class="switch01">
-                     <input type="radio"name="faqcategory">
+                     <input type="radio" onclick="location.href='${pageContext.request.contextPath }/customerService/faq.do?category=버거킹카드'"name="faqcategory" ${Faqvo.category == "버거킹카드" ? "checked" : ""}>
                      <span>버거킹카드</span>
                   </label>
                   <label class="switch01">
-                     <input type="radio"name="faqcategory">
+                     <input type="radio" onclick="location.href='${pageContext.request.contextPath }/customerService/faq.do?category=기타'"name="faqcategory">
                      <span>기타</span>
                   </label>
                </div>

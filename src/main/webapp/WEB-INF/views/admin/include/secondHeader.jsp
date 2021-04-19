@@ -77,7 +77,7 @@
                                             <a class="nav-link" href="">BKC 이벤트 게시판 관리</a>
                                             <a class="nav-link" href="">BKC 신규매장 게시판 관리</a>
                                             <a class="nav-link" href="">공지사항 게시판 관리</a>
-                                            <a class="nav-link" href="">FAQ 게시판 관리</a>
+                                            <a class="nav-link" href="${contextPath }/admin/faqlist.ad">FAQ 게시판 관리</a>
                                             <a class="nav-link" href="">신제품 게시판 관리</a>
                                             <a class="nav-link" href="">광고 게시판 관리</a>
                                         </nav>

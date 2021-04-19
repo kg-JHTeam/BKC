@@ -3,7 +3,9 @@
 
 <mapper namespace="faqDao">
 	<select id="FaqList"  resultType="FaqVO">
-		SELECT * FROM faq ORDER BY seq DESC LIMIT 5
+		SELECT * FROM faq 
+		WHERE category like '%' || #{category} || '%'
+		ORDER BY seq DESC
 	</select>
 	
 	<select id="FaqTotalCnt"  resultType="int">
@@ -12,5 +14,9 @@
 			<if test="searchText neq null and searchText neq ''">
 			   WHERE (title like '%' || #{searchText} || '%') or (contents  like '%' || #{searchText} || '%')
 			</if>
+	</select>
+	
+	<select id="AdminFaqList"  resultType="FaqVO">
+		SELECT * FROM faq ORDER BY seq DESC
 	</select>
 </mapper>

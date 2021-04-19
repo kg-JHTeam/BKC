@@ -24,4 +24,9 @@ public class FaqDAOImpl implements FaqDAO{
 	public int FaqTotalCnt(FaqVO faqVO) {
 		return sqlSession.selectOne("getNoticeTotalCnt");
 	}
+	
+	@Override
+	public List<FaqVO> AdminFaqList(FaqVO faqVO){
+		return sqlSession.selectList("AdminFaqList", faqVO);
+	}
 }
