@@ -12,51 +12,6 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
-<style>
-#bannerimgCol {
-	text-align: center;
-}
-
-#bannerimg {
-	width: 898.8px;
-	height: 540.4px;
-}
-
-#imgDetail {
-	text-align: center;
-}
-</style>
-<script>
-	// 사용 미사용  변경  
-	function status(status) {
-		var btn = document.getElementById("status_id");
-		var value = btn.value;
-		var use_status = document.getElementById("use_status");
-		if (value == "사용") {
-			var input = confirm("배너를 사용하지 않겠습니까?");
-			if (input == true) {
-				//배너 미사용으로 변경. 
-				//use_status -> false
-				btn.className = "btn btn-danger";
-				btn.value = "미사용"
-				use_status.value = false;
-			} else {
-				return;
-			}
-		} else {
-			var input = confirm("배너를 사용하도록 변경하시겠습니까?");
-			if (input == true) {
-				//배너 사용으로 변경.
-				//use_status -> true
-				btn.className = "btn btn-info";
-				btn.value = "사용"
-				use_status.value = true;
-			} else {
-				return;
-			}
-		}
-	}
-</script>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -71,8 +26,8 @@
 					<div class="card mb-4">
 						<div class="card-body">
 							<div class="table-responsive">
-								<form action="${contextPath}/admin/bannerUpload.ad" method="get"
-									enctype="multipart/form-data">
+							
+								<form action="${contextPath}/admin/bannerUpload.ad" method="post" enctype="multipart/form-data">
 									<div class="container-fluid">
 										<br>
 										<!-- DataTales Example -->
@@ -87,9 +42,8 @@
 													<li>
 														<div>
 															<div class="index">제목</div>
-															<!-- 사용여부 추가  -->
-															<input class="title_text" type="text" name="title"
-																style="width: 50%" required /><br/>
+															<input class="title_text" type="text" name="title" style="width: 50%" required /><br/>
+															<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
 														</div>
 													</li><br/>
 													<!-- 베너 이미지 업로드 -->
@@ -103,15 +57,14 @@
 													<li>
 														<div>
 															<div class="index">내용</div>
-															<input type="text" name="content" style="width: 50%;"
-																required /><br/>
+															<input type="text" name="content" style="width: 50%;" required /><br/>
 														</div>
 													</li>
 												</ul>
 												<div align="center">
 													<input style="padding: 5px"
 														class="btn btn-primary btn-icon-split" type="submit"
-														id="registerBtn" value="등록하기" />
+														 value="배너 등록하기" />
 												</div>
 												<div align="right">
 													<a href="${contextPath }/admin/bannerlist.ad"
@@ -121,7 +74,6 @@
 												</div>
 											</div>
 										</div>
-
 									</div>
 								</form>
 							</div>

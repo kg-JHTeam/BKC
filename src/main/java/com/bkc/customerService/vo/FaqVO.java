@@ -7,6 +7,7 @@ public class FaqVO {
 	private String category;
 	private int start;
 	private int end;
+	
 	public int getStart() {
 		return start;
 	}

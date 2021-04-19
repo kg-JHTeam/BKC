@@ -7,7 +7,7 @@ import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -17,11 +17,8 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 
 public class AwsS3 {
-	
-	// Amazon-s3-sdk
+
 	private AmazonS3 s3Client;
-	final private String accessKey = "-"; // IAM 에서 만든 액세스 키
-	final private String secretKey = "-"; // IAM 에서 받은 시크릿 키 ( 분실시 액세스키 재발급 받아야합니다. )
 	private Regions clientRegion = Regions.AP_NORTHEAST_2;
 	private String bucket = "bkcbuc"; // 버킷 명
 
@@ -40,10 +37,11 @@ public class AwsS3 {
 		}
 	}
 
-	// aws S3 client 생성
 	private void createS3Client() {
 		System.out.println("create");
-		AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+		ClasspathPropertiesFileCredentialsProvider credentialsProvider
+			= new ClasspathPropertiesFileCredentialsProvider("config/credentials.properties"); 
+		AWSCredentials credentials = credentialsProvider.getCredentials();
 		this.s3Client = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials))
 				.withRegion(clientRegion).build();
 	}
@@ -80,6 +78,7 @@ public class AwsS3 {
 		try {
 			// Copy 객체 생성
 			CopyObjectRequest copyObjRequest = new CopyObjectRequest(this.bucket, orgKey, this.bucket, copyKey);
+			
 			// Copy
 			this.s3Client.copyObject(copyObjRequest);
 
@@ -95,8 +94,8 @@ public class AwsS3 {
 	public void delete(String key) {
 		try {
 			// Delete 객체 생성
-			DeleteObjectRequest deleteObjectRequest = new DeleteObjectRequest(this.bucket, key); //bkc buc
-			
+			DeleteObjectRequest deleteObjectRequest = new DeleteObjectRequest(this.bucket, key); // bkc buc
+
 			// Delete
 			this.s3Client.deleteObject(deleteObjectRequest);
 			System.out.println(String.format("[%s] deletion complete", key));
