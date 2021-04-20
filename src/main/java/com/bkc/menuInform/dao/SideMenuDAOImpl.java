@@ -25,8 +25,8 @@ public class SideMenuDAOImpl implements SideMenuDAO {
 	}
 
 	@Override
-	public SideMenuVO getSidemenu(SideMenuVO sidemenu) {
+	public SideMenuVO getSidemenu(String product_serial) {
 		System.out.println("getSidemenu()수행  ");
-		return sqlSession.selectOne("getSidemenu",sidemenu);
+		return sqlSession.selectOne("getSidemenu", product_serial);
 	}
 }

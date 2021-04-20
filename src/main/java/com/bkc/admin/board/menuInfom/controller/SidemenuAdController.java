@@ -17,6 +17,7 @@ public class SidemenuAdController {
 	@Autowired
 	private SidemenuAdService sidemenuadService;
 
+	//메뉴리스트 출력
 	@RequestMapping(value = "/admin/sidemenuListAd.ad", method = RequestMethod.GET)
 	public String showSidemenuList(Model model) {
 		List<SidemenuAdVO> sidemenus = sidemenuadService.getSidemenuAdList();
@@ -25,7 +26,7 @@ public class SidemenuAdController {
 	}
 
 	// 메뉴상세 출력 
-	@RequestMapping(value = "/admin/SidemenuAdDetail.ad", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/sidemenuAddetail.ad", method = RequestMethod.GET)
 	public String showSidemenuAd(Model model, @RequestParam("product_serial") int product_serial) {
 		SidemenuAdVO sidemenuad = sidemenuadService.getSidemenuAd(product_serial);
 		System.out.println("product_serial : " + product_serial);

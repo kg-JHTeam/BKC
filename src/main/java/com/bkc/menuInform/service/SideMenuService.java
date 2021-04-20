@@ -11,5 +11,5 @@ public interface SideMenuService {
 
 	public List<SideMenuVO> getSidemenuList();
 
-	public SideMenuVO getSidemenu(SideMenuVO vo);
+	public SideMenuVO getSidemenu(String product_serial);
 }

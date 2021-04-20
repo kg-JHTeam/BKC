@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bkc.menuInform.service.ChickenMenuService;
 import com.bkc.menuInform.service.SideMenuService;
@@ -70,14 +71,12 @@ public class MenuInformController {
 	
 	// 게시글 디테일
 	@RequestMapping(value = "/sidemenudetail.do", method = RequestMethod.GET)
-	public String sidemenudetail(SideMenuVO sidemenuvo, Model model) {
+	public String sidemenudetail(@RequestParam String product_serial, Model model) {
+		
+		SideMenuVO vo = sidemenuService.getSidemenu(product_serial);
+		System.out.println(vo);
+		model.addAttribute("getsidemenu", vo);
 
-		SideMenuVO sidemenu = new SideMenuVO();
-
-		System.out.println(sidemenu);
-
-		model.addAttribute("getSidemenu", sidemenu);
-
-		return "subpages/menu/sidemenudetail";
+		return "subpages/menuInform/sidemenudetail";
 	}
 }

@@ -10,6 +10,7 @@ import com.bkc.menuInform.vo.SideMenuVO;
 public interface SideMenuDAO {
 	//메뉴
 	public List<SideMenuVO>getSidemenuList();
+	
 	//메뉴상세
-	public SideMenuVO getSidemenu(SideMenuVO sidemenu);
+	public SideMenuVO getSidemenu(String product_serial);
 }
