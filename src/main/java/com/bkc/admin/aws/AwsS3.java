@@ -53,7 +53,6 @@ public class AwsS3 {
 		ObjectMetadata objectMetadata = new ObjectMetadata();
 		objectMetadata.setContentType(contentType);
 		objectMetadata.setContentLength(contentLength);
-
 		uploadToS3(new PutObjectRequest(bucket, key, is, objectMetadata));
 	}
 

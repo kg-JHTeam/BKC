@@ -47,7 +47,6 @@ function status(status,id){
          //DB에서 처리
          var img_seq = id;
          var contextpath = "<c:out value='${contextPath}'/>";
-         
           window.location.href= contextpath+"/admin/changeStatusBanner.ad?img_seq="+id;
       } else{
          return;
@@ -63,7 +62,6 @@ function status(status,id){
          //DB에서 처리
          var img_seq = id;
          var contextpath = "<c:out value='${contextPath}'/>";
-         
          window.location.href= contextpath+"/admin/changeStatusBanner.ad?img_seq="+id;
          
       } else{
@@ -72,29 +70,28 @@ function status(status,id){
    }
 } 
 
-/* function deleteBanner(id){
-   var btn = document.getElementById(id);
-   var value = btn.value;
-      var input = confirm("정말로 배너를 삭제 하시겠습니까?");
-      if(input == true){
-         //DB에서 처리
-         var img_seq = id;
-         var contextpath = "<c:out value='${contextPath}'/>";
-         
-          window.location.href= contextpath+"/admin/deleteBanner.ad?img_seq="+id;
-         
-         alert("삭제되었습니다.");
-      } else{
-         return;
-      }
-}  */
+function getList(){
+	$.ajax({ 
+        url: contextpath+"/admin/deleteBanner.ad", 
+        type: "POST", 
+        contentType: "application/json;charset=UTF-8",
+        data:JSON.stringify(submitObj),
+        dataType : "json"
+        }) 
+        .done(function() {
+        	
+        }) 
+        .fail(function(e) {  
+        	
+        }) 
+}
 
 //Ajax 로
-function deleteBanner(id, param_name, param_value){
+function deleteBanner(img_seq, param_name, param_value){
 	if(!confirm("삭제를 하시겠습니까?")) return false;
 	
 	var submitObj = new Object();
-	submitObj.id= id;	// 서버로 보낼 object객체를 변수로 만들어서 id를 담는다.
+	submitObj.img_seq= img_seq;	// 서버로 보낼 object객체를 변수로 만들어서 id를 담는다.
 	
 	var contextpath = "<c:out value='${contextPath}'/>";
 	 
@@ -106,15 +103,13 @@ function deleteBanner(id, param_name, param_value){
         dataType : "json"
         }) 
         .done(function() {
-        alert("삭제되었습니다.");
-        
+	        alert("삭제되었습니다.");
+	        getList();
         }) 
         .fail(function(e) {  
             alert("삭제를 실패하였습니다.");
+            getList();
         }) 
-        .always(function() { 
-            alert("메롱..?");
-        }); 
 }
 
 </script>
