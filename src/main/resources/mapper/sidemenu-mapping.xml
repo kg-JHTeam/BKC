@@ -3,15 +3,14 @@
 <mapper namespace="SideMenuDAO">
 
 	<!-- 전체 사이드메뉴 조회 -->
-	<select id="getSidemenuList" resultType="SidemenuVO">
+	<select id="getSidemenuList" resultType="SideMenuVO">
 		<![CDATA[
-		SELECT * FROM side_menu
+		select img_path, product_name from product P inner join product_image I on P.product_serial = I.product_serial;
 		]]>
 	</select>
 	<!-- 사이드메뉴 디테일 -->
 	<select id="getSidemenu" resultType="SidemenuVO">
-		SELECT * FROM side_menu
-		WHERE seq=#{seq}
+		select img_path, product_name, description from product P inner join product_image I on P.product_serial = I.product_serial;
 	</select>
 
 </mapper>
