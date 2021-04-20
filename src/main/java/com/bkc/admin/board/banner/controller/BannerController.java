@@ -79,7 +79,7 @@ public class BannerController {
 		System.out.println(key);
 
 		// S3 '/bkc_img/main/banner/' 에 바로올리기 -> path 를 여기서 설정
-		String filePath = "https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/" + key;
+		String filePath = "https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/" + key; //db에 
 		vo.setPath(filePath); // path 설정
 		
 		UploadFileVO chk = new UploadFileVO();
@@ -137,14 +137,15 @@ public class BannerController {
 			// 배너 DB에서 삭제
 			if (bannerService.deleteBanner(vo.getImg_seq()) == 1) {
 				System.out.println("배너 삭제 완료");
-			} else {
+			} else { 
 				System.out.println("배너 삭제 실패 ");
 			}
 
 			// 배너 AWS에서 삭제
 			int index = vo.getPath().indexOf("/", 20); // 자르기
 			String key = vo.getPath().substring(index + 1); // 실제 경로
-
+			System.out.println(key);
+			
 			// key위치에 있는 이미지 삭제
 			awss3.delete(key); // AWS삭제
 			

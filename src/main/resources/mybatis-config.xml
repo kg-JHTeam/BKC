@@ -11,6 +11,7 @@
 		<typeAlias type="com.bkc.admin.board.businessInformation.vo.BusinessInformationVO" alias="BusinessInformationVO" />
 		<typeAlias type="com.bkc.admin.board.menuInfom.vo.SidemenuAdVO" alias="SidemenuAdVO"/>
 		<typeAlias type="com.bkc.menuInform.vo.ChickenMenuVO" alias="ChickenMenuVO"/>
+		<typeAlias type="com.bkc.admin.board.term.vo.TermVO" alias="TermVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

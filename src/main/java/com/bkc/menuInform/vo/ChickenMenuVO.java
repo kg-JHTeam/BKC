@@ -2,7 +2,6 @@ package com.bkc.menuInform.vo;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
 public class ChickenMenuVO {
 	private int seq;	
 	private String menu_name;
@@ -44,7 +43,4 @@ public class ChickenMenuVO {
 		return "ChickenMenuVO [seq=" + seq + ", menu_name=" + menu_name + ", content=" + content + ", menu_img="
 				+ menu_img + ", chicken_type=" + chicken_type + "]";
 	}
-	
-	
-
 }
