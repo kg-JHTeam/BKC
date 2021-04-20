@@ -53,5 +53,9 @@
 		<property name="sqlSession" ref="sqlSession" />
 	</bean>
 	
+	<bean id="sidemenuAdDao" class="com.bkc.admin.board.menuInfom.dao.SidemenuAdDAOImpl">
+		<property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
 	<context:component-scan base-package="com.bkc.*"></context:component-scan>
 </beans>
