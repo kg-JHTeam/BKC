@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.bkc.menuInform.service.ChickenMenuService;
 import com.bkc.menuInform.service.SideMenuService;
+import com.bkc.menuInform.vo.ChickenMenuVO;
 import com.bkc.menuInform.vo.SideMenuVO;
 
 @Controller
@@ -17,10 +19,23 @@ public class MenuInformController {
 
 	@Autowired
 	private SideMenuService sidemenuService;
+	
+	@Autowired
+	private ChickenMenuService chickenmenuService;
 
+//	@RequestMapping(value = "/chickenMenu.do", method = RequestMethod.GET)
+//	public String chickenMenu() {
+//		System.out.println("치킨 메뉴 페이지 실행");
+//		return "subpages/menuInform/chickenMenu";
+//	}
+	
+	//치킨메뉴 게시글 목록 조회 
 	@RequestMapping(value = "/chickenMenu.do", method = RequestMethod.GET)
-	public String chickenMenu() {
-		System.out.println("치킨 메뉴 페이지 실행");
+	public String getChcickenMenu(Model model) {
+		List<ChickenMenuVO> chickenMenu = chickenmenuService.getChickenMenu();
+		System.out.println(chickenMenu);
+		
+		model.addAttribute("chickenMenu", chickenMenu);
 		return "subpages/menuInform/chickenMenu";
 	}
 	
