@@ -48,7 +48,7 @@
                 </ul>
             </div>
         </div>
-
+		<div style="height: 99px"></div>
         <!-- 유튜브 비디오 -->
         <div class="youtube-zone">
             <iframe id="youtube" src="https://www.youtube.com/embed/W4WsqeBC47E" title="YouTube video player"

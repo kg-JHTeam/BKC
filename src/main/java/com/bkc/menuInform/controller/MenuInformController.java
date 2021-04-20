@@ -23,11 +23,22 @@ public class MenuInformController {
 		System.out.println("치킨 메뉴 페이지 실행");
 		return "subpages/menuInform/chickenMenu";
 	}
+	
+	@RequestMapping(value = "/chickenmenudetail.do", method = RequestMethod.GET)
+	public String chickenMenuDetail() {
+		System.out.println("치킨메뉴디테일 페이지 실행");
+		return "subpages/menuInform/chickenmenudetail";
+	}
 
 	@RequestMapping(value = "/beerZone.do", method = RequestMethod.GET)
 	public String beerZone() {
 		System.out.println("비어존 메뉴 페이지 실행");
 		return "subpages/menuInform/beerZone";
+	}
+	@RequestMapping(value = "/beerzonedetail.do", method = RequestMethod.GET)
+	public String beerZoneDetail() {
+		System.out.println("비어존 메뉴 디테일  페이지 실행");
+		return "subpages/menuInform/beerzonedetail";
 	}
 
 	// 게시글 목록 조회  bkc/menuInform/sideMenu.do
@@ -41,6 +52,14 @@ public class MenuInformController {
 
 		return "subpages/menuInform/sideMenu";
 	}
+	
+	@RequestMapping(value = "/sidemenudetail.do")
+	public String sideMenuDetail() {
+		System.out.println("사이드 메뉴 디테일 페이지 이동");
+		return "subpages/menuInform/sidemenudetail";
+	}
+	
+	
 
 	// 게시글
 //	@RequestMapping(value = "/sidemenudetail.do", method = RequestMethod.GET)

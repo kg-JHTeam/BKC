@@ -82,7 +82,7 @@
 										<p class="tit">
 											<strong>${sidemenu.menu_name}</strong>
 										</p>
-									</div> <a href="#" class="btn_detail"> <span>Details</span>
+									</div> <a href="${contextPath}/menuInform/sidemenudetail.do" class="btn_detail"> <span>Details</span>
 								</a>
 								</li>
 							</c:forEach>
