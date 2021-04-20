@@ -283,17 +283,19 @@ strong {
     padding: 20px 15px;
 }
 
-.othermenu_slider .cont strong {
+.othermenu_slider .cont .tit {
+	width: 170px;
+	height: 45px;
+}
+.othermenu_slider .cont .tit strong {
     font-size: 1.375rem;
+    line-height: 45px;
 }
 
 .othermenu_slider .btn_detail {
-    position: absolute;
-    left: 0;
-    top: 0;
+    display: block;
     width: 100%;
     height: 100%;
-    text-indent: -99999em;
     background: transparent;
 }
 

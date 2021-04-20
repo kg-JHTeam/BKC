@@ -115,7 +115,7 @@
                                     <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
                                     <div class="cont">
                                         <p class="tit">
-                                            <strong>바삭클</strong>
+                                           <strong>바삭클</strong>
                                         </p>
                                     </div>                                   
                                 </span>
@@ -152,6 +152,36 @@
                                 </a>
                                 <a href="#" class="btn_detail">
                                     <span style="display: block;">
+                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
+                                    <div class="cont">
+                                        <p class="tit">
+                                            <strong>바삭클</strong>
+                                        </p>
+                                    </div>
+                                </span>
+                                </a>
+                                <a href="#" class="btn_detail">
+                                    <span style="display: block;">
+                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
+                                    <div class="cont">
+                                        <p class="tit">
+                                            <strong>바삭클</strong>
+                                        </p>
+                                    </div>
+                                </span>
+                                </a>
+                                <a href="#" class="btn_detail">
+                                    <span style="display: block;">
+                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
+                                    <div class="cont">
+                                        <p class="tit">
+                                            <strong>바삭클</strong>
+                                        </p>
+                                    </div>
+                                </span>
+                                </a>
+                                <a href="#" class="btn_detail">
+                                <span style="display: block;">
                                     <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
                                     <div class="cont">
                                         <p class="tit">
