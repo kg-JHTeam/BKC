@@ -23,6 +23,14 @@ public class TermController {
 		return "subpages/law/terms";
 	}
 
+	// 이용약관 관리자 페이지로 가기
+	@RequestMapping(value="/admin/term.ad",method=RequestMethod.GET)
+	public String showAdminTerm(Model model) {
+		TermVO terms = termService.getTermList();
+		model.addAttribute("terms", terms);
+		return "admin/subpages/low/terms";
+	}
+
 	@RequestMapping(value = "/privacy.do", method = RequestMethod.GET)
 	public String privacy() {
 		return "subpages/law/privacy";
