@@ -70,9 +70,7 @@
 					</div>
 					<div class="tab_cont">
 						<ul class="menu_list">
-							<c:forEach var="banner" items="${banners}">
-								<img src="${banner.path}" />
-							</c:forEach>
+							
 							<li>
 								<div class="menu_list_img">
 									<span> <img

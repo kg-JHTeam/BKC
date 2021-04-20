@@ -61,16 +61,16 @@ public class MenuInformController {
 	
 	
 
-	// 게시글
-//	@RequestMapping(value = "/sidemenudetail.do", method = RequestMethod.GET)
-//	public String sidemenudetail(SideMenuVO sidemenuvo, Model model) {
-//
-//		SideMenuVO sidemenu = new SideMenuVO();
-//
-//		System.out.println(sidemenu);
-//
-//		model.addAttribute("getSidemenu", sidemenu);
-//
-//		return "subpages/menu/sidemenudetail";
-//	}
+	// 게시글 디테일
+	@RequestMapping(value = "/sidemenudetail.do", method = RequestMethod.GET)
+	public String sidemenudetail(SideMenuVO sidemenuvo, Model model) {
+
+		SideMenuVO sidemenu = new SideMenuVO();
+
+		System.out.println(sidemenu);
+
+		model.addAttribute("getSidemenu", sidemenu);
+
+		return "subpages/menu/sidemenudetail";
+	}
 }
