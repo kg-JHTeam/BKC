@@ -53,14 +53,6 @@ public class MenuInformController {
 		return "subpages/menuInform/sideMenu";
 	}
 	
-	@RequestMapping(value = "/sidemenudetail.do")
-	public String sideMenuDetail() {
-		System.out.println("사이드 메뉴 디테일 페이지 이동");
-		return "subpages/menuInform/sidemenudetail";
-	}
-	
-	
-
 	// 게시글 디테일
 	@RequestMapping(value = "/sidemenudetail.do", method = RequestMethod.GET)
 	public String sidemenudetail(SideMenuVO sidemenuvo, Model model) {

@@ -3,6 +3,7 @@ package com.bkc.admin.board.menuInfom.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.bkc.admin.board.menuInfom.service.SidemenuAdService;
 import com.bkc.admin.board.menuInfom.vo.SidemenuAdVO;
 
+@Controller
 public class SidemenuAdController {
 	@Autowired
 	private SidemenuAdService sidemenuadService;
-
 
 	@RequestMapping(value = "/admin/sidemenuListAd.ad", method = RequestMethod.GET)
 	public String showSidemenuList(Model model) {
@@ -23,7 +24,7 @@ public class SidemenuAdController {
 		return "admin/subpages/menu/sidemenuListAd";
 	}
 
-	// 메뉴상세 출력
+	// 메뉴상세 출력 
 	@RequestMapping(value = "/admin/SidemenuAdDetail.ad", method = RequestMethod.GET)
 	public String showSidemenuAd(Model model, @RequestParam("product_serial") int product_serial) {
 		SidemenuAdVO sidemenuad = sidemenuadService.getSidemenuAd(product_serial);
