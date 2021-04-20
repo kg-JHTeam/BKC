@@ -2,6 +2,7 @@ package com.bkc.admin.board.banner.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.bkc.admin.aws.AwsS3;
 import com.bkc.admin.board.banner.service.BannerService;
 import com.bkc.admin.board.banner.vo.BannerVO;
+import com.bkc.admin.board.banner.vo.UploadFileVO;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -33,7 +35,7 @@ public class BannerController {
 	public AwsS3 awss3 = AwsS3.getInstance();
 
 	// 배너 리스트 출력.
-	@RequestMapping(value = "/admin/bannerlist.ad", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/admin/bannerlist.ad", method = RequestMethod.GET)
 	public String showBannerList(Model model) {
 		List<BannerVO> banners = bannerService.getBannerList();
 		model.addAttribute("banners", banners);
@@ -56,7 +58,7 @@ public class BannerController {
 
 	// 실제 배너 추가
 	@RequestMapping(value = "/admin/bannerUpload.ad", method = { RequestMethod.GET, RequestMethod.POST })
-	public String bannerUpload(@RequestParam MultipartFile banner, @RequestParam String title,
+	public String bannerUpload(Model model, @RequestParam MultipartFile banner, @RequestParam String title,
 			@RequestParam String content) throws IOException, PSQLException {
 
 		// aws s3 파일 업로드 처리
@@ -79,13 +81,20 @@ public class BannerController {
 		// S3 '/bkc_img/main/banner/' 에 바로올리기 -> path 를 여기서 설정
 		String filePath = "https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/" + key;
 		vo.setPath(filePath); // path 설정
-
+		
+		UploadFileVO chk = new UploadFileVO();
+		chk.setSuccess("true");
+		System.out.println(chk.getSuccess());
 		if (bannerService.insertBanner(vo) == 1) {
 			System.out.println("배너 업로드 완료");
+			chk.setSuccess("true");
 		} else {
 			System.out.println("배너 업로드 실패 ");
+			chk.setSuccess("false");
 		}
-		return "redirect:/admin/bannerlist.ad";
+		model.addAttribute("chk", chk);
+		
+		return "redirect:/admin/bannerUploadpage.ad";
 	}
 
 	// 배너 수정
@@ -111,16 +120,15 @@ public class BannerController {
 		return "redirect:/admin/bannerlist.ad";
 	}
 
-	// 배너 삭제 - 비동기처리 
+	// 배너 삭제 - 비동기처리
 	@RequestMapping(value = "/admin/deleteBanner.ad", method = RequestMethod.POST)
 	@ResponseBody
-	public String deleteBanner(@RequestBody String filterJSON, HttpServletResponse response, ModelMap model) {
+	public Object deleteBanner(@RequestBody String filterJSON, HttpServletResponse response, ModelMap model) {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			BannerVO vo = (BannerVO) mapper.readValue(filterJSON, new TypeReference<BannerVO>() {
 			});
 			BannerVO tmp = bannerService.getBanner(vo.getImg_seq());
-
 			vo.setContent(tmp.getContent());
 			vo.setTitle(tmp.getTitle());
 			vo.setPath(tmp.getPath());
@@ -139,10 +147,17 @@ public class BannerController {
 
 			// key위치에 있는 이미지 삭제
 			awss3.delete(key); // AWS삭제
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		// 비동기 처리를 위해 Banner list를  넣어서 보냄.
+		List<BannerVO> banners = bannerService.getBannerList();
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		result.put("banners", banners);
+        
 		response.setContentType("text/html; charset=UTF-8");
-		return null;
+		return result;
 	}
 }

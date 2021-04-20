@@ -47,7 +47,9 @@ function status(status,id){
          //DB에서 처리
          var img_seq = id;
          var contextpath = "<c:out value='${contextPath}'/>";
-          window.location.href= contextpath+"/admin/changeStatusBanner.ad?img_seq="+id;
+         
+         //비동기 처리로 변경 
+         window.location.href= contextpath+"/admin/changeStatusBanner.ad?img_seq="+id;
       } else{
          return;
       }
@@ -70,23 +72,7 @@ function status(status,id){
    }
 } 
 
-function getList(){
-	$.ajax({ 
-        url: contextpath+"/admin/deleteBanner.ad", 
-        type: "POST", 
-        contentType: "application/json;charset=UTF-8",
-        data:JSON.stringify(submitObj),
-        dataType : "json"
-        }) 
-        .done(function() {
-        	
-        }) 
-        .fail(function(e) {  
-        	
-        }) 
-}
-
-//Ajax 로
+//배너 삭제 비동기 처리 
 function deleteBanner(img_seq, param_name, param_value){
 	if(!confirm("삭제를 하시겠습니까?")) return false;
 	
@@ -100,15 +86,24 @@ function deleteBanner(img_seq, param_name, param_value){
         type: "POST", 
         contentType: "application/json;charset=UTF-8",
         data:JSON.stringify(submitObj),
-        dataType : "json"
+        dataType : 'json'
         }) 
-        .done(function() {
+        .done(function(data) {
 	        alert("삭제되었습니다.");
-	        getList();
+	        console.log(JSON.stringify(data));
+	        var result = data.json;
+	        $.each(result , function(idx, val) {
+	    		console.log(idx + "  : " + val.title);
+	    	});
         }) 
-        .fail(function(e) {  
-            alert("삭제를 실패하였습니다.");
-            getList();
+        .fail(function(banner) {
+	        alert("삭제되지않았습니다.");
+           	var txt = data.banners.img_seq;
+           	console.log(JSON.stringify(data));
+           	var result = data.json;
+	        $.each(result , function(idx, val) {
+	    		console.log(idx + "  : " + val.title);
+	    	});
         }) 
 }
 
