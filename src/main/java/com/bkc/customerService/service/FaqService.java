@@ -11,4 +11,10 @@ public interface FaqService {
 	public int FaqTotalCnt(FaqVO faqVO);
 	
 	public List<FaqVO> AdminFaqList(FaqVO faqVO);
+	
+	public int FaqInsert(FaqVO faqVO);
+	
+	public int FaqDelete(int seq);
+	
+	public FaqVO getFaq(int seq);
 }

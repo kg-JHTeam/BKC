@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.bkc.admin.board.banner.vo.BannerVO;
 import com.bkc.customerService.vo.FaqVO;
 import com.bkc.customerService.vo.NoticeVO;
 
@@ -25,8 +26,24 @@ public class FaqDAOImpl implements FaqDAO{
 		return sqlSession.selectOne("getNoticeTotalCnt");
 	}
 	
+	//ad게시판
 	@Override
 	public List<FaqVO> AdminFaqList(FaqVO faqVO){
 		return sqlSession.selectList("AdminFaqList", faqVO);
+	}
+	
+	@Override
+	public int FaqInsert(FaqVO faqVO) {
+		return sqlSession.insert("FaqInsert", faqVO);
+	}
+	
+	@Override
+	public int FaqDelete(int seq) {
+		return sqlSession.insert("FaqDelete", seq);
+	}
+	
+	@Override
+	public FaqVO getFaq(int seq) {
+		return sqlSession.selectOne("getFaq", seq);
 	}
 }
