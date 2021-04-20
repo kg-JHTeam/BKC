@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<c:set var="success" value="${chk.success}" />
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -12,6 +13,17 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
+<script>
+window.onload = function(){
+	alert("<c:out value='${success}'/>");
+	var chk = "<c:out value='${chk.success}'/>"
+	if(chk=="true"){
+		alert(chk + "업로드 성공");
+	} else if(chk=="false"){
+		alert(chk +"업로드 실패");
+	} else{alert(chk +"무야호");}
+}
+</script>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
