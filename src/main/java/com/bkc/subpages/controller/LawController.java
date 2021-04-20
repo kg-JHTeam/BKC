@@ -8,9 +8,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/law", method = RequestMethod.GET)
 public class LawController {
 
-	@RequestMapping(value = "/term.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/terms.do", method = RequestMethod.GET)
 	public String term() {
-		return "subpages/law/term";
+		return "subpages/law/terms";
+	}
+
+	@RequestMapping(value = "/privacy.do", method = RequestMethod.GET)
+	public String privacy() {
+		return "subpages/law/privacy";
+	}
+
+	@RequestMapping(value = "/legal.do", method = RequestMethod.GET)
+	public String legal() {
+		return "subpages/law/legal";
 	}
 	
 }

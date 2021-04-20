@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="faqDao">
+	<select id="FaqList"  resultType="FaqVO">
+		SELECT * FROM faq 
+		WHERE category like '%' || #{category} || '%'
+		ORDER BY seq DESC
+	</select>
+	
+	<select id="FaqTotalCnt"  resultType="int">
+			SELECT  count(*) seq
+			FROM faq
+			<if test="searchText neq null and searchText neq ''">
+			   WHERE (title like '%' || #{searchText} || '%') or (contents  like '%' || #{searchText} || '%')
+			</if>
+	</select>
+	
+	<select id="AdminFaqList"  resultType="FaqVO">
+		SELECT * FROM faq ORDER BY seq DESC
+	</select>
+</mapper>

@@ -7,6 +7,7 @@
 		<result property="content" column="content" />
 		<result property="use_status" column="use_status" />
 	</resultMap>
+	
 	<select id="getBannerList" resultType="BannerVO">
 		<![CDATA[
 			SELECT * FROM banner 
@@ -34,11 +35,21 @@
 				img_seq = #{img_seq};
 		]]>
 	</update>
-	<delete id="deleteBanner">
+	<delete id="deleteBanner" >
 		<![CDATA[
 			DELETE FROM banner
 			WHERE
 				img_seq = #{img_seq};
 		]]>
 	</delete>
+	
+	<insert id="insertBanner" > 
+		<![CDATA[
+			INSERT INTO 
+				banner(use_status, content, title, path)
+			VALUES 
+				(#{use_status}, #{content}, #{title}, #{path});
+		]]>
+	</insert>
+
 </mapper>

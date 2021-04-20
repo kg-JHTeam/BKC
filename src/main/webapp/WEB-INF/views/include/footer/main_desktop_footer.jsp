@@ -40,7 +40,7 @@
                     <a href=""><span>고객센터</span></a><br><br>
                     <a href="">공지사항</a><br><br>
                     <a href="">BKC앱이용안내</a><br><br>
-                    <a href="">FAQ</a><br><br>
+                    <a href="${contextPath}/customerService/faq.do">FAQ</a><br><br>
                     <a href="">문의</a><br><br>
                     <a href="">가맹점모집</a><br><br>
                     <a href="">인재채용</a><br><br>
@@ -54,10 +54,10 @@
                 <h2 class="logo">
                     <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/bkclogo_bw.png"
                         alt="BKC Logo">
-                </h2>
-                <p>서울 종로구 삼봉로 71 G 타워 2층 주식회사 비케이알 | 전화주문 1599-0505</p>
-                <p>사업자 등록번호 101-86-76277 | (주)BKR 대표이사 문영주</p>
-                <p>Copyright 2019 BKR Co., Ltd. All right Reserved</p>
+                </h2>	
+                <p>${bi.address} | 전화주문 ${bi.tel}</p>
+                <p>사업자 등록번호 ${bi.business_num} | (주)BKC 대표이사  ${bi.ceo_name}</p>
+                <p>Copyright ${bi.copyright}</p>
                 <div class="sns">
                     <a href="https://www.facebook.com/bhcchicken" target="_blank" class="facebook">
                         <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/facebook_s.png"
@@ -72,15 +72,15 @@
             <div class="footer_menu">
                 <div class="c_btn_1">
                     <div class="c_btn_1_item">
-                        <a href="${contextPath}/law/term.do">이용약관</a>
+                        <a href="${contextPath}/law/terms.do">이용약관</a>
                     </div>
                     <div class="c_btn_1_line">|</div>
                     <div class="c_btn_1_item" id="c_btn_1_center">
-                        <a href="#">개인정보취급방침</a>
+                        <a href="${contextPath}/law/privacy.do">개인정보취급방침</a>
                     </div>
                     <div class="c_btn_1_line">|</div>
                     <div class="c_btn_1_item">
-                        <a href="#">법적고지</a>
+                        <a href="${contextPath}/law/legal.do">법적고지</a>
                     </div>
                 </div>
                 <div class="c_btn_2">

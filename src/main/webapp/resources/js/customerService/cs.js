@@ -199,27 +199,31 @@ $(function () {
 });
 
 //FAQ 내용 슬라이드
+$('.acc_tit_tr').click(function(){
+    $(this).stop().next("tr").toggleClass("open");
+});
+
 $(document).ready(function () {
-    $(".faq-title").click(function () {
+    $(".acc_tit").click(function () {
         var d = $(this)
-            .next("div")
+            .next(".text_area")
             .css("display");
 
         if (d == "none") {
-            $(".faqtxt")
+            $(".text_area")
                 .stop()
                 .slideUp();
             $(this)
                 .next("div")
                 .stop()
                 .slideDown();
-            $(".btn_faq").addClass("rotate");
+            $(".btn_acc").addClass("rotate");
         } else {
             $(this)
                 .next("div")
                 .stop()
                 .slideUp();
-            $(".btn_faq").removeClass("rotate");
+            $(".btn_acc").removeClass("rotate");
         }
     })
 });

@@ -47,17 +47,17 @@
 					<div class="tab01 m_shadow">
 						<ul>
 							<li class='on'>
-								<button type="button">
+								<button class="btnlaw" type="button" onclick="location.href='${contextPath}/bkc/law/terms.do'">
 									<span>이용약관</span>
 								</button>
 							</li>
 							<li>
-								<button type="button">
+								<button class="btnlaw" type="button" onclick="location.href='${contextPath}/bkc/law/privacy.do'">
 									<span>개인정보취급방침</span>
 								</button>
 							</li>
 							<li>
-								<button type="button">
+								<button class="btnlaw" type="button" onclick="location.href='${contextPath}/bkc/law/legal.do'">
 									<span>법적고지</span>
 								</button>
 							</li>

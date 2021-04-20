@@ -79,7 +79,7 @@
                                         <strong>바삭클</strong>
                                     </p>
                                 </div>
-                                <a href="#" class="btn_detail">
+                                <a href="${contextPath}/menuInform/beerzonedetail.do" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>

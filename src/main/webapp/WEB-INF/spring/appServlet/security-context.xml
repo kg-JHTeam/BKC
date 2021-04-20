@@ -28,8 +28,7 @@
 				FROM usermember WHERE USERID =?" />
 				
 				<!-- 로그인 시 비밀번호를 암호화해서 DB에서 조회한 비밀번호와 비교  -->
-				<password-encoder ref="bcryptPasswordEncoder"
-					hash="bcrypt" />
+				<password-encoder ref="bcryptPasswordEncoder" hash="bcrypt" />
 		</authentication-provider>
 	</authentication-manager>
 	<http auto-config="true" use-expressions="true">
@@ -60,6 +59,9 @@
 
 		<!-- 로그아웃 -->
 		<logout invalidate-session="true" />
+		
+		<!-- csrf 토큰 막음 -->
+		<csrf disabled="true" />
 	</http>
-	
+
 </beans:beans>

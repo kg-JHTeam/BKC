@@ -253,6 +253,20 @@
         text-align:right;
         align-items: right;
     }
+    
+    /* 페이지 위로 올리기 버튼 */
+
+	.btn_top {
+	    position: fixed;
+	    right: 20px;
+	    bottom: 316px;
+	    width: 52px;
+	    height: 52px;
+	    text-indent: -9999em;
+	    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+	    z-index: 50;
+	    display: none;
+	}
 
     
 
