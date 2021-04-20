@@ -103,10 +103,10 @@
 		<div id="layoutSidenav_content">
 			<main>
 			<div class="container-fluid">
-				<h1 class="mt-4">사이드메뉴 리스트</h1>
+				<h1 class="mt-4">메뉴 리스트</h1>
 				<div class="card mb-4">
 					<div class="card-header">
-						<i class="fas fa-table mr-1"></i>사이드메뉴 리스트
+						<i class="fas fa-table mr-1"></i>메뉴 리스트
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -129,7 +129,7 @@
 							<!-- 카테고리 선택  -->
 							<form action="/menu.ad">
 								<div align="right">
-									<input type="submit" class="btn btn-warning btn-icon-split"
+									<input type="submit" class="btn btn-info btn-icon-split"
 										style="padding: 5px" value="메뉴 등록">
 								</div>
 								<div class="my-2"></div>
@@ -140,8 +140,8 @@
 										<tr align="center">
 											<th width="15%">메뉴이름</th>
 											<th width="15%">code</th>
-											<th width="25%">메뉴 설명</th>
-											<th width="35%">이미지</th>
+											<th width="35%">메뉴 설명</th>
+											<th width="25%">이미지</th>
 											<th width="10%">판매상태</th>
 										</tr>
 									</thead>

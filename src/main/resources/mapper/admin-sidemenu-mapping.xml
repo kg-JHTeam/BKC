@@ -10,9 +10,10 @@
 	<!-- 메뉴리스트 -->
 	<select id="getSidemenuAdList" resultType="SidemenuAdVO">
 		<![CDATA[
-			select img_path, product_name, description,status from product P inner join product_image I on P.product_serial = I.product_serial;
+			SELECT  img_path, product_name, description,status from product P inner join product_image I on P.product_serial = I.product_serial ORDER BY 1 DESC, 2;
 		]]>
 	</select>
+	<!-- 메뉴 디테일 -->
 	<select id="getSidemenuAd" resultType="SidemenuAdVO">
 		<![CDATA[
 			select description, img_path, product_name, status from product P inner join product_image I on P.product_serial=I.product_serial;

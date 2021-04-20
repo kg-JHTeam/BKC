@@ -73,7 +73,7 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseSubpage" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="">BKC 메뉴 관리</a>
+                                            <a class="nav-link" href="${contextPath}/admin/sidemenuListAd.ad">BKC 메뉴 관리</a>
                                             <a class="nav-link" href="">BKC 이벤트 게시판 관리</a>
                                             <a class="nav-link" href="">BKC 신규매장 게시판 관리</a>
                                             <a class="nav-link" href="">공지사항 게시판 관리</a>

@@ -1,14 +1,14 @@
 package com.bkc.menuInform.vo;
 
 public class SideMenuVO {
-	private int product_serial;
+	private String product_serial;
 	private String product_name;
 	private String img_path;
 	private String description;
-	public int getProduct_serial() {
+	public String getProduct_serial() {
 		return product_serial;
 	}
-	public void setProduct_serial(int product_serial) {
+	public void setProduct_serial(String product_serial) {
 		this.product_serial = product_serial;
 	}
 	public String getProduct_name() {
