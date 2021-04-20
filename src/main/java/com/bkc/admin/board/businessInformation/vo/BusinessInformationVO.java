@@ -1,4 +1,4 @@
-package com.bkc.businessInformation.vo;
+package com.bkc.admin.board.businessInformation.vo;
 
 public class BusinessInformationVO {
 	private int seq;

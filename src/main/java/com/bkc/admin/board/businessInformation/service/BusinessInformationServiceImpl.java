@@ -1,14 +1,12 @@
-package com.bkc.businessInformation.sevice;
+package com.bkc.admin.board.businessInformation.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bkc.admin.board.banner.dao.BannerDAO;
-import com.bkc.admin.board.banner.vo.BannerVO;
-import com.bkc.businessInformation.dao.BusinessInformationDAO;
-import com.bkc.businessInformation.vo.BusinessInformationVO;
+import com.bkc.admin.board.businessInformation.dao.BusinessInformationDAO;
+import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 
 @Service
 public class BusinessInformationServiceImpl implements BusinessInformationService {

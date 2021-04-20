@@ -43,7 +43,7 @@
 		]]>
 	</delete>
 	
-	<insert id="insertBanner"> 
+	<insert id="insertBanner" > 
 		<![CDATA[
 			INSERT INTO 
 				banner(use_status, content, title, path)

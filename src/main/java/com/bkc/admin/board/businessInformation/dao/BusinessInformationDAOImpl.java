@@ -1,10 +1,10 @@
-package com.bkc.businessInformation.dao;
+package com.bkc.admin.board.businessInformation.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bkc.businessInformation.vo.BusinessInformationVO;
+import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 
 @Service
 public class BusinessInformationDAOImpl implements BusinessInformationDAO {
