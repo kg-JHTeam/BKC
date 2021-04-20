@@ -1,6 +1,6 @@
-package com.bkc.businessInformation.dao;
+package com.bkc.admin.board.businessInformation.dao;
 
-import com.bkc.businessInformation.vo.BusinessInformationVO;
+import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 
 public interface BusinessInformationDAO {
 

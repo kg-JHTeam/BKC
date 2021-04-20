@@ -1,4 +1,4 @@
-package com.bkc.businessInformation.controller;
+package com.bkc.admin.board.businessInformation.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.bkc.businessInformation.sevice.BusinessInformationService;
-import com.bkc.businessInformation.vo.BusinessInformationVO;
+import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
+import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 
 @Controller
 public class BusinessInformationController {

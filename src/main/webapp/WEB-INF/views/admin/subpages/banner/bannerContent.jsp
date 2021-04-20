@@ -24,37 +24,6 @@
 		text-align: center;
 	}
 </style>
-<script>
-// 사용 미사용  변경  
-function status(status){
-	var btn = document.getElementById("status_id");
-	var value = btn.value;
-	var use_status = document.getElementById("use_status");
-	if(value == "사용"){
-		var input = confirm("배너를 사용하지 않겠습니까?");
-		if(input == true){
-			//배너 미사용으로 변경. 
-			//use_status -> false
-			btn.className = "btn btn-danger";
-			btn.value = "미사용"
-			use_status.value = false;
-		} else{
-			return;
-		}
-	} else{
-		var input = confirm("배너를 사용하도록 변경하시겠습니까?");
-		if(input == true){
-			//배너 사용으로 변경.
-			//use_status -> true
-			btn.className = "btn btn-info";
-			btn.value = "사용"
-			use_status.value = true;
-		} else{
-			return;
-		}
-	}
-} 
-</script>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -77,11 +46,8 @@ function status(status){
 										</a>
 									</div>
 									<div class="form-row">
-										<div class="form-group col-md-6">
-												<label>아이디</label> 
-												<input class="form-control" name='img_seq' value="${banner.img_seq}" disabled/>
-										</div>
-										<div class="form-group col-md-6">
+										<input class="form-control" name='img_seq' value="${banner.img_seq}" type="hidden"/>
+										<div class="form-group col-md-12">
 												<label>제목</label> 
 												<input class="form-control" name='title' value="${banner.title}" />
 										</div>
@@ -95,16 +61,9 @@ function status(status){
 										<input class="form-control" name='path' value="${banner.path}" disabled/>
 									</div>
 									<div>
+										<button type="button" class="btn btn-success" onclick="window.location.href='${contextPath }/admin/bannerlist.ad'">목록으로</button>
 										<button type="submit" class="btn btn-primary">수정 완료</button>
-										<button type="reset" class="btn btn-success">리셋</button>
-										<c:choose>
-											<c:when test="${banner.use_status eq true }">
-												<input class="btn btn-info" type="button" value="사용" onclick="javascript:status(true)" id="status_id"/>
-											</c:when>
-											<c:otherwise>
-												<input class="btn btn-danger" type="button" value="미사용" onclick="javascript:status(false)" id="status_id"/>
-											</c:otherwise>
-										</c:choose>
+										<button type="reset" class="btn btn-danger">리셋</button>
 										<input type="hidden" name='use_status' value="${banner.use_status}" id="use_status"/>
 									</div>
 								</form>

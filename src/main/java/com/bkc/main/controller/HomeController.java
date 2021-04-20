@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bkc.admin.board.banner.service.BannerService;
 import com.bkc.admin.board.banner.vo.BannerVO;
-import com.bkc.businessInformation.sevice.BusinessInformationService;
-import com.bkc.businessInformation.vo.BusinessInformationVO;
+import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
+import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 
 @Controller
 public class HomeController {

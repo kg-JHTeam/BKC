@@ -1,8 +1,8 @@
-package com.bkc.businessInformation.sevice;
+package com.bkc.admin.board.businessInformation.service;
 
 import org.springframework.stereotype.Service;
 
-import com.bkc.businessInformation.vo.BusinessInformationVO;
+import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 
 @Service
 public interface BusinessInformationService {
