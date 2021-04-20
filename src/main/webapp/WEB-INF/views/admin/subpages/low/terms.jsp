@@ -12,6 +12,18 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
+<style>
+	#bannerimgCol{
+		text-align: center;
+	}
+	#bannerimg{
+		width:898.8px;
+		height:540.4px;
+	}
+	#imgDetail{
+		text-align: center;
+	}
+</style>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -22,38 +34,39 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">사업자 정보 조회</h1>
+					<h1 class="mt-4">배너 수정</h1>
 					<div class="card mb-4">
 						<div class="card-body">
 							<div class="table-responsive">
-								<div class="form-row">
-									<div class="form-group col-md-6">
-										<label>주소</label> 
-										<input class="form-control" value="${bi.address}" disabled />
+								<form role="form" action="${contextPath}/admin/modifyBanner.ad" method="post">
+									<div class="form-group" id="imgDetail">
+										<h4>이미지 상세 </h4><br>
+										<a href="${banner.path}" target="_blank"  target="_blank">
+												<img src="${banner.path}" alt="이미지" id="bannerimg" class="img-responsive"/>
+										</a>
 									</div>
-									<div class="form-group col-md-6">
-										<label>전화번호</label>
-										<input class="form-control" value="${bi.tel}" disabled />
+									<div class="form-row">
+										<input class="form-control" name='img_seq' value="${banner.img_seq}" type="hidden"/>
+										<div class="form-group col-md-12">
+												<label>제목</label> 
+												<input class="form-control" name='title' value="${banner.title}" />
+										</div>
 									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md-6">
-										<label>사업자등록번호</label>
-										<input class="form-control" value="${bi.business_num}" disabled />
+									<div class="form-group">
+										<label>세부내용</label>
+										<textarea class="form-control" rows="3" name='content' style="resize:none;">${banner.content}</textarea>
 									</div>
-									<div class="form-group col-md-6">
-										<label>저작권</label>
-										<input class="form-control" value="${bi.copyright}" disabled />
+									<div class="form-group">
+										<label>이미지 주소 </label>
+										<input class="form-control" name='path' value="${banner.path}" disabled/>
 									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md-6">
-										<label>대표이사 이름</label>
-										 <input class="form-control" value="${bi.ceo_name}" disabled />
+									<div>
+										<button type="button" class="btn btn-success" onclick="window.location.href='${contextPath }/admin/bannerlist.ad'">목록으로</button>
+										<button type="submit" class="btn btn-primary">수정 완료</button>
+										<button type="reset" class="btn btn-danger">리셋</button>
+										<input type="hidden" name='use_status' value="${banner.use_status}" id="use_status"/>
 									</div>
-								</div>
-								<input class="btn btn-primary" type="button" value="수정하러가기"
-								 onclick= "window.location.href = '${contextPath }/admin/businessinformationUpdate.ad'"/>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -63,6 +76,7 @@
 			<jsp:include page="../../include/footer.jsp" />
 		</div>
 	</div>
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
