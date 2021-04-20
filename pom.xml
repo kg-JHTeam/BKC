@@ -196,6 +196,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.10.7</version>
 		</dependency>
+
 		<!-- json object[s] -->
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
@@ -213,7 +214,7 @@
 			<artifactId>jackson-core-asl</artifactId>
 			<version>1.9.13</version>
 		</dependency>
-		
+
 		<!-- aws -->
 		<dependency>
 			<groupId>com.amazonaws</groupId>
@@ -223,8 +224,9 @@
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.5.2</version>
+			<version>4.5.13</version>
 		</dependency>
+
 
 		<!-- 파일 업로드 -->
 		<dependency>
