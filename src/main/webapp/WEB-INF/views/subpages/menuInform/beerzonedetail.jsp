@@ -106,7 +106,7 @@
         <div class="other_menuWrap">
             <div class="web_container">
                 <div class="titbox">
-                    <h3>치킨메뉴의 다른 메뉴</h3>
+                    <h3>비어존메뉴의 다른 메뉴</h3>
                     <div class="othermenu_slider">
                         <div class="slide">
                             <div class="slider prd_img responsive">
