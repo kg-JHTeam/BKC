@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -14,18 +16,18 @@
 	href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
 
 <!-- jQuery -->
-<script
+<script	
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../resources/jquery/jquery-3.6.0.min.js"></script>
 
 <!-- js -->
-<script src="../resources/js/include/main-gnb.js"></script>
+<script src="${contextPath}/resources/js/include/main-gnb.js"></script>
 
 <!--css-->
-<link rel="stylesheet" href="../resources/css/include/main-gnb.css">
-<link rel="stylesheet" href="../resources/css/subpages/law/term.css?v=<%=System.currentTimeMillis() %>" />
+<link rel="stylesheet" href="${contextPath}/resources/css/include/main-gnb.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/subpages/law/term.css?v=<%=System.currentTimeMillis() %>" />
 
-<title>이벤트</title>
+<title>이용약관</title>
 </head>
 <body>
 	<!-- main-header -->
@@ -80,7 +82,7 @@
 									<ol>
 										<li>
 											<a class="choice">
-												<span>2019.05.07</span>
+												<span><span>
 											</a>
 										</li>
 									</ol>
@@ -96,6 +98,10 @@
 						</div>
 						<div class="auth_cont">
 							<h1>제 1장 총칙</h1>
+							${ terms.content01}
+							${ terms.content02}
+							${ terms.content03}
+							${ terms.content04}
 						</div>
 					</div>
 				</div>
