@@ -74,13 +74,14 @@
 								<li>
 									<div class="menu_list_img">
 										<span> <img
-											src="${sidemenu.menu_img}"
+											src="${sidemenu.img_path}"
 											class style="display: inline; opacity: 1;">
 										</span>
 									</div>
+									
 									<div class="cont">
 										<p class="tit">
-											<strong>${sidemenu.menu_name}</strong>
+											<strong>${sidemenu.product_name}</strong>
 										</p>
 									</div> <a href="#" class="btn_detail"> <span>Details</span>
 								</a>

@@ -70,13 +70,11 @@
 					</div>
 					<div class="tab_cont">
 						<ul class="menu_list">
-							<c:forEach var="banner" items="${banners}">
-								<img src="${banner.path}" />
-							</c:forEach>
+							
 							<li>
 								<div class="menu_list_img">
 									<span> <img
-										src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.jpg"
+										src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png"
 										class style="display: inline; opacity: 1;">
 									</span>
 								</div>

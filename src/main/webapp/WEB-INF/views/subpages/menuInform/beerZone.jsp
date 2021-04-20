@@ -71,7 +71,7 @@
                             <li>
                                 <div class="menu_list_img">
                                     <span>
-                                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.jpg" class style="display: inline; opacity: 1;" >
+                                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png" class style="display: inline; opacity: 1;" >
                                     </span>
                                 </div>
                                 <div class="cont">

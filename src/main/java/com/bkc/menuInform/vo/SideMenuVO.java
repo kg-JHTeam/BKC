@@ -1,47 +1,39 @@
 package com.bkc.menuInform.vo;
 
 public class SideMenuVO {
-	private int seq;
-	private String menu_name;
-	private String content;
-	private String menu_img;
-
-	public int getSeq() {
-		return seq;
+	private int product_serial;
+	private String product_name;
+	private String img_path;
+	private String description;
+	public int getProduct_serial() {
+		return product_serial;
 	}
-
-	public void setSeq(Integer seq) {
-		this.seq = seq;
+	public void setProduct_serial(int product_serial) {
+		this.product_serial = product_serial;
 	}
-
-	public String getMenu_name() {
-		return menu_name;
+	public String getProduct_name() {
+		return product_name;
 	}
-
-	public void setMenu_name(String menu_name) {
-		this.menu_name = menu_name;
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
-
-	public String getContent() {
-		return content;
+	public String getImg_path() {
+		return img_path;
 	}
-
-	public void setContent(String content) {
-		this.content = content;
+	public void setImg_path(String img_path) {
+		this.img_path = img_path;
 	}
-
-	public String getMenu_img() {
-		return menu_img;
+	
+	public String getDescription() {
+		return description;
 	}
-
-	public void setMenu_img(String menu_img) {
-		this.menu_img = menu_img;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-
 	@Override
 	public String toString() {
-		return "SidemenuVO [seq=" + seq + ", menu_name=" + menu_name + ", content=" + content + ", menu_img=" + menu_img
-				+ "]";
+		return "SideMenuVO [product_serial=" + product_serial + ", product_name=" + product_name + ", img_path="
+				+ img_path + ", description=" + description + "]";
 	}
-
+	
 }
