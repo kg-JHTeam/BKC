@@ -124,10 +124,12 @@ public class BannerController {
 	@RequestMapping(value = "/admin/deleteBanner.ad", method = RequestMethod.POST)
 	@ResponseBody
 	public Object deleteBanner(@RequestBody String filterJSON, HttpServletResponse response, ModelMap model) {
+		
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			BannerVO vo = (BannerVO) mapper.readValue(filterJSON, new TypeReference<BannerVO>() {
 			});
+			
 			BannerVO tmp = bannerService.getBanner(vo.getImg_seq());
 			vo.setContent(tmp.getContent());
 			vo.setTitle(tmp.getTitle());

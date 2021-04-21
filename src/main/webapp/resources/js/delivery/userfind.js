@@ -52,7 +52,6 @@ $(document).ready(function() {
 	
 	$("#st02").keyup(function() {
 		var content2 = document.getElementById("st02");
-		
 		//이메일 정규표현식 검증 
 		var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 		if(content2.value.match(regExp) != null){
@@ -60,6 +59,7 @@ $(document).ready(function() {
     		phone2.style.display = "none";
 		}
 	});
+	
 });$("#item1").click(function() {
 	$(this).addClass('on').siblings().removeClass('on');
 	info1.style.display = "block";
@@ -72,6 +72,9 @@ $(document).ready(function() {
 	phone2.style.display = "none";
 	phone3.style.display = "none";
 	phone4.style.display = "none";
+	phone4.style.display = "none";
+	submit_id.style.display="block";
+	submit_pw.style.display="none";
 	$("#st02").attr( 'placeholder', '휴대폰 번호' );
 	
 	//탭 클릭시 reset
@@ -95,6 +98,9 @@ $("#item2").click(function() {
 	phone2.style.display = "none";
 	phone3.style.display = "block";
 	phone4.style.display = "none";
+	submit_id.style.display="none";
+	submit_pw.style.display="block";
+	
 	//탭 클릭시 reset
 	var content1 = document.getElementById("st01");
 	var content2 = document.getElementById("st02");
@@ -106,8 +112,8 @@ $("#item2").click(function() {
 });
 
 $('#st01').keyup(function(e) {
-	var content1 = $(this).val();
-	if (content1.length != 0) {
+	var content1 = document.getElementById("st01");
+	if (content1.value.length > 0) {
 		name1.style.display = "none";
 	} else {
 		name1.style.display = "block";

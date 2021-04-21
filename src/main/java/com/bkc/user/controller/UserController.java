@@ -138,15 +138,15 @@ public class UserController {
 	// 아이디 찾기/비밀번호 찾기 url나누기
 	@PostMapping("/finduser")
 	public String spiltFindLogin(Model model, HttpServletRequest request, HttpServletResponse response,
-			RedirectAttributes redirectAttr, 
-			@RequestParam("check") String check,
-			@RequestParam("name") String name,
+			RedirectAttributes redirectAttr, @RequestParam("check") String check, @RequestParam("name") String name,
 			@RequestParam("checkStr") String checkStr) {
 
-		// checkString -> phone/username
+		// checkString -> phone / username
 		// 핸드폰 번호 인 경우
 		System.out.println(name + " : " + checkStr);
-		
+		if (check == "" || name == "") {
+			return "redirect:/userfind";
+		}
 		if (check.equals("true")) {
 			System.out.println(check);
 			System.out.println("아이디 찾기 ");
@@ -166,68 +166,81 @@ public class UserController {
 	@RequestMapping(value = "/findid", method = { RequestMethod.GET, RequestMethod.POST })
 	public String findIdUser(HttpServletRequest request, HttpServletResponse response, Model model) {
 
-		String name = "";
-		String phone = "";
-		Map<String, ?> redirectMap = RequestContextUtils.getInputFlashMap(request);
-		if (redirectMap != null) {
-			name = (String) redirectMap.get("name"); // 오브젝트 타입이라 캐스팅해줌
-			phone = (String) redirectMap.get("phone");
-		}
-
 		// 이름과 전화번호에 맞는 아이디를 출력해준다.
-		UserVO vo = new UserVO();
-		vo.setName(name);
-		vo.setPhone(phone);
+		try {
+			// 푸터 넣기
+			BusinessInformationVO bi = biService.getBusinessInformation(1);
+			model.addAttribute("bi", bi);
 
-		model.addAttribute("vo", vo); // 아이디 보내기
+			String name = "";
+			String phone = "";
+			Map<String, ?> redirectMap = RequestContextUtils.getInputFlashMap(request);
+			if (redirectMap != null) {
+				name = (String) redirectMap.get("name"); // 오브젝트 타입이라 캐스팅해줌
+				phone = (String) redirectMap.get("phone");
+			}
 
-		// 푸터 넣기
-		BusinessInformationVO bi = biService.getBusinessInformation(1);
-		model.addAttribute("bi", bi);
+			UserVO vo = userService.getUserByNameAndPhone(name, phone);
 
-		return "delivery/findidsuccess";
+			// 없는 아이디 인 경우
+			if (vo.getUserid() == null) {
+				return "redirect:/userfind";
+			}
+			model.addAttribute("vo", vo); // 아이디 보내기
+			return "delivery/findidsuccess";
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// name 과 phone이 같은 경우 는 어케해야되나? 없을걸?
+			return "redirect:/userfind";
+		}
 	}
 
 	// 비밀번호 찾기
 	@RequestMapping(value = "/findpwd", method = { RequestMethod.GET, RequestMethod.POST })
 	public String findpwdUser(HttpServletRequest request, HttpServletResponse response, Model model) {
 
-		String name = "";
-		String userid = "";
+		try {
+			String name = "";
+			String userid = "";
 
-		Map<String, ?> redirectMap = RequestContextUtils.getInputFlashMap(request);
-		if (redirectMap != null) {
-			name = (String) redirectMap.get("name"); // 오브젝트 타입이라 캐스팅해줌
-			userid = (String) redirectMap.get("userid");
+			Map<String, ?> redirectMap = RequestContextUtils.getInputFlashMap(request);
+			if (redirectMap != null) {
+				name = (String) redirectMap.get("name"); // 오브젝트 타입이라 캐스팅해줌
+				userid = (String) redirectMap.get("userid");
+			}
+			// 이메일을 통해 UserVO 얻음.
+			UserVO vo = userService.getUserById(userid);
+
+			// 비밀번호 찾기시 이메일로 인증 비밀번호 전송
+			// 인증 번호와 일치하면, 확인 시킴.
+			// 임시비밀번호 생성 후 바로 전송
+			String pwd = userService.sendTempPassword(vo);
+
+			// 회원 임시 비밀번호 세팅 - 암호화 시킴
+			pwd = passwordEncoder.encode(pwd);
+			vo.setPassword(pwd);
+
+			// 회원 임시비밀번호 암호화하여 update 수행
+			if (userService.updatePasswd(vo) == 1) {
+				System.out.println("변경 성공 ");
+			} else {
+				System.out.println("변경 실패 ");
+			}
+
+			// model에 UserVO 담아서 보냄.
+			model.addAttribute("vo", vo);
+
+			// 푸터 넣기
+			BusinessInformationVO bi = biService.getBusinessInformation(1);
+			model.addAttribute("bi", bi);
+
+			// 비밀번호 변경 완료 된후 findepwdsuccess page로 이동
+			return "delivery/findpwdsuccess";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "redirect:/userfind";
 		}
 
-		// 이메일을 통해 UserVO 얻음.
-		UserVO vo = userService.getUserById(userid);
-
-		// 비밀번호 찾기시 이메일로 인증 비밀번호 전송
-		// 인증 번호와 일치하면, 확인 시킴.
-		// 임시비밀번호 생성 후 바로 전송
-		String pwd = userService.sendTempPassword(vo);
-
-		// 회원 임시 비밀번호 세팅 - 암호화 시킴
-		pwd = passwordEncoder.encode(pwd);
-		vo.setPassword(pwd);
-
-		// 회원 임시비밀번호 암호화하여 update 수행
-		if (userService.updatePasswd(vo) == 1) {
-			System.out.println("변경 성공 ");
-		} else {
-			System.out.println("변경 실패 ");
-		}
-
-		// model에 UserVO 담아서 보냄.
-		model.addAttribute("vo", vo);
-		
-		// 푸터 넣기
-		BusinessInformationVO bi = biService.getBusinessInformation(1);
-		model.addAttribute("bi", bi);
-
-		// 비밀번호 변경 완료 된후 findepwdsuccess page로 이동
-		return "delivery/findpwdsuccess";
 	}
 }

@@ -64,5 +64,14 @@ public class UserDAOImpl implements UserDAO {
 	public int updatePasswd(UserVO vo) {
 		return sqlSession.insert("updatePasswd", vo);
 	}
+	
+	//name과 phone을 통해 user조회
+	@Override
+	public UserVO getUserByNameAndPhone(String name, String phone) {
+		UserVO vo = new UserVO();
+		vo.setName(name);
+		vo.setPhone(phone);
+		return sqlSession.selectOne("getUserByNameAndPhone", vo);		
+	}
 
 }

@@ -15,9 +15,7 @@
 	rel="stylesheet">
 	
 <!-- favicon -->
-<link rel="shortcut icon" type="image/x-icon"
-	href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
-
+<link rel="shortcut icon" type="image/x-icon" href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
 <!-- css -->
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/include/delivery-gnb.css">
@@ -217,6 +215,7 @@
          </div> 
      </div>
      <script>
+     //<button class="btn_identify btn_phone" id="identify_phone" type="button"><span>휴대폰 인증</span></button>
     function sendSMS(pageName){
 
         console.log("문자를 전송합니다.");
@@ -229,10 +228,8 @@
          var cancelButton = document.querySelector("#cancel");
 
         console.log(modal);
-
         function toggleModal() { 
              modal.classList.toggle("show-modal"); 
-
          }
 
         function windowOnClick(event) { 
@@ -244,7 +241,6 @@
          closeButton.addEventListener("click", toggleModal); 
          cancel.addEventListener("click", toggleModal); 
          window.addEventListener("click", windowOnClick); 
-
     }
      </script>
     </sf:form>	<!-- form 태그 끝 -->
