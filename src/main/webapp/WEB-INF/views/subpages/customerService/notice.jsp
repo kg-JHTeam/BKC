@@ -43,21 +43,20 @@ function goPaging(page) {
 	<!-- main-header -->
 	<jsp:include page="../../include/header/main_desktop_header.jsp" />
 	<jsp:include page="../../include/header/main_mobile_header.jsp" />
-
-	<div id="contents-wrap">
+	<div class="contentsWrap">
 		<div class="locationWrap">
-			<div class="story_web_container">
+			<div class="notice_web_container">
 				<div class="page_navi">
 					<a href="#/home"> <span>HOME</span>
-					</a> <span> 고객센터 </span> <span> 공지사항 </span>
+					</a> <span> 고객센터 </span> <span>공지사항</span>
 				</div>
 			</div>
 		</div>
-		<div class="contentsBox">
-			<div class="web_container">
-				<div class="subtitle-wrap">
-					<h3 class="page_title">고객센터</h3>
-					<div class="tabmenu">
+		<div class="contentsBox01 bg_w">
+			<div class="notice_web_container">
+				<div class="subtitWrap">
+					<h3 class="page_tit">고객센터</h3>
+					<div class="tab01 m_shadow">
 						<ul>
 							<li class="on">
 								<button type="button"
@@ -67,8 +66,8 @@ function goPaging(page) {
 							</li>
 							<li>
 								<button type="button"
-									onclick="location.href='${pageContext.request.contextPath }/customerService/appguide.do'">
-									<span>bkc앱 이용안내</span>
+									onclick="location.href='${pageContext.request.contextPath }/customerService/app.do'">
+									<span>BKC앱이용안내</span>
 								</button>
 							</li>
 							<li>
@@ -99,64 +98,79 @@ function goPaging(page) {
 					</div>
 				</div>
 			</div>
-			<div style="height: 23px"></div>
-			<div class="web_container">
-				<div class="tab_content">
-					<div class="on">
-						<div class="search-wrap">
-							<div class="search-wrap2">
-								<form role="form" action="${pageContext.request.contextPath }/customerService/notice.do" method="get">
-								<div class="searchbox">
-									<input type="text" class="search-txt" name="searchText" placeholder="제목 + 내용">
-								</div>
-								<button class="btn_search" type="submit"></button>
-								</form>
+			<div class="notice_web_container">
+				<div class="tab_cont">
+					<h4 class="hide">공지사항</h4>
+					<div class="board_searchWrap">
+						<div class="r_srch01_m">
+							<div class="inpbox">
+								<input type="text" placeholder="제목  +  내용">
+								<button type="button" class="btn_de101" style="display: none;">
+									<span>입력 텍스트 삭제</span>
+								</button>
 							</div>
+							<button type="button" class="btn_search02">
+								<span>Search</span>
+							</button>
 						</div>
-						<div class="board_list">
-							<table class="tablelist1">
-								<colgroup>
-									<col style="width: 10%;">
-									<col style="width: 20%;">
-									<col>
-								</colgroup>
-								<thead>
+					</div>
+					<div class="board_list">
+						<table class="tlist01">
+							<colgroup>
+								<col style="width: 10%;">
+								<col>
+								<col style="width: 20%;">
+								<col style="width: 20%;">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">No.</th>
+									<th scope="col">제목</th>
+									<th scope="col">날짜</th>
+									<th scope="col">조회수</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="display: none;">
+									<td colspan="4">
+										<div class="nodata">
+											<span>검색 결과가 없습니다.</span>
+										</div>
+									</td>
+								</tr>
+								<c:if test="${totalSize == 0}">
 									<tr>
-										<th scope="col">NO.</th>
-										<th scope="col">제목</th>
-										<th scope="col">날짜</th>
-										<th scope="col">조회수</th>
+										<td colspan="3">등록된 게시물이 없습니다</td>
 									</tr>
-								</thead>
-								<tbody>
-									<c:if test="${totalSize == 0}">
+								</c:if>
+								<c:if test="${totalSize > 0}">
+									<c:forEach var="notice" items="${noticeList}"
+										varStatus="status">
 										<tr>
-											<td colspan="3">등록된 게시물이 없습니다</td>
+											<td><span>${notice.rn}</span></td>
+											<td>
+												<div class="title">
+													<a type="hidden" href="getNotice.do?seq=${notice.seq}">${notice.title}</a>
+												</div>
+											</td>
+											<td><span>${notice.post_date}</span></td>
+											<td><span>${notice.hits}</span></td>
 										</tr>
-									</c:if>
-									<c:if test="${totalSize > 0}">
-										<c:forEach var="notice" items="${noticeList}"
-											varStatus="status">
-											<tr>
-												<td>${notice.rn}</td>
-												<td><div class="title">
-														<a type="hidden" href="getNotice.do?seq=${notice.seq}">${notice.title}</a>
-													</div></td>
-												<td>${notice.post_date}</td>
-												<td>${notice.hits}</td>
-											</tr>
-										</c:forEach>
-									</c:if>
-
-								</tbody>
-							</table>
-							<div class="board_paging">${pageing}</div>
+									</c:forEach>
+								</c:if>
+							</tbody>
+						</table>
+						<div class="board_paging">
+							<div class="VuePagination">
+								<ul>
+									${pageing}
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
 </body>
 </html>

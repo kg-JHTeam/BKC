@@ -20,7 +20,7 @@
     font-size: 1.1rem;
 }
 
-/* 중간부분 */
+/* 텝부분 */
 .contentsWrap {
     min-height: 450px;
     margin: 0 auto;
@@ -101,6 +101,8 @@ button {
     top: -10000px;
     visibility: hidden;
 }
+
+/* 중간 */
 .faq_category {
     margin-bottom: 24px;
     overflow: hidden;
