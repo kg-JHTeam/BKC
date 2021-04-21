@@ -62,7 +62,7 @@
                                     <div class="collapse" id="pagesCollapseMainpage" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="${contextPath}/admin/bannerlist.ad">메인배너 관리</a>
-                                            <a class="nav-link" href="">유튜브광고 관리</a>
+                                            <a class="nav-link" href="${contextPath}/admin/youtubeList.ad">유튜브광고 관리</a>
                                             <a class="nav-link" href="">메인로고 관리</a>
                                             <a class="nav-link" href="">홈페이지메뉴 관리</a>
                                         </nav>
