@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bkc.admin.board.term.service.TermEmailService;
+import com.bkc.admin.board.term.service.TermPrivacyService;
 import com.bkc.admin.board.term.service.TermService;
 import com.bkc.admin.board.term.vo.TermEmailVO;
+import com.bkc.admin.board.term.vo.TermPrivacyVO;
 import com.bkc.admin.board.term.vo.TermVO;
 
 @Controller
@@ -19,6 +21,9 @@ public class TermController {
 	
 	@Autowired
 	private TermEmailService termEmailService;
+	
+	@Autowired
+	private TermPrivacyService termPrivacyService;
 
 	// 이용약관 페이지로 가기
 	@RequestMapping(value = "/terms.do", method = RequestMethod.GET)
@@ -35,10 +40,13 @@ public class TermController {
 		model.addAttribute("terms", terms);
 		return "admin/subpages/law/terms";
 	}
-
-	@RequestMapping(value = "/privacy.do", method = RequestMethod.GET)
-	public String privacy() {
-		return "subpages/law/privacy";
+	
+	// 개인정보취급 방침 페이지로 가기
+	@RequestMapping(value = "/termsPrivacy.do", method = RequestMethod.GET)
+	public String showTermPrivacy(Model model) {
+		TermPrivacyVO termsPrivacy = termPrivacyService.getTermPrivacyList();
+		model.addAttribute("termsPrivacy", termsPrivacy);
+		return "subpages/law/termsPrivacy";
 	}
 	
 	// 이메일 약관 페이지로 가기
