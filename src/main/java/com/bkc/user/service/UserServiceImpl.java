@@ -154,7 +154,7 @@ public class UserServiceImpl implements UserService{
 					+"요청하신 임시 비밀번호가 생성되었습니다.<br /></p>"
 				+ "<p style='font-size: 16px; margin: 40px 5px 20px; line-height: 28px;'>"
 				+ "임시 비밀번호: <br />"
-				+ "<span style='font-size: 24px;'>"+ sb.toString() +"/span>"
+				+ "<span style='font-size: 24px;'>"+ sb.toString() +"</span>"
 				+"</p>"
 				+"</div>";
 
