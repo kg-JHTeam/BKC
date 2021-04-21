@@ -15,6 +15,8 @@
 		<typeAlias type="com.bkc.admin.board.term.vo.TermEmailVO" alias="TermEmailVO"/>
 		<typeAlias type="com.bkc.admin.board.term.vo.TermPrivacyVO" alias="TermPrivacyVO"/>
 		<typeAlias type="com.bkc.youtube.vo.YoutubeVO" alias="YoutubeVO" />
+		<typeAlias type="com.bkc.subpages.brand.bkcstory.vo.AboutbkcVO" alias="AboutbkcVO"/>
+		<typeAlias type="com.bkc.subpages.brand.bkcstory.vo.HistoryVO" alias="HistoryVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
