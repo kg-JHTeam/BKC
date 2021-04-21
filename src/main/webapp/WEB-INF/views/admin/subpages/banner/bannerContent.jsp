@@ -41,9 +41,11 @@
 								<form role="form" action="${contextPath}/admin/modifyBanner.ad" method="post">
 									<div class="form-group" id="imgDetail">
 										<h4>이미지 상세 </h4><br>
+										<h5><input type="file" name="banner" value="배너변경" class="btn btn-success"/></h5><br/>
 										<a href="${banner.path}" target="_blank"  target="_blank">
 												<img src="${banner.path}" alt="이미지" id="bannerimg" class="img-responsive"/>
 										</a>
+										
 									</div>
 									<div class="form-row">
 										<input class="form-control" name='img_seq' value="${banner.img_seq}" type="hidden"/>

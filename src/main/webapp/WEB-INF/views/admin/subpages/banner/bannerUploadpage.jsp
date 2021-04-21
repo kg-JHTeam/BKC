@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-<c:set var="success" value="${chk.success}" />
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -14,14 +13,15 @@
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
 <script>
+
+//업로드 성공하면 성공 
 window.onload = function(){
-	alert("<c:out value='${success}'/>");
-	var chk = "<c:out value='${chk.success}'/>"
+	var chk = "<c:out value='${check.success}'/>"
 	if(chk=="true"){
-		alert(chk + "업로드 성공");
+		alert("배너 업로드 성공");
 	} else if(chk=="false"){
-		alert(chk +"업로드 실패");
-	} else{alert(chk +"무야호");}
+		alert("배너 업로드 실패");
+	} 
 }
 </script>
 </head>
@@ -38,7 +38,6 @@ window.onload = function(){
 					<div class="card mb-4">
 						<div class="card-body">
 							<div class="table-responsive">
-							
 								<form action="${contextPath}/admin/bannerUpload.ad" method="post" enctype="multipart/form-data">
 									<div class="container-fluid">
 										<br>
@@ -63,7 +62,7 @@ window.onload = function(){
 														<div>
 															<div class="index">배너 이미지</div>
 															<input type="file" name="banner" required /><br/>
-														</div>
+														</div><br/>
 													</li>
 													<!-- 베너 내용 -->
 													<li>
