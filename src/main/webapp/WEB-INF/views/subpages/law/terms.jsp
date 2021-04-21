@@ -95,13 +95,10 @@
 							</div>
 						</div>
 						<div class="auth_cont">
-							<h1>제1장 총칙</h1>
-							${ terms.content01}
-							<h1>제2장</h1>
-							${ terms.content02}
-							<h1>제3장</h1>
-							${ terms.content03}
-							${ terms.content04}
+							<pre>${ terms.content01}</pre>							
+							<pre>${ terms.content02}</pre>							
+							<pre>${ terms.content03}</pre>
+							<pre>${ terms.content04}</pre>
 						</div>
 					</div>
 				</div>
