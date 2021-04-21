@@ -79,6 +79,9 @@ $(document).ready(function() {
 	var content2 = document.getElementById("st02");
 	content1.value="";
 	content2.value="";
+	
+	var check = document.getElementById("check");
+	check.value="true";
 });
 $("#item2").click(function() {
 	$(this).addClass('on').siblings().removeClass('on');
@@ -97,6 +100,8 @@ $("#item2").click(function() {
 	var content2 = document.getElementById("st02");
 	content1.value="";
 	content2.value="";
+	var check = document.getElementById("check");
+	check.value="false";
 	$("#st02").attr( 'placeholder', '이메일' );
 });
 
