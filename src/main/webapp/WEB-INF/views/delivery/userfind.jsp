@@ -75,11 +75,10 @@
 						</li>
 					</ul>
 				</div>
-				<div class="tab_cont">
+				
+				<form class="tab_cont" method="post" id="findUserForm" action="<c:url value='/finduser'/>">
+					<!-- 아이디 찾기   -->
 					<h3 class="hide">아이디 찾기</h3>
-					<p class="MOB txt03">
-						가입시 회원정보로 등록한 <br>이름과 휴대폰 번호를 입력해 주세요.
-					</p>
 					<div class="container02">
 						<div class="WEB titbox">
 							<p id="info1">가입시 회원정보로 등록한 이름과 휴대폰 번호를 입력해 주세요.</p>
@@ -90,13 +89,12 @@
 								<dt class="WEB vtop">이름</dt>
 								<dd>
 									<div class="inpbox">
-										<label> <input type="text" placeholder="이름"
-											class="st02" id="st01">
-											<button type="button" class="btn_del01"
-												style="display: none;">
+										<label> <input type="text" placeholder="이름" class="st02" id="st01" name="name">
+											<button type="button" class="btn_del01" tyle="display: none;">
 												<span>입력 텍스트 삭제</span>
 											</button>
 										</label>
+										<!-- error -->
 										<p id="name1" class="txt">이름을 입력해 주세요.</p>
 									</div>
 								</dd>
@@ -106,15 +104,15 @@
 								<dt id="info6" class="WEB vtop" style="display: none;">이메일</dt>
 								<dd>
 									<div class="inpbox">
-										<label> <input type="tel" placeholder="휴대폰 번호"
-											class="st02" id="st02">
+										<label> 
+										<input type="tel" placeholder="휴대폰 번호" class="st02" id="st02" value="" name="checkStr"/>
 											<button type="button" class="btn_del02"
 												style="display: none;">
 												<span>입력 텍스트 삭제</span>
 											</button>
 										</label>
 										<p id="phone1" class="txt">휴대폰 번호를 입력해 주세요.</p>
-										<p id="phone2" class="txt" style="display: none;">휴대폰 번호를 모두 입력해 주세요.</p>
+										<p id="phone2" class="txt" style="display: none;">휴대폰 번호를 정확히 입력해 주세요.</p>
 										<p id="phone3" class="txt" style="display: none;">이메일 주소를 입력해 주세요.</p>
 										<p id="phone4" class="txt" style="display: none;">정확한 이메일 주소를 입력해 주세요.</p>
 									</div>
@@ -123,15 +121,16 @@
 						</div>
 						<ul class="WEB txtlist01">
 						<li id="info4" style="display: none;">가입시 입력한 이메일로 비밀번호 재설정을 위한 경로가 발송 됩니다.</li>
-							<li id="info3">가입 시 입력한 이름과 휴대폰번호로 아이디 정보를 찾을 수 있습니다.</li>
-							<li>네이버, 카카오톡, 삼성 앱카드, 애플아이디로 가입하신 회원님께서는 해당 서비스에서 아이디/비밀번호
+							<li id="info3">가입시 입력한 이름과 휴대폰번호로 아이디 정보를 찾을 수 있습니다.</li>
+							<li>네이버, 카카오톡, 구글 아이디로 가입하신 회원님께서는 해당 서비스에서 아이디/비밀번호
 								찾기를 진행해 주세요.</li>
 						</ul>
 					</div>
 					<div class="c_btn">
 						<div>
-							<button type="button" class="btn01 l">
-								<span>아이디 찾기</span>
+							<button type="submit" class="btn01 l">
+								<span id="submit_id">아이디 찾기</span>
+								<span id="submit_pw">비밀번호 찾기 </span>
 							</button>
 						</div>
 					</div>
@@ -140,7 +139,7 @@
 						<li>네이버, 카카오톡, 삼성 앱카드, 애플아이디로 가입하신 회원님께서는 해당 서비스에서 아이디/비밀번호
 							찾기를 진행해 주세요.</li>
 					</ul>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>

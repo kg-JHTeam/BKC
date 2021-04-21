@@ -6,8 +6,10 @@ import javax.inject.Inject;
 import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.http.HttpRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -91,7 +94,7 @@ public class UserController {
 		
 		if (userService.insert(user)) {
 			// insert 로직 수행 성공시-> 회원가입 확인 메일 전송 
-			userService.sendJoinMail(user); 
+			userService.sendJoinMail(user); //이메일 전송 
 			return "delivery/joinsucess";
 		} else {
 			// insert 로직 수행중 문제 발생
@@ -113,10 +116,55 @@ public class UserController {
 		return "deleteuser";
 	}
 	
+	// 아이디 찾기/비밀번호 찾기 url나누기
+	@PostMapping("/finduser")
+	public String spiltFindLogin(
+			Model model,
+			@RequestParam("name") String name,
+			@RequestParam("checkStr") String checkStr) {
+		
+		//checkString -> phone/username  
+		//핸드폰 번호 인 경우 
+		System.out.println(name + " : "+ checkStr);
+		if(checkStr.matches("^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$")) {
+			System.out.println("아이디 찾기 ");
+			model.addAttribute("name",name);
+			model.addAttribute("phone", checkStr);
+			
+			return "redirect:/findid";
+		}
+		
+		//이메일 인 경우 
+        else {
+            System.out.println("비밀번호 찾기 ");
+			model.addAttribute("name", name);
+			model.addAttribute("userid", checkStr);
+			return "redirect:/findpwd";
+        }
+	}
+	
+	// 아이디 찾기
+	@RequestMapping(value ="/findid", method = { RequestMethod.GET, RequestMethod.POST })
+	public String findIdUser(
+			@RequestParam("name") String name,
+			@RequestParam("phone") String phone,
+			Model model) {
+		
+		System.out.println(name + " : " + phone);
+		//이름과 전화번호를 받아와서, 
+		//인증없이 바로 아이디를 출력해준다.
+		return "delivery/findidsuccess";
+	}
+	
 	// 비밀번호 찾기
-	@RequestMapping("/findpwd")
-	public String findpwdUser(@RequestParam("userid") String userid, Model model) {
-		 
+	@RequestMapping(value ="/findpwd", method = { RequestMethod.GET, RequestMethod.POST })
+	public String findpwdUser(
+			@RequestParam("name") String name,
+			@RequestParam("userid") String userid, 
+			Model model) {
+		
+		System.out.println(name + " : "+ userid);
+		
 		//이메일을 통해 UserVO 얻음. 
 		UserVO vo = userService.getUserById(userid);
 		
@@ -137,6 +185,7 @@ public class UserController {
 			System.out.println("변경 실패 ");
 		}
 		
+		//model에 UserVO 담아서 보냄.
 		model.addAttribute("vo", vo);
 		
 		//비밀번호 변경 완료 된후 findepwdsuccess page로 이동 
