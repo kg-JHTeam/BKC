@@ -31,9 +31,16 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private JavaMailSender mailSender;
 	
+	//id를 통해 user조회
 	@Override
 	public UserVO getUserById(String userid) {
 		return userDao.getUserById(userid);
+	}
+	
+	//name과 phone을 통해 user조회
+	@Override
+	public UserVO getUserByNameAndPhone(String name, String phone) {
+		return userDao.getUserByNameAndPhone(name, phone);
 	}
 	
 	//회원조회 - Admin
@@ -74,7 +81,7 @@ public class UserServiceImpl implements UserService{
 	public void delete(UserVO user) {
 		
 	}
-	
+
 	//비밀번호 체크
 	@Override
 	public UserVO passwdCheck(UserVO vo) {

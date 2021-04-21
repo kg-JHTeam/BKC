@@ -11,8 +11,11 @@ import com.bkc.user.vo.UserVO;
 @Service
 public interface UserService {
 	
-	//id를 통회 회원 하나 조회
+	//id를 통해 회원 하나 조회
 	public UserVO getUserById(String userid);
+	
+	//name과 phone을 통해 아이디를 찾음 
+	public UserVO getUserByNameAndPhone(String name, String phone);
 	
 	//전체 회원 조회
 	public List<UserVO> getUserList();
@@ -44,6 +47,8 @@ public interface UserService {
 	
 	//회원가입 확인 이메일 전송
 	public void sendJoinMail(UserVO vo);
+
+	
 	
 	
 }
