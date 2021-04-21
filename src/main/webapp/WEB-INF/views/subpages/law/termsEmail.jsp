@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="${contextPath}/resources/css/include/main-gnb.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/subpages/law/term.css?v=<%=System.currentTimeMillis() %>" />
 
-<title>이용약관</title>
+<title>이메일약관</title>
 </head>
 <body>
 	<!-- main-header -->
@@ -43,7 +43,7 @@
 		<div class="contentsBox01">
 			<div class="term_web_container">
 				<div class="subtitWrap">
-					<h3 class="page_tit">이용약관 및 정책</h3>
+					<h3 class="page_tit">이메일 약관</h3>
 					<div class="tab01 m_shadow">
 						<ul>
 							<li>
@@ -52,7 +52,7 @@
 								</button>
 							</li>
 							<li>
-								<button type="button" onclick="location.href='${contextPath}/privacy.do'">
+								<button type="button" onclick="location.href='${contextPath}/termsPrivacy.do'">
 									<span>개인정보취급방침</span>
 								</button>
 							</li>

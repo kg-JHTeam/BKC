@@ -52,7 +52,7 @@
 								</button>
 							</li>
 							<li>
-								<button class="btnlaw" type="button" onclick="location.href='${contextPath}/privacy.do'">
+								<button class="btnlaw" type="button" onclick="location.href='${contextPath}/termsPrivacy.do'">
 									<span>개인정보취급방침</span>
 								</button>
 							</li>
@@ -68,31 +68,7 @@
 					<h4 class="hide">이용약관</h4>
 					<div class="container02 policyWrap">
 						<div class="titbox">
-							<div class="historyWrap">
-								<div class="acc_tit">
-									<h4 class="tit">이전 이용약관 보기</h4>
-									<button type="button" class="btn_acc">
-										<span>이전 이용약관 목록 열기/닫기</span>
-									</button>
-								</div>
-								<div class="acc_cont history">
-									<h4 class="tit">이전 이용약관 보기</h4>
-									<ol>
-										<li>
-											<a class="choice">
-												<span><span>
-											</a>
-										</li>
-									</ol>
-									<ol>
-										<li>
-											<a>
-												<span>2001.08.23</span>
-											</a>
-										</li>
-									</ol>
-								</div>
-							</div>
+							
 						</div>
 						<div class="auth_cont">
 							<pre>${ terms.content01}</pre>							
