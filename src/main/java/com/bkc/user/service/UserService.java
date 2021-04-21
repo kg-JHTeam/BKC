@@ -4,8 +4,11 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.stereotype.Service;
+
 import com.bkc.user.vo.UserVO;
 
+@Service
 public interface UserService {
 	
 	//전체 회원 조회
