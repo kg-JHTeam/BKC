@@ -6,9 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bkc.admin.board.banner.vo.BannerVO;
 import com.bkc.customerService.vo.FaqVO;
-import com.bkc.customerService.vo.NoticeVO;
 
 @Repository
 public class FaqDAOImpl implements FaqDAO{
