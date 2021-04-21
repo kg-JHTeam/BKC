@@ -1,21 +1,28 @@
 package com.bkc.customerService.vo;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class NoticeVO {
-	private int seq;
-	
+	private int seq;	
 	private String title;
 	private String contents;
-	private Timestamp post_date;
+	private Date post_date;
 	private int hits;
 	private String searchText;
-	private int start;
-	private int end;
+	private int rn;
 	
+	
+	public int getRn() {
+		return rn;
+	}
+
+	public void setRn(int rn) {
+		this.rn = rn;
+	}
+
 	public int getSeq() {
 		return seq;
 	}
@@ -40,11 +47,11 @@ public class NoticeVO {
 		this.contents = contents;
 	}	
 	
-	public Timestamp getPost_date() {
+	public Date getPost_date() {
 		return post_date;
 	}
 
-	public void setPost_date(Timestamp post_date) {
+	public void setPost_date(Date post_date) {
 		this.post_date = post_date;
 	}
 
@@ -57,7 +64,6 @@ public class NoticeVO {
 	}
 	
 	
-	
 	public String getSearchText() {
 		return searchText;
 	}
@@ -66,27 +72,5 @@ public class NoticeVO {
 		this.searchText = searchText;
 	}
 
-	public int getStart() {
-		return start;
-	}
-
-	public void setStart(int start) {
-		this.start = start;
-	}
-
-	public int getEnd() {
-		return end;
-	}
-
-	public void setEnd(int end) {
-		this.end = end;
-	}
-
-	@Override
-	public String toString() {
-		return "NoticeVO [seq=" + seq + ", title=" + title + ", contents=" + contents + ", date=" + post_date + ", hits="
-				+ hits + "]";
-	}
-	
 	
 }

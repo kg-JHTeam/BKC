@@ -5,11 +5,19 @@ public class PageMaker {
 	private int totalPage; // 전체 페이지 수
 	private int nowPage;   // 현재 페이지
 	private int oneBlockCount;  // 1블럭당 페이지를 몇개 줄지...설정
-	private int onPageRows  = 5;  // 한페이지당 몇개의 데이터를 보여줄지 설정
+	private int onPageRows  = 10;  // 한페이지당 몇개의 데이터를 보여줄지 설정
 	private int totalRows;  // 전체 데이터 개수
 	private int nowBlock;  // 현재 블럭
 	private int totalBlock; // 전체 블럭 수
+
 	
+	public int getBeginPage(){
+		return nowPage * onPageRows + 1;
+	}
+	
+	public int getEndPage(int startNum){
+		return startNum + onPageRows-1;
+	}
 	
 	public PageMaker(int nowPage, int totalRows){
 		this.nowPage = nowPage;
@@ -26,17 +34,9 @@ public class PageMaker {
      * 3 Page = 2 * 20 --> 21
 	 * @return
 	 */
-	public int getBeginPage(){
-		return nowPage * onPageRows + 1;
-	}
-	
-	public int getEndPage(int startNum){
-		return startNum + onPageRows;
-	}
 	
 	
-	public  String  getPager(){
-		
+	public String getPager(){		
 		totalPage  = totalPage();
 		nowBlock = nowBlock();
 		totalBlock = totalBlock(totalPage);
@@ -46,7 +46,9 @@ public class PageMaker {
 		StringBuffer sb = new StringBuffer();
 		
 		if(totalRows > 0){
-			        
+			   sb.append("<li class='page-item'><a class='page-link' href=\"javascript:void(0);\"  ");
+			   sb.append("onclick=\"goPaging(0);\""); 
+			   sb.append(">First</a></li>");           
 	           
 			   // 현재 나열된 페이지가 11페이지 이상일 경우
 	            // 이전 10페이지 출력
@@ -64,22 +66,26 @@ public class PageMaker {
 	            for (int i = 0; i < oneBlockCount; i++) {	
 	            	
 	            	page =  ((nowBlock*oneBlockCount) + i);
-	            	
 	                if(page == nowPage){
 	                	page = (nowBlock * oneBlockCount)+i;
 	                	
 	                	sb.append("<li class='page-item active'><a class='page-link' href=\"javascript:void(0);\"   ");
 		               	sb.append("onclick=\"goPaging("+page+");\">"); 
 	                    sb.append(""+(page  + 1)+"</a></li>");
+	                    
 	                }else{
-	                	
 	                	sb.append("<li class='page-item'><a class='page-link' href=\"javascript:void(0);\"   ");
-		               	sb.append("onclick=\"goPaging("+page+");\">"); 
+		               	sb.append("onclick=\"goPaging("+page+", "+nowPage+");\">"); 
 	                    sb.append((page + 1)+"</a></li>");
+	                    nowPage=page;
 	                }
+	                
+	                
 	                //마지막 페이지이면 페이지 번호 출력을 종료
 	                if ((nowBlock * oneBlockCount) + i + 1 == totalPage) break;
 	            }
+	            
+	            
 	            
 	            // 다음 10개 출력
 	            if ( nowBlock + 1 < totalBlock) {
@@ -92,7 +98,9 @@ public class PageMaker {
 	                sb.append(">Next "+oneBlockCount+"</a></li>");
 	            }
 	            
-	         	
+	         	sb.append("<li class='page-item'><a class='page-link'  href=\"javascript:void(0);\"   ");
+	        	sb.append("onclick=\"goPaging("+(totalPage - 1)+");\"");
+	        	sb.append(">Last</a>");   
 		}
 		
 		
