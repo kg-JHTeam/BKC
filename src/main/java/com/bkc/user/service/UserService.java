@@ -11,6 +11,9 @@ import com.bkc.user.vo.UserVO;
 @Service
 public interface UserService {
 	
+	//id를 통회 회원 하나 조회
+	public UserVO getUserById(String userid);
+	
 	//전체 회원 조회
 	public List<UserVO> getUserList();
 	
@@ -33,6 +36,14 @@ public interface UserService {
 	public UserVO passwdCheck(UserVO vo);
 	
 	//비밀번호 변경
-	public void updatePasswd(UserVO vo);
+	public int updatePasswd(UserVO vo);
+	
+	//Service내 메서드
+	//이메일로 임시 비밀번호 발급 메서드 
+	public String sendTempPassword(UserVO vo);
+	
+	//회원가입 확인 이메일 전송
+	public void sendJoinMail(UserVO vo);
+	
 	
 }

@@ -37,6 +37,7 @@ public class MailTest {
 				messageHelper.setReplyTo(new InternetAddress("rbghwogh123@gmail.com", "BKC", "UTF-8")); // 답장받을 주소
 			}
 		};
+		
 		try {
 			mailSender.send(preparator);
 		} catch (Exception e) {

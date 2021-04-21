@@ -103,7 +103,6 @@
 							</dl>
 							<dl>
 								<dt id="info5" class="WEB vtop">휴대폰 번호</dt>
-								
 								<dt id="info6" class="WEB vtop" style="display: none;">이메일</dt>
 								<dd>
 									<div class="inpbox">
@@ -147,7 +146,6 @@
 	</div>
 <script
 	src="${contextPath}/resources/js/delivery/userfind.js"></script>
-	
 	<!-- join-desktop-footer -->
 	<jsp:include page="../include/footer/delivery_desktop_footer.jsp" />
 	<a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
