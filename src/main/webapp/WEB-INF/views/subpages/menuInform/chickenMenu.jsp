@@ -70,23 +70,22 @@
 					</div>
 					<div class="tab_cont">
 						<ul class="menu_list">
-							<c:forEach var="banner" items="${banners}">
-								<img src="${banner.path}" />
+							<c:forEach var="chickenmenu" items="${chickenMenu}">
+								<li>
+									<div class="menu_list_img">
+										<span> <img
+											src="${chickenmenu.menu_img }"
+											class style="display: inline; opacity: 1;">
+										</span>
+									</div>
+									<div class="cont">
+										<p class="tit">
+											<strong>${chickenmenu.menu_name }</strong>
+										</p>
+									</div> <a href="${contextPath}/menuInform/chickenmenudetail.do" class="btn_detail"> <span>Details</span>
+								</a>
+								</li>
 							</c:forEach>
-							<li>
-								<div class="menu_list_img">
-									<span> <img
-										src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.jpg"
-										class style="display: inline; opacity: 1;">
-									</span>
-								</div>
-								<div class="cont">
-									<p class="tit">
-										<strong>바삭클</strong>
-									</p>
-								</div> <a href="#" class="btn_detail"> <span>Details</span>
-							</a>
-							</li>
 						</ul>
 					</div>
 				</div>

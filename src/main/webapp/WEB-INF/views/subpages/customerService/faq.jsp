@@ -136,7 +136,7 @@
                      <tbody>
                      	<c:forEach var="FaqList" items="${FaqList}">
                         <tr class="acc_tit_tr">
-                           <td class="WEB">${FaqList.seq}</td>
+                           <td class="WEB">${FaqList.rn}</td>
                            <td class="category">
                               <span>${FaqList.category}</span>
                            </td>

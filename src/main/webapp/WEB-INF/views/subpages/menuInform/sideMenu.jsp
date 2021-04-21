@@ -73,16 +73,15 @@
 							<c:forEach var="sidemenu" items="${sidemenuList}">
 								<li>
 									<div class="menu_list_img">
-										<span> <img
-											src="${sidemenu.menu_img}"
-											class style="display: inline; opacity: 1;">
+										<span> <img src="${sidemenu.img_path}" class style="display: inline; opacity: 1;">
 										</span>
 									</div>
+									
 									<div class="cont">
 										<p class="tit">
-											<strong>${sidemenu.menu_name}</strong>
+											<strong>${sidemenu.product_name}</strong>
 										</p>
-									</div> <a href="#" class="btn_detail"> <span>Details</span>
+									</div> <a href="${contextPath}/menuInform/sidemenudetail.do?product_serial=${sidemenu.product_serial}" class="btn_detail"> <span>Details</span>
 								</a>
 								</li>
 							</c:forEach>

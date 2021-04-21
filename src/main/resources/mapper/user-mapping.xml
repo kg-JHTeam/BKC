@@ -11,6 +11,15 @@
 	<!-- Crud 구현 -->
 	<!-- cRud -->
 	<!-- 로그인 관련  -->
+	<!-- 회원 하나 조회  -->
+	<select id="getUserById" resultType="UserVO">
+		<![CDATA[
+		SELECT *
+		FROM usermember
+		WHERE userid=#{userid}
+		]]>
+	</select>
+	
 	<!-- 1) 패스워드 체크 -->
 	<select id="passwdCheck" resultType="UserVO">
 		<![CDATA[
@@ -50,6 +59,16 @@
 		INSERT INTO usermember(
 		userid, password, name, sms_agree, email_agree, phone, regist_type)
 		VALUES (#{userid}, #{password}, #{name}, #{sms_agree}, #{email_agree}, #{phone}, #{regist_type});
+		]]>
+	</insert>
+	
+	<!-- crUd -->
+	<insert id="updatePasswd">
+		<![CDATA[
+		UPDATE 
+			usermember
+		SET password=#{password}
+		WHERE userid=#{userid};
 		]]>
 	</insert>
 	

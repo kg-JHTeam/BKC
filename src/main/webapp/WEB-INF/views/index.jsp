@@ -126,8 +126,9 @@
             </div>
         </div>
     <!--end of main page-->
-    <!-- main-desktop-footer -->
-    <jsp:include page="include/footer/main_desktop_footer.jsp"/>
+    
+	    <!-- main-desktop-footer -->
+	    <jsp:include page="include/footer/main_desktop_footer.jsp"/>
     </div>
     
     <!-- 모바일 -->

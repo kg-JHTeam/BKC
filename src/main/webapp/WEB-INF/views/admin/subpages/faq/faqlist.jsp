@@ -12,6 +12,13 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
+<style type="text/css">
+#insertBanner {
+   position: relative;
+   margin-bottom: 0.5%;
+   margin-left: 91%
+}
+</style>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -30,18 +37,22 @@
 						<div class="card-body">
 							<div class="table-responsive">
 							<input class="btn btn-success" type="button" value="업로드"
-									onclick="location.href='${contextPath}/admin/bannerUploadpage.ad'"
+									onclick="location.href='${contextPath}/admin/faqUploadpage.ad'"
 									id="insertBanner">
 							<!-- start -->
 								<table class="table" id="dataTable" width="100%">
+									<colgroup>
+										<col width="8%">
+										<col width="12%">
+										<col width="27%">
+										<col width="53%">
+									</colgroup>
 									<thead>
 										<tr>
-											<th>아이디값</th>
+											<th>번호</th>
 											<th>카테고리</th>
 											<th>제목</th>
 											<th>내용</th>
-											<th>수정</th>
-											<th>삭제</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -49,13 +60,8 @@
 										<tr>
 											<td>${AdminFaqList.seq}</td>
 											<td>${AdminFaqList.category}</td>
-											<td>${AdminFaqList.title}</td>
+											<td><a href="${contextPath}/admin/faqDetail.ad?seq=${AdminFaqList.seq}">${AdminFaqList.title}</a></td>
 											<td>${AdminFaqList.contents}</td>
-											<td><input class="btn btn-primary" type="button"
-												value="수정"
-												onClick="location.href='${contextPath}/admin/bannerDetail.ad?seq=${banner.img_seq}'" />
-											</td>
-											<td><input class="btn btn-danger" type="button" value="삭제" onclick="javascript:deleteBanner(${banner.img_seq})"></td>
 										</tr>
 										</c:forEach>
 									</tbody>

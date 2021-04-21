@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SidemenuAdDAO">
+	<resultMap type="SidemenuAdVO" id="SidemenuAdVO">
+		<result property="product_name" column="product_name" />
+		<result property="path" column="path" />
+		<result property="description" column="description" />
+		<result property="status" column="status" />
+	</resultMap>
+	<!-- 메뉴리스트 -->
+	<select id="getSidemenuAdList" resultType="SidemenuAdVO">
+		<![CDATA[
+			SELECT  img_path, product_name, description,status from product P inner join product_image I on P.product_serial = I.product_serial ORDER BY 1 DESC, 2;
+		]]>
+	</select>
+	<!-- 메뉴 디테일 -->
+	<select id="getSidemenuAd" resultType="SidemenuAdVO">
+		<![CDATA[
+			select description, img_path, product_name, status from product P inner join product_image I on P.product_serial=I.product_serial;
+		]]>
+	</select>
+</mapper>

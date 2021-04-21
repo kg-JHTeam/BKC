@@ -8,7 +8,12 @@
 		<typeAlias type="com.bkc.admin.board.banner.vo.BannerVO" alias="BannerVO" />
 		<typeAlias type="com.bkc.menuInform.vo.SideMenuVO" alias="SideMenuVO"/>
 		<typeAlias type="com.bkc.customerService.vo.FaqVO" alias="FaqVO" />
-		<typeAlias type="com.bkc.businessInformation.vo.BusinessInformationVO" alias="BusinessInformationVO" />
+		<typeAlias type="com.bkc.admin.board.businessInformation.vo.BusinessInformationVO" alias="BusinessInformationVO" />
+		<typeAlias type="com.bkc.admin.board.menuInfom.vo.SidemenuAdVO" alias="SidemenuAdVO"/>
+		<typeAlias type="com.bkc.menuInform.vo.ChickenMenuVO" alias="ChickenMenuVO"/>
+		<typeAlias type="com.bkc.admin.board.term.vo.TermVO" alias="TermVO"/>
+		<typeAlias type="com.bkc.admin.board.term.vo.TermEmailVO" alias="TermEmailVO"/>
+		<typeAlias type="com.bkc.admin.board.term.vo.TermPrivacyVO" alias="TermPrivacyVO"/>
 		<typeAlias type="com.bkc.youtube.vo.YoutubeVO" alias="YoutubeVO" />
 	</typeAliases>
 	<environments default="development">

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bkc.admin.board.banner.service.BannerService;
 import com.bkc.admin.board.banner.vo.BannerVO;
-import com.bkc.businessInformation.sevice.BusinessInformationService;
-import com.bkc.businessInformation.vo.BusinessInformationVO;
+import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
+import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.youtube.service.YoutubeService;
 import com.bkc.youtube.vo.YoutubeVO;
 
@@ -26,13 +26,13 @@ public class HomeController {
 
 	@Autowired
 	private BannerService bannerService;
-	
+
+	// 푸터
 	@Autowired
 	private BusinessInformationService biService;
-
 	@Autowired
 	private YoutubeService youtubeService;
-	
+
 	public HomeController() {
 		System.out.println("HomeController 실행");
 	}
@@ -48,16 +48,16 @@ public class HomeController {
 		int seq = 1;
 		BusinessInformationVO bi = biService.getBusinessInformation(seq);
 		model.addAttribute("bi", bi);
+
+		// 접속관련 로그 정보 입력
+		String url = request.getRequestURL().toString();
+		String clientIPaddr = request.getRemoteAddr();
+		logger.info("Request URL: {}, Client IP: {}", url, clientIPaddr);
 		
 		// 유튜브 추가
 		YoutubeVO youtube = youtubeService.getYoutube();
 		model.addAttribute("youtube", youtube);
 		
-		// 접속관련 로그 정보 입력
-		String url = request.getRequestURL().toString();
-		String clientIPaddr = request.getRemoteAddr();
-		logger.info("Request URL: {}, Client IP: {}", url, clientIPaddr);
-
 		return "index";
 	}
 }

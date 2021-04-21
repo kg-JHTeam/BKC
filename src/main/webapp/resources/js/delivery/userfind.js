@@ -1,3 +1,5 @@
+
+//아이디 찾기인 경우 
 $(document).ready(function() {
     $("#st01").keyup(function() {
         $(".btn_del01").toggle(Boolean($(this).val()));
@@ -12,6 +14,7 @@ $(document).ready(function() {
         $(".btn_del02").toggle(Boolean($(this).val()));
     });
     $(".btn_del02").toggle(Boolean($("#st02").val()));
+
     $(".btn_del02").click(function() {
         $("#st02").val('').focus();
         $(this).hide();
@@ -22,10 +25,7 @@ $(document).ready(function() {
     		} else if (content2.length == 0) {
     			phone1.style.display = "block";
     			phone2.style.display = "none";
-    		} else if (content2.length == 11) {
-    			phone1.style.display = "none";
-    			phone2.style.display = "none";
-    		}
+    		} 
     	} else if(document.getElementById('item2').getAttribute('class') == 'on'){
     		if (content2.length != 0) {
     			phone3.style.display = "none";
@@ -38,6 +38,28 @@ $(document).ready(function() {
 		phone1.style.display = "block";
 		phone2.style.display = "none";
     });
+
+	$("#st02").keyup(function() {
+		var content2 = document.getElementById("st02");
+		
+		//핸드폰 번호 정규표현식 검증 
+		var regExp = /^01([0|1|6|7|8|9])-?([0-9]{4})-?([0-9]{4})$/;
+		if(content2.value.match(regExp) != null){
+			phone1.style.display = "none";
+    		phone2.style.display = "none";
+		}
+	});
+	
+	$("#st02").keyup(function() {
+		var content2 = document.getElementById("st02");
+		
+		//이메일 정규표현식 검증 
+		var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		if(content2.value.match(regExp) != null){
+			phone1.style.display = "none";
+    		phone2.style.display = "none";
+		}
+	});
 });$("#item1").click(function() {
 	$(this).addClass('on').siblings().removeClass('on');
 	info1.style.display = "block";
@@ -51,6 +73,12 @@ $(document).ready(function() {
 	phone3.style.display = "none";
 	phone4.style.display = "none";
 	$("#st02").attr( 'placeholder', '휴대폰 번호' );
+	
+	//탭 클릭시 reset
+	var content1 = document.getElementById("st01");
+	var content2 = document.getElementById("st02");
+	content1.value="";
+	content2.value="";
 });
 $("#item2").click(function() {
 	$(this).addClass('on').siblings().removeClass('on');
@@ -64,6 +92,11 @@ $("#item2").click(function() {
 	phone2.style.display = "none";
 	phone3.style.display = "block";
 	phone4.style.display = "none";
+	//탭 클릭시 reset
+	var content1 = document.getElementById("st01");
+	var content2 = document.getElementById("st02");
+	content1.value="";
+	content2.value="";
 	$("#st02").attr( 'placeholder', '이메일' );
 });
 
@@ -75,6 +108,7 @@ $('#st01').keyup(function(e) {
 		name1.style.display = "block";
 	}
 });
+
 $('#st02').keyup(function(e) {
 	var content2 = $(this).val();
 	if(document.getElementById('item1').getAttribute('class') == 'on'){

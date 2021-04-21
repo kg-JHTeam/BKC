@@ -15,6 +15,9 @@ public interface UserDAO {
 	public boolean insertUser(@Valid UserVO user);
 
 	// cRud
+	// id를 통해 user조회 
+	public UserVO getUserById(String userid);
+	
 	// 일반 회원 조회 - Admin
 	public List<UserVO> getUserList();
 
@@ -26,4 +29,9 @@ public interface UserDAO {
 	// 로그인 및 시큐리티 관련
 	// 비밀번호 찾기
 	public UserVO passwdCheck(UserVO vo);
+	
+	//비밀번호 변경 
+	public int updatePasswd(UserVO vo);
+
+	
 }

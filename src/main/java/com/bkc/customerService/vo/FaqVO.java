@@ -7,7 +7,14 @@ public class FaqVO {
 	private String category;
 	private int start;
 	private int end;
+	private int rn;
 	
+	public int getRn() {
+		return rn;
+	}
+	public void setRn(int rn) {
+		this.rn = rn;
+	}
 	public int getStart() {
 		return start;
 	}
@@ -47,7 +54,7 @@ public class FaqVO {
 	@Override
 	public String toString() {
 		return "FaqVO [seq=" + seq + ", title=" + title + ", contents=" + contents + ", category=" + category
-				+ ", start=" + start + ", end=" + end + "]";
+				+ ", start=" + start + ", end=" + end + ", rn=" + rn + "]";
 	}
 	
 }

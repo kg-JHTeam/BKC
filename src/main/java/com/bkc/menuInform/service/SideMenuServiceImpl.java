@@ -18,9 +18,8 @@ public class SideMenuServiceImpl implements SideMenuService {
 	}
 
 	@Override
-	public SideMenuVO getSidemenu(SideMenuVO sidemenu) {
-
-		return sidemenuDao.getSidemenu(sidemenu);
+	public SideMenuVO getSidemenu(String product_serial) {
+		return sidemenuDao.getSidemenu(product_serial);
 	}
 
 	@Override
