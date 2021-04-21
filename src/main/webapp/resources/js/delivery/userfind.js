@@ -53,7 +53,7 @@ $(document).ready(function() {
 	$("#st02").keyup(function() {
 		var content2 = document.getElementById("st02");
 		//이메일 정규표현식 검증 
-		var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
 		if(content2.value.match(regExp) != null){
 			phone1.style.display = "none";
     		phone2.style.display = "none";

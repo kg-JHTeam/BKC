@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.postgresql.util.PSQLException;
@@ -18,11 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bkc.admin.aws.AwsS3;
 import com.bkc.admin.board.banner.service.BannerService;
 import com.bkc.admin.board.banner.vo.BannerVO;
-import com.bkc.admin.board.banner.vo.UploadFileVO;
+import com.bkc.admin.board.banner.vo.CheckVO;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -51,14 +53,15 @@ public class BannerController {
 	}
 
 	// 배너 등록 페이지 이동.
-	@RequestMapping(value = "/admin/bannerUploadpage.ad", method = { RequestMethod.GET })
+	@RequestMapping(value = "/admin/bannerUploadpage.ad", method =  { RequestMethod.GET, RequestMethod.POST })
 	public String insertBanner() {
 		return "admin/subpages/banner/bannerUploadpage";
 	}
 
 	// 실제 배너 추가
 	@RequestMapping(value = "/admin/bannerUpload.ad", method = { RequestMethod.GET, RequestMethod.POST })
-	public String bannerUpload(Model model, @RequestParam MultipartFile banner, @RequestParam String title,
+	public String bannerUpload(
+			Model model, @RequestParam MultipartFile banner, @RequestParam String title,
 			@RequestParam String content) throws IOException, PSQLException {
 
 		// aws s3 파일 업로드 처리
@@ -82,26 +85,26 @@ public class BannerController {
 		String filePath = "https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/" + key; //db에 
 		vo.setPath(filePath); // path 설정
 		
-		UploadFileVO chk = new UploadFileVO();
-		chk.setSuccess("true");
-		System.out.println(chk.getSuccess());
-		if (bannerService.insertBanner(vo) == 1) {
-			System.out.println("배너 업로드 완료");
-			chk.setSuccess("true");
-		} else {
-			System.out.println("배너 업로드 실패 ");
-			chk.setSuccess("false");
-		}
-		model.addAttribute("chk", chk);
+		CheckVO check = new CheckVO();
+		check.setSuccess("true");
 		
-		return "redirect:/admin/bannerUploadpage.ad";
+		if (bannerService.insertBanner(vo) == 1) {
+			check.setSuccess("true");
+		} else {
+			check.setSuccess("false");
+		}
+		model.addAttribute("check", check);
+		
+		return "admin/subpages/banner/bannerUploadpage";
 	}
 
 	// 배너 수정
 	@RequestMapping(value = "/admin/modifyBanner.ad", method = RequestMethod.POST)
 	public String modifyBanner(Model model, @RequestParam("seq") int seq) {
 		BannerVO banner = bannerService.getBanner(seq);
-
+		// 1. 기존에 있는 배너 삭제  - 1) aws 삭제 , 
+		// 2. 배너 올리기 - aws에 올리기 / db에는 수정 
+		
 		System.out.println("seq : " + seq);
 		System.out.println("banner : " + banner.toString());
 		model.addAttribute("banner", banner);

@@ -88,6 +88,7 @@ function deleteBanner(img_seq, param_name, param_value){
         data:JSON.stringify(submitObj),
         dataType : 'json'
         }) 
+        
         .done(function(data) {
 	        alert("삭제되었습니다.");
 	        console.log(JSON.stringify(data));
@@ -96,6 +97,7 @@ function deleteBanner(img_seq, param_name, param_value){
 	    		console.log(idx + "  : " + val.title);
 	    	});
         }) 
+        
         .fail(function(banner) {
 	        alert("삭제되지않았습니다.");
            	var txt = data.banners.img_seq;

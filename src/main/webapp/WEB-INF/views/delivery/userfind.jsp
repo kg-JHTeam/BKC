@@ -129,9 +129,8 @@
 					<div class="c_btn">
 						<div>
 							<button type="submit" class="btn01 l">
-								<img src="이미지 경로" alt="">
-								<span id="submit_id">아이디 찾기</span>
-								<span id="submit_pw" style="display: none;">비밀번호 찾기 </span>
+								<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png" alt="">
+								<span id="submit_id">아이디 찾기</span><span id="submit_pw" style="display: none;">비밀번호 찾기 </span>
 							</button>
 						</div>
 					</div>
