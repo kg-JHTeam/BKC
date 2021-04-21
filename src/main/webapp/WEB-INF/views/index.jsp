@@ -51,10 +51,11 @@
 
         <!-- 유튜브 비디오 -->
         <div class="youtube-zone">
-            <iframe id="youtube" src="https://www.youtube.com/embed/W4WsqeBC47E" title="YouTube video player"
+            <iframe id="youtube" src="${youtube.path}" title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                allowfullscreen>
+              </iframe>
         </div>
 
         <!-- SNS zone -->
@@ -147,7 +148,7 @@
         <!-- 유튜브 비디오 -->
         <div class="m-youtube-zone">
             <div>
-                <iframe id="youtube" src="https://www.youtube.com/embed/W4WsqeBC47E" title="YouTube video player"
+                <iframe id="youtube" src="https://www.youtube.com/embed/W4WsqeBC47E"${yt.url}  title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
