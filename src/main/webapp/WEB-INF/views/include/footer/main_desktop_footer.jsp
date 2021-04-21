@@ -76,7 +76,7 @@
                     </div>
                     <div class="c_btn_1_line">|</div>
                     <div class="c_btn_1_item" id="c_btn_1_center">
-                        <a href="${contextPath}/privacy.do">개인정보취급방침</a>
+                        <a href="${contextPath}/termsPrivacy.do">개인정보취급방침</a>
                     </div>
                     <div class="c_btn_1_line">|</div>
                     <div class="c_btn_1_item">
