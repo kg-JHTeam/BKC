@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +30,14 @@
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/logo/mainlogo.png">
 <title>공지사항</title>
+
+<script type="text/javascript">
+function goPaging(page) {
+	location.href = "${pageContext.request.contextPath }/customerService/notice.do?+page="+page;
+	
+}
+</script>
+
 </head>
 <body>
 	<!-- main-header -->
@@ -91,18 +99,18 @@
 					</div>
 				</div>
 			</div>
-			<div style="height:23px"></div>
+			<div style="height: 23px"></div>
 			<div class="web_container">
 				<div class="tab_content">
 					<div class="on">
 						<div class="search-wrap">
 							<div class="search-wrap2">
+								<form role="form" action="${pageContext.request.contextPath }/customerService/notice.do" method="get">
 								<div class="searchbox">
-									<input type="text" class="search-txt" name=""
-										placeholder="제목 + 내용">
+									<input type="text" class="search-txt" name="searchText" placeholder="제목 + 내용">
 								</div>
-								<button type="button" class="btn_search">
-								</button>
+								<button class="btn_search" type="submit"></button>
+								</form>
 							</div>
 						</div>
 						<div class="board_list">
@@ -121,34 +129,33 @@
 									</tr>
 								</thead>
 								<tbody>
-								     <c:if test="${totalSize == 0}">
-									     <tr>
+									<c:if test="${totalSize == 0}">
+										<tr>
 											<td colspan="3">등록된 게시물이 없습니다</td>
 										</tr>
-								     </c:if>
-								      <c:if test="${totalSize > 0}">
-								      <c:forEach var="notice" items="${noticeList}" varStatus="status">
-									     <tr>
-											<td>${notice.seq}</td>
-											<td><div class="title">
-												<a type="hidden" href="getNotice.do?seq=${notice.seq}">${notice.title }</a></div></td>
-											<td>${notice.post_date}</td>
-											<td>${notice.hits}</td>
-										</tr>
+									</c:if>
+									<c:if test="${totalSize > 0}">
+										<c:forEach var="notice" items="${noticeList}"
+											varStatus="status">
+											<tr>
+												<td>${notice.rn}</td>
+												<td><div class="title">
+														<a type="hidden" href="getNotice.do?seq=${notice.seq}">${notice.title}</a>
+													</div></td>
+												<td>${notice.post_date}</td>
+												<td>${notice.hits}</td>
+											</tr>
 										</c:forEach>
-								     </c:if>
-									
+									</c:if>
+
 								</tbody>
 							</table>
-							<div class="board_paging">
-								${pageing}
-							</div>
+							<div class="board_paging">${pageing}</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
 </body>

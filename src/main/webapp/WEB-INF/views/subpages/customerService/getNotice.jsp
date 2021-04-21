@@ -93,7 +93,6 @@
 			</div>
 			<div class="web_container">
 				<div class="tab_cont">
-					<h4 class="hide">공지사항</h4>
 					<div class="board_titWrap">
 						<h1 class="tit">
 							<span>${notice.title }</span>
@@ -102,7 +101,7 @@
 							<span class="date">${notice.post_date }</span>
 							<dl class="hits">
 								<dt>조회수</dt>
-								<dd>${notice.hits }</dd>
+								<dt>${notice.hits }</dt>
 							</dl>
 						</div>
 					</div>
