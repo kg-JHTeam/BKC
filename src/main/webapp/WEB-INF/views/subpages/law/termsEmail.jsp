@@ -74,7 +74,7 @@
 						</div>
 						<div class="auth_cont">
 							<h1>이메일 주소 무단 수집 거부</h1>
-							${ termsEmail.content01}
+							<pre>${ termsEmail.content01}</pre>
 						</div>
 					</div>
 				</div>
