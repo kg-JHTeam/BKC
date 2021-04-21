@@ -11,5 +11,6 @@
 </head>
 <body>
 아이디 찾기 성공
+${vo.name}
 </body>
 </html>

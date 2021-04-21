@@ -12,6 +12,9 @@
 </head>
 <body>
 비밀번호 찾기 성공 
-${vo.userid}
+<br>
+
+니아이디 : ${vo.userid}
+
 </body>
 </html>
