@@ -43,6 +43,8 @@
     }
 
     .contentsBox> .web_container >.subtitle-wrap {
+    	width: 100%;
+    	height: 85px;
         position: relative-top;
         margin-bottom: 28px;
     }
@@ -52,15 +54,14 @@
     	top: 157.6px;
         width: 15%;
         height: auto;
-        padding: 50px 0 45px;
+        padding: 20px 0 25px;
         margin: 15px;
         font-size: 2.5rem;
         line-height: 100%;
     }
 
     .contentsBox > .web_container > .subtitle-wrap > .tabmenu {
-        position: absolute;
-        right: 30px;
+        position: relative;
         top: 50%;
         margin: 0 0 20px;
         overflow: hidden;
@@ -86,9 +87,16 @@
         margin-left: 15em;
         font-size: 1.25rem;
     }
+    
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu > ul {
+        float: right;
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
+        font-weight: 300;
+    }
 
     .contentsBox > .web_container > .subtitle-wrap >.tabmenu > ul > li {
-        position: relative;
         display: table-cell;
         padding: 0 18px;
         vertical-align: top;
@@ -108,6 +116,13 @@
         padding: 0 20px;
     }
     
+    .contentsBox > .web_container > .tab_content > h4{
+    	position: absolute!important;
+        left: -10000px;
+        top: -10000px;
+        visibility: hidden
+    }
+    
     .board_titWrap {
         margin-top: 70px;
         padding: 30px 20px 25px;
@@ -117,6 +132,7 @@
     }
 
     .board_titWrap h1 {
+    	text-align: center;
         font-weight: 400;
         font-size: 1.875rem;
     }
@@ -126,6 +142,17 @@
         font-size: 1.125rem;
         color: #8a8a8a;
         overflow: hidden;
+    }
+    
+    .board_titWrap > .reg_info > .hits {
+    	width: 10%;
+    	float: right;
+    	height: auto;
+    	display: table;
+    }
+    
+    .board_titWrap > .reg_info >.hits > dt {
+    	display: table-cell;
     }
 
     .reg_info .view_count {
@@ -161,14 +188,15 @@
     }
 
     .board_view_btns {
+    	text-align: center;
         position: relative;
-        margin-top: 30px;
         padding: 0 100px;
         text-align: center;
+        margin: 30px 380px;
     }
 
     .btn01.m {
-        width: 216px;
+        width: 224px;
         height: 68px;
         font-size: 1.5rem;
         line-height: 46px;
@@ -190,6 +218,7 @@
         display: none;
         text-align: center;
     }
+    
 
     .web_container {
         margin: 0 auto;
@@ -208,21 +237,23 @@
         margin-bottom: 28px;
     }
 
-    .contentsBox > .web_container > .subtitle-wrap > .tabmenu {
-        position: relative;
-        width: 100%;
-        text-align: center;
-        margin: 40px 0 20px;
-        overflow-x: auto;
-    }
-
-    .contentsBox > .web_container > .tab_content> .on > .tabmenu > ul {
-        width: 100%;
+    .contentsBox>.web_container>.subtitle-wrap>.tabmenu {
+    	position: absolute;
+        right: 200px;
+        margin: 0 0 20px;
+        overflow: hidden;
+        width: 40%;
+        height: auto;
+	}
+	.contentsBox > .web_container > .tab_content> .on > .tabmenu > ul {
+       width: 100%;
     }
 
     .contentsBox > .web_container > .subtitle-wrap >.tabmenu > li {
-        position: absolute;
-        width: 16.666%;
+         position: relative;
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
     }
 
     .contentsBox > .web_container > .subtitle-wrap >.tabmenu a > *,
@@ -247,6 +278,8 @@
 
     .contentsBox > .web_container >.subtitle-wrap > .r_option {
         position: absolute;
+        width: 50%;
+        height: auto;
         right: 0;
         bottom: 0;
         margin-left: 15em;
@@ -254,7 +287,7 @@
     }
 
     .contentsBox > .web_container > .subtitle-wrap >.tabmenu li {
-        position: relative;
+        position: absolute;
         display: table-cell;
         padding: 0 18px;
         vertical-align: top;
@@ -266,20 +299,14 @@
         border-bottom-color: #e22219;
     }
 
-    .hide {
-        position: absolute!important;
-        left: -10000px;
-        top: -10000px;
-        visibility: hidden;
-    }
-
     .board_titWrap {
         margin: 22px 16px 0;
         padding: 15px 14px 16px;
         border-width: 1px 0;
     }
 
-    .board_titWrap h1 {
+    .board_titWrap > h1 {
+    	text-align: center;
         font-size: .9375rem;
     }
 

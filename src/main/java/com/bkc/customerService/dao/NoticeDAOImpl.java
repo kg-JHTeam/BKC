@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bkc.customerService.vo.NoticeVO;
+import com.bkc.customerService.vo.SearchVO;
 
 @Repository
 public class NoticeDAOImpl implements NoticeDAO {
@@ -19,9 +20,9 @@ public class NoticeDAOImpl implements NoticeDAO {
 	}
 	
 	@Override
-	public List<NoticeVO> getNoticeList(NoticeVO notice) {
+	public List<NoticeVO> getNoticeList(SearchVO searchVO) {
 		System.out.println("getNoticeList() 수행");
-		return sqlSession.selectList("getNoticeList", notice);
+		return sqlSession.selectList("getNoticeList", searchVO);
 	}
 	
 	@Override
@@ -37,5 +38,9 @@ public class NoticeDAOImpl implements NoticeDAO {
 		return sqlSession.selectOne("getNoticeTotalCnt");
 	}
 	
-
+	@Override
+	public void updateHits(NoticeVO notice) {
+		sqlSession.update("updateHits", notice);
+		System.out.println("updateHits() 수행");
+	}
 }

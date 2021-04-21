@@ -4,41 +4,50 @@
 <mapper namespace="noticeDao">
 
 
-	<select id="getNoticeTotalCnt"  resultType="int">
+	<select id="getNoticeTotalCnt" resultType="int">
 	
-			SELECT  count(*) cnt
+			SELECT count(*) cnt
 			FROM notice
 			<if test="searchText neq null and searchText neq ''">
-			   WHERE (title like '%' || #{searchText} || '%') or (contents  like '%' || #{searchText} || '%')
+				WHERE (title like '%' || #{searchText} || '%') or (contents like '%' ||
+				#{searchText} || '%')
 			</if>
-		</select>
+	
+	</select>
 	
 
 	<select id="getNoticeList"  resultType="NoticeVO">
-	   SELECT *
-	   FROM(
-				SELECT A.*,
+		
+			SELECT *
+	   		FROM(
+					SELECT A.*,
 				       ROW_NUMBER() over(order by seq desc) as rn
-				FROM(
+					FROM(
 						SELECT seq,
 							   title,
 							   contents,
 							   post_date,
 							   hits
 						FROM notice
-						<if test="searchText neq null and searchText neq ''">
+							<if test="searchText neq null and searchText neq ''">
 							   WHERE (title like '%' || #{searchText} || '%') or (contents  like '%' || #{searchText} || '%')
-					     </if>
-			        )A
-	        )B
-	    WHERE rn between  #{start}  and #{end} 
-	    
-	    
+					     	</if>
+			        	)A
+	        	)B
+	    	WHERE rn between  #{start}  and #{end} 
 		
 	</select>
 	
 	<select id="getNotice"  resultType="NoticeVO">
-	  SELECT * FROM notice WHERE seq=#{seq}	
+		<![CDATA[	
+			SELECT * FROM notice WHERE seq=#{seq}	
+		]]>	
 	</select>
+	
+	<update id="updateHits">
+		<![CDATA[	
+			UPDATE notice SET hits=hits+1 where seq=#{seq};
+		]]>
+	</update>
 	
 </mapper>
