@@ -16,8 +16,6 @@
 	href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
 
 <!-- jQuery -->
-<script	
-	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../resources/jquery/jquery-3.6.0.min.js"></script>
 
 <!-- js -->
@@ -37,7 +35,7 @@
 		<div class="locationWrap WEB">
 			<div class="term_web_container">
 				<div class="page_navi">
-					<a href="#/home"> <span>HOME</span>
+					<a href="${contextPath}/"> <span>HOME</span>
 					</a> <span> 이용약관 및 정책 </span>
 				</div>
 			</div>
@@ -49,18 +47,18 @@
 					<div class="tab01 m_shadow">
 						<ul>
 							<li class='on'>
-								<button class="btnlaw" type="button" onclick="location.href='${contextPath}/bkc/law/terms.do'">
+								<button class="btnlaw" type="button" onclick="location.href='${contextPath}/terms.do'">
 									<span>이용약관</span>
 								</button>
 							</li>
 							<li>
-								<button class="btnlaw" type="button" onclick="location.href='${contextPath}/bkc/law/privacy.do'">
+								<button class="btnlaw" type="button" onclick="location.href='${contextPath}/privacy.do'">
 									<span>개인정보취급방침</span>
 								</button>
 							</li>
 							<li>
-								<button class="btnlaw" type="button" onclick="location.href='${contextPath}/bkc/law/legal.do'">
-									<span>법적고지</span>
+								<button class="btnlaw" type="button" onclick="location.href='${contextPath}/termsEmail.do'">
+									<span>이메일 약관</span>
 								</button>
 							</li>
 						</ul>
@@ -97,9 +95,11 @@
 							</div>
 						</div>
 						<div class="auth_cont">
-							<h1>제 1장 총칙</h1>
+							<h1>제1장 총칙</h1>
 							${ terms.content01}
+							<h1>제2장</h1>
 							${ terms.content02}
+							<h1>제3장</h1>
 							${ terms.content03}
 							${ terms.content04}
 						</div>
@@ -109,7 +109,7 @@
 		</div>
 	</div>
 	<!-- js -->
-	<script src="../resources/js/subpages/law/term.js"></script>
+	<script src="${contextPath}/resources/js/subpages/law/term.js"></script>
 
 	<!-- main-footer -->
 	<jsp:include page="../../include/footer/main_desktop_footer.jsp" />
