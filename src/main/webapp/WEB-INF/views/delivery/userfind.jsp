@@ -18,8 +18,8 @@
 
 <!-- favicon -->
 <link rel="shortcut icon" type="image/x-icon"
-	href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
-
+        href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
+        
 <!-- css -->
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/include/delivery-gnb.css">
@@ -49,9 +49,9 @@
 			<!--navigation bar-->
 			<nav class="locationWrap">
 				<ul>
-					<li><a href="${contextPath}/">HOME</a></li>&nbsp;&nbsp;
-					<li><a href="${contextPath}/login">로그인</a></li>&nbsp;&nbsp;
-					<li><a href="${contextPath}/join">회원가입</a></li>
+					<li><a href="${contextPath}/delivery/delivery.do">딜리버리</a></li>&nbsp;>&nbsp;
+					<li><a href="${contextPath}/login">로그인</a></li>&nbsp;>&nbsp;
+					<li><a href="${contextPath}/join">아이디/비밀번호 찾기</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -129,8 +129,9 @@
 					<div class="c_btn">
 						<div>
 							<button type="submit" class="btn01 l">
+								<img src="이미지 경로" alt="">
 								<span id="submit_id">아이디 찾기</span>
-								<span id="submit_pw">비밀번호 찾기 </span>
+								<span id="submit_pw" style="display: none;">비밀번호 찾기 </span>
 							</button>
 						</div>
 					</div>

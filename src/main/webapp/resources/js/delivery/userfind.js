@@ -72,6 +72,9 @@ $(document).ready(function() {
 	phone2.style.display = "none";
 	phone3.style.display = "none";
 	phone4.style.display = "none";
+	phone4.style.display = "none";
+	submit_id.style.display="block";
+	submit_pw.style.display="none";
 	$("#st02").attr( 'placeholder', '휴대폰 번호' );
 	
 	//탭 클릭시 reset
@@ -95,6 +98,9 @@ $("#item2").click(function() {
 	phone2.style.display = "none";
 	phone3.style.display = "block";
 	phone4.style.display = "none";
+	submit_id.style.display="none";
+	submit_pw.style.display="block";
+	
 	//탭 클릭시 reset
 	var content1 = document.getElementById("st01");
 	var content2 = document.getElementById("st02");

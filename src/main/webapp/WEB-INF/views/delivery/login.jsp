@@ -11,7 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
+        <link rel="shortcut icon" type="image/x-icon"
+        href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
     <!-- css -->
     <link rel="stylesheet" href="${contextPath}/resources/css/include/delivery-gnb.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/delivery/delivery.css">
@@ -42,11 +43,10 @@
         <div class="content">
             <div class="content_container">
                 <h2 class="page_tit">
-                    <img src="${contextPath}/resources/delivery_img/login/sun-flower.png" alt="해바라기">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/sun-flower.png" alt="해바라기">
                     <em>Better & Happier Choice</em>
                     <span>어서오세요 BKC 입니다.</span>
                 </h2>
-                
                 <!-- default login -->
                 <form class="login_container" method="post" action="<c:url value='login'/>" id="loginForm">
                 <!-- 로그인 로직 수행 구현 필요 -->
@@ -124,7 +124,7 @@
                             </li>
                             <li class="google">
                                 <a href="#">
-                                    <img src="../resources/delivery_img/login/google_ico.gif" alt="구글 로고">
+                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/google_ico.gif" alt="구글 로고">
                                     <span>Google 로 로그인</span>
                                 </a>
                             </li>

@@ -11,8 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" />
-  	
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
   	<!-- css -->
     <link rel="stylesheet" href="${contextPath}/resources/css/include/delivery-gnb.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/delivery/join.css">
@@ -80,7 +80,7 @@
                             </li>
                             <li class="google">
                                 <a href="#">
-                                    <img src="../resources/delivery_img/login/google_ico.gif" alt="구글 로고">
+                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/google_ico.gif" alt="구글 로고">
                                     <span>Google 로 로그인</span>
                                 </a>
                             </li>
