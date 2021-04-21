@@ -3,11 +3,17 @@ package com.bkc.user.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.mail.Message;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bkc.user.service.UserService;
+import com.bkc.user.vo.MailVO;
 import com.bkc.user.vo.UserVO;
 
 @Controller
@@ -31,6 +38,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 
 	// login 처리
 	@RequestMapping(value="/login", method={ RequestMethod.GET, RequestMethod.POST })
@@ -81,7 +91,9 @@ public class UserController {
 			}
 			return "delivery/joindetail"; // 에러났을때 -> 모델 가져가면서 join으로
 		}
-
+		
+		sendJoinMail(user);
+		
 		if (userService.insert(user)) {
 			// service 로직 수행 성공
 			return "delivery/joinsucess";
@@ -105,4 +117,38 @@ public class UserController {
 		return "deleteuser";
 	}
 	
+	// 회원가입 이후 - 메일 발송 기능
+	public void sendJoinMail(UserVO vo) {
+		String mailTo = vo.getUserid(); //아이디가 곧 이메일
+		MimeMessagePreparator preparator = new MimeMessagePreparator() {
+
+			String content = 
+				"<div style = font-family: 'Apple SD Gothic Neo', 'sans-serif' !important; width: 540px; height: 600px; border-top: 4px solid #ffd84a; margin: 100px auto; padding: 30px 0; box-sizing: border-box;'>"
+				+"<h1 style='margin: 0; padding: 0 5px; font-size: 28px; font-weight: 400;'>"
+					+"<span style='font-size: 15px; margin: 0 0 10px 3px;'>BKC</span><br />"
+					+"<span style='color: #ffd84a;'>BKC 회원가입 </span> 안내입니다."
+				+"</h1>"
+				+"<p style='font-size: 16px; line-height: 26px; margin-top: 50px; padding: 0 5px;'>"
+					+"<b>" + vo.getName() + "</b>님 환영합니다! <br/>"
+					+ "BKC 에 가입해 주셔서 진심으로 감사드립니다.<br/>"
+				+"</p>"
+				+"</div>";
+
+			@Override
+			public void prepare(MimeMessage mimeMessage) throws Exception {
+				System.out.println("이메일 전송 과정 실행");
+				mimeMessage.setFrom(new InternetAddress("bkc1wogh@gmail.com","BKC", "UTF-8")); // 보내는 사람
+				mimeMessage.setSubject("BCK에 가입하신것을 환영합니다.", "UTF-8");
+				mimeMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mailTo));
+				mimeMessage.setContent(content, "text/html;charset=UTF-8");
+				mimeMessage.setReplyTo(InternetAddress.parse(mailTo));
+			}
+		};
+		
+		try {
+			mailSender.send(preparator);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
