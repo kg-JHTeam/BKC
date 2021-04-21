@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
+import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.user.service.UserService;
 import com.bkc.user.vo.UserVO;
 
@@ -38,6 +40,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private BusinessInformationService biService;
+
 	// login 처리
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String doLogin(@RequestParam(value = "error", required = false) String error,
@@ -48,12 +53,21 @@ public class UserController {
 		if (logout != null) {
 			model.addAttribute("logoutMsg", "로그아웃 되었습니다.");
 		}
+
+		// 푸터 넣기
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
 		return "delivery/login";
 	}
 
 	// 회원가입 페이지로 이동
 	@RequestMapping(value = "/join", method = { RequestMethod.GET, RequestMethod.POST })
-	public String join() {
+	public String join(Model model) {
+		// 푸터 넣기
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
 		System.out.println("회원가입 페이지 이동");
 		return "delivery/join";
 	}
@@ -62,14 +76,24 @@ public class UserController {
 	@RequestMapping(value = "/joindetail", method = { RequestMethod.GET, RequestMethod.POST })
 	public String joinDetail(Model model) {
 		System.out.println("회원가입 디테일 페이지 이동");
+
+		// 푸터 넣기
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
 		model.addAttribute("user", new UserVO());
 		return "delivery/joindetail";
 	}
 
 	// 아이디 & 비밀번호 찾기 페이지로 이동
 	@RequestMapping(value = "/userfind", method = { RequestMethod.GET, RequestMethod.POST })
-	public String userfind() {
+	public String userfind(Model model) {
 		System.out.println("아이디 & 비밀번호 찾기 페이지 이동");
+
+		// 푸터 넣기
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
 		return "delivery/userfind";
 	}
 
@@ -114,22 +138,22 @@ public class UserController {
 	// 아이디 찾기/비밀번호 찾기 url나누기
 	@PostMapping("/finduser")
 	public String spiltFindLogin(Model model, HttpServletRequest request, HttpServletResponse response,
-			RedirectAttributes redirectAttr, @RequestParam("name") String name,
+			RedirectAttributes redirectAttr, 
+			@RequestParam("check") String check,
+			@RequestParam("name") String name,
 			@RequestParam("checkStr") String checkStr) {
 
 		// checkString -> phone/username
 		// 핸드폰 번호 인 경우
 		System.out.println(name + " : " + checkStr);
-		if (checkStr.matches("^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$")) {
+		
+		if (check.equals("true")) {
+			System.out.println(check);
 			System.out.println("아이디 찾기 ");
-
 			redirectAttr.addFlashAttribute("name", name);
 			redirectAttr.addFlashAttribute("phone", checkStr);
-
 			return "redirect:/findid";
-		}
-
-		// 이메일 인 경우
+		} // 이메일 인 경우
 		else {
 			System.out.println("비밀번호 찾기 ");
 			redirectAttr.addFlashAttribute("name", name);
@@ -143,42 +167,43 @@ public class UserController {
 	public String findIdUser(HttpServletRequest request, HttpServletResponse response, Model model) {
 
 		String name = "";
-		String phone ="";
+		String phone = "";
 		Map<String, ?> redirectMap = RequestContextUtils.getInputFlashMap(request);
 		if (redirectMap != null) {
 			name = (String) redirectMap.get("name"); // 오브젝트 타입이라 캐스팅해줌
 			phone = (String) redirectMap.get("phone");
 		}
-		
-		//이름과 전화번호에 맞는 아이디를 출력해준다. 
-		
+
+		// 이름과 전화번호에 맞는 아이디를 출력해준다.
 		UserVO vo = new UserVO();
 		vo.setName(name);
 		vo.setPhone(phone);
-		
-		model.addAttribute("vo", vo); //아이디 보내기 
-		
+
+		model.addAttribute("vo", vo); // 아이디 보내기
+
+		// 푸터 넣기
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
 		return "delivery/findidsuccess";
 	}
 
 	// 비밀번호 찾기
 	@RequestMapping(value = "/findpwd", method = { RequestMethod.GET, RequestMethod.POST })
-	public String findpwdUser(
-			HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String findpwdUser(HttpServletRequest request, HttpServletResponse response, Model model) {
 
 		String name = "";
-		String userid ="";
-		
+		String userid = "";
+
 		Map<String, ?> redirectMap = RequestContextUtils.getInputFlashMap(request);
 		if (redirectMap != null) {
 			name = (String) redirectMap.get("name"); // 오브젝트 타입이라 캐스팅해줌
 			userid = (String) redirectMap.get("userid");
 		}
-		
+
 		// 이메일을 통해 UserVO 얻음.
 		UserVO vo = userService.getUserById(userid);
-		System.out.println("받아온 vo " + vo.toString());
-		
+
 		// 비밀번호 찾기시 이메일로 인증 비밀번호 전송
 		// 인증 번호와 일치하면, 확인 시킴.
 		// 임시비밀번호 생성 후 바로 전송
@@ -197,6 +222,10 @@ public class UserController {
 
 		// model에 UserVO 담아서 보냄.
 		model.addAttribute("vo", vo);
+		
+		// 푸터 넣기
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
 
 		// 비밀번호 변경 완료 된후 findepwdsuccess page로 이동
 		return "delivery/findpwdsuccess";

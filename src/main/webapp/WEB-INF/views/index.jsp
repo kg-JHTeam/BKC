@@ -129,6 +129,7 @@
     
 	    <!-- main-desktop-footer -->
 	    <jsp:include page="include/footer/main_desktop_footer.jsp"/>
+	    
     </div>
     
     <!-- 모바일 -->

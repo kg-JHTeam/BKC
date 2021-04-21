@@ -139,6 +139,8 @@
 						<li>네이버, 카카오톡, 삼성 앱카드, 애플아이디로 가입하신 회원님께서는 해당 서비스에서 아이디/비밀번호
 							찾기를 진행해 주세요.</li>
 					</ul>
+					<!-- true일경우 아이디 찾기  / false 일 경우 비밀번호 ㅊ -->
+					<input type="hidden" name="check" value="true" id="check"/>
 				</form>
 			</div>
 		</div>
