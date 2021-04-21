@@ -75,6 +75,7 @@ $('#st01').keyup(function(e) {
 		name1.style.display = "block";
 	}
 });
+
 $('#st02').keyup(function(e) {
 	var content2 = $(this).val();
 	if(document.getElementById('item1').getAttribute('class') == 'on'){

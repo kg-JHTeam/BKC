@@ -39,9 +39,6 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private JavaMailSender mailSender;
-
 	// login 처리
 	@RequestMapping(value="/login", method={ RequestMethod.GET, RequestMethod.POST })
 	public String doLogin(@RequestParam(value = "error", required = false) String error,
@@ -92,13 +89,12 @@ public class UserController {
 			return "delivery/joindetail"; // 에러났을때 -> 모델 가져가면서 join으로
 		}
 		
-		sendJoinMail(user);
-		
 		if (userService.insert(user)) {
-			// service 로직 수행 성공
+			// insert 로직 수행 성공시-> 회원가입 확인 메일 전송 
+			userService.sendJoinMail(user); 
 			return "delivery/joinsucess";
 		} else {
-			// service 로직 수행중 문제 발생
+			// insert 로직 수행중 문제 발생
 			return "delivery/joindetail";
 		}
 	}
@@ -117,38 +113,33 @@ public class UserController {
 		return "deleteuser";
 	}
 	
-	// 회원가입 이후 - 메일 발송 기능
-	public void sendJoinMail(UserVO vo) {
-		String mailTo = vo.getUserid(); //아이디가 곧 이메일
-		MimeMessagePreparator preparator = new MimeMessagePreparator() {
-
-			String content = 
-				"<div style = font-family: 'Apple SD Gothic Neo', 'sans-serif' !important; width: 540px; height: 600px; border-top: 4px solid #ffd84a; margin: 100px auto; padding: 30px 0; box-sizing: border-box;'>"
-				+"<h1 style='margin: 0; padding: 0 5px; font-size: 28px; font-weight: 400;'>"
-					+"<span style='font-size: 15px; margin: 0 0 10px 3px;'>BKC</span><br />"
-					+"<span style='color: #ffd84a;'>BKC 회원가입 </span> 안내입니다."
-				+"</h1>"
-				+"<p style='font-size: 16px; line-height: 26px; margin-top: 50px; padding: 0 5px;'>"
-					+"<b>" + vo.getName() + "</b>님 환영합니다! <br/>"
-					+ "BKC 에 가입해 주셔서 진심으로 감사드립니다.<br/>"
-				+"</p>"
-				+"</div>";
-
-			@Override
-			public void prepare(MimeMessage mimeMessage) throws Exception {
-				System.out.println("이메일 전송 과정 실행");
-				mimeMessage.setFrom(new InternetAddress("bkc1wogh@gmail.com","BKC", "UTF-8")); // 보내는 사람
-				mimeMessage.setSubject("BCK에 가입하신것을 환영합니다.", "UTF-8");
-				mimeMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mailTo));
-				mimeMessage.setContent(content, "text/html;charset=UTF-8");
-				mimeMessage.setReplyTo(InternetAddress.parse(mailTo));
-			}
-		};
+	// 비밀번호 찾기
+	@RequestMapping("/findpwd")
+	public String findpwdUser(@RequestParam("userid") String userid, Model model) {
+		 
+		//이메일을 통해 UserVO 얻음. 
+		UserVO vo = userService.getUserById(userid);
 		
-		try {
-			mailSender.send(preparator);
-		} catch (Exception e) {
-			e.printStackTrace();
+		//비밀번호 찾기시 이메일로 인증 비밀번호 전송 
+		//인증 번호와 일치하면, 확인 시킴. 
+		
+		//임시비밀번호 생성 후 바로 전송 
+		String pwd = userService.sendTempPassword(vo);
+		
+		//회원 임시 비밀번호 세팅 - 암호화 시킴   
+		pwd = passwordEncoder.encode(pwd);
+		vo.setPassword(pwd);
+		
+		//회원 임시비밀번호 암호화하여 update 수행
+		if(userService.updatePasswd(vo) == 1) {
+			System.out.println("변경 성공 ");
+		} else {
+			System.out.println("변경 실패 ");
 		}
+		
+		model.addAttribute("vo", vo);
+		
+		//비밀번호 변경 완료 된후 findepwdsuccess page로 이동 
+		return "delivery/findpwdsuccess";
 	}
-}
+}	
