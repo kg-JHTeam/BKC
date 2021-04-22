@@ -312,14 +312,15 @@ dd>.inpbox>.txt {
 	overflow: hidden;
 }
 
-.contentsBox01>.web_container02>.tab_cont>.btn01.l {
+.userfinds{
 	width: 272px;
 	height: 76px;
 	padding: 20px 10px 22px;
 	font-size: 1.625rem;
 	line-height: 34px;
-	background: url("../img/bg_btn01_l.dc747669.png") no-repeat 50%;
+	background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png") no-repeat 50%;
 	background-size: 100% 100%;
+	color: white;
 }
 
 .contentsBox01>.web_container02>.tab_cont>.btn01 {

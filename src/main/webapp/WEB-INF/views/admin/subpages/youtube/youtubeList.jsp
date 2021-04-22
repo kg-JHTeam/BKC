@@ -22,7 +22,7 @@
 	height: 231.6px;
 }
 
-#insertBanner {
+#insertYoutube {
 	position: relative;
 	margin-bottom: 0.5%;
 	margin-left: 91%
@@ -104,9 +104,9 @@ function deleteYoutube(id){
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<input class="btn btn-success" type="button" value="유튜브 광고 업로드"
-									onclick="location.href='${contextPath}/admin/bannerUploadpage.ad'"
-									id="insertBanner">
+								<input class="btn btn-success" type="button" value="광고 업로드"
+									onclick="location.href='${contextPath}/admin/youtubeUploadpage.ad'"
+									id="insertYoutube">
 								<table class="table" id="dataTable" width="100%">
 									<thead>
 										<tr>
@@ -142,11 +142,12 @@ function deleteYoutube(id){
 																<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 														</c:otherwise>
 													</c:choose></td>
-												<td><input class="btn btn-primary" type="button"
+													<td>
+													<input class="btn btn-primary" type="button"
 													value="수정"
-													onClick="location.href='${contextPath}/admin/youtubeContent.ad?seq=${youtube.img_seq}'" />
+													onClick="location.href='${contextPath}/admin/youtubeContent.ad?img_seq='+${youtubes.img_seq}" />
 												</td>
-												<td><input class="btn btn-danger" type="button" value="삭제" onclick="javascript:deleteBanner(${youtube.img_seq})"></td>
+												<td><input class="btn btn-danger" type="button" value="삭제" onclick="javascript:deleteYoutube(${youtubes.img_seq})"></td>
 											</tr>
 										</c:forEach>
 									</tbody>

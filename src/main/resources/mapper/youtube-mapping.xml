@@ -27,9 +27,10 @@
 	</select>
 	<select id="getYoutubeBySeq" resultType="YoutubeVO">
 		<![CDATA[
-			SELECT * FROM youtube where img_seq=#{img_seq}
+		SELECT * FROM youtube where img_seq=#{img_seq}
 		]]>
 	</select>
+	
 	<update id="changeStatusYoutube">
 		<![CDATA[
 			UPDATE
@@ -50,12 +51,11 @@
 		]]>
 	</delete>
 	
-	<insert id="insertYoutube"> 
+	<insert id="insertYoutube" parameterType="YoutubeVO"> 
 		<![CDATA[
 			INSERT INTO 
-				youtube(use_status, content, title, path)
-			VALUES 
-				(#{use_status}, #{content}, #{title}, #{path});
+				youtube(use_status, content, title, path, date)
+				values (#{use_status}, #{content}, #{title}, #{path}, #{date});
 		]]>
 	</insert>
 	
@@ -63,10 +63,10 @@
 		<![CDATA[
 			UPDATE
 				youtube
-			SET title=#{title}, url=#{url}, use=#{use}, 
-				date=#{date}
+			SET 
+				title=#{title}, path=#{path}, content=#{content}
 			WHERE
-				seq = 1
+				img_seq = #{img_seq}
 		]]>
 	</update>
 </mapper>

@@ -2,8 +2,11 @@ package com.bkc.youtube.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.bkc.youtube.vo.YoutubeVO;
 
+@Repository
 public interface YoutubeDAO {
 	
 	// 유튜브 광고 정보 조회
@@ -13,7 +16,7 @@ public interface YoutubeDAO {
 	public List<YoutubeVO> getYoutubeUsedList();
 	
 	// 유튜브 광고 정보 상세 조회
-	public YoutubeVO getYoutubeBySeq(int seq);
+	public YoutubeVO getYoutubeBySeq(YoutubeVO vo);
 	
 	// 유튜브 광고 status 변경
 	public int changeStatusYoutube(int img_seq);
@@ -26,5 +29,8 @@ public interface YoutubeDAO {
 
 	// 사용중인 유튜브 조회 
 	public YoutubeVO getYoutube();
+
+	// 유튜브 광고 수정
+	public int updateYoutube(YoutubeVO vo);
 
 }
