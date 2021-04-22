@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.bkc.youtube.vo.YoutubeVO;
 
-@Service
+@Repository
 public class YoutubeDAOImpl implements YoutubeDAO {
 
 	@Autowired
@@ -25,13 +26,13 @@ public class YoutubeDAOImpl implements YoutubeDAO {
 	}
 
 	@Override
-	public YoutubeVO getYoutubeBySeq(int img_seq) {
-		return sqlSession.selectOne("getYoutubeBySeq", img_seq);
+	public YoutubeVO getYoutubeBySeq(YoutubeVO vo) {
+		return sqlSession.selectOne("getYoutubeBySeq", vo);
 	}
 
 	@Override
 	public int changeStatusYoutube(int img_seq) {
-		return sqlSession.insert("changeStatus", img_seq);
+		return sqlSession.insert("changeStatusYoutube", img_seq);
 	}
 
 	@Override
@@ -49,5 +50,9 @@ public class YoutubeDAOImpl implements YoutubeDAO {
 		return sqlSession.selectOne("getYoutube");
 	}
 
+	@Override
+	public int updateYoutube(YoutubeVO vo) {
+		return sqlSession.insert("updateYoutube", vo);
+	}
 }
 

@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" /><jsp:useBean id="now" class="java.util.Date" />
+<fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss" var="today" />
+
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -12,8 +15,20 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
+<script>
+//업로드 성공하면 성공 
+window.onload = function(){
+	var chk = "<c:out value='${check.success}'/>"
+	if(chk=="true"){
+		alert("유튜브 수정 완료");
+	} else if(chk=="false"){
+		alert("유튜브 수정 실패");
+	} 
+}
+</script>
 </head>
 <body class="sb-nav-fixed">
+
 	<!-- firstHeader -->
 	<jsp:include page="../../include/firstHeader.jsp" />
 	<div id="layoutSidenav">
@@ -21,65 +36,79 @@
 		<jsp:include page="../../include/secondHeader.jsp" />
 		<div id="layoutSidenav_content">
 			<main>
-				<div class="container-fluid">
-					<h1 class="mt-4">배너 등록</h1>
-					<div class="card mb-4">
-						<div class="card-body">
-							<div class="table-responsive">
-							
-								<form action="${contextPath}/admin/bannerUpload.ad" method="post" enctype="multipart/form-data">
-									<div class="container-fluid">
-										<br>
-										<!-- DataTales Example -->
-										<div class="card shadow mb-4">
-											<div class="card-header py-3">
-												<h6 class="m-1 font-weight-bold text-primary">배너 등록</h6>
+			<div class="container-fluid">
+				<h1 class="mt-4">썸네일 등록</h1>
+				<div class="card mb-4">
+					<div class="card-body">
+						<div class="table-responsive">
+
+							<form action="${contextPath}/admin/insertYoutube.ad"
+								method="post">
+								<div class="container-fluid">
+									<br>
+									<!-- DataTales Example -->
+									<div class="card shadow mb-4">
+										<div class="card-header py-3">
+											<h6 class="m-1 font-weight-bold text-primary">썸네일 등록</h6>
+										</div>
+										<div class="card-body">
+											<!-- 전체 frame -->
+											<ul>
+												<!-- 제목 -->
+												<li>
+													<div>
+														<div class="index">제목</div>
+														<input class="title_text" type="text" name="title"
+															style="width: 50%" required /><br /> <input
+															type="hidden" name="${_csrf.parameterName}"
+															value="${_csrf.token}" />
+													</div>
+												</li>
+												<br />
+												<!-- 유튜브 광고 최초 업로드 날짜 -->
+												<li>
+													<div>
+														<div class="index">날짜</div>
+														<input type="text" name="date" style="width: 50%;"
+															value="${today}" required disabled/><br />
+													</div>
+												</li>
+												<!-- 유튜브 광고 경로 -->
+												<li>
+													<div>
+														<div class="index">유튜브 경로</div>
+														<input type="text" name="path" style="width: 50%;"
+															required /><br />
+													</div>
+												</li>
+												<!-- 유튜브 광고 내용 -->
+												<li>
+													<div>
+														<div class="index">내용</div>
+														<input type="text" name="content" style="width: 50%;"
+															required /><br />
+													</div>
+												</li>
+											</ul>
+											<div align="center">
+												<input style="padding: 5px"
+													class="btn btn-primary btn-icon-split" type="submit"
+													value="배너 등록하기" />
 											</div>
-											<div class="card-body">
-												<!-- 전체 frame -->
-												<ul>
-													<!-- 제목 -->
-													<li>
-														<div>
-															<div class="index">제목</div>
-															<input class="title_text" type="text" name="title" style="width: 50%" required /><br/>
-															<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
-														</div>
-													</li><br/>
-													<!-- 베너 이미지 업로드 -->
-													<li>
-														<div>
-															<div class="index">배너 이미지</div>
-															<input type="file" name="banner" required /><br/>
-														</div>
-													</li>
-													<!-- 베너 내용 -->
-													<li>
-														<div>
-															<div class="index">내용</div>
-															<input type="text" name="content" style="width: 50%;" required /><br/>
-														</div>
-													</li>
-												</ul>
-												<div align="center">
-													<input style="padding: 5px"
-														class="btn btn-primary btn-icon-split" type="submit"
-														 value="배너 등록하기" />
-												</div>
-												<div align="right">
-													<a href="${contextPath }/admin/bannerlist.ad"
-														class="btn btn-success btn-icon-split"> <span
-														class="text">목록가기</span>
-													</a>
-												</div>
+											<div align="right">
+												<a href="${contextPath }/admin/bannerlist.ad"
+													class="btn btn-success btn-icon-split"> <span
+													class="text">목록가기</span>
+												</a>
 											</div>
 										</div>
 									</div>
-								</form>
-							</div>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
+			</div>
 			</main>
 			<!-- firstHeader -->
 			<jsp:include page="../../include/footer.jsp" />

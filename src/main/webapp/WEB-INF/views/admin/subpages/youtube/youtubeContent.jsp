@@ -25,35 +25,15 @@
 	}
 </style>
 <script>
-// 사용 미사용  변경  
-function status(status){
-	var btn = document.getElementById("status_id");
-	var value = btn.value;
-	var use_status = document.getElementById("use_status");
-	if(value == "사용"){
-		var input = confirm("배너를 사용하지 않겠습니까?");
-		if(input == true){
-			//배너 미사용으로 변경. 
-			//use_status -> false
-			btn.className = "btn btn-danger";
-			btn.value = "미사용"
-			use_status.value = false;
-		} else{
-			return;
-		}
-	} else{
-		var input = confirm("배너를 사용하도록 변경하시겠습니까?");
-		if(input == true){
-			//배너 사용으로 변경.
-			//use_status -> true
-			btn.className = "btn btn-info";
-			btn.value = "사용"
-			use_status.value = true;
-		} else{
-			return;
-		}
-	}
-} 
+//업로드 성공하면 성공 
+window.onload = function(){
+	var chk = "<c:out value='${check.success}'/>"
+	if(chk=="true"){
+		alert("유튜브 수정 완료");
+	} else if(chk=="false"){
+		alert("유튜브 수정 실패");
+	} 
+}
 </script>
 </head>
 <body class="sb-nav-fixed">
@@ -69,43 +49,37 @@ function status(status){
 					<div class="card mb-4">
 						<div class="card-body">
 							<div class="table-responsive">
-								<form role="form" action="${contextPath}/admin/modifyBanner.ad" method="post">
+								<form role="form" action="${contextPath}/admin/modifyYoutube.ad" method="get">
 									<div class="form-group" id="imgDetail">
-										<h4>이미지 상세 </h4><br>
-										<a href="${youtubes.path}" target="_blank"  target="_blank">
-												<img src="${youtubes.path}" alt="이미지" id="bannerimg" class="img-responsive"/>
+										<input type="hidden" name='img_seq' value="${youtube.img_seq}" id="img_seq"/>
+										<h4>썸네일 상세 </h4><br>
+										<a href="${youtube.path}" target="_blank"  target="_blank">
+												<img src="${youtube.path}" alt="이미지" id="bannerimg" class="img-responsive"/>
 										</a>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
 												<label>날짜</label> 
-												<input class="form-control" name='img_seq' value="${youtubes.img_seq}" disabled/>
+												<input class="form-control" name='date' value="${youtube.date}" disabled/>
 										</div>
 										<div class="form-group col-md-6">
 												<label>제목</label> 
-												<input class="form-control" name='title' value="${youtubes.title}" />
+												<input class="form-control" name='title' value="${youtube.title}" />
 										</div>
 									</div>
 									<div class="form-group">
 										<label>세부내용</label>
-										<textarea class="form-control" rows="3" name='content' style="resize:none;">${youtubes.content}</textarea>
+										<textarea class="form-control" rows="3" name='content' style="resize:none;">${youtube.content}</textarea>
 									</div>
 									<div class="form-group">
-										<label>이미지 주소 </label>
-										<input class="form-control" name='path' value="${youtubes.path}" disabled/>
+										<label>썸네일 주소 </label>
+										<input class="form-control" name='path' value="${youtube.path}"/>
 									</div>
 									<div>
+										<button type="button" class="btn btn-success" onclick="window.location.href='${contextPath }/admin/youtubeList.ad'">목록으로</button>
 										<button type="submit" class="btn btn-primary">수정 완료</button>
 										<button type="reset" class="btn btn-success">리셋</button>
-										<c:choose>
-											<c:when test="${youtubes.use_status eq true }">
-												<input class="btn btn-info" type="button" value="사용" onclick="javascript:status(true)" id="status_id"/>
-											</c:when>
-											<c:otherwise>
-												<input class="btn btn-danger" type="button" value="미사용" onclick="javascript:status(false)" id="status_id"/>
-											</c:otherwise>
-										</c:choose>
-										<input type="hidden" name='use_status' value="${banner.use_status}" id="use_status"/>
+										<input type="hidden" name='use_status' value="${youtube.use_status}" id="use_status"/>
 									</div>
 								</form>
 							</div>

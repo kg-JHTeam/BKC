@@ -16,7 +16,7 @@ public interface YoutubeService {
 	public List<YoutubeVO> getYoutubeList();
 
 	// 유튜브 광고 정보 상세 조회
-	public YoutubeVO getYoutubeBySeq(int img_seq);
+	public YoutubeVO getYoutubeBySeq(YoutubeVO vo);
 
 	// 유튜브 광고 사용 여부
 	public int changeStatusYoutube(int img_seq);
@@ -26,5 +26,8 @@ public interface YoutubeService {
 
 	// 유튜브 광고 추가
 	public int insertYoutube(YoutubeVO vo);
+	
+	// 유튜브 광고 수정
+	public int updateYoutube(YoutubeVO vo);
 
 }
