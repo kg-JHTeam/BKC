@@ -11,9 +11,24 @@ public class TermPrivacyDAOImpl implements TermPrivacyDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	//개인정보 취급 방침 리스트 조회
 	@Override
 	public TermPrivacyVO getTermPrivacyList() {
 		return sqlSession.selectOne("getTermPrivacyList");
+	}
+
+	//관리자 개인정보 취급 방침 게시글 조회
+	@Override
+	public TermPrivacyVO getTermPrivacyList(TermPrivacyVO termPrivacy) {
+		System.out.println("개인정보 취급 방침 관리자 게시글 조회");
+		return sqlSession.selectOne("getTermPrivacyList", termPrivacy);
+	}
+
+	//관리자 개인정보 취급 방침 게시글 수정
+	@Override
+	public void updateTermPrivacy(TermPrivacyVO termPrivacy) {
+		sqlSession.insert("updateTermPrivacy", termPrivacy);
+		System.out.println("개인정보 취급 방침 관리자 게시글 수정 완료");
 	}
 
 }
