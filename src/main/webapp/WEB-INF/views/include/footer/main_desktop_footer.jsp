@@ -76,11 +76,11 @@
                     </div>
                     <div class="c_btn_1_line">|</div>
                     <div class="c_btn_1_item" id="c_btn_1_center">
-                        <a href="${contextPath}/privacy.do">개인정보취급방침</a>
+                        <a href="${contextPath}/termsPrivacy.do">개인정보취급방침</a>
                     </div>
                     <div class="c_btn_1_line">|</div>
                     <div class="c_btn_1_item">
-                        <a href="${contextPath}/legal.do">법적고지</a>
+                        <a href="${contextPath}/termsEmail.do">이메일약관</a>
                     </div>
                 </div>
                 <div class="c_btn_2">

@@ -94,7 +94,7 @@
                                 <a href="#" class="btn01 m orange" onclick="document.getElementById('loginForm').submit();">
                                     <span>로그인</span>
                                 </a>
-                                <a href="${contextPath}/delivery/join.do" class="btn01 m">
+                                <a href="${contextPath}/join" class="btn01 m">
                                     <span>회원가입</span>
                                 </a>
                             </div>
