@@ -88,7 +88,7 @@
 	         <div class="tab_aboutCon story_web_container" id="abo">
 	         	<c:forEach var="AboutbkcList" items="${AboutbkcList}">
 	            <div class="about01">
-	               	  <img src="${AboutbkcList.path}" alt=""/>
+	               <img src="${AboutbkcList.path}" alt=""/>
 	               <h3>${AboutbkcList.title}</h3>
 	               <p>${AboutbkcList.content}</p>
 	            </div>
@@ -99,8 +99,9 @@
 	               <div class="history_bgBox">
 	               	  <c:forEach var="HistoryList" items="${HistoryList}">
 	                  <div class="history_area">
-	                  	<h4>${HistoryList.title}</h4>
-	                  	<p>${HistoryList.content}</p>
+	                  	<h4 class="yeartit">${HistoryList.title}</h4>
+	                  	<pre class="yeartext">
+${HistoryList.content}</pre>
 	                  </div>
 	                  </c:forEach>
 	               </div>

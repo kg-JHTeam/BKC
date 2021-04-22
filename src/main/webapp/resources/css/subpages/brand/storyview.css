@@ -185,34 +185,27 @@ button {
 }
 .history_area {
     max-width: 1184px;
-    margin: 0 auto;
+    margin: 0 auto 50px;
     padding: 0 20px;
+    display: flex;
+    align-items: center;
 }
-.history_area h4 {
+.history_area .yeartit {
     font-size: 4.5rem;
-    display: inline-block;
+    display: flex;
     vertical-align: top;
-    width: 17%;
+    width: 20%;
     line-height: 1.1;
 }
-.history_area ul {
-    width: 45%;
-    position: relative;
-    padding-left: 50px;
-    display: inline-block;
+.history_area .yeartext {
+	display: flex;
+	width: 80%;
+	height: 100%;
+	line-height: 2;
+    align-items: center;
 }
-.history_area ul li:last-child {
-    border-bottom: 1px solid #e5e5e5;
-    margin-bottom: 33px;
-    padding-bottom: 33px;
-}
-.history_area ul li {
-    width: 100%;
-    font-size: 1.125rem;
-    position: relative;
-    padding-bottom: 15px;
-    line-height: 1.6;
-}
+
+
 .MOB {
     display: none!important;
 }

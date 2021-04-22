@@ -1,8 +1,8 @@
-package com.bkc.subpages.brand.bkcstory.vo;
+package com.bkc.subpages.brand.whybkc.vo;
 
-public class HistoryVO {
+public class RealchickenVO {
 	private int seq;
-	private String title;
+	private String path;
 	private String content;
 	public int getSeq() {
 		return seq;
@@ -10,11 +10,11 @@ public class HistoryVO {
 	public void setSeq(int seq) {
 		this.seq = seq;
 	}
-	public String getTitle() {
-		return title;
+	public String getPath() {
+		return path;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setPath(String path) {
+		this.path = path;
 	}
 	public String getContent() {
 		return content;
@@ -24,8 +24,6 @@ public class HistoryVO {
 	}
 	@Override
 	public String toString() {
-		return "HistoryVO [seq=" + seq + ", title=" + title + ", content=" + content + "]";
+		return "RealchickenVO [seq=" + seq + ", path=" + path + ", content=" + content + "]";
 	}
-	
-	
 }

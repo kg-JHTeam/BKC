@@ -17,6 +17,9 @@
 		<typeAlias type="com.bkc.youtube.vo.YoutubeVO" alias="YoutubeVO" />
 		<typeAlias type="com.bkc.subpages.brand.bkcstory.vo.AboutbkcVO" alias="AboutbkcVO"/>
 		<typeAlias type="com.bkc.subpages.brand.bkcstory.vo.HistoryVO" alias="HistoryVO"/>
+		<typeAlias type="com.bkc.subpages.brand.whybkc.vo.RealchickenVO" alias="RealchickenVO"/>
+		<typeAlias type="com.bkc.subpages.brand.whybkc.vo.MaterialVO" alias="MaterialVO"/>
+		<typeAlias type="com.bkc.subpages.brand.whybkc.vo.ContributionVO" alias="ContributionVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
