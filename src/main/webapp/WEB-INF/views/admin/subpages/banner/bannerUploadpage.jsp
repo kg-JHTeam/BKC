@@ -13,7 +13,6 @@
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
 <script>
-
 //업로드 성공하면 성공 
 window.onload = function(){
 	var chk = "<c:out value='${check.success}'/>"

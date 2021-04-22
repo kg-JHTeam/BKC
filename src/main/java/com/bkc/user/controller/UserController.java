@@ -103,11 +103,9 @@ public class UserController {
 		if (result.hasErrors()) {
 			System.out.println("== Form data does not validated ==");
 			List<ObjectError> errors = result.getAllErrors();
-
 			for (ObjectError error : errors) {
 				System.out.println(error.getDefaultMessage());
 			}
-
 			return "delivery/joindetail"; // 에러났을때 -> 모델 가져가면서 join으로
 		}
 
