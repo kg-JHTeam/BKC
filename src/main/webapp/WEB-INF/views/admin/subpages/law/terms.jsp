@@ -11,6 +11,9 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
+<!-- favicon -->
+<link rel="shortcut icon" type="image/x-icon"
+href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
 <title>BKC 홈페이지 관리자 페이지</title>
 </head>
 <body class="sb-nav-fixed">
