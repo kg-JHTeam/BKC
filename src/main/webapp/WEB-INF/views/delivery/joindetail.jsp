@@ -113,7 +113,7 @@
                     </li>
                     <li class="item must">
                         <sf:password class="control" path="password" autocapitalize="off" maxlength="16" autocomplete="off" 
-                        placeholder="비밀번호 (8자 ~20자리 영문 대소문자와 숫자,특수기호가 적어도 1개 이상 조합 )"/>
+                        placeholder="비밀번호 (8자 ~20자리 영문 대소문자와 숫자,특수기호가 적어도 1개 이상)"/>
                         <sf:errors path="password" class="error"/><br>
                     </li>
                 </ul>
@@ -129,7 +129,6 @@
                         <button class="btn_identify btn_phone" id="identify_phone" type="button"><span>휴대폰 인증</span></button>
                         <button class="btn_identify btn_email" id="identify_email" type="button"><span>이메일 인증</span></button>
                     </div>
-                    <p class="alert_column good_txt" id="confirm_remain_time_area" style="display:none;">휴대폰 인증 성공. 아래 필수정보를 입력해주세요.</p>
                 </div>
 
                 <!-- 휴대폰 인증 -->
@@ -138,12 +137,12 @@
                         <li class="certi_list item must" id="phone_certi_list">
                             <div class="input_collect item">
                                 <label for="sms_cellnum" class="tit_inp fullsize_input except">연락처</label> 
-                                <sf:input class="control" type="text" path="phone" placeholder="'-' 없이 입력" onblur="checkPhoneError();"/>
+                                <sf:input class="control" type="text" path="phone" placeholder="'-' 없이 입력" onblur="checkPhoneError();" id="phoneNumber"/>
                         		<sf:errors path="phone" class="error" /><br>
                             </div>
                             <!-- 인증 버튼  -->
-                            <button type="button" onclick="sendSMS('sendSms')" class="btn_back btn_cert_pop" data-popupid="layer_pop_byphone">
-                            <span>인증</span>
+                            <button type="button" class="btn_back btn_cert_pop" data-popupid="layer_pop_byphone">
+                            	<span>인증</span>
                             </button>
                         </li>
                         <li class="item must">
@@ -221,11 +220,10 @@
          <div class="modal-content"> 
              <span class="close-button">&times;</span> 
              <h1 class="title">인증번호 확인</h1> 
-               <label for="email">
+               <br>
                <p class="txt" id="sms_layer_sub_title" name="sms_layer_sub_title">
-               010-6313-5712 로 인증번호가 발송되었습니다.<br>
+               <span id="checkPhone"> </span> 로 인증번호가 발송되었습니다.<br>
                                  휴대폰으로 전달받은 인증번호를 입력해주세요.</p>
-        </label> 
         <table class="tbl_fieldset">
             <caption></caption>
             <colgroup>
@@ -238,15 +236,15 @@
                 <td>
                     <input type="text" id="sms_code" name="sms_code" value="" class="sri_input" style="width:96px;">
                     <button type="button" class="btn_basic_type04 confirm-action person">확인</button>
-                    <span class="expiredin" id="confirm_remain_sms_time_area" name="confirm_remain_sms_time_area"></span>
+                    <span class="expiredin" id="time" name="confirm_remain_sms_time_area">2:00</span>
                 </td>
             </tr>
             </tbody>
         </table>
         <!-- <textarea name="message" placeholder="Test Message" required="required"></textarea> -->
                <div class="bottom_btn_wrap">
-	               <input type="button" id="cancel"value="인증번호 재발송"> 
-	               <input type="button" id="cancel" class="suc" value="인증번호 완료"> 
+	               <input type="button" id="cancel" value="인증번호 재발송" onclick="smsReSummit();"> 
+	               <input type="button" id="cancel" class="suc" onclick="smsCheck();" value="인증번호 완료"> 
 	            </div> 
          </div> 
      </div>
@@ -256,25 +254,111 @@
 </div>
 </div>
 </div>
-     
-     <script>
-     //인증 버튼을 누를시에 모달창이 열림. 
-     $(function(){
-    	 $(".btn_back").click(function(){
-    		 $(".modal").css("display","block");
-    	 });
-    	 
-    	 $(".modal .modal-content .close-button").click(function(){
-    		 $(".modal").css("display","none");
-    	 });
-    	 
-    	 $(".suc").click(function(){
-    		 $(".modal").css("display","none");
-    		 $(".btn_back").addClass("on").attr("disabled",true);
-    	 });
-    	 
-     });
-     </script>
+
+	<script>
+		var checkTimer = false; //default
+		var checkCount = 3; //인증번호 재전송 횟수 
+		var timer;
+		
+		//타이머 
+		function startTimer() {
+			checkTimer = true; //작동중
+			var time = 119;
+			var min = "";
+			var sec = "";
+			
+			//인증번호 재전송 횟수 감소
+			checkCount--;
+			
+			timer = setInterval(function() {
+				min = parseInt(time / 60);
+				sec = time % 60;
+
+				document.getElementById("time").innerHTML = min + ":" + sec;
+				time--;
+
+				//타임 종료시
+				if (time < 0) {
+					clearInterval(x);
+					document.getElementById("time").inner("시간초과");
+				}
+			}, 1000);
+		}
+
+		function stopTimer() {
+			clearInterval(timer);
+			checkTimer = false;
+			document.getElementById("time").innerHTML = "2:00";
+		}
+		
+		//인증번호 재전송 버튼
+		function smsReSummit(){
+			//인증번호 재전송 횟수 초과
+			if(checkCount < 0){
+				stopTimer();
+				checkTimer = false;
+				alert("재전송 횟수가 초과되었습니다.");
+				return;
+			}
+			
+			stopTimer();
+			startTimer(); //타이머 스타트 시킴.
+			checkTimer = false;
+			
+			//재전송 로직 
+			alert("재전송 되었습니다.");
+		}
+		
+		var phoneNumber = document.getElementById("phoneNumber").value;
+		var regExp = /(01[016789])([1-9]{1}[0-9]{2,3})([0-9]{4})$/;
+		if(regExp.test(phoneNumber)){
+			
+		} else{
+			alert("핸드폰 번호를 입력해주세요.");
+		}
+		
+		//인증 버튼을 누를시에 모달창이 열림. 
+		$(function() {
+				$(".btn_back").click(function() {
+					//핸드폰 번호 넘겨주기
+					var phoneNumber = document.getElementById("phoneNumber").value;
+					var regExp = /(01[016789])([1-9]{1}[0-9]{2,3})([0-9]{4})$/;
+					if(regExp.test(phoneNumber)){
+						$("#checkPhone").html(phoneNumber);
+						$(".modal").css("display", "block");
+						
+						//false일경우
+						if(!checkTimer){ 
+							startTimer(); //타이머 스타트 시킴.
+						} 
+					} else{
+						alert("핸드폰 번호를 확인해주세요");
+					}
+				});
+			
+
+			$(".modal .modal-content .close-button").click(function() {
+				$(".modal").css("display", "none");
+				stopTimer(); //타이머 정지 시킴 
+			});
+
+			$(".suc").click(function() {
+
+				//인증이 성공한 로직이 필요함. 
+				/*
+				 if 성공 
+				 -> 
+					$(".btn_back").addClass("on").attr("disabled",true);
+				 else 
+				 -> 인증 실패 
+				 */
+				 
+				$(".modal").css("display", "none");
+				$(".btn_back").addClass("on").attr("disabled", true);
+			});
+
+		});
+	</script>
 
 	<!-- join-desktop-footer -->
 	<jsp:include page="../include/footer/delivery_desktop_footer.jsp" />
