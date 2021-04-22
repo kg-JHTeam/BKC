@@ -158,21 +158,6 @@ public class UserController {
 		}
 	}
 
-	// 회원 수정
-	@RequestMapping("/modifyuser")
-	public String modifyUser(Model model, @Valid UserVO user, BindingResult result) {
-
-		// @Valid를 통해 자동 객체 검증
-		return "modifyuser";
-	}
-
-	// 회원 탈퇴
-	@RequestMapping("/deleteuser")
-	public String deleteUser(Model model, @Valid UserVO user, BindingResult result) {
-		// 회원 탈퇴 하지만 enabled만 유효하지 않게 설정 1-> 0 유효하지 않은 회원
-		return "deleteuser";
-	}
-
 	// 아이디 찾기/비밀번호 찾기 url나누기
 	@PostMapping("/finduser")
 	public String spiltFindLogin(Model model, HttpServletRequest request, HttpServletResponse response,
@@ -281,6 +266,20 @@ public class UserController {
 			e.printStackTrace();
 			return "redirect:/userfind";
 		}
+	}
+	
+	// 회원 수정
+	@RequestMapping("/modifyuser")
+	public String modifyUser(Model model, @Valid UserVO user, BindingResult result) {
 
+		// @Valid를 통해 자동 객체 검증
+		return "modifyuser";
+	}
+
+	// 회원 탈퇴
+	@RequestMapping("/deleteuser")
+	public String deleteUser(Model model, @Valid UserVO user, BindingResult result) {
+		// 회원 탈퇴 하지만 enabled만 유효하지 않게 설정 1-> 0 유효하지 않은 회원
+		return "deleteuser";
 	}
 }

@@ -141,7 +141,10 @@
                                 <sf:input class="control" type="text" path="phone" placeholder="'-' 없이 입력" onblur="checkPhoneError();"/>
                         		<sf:errors path="phone" class="error" /><br>
                             </div>
-                            <button type="button" onclick="sendSMS('sendSms')" class="btn_back btn_cert_pop" data-popupid="layer_pop_byphone"><span>인증</span></button>
+                            <!-- 인증 버튼  -->
+                            <button type="button" onclick="sendSMS('sendSms')" class="btn_back btn_cert_pop" data-popupid="layer_pop_byphone">
+                            <span>인증</span>
+                            </button>
                         </li>
                         <li class="item must">
                             <label class="tit_inp">이름</label>
@@ -171,7 +174,7 @@
                 <div class="agree_desc">
                     <strong class="anterior_txt">개인회원 약관에 동의</strong>
                 </div>
-                <a href="" class="view_indetail" target="_blank">상세보기</a>
+                <a href="${contextPath }/terms.do" class="view_indetail" target="_blank">상세보기</a>
                 
                 <label for="agree_rule1" class="check_custom check_on">
                 	<sf:checkbox path="agree_rule2" id="agree_rule1" class="ab" />
@@ -182,7 +185,7 @@
                 <div class="agree_desc">
                     <strong class="anterior_txt">개인정보 수집 및 이용에 동의</strong>
                 </div>
-                <a id="popupClausePrivacyPerson" href="" class="view_indetail popup_clause_open" target="_blank">상세보기</a>
+                <a id="popupClausePrivacyPerson" href="${contextPath }/termsPrivacy.do" class="view_indetail popup_clause_open" target="_blank">상세보기</a>
                 <label for="agree_rule2" class="check_custom check_on">
                 
                 <sf:checkbox path="agree_rule2" id="agree_rule2" class="ab"/>
@@ -207,25 +210,21 @@
                 	<sf:checkbox path="sms_agree" id="sms_receive_fl" name="sms_receive_fl" value="y" class="ab"/>
                 </label>
             </li>
-            <li class="">
-                <div class="agree_desc">
-                    <strong class="anterior_txt">개인정보 제 3자 제공 및 위탁사항 이용약관</strong>
-                </div>
-                <a id="popupClauseThirdPartyPerson" href="" class="view_indetail popup_clause_open" target="_blank">상세보기</a>
-            </li>
         </ul>
     </div>
     	<div class="btn_join">
     		<input type="button" value="회원가입 완료" onclick="submitValid()" id="btn_submit" class="inp_join" />
         </div>
         
-        
      <!-- 팝업 될 레이어 --> 
      <div class="modal"> 
          <div class="modal-content"> 
              <span class="close-button">&times;</span> 
              <h1 class="title">인증번호 확인</h1> 
-               <label for="email"><p class="txt" id="sms_layer_sub_title" name="sms_layer_sub_title">010-6313-5712로 인증번호가 발송되었습니다.<br>카카오톡으로 전달받은 인증번호를 입력해주세요.<br>(실패 시 SMS 전송)</p>
+               <label for="email">
+               <p class="txt" id="sms_layer_sub_title" name="sms_layer_sub_title">
+               010-6313-5712 로 인증번호가 발송되었습니다.<br>
+                                 휴대폰으로 전달받은 인증번호를 입력해주세요.</p>
         </label> 
         <table class="tbl_fieldset">
             <caption></caption>
@@ -243,49 +242,39 @@
                 </td>
             </tr>
             </tbody>
-        </table><!-- 
-               <textarea name="message" placeholder="Test Message" required="required"></textarea> -->
+        </table>
+        <!-- <textarea name="message" placeholder="Test Message" required="required"></textarea> -->
                <div class="bottom_btn_wrap">
-              
-               <input type="button" id="cancel" value="인증번호 재발송"> 
-               <input type="button" id="cancel" value="인증번호 완료"> 
-            </div> 
+	               <input type="button" id="cancel"value="인증번호 재발송"> 
+	               <input type="button" id="cancel" class="suc" value="인증번호 완료"> 
+	            </div> 
          </div> 
      </div>
-     <script>
-     //<button class="btn_identify btn_phone" id="identify_phone" type="button"><span>휴대폰 인증</span></button>
-    function sendSMS(pageName){
-
-        console.log("문자를 전송합니다.");
-        $("#smsForm").attr("action", pageName + ".do"); //위에 있는 폼태그를 컨트롤러로 전송한다.
-        $("#smsForm").submit();
-        
-         var modal = document.querySelector(".modal"); 
-         var trigger = document.querySelector(".btn_cert_pop"); 
-         var closeButton = document.querySelector(".close-button"); 
-         var cancelButton = document.querySelector("#cancel");
-
-        console.log(modal);
-        function toggleModal() { 
-             modal.classList.toggle("show-modal"); 
-         }
-
-        function windowOnClick(event) { 
-             if (event.target === modal) { 
-                 toggleModal(); 
-             } 
-         }
-         trigger.addEventListener("click", toggleModal); 
-         closeButton.addEventListener("click", toggleModal); 
-         cancel.addEventListener("click", toggleModal); 
-         window.addEventListener("click", windowOnClick); 
-    }
-     </script>
+     
     </sf:form>	<!-- form 태그 끝 -->
     </div>
 </div>
 </div>
 </div>
+     
+     <script>
+     //인증 버튼을 누를시에 모달창이 열림. 
+     $(function(){
+    	 $(".btn_back").click(function(){
+    		 $(".modal").css("display","block");
+    	 });
+    	 
+    	 $(".modal .modal-content .close-button").click(function(){
+    		 $(".modal").css("display","none");
+    	 });
+    	 
+    	 $(".suc").click(function(){
+    		 $(".modal").css("display","none");
+    		 $(".btn_back").addClass("on").attr("disabled",true);
+    	 });
+    	 
+     });
+     </script>
 
 	<!-- join-desktop-footer -->
 	<jsp:include page="../include/footer/delivery_desktop_footer.jsp" />
