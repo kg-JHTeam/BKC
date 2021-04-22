@@ -32,13 +32,6 @@
 <script src="${contextPath}/resources/js/delivery/delivery.js"></script>
 <script src="${contextPath}/resources/js/delivery/joindetail/joindetail.js"></script>
 <script>
-	function checkPhoneError() {
-		var message = '<sf:errors path="phone" class="error" />' + '\n';
-		if (msg.length > 0) {
-			alert(message);
-		}
-	}
-
 	//제출시에 form값 검증 작업 필요
 	//1. 이용약관 동의했는지 검증
 	//2. 아이디가 DB에 있는 지 검증 . -> Spring Exception 으로 구현 
@@ -256,14 +249,16 @@
 </div>
 
 	<script>
+	 	var contextpath = "<c:out value='${contextPath}'/>";
 		var checkTimer = false; //default
 		var checkCount = 3; //인증번호 재전송 횟수 
 		var timer;
+		var checkNumber; //인증번호 
 		
 		//타이머 
 		function startTimer() {
 			checkTimer = true; //작동중
-			var time = 119;
+			var time = 120;
 			var min = "";
 			var sec = "";
 			
@@ -273,7 +268,8 @@
 			timer = setInterval(function() {
 				min = parseInt(time / 60);
 				sec = time % 60;
-
+				if(sec == 0 ) sec = "00";
+				
 				document.getElementById("time").innerHTML = min + ":" + sec;
 				time--;
 
@@ -284,7 +280,8 @@
 				}
 			}, 1000);
 		}
-
+		
+		//타이머 끄기
 		function stopTimer() {
 			clearInterval(timer);
 			checkTimer = false;
@@ -309,12 +306,9 @@
 			alert("재전송 되었습니다.");
 		}
 		
-		var phoneNumber = document.getElementById("phoneNumber").value;
-		var regExp = /(01[016789])([1-9]{1}[0-9]{2,3})([0-9]{4})$/;
-		if(regExp.test(phoneNumber)){
+		//인증확인 누를시 생기는 로직
+		function(){
 			
-		} else{
-			alert("핸드폰 번호를 입력해주세요.");
 		}
 		
 		//인증 버튼을 누를시에 모달창이 열림. 
@@ -329,7 +323,24 @@
 						
 						//false일경우
 						if(!checkTimer){ 
-							startTimer(); //타이머 스타트 시킴.
+							var sendMessage = { 
+									"phoneNumber" : phoneNumber,
+							};
+
+							//ajax로 서버로 문자를 보냄.
+							$.ajax({ 
+								url: contextpath+"/sendsms.do", 
+								data: sendMessage, 
+								type: "post", 
+								success: function(result) { 
+									if (result == "false") { 
+										alert("인증번호 전송 실패");
+									} else { 
+										startTimer(); //타이머 스타트 시킴.
+										checkNumber = result; //전역변수로 넣어둔다.
+									} 
+								} 
+							});
 						} 
 					} else{
 						alert("핸드폰 번호를 확인해주세요");
@@ -343,12 +354,12 @@
 			});
 
 			$(".suc").click(function() {
-
 				//인증이 성공한 로직이 필요함. 
 				/*
 				 if 성공 
 				 -> 
-					$(".btn_back").addClass("on").attr("disabled",true);
+					$(".modal").css("display", "none");
+					$(".btn_back").addClass("on").attr("disabled", true);
 				 else 
 				 -> 인증 실패 
 				 */
@@ -356,8 +367,8 @@
 				$(".modal").css("display", "none");
 				$(".btn_back").addClass("on").attr("disabled", true);
 			});
-
 		});
+
 	</script>
 
 	<!-- join-desktop-footer -->
