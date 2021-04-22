@@ -1,5 +1,6 @@
 package com.bkc.user.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+import com.bkc.admin.board.banner.vo.CheckVO;
 import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.user.service.UserService;
@@ -80,8 +83,13 @@ public class UserController {
 		// 푸터 넣기
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
-
 		model.addAttribute("user", new UserVO());
+		
+		// checking
+		CheckVO check = new CheckVO();
+		check.setSuccess("default");
+		model.addAttribute("check", check);
+		
 		return "delivery/joindetail";
 	}
 
@@ -100,28 +108,60 @@ public class UserController {
 	// 회원 가입
 	@RequestMapping(value = "/joinuser", method = { RequestMethod.GET, RequestMethod.POST })
 	public String createUser(Model model, @ModelAttribute("user") @Valid UserVO user, BindingResult result) {
-		if (result.hasErrors()) {
-			System.out.println("== Form data does not validated ==");
-			List<ObjectError> errors = result.getAllErrors();
-			for (ObjectError error : errors) {
-				System.out.println(error.getDefaultMessage());
-			}
-			return "delivery/joindetail"; // 에러났을때 -> 모델 가져가면서 join으로
-		}
 
-		if (userService.insert(user)) {
-			// insert 로직 수행 성공시-> 회원가입 확인 메일 전송
+		// checking
+		CheckVO check = new CheckVO();
+		check.setSuccess("default");
+		
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		
+		/*
+							  <join check protocol>  
+							  0 : 성공
+							  1 : DataIntegrityViolationException 중복 
+							  2 : 아이디 이메일형식으로
+							  3 : 에러 처리
+							  4 : 휴대폰 번호. 
+							  default : 회원가입 실패
+		 */
+
+		try {
+			// 폼에 에러가 있는 경우 처리
+			if (result.hasErrors()) {
+				List<ObjectError> errors = result.getAllErrors();
+				for (ObjectError error : errors) {
+					if(error.getDefaultMessage().contentEquals("이메일 형식만 가능합니다.")) {
+						check.setSuccess("2");
+					} else {
+						check.setSuccess("3");
+					}
+				}
+				model.addAttribute("check", check);
+				return "delivery/joindetail";
+			}
+
+			userService.insert(user);
 			userService.sendJoinMail(user); // 이메일 전송
+			check.setSuccess("0");
+			model.addAttribute("check", check);
 			return "delivery/joinsucess";
-		} else {
-			// insert 로직 수행중 문제 발생 redirect 하기
-			return "redirect:/joindetail";
+
+		} catch (DataIntegrityViolationException e) {
+			check.setSuccess("1");
+			model.addAttribute("check", check);
+			return "delivery/joindetail";
+		} catch (Exception e) {
+			check.setSuccess("3");
+			model.addAttribute("check", check);
+			return "delivery/joindetail";
 		}
 	}
 
 	// 회원 수정
 	@RequestMapping("/modifyuser")
 	public String modifyUser(Model model, @Valid UserVO user, BindingResult result) {
+
 		// @Valid를 통해 자동 객체 검증
 		return "modifyuser";
 	}
@@ -151,7 +191,9 @@ public class UserController {
 			redirectAttr.addFlashAttribute("name", name);
 			redirectAttr.addFlashAttribute("phone", checkStr);
 			return "redirect:/findid";
-		} // 이메일 인 경우
+		} 
+		
+		// 이메일 인 경우
 		else {
 			System.out.println("비밀번호 찾기 ");
 			redirectAttr.addFlashAttribute("name", name);

@@ -115,7 +115,7 @@ public class BannerController {
 		return "admin/subpages/banner/bannerContent";
 	}
 
-	// 배너 사용 | 미사용 변경
+	// 배너 사용 | 미사용 변경 
 	@RequestMapping(value = "/admin/changeStatusBanner.ad", method = RequestMethod.GET)
 	public String changeStatusBanner(Model model, @RequestParam("img_seq") int img_seq) {
 		if (bannerService.changeStatus(img_seq) == 1) {

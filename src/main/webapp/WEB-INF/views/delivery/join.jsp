@@ -65,8 +65,7 @@
                     </div>
                     <!-- simple join -->
                     <div class="simple_login">
-                        <h3 class="simplelogin_tit tit_ico lock">간편 회원가입
-                        </h3>
+                        <h3 class="simplelogin_tit tit_ico lock">간편 회원가입</h3>
                         <ul class="list">
                             <li class="naver">
                                 <a href="#">

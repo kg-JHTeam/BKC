@@ -31,24 +31,46 @@
 <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
 <script src="${contextPath}/resources/js/delivery/delivery.js"></script>
 <script src="${contextPath}/resources/js/delivery/joindetail/joindetail.js"></script>
-
-	<script>
-	function checkPhoneError(){
-		var message= '<sf:errors path="phone" class="error" />' + '\n';
-	    if (msg.length > 0 ) {
-	    	 alert(message);
-	    }
+<script>
+	function checkPhoneError() {
+		var message = '<sf:errors path="phone" class="error" />' + '\n';
+		if (msg.length > 0) {
+			alert(message);
+		}
 	}
-   
-    //제출시에 form값 검증 작업 필요
-    function submitValid(){
-    	var loginForm = document.loginForm;
-        var userId = loginForm.userId.value;
-        var password = loginForm.password.value;
+
+	//제출시에 form값 검증 작업 필요
+	//1. 이용약관 동의했는지 검증
+	//2. 아이디가 DB에 있는 지 검증 . -> Spring Exception 으로 구현 
+	
+	function submitValid() {
+		var a1 =document.getElementById("agree_rule1");
+		var a2 =document.getElementById("agree_rule2");
 		
-        smsForm
-    }
-    </script>
+		//1. 약관 필수 값들 검증 
+		if ((a1.checked== "1" && a2.checked == "1")) {
+			document.getElementById("smsForm").submit();
+		} else{
+			alert("이용약관에 모두 동의해주세요.");
+			return;
+		}
+	}
+	
+	//업로드 성공하면 성공 
+	window.onload = function(){
+		var check = "<c:out value='${check.success}'/>"
+		if(check=="0"){
+			alert("회원가입에 성공하였습니다.");
+		} else if(check=="1"){
+			alert("중복된 아이디 입니다.");
+		} else if(check=="2"){
+			alert("아이디를 형식에 맞춰 입력하세요.");
+		} else if(check =="3"){
+			alert("회원가입에 실패하였습니다.");
+		}
+	}
+	
+</script>
 
 <title>회원가입</title>
 </head>
@@ -150,7 +172,10 @@
                     <strong class="anterior_txt">개인회원 약관에 동의</strong>
                 </div>
                 <a href="" class="view_indetail" target="_blank">상세보기</a>
-                <label for="agree_rule1" class="check_custom check_on"><input type="checkbox" id="agree_rule1" class="ab"></label>
+                
+                <label for="agree_rule1" class="check_custom check_on">
+                	<sf:checkbox path="agree_rule2" id="agree_rule1" class="ab" />
+                </label>
             </li>
 
             <li class="must">
@@ -158,7 +183,11 @@
                     <strong class="anterior_txt">개인정보 수집 및 이용에 동의</strong>
                 </div>
                 <a id="popupClausePrivacyPerson" href="" class="view_indetail popup_clause_open" target="_blank">상세보기</a>
-                <label for="agree_rule2" class="check_custom check_on"><input type="checkbox" id="agree_rule2" class="ab"></label>
+                <label for="agree_rule2" class="check_custom check_on">
+                
+                <sf:checkbox path="agree_rule2" id="agree_rule2" class="ab"/>
+                
+                </label>
             </li>
             <li>
                 <div class="agree_desc">
@@ -187,7 +216,7 @@
         </ul>
     </div>
     	<div class="btn_join">
-    		<input type="submit" value="회원가입 완료"  id="btn_submit" class="inp_join" onclick="submitValid()"/>
+    		<input type="button" value="회원가입 완료" onclick="submitValid()" id="btn_submit" class="inp_join" />
         </div>
         
         
@@ -224,7 +253,6 @@
          </div> 
      </div>
      <script>
-     
      //<button class="btn_identify btn_phone" id="identify_phone" type="button"><span>휴대폰 인증</span></button>
     function sendSMS(pageName){
 

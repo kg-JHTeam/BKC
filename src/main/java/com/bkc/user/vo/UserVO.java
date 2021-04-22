@@ -29,7 +29,25 @@ public class UserVO {
 	
 	private boolean sms_agree;
 	private boolean email_agree;
+	private boolean agree_rule1;
+	private boolean agree_rule2;
 	
+	public boolean isAgree_rule1() {
+		return agree_rule1;
+	}
+
+	public void setAgree_rule1(boolean agree_rule1) {
+		this.agree_rule1 = agree_rule1;
+	}
+
+	public boolean isAgree_rule2() {
+		return agree_rule2;
+	}
+
+	public void setAgree_rule2(boolean agree_rule2) {
+		this.agree_rule2 = agree_rule2;
+	}
+
 	private int enabled; //default 1
 	
 	private int regist_type;	//간편 로그인 
