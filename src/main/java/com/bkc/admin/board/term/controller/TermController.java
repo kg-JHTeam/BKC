@@ -30,6 +30,7 @@ public class TermController {
 	@Autowired
 	private BusinessInformationService biService;
 
+	/*-----------------------------------이용약관-------------------------------*/
 	// 이용약관 페이지로 가기
 	@RequestMapping(value = "/terms.do", method = RequestMethod.GET)
 	public String showTerm(Model model) {
@@ -65,7 +66,7 @@ public class TermController {
 		termService.updateTerm(term);
 		return "redirect:/admin/term.ad";
 	}
-
+	/*-----------------------------------개인정보취급 방침-------------------------------*/
 	// 개인정보취급 방침 페이지로 가기
 	@RequestMapping(value = "/termsPrivacy.do", method = RequestMethod.GET)
 	public String showTermPrivacy(Model model) {
@@ -77,7 +78,31 @@ public class TermController {
 		model.addAttribute("bi", bi);
 		return "subpages/law/termsPrivacy";
 	}
+	
+	// 개인정보취급 방침 관리자 페이지 게시판 상세 보기 
+	@RequestMapping(value = "/admin/termPrivacy.ad")
+	public String showAdminTermPrivacy(TermPrivacyVO termPrivacy, Model model) {
+		TermPrivacyVO vo = termPrivacyService.getTermPrivacyList(termPrivacy);
+		model.addAttribute("termsPrivacy", vo);
+		return "admin/subpages/law/termsPrivacy";
+	}
+	
+	// 개인정보취급 방침 관리자 페이지 게시판 수정화면으로 이동
+	@RequestMapping(value = "/admin/updateTermsPrivacy.ad")
+	public String updateTermPrivacy(TermPrivacyVO termPrivacy, Model model) {
+		TermPrivacyVO vo = termPrivacyService.getTermPrivacyList(termPrivacy);
+		model.addAttribute("termsPrivacy", vo);
+		return "admin/subpages/law/updateTermsPrivacy";		
+	}
+	
+	// 개인정보취급 방침 관리자 페이지 게시판 수정
+	@RequestMapping(value = "/admin/updateTermPrivacyDB.ad", method = {RequestMethod.GET, RequestMethod.POST})
+	public String updateTermPrivacyDB(TermPrivacyVO termPrivacy) {
+		termPrivacyService.updateTermPrivacy(termPrivacy);
+		return "redirect:/admin/termPrivacy.ad";
+	}
 
+	/*-----------------------------------이메일 약관-------------------------------*/
 	// 이메일 약관 페이지로 가기
 	@RequestMapping(value = "/termsEmail.do", method = RequestMethod.GET)
 	public String showTermEmail(Model model) {
@@ -88,5 +113,28 @@ public class TermController {
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 		return "subpages/law/termsEmail";
+	}
+	
+	// 이메일약관 관리자 페이지 게시판 상세 보기 
+	@RequestMapping(value = "/admin/termEmail.ad")
+	public String showAdminTermEmail(TermEmailVO termEmail, Model model) {
+		TermEmailVO vo = termEmailService.getTermEmailList(termEmail);
+		model.addAttribute("termsEmail", vo);
+		return "admin/subpages/law/termsEmail";
+	}
+	
+	// 이메일약관 관리자 페이지 게시판 수정화면으로 이동
+	@RequestMapping(value = "/admin/updateTermsEmail.ad")
+	public String updateTermEmail(TermEmailVO termEmail, Model model) {
+		TermEmailVO vo = termEmailService.getTermEmailList(termEmail);
+		model.addAttribute("termsEmail", vo);
+		return "admin/subpages/law/updateTermsEmail";		
+	}
+	
+	// 이메일약관 관리자 페이지 게시판 수정
+	@RequestMapping(value = "/admin/updateTermEmailDB.ad", method = {RequestMethod.GET, RequestMethod.POST})
+	public String updateTermEmailDB(TermEmailVO termEmail) {
+		termEmailService.updateTermEmail(termEmail);
+		return "redirect:/admin/termEmail.ad";
 	}
 }
