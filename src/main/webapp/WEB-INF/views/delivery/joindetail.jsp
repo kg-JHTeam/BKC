@@ -40,6 +40,12 @@
 		var a1 =document.getElementById("agree_rule1");
 		var a2 =document.getElementById("agree_rule2");
 		
+		//2. 인증유무 검증 
+		if(valid == false){
+			alert("인증을 완료해주세요.");
+			return;
+		}
+		
 		//1. 약관 필수 값들 검증 
 		if ((a1.checked== "1" && a2.checked == "1")) {
 			document.getElementById("smsForm").submit();
@@ -47,6 +53,8 @@
 			alert("이용약관에 모두 동의해주세요.");
 			return;
 		}
+		
+		
 	}
 	
 	//업로드 성공하면 성공 
@@ -134,7 +142,7 @@
                         		<sf:errors path="phone" class="error" /><br>
                             </div>
                             <!-- 인증 버튼  -->
-                            <button type="button" class="btn_back btn_cert_pop" data-popupid="layer_pop_byphone">
+                            <button type="button" class="btn_back btn_cert_pop">
                             	<span>인증</span>
                             </button>
                         </li>
@@ -228,13 +236,12 @@
                 <th>인증번호</th>
                 <td>
                     <input type="text" id="sms_code" name="sms_code" value="" class="sri_input" style="width:96px;">
-                    <button type="button" class="btn_basic_type04 confirm-action person">확인</button>
+                    <button type="button" class="btn_basic_type04 confirm-action person" onclick="smsCheck()">확인</button>
                     <span class="expiredin" id="time" name="confirm_remain_sms_time_area">2:00</span>
                 </td>
             </tr>
             </tbody>
         </table>
-        <!-- <textarea name="message" placeholder="Test Message" required="required"></textarea> -->
                <div class="bottom_btn_wrap">
 	               <input type="button" id="cancel" value="인증번호 재발송" onclick="smsReSummit();"> 
 	               <input type="button" id="cancel" class="suc" onclick="smsCheck();" value="인증번호 완료"> 
@@ -254,7 +261,7 @@
 		var checkCount = 3; //인증번호 재전송 횟수 
 		var timer;
 		var checkNumber; //인증번호 
-		
+		var valid = false;
 		//타이머 
 		function startTimer() {
 			checkTimer = true; //작동중
@@ -275,7 +282,7 @@
 
 				//타임 종료시
 				if (time < 0) {
-					clearInterval(x);
+					clearInterval(timer);
 					document.getElementById("time").inner("시간초과");
 				}
 			}, 1000);
@@ -307,8 +314,19 @@
 		}
 		
 		//인증확인 누를시 생기는 로직
-		function(){
-			
+		function smsCheck(){
+			var sms_code = document.getElementById("sms_code").value;
+			if(sms_code == checkNumber){
+				alert("인증성공");
+				valid = true;
+				var suc = document.getElementById("suc");
+				
+				$(".modal").css("display", "none");
+				$(".btn_back").addClass("on").attr("disabled", true);
+				
+			} else{
+				alert("인증실패")
+			}
 		}
 		
 		//인증 버튼을 누를시에 모달창이 열림. 
@@ -354,18 +372,7 @@
 			});
 
 			$(".suc").click(function() {
-				//인증이 성공한 로직이 필요함. 
-				/*
-				 if 성공 
-				 -> 
-					$(".modal").css("display", "none");
-					$(".btn_back").addClass("on").attr("disabled", true);
-				 else 
-				 -> 인증 실패 
-				 */
-				 
-				$(".modal").css("display", "none");
-				$(".btn_back").addClass("on").attr("disabled", true);
+				
 			});
 		});
 
