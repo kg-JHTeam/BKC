@@ -12,4 +12,11 @@
 			SELECT * FROM term_email where seq=1
 		]]>
 	</select>
+	<select id="updateTermEmail">
+		<![CDATA[
+			UPDATE term_email
+				SET regdate=#{regdate}, content01=#{content01} 
+				WHERE seq=1
+		]]>
+	</select>
 </mapper>

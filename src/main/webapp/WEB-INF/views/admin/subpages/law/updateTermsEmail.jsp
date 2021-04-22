@@ -14,7 +14,7 @@
 <!-- favicon -->
 <link rel="shortcut icon" type="image/x-icon"
 href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
-<title>BKC 홈페이지 관리자 페이지</title>
+<title>이용약관 수정</title>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -25,98 +25,71 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">이용약관 상세조회</h1>
-					<!-- 이용약관 목록 -->
+					<h1 class="mt-4">이메일약관 수정</h1>
+					<!-- 공지사항 목록 -->
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table mr-1"></i> 이용약관 상세조회
+							<i class="fas fa-table mr-1"></i> 이메일약관 수정
 						</div>
 						<div class="card-body">
-							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%">
-									<thead>
-										<tr>
-											<th>NO</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>${terms.seq }</td>
-										</tr>
-									</tbody>
-									<thead>
-										<tr>
-											<th>게시날짜</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>${terms.regdate }</td>
-										</tr>
-									</tbody>
-									<thead>
-										<tr>
-											<th>내용1</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td><pre>${terms.content01 }</pre></td>
-										</tr>
-									</tbody>
-									<thead>
-										<tr>
-											<th>내용2</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td><pre>${terms.content02 }</pre></td>
-										</tr>
-									</tbody>
-									<thead>
-										<tr>
-											<th>내용3</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td><pre>${terms.content03 }</pre></td>
-										</tr>
-									</tbody>
-									<thead>
-										<tr>	
-											<th>내용4</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td><pre>${terms.content04 }</pre></td>
-										</tr>
-									</tbody>
-									<thead>
-										<tr>
-											<th>작성자</th>
-										</tr>
-									</thead>										
-									<tbody>										
-										<tr>
-											<td>관리자</td>
-										</tr>
-									</tbody>
-								</table>
+
+							<div class="row">
+								<div class="col-lg-12">
+									<h1 class="page-header">이메일약관 수정</h1>
+								</div>
+								<!-- /.col-lg-12 -->
 							</div>
-							<button type="button" class="btn btn-success" onclick="location.href='${contextPath }/admin/updateTerms.ad'">수정</button>
+							<!-- /.row -->
+
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="panel panel-default">
+
+										<div class="panel-heading"></div>
+										<!-- /.panel-heading -->
+										<div class="panel-body">
+
+											<form role="form" action="${contextPath }/admin/updateTermEmailDB.ad" method="post">'
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label>NO.</label> 
+														<input readonly class="form-control" name='seq' value = '<c:out value="${termsEmail.seq}"/>' >
+													</div>
+													<div class="form-group col-md-6">
+														<label>게시날짜</label> 
+														<textarea class="form-control" name='regdate' value = '<c:out value="${termsEmail.regdate}"/>' >${termsEmail.regdate }</textarea>
+													</div>
+												</div>
+												<div class="form-group">
+													<label>내용1</label>
+													<textarea class="form-control" rows="3" name='content01' value='<c:out value= "${termsEmail.content01}"/>' >${termsEmail.content01}</textarea>
+												</div>												
+												<div class="form-group">
+													<label>작성자</label> <input readonly class="form-control"
+														name='writer' value='관리자' >
+												</div>
+												<button type="submit" class="btn btn-success">수정</button>
+											</form>
+										</div>
+										<!-- end panel-body -->
+									</div>
+									<!-- end panel-body -->
+								</div>
+								<!-- end panel -->
+							</div>
+							<!-- /.row -->
 						</div>
 					</div>
 				</div>
 			</main>
+
 			<!-- firstHeader -->
 			<jsp:include page="../../include/footer.jsp" />
 		</div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		crossorigin="anonymous"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

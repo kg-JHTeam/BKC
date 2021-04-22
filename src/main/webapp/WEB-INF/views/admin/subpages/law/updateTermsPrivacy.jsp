@@ -14,7 +14,7 @@
 <!-- favicon -->
 <link rel="shortcut icon" type="image/x-icon"
 href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
-<title>이용약관 수정</title>
+<title>개인정보 취급 방침 수정</title>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -25,17 +25,17 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">이용약관 수정</h1>
+					<h1 class="mt-4">개인정보 취급 방침 수정</h1>
 					<!-- 공지사항 목록 -->
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table mr-1"></i> 이용약관 수정
+							<i class="fas fa-table mr-1"></i> 개인정보 취급 방침 수정
 						</div>
 						<div class="card-body">
 
 							<div class="row">
 								<div class="col-lg-12">
-									<h1 class="page-header">이용약관 수정</h1>
+									<h1 class="page-header">개인정보 취급 방침 수정</h1>
 								</div>
 								<!-- /.col-lg-12 -->
 							</div>
@@ -49,32 +49,32 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 										<!-- /.panel-heading -->
 										<div class="panel-body">
 
-											<form role="form" action="${contextPath }/admin/updateTermDB.ad" method="post">'
+											<form role="form" action="${contextPath }/admin/updateTermPrivacyDB.ad" method="post">'
 												<div class="form-row">
 													<div class="form-group col-md-6">
 														<label>NO.</label> 
-														<input readonly class="form-control" name='seq' value = '<c:out value="${terms.seq}"/>' >
+														<input readonly class="form-control" name='seq' value = '<c:out value="${termsPrivacy.seq}"/>' >
 													</div>
 													<div class="form-group col-md-6">
 														<label>게시날짜</label> 
-														<textarea class="form-control" name='regdate' value = '<c:out value="${terms.regdate}"/>' >${terms.regdate }</textarea>
+														<textarea class="form-control" name='regdate' value = '<c:out value="${termsPrivacy.regdate}"/>' >${termsPrivacy.regdate }</textarea>
 													</div>
 												</div>
 												<div class="form-group">
 													<label>내용1</label>
-													<textarea class="form-control" rows="3" name='content01' value='<c:out value= "${terms.content01}"/>' >${terms.content01}</textarea>
+													<textarea class="form-control" rows="3" name='content01' value='<c:out value= "${termsPrivacy.content01}"/>' >${termsPrivacy.content01}</textarea>
 												</div>
 												<div class="form-group">
 													<label>내용2</label>
-													<textarea class="form-control" rows="3" name='content02' value='<c:out value= "${terms.content02}"/>' >${terms.content02}</textarea>
+													<textarea class="form-control" rows="3" name='content02' value='<c:out value= "${termsPrivacy.content02}"/>' >${termsPrivacy.content02}</textarea>
 												</div>
 												<div class="form-group">
 													<label>내용3</label>
-													<textarea class="form-control" rows="3" name='content03' value='<c:out value= "${terms.content03}"/>' >${terms.content03}</textarea>
+													<textarea class="form-control" rows="3" name='content03' value='<c:out value= "${termsPrivacy.content03}"/>' >${termsPrivacy.content03}</textarea>
 												</div>
 												<div class="form-group">
 													<label>내용4</label>
-													<textarea class="form-control" rows="3" name='content04' value='<c:out value= "${terms.content04}"/>' >${terms.content04}</textarea>
+													<textarea class="form-control" rows="3" name='content04' value='<c:out value= "${termsPrivacy.content04}"/>' >${termsPrivacy.content04}</textarea>
 												</div>
 												<div class="form-group">
 													<label>작성자</label> <input readonly class="form-control"

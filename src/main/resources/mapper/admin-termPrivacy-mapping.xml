@@ -15,4 +15,12 @@
 			SELECT * FROM term_privacy where seq=1
 		]]>
 	</select>
+	
+	<select id="updateTermPrivacy">
+		<![CDATA[
+			UPDATE term_privacy 
+				SET regdate=#{regdate}, content01=#{content01}, content02=#{content02}, content03=#{content03}, content04=#{content04} 
+				WHERE seq=1
+		]]>
+	</select>
 </mapper>

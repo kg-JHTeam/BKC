@@ -16,4 +16,14 @@ public class TermPrivacyServiceImpl implements TermPrivacyService {
 		return termPrivacyDao.getTermPrivacyList();
 	}
 
+	@Override
+	public TermPrivacyVO getTermPrivacyList(TermPrivacyVO termPrivacy) {
+		return termPrivacyDao.getTermPrivacyList(termPrivacy);
+	}
+
+	@Override
+	public void updateTermPrivacy(TermPrivacyVO termPrivacy) {
+		termPrivacyDao.updateTermPrivacy(termPrivacy);		
+	}
+
 }

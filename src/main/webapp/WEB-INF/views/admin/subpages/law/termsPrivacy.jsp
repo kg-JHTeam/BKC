@@ -25,11 +25,11 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">이용약관 상세조회</h1>
+					<h1 class="mt-4">개인정보 취급 방침 상세조회</h1>
 					<!-- 이용약관 목록 -->
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table mr-1"></i> 이용약관 상세조회
+							<i class="fas fa-table mr-1"></i> 개인정보 취급 방침 상세조회
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -41,7 +41,7 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 									</thead>
 									<tbody>
 										<tr>
-											<td>${terms.seq }</td>
+											<td>${termsPrivacy.seq }</td>
 										</tr>
 									</tbody>
 									<thead>
@@ -51,7 +51,7 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 									</thead>
 									<tbody>
 										<tr>
-											<td>${terms.regdate }</td>
+											<td>${termsPrivacy.regdate }</td>
 										</tr>
 									</tbody>
 									<thead>
@@ -61,7 +61,7 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 									</thead>
 									<tbody>
 										<tr>
-											<td><pre>${terms.content01 }</pre></td>
+											<td><pre>${termsPrivacy.content01 }</pre></td>
 										</tr>
 									</tbody>
 									<thead>
@@ -71,7 +71,7 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 									</thead>
 									<tbody>
 										<tr>
-											<td><pre>${terms.content02 }</pre></td>
+											<td><pre>${termsPrivacy.content02 }</pre></td>
 										</tr>
 									</tbody>
 									<thead>
@@ -81,7 +81,7 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 									</thead>
 									<tbody>
 										<tr>
-											<td><pre>${terms.content03 }</pre></td>
+											<td><pre>${termsPrivacy.content03 }</pre></td>
 										</tr>
 									</tbody>
 									<thead>
@@ -91,7 +91,7 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 									</thead>
 									<tbody>
 										<tr>
-											<td><pre>${terms.content04 }</pre></td>
+											<td><pre>${termsPrivacy.content04 }</pre></td>
 										</tr>
 									</tbody>
 									<thead>
@@ -106,7 +106,7 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 									</tbody>
 								</table>
 							</div>
-							<button type="button" class="btn btn-success" onclick="location.href='${contextPath }/admin/updateTerms.ad'">수정</button>
+							<button type="button" class="btn btn-success" onclick="location.href='${contextPath }/admin/updateTermsPrivacy.ad'">수정</button>
 						</div>
 					</div>
 				</div>
