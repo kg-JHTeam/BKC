@@ -12,18 +12,6 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
-<style>
-	#bannerimgCol{
-		text-align: center;
-	}
-	#bannerimg{
-		width:898.8px;
-		height:540.4px;
-	}
-	#imgDetail{
-		text-align: center;
-	}
-</style>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -34,40 +22,88 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">배너 수정</h1>
+					<h1 class="mt-4">이용약관 상세조회</h1>
+					<!-- 이용약관 목록 -->
 					<div class="card mb-4">
+						<div class="card-header">
+							<i class="fas fa-table mr-1"></i> 이용약관 상세조회
+						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<form role="form" action="${contextPath}/admin/modifyBanner.ad" method="post">
-									<div class="form-group" id="imgDetail">
-										<h4>이미지 상세 </h4><br>
-										<a href="${banner.path}" target="_blank"  target="_blank">
-												<img src="${banner.path}" alt="이미지" id="bannerimg" class="img-responsive"/>
-										</a>
-									</div>
-									<div class="form-row">
-										<input class="form-control" name='img_seq' value="${banner.img_seq}" type="hidden"/>
-										<div class="form-group col-md-12">
-												<label>제목</label> 
-												<input class="form-control" name='title' value="${banner.title}" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label>세부내용</label>
-										<textarea class="form-control" rows="3" name='content' style="resize:none;">${banner.content}</textarea>
-									</div>
-									<div class="form-group">
-										<label>이미지 주소 </label>
-										<input class="form-control" name='path' value="${banner.path}" disabled/>
-									</div>
-									<div>
-										<button type="button" class="btn btn-success" onclick="window.location.href='${contextPath }/admin/bannerlist.ad'">목록으로</button>
-										<button type="submit" class="btn btn-primary">수정 완료</button>
-										<button type="reset" class="btn btn-danger">리셋</button>
-										<input type="hidden" name='use_status' value="${banner.use_status}" id="use_status"/>
-									</div>
-								</form>
+								<table class="table table-bordered" id="dataTable" width="100%">
+									<thead>
+										<tr>
+											<th>NO</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>${terms.seq }</td>
+										</tr>
+									</tbody>
+									<thead>
+										<tr>
+											<th>게시날짜</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>${terms.regdate }</td>
+										</tr>
+									</tbody>
+									<thead>
+										<tr>
+											<th>내용1</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><pre>${terms.content01 }</pre></td>
+										</tr>
+									</tbody>
+									<thead>
+										<tr>
+											<th>내용2</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><pre>${terms.content02 }</pre></td>
+										</tr>
+									</tbody>
+									<thead>
+										<tr>
+											<th>내용3</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><pre>${terms.content03 }</pre></td>
+										</tr>
+									</tbody>
+									<thead>
+										<tr>	
+											<th>내용4</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><pre>${terms.content04 }</pre></td>
+										</tr>
+									</tbody>
+									<thead>
+										<tr>
+											<th>작성자</th>
+										</tr>
+									</thead>										
+									<tbody>										
+										<tr>
+											<td>관리자</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
+							<button type="button" class="btn btn-success" onclick="location.href='${contextPath }/admin/updateTerms.ad'">수정</button>
 						</div>
 					</div>
 				</div>
