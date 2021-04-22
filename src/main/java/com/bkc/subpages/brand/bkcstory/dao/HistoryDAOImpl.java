@@ -18,4 +18,19 @@ public class HistoryDAOImpl implements HistoryDAO{
 	public List<HistoryVO> HistoryList(HistoryVO historyVO){
 		return sqlSession.selectList("HistoryList", historyVO);
 	}
+	
+	@Override
+	public HistoryVO getHistory(int seq) {
+		return sqlSession.selectOne("getHistory", seq);
+	}
+	
+	@Override
+	public int updateHistory(HistoryVO historyVO) {
+		return sqlSession.insert("updateHistory", historyVO);
+	}
+	
+	@Override
+	public int deleteHistory(int seq) {
+		return sqlSession.insert("deleteHistory", seq);
+	}
 }

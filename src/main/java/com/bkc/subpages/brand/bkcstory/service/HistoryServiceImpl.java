@@ -14,7 +14,23 @@ public class HistoryServiceImpl implements HistoryService{
 	@Autowired
 	private HistoryDAO dao;
 	
+	@Override
 	public List<HistoryVO> HistoryList(HistoryVO historyVO){
 		return dao.HistoryList(historyVO);
+	}
+	
+	@Override
+	public HistoryVO getHistory(int seq) {
+		return dao.getHistory(seq);
+	}
+	
+	@Override
+	public int updateHistory(HistoryVO historyVO) {
+		return dao.updateHistory(historyVO);
+	}
+	
+	@Override
+	public int deleteHistory(int seq) {
+		return dao.deleteHistory(seq);
 	}
 }
