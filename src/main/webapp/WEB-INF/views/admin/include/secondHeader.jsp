@@ -101,7 +101,7 @@
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="${contextPath}/admin/term.ad">이용약관 관리</a>
                                             <a class="nav-link" href="">개인정보취급방침 관리</a>
-                                            <a class="nav-link" href="">법적고지 관리</a>
+                                            <a class="nav-link" href="">이메일약관 관리</a>
                                             <a class="nav-link" href="${contextPath }/admin/businessinformationConent.ad">사업자 정보 관리</a>
                                         </nav>
                                     </div>
