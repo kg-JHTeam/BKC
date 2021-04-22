@@ -9,73 +9,80 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.bkc.menuInform.service.ChickenMenuService;
-import com.bkc.menuInform.service.SideMenuService;
-import com.bkc.menuInform.vo.ChickenMenuVO;
-import com.bkc.menuInform.vo.SideMenuVO;
+import com.bkc.menuInform.service.ProductService;
+import com.bkc.menuInform.vo.ProductVO;
 
 @Controller
 @RequestMapping(value = "/menuInform", method = RequestMethod.GET)
 public class MenuInformController {
 
 	@Autowired
-	private SideMenuService sidemenuService;
-	
-	@Autowired
-	private ChickenMenuService chickenmenuService;
+	private ProductService productService;
 
-//	@RequestMapping(value = "/chickenMenu.do", method = RequestMethod.GET)
-//	public String chickenMenu() {
-//		System.out.println("치킨 메뉴 페이지 실행");
-//		return "subpages/menuInform/chickenMenu";
-//	}
-	
-	//치킨메뉴 게시글 목록 조회 
-	@RequestMapping(value = "/chickenMenu.do", method = RequestMethod.GET)
-	public String getChcickenMenu(Model model) {
-		List<ChickenMenuVO> chickenMenu = chickenmenuService.getChickenMenu();
-		System.out.println(chickenMenu);
-		
-		model.addAttribute("chickenMenu", chickenMenu);
+	// 치킨메뉴 게시글 목록 조회
+	@RequestMapping(value = "/chickenMenu.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String getChickenMenuList(Model model) {
+		List<ProductVO> chickenMenuList = productService.getChickenMenuList();
+		System.out.println(chickenMenuList);
+		model.addAttribute("chickenMenuList", chickenMenuList);
 		return "subpages/menuInform/chickenMenu";
 	}
-	
-	@RequestMapping(value = "/chickenmenudetail.do", method = RequestMethod.GET)
-	public String chickenMenuDetail() {
-		System.out.println("치킨메뉴디테일 페이지 실행");
+
+//치킨메뉴 디테일
+	@RequestMapping(value = "/chickenmenudetail.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String chickenmenudetail(@RequestParam int product_serial, Model model) {
+		// 상세조회
+		ProductVO chickenMenu = productService.getChickenMenu(product_serial);
+		model.addAttribute("chickenMenu", chickenMenu);
+		// 밑에부분 사이드메뉴 관련
+		List<ProductVO> chickenMenuList = productService.getChickenMenuList();
+		model.addAttribute("chickenMenuList", chickenMenuList);
 		return "subpages/menuInform/chickenmenudetail";
 	}
 
-	@RequestMapping(value = "/beerZone.do", method = RequestMethod.GET)
-	public String beerZone() {
-		System.out.println("비어존 메뉴 페이지 실행");
+	// 비어존 리스트
+	@RequestMapping(value = "/beerZone.do", method = { RequestMethod.GET, RequestMethod.POST })
+	private String getBeerzoneList(Model model) {
+		List<ProductVO> beerzoneList = productService.getBeerzoneList();
+		System.out.println();
+		model.addAttribute("beerzoneList", beerzoneList);
 		return "subpages/menuInform/beerZone";
+
 	}
-	@RequestMapping(value = "/beerzonedetail.do", method = RequestMethod.GET)
-	public String beerZoneDetail() {
+
+	// 비어존 디테일
+	@RequestMapping(value = "/beerzonedetail.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String beerZoneDetail(@RequestParam int product_serial, Model model) {
+		// 상세조회
+		ProductVO beerzone = productService.getBeerzone(product_serial);
+		model.addAttribute("beerzone", beerzone);
+		// 밑에부분 사이드메뉴 관련
+		List<ProductVO> beerzoneList = productService.getBeerzoneList();
+		model.addAttribute("beerzoneList", beerzoneList);
+
 		System.out.println("비어존 메뉴 디테일  페이지 실행");
 		return "subpages/menuInform/beerzonedetail";
 	}
 
-	// 게시글 목록 조회  bkc/menuInform/sideMenu.do
-	@RequestMapping(value = "/sideMenu.do")
+	// 게시글 목록 조회 bkc/menuInform/sideMenu.do
+	@RequestMapping(value = "/sideMenu.do", method = { RequestMethod.GET, RequestMethod.POST })
 	private String getSidemenuList(Model model) {
-
-		List<SideMenuVO> sidemenuList = sidemenuService.getSidemenuList();
-		System.out.println(sidemenuList);
-
+		List<ProductVO> sidemenuList = productService.getSidemenuList();
 		model.addAttribute("sidemenuList", sidemenuList);
 
 		return "subpages/menuInform/sideMenu";
 	}
-	
+
 	// 게시글 디테일
-	@RequestMapping(value = "/sidemenudetail.do", method = RequestMethod.GET)
-	public String sidemenudetail(@RequestParam String product_serial, Model model) {
-		
-		SideMenuVO vo = sidemenuService.getSidemenu(product_serial);
-		System.out.println(vo);
-		model.addAttribute("getsidemenu", vo);
+	@RequestMapping(value = "/sidemenudetail.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String sidemenudetail(@RequestParam int product_serial, Model model) {
+		// 상세조회
+		ProductVO sidemenu = productService.getSidemenu(product_serial);
+		model.addAttribute("sidemenu", sidemenu);
+
+		// 밑에부분 사이드메뉴 관련
+		List<ProductVO> sidemenuList = productService.getSidemenuList();
+		model.addAttribute("sidemenuList", sidemenuList);
 
 		return "subpages/menuInform/sidemenudetail";
 	}

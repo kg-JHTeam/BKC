@@ -53,7 +53,7 @@
 					</a> <a href="${contextPath}/menuInform/sideMenu.do" class="arrow">
 						<span>사이드메뉴</span>
 					</a> <a href="${contextPath}/menuInform/sidemenudetail.do"
-						class="arrow"> <span>${getsidemenu.product_name}</span>
+						class="arrow"> <span>${sidemenu.product_name}</span>
 					</a>
 
 				</div>
@@ -63,10 +63,10 @@
 			<div class="menudetailweb_container">
 
 				<div class="intro_txt">
-					<strong class="tit"> <span>${getsidemenu.product_name}</span>
+					<strong class="tit"> <span>${sidemenu.product_name}</span>
 					</strong>
 					<p class="subtxt">
-						<span>${getsidemenu.description}</span>
+						<span>${sidemenu.description}</span>
 					</p>
 				</div>
 
@@ -92,15 +92,15 @@
 
 					<li>
 						<div class="prd_img">
-							<span> <img src="${getsidemenu.img_path}">
+							<span> <img src="${sidemenu.path}">
 							</span>
 						</div>
 						<div class="cont">
 							<p class="tit">
-								<strong>${getsidemenu.product_name}</strong>
+								<strong>${sidemenu.product_name}</strong>
 							</p>
 							<p class="tit_content">
-								<span>${getsidemenu.description}</span>
+								<span>${sidemenu.description}</span>
 							</p>
 						</div>
 					</li>
@@ -112,169 +112,34 @@
 			<div class="web_container">
 				<div class="titbox">
 					<h3>사이드메뉴의 다른 메뉴</h3>
-					<div class="othermenu_slider">
-						<div class="slide">
+					<div class="slide">
+						<div class="othermenu_slider">
 							<div class="slider prd_img responsive">
-								<a href="#" class="btn_detail"> <span
-									style="display: block;"> <img
-										src="${getsidemenu.img_path}">
-										<div class="cont">
-											<p class="tit">
-												<strong>${getsidemenu.product_name}</strong>
-											</p>
-										</div>
-								</span>
-								</a>
+								<c:forEach var="vo" items="${ sidemenuList}">
+									<a
+										href="${contextPath}/menuInform/sidemenudetail.do?product_serial=${vo.product_serial}"
+										class="btn_detail"> <span style="display: block;">
+											<img src="${vo.path}">
+											<div class="cont">
+												<p class="tit">
+													<strong>${vo.product_name}</strong>
+												</p>
+											</div>
+									</span>
+									</a>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
-            </div>
-        </div>
-        <div class="menuInformdetail_subinfoWrap">
-            <div class="web_container">
-                <a href="${contextPath}/menuInform/sideMenu.do" class="btn_back">
-                    <span>메뉴 목록으로 돌아가기</span>
-                </a>
-                <a href="#" class="allergy">
-                    <button type="button" class="allergy_btn">
-                        <span>알레르기 정보</span>
-                    </button>
-                </a>
-            </div>
-        </div>
-        <div class="menudetailcontents">
-            <div class="web_container">
-                <div class="txt_menudetailintro" style="display: none;">
-                    <span></span>
-                </div>
-                <ul class="prd_submenu">
-                    <li>
-                        <div class="prd_img">
-                            <span>
-                                <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                            </span>
-                        </div>
-                        <div class="cont">
-                            <p class="tit">
-                                <strong>바삭클</strong>
-                            </p>
-                            <p class="tit_content">
-                                <span>담백깔끔! 정직하게 튀겨낸 BHC 후라이드에 바삭함을 더한 옛날 통닭의 귀환</span>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="other_menuWrap">
-            <div class="web_container">
-                <div class="titbox">
-                    <h3>사이드메뉴의 다른 메뉴</h3>
-                    <div class="othermenu_slider">
-                        <div class="slide">
-                            <div class="slider prd_img responsive">
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                           <strong>바삭클</strong>
-                                        </p>
-                                    </div>                                   
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- footer들어갈 자리 -->
-    </div>
-        <jsp:include page="../../include/footer/main_desktop_footer.jsp"/>
+	</div>
+
+	<!-- footer들어갈 자리 -->
+
+	<jsp:include page="../../include/footer/main_desktop_footer.jsp" />
 
 
 	<a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>

@@ -1,11 +1,11 @@
-package com.bkc.admin.board.menuInfom.vo;
+package com.bkc.menuInform.vo;
 
-public class SidemenuAdVO {
+public class ProductVO {
 	private int product_serial;
+	private String type_serial;
 	private String product_name;
-	private String img_path;
+	private String path;
 	private String description;
-	private int status;
 	public int getProduct_serial() {
 		return product_serial;
 	}
@@ -18,28 +18,30 @@ public class SidemenuAdVO {
 	public void setProduct_name(String product_name) {
 		this.product_name = product_name;
 	}
-	public String getImg_path() {
-		return img_path;
+	public String getpath() {
+		return path;
 	}
-	public void setImg_path(String img_path) {
-		this.img_path = img_path;
+	public void setImg_path(String path) {
+		this.path = path;
 	}
+	
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getStatus() {
-		return status;
+	public String getType_serial() {
+		return type_serial;
 	}
-	public void setStatus(int status) {
-		this.status = status;
+	public void setType_serial(String type_serial) {
+		this.type_serial = type_serial;
 	}
+	
 	@Override
 	public String toString() {
-		return "SidemenuAdVO [product_serial=" + product_serial + ", product_name=" + product_name + ", img_path="
-				+ img_path + ", description=" + description + ", status=" + status + "]";
-	}	
+		return "SideMenuVO [product_serial=" + product_serial + ",  type_serial=" + type_serial
+				+ ", product_name=" + product_name + ", path=" + path + ", description=" + description + "]";
+	}
 	
 }

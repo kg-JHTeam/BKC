@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MenuAdDAO">
+	<resultMap type="MenuAdVO" id="MenuAdVO">
+		<result property="product_name" column="product_name" />
+		<result property="path" column="path" />
+		<result property="description" column="description" />
+		<result property="use_status" column="use_status" />
+		
+	</resultMap>
+	<!-- 메뉴리스트 -->
+	<select id="getMenuAdList" resultType="MenuAdVO">
+		<![CDATA[
+			select * from product P inner join product_image I on P.product_serial = I.product_serial;
+		]]>
+	</select>
+	<!-- 메뉴 디테일 -->
+	<select id="getMenuAd" resultType="MenuAdVO">
+		<![CDATA[
+			select description, path, product_name, use_status from product P inner join product_image I on P.product_serial=I.product_serial;
+		]]>
+	</select>
+</mapper>
