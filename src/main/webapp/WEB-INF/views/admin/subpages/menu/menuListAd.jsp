@@ -29,66 +29,10 @@
 }
 </style>
 
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
-	function status(status, id) {
-		var btn = document.getElementById(id);
-		var value = btn.value;
-		if (value == "판매중") {
-			var input = confirm("메뉴를 판매중지 하시겠습니까?");
-			if (input == true) {
-
-				//판매중지로 변경. 
-				//use_status -> false
-				btn.className = "btn btn-danger";
-				btn.value = "판매중지";
-
-				//DB에서 처리
-				var img_seq = id;
-				var contextpath = "<c:out value='${contextPath}'/>";
-
-				window.location.href = contextpath
-						+ "/admin/changeStatusSidemenu.ad?img_seq=" + id;
-			} else {
-				return;
-			}
-		} else {
-			var input = confirm("판매중으로 변경하시겠습니까?");
-			if (input == true) {
-				//배너 사용으로 변경.
-				//use_status -> true
-				btn.className = "btn btn-info";
-				btn.value = "판매중"
-
-				//DB에서 처리
-				var img_seq = id;
-				var contextpath = "<c:out value='${contextPath}'/>";
-
-				window.location.href = contextpath
-						+ "/admin/changeStatusSidemenu.ad?img_seq=" + id;
-
-			} else {
-				return;
-			}
-		}
-	}
-
-	function deleteSidemenu(id) {
-		var btn = document.getElementById(id);
-		var value = btn.value;
-		var input = confirm("정말로 메뉴를 삭제 하시겠습니까?");
-		if (input == true) {
-			//DB에서 처리
-			var img_seq = id;
-			var contextpath = "<c:out value='${contextPath}'/>";
-
-			window.location.href = contextpath
-					+ "/admin/deleteSidemenu.ad?img_seq=" + id;
-
-			alert("삭제되었습니다.");
-		} else {
-			return;
-		}
-	}
+	s
 </script>
 
 </head>
@@ -146,13 +90,14 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${sidemenu}" var="sidemenu">
+										<c:forEach items="${getMenuAdList}"
+											var="getMenuAdList">
 											<tr>
-												<td>${sidemenu.product_name}</td>
-												<td>${sidemenu.description}</td>
+												<td>${getMenuAdList.product_name}</td>
+												<td>${getMenuAdList.description}</td>
 												<td><a type="hidden"
-													href="/menuDetail.ad?code=${sidemenu.product_serial}&select=${select}">${sidemenu.product_serial}</a></td>
-												<td><img src="${sidemenu.img_path}" width="200px"></td>
+													href="/menuDetail.ad?code=${getMenuAdList.product_serial}&select=${select}">${getMenuAdList.product_serial}</a></td>
+												<td><img src="${getMenuAdList.path}" width="200px"></td>
 											</tr>
 										</c:forEach>
 									</tbody>

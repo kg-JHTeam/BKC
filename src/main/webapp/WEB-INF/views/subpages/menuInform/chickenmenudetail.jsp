@@ -49,7 +49,7 @@
                         <span>치킨메뉴</span>
                     </a>
                     <a href="${contextPath}/menuInform/chickenmenudetail.do" class="arrow">
-                        <span>바삭클</span>
+                        <span>${chickenMenu.product_name}</span>
                     </a>
                 </div>
             </div>
@@ -58,10 +58,10 @@
             <div class="menudetailweb_container">
                 <div class="intro_txt">
                     <strong class="tit">
-                        <span>바삭클</span>
+                        <span>${chickenMenu.product_name}</span>
                     </strong>
                     <p class="subtxt">
-                        <span>담백깔끔! 정직하게 튀겨낸 BHC 후라이드에 바삭함을 더한 옛날 통닭의 귀환</span>
+                        <span>${chickenMenu.description }</span>
                     </p>
                 </div>
 
@@ -88,15 +88,15 @@
                     <li>
                         <div class="prd_img">
                             <span>
-                                <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
+                                <img src="${chickenMenu.path }">
                             </span>
                         </div>
                         <div class="cont">
                             <p class="tit">
-                                <strong>바삭클</strong>
+                                <strong>${chickenMenu.product_name }</strong>
                             </p>
                             <p class="tit_content">
-                                <span>담백깔끔! 정직하게 튀겨낸 BHC 후라이드에 바삭함을 더한 옛날 통닭의 귀환</span>
+                                <span>${chickenMenu.description }</span>
                             </p>
                         </div>
                     </li>
@@ -110,96 +110,18 @@
                     <div class="othermenu_slider">
                         <div class="slide">
                             <div class="slider prd_img responsive">
-                                <a href="#" class="btn_detail">
+                            <c:forEach var="chicken" items="${ chickenMenuList}">
+                               <a href="${contextPath}/menuInform/chickenmenudetail.do?product_serial=${chicken.product_serial}" class="btn_detail">
                                     <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
+                                    <img src="${chicken.path }">
                                     <div class="cont">
                                         <p class="tit">
-                                           <strong>바삭클</strong>
+                                           <strong>"${chicken.product_name }"</strong>
                                         </p>
                                     </div>                                   
                                 </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>
-                                <a href="#" class="btn_detail">
-                                    <span style="display: block;">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png">
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클</strong>
-                                        </p>
-                                    </div>
-                                </span>
-                                </a>                                
+                                </a>  
+                                </c:forEach>                           
                             </div>
                         </div>
                     </div>

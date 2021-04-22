@@ -68,21 +68,24 @@
                     </div>
                     <div class="tab_cont">
                         <ul class="menu_list">
+                        <c:forEach var="beerzoneList" items="${beerzoneList}">
                             <li>
                                 <div class="menu_list_img">
                                     <span>
-                                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/chicken/basak.png" class style="display: inline; opacity: 1;" >
+                                        <img src="${beerzoneList.path}" class style="display: inline; opacity: 1;" >
                                     </span>
                                 </div>
                                 <div class="cont">
                                     <p class="tit">
-                                        <strong>바삭클</strong>
+                                        <strong>${beerzoneList.product_name}</strong>
                                     </p>
                                 </div>
-                                <a href="${contextPath}/menuInform/beerzonedetail.do" class="btn_detail">
+                                <a href="${contextPath}/menuInform/beerzonedetail.do?product_serial=${beerzoneList.product_serial}" class="btn_detail">
+                           
                                     <span>Details</span>
-                                </a>
+                                </a>         
                             </li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>
