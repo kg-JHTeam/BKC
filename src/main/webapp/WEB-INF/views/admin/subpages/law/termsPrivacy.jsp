@@ -33,7 +33,7 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%">
+								<table class="table table-bordered"  width="100%">
 									<thead>
 										<tr>
 											<th>NO</th>
@@ -106,7 +106,7 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 									</tbody>
 								</table>
 							</div>
-							<button type="button" class="btn btn-success" onclick="location.href='${contextPath }/admin/updateTermsPrivacy.ad'">수정</button>
+							<button type="button" class="btn btn-success" onclick="location.href='${contextPath }/admin/updateTermsPrivacy.ad'">수정하러가기</button>
 						</div>
 					</div>
 				</div>
