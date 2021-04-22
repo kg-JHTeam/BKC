@@ -8,6 +8,31 @@
 	</resultMap>
 	
 	<select id="HistoryList" resultType="HistoryVO">
-		select * from brand_bkcstory_history ORDER BY title, content DESC;
+		select * from brand_bkcstory_history ORDER BY seq, title, content DESC;
 	</select>
+	
+	<select id="getHistory" resultType="HistoryVO">
+		<![CDATA[
+			SELECT * FROM brand_bkcstory_history where seq= #{seq}
+		]]>
+	</select>
+	
+	<update id="updateHistory" parameterType="HistoryVO">
+		<![CDATA[
+			UPDATE
+            brand_bkcstory_history
+         SET 
+            title=#{title}, content=#{content}
+         WHERE
+            seq = #{seq}
+		]]>
+	</update>
+	
+	<delete id="deleteHistory" >
+		<![CDATA[
+			DELETE FROM brand_bkcstory_history
+			WHERE
+				seq = #{seq}
+		]]>
+	</delete>
 </mapper>

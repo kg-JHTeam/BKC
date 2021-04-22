@@ -18,4 +18,5 @@ public class AboutbkcDAOImpl implements AboutbkcDAO {
 	public List<AboutbkcVO> AboutbkcList(AboutbkcVO aboutbkcVO){
 		return sqlSession.selectList("AboutbkcList", aboutbkcVO);
 	}
+
 }

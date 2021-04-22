@@ -27,6 +27,7 @@ public class WhybkcController {
 	@Autowired
 	private ContributionService contributionService;
 	
+	//홈페이지 화면
 	@RequestMapping(value = "/brand/whybkc.do", method = RequestMethod.GET)
 	public String WhybkcList(RealchickenVO realchickenVO, ContributionVO Contributionvo, MaterialVO materialVO, Model model) {
 		

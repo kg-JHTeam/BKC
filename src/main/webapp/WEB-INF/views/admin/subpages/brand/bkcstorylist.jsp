@@ -13,6 +13,10 @@
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
 <style type="text/css">
+#bkcstoryimg {
+	width: 385.2px;
+	height: 231.6px;
+}
 #insertBanner {
    position: relative;
    margin-bottom: 0.5%;
@@ -29,39 +33,46 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">FAQ 리스트</h1>
+					<h1 class="mt-4">BKCstory 리스트</h1>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table mr-1"></i>FAQ 리스트
+							<i class="fas fa-table mr-1"></i>BKCstory 리스트
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
 							<input class="btn btn-success" type="button" value="업로드"
-									onclick="location.href='${contextPath}/admin/faqUploadpage.ad'"
+									onclick="location.href='${contextPath}/admin/bkcstoryUploadpage.ad'"
 									id="insertBanner">
 							<!-- start -->
 								<table class="table" id="dataTable" width="100%">
 									<colgroup>
 										<col width="8%">
 										<col width="12%">
-										<col width="27%">
 										<col width="53%">
+										<col width="27%">
 									</colgroup>
 									<thead>
 										<tr>
 											<th>번호</th>
-											<th>카테고리</th>
 											<th>제목</th>
 											<th>내용</th>
+											<th>이미지</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="AdminFaqList" items="${AdminFaqList}">
+										<c:forEach var="AboutbkcList" items="${AboutbkcList }">
 										<tr>
-											<td>${AdminFaqList.seq}</td>
-											<td>${AdminFaqList.category}</td>
-											<td><a href="${contextPath}/admin/faqDetail.ad?seq=${AdminFaqList.seq}">${AdminFaqList.title}</a></td>
-											<td>${AdminFaqList.contents}</td>
+											<td>${AboutbkcList.seq }</td>
+											<td>${AboutbkcList.title }</td>
+											<td><a href="${contextPath}/admin/bkcstoryDetail.ad?seq=${AboutbkcList.seq }">${AboutbkcList.content}</a></td>
+											<td><img src="${AboutbkcList.path }" id="bkcstoryimg"></td>
+										</tr>
+										</c:forEach>
+										<c:forEach var="HistoryList" items="${HistoryList }">
+										<tr>
+											<td>${HistoryList.seq }</td>
+											<td>${HistoryList.title }</td>
+											<td><a href="${contextPath}/admin/historyDetail.ad?seq=${HistoryList.seq }">${HistoryList.content }</a></td>
 										</tr>
 										</c:forEach>
 									</tbody>

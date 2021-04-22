@@ -12,12 +12,17 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
-<style type="text/css">
-#insertBanner {
-   position: relative;
-   margin-bottom: 0.5%;
-   margin-left: 91%
-}
+<style>
+	#bannerimgCol{
+		text-align: center;
+	}
+	#bannerimg{
+		width:898.8px;
+		height:540.4px;
+	}
+	#imgDetail{
+		text-align: center;
+	}
 </style>
 </head>
 <body class="sb-nav-fixed">
@@ -29,43 +34,32 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">FAQ 리스트</h1>
+					<h1 class="mt-4">FAQ수정</h1>
 					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-table mr-1"></i>FAQ 리스트
-						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-							<input class="btn btn-success" type="button" value="업로드"
-									onclick="location.href='${contextPath}/admin/faqUploadpage.ad'"
-									id="insertBanner">
-							<!-- start -->
-								<table class="table" id="dataTable" width="100%">
-									<colgroup>
-										<col width="8%">
-										<col width="12%">
-										<col width="27%">
-										<col width="53%">
-									</colgroup>
-									<thead>
-										<tr>
-											<th>번호</th>
-											<th>카테고리</th>
-											<th>제목</th>
-											<th>내용</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="AdminFaqList" items="${AdminFaqList}">
-										<tr>
-											<td>${AdminFaqList.seq}</td>
-											<td>${AdminFaqList.category}</td>
-											<td><a href="${contextPath}/admin/faqDetail.ad?seq=${AdminFaqList.seq}">${AdminFaqList.title}</a></td>
-											<td>${AdminFaqList.contents}</td>
-										</tr>
-										</c:forEach>
-									</tbody>
-								</table>
+								<form role="form" action="${contextPath}/admin/modifyhistory.ad" method="post">
+									<div class="form-row">
+										<div class="form-group col-md-2">
+												<label>번호</label> 
+												<input class="form-control" name='seq' value="${historyVO.seq}" />
+										</div>
+										<div class="form-group col-md-12">
+												<label>제목</label> 
+												<input class="form-control" name='title' value="${historyVO.title}" />
+										</div>
+										<div class="form-group col-md-12">
+												<label>내용</label> 
+												<textarea class="form-control" name='content' value="${historyVO.content}" />${historyVO.content}</textarea>
+										</div>
+									</div>
+									<div>
+										<button type="submit" class="btn btn-primary">수정 완료</button>
+										<button type="reset" class="btn btn-success">리셋</button>
+										<a href="${contextPath }/admin/bkcstorylist.ad" class="btn btn-success btn-icon-split"> <span class="text">목록가기</span></a>
+										<input class="btn btn-danger" type="button" value="삭제" onclick="javascript:deleteHistory(${historyVO.seq})">
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -76,8 +70,7 @@
 		</div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
@@ -95,4 +88,13 @@
 		crossorigin="anonymous"></script>
 	<script src="${contextPath }/resources/assets/demo/datatables-demo.js"></script>
 </body>
+<script>
+function deleteHistory(seq) {
+	var chk = confirm("정말 삭제하시겠습니까?");
+	if (chk) {
+		var contextpath = "<c:out value='${contextPath}'/>";
+		location.href= contextpath+'/admin/deleteHistory.ad?seq='+seq;
+	}
+}
+</script>
 </html>

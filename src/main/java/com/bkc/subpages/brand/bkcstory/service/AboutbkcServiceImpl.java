@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bkc.subpages.brand.bkcstory.dao.AboutbkcDAO;
 import com.bkc.subpages.brand.bkcstory.vo.AboutbkcVO;
+import com.bkc.subpages.brand.bkcstory.vo.HistoryVO;
 
 @Service
 public class AboutbkcServiceImpl implements AboutbkcService{
@@ -18,4 +19,5 @@ public class AboutbkcServiceImpl implements AboutbkcService{
 	public List<AboutbkcVO> AboutbkcList(AboutbkcVO aboutbkcVO){
 		return dao.AboutbkcList(aboutbkcVO);
 	}
+
 }

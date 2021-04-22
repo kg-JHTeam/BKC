@@ -80,6 +80,8 @@
                                             <a class="nav-link" href="${contextPath }/admin/faqlist.ad">FAQ 게시판 관리</a>
                                             <a class="nav-link" href="">신제품 게시판 관리</a>
                                             <a class="nav-link" href="">광고 게시판 관리</a>
+                                            <a class="nav-link" href="${contextPath }/admin/bkcstorylist.ad">BKC스토리 관리</a>
+                                            <a class="nav-link" href="${contextPath }/admin/whybkc.ad">WHYBKC 관리</a>
                                         </nav>
                                     </div>
                                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseDeliverypage" aria-expanded="false" aria-controls="pagesCollapseAuth">

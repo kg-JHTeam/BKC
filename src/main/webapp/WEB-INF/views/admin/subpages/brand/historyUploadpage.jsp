@@ -12,13 +12,6 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
-<style type="text/css">
-#insertBanner {
-   position: relative;
-   margin-bottom: 0.5%;
-   margin-left: 91%
-}
-</style>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -29,43 +22,50 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">FAQ 리스트</h1>
+					<h1 class="mt-4">history등록</h1>
 					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-table mr-1"></i>FAQ 리스트
-						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-							<input class="btn btn-success" type="button" value="업로드"
-									onclick="location.href='${contextPath}/admin/faqUploadpage.ad'"
-									id="insertBanner">
-							<!-- start -->
-								<table class="table" id="dataTable" width="100%">
-									<colgroup>
-										<col width="8%">
-										<col width="12%">
-										<col width="27%">
-										<col width="53%">
-									</colgroup>
-									<thead>
-										<tr>
-											<th>번호</th>
-											<th>카테고리</th>
-											<th>제목</th>
-											<th>내용</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="AdminFaqList" items="${AdminFaqList}">
-										<tr>
-											<td>${AdminFaqList.seq}</td>
-											<td>${AdminFaqList.category}</td>
-											<td><a href="${contextPath}/admin/faqDetail.ad?seq=${AdminFaqList.seq}">${AdminFaqList.title}</a></td>
-											<td>${AdminFaqList.contents}</td>
-										</tr>
-										</c:forEach>
-									</tbody>
-								</table>
+								<form action="${contextPath}/admin/historyUpload.ad" method="get">
+									<div class="container-fluid">
+										<br>
+										<!-- DataTales Example -->
+										<div class="card shadow mb-4">
+											<div class="card-header py-3">
+												<h6 class="m-1 font-weight-bold text-primary">history등록</h6>
+											</div>
+											<div class="card-body">
+												<!-- 전체 frame -->
+												<ul>
+													<!-- 제목 -->
+													<li>
+														<div>
+															<div class="index">제목</div>
+															<input type="text" name="title" style="width: 50%;" required /><br/>
+															<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+														</div>
+													</li>
+														<div>
+															<div class="index">내용</div>
+															<textarea type="text" name="content" style="width: 100%;, height: 120px;"required /></textarea><br/>
+														</div>
+													</li>
+												</ul>
+												<div align="center">
+													<input style="padding: 5px"
+														class="btn btn-primary btn-icon-split" type="submit"
+														 value="등록" />
+												</div>
+												<div align="right">
+													<a href="${contextPath }/admin/blcstorylist.ad"
+														class="btn btn-success btn-icon-split"> <span
+														class="text">목록가기</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -95,4 +95,13 @@
 		crossorigin="anonymous"></script>
 	<script src="${contextPath }/resources/assets/demo/datatables-demo.js"></script>
 </body>
+<script>
+
+$('.dropdown-menu > a').on('click', function() {
+    // 버튼에 선택된 항목 텍스트 넣기 
+    $('.categoryMy').attr("value",$(this).text());
+    
+});
+
+</script>
 </html>
