@@ -8,6 +8,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,7 @@ import com.bkc.admin.board.banner.vo.BannerVO;
 import com.bkc.admin.board.banner.vo.CheckVO;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 @Controller
 public class BannerController {
@@ -124,21 +127,11 @@ public class BannerController {
 	}
 
 	// 배너 삭제 - 비동기처리
-	@RequestMapping(value = "/admin/deleteBanner.ad", method = RequestMethod.POST)
-	@ResponseBody
-	public Object deleteBanner(@RequestBody String filterJSON, HttpServletResponse response, ModelMap model) {
-		
-		try {
-			ObjectMapper mapper = new ObjectMapper();
-			BannerVO vo = (BannerVO) mapper.readValue(filterJSON, new TypeReference<BannerVO>() {
-			});
+	@RequestMapping(value = "/admin/deleteBanner.ad", method = RequestMethod.GET)
+	public String deleteBanner(@RequestParam("img_seq") int img_seq, Model model) {
 			
-			BannerVO tmp = bannerService.getBanner(vo.getImg_seq());
-			vo.setContent(tmp.getContent());
-			vo.setTitle(tmp.getTitle());
-			vo.setPath(tmp.getPath());
-			vo.setUse_status(tmp.getUse_status());
-
+			BannerVO vo = bannerService.getBanner(img_seq);
+			
 			// 배너 DB에서 삭제
 			if (bannerService.deleteBanner(vo.getImg_seq()) == 1) {
 				System.out.println("배너 삭제 완료");
@@ -154,16 +147,6 @@ public class BannerController {
 			// key위치에 있는 이미지 삭제
 			awss3.delete(key); // AWS삭제
 			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		// 비동기 처리를 위해 Banner list를  넣어서 보냄.
-		List<BannerVO> banners = bannerService.getBannerList();
-		HashMap<String, Object> result = new HashMap<String, Object>();
-		result.put("banners", banners);
-        
-		response.setContentType("text/html; charset=UTF-8");
-		return result;
+			return "redirect:/admin/bannerlist.ad";
 	}
 }
