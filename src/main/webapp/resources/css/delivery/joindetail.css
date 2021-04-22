@@ -948,3 +948,6 @@ a.btn_basic_type05{padding:6px 13px 8px;box-sizing:border-box}
     vertical-align: top;
     position: absolute;
 }
+#time{
+	font-size:1.3rem;
+}
