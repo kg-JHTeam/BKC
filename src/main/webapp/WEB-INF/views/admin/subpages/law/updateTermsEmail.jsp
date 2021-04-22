@@ -35,21 +35,11 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 
 							<div class="row">
 								<div class="col-lg-12">
-									<h1 class="page-header">이메일약관 수정</h1>
-								</div>
-								<!-- /.col-lg-12 -->
-							</div>
-							<!-- /.row -->
-
-							<div class="row">
-								<div class="col-lg-12">
 									<div class="panel panel-default">
-
 										<div class="panel-heading"></div>
 										<!-- /.panel-heading -->
 										<div class="panel-body">
-
-											<form role="form" action="${contextPath }/admin/updateTermEmailDB.ad" method="post">'
+											<form role="form" action="${contextPath }/admin/updateTermEmailDB.ad" method="post">
 												<div class="form-row">
 													<div class="form-group col-md-6">
 														<label>NO.</label> 
@@ -57,18 +47,20 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 													</div>
 													<div class="form-group col-md-6">
 														<label>게시날짜</label> 
-														<textarea class="form-control" name='regdate' value = '<c:out value="${termsEmail.regdate}"/>' >${termsEmail.regdate }</textarea>
+														<textarea rows="1" class="form-control" name='regdate' value = '<c:out value="${termsEmail.regdate}"/>' >${termsEmail.regdate }</textarea>
 													</div>
 												</div>
 												<div class="form-group">
 													<label>내용1</label>
-													<textarea class="form-control" rows="3" name='content01' value='<c:out value= "${termsEmail.content01}"/>' >${termsEmail.content01}</textarea>
+													<textarea rows="10" class="form-control" rows="3" name='content01' value='<c:out value= "${termsEmail.content01}"/>' >${termsEmail.content01}</textarea>
 												</div>												
 												<div class="form-group">
 													<label>작성자</label> <input readonly class="form-control"
 														name='writer' value='관리자' >
 												</div>
-												<button type="submit" class="btn btn-success">수정</button>
+												<button type="button" class="btn btn-success" onclick="window.history.back();">목록으로</button>
+												<button type="submit" class="btn btn-primary">수정 완료</button>
+												<button type="reset" class="btn btn-danger">리셋</button>
 											</form>
 										</div>
 										<!-- end panel-body -->

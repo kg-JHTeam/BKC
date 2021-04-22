@@ -57,30 +57,32 @@ href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png
 													</div>
 													<div class="form-group col-md-6">
 														<label>게시날짜</label> 
-														<textarea class="form-control" name='regdate' value = '<c:out value="${termsPrivacy.regdate}"/>' >${termsPrivacy.regdate }</textarea>
+														<textarea rows="1" class="form-control" name='regdate' value = '<c:out value="${termsPrivacy.regdate}"/>' >${termsPrivacy.regdate }</textarea>
 													</div>
 												</div>
 												<div class="form-group">
 													<label>내용1</label>
-													<textarea class="form-control" rows="3" name='content01' value='<c:out value= "${termsPrivacy.content01}"/>' >${termsPrivacy.content01}</textarea>
+													<textarea rows="15" class="form-control" rows="3" name='content01' value='<c:out value= "${termsPrivacy.content01}"/>' >${termsPrivacy.content01}</textarea>
 												</div>
 												<div class="form-group">
 													<label>내용2</label>
-													<textarea class="form-control" rows="3" name='content02' value='<c:out value= "${termsPrivacy.content02}"/>' >${termsPrivacy.content02}</textarea>
+													<textarea rows="15"  class="form-control" rows="3" name='content02' value='<c:out value= "${termsPrivacy.content02}"/>' >${termsPrivacy.content02}</textarea>
 												</div>
 												<div class="form-group">
 													<label>내용3</label>
-													<textarea class="form-control" rows="3" name='content03' value='<c:out value= "${termsPrivacy.content03}"/>' >${termsPrivacy.content03}</textarea>
+													<textarea rows="15" class="form-control" rows="3" name='content03' value='<c:out value= "${termsPrivacy.content03}"/>' >${termsPrivacy.content03}</textarea>
 												</div>
 												<div class="form-group">
 													<label>내용4</label>
-													<textarea class="form-control" rows="3" name='content04' value='<c:out value= "${termsPrivacy.content04}"/>' >${termsPrivacy.content04}</textarea>
+													<textarea rows="15" class="form-control" rows="3" name='content04' value='<c:out value= "${termsPrivacy.content04}"/>' >${termsPrivacy.content04}</textarea>
 												</div>
 												<div class="form-group">
 													<label>작성자</label> <input readonly class="form-control"
 														name='writer' value='관리자' >
 												</div>
-												<button type="submit" class="btn btn-success">수정</button>
+												<button type="button" class="btn btn-success" onclick="window.history.back();">목록으로</button>
+												<button type="submit" class="btn btn-primary">수정 완료</button>
+												<button type="reset" class="btn btn-danger">리셋</button>
 											</form>
 										</div>
 										<!-- end panel-body -->

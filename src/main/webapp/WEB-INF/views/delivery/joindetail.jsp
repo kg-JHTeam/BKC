@@ -39,6 +39,15 @@
 	    	 alert(message);
 	    }
 	}
+   
+    //제출시에 form값 검증 작업 필요
+    function submitValid(){
+    	var loginForm = document.loginForm;
+        var userId = loginForm.userId.value;
+        var password = loginForm.password.value;
+		
+        smsForm
+    }
     </script>
 
 <title>회원가입</title>
@@ -178,7 +187,7 @@
         </ul>
     </div>
     	<div class="btn_join">
-    		<input type="submit" value="회원가입 완료"  id="btn_submit" class="inp_join" />
+    		<input type="submit" value="회원가입 완료"  id="btn_submit" class="inp_join" onclick="submitValid()"/>
         </div>
         
         
@@ -215,6 +224,7 @@
          </div> 
      </div>
      <script>
+     
      //<button class="btn_identify btn_phone" id="identify_phone" type="button"><span>휴대폰 인증</span></button>
     function sendSMS(pageName){
 
