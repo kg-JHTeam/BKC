@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -96,57 +97,31 @@
         <div class="tab_cont bg_w real" id="chickentab">
             <div class="why_web_container">
                 <h4 class="MOB m_subtit">Real Whopper</h4>
+                <c:forEach var="RealchickenList" items="${RealchickenList }">
                 <div class="realwhopper_title">
-                    <img class="realChicken" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/realchicken/reachicken_title.png">
+                    <img class="realChicken" src="${RealchickenList.path}">
                 </div>
                 <div class="realwhopper_text">
                     <p>
-                        맛을 살리는 연구개발 시스템
-                        맛의 모든 것을 연구한다
-                        콜팝치킨과 요레요레, 뿌링클 등 소비자들의 열광하는 BKC 인기 메뉴를 탄생시킨 연구소입니다.
-                        소비자의 기호와 시장 트렌드를 조사, 연구하여 소비자들의 입맛과 건강을 동시에 충족시키는 메뉴를 개발하고 품질을 개선시키고 있습니다.
-                        매장운영의 비법 전수
-                        BKC 창업, 경영, 메뉴조리, 서비스, 홍보 등 매장 운영의 하나부터 열까지를 교육하고 있습니다.
-                        BKC 가맹점주는 매장 오픈 전 4박5일의 엄격한 합숙 교육을 이수해야 합니다.
+                    	${RealchickenList.content}
                     </p>
                 </div>
+                </c:forEach>
             </div>
         </div>
         <div class="tab_cont bg_w" id="freshtab" style="display: none;">
             <div class="material_intro01">
                 <div class="why_web_container">
                     <h4 class="MOB m_subtit">신선한 재료 소개</h4>
+                    <c:forEach var="MaterialList" items="${MaterialList }">
                     <dl class="beef">
+                    	<img class="path_" src="${MaterialList.path_ }">
                         <dt>
-                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/freshingredient/high_oleic sunflower_oil.png">
+                            <img src="${MaterialList.path }">
                         </dt>
-                        <dd>깨끗한 치킨 BHC는 나쁜 콜레스테롤 수치를 저하시키고 혈액순환을 돕는 불포화지방산과 비타민E가 풍부한 고올레산 해바라기유를 튀김유로 사용하여 소비자들의 건강보호에 앞장서고 있습니다.</dd>
+                        <dd>${MaterialList.content }</dd>
                     </dl>
-                    <dl class="vegetable">
-                        <dt class="WEB">
-                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/freshingredient/fresh_chicken.png" alt="FRESH CHICKEN">
-                        </dt>
-                        <dt class="MOB">
-                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/freshingredient/fresh_chicken.png" alt="FRESH CHICKEN">
-                        </dt>
-                        <dd>
-                            BKC는 닭고기 중에서도 최상급인 Golden Zone 국내산 닭고기 (10호/무게 950g~1050g) 만을 사용합니다.
-                            10호 닭은 육즙이 풍부하고, 부드러우면서도 쫄깃함 질감이 살아 있어 최상의 닭고기 맛을 느낄 수 있습니다.
-                        </dd>
-                    </dl>
-                    <dl class="pickle">
-                        <dt>
-                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/freshingredient/research_development.png">
-                        </dt>
-                        <dd>
-                            맛의 모든 것을 연구한다
-                            콜팝치킨과 요레요레, 뿌링클 등 소비자들의 열광하는 BKC 인기 메뉴를 탄생시킨 연구소입니다.
-                            소비자의 기호와 시장 트렌드를 조사, 연구하여 소비자들의 입맛과 건강을 동시에 충족시키는 메뉴를 개발하고 품질을 개선시키고 있습니다.
-                            매장운영의 비법 전수
-                            BKC 창업, 경영, 메뉴조리, 서비스, 홍보 등 매장 운영의 하나부터 열까지를 교육하고 있습니다.
-                            BKC 가맹점주는 매장 오픈 전 4박5일의 엄격한 합숙 교육을 이수해야 합니다.
-                        </dd>
-                    </dl>
+                    </c:forEach>
                 </div>
             </div>
             <div class="material_intro02">
@@ -194,15 +169,15 @@
                                 <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="flase">
                                     <div>
                                         <div class="cont" style="width: 100%; display: inline-block;">
+                                        	<c:forEach var="ContributionList" items="${ContributionList }">
                                             <div class="image">
-                                                <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstroy/whybkc/greenmove/img_contribution.png">
+                                                <img src="${ContributionList.path }">
                                             </div>
                                             <div class="text">
-                                                <p>나눔과 상생의 정신 BSR</p>
-                                                <p>bhc해바라기봉사단</p>
-                                                <p>BKC 히어로</p>
-                                                <p>그 외 사회공헌활동</p>
+                                                <pre>
+${ContributionList.content}</pre>
                                             </div>
+                                            </c:forEach>
                                         </div>
                                     </div>
                                 </div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MaterialDAO">
+	<resultMap type="MaterialVO" id="MaterialVO">
+		<result property="seq" column="seq" />
+		<result property="content" column="content" />
+		<result property="path" column="path" />
+		<result property="path_" column="path_" />
+	</resultMap>
+	
+	<select id="MaterialList" resultType="MaterialVO">
+		select * from brand_whybkc_material
+	</select>
+</mapper>
+

@@ -25,10 +25,13 @@ public class BkcstoryController {
 	
 	//aboutBKC
 	@RequestMapping(value = "/brand/brandStory.do", method = RequestMethod.GET)
-	public String AboutbkcList(AboutbkcVO aboutbkcVO, Model model) {
+	public String BkcstoryList(AboutbkcVO aboutbkcVO, HistoryVO historyVO, Model model) {
 		
 		List<AboutbkcVO> AboutbkcList = aservice.AboutbkcList(aboutbkcVO);
+		List<HistoryVO> HistoryList = hservice.HistoryList(historyVO);
 		
+		model.addAttribute("HistoryVO", historyVO);
+		model.addAttribute("HistoryList", HistoryList);
 		model.addAttribute("AboutbkcVO", aboutbkcVO);
 		model.addAttribute("AboutbkcList", AboutbkcList);
 		
@@ -36,18 +39,4 @@ public class BkcstoryController {
 		return "subpages/brand/story";
 	}
 	
-	/*
-	//History
-		@RequestMapping(value = "/brand/brandStory.do", method = RequestMethod.GET)
-		public String HistoryList(HistoryVO historyVO, Model model) {
-			
-			List<HistoryVO> HistoryList = hservice.HistoryList(historyVO);
-			
-			model.addAttribute("HistoryVO", historyVO);
-			model.addAttribute("HistoryList", HistoryList);
-			
-			System.out.println("Story 페이지 실행");
-			return "subpages/brand/story";
-		}
-	*/
 }
