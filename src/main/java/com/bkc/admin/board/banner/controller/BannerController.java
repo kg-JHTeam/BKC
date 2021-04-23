@@ -82,6 +82,7 @@ public class BannerController {
 		String bucket = "bkcbuc";
 		String pathKey = "bkc_img/main/banner/" + key; // banner에 올리기
 		awss3.upload(is, pathKey, contentType, contentLength, bucket);
+		
 		System.out.println(key);
 
 		// S3 '/bkc_img/main/banner/' 에 바로올리기 -> path 를 여기서 설정
@@ -138,7 +139,7 @@ public class BannerController {
 			} else { 
 				System.out.println("배너 삭제 실패 ");
 			}
-
+			
 			// 배너 AWS에서 삭제
 			int index = vo.getPath().indexOf("/", 20); // 자르기
 			String key = vo.getPath().substring(index + 1); // 실제 경로

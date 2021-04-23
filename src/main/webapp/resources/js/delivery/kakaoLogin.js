@@ -9,6 +9,7 @@
 				})
 			}
 		}
+		
 		function kakaoLogin(){
             //로그인 버튼이 눌렀을 때  
             window.Kakao.Auth.login({
