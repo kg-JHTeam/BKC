@@ -121,17 +121,9 @@
             </div>
             
             <!-- 간단인증 -->
-            <h3 class="tit_join_member"><span class="terms_agree">간단인증</span></h3>
+            <h3 class="tit_join_member"><span class="terms_agree">휴대폰 인증</span></h3>
             <div class="cont_division">
-                <!-- 인증방법 -->
-                <div class="tab_identify" id="pos_cert_num">
-                    <span class="blind">인증하기</span>
-                    <div class="identify_select person">
-                        <button class="btn_identify btn_phone" id="identify_phone" type="button"><span>휴대폰 인증</span></button>
-                        <button class="btn_identify btn_email" id="identify_email" type="button"><span>이메일 인증</span></button>
-                    </div>
-                </div>
-
+            
                 <!-- 휴대폰 인증 -->
                 <div class="identify_phone">
                     <ul class="write_base select_input">
