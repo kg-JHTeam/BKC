@@ -13,7 +13,7 @@
         <header class="head-menu">
             <div class="head-container">
                 <div>
-                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/images/icon/apple-icon.png" alt="logo">
+                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/bkclogo.png" alt="logo">
                     <span>BKC</span>
                 </div>
             </div>
