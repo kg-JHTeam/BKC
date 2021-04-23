@@ -277,7 +277,6 @@ dd>.inpbox>.txt {
 	.inpbox input ~* {
 	position: absolute;
 	right: 0;
-	top: 0;
 }
 
 .contentsBox01>.web_container02>.tab_cont>.container02>.dlist01>.inpbox>.btn_del01
@@ -336,4 +335,26 @@ dd>.inpbox>.txt {
 	background: url("../img/bg_btn01_normal.192da552.png") no-repeat 50%;
 	background-size: 100% 100%;
 	border-radius: 0;
+}
+.btn_del01 {
+	background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png") no-repeat 50%;
+}
+#password {
+	display: inline-block;
+	width: 256px;
+	height: 68px;
+	font-size: 1.5rem;
+	padding: 12px 10px 10px;
+	font-weight: 700;
+	color: #fff;
+	text-align: center;
+	line-height: 46px;
+	background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png") no-repeat 50%;
+	background-size: 100% 100%;
+	border-radius: 0;
+}
+#login {
+		background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png") no-repeat 50%;
+	
+	background-size: 100% 100%;
 }

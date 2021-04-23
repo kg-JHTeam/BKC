@@ -90,7 +90,7 @@
 								<dd>
 									<div class="inpbox">
 										<label> <input type="text" placeholder="이름" class="st02" id="st01" name="name">
-											<button type="button" class="btn_del01" tyle="display: none;">
+											<button type="button" class="btn_del01" style="display: none;">
 												<span>입력 텍스트 삭제</span>
 											</button>
 										</label>
