@@ -113,8 +113,8 @@
                         <h3 class="simplelogin_tit tit_ico lock">간편로그인</h3>
                         <ul class="list">
                             <li class="naver">
-                                <a href="#">
-                                    <span>네이버 로그인</span>
+                                <a href="javascript:logoutWithKaKao();">
+                                    <span>카카오톡 로그아웃</span>
                                 </a>
                             </li>
                             <li class="kakao">

@@ -1,5 +1,6 @@
 package com.bkc.user.controller;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -9,9 +10,11 @@ import java.util.Random;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,8 +38,11 @@ import com.bkc.admin.board.banner.vo.CheckVO;
 import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.user.service.UserService;
+import com.bkc.user.vo.NaverLoginBO;
 import com.bkc.user.vo.SendMessageVO;
 import com.bkc.user.vo.UserVO;
+import com.github.scribejava.core.model.OAuth2AccessToken;
+import com.thoughtworks.qdox.parser.ParseException;
 
 @Controller
 public class UserController {
@@ -61,14 +68,43 @@ public class UserController {
 		if (logout != null) {
 			model.addAttribute("logoutMsg", "로그아웃 되었습니다.");
 		}
-
 		// 푸터 넣기
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
-
 		return "delivery/login";
 	}
+	
+	// 네이버 로그인 처리 
+	@GetMapping("/callback.do")
+	public String callback(
+			@RequestParam String code, 
+			@RequestParam String state, 
+			HttpSession session, HttpServletResponse servletResponse, 
+			Model model ) throws IOException, org.json.simple.parser.ParseException {
 
+		NaverLoginBO naverLoginBO = null;
+		OAuth2AccessToken oauthToken = naverLoginBO.getAccessToken(session, code, state);
+
+		//로그인 사용자 정보를 읽어온다.
+		String apiResult = naverLoginBO.getUserProfile(oauthToken);
+		System.out.println(apiResult.toString());
+
+		// 내가 원하는 정보 (이름)만 JSON타입에서 String타입으로 바꿔 가져오기 위한 작업 
+		JSONParser parser = new JSONParser(); 
+		Object obj = null; 
+
+		try { 
+			obj = parser.parse(apiResult);
+		} catch (ParseException e) {
+			e.printStackTrace(); 
+		}
+
+		JSONObject jsonobj = (JSONObject) obj; 
+		JSONObject response = (JSONObject) jsonobj.get("response");
+
+		return "/delivery/delivery.do";
+	}
+	
 	// 회원가입 페이지로 이동
 	@RequestMapping(value = "/join", method = { RequestMethod.GET, RequestMethod.POST })
 	public String join(Model model) {
