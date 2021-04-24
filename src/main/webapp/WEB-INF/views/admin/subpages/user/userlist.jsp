@@ -45,7 +45,7 @@
 									<tbody>
 										<c:forEach var="user" items="${users}">
 											<tr>
-												<td><c:out value="${user.userid}"/></td>
+												<td><c:out value="${user.userid}" /></td>
 												<td>${user.name}</td>
 												<td>${user.phone}</td>
 												<td><c:choose>
@@ -73,11 +73,11 @@
 														</c:otherwise>
 													</c:choose></td>
 												<td><c:choose>
-														<c:when test="${user.enabled eq 1 }">
-															-
+														<c:when test="${user.enabled eq true }">
+															- 
 														</c:when>
 														<c:otherwise>
-															휴면회원
+															휴면회원 
 														</c:otherwise>
 													</c:choose></td>
 											</tr>

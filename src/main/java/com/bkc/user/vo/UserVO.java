@@ -1,37 +1,51 @@
 package com.bkc.user.vo;
 
+import java.util.Collection;
+import java.util.Set;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.Data;
 import lombok.Getter;
 import lombok.ToString;
 
 public class UserVO {
-	@NotEmpty(message="필수정보입니다.")
-	@Email(message="이메일 형식만 가능합니다.") 
+	private static final long serialVersionUID = 1L;
+
+	@NotEmpty(message = "필수정보입니다.")
+	@Email(message = "이메일 형식만 가능합니다.")
 	private String userid;
-	
-	@NotEmpty(message="필수정보입니다.")
-	@Pattern(regexp="(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,20}",
-    message = "비밀번호는 영문 대,소문자와 숫자, 특수기호가 적어도 1개 이상씩 포함된 8자 ~ 20자의 비밀번호여야 합니다.")
+
+	@NotEmpty(message = "필수정보입니다.")
+	@Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,20}", message = "비밀번호는 영문 대,소문자와 숫자, 특수기호가 적어도 1개 이상씩 포함된 8자 ~ 20자의 비밀번호여야 합니다.")
 	private String password;
-	
-	@NotEmpty(message="필수정보입니다.")
-	@Size(min=2, max=10, message="길이가 맞지 않아요.")
+
+	@NotEmpty(message = "필수정보입니다.")
+	@Size(min = 2, max = 10, message = "길이가 맞지 않아요.")
 	private String name;
-	
-	@NotEmpty(message="필수정보입니다.")
-	@Pattern(regexp = "^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$", message="휴대폰번호가 올바르지 않습니다.")
+
+	@NotEmpty(message = "필수정보입니다.")
+	@Pattern(regexp = "^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$", message = "휴대폰번호가 올바르지 않습니다.")
 	private String phone;
-	
+
 	private boolean sms_agree;
 	private boolean email_agree;
 	private boolean agree_rule1;
 	private boolean agree_rule2;
-	
+
+	private boolean enabled; // default 1
+	private int regist_type; // 간편 로그인
+	private int usergrade; // default 03
+
+	// Security 관련
+	//private Set<GrantedAuthority> autorities;
+
 	public boolean isAgree_rule1() {
 		return agree_rule1;
 	}
@@ -47,12 +61,6 @@ public class UserVO {
 	public void setAgree_rule2(boolean agree_rule2) {
 		this.agree_rule2 = agree_rule2;
 	}
-
-	private int enabled; //default 1
-	
-	private int regist_type;	//간편 로그인 
-	
-	private int usergrade;	//default 03
 
 	public String getUserid() {
 		return userid;
@@ -102,11 +110,11 @@ public class UserVO {
 		this.email_agree = email_agree;
 	}
 
-	public int getEnabled() {
+	public boolean getEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(int enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -126,10 +134,5 @@ public class UserVO {
 		this.usergrade = usergrade;
 	}
 
-	@Override
-	public String toString() {
-		return "UserVO [userid=" + userid + ", password=" + password + ", name=" + name + ", phone=" + phone
-				+ ", sms_agree=" + sms_agree + ", email_agree=" + email_agree + ", enabled=" + enabled
-				+ ", regist_type=" + regist_type + ", usergrade=" + usergrade + "]";
-	}
+
 }

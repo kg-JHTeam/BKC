@@ -64,7 +64,7 @@
 														</c:otherwise>
 													</c:choose></td>
 												<td><c:choose>
-														<c:when test="${user.enabled eq 1 }">
+														<c:when test="${user.enabled eq true }">
 															-
 														</c:when>
 														<c:otherwise>
