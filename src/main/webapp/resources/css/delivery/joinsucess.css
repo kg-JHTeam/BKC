@@ -142,17 +142,12 @@ dd>.inpbox>.txt {
 	margin: 15px 0;
 	padding: 20px 50px;
 	font-size: 1.375rem;
-	background: #fff;
-	-webkit-box-shadow: 0 1px 2px rgb(0 0 0/ 5%);
-	box-shadow: 0 1px 2px rgb(0 0 0/ 5%);
 }
 
 .contentsBox01>.web_container02>.tab_cont>.container02>.titbox:first-child
 	{
 	margin: -20px -50px 20px;
-	padding: 37px 50px;
 	font-size: 1.375rem;
-	background: #f8f8f8;
 }
 
 .contentsBox01>.web_container02>.tab_cont>.container02>.titbox {
@@ -311,7 +306,7 @@ dd>.inpbox>.txt {
 	overflow: hidden;
 }
 
-.c_btn > div > .userfinds{
+.userfinds{
 	width: 272px;
 	height: 76px;
 	padding: 20px 10px 22px;

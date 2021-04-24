@@ -28,7 +28,7 @@
 	href="${contextPath}/resources/css/delivery/joindetail.css">
 
 <!-- 추가 -->
-<link href="${contextPath}/resources/css/delivery/userfind.css"
+<link href="${contextPath}/resources/css/delivery/joinsucess.css"
 	media="all" rel="stylesheet" type="text/css">
 
 <!-- js -->
@@ -57,16 +57,17 @@
 		<div class="contentsBox01">
 			<div class="web_container02">
 				<div class="subtitWrap">
-					<h2 class="page_tit">회원가입 완료</h2>
+					<h2 class="page_tit">BKC 가입이 완료되었습니다.</h2>
 				</div>
 				<div class="tab_cont">
 					<!-- 아이디 찾기   -->
 					<div class="container02">
 						<div class="WEB titbox">
-							<h1>회원가입 완료</h1>
+							<h1 style="text-align:center;">${youtube.path }</h1>
 						</div>
 						<div class="dlist01">
-							<h3>회원가입에 성공하였습니다.</h3>
+							<h1 style="text-align:center;">BKC 회원가입을 환영합니다<br>
+							이제부터 BKC의 다양한 혜택과 서비스를 이용해보세요</h1>
 						</div>
 					</div>
 					<div class="c_btn">

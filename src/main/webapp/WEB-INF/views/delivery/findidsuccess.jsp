@@ -75,7 +75,7 @@
 				</div>
 
 				<form class="tab_cont" method="post" id="findUserForm"
-					action="<c:url value='/finduser'/>">
+					action="<c:url value='/userfind'/>">
 					<!-- 아이디 찾기   -->
 					<h3 class="hide">아이디 찾기 완료</h3>
 					<div class="container02">
@@ -90,7 +90,10 @@
 					<div class="c_btn">
 						<div>
 							<button type="submit" class="btn01 l">
-								<span id="password">비밀번호 찾기</span> <span id="login">로그인</span>
+								<span id="password">비밀번호 찾기</span>
+							</button>
+							<button type="button" class="btn01 l" onclick="location.href='${contextPath}/login'">
+								<span id="login">로그인</span>
 							</button>
 						</div>
 					</div>
