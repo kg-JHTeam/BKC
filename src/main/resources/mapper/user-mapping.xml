@@ -7,7 +7,6 @@
 		<result property="password" column="PASSWORD" />
 		<result property="name" column="NAME" />
 	</resultMap>
-
 	<!-- Crud 구현 -->
 	<!-- cRud -->
 	<!-- 로그인 관련  -->
