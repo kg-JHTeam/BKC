@@ -72,6 +72,7 @@ dd>.inpbox>.txt {
 	margin-bottom: 15px;
 	font-size: 2.5rem;
 	line-height: 100%;
+	text-align: center;
 }
 
 .contentsBox01>.web_container02>.tab01 {
@@ -275,8 +276,7 @@ dd>.inpbox>.txt {
 
 .contentsBox01>.web_container02>.tab_cont>.container02>.dlist01>.inpbox button,
 	.inpbox input ~* {
-	position: absolute;
-	right: 0;
+	    position: absolute;
 }
 
 .contentsBox01>.web_container02>.tab_cont>.container02>.dlist01>.inpbox>.btn_del01
@@ -311,7 +311,7 @@ dd>.inpbox>.txt {
 	overflow: hidden;
 }
 
-.userfinds{
+.c_btn > div > .userfinds{
 	width: 272px;
 	height: 76px;
 	padding: 20px 10px 22px;
@@ -332,29 +332,47 @@ dd>.inpbox>.txt {
 	color: #fff;
 	text-align: center;
 	line-height: 46px;
-	background: url("../img/bg_btn01_normal.192da552.png") no-repeat 50%;
+	background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png") no-repeat 50%;
 	background-size: 100% 100%;
 	border-radius: 0;
 }
 .btn_del01 {
-	background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png") no-repeat 50%;
+	    width: 50px;
+    height: 40px;
+	text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/del_btn.png) no-repeat 50%;
+    background-size: 18px auto;
 }
-#password {
-	display: inline-block;
-	width: 256px;
-	height: 68px;
-	font-size: 1.5rem;
-	padding: 12px 10px 10px;
-	font-weight: 700;
-	color: #fff;
-	text-align: center;
-	line-height: 46px;
-	background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png") no-repeat 50%;
-	background-size: 100% 100%;
-	border-radius: 0;
+.btn_del02 {
+	    width: 50px;
+    height: 40px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/del_btn.png) no-repeat 50%;
+    background-size: 18px auto;
 }
-#login {
-		background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png") no-repeat 50%;
-	
-	background-size: 100% 100%;
+
+.inpbox {
+	position: relative;
+}
+.inpbox input {
+    width: 100%;
+    padding: 0 25px 3px 5px;
+}
+
+.inpbox button {
+	position: absolute;
+	top: 50%;
+	right: 0;
+    height: 63px;
+    margin: 0;
+}
+.l{
+	width: 272px;
+    height: 76px;
+    padding: 20px 10px 22px;
+    font-size: 1.625rem;
+    line-height: 34px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png) no-repeat 50%;
+    background-size: 100% 100%;
+    color: white;
 }

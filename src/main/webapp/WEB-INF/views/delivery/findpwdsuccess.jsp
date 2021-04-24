@@ -60,7 +60,7 @@
 					<h2 class="page_tit">아이디/비밀번호 찾기</h2>
 				</div>
 				
-				<form class="tab_cont" method="post" id="findUserForm" action="<c:url value='/finduser'/>">
+				<form class="tab_cont" method="post" id="findUserForm" action="<c:url value='/login'/>">
 					<h3 class="hide">비밀번호 찾기 완료 </h3>
 					<div class="container02">
 						<div class="WEB titbox">
@@ -74,9 +74,11 @@
 					</div>
 					<div class="c_btn">
 						<div>
-							<button type="submit" class="btn01 l">
-								<span id="password">비밀번호 찾기</span>
-								<span id="login">로그인</span>
+							
+							<button type="button" class="btn01 l" onclick="location.href='${contextPath}/'">
+								<span id="login">Home</span>
+							<button type="button" class="btn01 l" onclick="location.href='${contextPath}/login'">
+								<span id="password">로그인</span>
 							</button>
 						</div>
 					</div>

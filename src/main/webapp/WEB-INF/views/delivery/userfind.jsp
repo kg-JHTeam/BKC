@@ -89,9 +89,9 @@
 								<dt class="WEB vtop">이름</dt>
 								<dd>
 									<div class="inpbox">
-										<label> <input type="text" placeholder="이름" class="st02" id="st01" name="name">
+										 <input type="text" placeholder="이름" class="st02" id="st01" name="name"><label>
 											<button type="button" class="btn_del01" style="display: none;">
-												<span>입력 텍스트 삭제</span>
+												<span style="display: none;">입력 텍스트 삭제</span>
 											</button>
 										</label>
 										<!-- error -->
@@ -104,8 +104,8 @@
 								<dt id="info6" class="WEB vtop" style="display: none;">이메일</dt>
 								<dd>
 									<div class="inpbox">
-										<label> 
 										<input type="tel" placeholder="휴대폰 번호" class="st02" id="st02" value="" name="checkStr"/>
+										<label> 
 											<button type="button" class="btn_del02"
 												style="display: none;">
 												<span>입력 텍스트 삭제</span>
