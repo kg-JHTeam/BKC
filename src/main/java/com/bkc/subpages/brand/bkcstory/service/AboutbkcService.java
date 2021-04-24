@@ -9,4 +9,9 @@ public interface AboutbkcService {
 	
 	public List<AboutbkcVO> AboutbkcList(AboutbkcVO aboutbkcVO);
 	
+	public AboutbkcVO getAboutbkc(int seq);
+	
+	public int deleteAboutbkc(int seq);
+	
+	public int insertAboutbkc(AboutbkcVO aboutbkcVO);
 }
