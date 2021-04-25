@@ -54,7 +54,6 @@ $( document ).ready( function() {
 			alert("인증을 완료해주세요.");
 			return;
 		}
-		
 		//1. 약관 필수 값들 검증 
 		if ((a1.checked== "1" && a2.checked == "1")) {
 			document.getElementById("smsForm").submit();
@@ -86,6 +85,7 @@ var contextpath = "<c:out value='${contextPath}'/>";
 		var timer;
 		var checkNumber; //인증번호 
 		var valid = false;
+		
 		//타이머 
 		function startTimer() {
 			checkTimer = true; //작동중
@@ -95,7 +95,6 @@ var contextpath = "<c:out value='${contextPath}'/>";
 			
 			//인증번호 재전송 횟수 감소
 			checkCount--;
-			
 			timer = setInterval(function() {
 				min = parseInt(time / 60);
 				sec = time % 60;

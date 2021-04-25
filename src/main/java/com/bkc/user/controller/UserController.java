@@ -163,7 +163,7 @@ public class UserController {
 							  1 : DataIntegrityViolationException 중복 
 							  2 : 아이디 이메일형식으로
 							  3 : 에러 처리
-							  4 : 휴대폰 번호. 
+							  4 : 휴대폰 번호. 중복
 							  default : 회원가입 실패
 		 */
 

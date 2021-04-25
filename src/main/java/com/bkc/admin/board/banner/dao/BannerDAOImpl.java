@@ -45,4 +45,9 @@ public class BannerDAOImpl implements BannerDAO {
 		return sqlSession.insert("insertBanner", vo);
 	}
 
+	@Override
+	public int updateBanner(BannerVO vo) {
+		return sqlSession.insert("updateBanner", vo);
+	}
+
 }
