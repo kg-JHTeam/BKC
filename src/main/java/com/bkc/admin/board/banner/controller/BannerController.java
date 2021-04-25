@@ -108,10 +108,10 @@ public class BannerController {
 		BannerVO vo = bannerService.getBanner(img_seq);
 		vo.setContent(content);
 		vo.setTitle(title);
-		
+
 		CheckVO check = new CheckVO();
 		check.setSuccess("true");
-		
+
 		// 파일을 업로드 하지 않고, 타이틀과 내용만 수정한 경우
 		if (banner.getOriginalFilename() == "") {
 			// 3. DB에서는 수정
@@ -151,11 +151,13 @@ public class BannerController {
 			} else {
 				check.setSuccess("false");
 			}
-
-			// 배너리스트로 보내고, 확인 창띠우기위해서
-			model.addAttribute("check", check);
 		}
-		return "redirect:/admin/bannerlist.ad";
+		
+		// 배너리스트로 보내고, 확인 창띠우기위해서
+		model.addAttribute("check", check);
+		List<BannerVO> banners = bannerService.getBannerList();
+		model.addAttribute("banners", banners);
+		return "admin/subpages/banner/bannerlist";
 	}
 
 	// 배너 사용 | 미사용 변경
