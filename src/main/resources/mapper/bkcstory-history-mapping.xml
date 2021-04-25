@@ -17,7 +17,7 @@
 		]]>
 	</select>
 	
-	<update id="updateHistory" parameterType="HistoryVO">
+	<insert id="updateHistory">
 		<![CDATA[
 			UPDATE
             brand_bkcstory_history
@@ -26,7 +26,7 @@
          WHERE
             seq = #{seq}
 		]]>
-	</update>
+	</insert>
 	
 	<delete id="deleteHistory" >
 		<![CDATA[

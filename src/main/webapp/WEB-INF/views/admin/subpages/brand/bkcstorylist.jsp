@@ -17,11 +17,6 @@
 	width: 385.2px;
 	height: 231.6px;
 }
-#insertBanner {
-   position: relative;
-   margin-bottom: 0.5%;
-   margin-left: 91%
-}
 </style>
 </head>
 <body class="sb-nav-fixed">
@@ -40,9 +35,6 @@
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-							<input class="btn btn-success" type="button" value="업로드"
-									onclick="location.href='${contextPath}/admin/bkcstoryUploadpage.ad'"
-									id="insertBanner">
 							<!-- start -->
 								<table class="table" id="dataTable" width="100%">
 									<colgroup>
@@ -64,7 +56,7 @@
 										<tr>
 											<td>${AboutbkcList.seq }</td>
 											<td>${AboutbkcList.title }</td>
-											<td><a href="${contextPath}/admin/bkcstoryDetail.ad?seq=${AboutbkcList.seq }">${AboutbkcList.content}</a></td>
+											<td><a href="${contextPath}/admin/aboutbkcDetail.ad?seq=${AboutbkcList.seq }">${AboutbkcList.content}</a></td>
 											<td><img src="${AboutbkcList.path }" id="bkcstoryimg"></td>
 										</tr>
 										</c:forEach>

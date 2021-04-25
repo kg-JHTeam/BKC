@@ -18,4 +18,24 @@ public class ContributionDAOImpl implements ContributionDAO{
 	public List<ContributionVO> ContributionList(ContributionVO Contributionvo){
 		return sqlSession.selectList("ContributionList", Contributionvo);
 	}
+	
+	@Override
+	public ContributionVO getContribution(int seq) {
+		return sqlSession.selectOne("getContribution", seq);
+	}
+	
+	@Override
+	public int deleteContribution(int seq) {
+		return sqlSession.insert("deleteContribution", seq);
+	}
+	
+	@Override
+	public int insertContribution(ContributionVO contributionVO) {
+		return sqlSession.insert("insertContribution", contributionVO);
+	}
+	
+	@Override
+	public int updateContribution(ContributionVO contributionVO) {
+		return sqlSession.insert("updateContribution", contributionVO);
+	}
 }

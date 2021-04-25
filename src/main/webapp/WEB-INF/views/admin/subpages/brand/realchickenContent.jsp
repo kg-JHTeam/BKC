@@ -34,30 +34,34 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">History수정</h1>
+					<h1 class="mt-4">REALCHICKEN수정</h1>
 					<div class="card mb-4">
 						<div class="card-body">
 							<div class="table-responsive">
-								<form role="form" action="${contextPath}/admin/modifyhistory.ad" method="post">
+								<form role="form" action="${contextPath}/admin/modifyRealchicken.ad" method="post" enctype="multipart/form-data">
 									<div class="form-row">
 										<div class="form-group col-md-2">
 												<label>번호</label> 
-												<input class="form-control" name='seq' value="${historyVO.seq}" />
-										</div>
-										<div class="form-group col-md-12">
-												<label>제목</label> 
-												<input class="form-control" name='title' value="${historyVO.title}" />
+												<input class="form-control" name='seq' value="${RealchickenVO.seq}" />
 										</div>
 										<div class="form-group col-md-12">
 												<label>내용</label> 
-												<textarea class="form-control" name='content' value="${historyVO.content}" />${historyVO.content}</textarea>
+												<textarea class="form-control" name='content' value="${RealchickenVO.content}" />${RealchickenVO.content}</textarea>
+										</div>
+										<div class="form-group col-md-12">
+												<label>이미지</label> 
+												<input class="form-control" name='path' value="${RealchickenVO.path}" />
+										</div>
+										<div class="form-group col-md-2">
+												<label>파일 이미지</label> 
+												<input type="file" name="img" required /><br/>
 										</div>
 									</div>
 									<div>
 										<button type="submit" class="btn btn-primary">수정 완료</button>
 										<button type="reset" class="btn btn-success">리셋</button>
-										<a href="${contextPath }/admin/bkcstorylist.ad" class="btn btn-success btn-icon-split"> <span class="text">목록가기</span></a>
-										<input class="btn btn-danger" type="button" value="삭제" onclick="javascript:deleteHistory(${historyVO.seq})">
+										<a href="${contextPath }/admin/whybkclist.ad" class="btn btn-success btn-icon-split"> <span class="text">목록가기</span></a>
+										<input class="btn btn-danger" type="button" value="삭제" onclick="javascript:deleteRealchicken(${RealchickenVO.seq})">
 									</div>
 								</form>
 							</div>
@@ -89,11 +93,11 @@
 	<script src="${contextPath }/resources/assets/demo/datatables-demo.js"></script>
 </body>
 <script>
-function deleteHistory(seq) {
+function deleteAboutbkc(seq) {
 	var chk = confirm("정말 삭제하시겠습니까?");
 	if (chk) {
 		var contextpath = "<c:out value='${contextPath}'/>";
-		location.href= contextpath+'/admin/deleteHistory.ad?seq='+seq;
+		location.href= contextpath+'/admin/deleteAboutbkc.ad?seq='+seq;
 	}
 }
 </script>

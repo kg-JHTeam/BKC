@@ -12,6 +12,12 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
+<style type="text/css">
+#whybkcimg {
+	width: 385.2px;
+	height: 231.6px;
+}
+</style>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -22,50 +28,56 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">history등록</h1>
+					<h1 class="mt-4">AboutBKC 리스트</h1>
 					<div class="card mb-4">
+						<div class="card-header">
+							<i class="fas fa-table mr-1"></i>AboutBKC 리스트
+						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<form action="${contextPath}/admin/historyUpload.ad" method="get">
-									<div class="container-fluid">
-										<br>
-										<!-- DataTales Example -->
-										<div class="card shadow mb-4">
-											<div class="card-header py-3">
-												<h6 class="m-1 font-weight-bold text-primary">history등록</h6>
-											</div>
-											<div class="card-body">
-												<!-- 전체 frame -->
-												<ul>
-													<!-- 제목 -->
-													<li>
-														<div>
-															<div class="index">제목</div>
-															<input type="text" name="title" style="width: 50%;" required /><br/>
-															<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-														</div>
-													</li>
-														<div>
-															<div class="index">내용</div>
-															<textarea type="text" name="content" style="width: 100%;, height: 120px;"required /></textarea><br/>
-														</div>
-													</li>
-												</ul>
-												<div align="center">
-													<input style="padding: 5px"
-														class="btn btn-primary btn-icon-split" type="submit"
-														 value="등록" />
-												</div>
-												<div align="right">
-													<a href="${contextPath }/admin/blcstorylist.ad"
-														class="btn btn-success btn-icon-split"> <span
-														class="text">목록가기</span>
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</form>
+							<!-- start -->
+								<table class="table" id="dataTable" width="100%">
+									<colgroup>
+										<col width="8%">
+										<col width="42%">
+										<col width="27%">
+										<col width="27%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th>번호</th>
+											<th>내용</th>
+											<th>이미지</th>
+											<th>이미지2</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach var="RealchickenList" items="${RealchickenList}">
+										<tr>
+											<td>${RealchickenList.seq }</td>
+											<td><a href="${contextPath}/admin/realchickenDetail.ad?seq=${RealchickenList.seq }">${RealchickenList.content }</a></td>
+											<td><img src="${RealchickenList.path }" id="whybkcimg"></td>
+											<td>없음</td>
+										</tr>
+										</c:forEach>
+										<c:forEach var="ContributionList" items="${ContributionList}">
+										<tr>
+											<td>${ContributionList.seq }</td>
+											<td><a href="${contextPath}/admin/contributionDetail.ad?seq=${ContributionList.seq }">${ContributionList.content }</a></td>
+											<td><img src="${ContributionList.path }" id="whybkcimg"></td>
+											<td>없음</td>
+										</tr>
+										</c:forEach>
+										<c:forEach var="MaterialList" items="${MaterialList }">
+										<tr>
+											<td>${MaterialList.seq }</td>
+											<td><a href="${contextPath}/admin/materialDetail.ad?seq=${MaterialList.seq }">${MaterialList.content}</a></td>
+											<td><img src="${MaterialList.path }" id="whybkcimg"></td>
+											<td><img src="${MaterialList.path_ }" id="whybkcimg"></td>
+										</tr>
+										</c:forEach>
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -95,13 +107,4 @@
 		crossorigin="anonymous"></script>
 	<script src="${contextPath }/resources/assets/demo/datatables-demo.js"></script>
 </body>
-<script>
-
-$('.dropdown-menu > a').on('click', function() {
-    // 버튼에 선택된 항목 텍스트 넣기 
-    $('.categoryMy').attr("value",$(this).text());
-    
-});
-
-</script>
 </html>

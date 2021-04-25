@@ -21,4 +21,6 @@ public interface FaqDAO {
 	public int FaqDelete(int seq);
 	
 	public FaqVO getFaq(int seq);
+	
+	public int updateFaq(FaqVO faqVO);
 }
