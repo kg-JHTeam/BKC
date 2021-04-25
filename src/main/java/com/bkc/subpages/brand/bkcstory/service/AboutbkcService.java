@@ -14,4 +14,6 @@ public interface AboutbkcService {
 	public int deleteAboutbkc(int seq);
 	
 	public int insertAboutbkc(AboutbkcVO aboutbkcVO);
+	
+	public int updateAboutbkc(AboutbkcVO aboutbkcVO);
 }

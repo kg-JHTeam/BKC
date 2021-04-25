@@ -33,4 +33,9 @@ public class AboutbkcDAOImpl implements AboutbkcDAO {
 	public int insertAboutbkc(AboutbkcVO aboutbkcVO) {
 		return sqlSession.insert("insertAboutbkc", aboutbkcVO);
 	}
+	
+	@Override
+	public int updateAboutbkc(AboutbkcVO aboutbkcVO) {
+		return sqlSession.insert("updateAboutbkc", aboutbkcVO);
+	}
 }

@@ -34,5 +34,15 @@
 				(#{seq}, #{content}, #{title}, #{path});
 		]]>
 	</insert>
+	
+	<insert id="updateAboutbkc">
+		<![CDATA[
+		UPDATE 
+			brand_bkcstory_aboutbkc
+		SET  
+			content=#{content}, title=#{title}, path=#{path}
+		WHERE seq = #{seq};
+		]]>
+	</insert>
 </mapper>
 

@@ -21,6 +21,7 @@ import com.bkc.subpages.brand.bkcstory.service.AboutbkcService;
 import com.bkc.subpages.brand.bkcstory.service.HistoryService;
 import com.bkc.subpages.brand.bkcstory.vo.AboutbkcVO;
 import com.bkc.subpages.brand.bkcstory.vo.HistoryVO;
+import com.bkc.subpages.brand.whybkc.vo.ContributionVO;
 
 
 @Controller
@@ -52,7 +53,7 @@ public class BkcstoryController {
 	
 	//admin
 	@RequestMapping(value = "/admin/bkcstorylist.ad", method = {RequestMethod.GET})
-	public String AdminBkcstoryist(AboutbkcVO aboutbkcVO, HistoryVO historyVO, Model model) {
+	public String AdminBkcstoryList(AboutbkcVO aboutbkcVO, HistoryVO historyVO, Model model) {
 		
 		List<AboutbkcVO> AboutbkcList = aservice.AboutbkcList(aboutbkcVO);
 		List<HistoryVO> HistoryList = hservice.HistoryList(historyVO);
@@ -115,32 +116,45 @@ public class BkcstoryController {
 		return "admin/subpages/brand/aboutbkcContent";
 	}
 	
+	//수정
 	@RequestMapping(value = "/admin/modifyAboutbkc.ad", method = { RequestMethod.GET, RequestMethod.POST })
 	public String modifyAboutbkc(
 		Model model, @RequestParam MultipartFile img, @RequestParam String title,
-		@RequestParam String content) throws IOException, PSQLException {
+		@RequestParam String content, @RequestParam int seq) throws IOException, PSQLException {
 
 		// aws s3 파일 업로드 처리
-		// Banner 세팅
-		AboutbkcVO vo = new AboutbkcVO();
+		//  세팅
+		AboutbkcVO vo = aservice.getAboutbkc(seq);
 		vo.setContent(content);
 		vo.setTitle(title);
 		
-		InputStream is = img.getInputStream();
-		String key = img.getOriginalFilename();
-		String contentType = img.getContentType();
-		long contentLength = img.getSize();
-		
-		String bucket = "bkcbuc";
-		String pathKey = "bkc_img/brandstory/" + key; // banner에 올리기
-		awss3.upload(is, pathKey, contentType, contentLength, bucket);
-		System.out.println(key);
-		
-		// S3 '/bkc_img/main/banner/' 에 바로올리기 -> path 를 여기서 설정
-		String filePath = "https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstory/" + key; 
-		vo.setPath(filePath); // path 설정
-		
-		aservice.insertAboutbkc(vo);
+		if(img.getOriginalFilename() == "") {
+			aservice.updateAboutbkc(vo);
+			
+		}else {
+			
+			int index = vo.getPath().indexOf("/", 20); // 자르기
+			String key = vo.getPath().substring(index + 1); // 실제 경로
+
+			// key위치에 있는 이미지 삭제
+			awss3.delete(key);
+			
+			InputStream is = img.getInputStream();
+			key = img.getOriginalFilename();
+			String contentType = img.getContentType();
+			long contentLength = img.getSize();
+			
+			String bucket = "bkcbuc";
+			String pathKey = "bkc_img/brandstory/" + key; // banner에 올리기
+			awss3.upload(is, pathKey, contentType, contentLength, bucket);
+			System.out.println(key);
+			
+			// S3 '/bkc_img/main/banner/' 에 바로올리기 -> path 를 여기서 설정
+			String filePath = "https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstory/" + key; 
+			vo.setPath(filePath); // path 설정
+			
+			aservice.updateAboutbkc(vo);
+		}
 		
 		return "redirect:/admin/bkcstorylist.ad";
 	}

@@ -17,4 +17,6 @@ public interface FaqService {
 	public int FaqDelete(int seq);
 	
 	public FaqVO getFaq(int seq);
+	
+	public int updateFaq(FaqVO faqVO);
 }

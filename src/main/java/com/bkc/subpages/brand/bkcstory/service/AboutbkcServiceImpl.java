@@ -34,4 +34,9 @@ public class AboutbkcServiceImpl implements AboutbkcService{
 	public int insertAboutbkc(AboutbkcVO aboutbkcVO) {
 		return dao.insertAboutbkc(aboutbkcVO);
 	}
+	
+	@Override
+	public int updateAboutbkc(AboutbkcVO aboutbkcVO) {
+		return dao.updateAboutbkc(aboutbkcVO);
+	}
 }

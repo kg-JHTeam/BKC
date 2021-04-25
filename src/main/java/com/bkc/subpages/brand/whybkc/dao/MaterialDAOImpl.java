@@ -18,4 +18,24 @@ public class MaterialDAOImpl implements MaterialDAO{
 	public List<MaterialVO> MaterialList(MaterialVO materialVO){
 		return sqlSession.selectList("MaterialList", materialVO);
 	}
+	
+	@Override
+	public MaterialVO getMaterial(int seq) {
+		return sqlSession.selectOne("getMaterial", seq);
+	}
+	
+	@Override
+	public int deleteMaterial(int seq) {
+		return sqlSession.insert("deleteMaterial", seq);
+	}
+	
+	@Override
+	public int insertMaterial(MaterialVO materialVO) {
+		return sqlSession.insert("insertMaterial", materialVO);
+	}
+	
+	@Override
+	public int updateMaterial(MaterialVO materialVO) {
+		return sqlSession.insert("updateMaterial", materialVO);
+	}
 }

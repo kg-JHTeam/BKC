@@ -34,7 +34,7 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">FAQ수정</h1>
+					<h1 class="mt-4">Aboutbkc수정</h1>
 					<div class="card mb-4">
 						<div class="card-body">
 							<div class="table-responsive">
