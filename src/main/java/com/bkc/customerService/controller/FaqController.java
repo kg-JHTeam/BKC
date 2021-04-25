@@ -113,7 +113,7 @@ public class FaqController {
 		
 		model.addAttribute("faqVO", faqVO);
 		System.out.println("test :" + faqVO.toString());
-		return "admin/subpages/faq/faqContent";
+		return "redirect:/admin/faqlist.ad";
 	}
 	
 }

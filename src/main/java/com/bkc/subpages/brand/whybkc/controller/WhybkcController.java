@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.bkc.admin.aws.AwsS3;
 import com.bkc.subpages.brand.bkcstory.vo.AboutbkcVO;
@@ -173,7 +174,7 @@ public class WhybkcController {
 	}
 	//Material수정완료  이미지 업로드 2개
 	@RequestMapping(value = "/admin/modifyMaterial.ad", method = { RequestMethod.GET, RequestMethod.POST })
-	public String modifyMaterial(Model model, @RequestParam MultipartFile img, @RequestParam String content , @RequestParam int seq) throws IOException, PSQLException {
+	public String modifyMaterial(@RequestParam MultipartFile img2, Model model, @RequestParam MultipartFile img, @RequestParam String content , @RequestParam int seq) throws IOException, PSQLException {
 
 		// aws s3 파일 업로드 처리
 		//  세팅
@@ -187,9 +188,18 @@ public class WhybkcController {
 			
 			int index = vo.getPath().indexOf("/", 20); // 자르기
 			String key = vo.getPath().substring(index + 1); // 실제 경로
+			
+			int index2 = vo.getPath_().indexOf("/", 20); // 자르기
+			String key2 = vo.getPath_().substring(index2 + 1); // 실제 경로
 
 			// key위치에 있는 이미지 삭제
 			awss3.delete(key);
+			awss3.delete(key2);
+			
+			InputStream is2 = img2.getInputStream();
+			key2 = img2.getOriginalFilename();
+			String contentType2 = img2.getContentType();
+			long contentLength2 = img2.getSize();
 			
 			InputStream is = img.getInputStream();
 			key = img.getOriginalFilename();
@@ -199,11 +209,17 @@ public class WhybkcController {
 			String bucket = "bkcbuc";
 			String pathKey = "bkc_img/brandstory/" + key; // banner에 올리기
 			awss3.upload(is, pathKey, contentType, contentLength, bucket);
-			System.out.println(key);
+			
+			String bucket2 = "bkcbuc";
+			String pathKey2 = "bkc_img/brandstory/" + key2; // banner에 올리기
+			awss3.upload(is2, pathKey2, contentType2, contentLength2, bucket2);
 			
 			// S3 '/bkc_img/main/banner/' 에 바로올리기 -> path 를 여기서 설정
 			String filePath = "https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstory/" + key; 
 			vo.setPath(filePath); // path 설정
+			
+			String filePath2 = "https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstory/" + key2; 
+			vo.setPath_(filePath2); // path 설정
 			
 			materialservice.updateMaterial(vo);
 		}

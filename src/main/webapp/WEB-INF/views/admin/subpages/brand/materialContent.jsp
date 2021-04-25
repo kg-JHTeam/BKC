@@ -50,15 +50,19 @@
 										</div>
 										<div class="form-group col-md-12">
 												<label>이미지</label> 
-												<input class="form-control" name='path' value="${MaterialVO.path}" />
+												<input class="form-control" name='path' value="${MaterialVO.path}" disabled/>
 										</div>
 										<div class="form-group col-md-12">
-												<label>이미지</label> 
-												<input class="form-control" name='path_' value="${MaterialVO.path_}" />
+												<label>이미지2</label> 
+												<input class="form-control" name='path_' value="${MaterialVO.path_}" disabled/>
 										</div>
 										<div class="form-group col-md-2">
 												<label>파일 이미지</label> 
-												<input type="file" name="img" required /><br/>
+												<input multiple="mutiple" type="file" name="img" value="이미지변경" class="btn btn-success"/><br/>
+										</div>
+										<div class="form-group col-md-2">
+												<label>파일 이미지2</label> 
+												<input multiple="mutiple" type="file" name="img2" value="이미지변경" class="btn btn-success"/><br/>
 										</div>
 									</div>
 									<div>
