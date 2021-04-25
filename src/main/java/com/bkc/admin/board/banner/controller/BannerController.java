@@ -100,46 +100,61 @@ public class BannerController {
 		return "admin/subpages/banner/bannerUploadpage";
 	}
 
-	// 배너 수정 modifyBanner.ad
-	@RequestMapping(value = "/admin/modifyBanner.ad", method = {RequestMethod.POST, RequestMethod.GET} )
-	public String modifyBanner(Model model, @RequestParam MultipartFile banner, @RequestParam int img_seq,
-			String title, @RequestParam String content) throws IOException, PSQLException  {
+	// 배너 수정
+	@RequestMapping(value = "/admin/modifyBanner.ad", method = { RequestMethod.POST, RequestMethod.GET })
+	public String modifyBanner(Model model, @RequestParam MultipartFile banner, @RequestParam int img_seq, String title,
+			@RequestParam String content) throws IOException, PSQLException {
 
 		BannerVO vo = bannerService.getBanner(img_seq);
 		vo.setContent(content);
 		vo.setTitle(title);
 		
-		//1. 배너 AWS에서 삭제
-		int index = vo.getPath().indexOf("/", 20); // 자르기
-		String key = vo.getPath().substring(index + 1); // 실제 경로
-
-		// key위치에 있는 이미지 삭제
-		awss3.delete(key); 
-		
-		// 2. 배너 올리기 - aws에 올리기 
-		InputStream is = banner.getInputStream();
-		key = banner.getOriginalFilename();
-		String contentType = banner.getContentType();
-		long contentLength = banner.getSize();
-
-		String bucket = "bkcbuc";
-		String pathKey = "bkc_img/main/banner/" + key; // banner에 올리기
-		awss3.upload(is, pathKey, contentType, contentLength, bucket);
-
-		// S3 '/bkc_img/main/banner/' 에 바로올리기 -> path 를 여기서 설정
-		String filePath = "https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/" + key; // db에
-		vo.setPath(filePath); // path 설정
-
 		CheckVO check = new CheckVO();
 		check.setSuccess("true");
 		
-		// 3. DB에서는 수정 
-		if (bannerService.updateBanner(vo) == 1) {
-			check.setSuccess("true");
-		} else {
-			check.setSuccess("false");
+		// 파일을 업로드 하지 않고, 타이틀과 내용만 수정한 경우
+		if (banner.getOriginalFilename() == "") {
+			// 3. DB에서는 수정
+			if (bannerService.updateBanner(vo) == 1) {
+				check.setSuccess("true");
+			} else {
+				check.setSuccess("false");
+			}
 		}
-		model.addAttribute("check", check);
+
+		// 파일을 업로드하여 수정하는 경우
+		else {
+			// 1. 배너 AWS에서 삭제
+			int index = vo.getPath().indexOf("/", 20); // 자르기
+			String key = vo.getPath().substring(index + 1); // 실제 경로
+
+			// key위치에 있는 이미지 삭제
+			awss3.delete(key);
+
+			// 2. 배너 올리기 - aws에 올리기
+			InputStream is = banner.getInputStream();
+			key = banner.getOriginalFilename();
+			String contentType = banner.getContentType();
+			long contentLength = banner.getSize();
+
+			String bucket = "bkcbuc";
+			String pathKey = "bkc_img/main/banner/" + key; // banner에 올리기
+			awss3.upload(is, pathKey, contentType, contentLength, bucket);
+
+			// S3 '/bkc_img/main/banner/' 에 바로올리기 -> path 를 여기서 설정
+			String filePath = "https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/banner/" + key; // db에
+			vo.setPath(filePath); // path 설정
+
+			// 3. DB에서는 수정
+			if (bannerService.updateBanner(vo) == 1) {
+				check.setSuccess("true");
+			} else {
+				check.setSuccess("false");
+			}
+
+			// 배너리스트로 보내고, 확인 창띠우기위해서
+			model.addAttribute("check", check);
+		}
 		return "redirect:/admin/bannerlist.ad";
 	}
 
