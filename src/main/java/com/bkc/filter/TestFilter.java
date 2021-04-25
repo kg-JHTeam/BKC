@@ -11,6 +11,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.security.config.annotation.web.configurers.oauth2.client.OAuth2ClientConfigurer;
+
 @WebFilter("/*")
 public class TestFilter implements Filter {
 
@@ -18,22 +20,18 @@ public class TestFilter implements Filter {
     }
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		System.out.println( ((HttpServletRequest) request).getRequestURL() );
 		
-		//url 찍어줌.
-		//System.out.println( ((HttpServletRequest) request).getRequestURL() );
+		
 		chain.doFilter(request, response);
 	}
 
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		
 	}
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
 		
 	}
 

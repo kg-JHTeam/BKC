@@ -13,8 +13,7 @@
 
 	<!-- bcrypt 비밀번호 암호화 -->
 	<beans:bean id="bcryptPasswordEncoder"
-		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
-	</beans:bean>
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
 	
 	<authentication-manager>
 		<authentication-provider>
@@ -27,11 +26,20 @@
 				 	 WHEN USERGRADE='03' THEN 'ROLE_USER'
 				END authority 
 				FROM usermember WHERE USERID =?" />
-				
-				<!-- 로그인 시 비밀번호를 암호화해서 DB에서 조회한 비밀번호와 비교  -->
-				<password-encoder ref="bcryptPasswordEncoder" hash="bcrypt" />
+			
+			<password-encoder ref="bcryptPasswordEncoder"
+				hash="bcrypt" />
 		</authentication-provider>
 	</authentication-manager>
+	
+	<!--
+	<beans:bean class="com.bkc.user.CustomAuthenticationProvider"
+		id='customAutProvider'>
+	</beans:bean>
+	<authentication-manager>
+		<authentication-provider ref="customAutProvider"/>
+	</authentication-manager>-->
+
 	<http auto-config="true" use-expressions="true">
 		<!-- 세션 관리 -->
 		<session-management>
@@ -54,15 +62,19 @@
 
 		<!-- 통합 로그인 페이지 -->
 		<form-login login-page="/login"
-			authentication-failure-url="/login?error" 
-			username-parameter="userid"
-			password-parameter="password"/>
+			authentication-failure-url="/login?error" username-parameter="userid"
+			password-parameter="password" />
 
 		<!-- 로그아웃 -->
 		<logout invalidate-session="true" />
 		
+		<!-- 자동로그인 구현  
+		<remember-me data-source-ref="dataSource"  remember-me-parameter="remember-me" 
+            token-validity-seconds="604800"/>-->
+            
 		<!-- csrf 토큰 막음 -->
 		<csrf disabled="true" />
+		
 	</http>
 
 </beans:beans>

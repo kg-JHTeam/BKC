@@ -90,7 +90,8 @@
                                     <span>아이디 저장</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox" name="box" class="autologin_check">
+                                	<!-- 자동로그인 구현  -->
+                                    <input name="remember-me" type="checkbox" name="box" class="autologin_check">
                                     <span>자동 로그인</span>
                                 </label>
                             </div>

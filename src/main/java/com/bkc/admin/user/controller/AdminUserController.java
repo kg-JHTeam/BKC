@@ -25,7 +25,7 @@ public class AdminUserController {
 		return "admin/subpages/user/userlist";
 	}
 
-	//매장관리자 리스트 출력
+	// 매장관리자 리스트 출력
 	@RequestMapping(value = "/admin/userManagerlist.ad", method = RequestMethod.GET)
 	public String showManagerUsers(Model model) {
 		List<UserVO> users = userService.getManagerUserList();
@@ -33,7 +33,7 @@ public class AdminUserController {
 		return "admin/subpages/user/managerlist";
 	}
 
-	//비회원 리스트 출력
+	// 비회원 리스트 출력
 	@RequestMapping(value = "/admin/userNonlist.ad", method = RequestMethod.GET)
 	public String showNonUsers(Model model) {
 		List<UserVO> users = userService.getNonUserList();
@@ -41,7 +41,7 @@ public class AdminUserController {
 		return "admin/subpages/user/nonUserlist";
 	}
 
-	//탈퇴회원 리스트 출력
+	// 탈퇴회원 리스트 출력
 	@RequestMapping(value = "/admin/userSignoutList.ad", method = RequestMethod.GET)
 	public String showSignoutUsers(Model model) {
 		List<UserVO> users = userService.getManagerUserList();
@@ -49,7 +49,7 @@ public class AdminUserController {
 		return "admin/subpages/user/managerlist";
 	}
 
-	//휴면회원 리스트 출력
+	// 휴면회원 리스트 출력
 	@RequestMapping(value = "/admin/userDormantlist.ad", method = RequestMethod.GET)
 	public String showDormantUsers(Model model) {
 		List<UserVO> users = userService.getManagerUserList();

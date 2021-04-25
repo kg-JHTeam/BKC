@@ -10,6 +10,9 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,7 +23,7 @@ import com.bkc.user.vo.UserVO;
 
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserDAO userDao;
@@ -31,6 +34,7 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private JavaMailSender mailSender;
 	
+
 	//id를 통해 user조회
 	@Override
 	public UserVO getUserById(String userid) {

@@ -102,7 +102,7 @@ public class UserController {
 		JSONObject jsonobj = (JSONObject) obj; 
 		JSONObject response = (JSONObject) jsonobj.get("response");
 
-		return "/delivery/delivery.do";
+		return "/delivery/delivery";
 	}
 	
 	// 회원가입 페이지로 이동
@@ -209,11 +209,8 @@ public class UserController {
 		int results = random.nextInt(range) + trim;
 		String checkNumber = Integer.toString(results);
 		
-		System.out.println("전송이 오나요.." + vo.toString());
-		
 		String api_key = "NCSGGM7FUQCUJQMR"; // 위에서 받은 api key를 추가
 		String api_secret = "5PENVLCAQYEN4ZTLNQRO3BGXYRFICZJL"; // 위에서 받은 api secret를 추가
-
 		com.bkc.user.sms.Coolsms coolsms = new com.bkc.user.sms.Coolsms(api_key, api_secret);
 
 		HashMap<String, String> set = new HashMap<String, String>();
