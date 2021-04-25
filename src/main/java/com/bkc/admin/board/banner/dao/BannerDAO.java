@@ -27,4 +27,7 @@ public interface BannerDAO {
 	// 배너 추가
 	public int insertBanner(BannerVO vo);
 
+	// 배너 수정
+	public int updateBanner(BannerVO vo);
+
 }

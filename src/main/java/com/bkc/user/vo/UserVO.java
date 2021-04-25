@@ -11,11 +11,7 @@ import javax.validation.constraints.Size;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.ToString;
-
-public class UserVO {
+public class UserVO implements UserDetails {
 	private static final long serialVersionUID = 1L;
 
 	@NotEmpty(message = "필수정보입니다.")
@@ -44,7 +40,7 @@ public class UserVO {
 	private int usergrade; // default 03
 
 	// Security 관련
-	//private Set<GrantedAuthority> autorities;
+	private Set<GrantedAuthority> autorities;
 
 	public boolean isAgree_rule1() {
 		return agree_rule1;
@@ -134,5 +130,42 @@ public class UserVO {
 		this.usergrade = usergrade;
 	}
 
+	@Override
+	public String toString() {
+		return "UserVO [userid=" + userid + ", password=" + password + ", name=" + name + ", phone=" + phone
+				+ ", sms_agree=" + sms_agree + ", email_agree=" + email_agree + ", agree_rule1=" + agree_rule1
+				+ ", agree_rule2=" + agree_rule2 + ", enabled=" + enabled + ", regist_type=" + regist_type
+				+ ", usergrade=" + usergrade + ", AUTHORITY=" +autorities+ "]";
+	}
 
+	// Security 관련
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return autorities;
+	}
+
+	@Override
+	public String getUsername() {
+		return userid;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return enabled;
+	}
 }

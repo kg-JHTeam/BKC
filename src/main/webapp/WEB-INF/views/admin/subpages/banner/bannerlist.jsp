@@ -32,6 +32,15 @@
 </style>
 
 <script>
+//업로드 성공하면 성공 
+window.onload = function(){
+	var chk = "<c:out value='${check.success}'/>"
+	if(chk=="true"){
+		alert("배너 수정 성공");
+	} else if(chk=="false"){
+		alert("배너 수정 실패");
+	} 
+}
 //미사용 사용 변경시 ajax사용. 
 function status(status,id){
    var btn = document.getElementById(id);
