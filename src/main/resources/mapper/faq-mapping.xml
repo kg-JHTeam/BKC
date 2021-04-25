@@ -48,7 +48,7 @@
 		UPDATE 
 			faq
 		SET  
-			content=#{contents}, title=#{title}, category=#{category}
+			contents=#{contents}, title=#{title}, category=#{category}
 		WHERE seq = #{seq};
 		]]>
 	</insert>

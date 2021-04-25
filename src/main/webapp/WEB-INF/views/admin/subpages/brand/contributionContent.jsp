@@ -50,11 +50,11 @@
 										</div>
 										<div class="form-group col-md-12">
 												<label>이미지</label> 
-												<input class="form-control" name='path' value="${ContributionVO.path}" />
+												<input class="form-control" name='path' value="${ContributionVO.path}" disabled/>
 										</div>
 										<div class="form-group col-md-2">
 												<label>파일 이미지</label> 
-												<input type="file" name="img" required /><br/>
+												<input type="file" name="img" value="이미지변경" class="btn btn-success"/><br/>
 										</div>
 									</div>
 									<div>

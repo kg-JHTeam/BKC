@@ -129,8 +129,7 @@ public class BkcstoryController {
 		vo.setTitle(title);
 		
 		if(img.getOriginalFilename() == "") {
-			aservice.updateAboutbkc(vo);
-			
+			aservice.updateAboutbkc(vo);	
 		}else {
 			
 			int index = vo.getPath().indexOf("/", 20); // 자르기
@@ -147,7 +146,6 @@ public class BkcstoryController {
 			String bucket = "bkcbuc";
 			String pathKey = "bkc_img/brandstory/" + key; // banner에 올리기
 			awss3.upload(is, pathKey, contentType, contentLength, bucket);
-			System.out.println(key);
 			
 			// S3 '/bkc_img/main/banner/' 에 바로올리기 -> path 를 여기서 설정
 			String filePath = "https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/brandstory/" + key; 
