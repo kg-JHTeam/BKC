@@ -53,7 +53,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 			// 사용자 권한 select해서 받아온 List<String> 객체 주입
 			userDetails.setAuthorities(userDao.selectUserAuthOne(username));
 		}
-
 		return userDetails;
 	}
 

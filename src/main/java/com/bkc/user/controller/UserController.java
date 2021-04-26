@@ -183,6 +183,7 @@ public class UserController {
 
 			userService.insert(user);
 			userService.sendJoinMail(user); // 이메일 전송
+			
 			check.setSuccess("0");
 			model.addAttribute("check", check);
 			return "delivery/joinsucess";
@@ -219,7 +220,6 @@ public class UserController {
 		set.put("type", "sms"); // 문자 타입
 
 		JSONObject result = coolsms.send(set); // 보내기&전송결과받기
-
 		// results 이게 인증 번호임.
 		if ((boolean) result.get("status") == true) {
 			// 메시지 보내기 성공 및 전송결과 출력
@@ -296,7 +296,6 @@ public class UserController {
 	// 비밀번호 찾기
 	@RequestMapping(value = "/findpwd", method = { RequestMethod.GET, RequestMethod.POST })
 	public String findpwdUser(HttpServletRequest request, HttpServletResponse response, Model model) {
-
 		try {
 			String name = "";
 			String userid = "";
@@ -306,6 +305,7 @@ public class UserController {
 				name = (String) redirectMap.get("name"); // 오브젝트 타입이라 캐스팅해줌
 				userid = (String) redirectMap.get("userid");
 			}
+			
 			// 이메일을 통해 UserVO 얻음.
 			UserVO vo = userService.getUserById(userid);
 

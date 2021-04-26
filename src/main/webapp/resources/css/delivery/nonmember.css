@@ -168,6 +168,7 @@ strong {
 .dlist01>dl {
     display: table-row;
 }
+
 .dlist01 dt {
     width: 28%;
     padding-right: 10px;
