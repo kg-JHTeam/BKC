@@ -37,4 +37,7 @@ public interface UserDAO {
 	// 비밀번호 변경
 	public int updatePasswd(UserVO vo);
 
+	//사용자 권한 select 하기
+	public List<String> selectUserAuthOne(String username);
+
 }

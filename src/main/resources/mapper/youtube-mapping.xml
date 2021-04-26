@@ -43,6 +43,15 @@
 				img_seq = #{img_seq};
 		]]>
 	</update>
+	<update id="changeAllStatusYoutube">
+		<![CDATA[
+			UPDATE
+				youtube
+			SET use_status = false
+			WHERE
+				img_seq != #{img_seq};
+		]]>
+	</update>
 	<delete id="deleteYoutube" >
 		<![CDATA[
 			DELETE FROM youtube

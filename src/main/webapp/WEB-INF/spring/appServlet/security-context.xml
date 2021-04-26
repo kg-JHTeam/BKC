@@ -69,8 +69,7 @@
 		<logout invalidate-session="true" />
 		
 		<!-- 자동로그인 구현  
-		<remember-me data-source-ref="dataSource"  remember-me-parameter="remember-me" 
-            token-validity-seconds="604800"/>-->
+		<remember-me key="bkc" remember-me-parameter="remember" token-validity-seconds="604800" /> -->
             
 		<!-- csrf 토큰 막음 -->
 		<csrf disabled="true" />

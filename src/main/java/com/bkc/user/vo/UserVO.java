@@ -1,6 +1,8 @@
 package com.bkc.user.vo;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.constraints.Email;
@@ -9,6 +11,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserVO implements UserDetails {
@@ -40,7 +43,7 @@ public class UserVO implements UserDetails {
 	private int usergrade; // default 03
 
 	// Security 관련
-	private Set<GrantedAuthority> autorities;
+	private List<GrantedAuthority> authorities;
 
 	public boolean isAgree_rule1() {
 		return agree_rule1;
@@ -135,37 +138,50 @@ public class UserVO implements UserDetails {
 		return "UserVO [userid=" + userid + ", password=" + password + ", name=" + name + ", phone=" + phone
 				+ ", sms_agree=" + sms_agree + ", email_agree=" + email_agree + ", agree_rule1=" + agree_rule1
 				+ ", agree_rule2=" + agree_rule2 + ", enabled=" + enabled + ", regist_type=" + regist_type
-				+ ", usergrade=" + usergrade + ", AUTHORITY=" +autorities+ "]";
+				+ ", usergrade=" + usergrade + ", AUTHORITY=" + authorities + "]";
 	}
 
 	// Security 관련
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return autorities;
+		return authorities;
 	}
 
+	public void setAuthorities(List<String> authList) {
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		for (int i = 0; i < authList.size(); i++) {
+			authorities.add(new SimpleGrantedAuthority(authList.get(i)));
+		}
+		this.authorities = authorities;
+	}
+	
+	// 계정이 만료 되지 않았는가?
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+	
+	// 계정이 잠기지 않았는가?
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+	
+	// 패스워드가 만료되지 않았는가?
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+	
+	// 계정이 활성화 되었는가?
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+	
 	@Override
 	public String getUsername() {
 		return userid;
 	}
 
-	@Override
-	public boolean isAccountNonExpired() {
-		return false;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return false;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return false;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return enabled;
-	}
 }
