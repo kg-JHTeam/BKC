@@ -79,7 +79,7 @@ $( document ).ready( function() {
 		}
 	}
 	
-var contextpath = "<c:out value='${contextPath}'/>";
+		var contextpath = "<c:out value='${contextPath}'/>";
 		var checkTimer = false; //default
 		var checkCount = 3; //인증번호 재전송 횟수 
 		var timer;
@@ -187,8 +187,6 @@ var contextpath = "<c:out value='${contextPath}'/>";
 						alert("핸드폰 번호를 확인해주세요");
 					}
 				});
-			
-
 			$(".modal .modal-content .close-button").click(function() {
 				$(".modal").css("display", "none");
 				stopTimer(); //타이머 정지 시킴 
