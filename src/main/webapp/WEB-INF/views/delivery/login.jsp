@@ -166,7 +166,7 @@
                             <p>회원가입 없이 비회원으로 주문이 가능합니다.</p>
                         </div>
                         <div class="nonmemberorder_btn">
-                            <a href="#" class="btn_nonmember">
+                            <a href="${contextPath}/nonmember" class="btn_nonmember">
                                 <span>비회원 주문</span>
                             </a>
                         </div>
