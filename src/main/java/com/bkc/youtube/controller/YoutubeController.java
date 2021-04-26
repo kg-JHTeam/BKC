@@ -122,7 +122,12 @@ public class YoutubeController {
 			}
 
 			// 2.2.2) 가져온 값을 제외한 모든 값은 미사용중으로 변경
-			ytService.changeAllStatusYoutube(img_seq);
+			if (ytService.changeAllStatusYoutube(img_seq) == 1) {
+				System.out.println("기존에 사용중인 것  변경 성공");
+			} else {
+				System.out.println("기존에 사용중인 것 변경 실패");
+			}
+			
 		}
 		return "redirect:/admin/youtubeList.ad";
 	}
