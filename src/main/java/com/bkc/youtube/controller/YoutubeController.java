@@ -33,10 +33,7 @@ public class YoutubeController {
 	// 유튜브 상세 출력
 	@RequestMapping(value = "/admin/youtubeContent.ad", method = { RequestMethod.POST, RequestMethod.GET })
 	public String showYoutube(Model model, @RequestParam("img_seq") int img_seq) {
-		YoutubeVO temp = new YoutubeVO();
-		temp.setImg_seq(img_seq);
-
-		YoutubeVO youtube = ytService.getYoutubeBySeq(temp);
+		YoutubeVO youtube = ytService.getYoutubeBySeq(img_seq);
 		model.addAttribute("youtube", youtube);
 
 		System.out.println(youtube.toString());
@@ -61,11 +58,11 @@ public class YoutubeController {
 		youtubeVO.setTitle(title);
 		youtubeVO.setPath(path);
 		youtubeVO.setUse_status(use_status);
-		
-		//Date insert 현재 시간 등록 
+
+		// Date insert 현재 시간 등록
 		Date date = new Date(System.currentTimeMillis());
 		youtubeVO.setDate(date);
-		
+
 		CheckVO check = new CheckVO();
 
 		if (ytService.insertYoutube(youtubeVO) == 1) {
@@ -82,10 +79,8 @@ public class YoutubeController {
 	@RequestMapping(value = "/admin/modifyYoutube.ad", method = { RequestMethod.POST, RequestMethod.GET })
 	public String modifyYoutube(Model model, @RequestParam("img_seq") int img_seq, @RequestParam("title") String title,
 			@RequestParam("content") String content, @RequestParam("path") String path) {
-		YoutubeVO temp = new YoutubeVO();
-		temp.setImg_seq(img_seq);
 
-		YoutubeVO vo = ytService.getYoutubeBySeq(temp);
+		YoutubeVO vo = ytService.getYoutubeBySeq(img_seq);
 		vo.setContent(content);
 		vo.setTitle(title);
 		vo.setPath(path);
@@ -104,10 +99,30 @@ public class YoutubeController {
 
 	@RequestMapping(value = "/admin/changeStatusYoutube.ad", method = { RequestMethod.GET, RequestMethod.POST })
 	public String changeStatusYoutube(Model model, @RequestParam("img_seq") int img_seq) {
-		if (ytService.changeStatusYoutube(img_seq) == 1) {
-			System.out.println("배너 변경 완료");
-		} else {
-			System.out.println("배너 변경 실패 ");
+
+		// 1. 먼저 기존 값이 뭔지 찾아온다.
+		YoutubeVO vo = ytService.getYoutubeBySeq(img_seq);
+
+		// 2.1) 가져온 값이 사용중인 경우
+		if (vo.getUse_status() == true) {
+			if (ytService.changeStatusYoutube(img_seq) == 1) {
+				System.out.println("유튜브 미사용중으로 변경 완료");
+			} else {
+				System.out.println("유튜브 미사용중으로 변경 실패");
+			}
+		}
+
+		// 2.2) 가져온 값이 본인 제외 모두 미사용중으로 변경
+		else if (vo.getUse_status() == false) {
+			// 2.2.1)가져온 값은 사용중으로 변경
+			if (ytService.changeStatusYoutube(img_seq) == 1) {
+				System.out.println("유튜브 사용중으로 변경 완료");
+			} else {
+				System.out.println("유튜브 사용중으로 변경 실패");
+			}
+
+			// 2.2.2) 가져온 값을 제외한 모든 값은 미사용중으로 변경
+			ytService.changeAllStatusYoutube(img_seq);
 		}
 		return "redirect:/admin/youtubeList.ad";
 	}

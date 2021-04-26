@@ -71,7 +71,7 @@ window.onload = function(){
 														<div class="index">날짜</div>
 														<input type="text" name="date" style="width: 50%;"
 															value="${today}" required disabled/><br />
-													</div>
+													</div><br>
 												</li>
 												<!-- 유튜브 광고 경로 -->
 												<li>
@@ -79,7 +79,7 @@ window.onload = function(){
 														<div class="index">유튜브 경로</div>
 														<input type="text" name="path" style="width: 50%;"
 															required /><br />
-													</div>
+													</div><br>
 												</li>
 												<!-- 유튜브 광고 내용 -->
 												<li>
@@ -87,16 +87,16 @@ window.onload = function(){
 														<div class="index">내용</div>
 														<input type="text" name="content" style="width: 50%;"
 															required /><br />
-													</div>
+													</div><br>
 												</li>
 											</ul>
 											<div align="center">
 												<input style="padding: 5px"
 													class="btn btn-primary btn-icon-split" type="submit"
-													value="배너 등록하기" />
-											</div>
+													value="유튜브 광고 등록" />
+											</div><br>
 											<div align="right">
-												<a href="${contextPath }/admin/bannerlist.ad"
+												<a href="${contextPath }/admin/youtubeList.ad"
 													class="btn btn-success btn-icon-split"> <span
 													class="text">목록가기</span>
 												</a>

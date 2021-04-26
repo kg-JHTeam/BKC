@@ -174,9 +174,7 @@ public class BannerController {
 	// 배너 삭제
 	@RequestMapping(value = "/admin/deleteBanner.ad", method = RequestMethod.GET)
 	public String deleteBanner(@RequestParam("img_seq") int img_seq, Model model) {
-
 		BannerVO vo = bannerService.getBanner(img_seq);
-
 		// 배너 DB에서 삭제
 		if (bannerService.deleteBanner(vo.getImg_seq()) == 1) {
 			System.out.println("배너 삭제 완료");
