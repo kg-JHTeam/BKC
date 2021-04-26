@@ -1,4 +1,5 @@
- 		//javascript key : 950685967910771abce582f44da62023
+ 		
+	//javascript key : 950685967910771abce582f44da62023
         window.Kakao.init("950685967910771abce582f44da62023"); //이 key를 받고 검증
 		function logoutWithKaKao(){
 			if(Kakao.Auth.getAccessToken()){

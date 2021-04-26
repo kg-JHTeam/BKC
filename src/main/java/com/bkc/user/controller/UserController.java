@@ -37,6 +37,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import com.bkc.admin.board.banner.vo.CheckVO;
 import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
+import com.bkc.user.service.KakaoAPI;
 import com.bkc.user.service.UserService;
 import com.bkc.user.vo.NaverLoginBO;
 import com.bkc.user.vo.SendMessageVO;
@@ -58,6 +59,9 @@ public class UserController {
 	@Autowired
 	private BusinessInformationService biService;
 
+	@Autowired
+	private KakaoAPI kakao;
+
 	// login 처리
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String doLogin(@RequestParam(value = "error", required = false) String error,
@@ -73,38 +77,38 @@ public class UserController {
 		model.addAttribute("bi", bi);
 		return "delivery/login";
 	}
-	
-	// 네이버 로그인 처리 
+
+
+
+	// 네이버 로그인 처리
 	@GetMapping("/callback.do")
-	public String callback(
-			@RequestParam String code, 
-			@RequestParam String state, 
-			HttpSession session, HttpServletResponse servletResponse, 
-			Model model ) throws IOException, org.json.simple.parser.ParseException {
+	public String callback(@RequestParam String code, @RequestParam String state, HttpSession session,
+			HttpServletResponse servletResponse, Model model)
+			throws IOException, org.json.simple.parser.ParseException {
 
 		NaverLoginBO naverLoginBO = null;
 		OAuth2AccessToken oauthToken = naverLoginBO.getAccessToken(session, code, state);
 
-		//로그인 사용자 정보를 읽어온다.
+		// 로그인 사용자 정보를 읽어온다.
 		String apiResult = naverLoginBO.getUserProfile(oauthToken);
 		System.out.println(apiResult.toString());
 
-		// 내가 원하는 정보 (이름)만 JSON타입에서 String타입으로 바꿔 가져오기 위한 작업 
-		JSONParser parser = new JSONParser(); 
-		Object obj = null; 
+		// 내가 원하는 정보 (이름)만 JSON타입에서 String타입으로 바꿔 가져오기 위한 작업
+		JSONParser parser = new JSONParser();
+		Object obj = null;
 
-		try { 
+		try {
 			obj = parser.parse(apiResult);
 		} catch (ParseException e) {
-			e.printStackTrace(); 
+			e.printStackTrace();
 		}
 
-		JSONObject jsonobj = (JSONObject) obj; 
+		JSONObject jsonobj = (JSONObject) obj;
 		JSONObject response = (JSONObject) jsonobj.get("response");
 
 		return "/delivery/delivery";
 	}
-	
+
 	// 회원가입 페이지로 이동
 	@RequestMapping(value = "/join", method = { RequestMethod.GET, RequestMethod.POST })
 	public String join(Model model) {
@@ -125,12 +129,12 @@ public class UserController {
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 		model.addAttribute("user", new UserVO());
-		
+
 		// checking
 		CheckVO check = new CheckVO();
 		check.setSuccess("default");
 		model.addAttribute("check", check);
-		
+
 		return "delivery/joindetail";
 	}
 
@@ -153,18 +157,13 @@ public class UserController {
 		// checking
 		CheckVO check = new CheckVO();
 		check.setSuccess("default");
-		
+
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
-		
+
 		/*
-							  <join check protocol>  
-							  0 : 성공
-							  1 : DataIntegrityViolationException 중복 
-							  2 : 아이디 이메일형식으로
-							  3 : 에러 처리
-							  4 : 휴대폰 번호. 중복
-							  default : 회원가입 실패
+		 * <join check protocol> 0 : 성공 1 : DataIntegrityViolationException 중복 2 : 아이디
+		 * 이메일형식으로 3 : 에러 처리 4 : 휴대폰 번호. 중복 default : 회원가입 실패
 		 */
 
 		try {
@@ -172,7 +171,7 @@ public class UserController {
 			if (result.hasErrors()) {
 				List<ObjectError> errors = result.getAllErrors();
 				for (ObjectError error : errors) {
-					if(error.getDefaultMessage().contentEquals("이메일 형식만 가능합니다.")) {
+					if (error.getDefaultMessage().contentEquals("이메일 형식만 가능합니다.")) {
 						check.setSuccess("2");
 					} else {
 						check.setSuccess("3");
@@ -198,7 +197,7 @@ public class UserController {
 			return "delivery/joindetail";
 		}
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/sendsms.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String sendSms(HttpServletRequest request, SendMessageVO vo) throws Exception {
@@ -208,7 +207,7 @@ public class UserController {
 		int trim = (int) Math.pow(10, 6 - 1);
 		int results = random.nextInt(range) + trim;
 		String checkNumber = Integer.toString(results);
-		
+
 		String api_key = "NCSGGM7FUQCUJQMR"; // 위에서 받은 api key를 추가
 		String api_secret = "5PENVLCAQYEN4ZTLNQRO3BGXYRFICZJL"; // 위에서 받은 api secret를 추가
 		com.bkc.user.sms.Coolsms coolsms = new com.bkc.user.sms.Coolsms(api_key, api_secret);
@@ -220,18 +219,17 @@ public class UserController {
 		set.put("type", "sms"); // 문자 타입
 
 		JSONObject result = coolsms.send(set); // 보내기&전송결과받기
-		
-		//results 이게 인증 번호임.
+
+		// results 이게 인증 번호임.
 		if ((boolean) result.get("status") == true) {
 			// 메시지 보내기 성공 및 전송결과 출력
 			return checkNumber;
-		} 
-		else {
+		} else {
 			// 메시지 보내기 실패
 			return "false";
 		}
 	}
-	
+
 	// 아이디 찾기/비밀번호 찾기 url나누기
 	@PostMapping("/finduser")
 	public String spiltFindLogin(Model model, HttpServletRequest request, HttpServletResponse response,
@@ -250,8 +248,8 @@ public class UserController {
 			redirectAttr.addFlashAttribute("name", name);
 			redirectAttr.addFlashAttribute("phone", checkStr);
 			return "redirect:/findid";
-		} 
-		
+		}
+
 		// 이메일 인 경우
 		else {
 			System.out.println("비밀번호 찾기 ");
@@ -341,7 +339,7 @@ public class UserController {
 			return "redirect:/userfind";
 		}
 	}
-	
+
 	// 회원 수정
 	@RequestMapping("/modifyuser")
 	public String modifyUser(Model model, @Valid UserVO user, BindingResult result) {

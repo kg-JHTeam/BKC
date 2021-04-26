@@ -26,15 +26,20 @@ public class YoutubeDAOImpl implements YoutubeDAO {
 	}
 
 	@Override
-	public YoutubeVO getYoutubeBySeq(YoutubeVO vo) {
-		return sqlSession.selectOne("getYoutubeBySeq", vo);
+	public YoutubeVO getYoutubeBySeq(int img_seq) {
+		return sqlSession.selectOne("getYoutubeBySeq", img_seq);
 	}
 
 	@Override
 	public int changeStatusYoutube(int img_seq) {
 		return sqlSession.insert("changeStatusYoutube", img_seq);
 	}
-
+	
+	@Override
+	public int changeAllStatusYoutube(int img_seq) {
+		return sqlSession.insert("changeAllStatusYoutube", img_seq);
+	}
+	
 	@Override
 	public int deleteYoutube(int img_seq) {
 		return sqlSession.insert("deleteYoutube", img_seq);
