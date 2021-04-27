@@ -22,7 +22,7 @@ import com.bkc.user.dao.UserDAO;
 import com.bkc.user.vo.UserVO;
 
 @Service
-public class UserServiceImpl implements UserService, UserDetailsService {
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDAO userDao;
@@ -33,28 +33,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	@Autowired
 	private JavaMailSender mailSender;
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-		// 최종적으로 리턴해야할 객체
-		UserVO userDetails = new UserVO();
-
-		// 사용자 정보 select
-		UserVO userInfo = userDao.getUserById(username);
-
-		// 사용자 정보 없으면 null 처리
-		if (userInfo == null) {
-			return null;
-		// 사용자 정보 있을 경우 로직 전개 (userDetails에 데이터 넣기)
-		} else {
-			userDetails.setUserid(userInfo.getUserid());
-			userDetails.setPassword(userInfo.getPassword());
-
-			// 사용자 권한 select해서 받아온 List<String> 객체 주입
-			userDetails.setAuthorities(userDao.selectUserAuthOne(username));
-		}
-		return userDetails;
-	}
 
 	// id를 통해 user조회
 	@Override
@@ -199,5 +177,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		}
 
 		return sb.toString();
+	}
+
+	@Override
+	public void updatePlatForm(String email, String type) {
+		// TODO Auto-generated method stub
+		
 	}
 }

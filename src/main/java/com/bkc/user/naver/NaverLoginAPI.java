@@ -1,4 +1,4 @@
-package com.bkc.user.controller;
+package com.bkc.user.naver;
 
 import com.github.scribejava.core.builder.api.DefaultApi20;
 
