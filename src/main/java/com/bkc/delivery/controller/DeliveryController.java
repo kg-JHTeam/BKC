@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
-import com.bkc.user.security.CustomUser;
 import com.bkc.user.service.UserService;
 import com.bkc.user.vo.UserVO;
 

@@ -1,6 +1,5 @@
 package com.bkc.user.vo;
 
-import java.util.Date;
 
 public class SendMessageVO {
 	private String phoneNumber;

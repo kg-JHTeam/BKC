@@ -23,7 +23,6 @@ public class LoginUtil {
 		UserVO user = service.getUserById(email);
 		int role = user.getUsergrade();
 		
-		//
 		String roles = "ROLE_USER";
 		switch(role) {
 			case 1 : roles = "ROLE_USER"; break;
@@ -43,13 +42,13 @@ public class LoginUtil {
 			user = new UserVO();
 			user.setUserid(email);
 			user.setName(name);
-			user.setRegist_type(type);
+			user.setPlatFormType(type);
 			service.insert(user);
 			return flag;
-		} else if(email.equals(user.getUserid()) && !type.equals(user.getRegist_type()) && !user.getRegist_type().equals("")) {
+		} else if(email.equals(user.getUserid()) && !type.equals(user.getPlatFormType()) && !user.getPlatFormType().equals("")) {
 			service.updatePlatForm(email, type);
 			return flag;
-		} else if(email.equals(user.getUserid())  && user.getRegist_type().equals("")){
+		} else if(email.equals(user.getUserid())  && user.getPlatFormType().equals("")){
 			System.out.println("duplicate email");
 			flag = true;
 			return flag;
