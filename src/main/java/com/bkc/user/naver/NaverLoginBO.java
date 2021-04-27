@@ -1,4 +1,4 @@
-package com.bkc.user.vo;
+package com.bkc.user.naver;
 
 
 import java.io.IOException;
@@ -6,9 +6,14 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import com.bkc.user.controller.NaverLoginAPI;
 import com.github.scribejava.core.builder.ServiceBuilder;
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.github.scribejava.core.model.OAuthRequest;
@@ -16,6 +21,7 @@ import com.github.scribejava.core.model.Response;
 import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
 
+@Component
 public class NaverLoginBO {
 	/* 인증 요청문을 구성하는 파라미터 */
 	//client_id: 애플리케이션 등록 후 발급받은 클라이언트 아이디
@@ -97,5 +103,18 @@ public class NaverLoginBO {
 		Response response = request.send();
 		return response.getBody();
 	}
+	
+	public void deleteToken(String ACCESS_TOKEN) {
+    	String deleteUrl = "https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id="+CLIENT_ID+"&client_secret="+CLIENT_SECRET+"&access_token="+ACCESS_TOKEN+"&service_provider=NAVER";
+    	final HttpClient client = HttpClientBuilder.create().build();
+		final HttpGet get = new HttpGet(deleteUrl);
+		try {
+			final HttpResponse response = client.execute(get);
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
 
 }

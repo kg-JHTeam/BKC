@@ -14,7 +14,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class UserVO implements UserDetails {
+public class UserVO implements UserDetails{
 	private static final long serialVersionUID = 1L;
 
 	@NotEmpty(message = "필수정보입니다.")
@@ -39,12 +39,51 @@ public class UserVO implements UserDetails {
 	private boolean agree_rule2;
 
 	private boolean enabled; // default 1
-	private int regist_type; // 간편 로그인
+	private String regist_type; // 간편 로그인
 	private int usergrade; // default 03
+	
+	//security
+	private Collection<? extends GrantedAuthority> authorities;
+	
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+		this.authorities = authorities;
+	}
 
-	// Security 관련
-	private List<GrantedAuthority> authorities;
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+        
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();   
+        
+        //기본적으로 ROLE_USER
+        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        return authorities;
+	}
 
+	@Override
+	public String getUsername() {
+		return userid;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return enabled;
+	}
+	
 	public boolean isAgree_rule1() {
 		return agree_rule1;
 	}
@@ -117,11 +156,11 @@ public class UserVO implements UserDetails {
 		this.enabled = enabled;
 	}
 
-	public int getRegist_type() {
+	public String getRegist_type() {
 		return regist_type;
 	}
 
-	public void setRegist_type(int regist_type) {
+	public void setRegist_type(String regist_type) {
 		this.regist_type = regist_type;
 	}
 
@@ -138,50 +177,6 @@ public class UserVO implements UserDetails {
 		return "UserVO [userid=" + userid + ", password=" + password + ", name=" + name + ", phone=" + phone
 				+ ", sms_agree=" + sms_agree + ", email_agree=" + email_agree + ", agree_rule1=" + agree_rule1
 				+ ", agree_rule2=" + agree_rule2 + ", enabled=" + enabled + ", regist_type=" + regist_type
-				+ ", usergrade=" + usergrade + ", AUTHORITY=" + authorities + "]";
+				+ ", usergrade=" + usergrade ;
 	}
-
-	// Security 관련
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return authorities;
-	}
-
-	public void setAuthorities(List<String> authList) {
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		for (int i = 0; i < authList.size(); i++) {
-			authorities.add(new SimpleGrantedAuthority(authList.get(i)));
-		}
-		this.authorities = authorities;
-	}
-	
-	// 계정이 만료 되지 않았는가?
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-	
-	// 계정이 잠기지 않았는가?
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-	
-	// 패스워드가 만료되지 않았는가?
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-	
-	// 계정이 활성화 되었는가?
-	@Override
-	public boolean isEnabled() {
-		return true;
-	}
-	
-	@Override
-	public String getUsername() {
-		return userid;
-	}
-
 }

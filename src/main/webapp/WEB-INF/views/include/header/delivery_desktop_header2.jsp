@@ -32,7 +32,7 @@
                     </div>
                     <div class="WEB on_cont user">
                         <p>
-                            <span>User(DB)</span> 님 안녕하세요
+                            <span>${user.name }</span> 님 안녕하세요
                         </p>
                         <a href="#">
                             <strong>MYBKC 바로가기</strong>
