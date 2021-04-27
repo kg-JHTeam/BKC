@@ -61,8 +61,6 @@ $( document ).ready( function() {
 			alert("이용약관에 모두 동의해주세요.");
 			return;
 		}
-		
-		
 	}
 	
 	//업로드 성공하면 성공 

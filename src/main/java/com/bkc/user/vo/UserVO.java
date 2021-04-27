@@ -39,8 +39,9 @@ public class UserVO implements UserDetails{
 	private boolean agree_rule2;
 
 	private boolean enabled; // default 1
-	private String regist_type; // 간편 로그인
+	private int regist_type; // 간편 로그인
 	private int usergrade; // default 03
+	private String platFormType;
 	
 	//security
 	private Collection<? extends GrantedAuthority> authorities;
@@ -156,11 +157,11 @@ public class UserVO implements UserDetails{
 		this.enabled = enabled;
 	}
 
-	public String getRegist_type() {
+	public int getRegist_type() {
 		return regist_type;
 	}
 
-	public void setRegist_type(String regist_type) {
+	public void setRegist_type(int regist_type) {
 		this.regist_type = regist_type;
 	}
 
@@ -172,6 +173,14 @@ public class UserVO implements UserDetails{
 		this.usergrade = usergrade;
 	}
 
+	public String getPlatFormType() {
+		return platFormType;
+	}
+
+	public void setPlatFormType(String platFormType) {
+		this.platFormType = platFormType;
+	}
+	
 	@Override
 	public String toString() {
 		return "UserVO [userid=" + userid + ", password=" + password + ", name=" + name + ", phone=" + phone

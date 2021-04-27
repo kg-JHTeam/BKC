@@ -76,17 +76,14 @@ public class UserController {
 			vo = new UserVO();
 			vo.setUserid(email);
 			vo.setName(name);
-			vo.setRegist_type(type);
+			vo.setPlatFormType(type);
 			userService.insert(vo);
 			return flag;
 		} else if (email.equals(vo.getUserid()) && !type.equals(vo.getRegist_type())
-				&& !vo.getRegist_type().equals("")) {
-			System.out.println("change platform");
-
+				&& !vo.getPlatFormType().equals("")) {
 			userService.updatePlatForm(email, type);
 			return flag;
-		} else if (email.equals(vo.getUserid()) && vo.getRegist_type().equals("")) {
-			System.out.println("duplicate email");
+		} else if (email.equals(vo.getUserid()) && vo.getPlatFormType().equals("")) {
 			flag = true;
 			return flag;
 		}
@@ -358,16 +355,15 @@ public class UserController {
 
 	// 소셜로그인 //
 	// naver login
-	@GetMapping("/nsignin")
+	@GetMapping("/naverLogin")
 	@ResponseBody
-	public String naverSignin(HttpSession session, Model model) {
+	public String naverLogin(HttpSession session, Model model) {
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
 		return naverAuthUrl;
 	}
 
-	// naver login proc
-	@GetMapping("/nsignproc")
-	public void naverSignin(String code, String state, HttpSession session, HttpServletResponse response)
+	@GetMapping("/naverLoginProc")
+	public void naverLoginProc(String code, String state, HttpSession session, HttpServletResponse response)
 			throws Exception {
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverLoginBO.getAccessToken(session, code, state);
@@ -394,15 +390,14 @@ public class UserController {
 	}
 
 	// kakao login
-	@GetMapping("/ksignin")
+	@GetMapping("/kakaoLoginin")
 	@ResponseBody
-	public String kakaoSignin() {
+	public String kakaoLoginin() {
 		return KakaoLoginApi.getAuthorizationUrl();
 	}
 
-	// kakao login proc
-	@GetMapping("/ksignproc")
-	public void kakaoSignin(String code, HttpServletResponse response, HttpSession session) throws Exception {
+	@GetMapping("/kakaoLogininProc")
+	public void kakaoLogininProc(String code, HttpServletResponse response, HttpSession session) throws Exception {
 		JsonNode accessToken;
 		 
         // JsonNode트리형태로 토큰받아온다
