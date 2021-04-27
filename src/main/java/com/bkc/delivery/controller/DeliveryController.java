@@ -27,6 +27,17 @@ public class DeliveryController {
 		return "delivery/delivery";
 	}
 	
+	//주문내역 페이지로 이동
+	@RequestMapping(value = "/orderList.do", method = RequestMethod.GET)
+	public String orderList(Model model) {
+		System.out.println("회원 주문내역 페이지 이동");
+		
+		//푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		return "delivery/orderList";
+	}
+	
 }
 
 

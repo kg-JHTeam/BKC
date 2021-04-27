@@ -44,7 +44,7 @@
         <div class="WEB on_cont head_personalWrap">
             <div class="web_container">
                 <div class="personal_logon">
-                    <a href="#">
+                    <a href="${contextPath}/delivery/orderList.do">
                         <div class="personal_order">
                             <dl>
                                 <dt>
