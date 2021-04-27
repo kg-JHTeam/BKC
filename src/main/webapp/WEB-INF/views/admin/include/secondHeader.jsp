@@ -93,6 +93,7 @@
                                             <a class="nav-link" href="">주문리스트</a>
                                             <a class="nav-link" href="">주문취소리스트</a>
                                             <a class="nav-link" href="">결제관리</a>
+                                            <a class="nav-link" href="${contextPath}/delivery/admin/cautionList.ad">이용약관</a>
                                         </nav>
                                     </div>
                                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseFooter" aria-expanded="false" aria-controls="pagesCollapseError">
