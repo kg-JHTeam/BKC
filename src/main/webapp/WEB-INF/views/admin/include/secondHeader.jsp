@@ -43,7 +43,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                 	<a class="nav-link" href="#">쿠폰배포 </a>
                                     <a class="nav-link" href="#">새 쿠폰 추가 </a>
-                                    <a class="nav-link" href="#">쿠폰 리스트</a>
+                                    <a class="nav-link" href="${contextPath}/admin/couponlist.ad">쿠폰 리스트</a>
                                     <a class="nav-link" href="#">쿠폰 수정</a>
                                     <a class="nav-link" href="#">쿠폰 삭제</a>
                                 </nav>
