@@ -122,8 +122,7 @@ li{
                         
                         <ul class="prdmenu_list">
                            <c:forEach var="chickendv" items="${chickendv}">
-                            <li>
-                            
+                            <li>                           
                                 <div class="prd_img">
                                    
                                     <span>
@@ -151,7 +150,7 @@ li{
                                 </a>
                                  
                             </li>
-                               </c:forEach>
+                             </c:forEach>
                         </ul>
                      
                         <ul class="prdmenu_list">
