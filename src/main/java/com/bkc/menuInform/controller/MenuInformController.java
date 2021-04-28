@@ -28,7 +28,7 @@ public class MenuInformController {
 		return "subpages/menuInform/chickenMenu";
 	}
 
-//치킨메뉴 디테일
+	//치킨메뉴 디테일
 	@RequestMapping(value = "/chickenmenudetail.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String chickenmenudetail(@RequestParam int product_serial, Model model) {
 		// 상세조회
@@ -64,7 +64,7 @@ public class MenuInformController {
 		return "subpages/menuInform/beerzonedetail";
 	}
 
-	// 게시글 목록 조회 bkc/menuInform/sideMenu.do
+	// 사이드 목록 조회 bkc/menuInform/sideMenu.do
 	@RequestMapping(value = "/sideMenu.do", method = { RequestMethod.GET, RequestMethod.POST })
 	private String getSidemenuList(Model model) {
 		List<ProductVO> sidemenuList = productService.getSidemenuList();
@@ -73,7 +73,7 @@ public class MenuInformController {
 		return "subpages/menuInform/sideMenu";
 	}
 
-	// 게시글 디테일
+	// 사이드 디테일
 	@RequestMapping(value = "/sidemenudetail.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String sidemenudetail(@RequestParam int product_serial, Model model) {
 		// 상세조회
@@ -86,4 +86,28 @@ public class MenuInformController {
 
 		return "subpages/menuInform/sidemenudetail";
 	}
+	
+	// 신메뉴 리스트 조회
+	
+		@RequestMapping(value = "/newMenu.do", method = { RequestMethod.GET, RequestMethod.POST })
+		private String getNewmenuList(Model model) {
+			List<ProductVO> newmenuList = productService.getNewmenuList();
+			model.addAttribute("newmenuList", newmenuList);
+
+			return "subpages/menuInform/newMenu";
+		}
+
+		// 신 디테일
+		@RequestMapping(value = "/newmenudetail.do", method = { RequestMethod.GET, RequestMethod.POST })
+		public String newmenudetail(@RequestParam int product_serial, Model model) {
+			// 상세조회
+			ProductVO newmenu = productService.getNewmenu(product_serial);
+			model.addAttribute("newmenu", newmenu);
+
+			// 밑에부분 신메뉴 관련
+			List<ProductVO> newmenuList = productService.getNewmenuList();
+			model.addAttribute("newmenuList", newmenuList);
+
+			return "subpages/menuInform/newmenudetail";
+		}
 }

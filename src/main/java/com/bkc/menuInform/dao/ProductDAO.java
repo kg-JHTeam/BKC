@@ -20,4 +20,8 @@ public interface ProductDAO {
 	public List<ProductVO> getBeerzoneList();
 	//비어존 디테일
 	public ProductVO getBeerzone(int product_serial);
+	//사이드메뉴 리스트
+	public List<ProductVO> getNewmenuList();
+	//사이드메뉴 디테일
+	public ProductVO getNewmenu(int product_serial);
 }

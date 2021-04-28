@@ -42,4 +42,14 @@
 			SELECT * FROM faq where seq= #{seq}
 		]]>
 	</select>
+	
+	<insert id="updateFaq">
+		<![CDATA[
+		UPDATE 
+			faq
+		SET  
+			contents=#{contents}, title=#{title}, category=#{category}
+		WHERE seq = #{seq};
+		]]>
+	</insert>
 </mapper>

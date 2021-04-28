@@ -23,9 +23,10 @@
                 <ul>
                     <li><a href="#">메뉴소개</a><span></span>
                         <ul>
-                        <li><a href="${contextPath}/menu/menu.do">치킨메뉴</a></li>
-                        <li><a href="${contextPath}/menu/menu.do">사이드메뉴</a></li>
-                        <li><a href="${contextPath}/menu/menu.do">비어존메뉴</a></li>
+                        <li><a href="${contextPath}/menuInform/newMenu.do">new메뉴</a></li>
+                        <li><a href="${contextPath}/menuInform/chickenMenu.do">치킨메뉴</a></li>
+                        <li><a href="${contextPath}/menuInform/sideMenu.do">사이드메뉴</a></li>
+                        <li><a href="${contextPath}/menuInform/beerZone.do">비어존메뉴</a></li>
                         </ul>
                     </li>
                     <li><a href="#">매장소개</a><span></span>

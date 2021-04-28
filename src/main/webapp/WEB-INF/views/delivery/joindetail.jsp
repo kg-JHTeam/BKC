@@ -54,7 +54,6 @@ $( document ).ready( function() {
 			alert("인증을 완료해주세요.");
 			return;
 		}
-		
 		//1. 약관 필수 값들 검증 
 		if ((a1.checked== "1" && a2.checked == "1")) {
 			document.getElementById("smsForm").submit();
@@ -62,8 +61,6 @@ $( document ).ready( function() {
 			alert("이용약관에 모두 동의해주세요.");
 			return;
 		}
-		
-		
 	}
 	
 	//업로드 성공하면 성공 
@@ -80,12 +77,13 @@ $( document ).ready( function() {
 		}
 	}
 	
-var contextpath = "<c:out value='${contextPath}'/>";
+		var contextpath = "<c:out value='${contextPath}'/>";
 		var checkTimer = false; //default
 		var checkCount = 3; //인증번호 재전송 횟수 
 		var timer;
 		var checkNumber; //인증번호 
 		var valid = false;
+		
 		//타이머 
 		function startTimer() {
 			checkTimer = true; //작동중
@@ -95,7 +93,6 @@ var contextpath = "<c:out value='${contextPath}'/>";
 			
 			//인증번호 재전송 횟수 감소
 			checkCount--;
-			
 			timer = setInterval(function() {
 				min = parseInt(time / 60);
 				sec = time % 60;
@@ -188,8 +185,6 @@ var contextpath = "<c:out value='${contextPath}'/>";
 						alert("핸드폰 번호를 확인해주세요");
 					}
 				});
-			
-
 			$(".modal .modal-content .close-button").click(function() {
 				$(".modal").css("display", "none");
 				stopTimer(); //타이머 정지 시킴 

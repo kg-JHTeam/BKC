@@ -52,6 +52,11 @@
 							<ul>
 								<li class="off">
 									<button type="button">
+										<a href="${contextPath}/menuInform/newMenu.do">new메뉴</a>
+									</button>
+								</li>
+								<li class="off">
+									<button type="button">
 										<a href="${contextPath}/menuInform/chickenMenu.do">치킨메뉴</a>
 									</button>
 								</li>
@@ -64,7 +69,7 @@
 									<button type="button">
 										<a href="${contextPath}/menuInform/beerZone.do">비어존 메뉴</a>
 									</button>
-								</li>
+								</li>								
 							</ul>
 						</div>
 					</div>

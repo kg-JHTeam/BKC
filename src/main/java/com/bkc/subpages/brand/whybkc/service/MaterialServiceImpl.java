@@ -18,4 +18,24 @@ public class MaterialServiceImpl implements MaterialService{
 	public List<MaterialVO> MaterialList(MaterialVO materialVO){
 		return dao.MaterialList(materialVO);
 	}
+	
+	@Override
+	public MaterialVO getMaterial(int seq) {
+		return dao.getMaterial(seq);
+	}
+	
+	@Override
+	public int deleteMaterial(int seq) {
+		return dao.deleteMaterial(seq);
+	}
+	
+	@Override
+	public int insertMaterial(MaterialVO materialVO) {
+		return dao.insertMaterial(materialVO);
+	}
+	
+	@Override
+	public int updateMaterial(MaterialVO materialVO) {
+		return dao.updateMaterial(materialVO);
+	}
 }

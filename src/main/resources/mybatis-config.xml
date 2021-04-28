@@ -4,13 +4,13 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.bkc.user.vo.UserVO" alias="UserVO" />
+		<typeAlias type="com.bkc.user.vo.CouponVO" alias="CouponVO"/>
+		<typeAlias type="com.bkc.user.vo.UserCouponVO" alias="UserCouponVO"/>
 		<typeAlias type="com.bkc.customerService.vo.NoticeVO" alias="NoticeVO" />
 		<typeAlias type="com.bkc.admin.board.banner.vo.BannerVO" alias="BannerVO" />
 		<typeAlias type="com.bkc.menuInform.vo.ProductVO" alias="ProductVO"/>
 		<typeAlias type="com.bkc.customerService.vo.FaqVO" alias="FaqVO" />
-		<typeAlias type="com.bkc.admin.board.businessInformation.vo.BusinessInformationVO" alias="BusinessInformationVO" />
-		<typeAlias type="com.bkc.admin.board.menuInfom.vo.MenuAdVO" alias="MenuAdVO"/>
-		
+		<typeAlias type="com.bkc.admin.board.businessInformation.vo.BusinessInformationVO" alias="BusinessInformationVO" />	
 		<typeAlias type="com.bkc.admin.board.term.vo.TermVO" alias="TermVO"/>
 		<typeAlias type="com.bkc.admin.board.term.vo.TermEmailVO" alias="TermEmailVO"/>
 		<typeAlias type="com.bkc.admin.board.term.vo.TermPrivacyVO" alias="TermPrivacyVO"/>
@@ -22,6 +22,8 @@
 		<typeAlias type="com.bkc.subpages.brand.whybkc.vo.ContributionVO" alias="ContributionVO"/>
 		<typeAlias type="com.bkc.event.vo.EventVO" />
 		<typeAlias type="com.bkc.event.vo.StoreVO" />
+		<typeAlias type="com.bkc.delivery.vo.CautionVO" alias="CautionVO"/>
+		<typeAlias type="com.bkc.delivery.vo.DvProductVO" alias="DvProductVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

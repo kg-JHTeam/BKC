@@ -44,4 +44,9 @@ public class FaqServiceImpl implements FaqService{
 	public FaqVO getFaq(int seq) {
 		return dao.getFaq(seq);
 	}
+	
+	@Override
+	public int updateFaq(FaqVO faqVO) {
+		return dao.updateFaq(faqVO);
+	}
 }

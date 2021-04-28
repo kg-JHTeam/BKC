@@ -20,8 +20,8 @@ public class YoutubeServiceImpl implements YoutubeService {
 	}
 
 	@Override
-	public YoutubeVO getYoutubeBySeq(YoutubeVO vo) {
-		return ytDao.getYoutubeBySeq(vo);
+	public YoutubeVO getYoutubeBySeq(int img_seq) {
+		return ytDao.getYoutubeBySeq(img_seq);
 	}
 
 	@Override
@@ -29,6 +29,11 @@ public class YoutubeServiceImpl implements YoutubeService {
 		return ytDao.changeStatusYoutube(img_seq);
 	}
 
+	@Override
+	public int changeAllStatusYoutube(int img_seq) {
+		return ytDao.changeAllStatusYoutube(img_seq);
+	}
+	
 	@Override
 	public int deleteYoutube(int img_seq) {
 		return ytDao.deleteYoutube(img_seq);
@@ -48,5 +53,7 @@ public class YoutubeServiceImpl implements YoutubeService {
 	public int updateYoutube(YoutubeVO vo) {
 		return ytDao.updateYoutube(vo);
 	}
+
+	
 
 }

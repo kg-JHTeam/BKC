@@ -1,7 +1,7 @@
 package com.bkc.user.controller;
 
-import java.io.IOException;
-import java.sql.SQLException;
+import java.io.PrintWriter;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,12 +38,17 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import com.bkc.admin.board.banner.vo.CheckVO;
 import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
+import com.bkc.user.common.LoginUtil;
+import com.bkc.user.kakao.KakaoLoginApi;
+import com.bkc.user.kakao.KakaoUserInfo;
+import com.bkc.user.naver.NaverLoginBO;
 import com.bkc.user.service.UserService;
-import com.bkc.user.vo.NaverLoginBO;
 import com.bkc.user.vo.SendMessageVO;
 import com.bkc.user.vo.UserVO;
+
+import org.codehaus.jackson.JsonNode;
+
 import com.github.scribejava.core.model.OAuth2AccessToken;
-import com.thoughtworks.qdox.parser.ParseException;
 
 @Controller
 public class UserController {
@@ -57,6 +63,32 @@ public class UserController {
 
 	@Autowired
 	private BusinessInformationService biService;
+
+	@Autowired
+	private NaverLoginBO naverLoginBO;
+	
+	@Autowired
+	private LoginUtil loginUtil;
+	
+	public boolean socialLoginProc(String email, String name, String type, UserVO vo) {
+		boolean flag = false;
+		if (vo == null) {
+			vo = new UserVO();
+			vo.setUserid(email);
+			vo.setName(name);
+			vo.setPlatFormType(type);
+			userService.insert(vo);
+			return flag;
+		} else if (email.equals(vo.getUserid()) && !type.equals(vo.getRegist_type())
+				&& !vo.getPlatFormType().equals("")) {
+			userService.updatePlatForm(email, type);
+			return flag;
+		} else if (email.equals(vo.getUserid()) && vo.getPlatFormType().equals("")) {
+			flag = true;
+			return flag;
+		}
+		return flag;
+	}
 
 	// login 처리
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
@@ -73,38 +105,7 @@ public class UserController {
 		model.addAttribute("bi", bi);
 		return "delivery/login";
 	}
-	
-	// 네이버 로그인 처리 
-	@GetMapping("/callback.do")
-	public String callback(
-			@RequestParam String code, 
-			@RequestParam String state, 
-			HttpSession session, HttpServletResponse servletResponse, 
-			Model model ) throws IOException, org.json.simple.parser.ParseException {
 
-		NaverLoginBO naverLoginBO = null;
-		OAuth2AccessToken oauthToken = naverLoginBO.getAccessToken(session, code, state);
-
-		//로그인 사용자 정보를 읽어온다.
-		String apiResult = naverLoginBO.getUserProfile(oauthToken);
-		System.out.println(apiResult.toString());
-
-		// 내가 원하는 정보 (이름)만 JSON타입에서 String타입으로 바꿔 가져오기 위한 작업 
-		JSONParser parser = new JSONParser(); 
-		Object obj = null; 
-
-		try { 
-			obj = parser.parse(apiResult);
-		} catch (ParseException e) {
-			e.printStackTrace(); 
-		}
-
-		JSONObject jsonobj = (JSONObject) obj; 
-		JSONObject response = (JSONObject) jsonobj.get("response");
-
-		return "/delivery/delivery";
-	}
-	
 	// 회원가입 페이지로 이동
 	@RequestMapping(value = "/join", method = { RequestMethod.GET, RequestMethod.POST })
 	public String join(Model model) {
@@ -125,12 +126,12 @@ public class UserController {
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 		model.addAttribute("user", new UserVO());
-		
+
 		// checking
 		CheckVO check = new CheckVO();
 		check.setSuccess("default");
 		model.addAttribute("check", check);
-		
+
 		return "delivery/joindetail";
 	}
 
@@ -153,18 +154,13 @@ public class UserController {
 		// checking
 		CheckVO check = new CheckVO();
 		check.setSuccess("default");
-		
+
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
-		
+
 		/*
-							  <join check protocol>  
-							  0 : 성공
-							  1 : DataIntegrityViolationException 중복 
-							  2 : 아이디 이메일형식으로
-							  3 : 에러 처리
-							  4 : 휴대폰 번호. 
-							  default : 회원가입 실패
+		 * <join check protocol> 0 : 성공 1 : DataIntegrityViolationException 중복 2 : 아이디
+		 * 이메일형식으로 3 : 에러 처리 4 : 휴대폰 번호. 중복 default : 회원가입 실패
 		 */
 
 		try {
@@ -172,7 +168,7 @@ public class UserController {
 			if (result.hasErrors()) {
 				List<ObjectError> errors = result.getAllErrors();
 				for (ObjectError error : errors) {
-					if(error.getDefaultMessage().contentEquals("이메일 형식만 가능합니다.")) {
+					if (error.getDefaultMessage().contentEquals("이메일 형식만 가능합니다.")) {
 						check.setSuccess("2");
 					} else {
 						check.setSuccess("3");
@@ -184,6 +180,7 @@ public class UserController {
 
 			userService.insert(user);
 			userService.sendJoinMail(user); // 이메일 전송
+
 			check.setSuccess("0");
 			model.addAttribute("check", check);
 			return "delivery/joinsucess";
@@ -198,7 +195,7 @@ public class UserController {
 			return "delivery/joindetail";
 		}
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/sendsms.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String sendSms(HttpServletRequest request, SendMessageVO vo) throws Exception {
@@ -208,7 +205,7 @@ public class UserController {
 		int trim = (int) Math.pow(10, 6 - 1);
 		int results = random.nextInt(range) + trim;
 		String checkNumber = Integer.toString(results);
-		
+
 		String api_key = "NCSGGM7FUQCUJQMR"; // 위에서 받은 api key를 추가
 		String api_secret = "5PENVLCAQYEN4ZTLNQRO3BGXYRFICZJL"; // 위에서 받은 api secret를 추가
 		com.bkc.user.sms.Coolsms coolsms = new com.bkc.user.sms.Coolsms(api_key, api_secret);
@@ -220,18 +217,16 @@ public class UserController {
 		set.put("type", "sms"); // 문자 타입
 
 		JSONObject result = coolsms.send(set); // 보내기&전송결과받기
-		
-		//results 이게 인증 번호임.
+		// results 이게 인증 번호임.
 		if ((boolean) result.get("status") == true) {
 			// 메시지 보내기 성공 및 전송결과 출력
 			return checkNumber;
-		} 
-		else {
+		} else {
 			// 메시지 보내기 실패
 			return "false";
 		}
 	}
-	
+
 	// 아이디 찾기/비밀번호 찾기 url나누기
 	@PostMapping("/finduser")
 	public String spiltFindLogin(Model model, HttpServletRequest request, HttpServletResponse response,
@@ -250,8 +245,8 @@ public class UserController {
 			redirectAttr.addFlashAttribute("name", name);
 			redirectAttr.addFlashAttribute("phone", checkStr);
 			return "redirect:/findid";
-		} 
-		
+		}
+
 		// 이메일 인 경우
 		else {
 			System.out.println("비밀번호 찾기 ");
@@ -298,7 +293,6 @@ public class UserController {
 	// 비밀번호 찾기
 	@RequestMapping(value = "/findpwd", method = { RequestMethod.GET, RequestMethod.POST })
 	public String findpwdUser(HttpServletRequest request, HttpServletResponse response, Model model) {
-
 		try {
 			String name = "";
 			String userid = "";
@@ -308,6 +302,7 @@ public class UserController {
 				name = (String) redirectMap.get("name"); // 오브젝트 타입이라 캐스팅해줌
 				userid = (String) redirectMap.get("userid");
 			}
+
 			// 이메일을 통해 UserVO 얻음.
 			UserVO vo = userService.getUserById(userid);
 
@@ -336,12 +331,13 @@ public class UserController {
 
 			// 비밀번호 변경 완료 된후 findepwdsuccess page로 이동
 			return "delivery/findpwdsuccess";
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "redirect:/userfind";
 		}
 	}
-	
+
 	// 회원 수정
 	@RequestMapping("/modifyuser")
 	public String modifyUser(Model model, @Valid UserVO user, BindingResult result) {
@@ -355,5 +351,84 @@ public class UserController {
 	public String deleteUser(Model model, @Valid UserVO user, BindingResult result) {
 		// 회원 탈퇴 하지만 enabled만 유효하지 않게 설정 1-> 0 유효하지 않은 회원
 		return "deleteuser";
+	}
+
+	// 소셜로그인 //
+	// naver login
+	@GetMapping("/naverLogin")
+	@ResponseBody
+	public String naverLogin(HttpSession session, Model model) {
+		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+		return naverAuthUrl;
+	}
+
+	@GetMapping("/naverLoginProc")
+	public void naverLoginProc(String code, String state, HttpSession session, HttpServletResponse response)
+			throws Exception {
+		OAuth2AccessToken oauthToken;
+		oauthToken = naverLoginBO.getAccessToken(session, code, state);
+		// 로그인 사용자 정보를 읽어온다.
+		JSONParser jsonParser = new JSONParser();
+		JSONObject jsonObject = (JSONObject) jsonParser.parse(naverLoginBO.getUserProfile(oauthToken));
+		jsonObject = (JSONObject) jsonObject.get("response");
+		String email = (String) jsonObject.get("email");
+		String name = (String) jsonObject.get("name");
+		
+		UserVO vo = userService.getUserById(email);
+		boolean flag = loginUtil.socialLoginProc(email, name, "naver", vo);
+		response.setContentType("text/html; charset=utf-8");
+
+		if (!flag) {
+			loginUtil.loginWithoutForm(email);
+			vo = userService.getUserById(email);
+			session.setAttribute("id", vo.getUserid());
+			session.setAttribute("email", email);
+			session.setAttribute("platform", vo.getRegist_type());
+		} else {
+			naverLoginBO.deleteToken(oauthToken.getAccessToken());
+		}
+	}
+
+	// kakao login
+	@GetMapping("/kakaoLoginin")
+	@ResponseBody
+	public String kakaoLoginin() {
+		return KakaoLoginApi.getAuthorizationUrl();
+	}
+
+	@GetMapping("/kakaoLogininProc")
+	public void kakaoLogininProc(String code, HttpServletResponse response, HttpSession session) throws Exception {
+		JsonNode accessToken;
+		 
+        // JsonNode트리형태로 토큰받아온다
+        JsonNode jsonToken = KakaoLoginApi.getKakaoAccessToken(code);
+        
+        // 여러 json객체 중 access_token을 가져온다
+        accessToken = jsonToken.get("access_token");
+        
+        // access_token을 통해 사용자 정보 요청
+        JsonNode userInfo = KakaoUserInfo.getKakaoUserInfo(accessToken);
+        
+        // 유저정보 카카오에서 가져오기 Get properties
+        JsonNode properties = userInfo.path("properties");
+        JsonNode kakao_account = userInfo.path("kakao_account");
+		
+		String name = properties.path("nickname").asText();
+		String email = kakao_account.path("email").asText();
+		UserVO vo = userService.getUserById(email);
+		
+		boolean flag = loginUtil.socialLoginProc(email, name, "kakao", vo);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+
+		if (!flag) {
+			loginUtil.loginWithoutForm(email);
+			vo = userService.getUserById(email);
+			session.setAttribute("id", vo.getUserid());
+			session.setAttribute("email", email);
+			session.setAttribute("platform", vo.getRegist_type());
+		} else {
+			KakaoLoginApi.deleteToken(code, accessToken);
+		}
 	}
 }

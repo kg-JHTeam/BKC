@@ -19,5 +19,24 @@ public class AboutbkcServiceImpl implements AboutbkcService{
 	public List<AboutbkcVO> AboutbkcList(AboutbkcVO aboutbkcVO){
 		return dao.AboutbkcList(aboutbkcVO);
 	}
-
+	
+	@Override
+	public AboutbkcVO getAboutbkc(int seq) {
+		return dao.getAboutbkc(seq);
+	}
+	
+	@Override
+	public int deleteAboutbkc(int seq) {
+		return dao.deleteAboutbkc(seq);
+	}
+	
+	@Override
+	public int insertAboutbkc(AboutbkcVO aboutbkcVO) {
+		return dao.insertAboutbkc(aboutbkcVO);
+	}
+	
+	@Override
+	public int updateAboutbkc(AboutbkcVO aboutbkcVO) {
+		return dao.updateAboutbkc(aboutbkcVO);
+	}
 }

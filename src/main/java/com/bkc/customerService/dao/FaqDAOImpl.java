@@ -44,4 +44,9 @@ public class FaqDAOImpl implements FaqDAO{
 	public FaqVO getFaq(int seq) {
 		return sqlSession.selectOne("getFaq", seq);
 	}
+	
+	@Override
+	public int updateFaq(FaqVO faqVO) {
+		return sqlSession.insert("updateFaq", faqVO);
+	}
 }

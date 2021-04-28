@@ -26,5 +26,8 @@ public interface BannerService {
 
 	// 배너 등록 
 	public int insertBanner(BannerVO vo);
+
+	// 배너 수정
+	public int updateBanner(BannerVO vo);
 	
 }

@@ -91,7 +91,7 @@
                                 </label>
                                 <label>
                                 	<!-- 자동로그인 구현  -->
-                                    <input name="remember-me" type="checkbox" name="box" class="autologin_check">
+                                    <input name="remember-me" type="checkbox" id="remember" name="remember" class="autologin_check">
                                     <span>자동 로그인</span>
                                 </label>
                             </div>
@@ -119,11 +119,14 @@
                         <ul class="list">
                             <li class="naver">
                                 <a href="javascript:logoutWithKaKao();">
-                                    <span>카카오톡 로그아웃</span>
+                                    <span>네이버 로그인</span>
                                 </a>
                             </li>
                             <li class="kakao">
-                                <a href="javascript:kakaoLogin();">
+                                <a href="https://kauth.kakao.com/oauth/authorize
+								    ?client_id=58b56f07d241278f1adbf8155ab6cd91
+								    &redirect_uri=http://localhost:8080/kakaologin
+								    &response_type=code">
                                     <span>카카오톡 로그인</span>
                                 </a>
                             </li>
@@ -135,7 +138,6 @@
                             </li>
                         </ul>
                     </div>
-                    
                     <!-- csrf 토큰  -->
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
                 </form>
@@ -166,7 +168,7 @@
                             <p>회원가입 없이 비회원으로 주문이 가능합니다.</p>
                         </div>
                         <div class="nonmemberorder_btn">
-                            <a href="#" class="btn_nonmember">
+                            <a href="${contextPath}/guestUserPage" class="btn_nonmember">
                                 <span>비회원 주문</span>
                             </a>
                         </div>

@@ -10,5 +10,38 @@
 	<select id="RealchickenList" resultType="RealchickenVO">
 		select * from brand_whybkc_realchicken
 	</select>
+	
+	<select id="getRealchicken" resultType="RealchickenVO">
+		<![CDATA[
+			SELECT * FROM brand_whybkc_realchicken where seq= #{seq}
+		]]>
+	</select>
+	
+	<delete id="deleteRealchicken" >
+		<![CDATA[
+			DELETE FROM brand_whybkc_realchicken
+			WHERE
+				seq = #{seq}
+		]]>
+	</delete>
+	
+	<insert id="insertRealchicken" > 
+		<![CDATA[
+			INSERT INTO 
+				brand_whybkc_realchicken(seq, content, path)
+			VALUES 
+				(#{seq}, #{content}, #{path});
+		]]>
+	</insert>
+	
+	<insert id="updateRealchicken">
+		<![CDATA[
+		UPDATE 
+			brand_whybkc_realchicken
+		SET  
+			content=#{content}, path=#{path}
+		WHERE seq = #{seq};
+		]]>
+	</insert>
 </mapper>
 

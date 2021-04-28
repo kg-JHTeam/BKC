@@ -48,6 +48,11 @@
                         <h3 class="page_tit">메뉴소개</h3>
                         <div class="tab01">
                             <ul>
+                               <li class="off">
+                                    <button type="button">
+                                        <a href="${contextPath}/menuInform/newMenu.do">new메뉴</a>
+                                    </button>
+                                </li>
                                 <li class="off">
                                     <button type="button">
                                         <a href="${contextPath}/menuInform/chickenMenu.do">치킨메뉴</a>
@@ -57,12 +62,13 @@
                                     <button type="button">
                                         <a href="${contextPath}/menuInform/sideMenu.do">사이드 메뉴</a>
                                     </button>
-                                </li>
+                                </li>                               
                                 <li class="on">
                                     <button type="button">
                                         <a href="${contextPath}/menuInform/beerZone.do">비어존 메뉴</a>
                                     </button>
                                 </li>
+                                
                             </ul>
                         </div>
                     </div>

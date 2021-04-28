@@ -38,7 +38,7 @@
 					<div class="card mb-4">
 						<div class="card-body">
 							<div class="table-responsive">
-								<form role="form" action="${contextPath}/admin/modifyBanner.ad" method="post">
+								<form role="form" action="${contextPath}/admin/modifyBanner.ad" method="post" enctype="multipart/form-data">
 									<div class="form-group" id="imgDetail">
 										<h4>이미지 상세 </h4><br>
 										<h5><input type="file" name="banner" value="배너변경" class="btn btn-success"/></h5><br/>

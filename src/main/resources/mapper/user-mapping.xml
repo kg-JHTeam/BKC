@@ -78,5 +78,4 @@
 		WHERE userid=#{userid};
 		]]>
 	</insert>
-	
 </mapper>

@@ -16,11 +16,14 @@ public interface YoutubeDAO {
 	public List<YoutubeVO> getYoutubeUsedList();
 	
 	// 유튜브 광고 정보 상세 조회
-	public YoutubeVO getYoutubeBySeq(YoutubeVO vo);
+	public YoutubeVO getYoutubeBySeq(int img_seq);
 	
 	// 유튜브 광고 status 변경
 	public int changeStatusYoutube(int img_seq);
 
+	// 유튜브 광고 status 매개변수값 제외 모두 변경 
+	public int changeAllStatusYoutube(int img_seq);
+	
 	// 유튜브 광고 삭제
 	public int deleteYoutube(int img_seq);
 
@@ -32,5 +35,6 @@ public interface YoutubeDAO {
 
 	// 유튜브 광고 수정
 	public int updateYoutube(YoutubeVO vo);
+
 
 }

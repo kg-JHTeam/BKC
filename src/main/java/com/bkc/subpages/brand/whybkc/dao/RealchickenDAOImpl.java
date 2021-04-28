@@ -18,5 +18,24 @@ public class RealchickenDAOImpl implements RealchickenDAO{
 	public List<RealchickenVO> RealchickenList(RealchickenVO realchickenVO){
 		return sqlSession.selectList("RealchickenList", realchickenVO);
 	}
-
+	
+	@Override
+	public RealchickenVO getRealchicken(int seq) {
+		return sqlSession.selectOne("getRealchicken", seq);
+	}
+	
+	@Override
+	public int deleteRealchicken(int seq) {
+		return sqlSession.insert("deleteRealchicken", seq);
+	}
+	
+	@Override
+	public int insertRealchicken(RealchickenVO realchickenVO) {
+		return sqlSession.insert("insertRealchicken", realchickenVO);
+	}
+	
+	@Override
+	public int updateRealchicken(RealchickenVO realchickenVO) {
+		return sqlSession.insert("updateRealchicken", realchickenVO);
+	}
 }

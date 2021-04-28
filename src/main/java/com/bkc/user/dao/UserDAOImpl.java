@@ -74,4 +74,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("getUserByNameAndPhone", vo);		
 	}
 
+	@Override
+	public List<String> selectUserAuthOne(String username) {
+		return null;
+	}
+
 }

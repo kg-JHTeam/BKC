@@ -51,5 +51,14 @@
 				(#{use_status}, #{content}, #{title}, #{path});
 		]]>
 	</insert>
-
+	<insert id="updateBanner">
+		<![CDATA[
+		UPDATE 
+			banner
+		SET  
+			content=#{content}, title=#{title}, path=#{path}
+		WHERE img_seq = #{img_seq};
+		]]>
+	</insert>
+	
 </mapper>

@@ -48,7 +48,7 @@
                     <a href="${contextPath}/menuInform/chickenMenu.do" class="arrow">
                         <span>치킨메뉴</span>
                     </a>
-                    <a href="${contextPath}/menuInform/chickenmenudetail.do" class="arrow">
+                   <a href="#" class="arrow">
                         <span>${chickenMenu.product_name}</span>
                     </a>
                 </div>
@@ -116,7 +116,7 @@
                                     <img src="${chicken.path }">
                                     <div class="cont">
                                         <p class="tit">
-                                           <strong>"${chicken.product_name }"</strong>
+                                           <strong>${chicken.product_name }</strong>
                                         </p>
                                     </div>                                   
                                 </span>

@@ -1,6 +1,8 @@
 package com.bkc.user.vo;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.constraints.Email;
@@ -9,13 +11,10 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.ToString;
-
-public class UserVO {
+public class UserVO implements UserDetails{
 	private static final long serialVersionUID = 1L;
 
 	@NotEmpty(message = "필수정보입니다.")
@@ -42,10 +41,50 @@ public class UserVO {
 	private boolean enabled; // default 1
 	private int regist_type; // 간편 로그인
 	private int usergrade; // default 03
+	private String platFormType;
+	
+	//security
+	private Collection<? extends GrantedAuthority> authorities;
+	
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+		this.authorities = authorities;
+	}
 
-	// Security 관련
-	//private Set<GrantedAuthority> autorities;
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+        
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();   
+        
+        //기본적으로 ROLE_USER
+        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        return authorities;
+	}
 
+	@Override
+	public String getUsername() {
+		return userid;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return enabled;
+	}
+	
 	public boolean isAgree_rule1() {
 		return agree_rule1;
 	}
@@ -134,5 +173,19 @@ public class UserVO {
 		this.usergrade = usergrade;
 	}
 
+	public String getPlatFormType() {
+		return platFormType;
+	}
 
+	public void setPlatFormType(String platFormType) {
+		this.platFormType = platFormType;
+	}
+	
+	@Override
+	public String toString() {
+		return "UserVO [userid=" + userid + ", password=" + password + ", name=" + name + ", phone=" + phone
+				+ ", sms_agree=" + sms_agree + ", email_agree=" + email_agree + ", agree_rule1=" + agree_rule1
+				+ ", agree_rule2=" + agree_rule2 + ", enabled=" + enabled + ", regist_type=" + regist_type
+				+ ", usergrade=" + usergrade ;
+	}
 }

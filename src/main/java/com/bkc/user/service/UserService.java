@@ -41,6 +41,7 @@ public interface UserService {
 	//비밀번호 변경
 	public int updatePasswd(UserVO vo);
 	
+	
 	//Service내 메서드
 	//이메일로 임시 비밀번호 발급 메서드 
 	public String sendTempPassword(UserVO vo);
@@ -49,6 +50,6 @@ public interface UserService {
 	public void sendJoinMail(UserVO vo);
 
 	
-	
-	
+	//네이버 카카오 변경
+	public void updatePlatForm(String email, String type);
 }

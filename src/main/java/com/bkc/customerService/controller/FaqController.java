@@ -60,7 +60,7 @@ public class FaqController {
 		return "admin/subpages/faq/faqlist";
 	}
 	
-	//배너 삭제
+	//삭제
 	@RequestMapping(value = "/admin/FaqDelete.ad", method = RequestMethod.GET)
 	public String FaqDelete(Model model, @RequestParam("seq") int seq){
 		
@@ -84,6 +84,7 @@ public class FaqController {
 		
 		return "redirect:/admin/faqlist.ad";
 	}
+	//업로드
 	@RequestMapping(value = "/admin/faqUploadpage.ad", method = RequestMethod.GET)
 	public String FaqInsert() {
 		return "admin/subpages/faq/faqUploadpage";
@@ -100,12 +101,19 @@ public class FaqController {
 	}
 	//수정
 	@RequestMapping(value = "/admin/modifyFaq.ad", method = RequestMethod.GET)
-	public String modifyFaq(Model model, @RequestParam("seq") int seq) {
+	public String modifyFaq(@RequestParam("title") String title, @RequestParam("contents") String contents, @RequestParam("category") String category, Model model, @RequestParam("seq") int seq) {
 		
 		FaqVO faqVO = service.getFaq(seq);
+		faqVO.setTitle(title);
+		faqVO.setCategory(category);
+		faqVO.setContents(contents);
+		faqVO.setSeq(seq);
+		
+		service.updateFaq(faqVO);
+		
 		model.addAttribute("faqVO", faqVO);
 		System.out.println("test :" + faqVO.toString());
-		return "admin/subpages/faq/faqContent";
+		return "redirect:/admin/faqlist.ad";
 	}
 	
 }

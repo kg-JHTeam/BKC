@@ -34,7 +34,7 @@ function status(status,id){
 	var btn = document.getElementById(id);
 	var value = btn.value;
 	if(value == "사용"){
-		var input = confirm("배너를 사용하지 않겠습니까?");
+		var input = confirm("유튜브를 사용하지 않겠습니까?");
 		if(input == true){
 			
 			//배너 미사용으로 변경. 
@@ -51,7 +51,7 @@ function status(status,id){
 			return;
 		}
 	} else{
-		var input = confirm("배너를 사용하도록 변경하시겠습니까?");
+		var input = confirm("유튜브를 사용하도록 변경하시겠습니까?");
 		if(input == true){
 			//배너 사용으로 변경.
 			//use_status -> true
@@ -73,14 +73,12 @@ function status(status,id){
 function deleteYoutube(id){
 	var btn = document.getElementById(id);
 	var value = btn.value;
-		var input = confirm("정말로 배너를 삭제 하시겠습니까?");
+		var input = confirm("정말로 유튜브광고를 삭제 하시겠습니까?");
 		if(input == true){
 			//DB에서 처리
 			var img_seq = id;
 			var contextpath = "<c:out value='${contextPath}'/>";
-			
 		    window.location.href= contextpath+"/admin/deleteYoutube.ad?img_seq="+id;
-			
 			alert("삭제되었습니다.");
 		} else{
 			return;

@@ -18,4 +18,24 @@ public class RealchickenServiceImpl implements RealchickenService{
 	public List<RealchickenVO> RealchickenList(RealchickenVO realchickenVO){
 		return dao.RealchickenList(realchickenVO);
 	}
+	
+	@Override
+	public RealchickenVO getRealchicken(int seq) {
+		return dao.getRealchicken(seq);
+	}
+	
+	@Override
+	public int deleteRealchicken(int seq) {
+		return dao.deleteRealchicken(seq);
+	}
+	
+	@Override
+	public int insertRealchicken(RealchickenVO realchickenVO) {
+		return dao.insertRealchicken(realchickenVO);
+	}
+	
+	@Override
+	public int updateRealchicken(RealchickenVO realchickenVO) {
+		return dao.updateRealchicken(realchickenVO);
+	}
 }
