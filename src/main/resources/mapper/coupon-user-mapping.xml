@@ -12,7 +12,8 @@
 			SELECT * FROM user_coupon  
 		]]>
 	</select>
-	<select id="getCouponBySerial" resultType="UserCouponVO">
+	
+	<select id="getUserCouponBySerial" resultType="UserCouponVO">
 		<![CDATA[
 			SELECT * FROM user_coupon WHERE coupon_serial=#{coupon_serial}
 		]]>
