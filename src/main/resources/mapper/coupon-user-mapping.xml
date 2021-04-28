@@ -9,12 +9,12 @@
 
 	<select id="getUserCouponList" resultType="UserCouponVO">
 		<![CDATA[
-			SELECT * FROM coupon  
+			SELECT * FROM user_coupon  
 		]]>
 	</select>
 	<select id="getCouponBySerial" resultType="UserCouponVO">
 		<![CDATA[
-			SELECT * FROM coupon WHERE coupon_serial=#{coupon_serial}
+			SELECT * FROM user_coupon WHERE coupon_serial=#{coupon_serial}
 		]]>
 	</select>
 </mapper>
