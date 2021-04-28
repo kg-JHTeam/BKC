@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DvProductDAO">
+	<select id="getChickenMenudv" resultType="DvProductVO">
+		<![CDATA[
+			select
+		* from product P inner join product_image I on P.product_serial =
+		I.product_serial where type_serial='chicken_menu';
+		]]>
+	</select>
+
+	<select id="getSideMenudv" resultType="DvProductVO">
+		<![CDATA[
+			select
+		* from product P inner join product_image I on P.product_serial =
+		I.product_serial where type_serial='side_menu';
+		]]>
+	</select>
+	
+	<select id="getBeerZonedv" resultType="DvProductVO">
+		<![CDATA[
+		select
+		* from product P inner join product_image I on P.product_serial =
+		I.product_serial where type_serial='beerzone';
+		]]>
+	</select>
+	
+	
+	<select id="getNewdv" resultType="DvProductVO">
+		<![CDATA[
+		select
+		* from product P inner join product_image I on P.product_serial =
+		I.product_serial where type_serial='new_menu';
+		]]>
+	</select>
+	
+	
+
+</mapper>

@@ -39,4 +39,5 @@
 			SELECT * FROM delivery_caution where seq= #{seq}
 		]]>
 	</select>
+	
 </mapper>
