@@ -11,7 +11,19 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>공지사항 수정</title>
+<title>신규매장 등록</title>
+<script>
+function deleteStore(store_serial){
+	   var check = confirm("정말 삭제하시겠습니까");
+	   var contextpath = "<c:out value='${contextPath}'/>";
+	   if(check==true){	 
+	         window.location.href= contextpath+"deleteStoreDB.ad?store_serial=${store.store_serial}";
+	   } 
+	   else{
+	      return;
+	   }
+	}
+</script>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -22,18 +34,15 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">공지사항 수정</h1>
-					<!-- 공지사항 목록 -->
+					<h1 class="mt-4">신규매장  등록</h1>
+					<!-- 신규매장 목록 -->
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table mr-1"></i> 공지사항 수정
+							<i class="fas fa-table mr-1"></i> 신규매장 등록
 						</div>
 						<div class="card-body">
 
 							<div class="row">
-								<div class="col-lg-12">
-									<h1 class="page-header">게시글 수정</h1>
-								</div>
 								<!-- /.col-lg-12 -->
 							</div>
 							<!-- /.row -->
@@ -46,38 +55,38 @@
 										<!-- /.panel-heading -->
 										<div class="panel-body">
 
-											<form role="form" action="${pageContext.request.contextPath }/admin/updateNoticeDB.ad" method="post">
+											<form role="form" action="${pageContext.request.contextPath}/admin/insertStoreDB.ad" method="post" enctype="multipart/form-data">
 												<div class="form-row">
 													
-													<div class="form-group col-md-12">
-														<label>제목</label> <input class="form-control"
-															name='title' value = '<c:out value="${notice.title}"/>' >
+													<div class="form-group col-md-6">
+														<label>매장명</label> <input class="form-control"
+															name='store_name' value = '<c:out value="${store.store_name}"/>' >
+													</div>
+													<div class="form-group col-md-6">
+														<label>매장 연락처</label> <input class="form-control"
+															name='store_call' value = '<c:out value="${store.store_call}"/>' >
 													</div>
 												</div>
 												<div class="form-row">
 													<div class="form-group col-md-6">
-														<label>게시일</label> <input class="form-control"
-															name='post_date' value = '<c:out value="${notice.post_date}"/>' >
+														<label>오픈 날짜</label> <input class="form-control"
+															name='store_open' value = '<c:out value="${store.store_open}"/>' >
 													</div>
 													
 													<div class="form-group col-md-6">
-														<label>조회수</label> <input class="form-control"
-															name='hits' value = '<c:out value="${notice.hits}"/>' readonly="readonly" >
+														<label>주소</label> <input class="form-control"
+															name='store_address' value = '<c:out value="${store.store_address}"/>' >
 													</div>
-												</div>
-												<div class="form-group">
-													<label>내용</label>
-													<textarea class="form-control" rows="20" name='contents' value='<c:out value= "${notice.contents}"/>' >${notice.contents}</textarea>
 												</div>
 
 												<div class="form-group">
 													<label>작성자</label> <input class="form-control"
-														name='writer' value='관리자' readonly='readonly' >
+														name='writer' value='관리자' readonly="readonly">
 												</div>
-												<button type="button" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath }/admin/noticelist.ad?'">목록 가기</button>
-												<button type="submit" class="btn btn-primary">수정</button>
-												<button type="reset" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/admin/deleteNoticeDB.ad?seq=${adNoticeList.seq}'">삭제</button>
-											</form>
+												<button type="button" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath }/admin/storelist.ad?'">목록 가기</button>
+												<button type="submit" class="btn btn-primary">등록</button>
+												<button type="reset" class="btn btn-danger">초기화</button>
+											</form>																
 										</div>
 										<!-- end panel-body -->
 									</div>

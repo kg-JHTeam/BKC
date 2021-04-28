@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adEventDao">
+		
+	<select id="getAdEventList"  resultType="EventVO">
+		<![CDATA[
+	   		SELECT *
+	   		FROM(
+					SELECT A.*,
+				       	ROW_NUMBER() over(order by end_date desc) as rn
+					FROM(
+						SELECT seq,
+								event_title,
+								img_title,
+								start_date,
+								end_date,
+								status
+							FROM event E 
+							     inner join event_detail D on E.event_serial = D.event_serial
+			        	)A
+	        	)B
+	    ]]>
+	</select>
+	
+	
+	<select id="getAdEvent"  resultType="EventVO">
+	  	<![CDATA[	
+			 select * 
+			 from event E 
+			     join event_detail D on E.event_serial=D.event_serial 
+			 where E.seq=#{seq}
+		]]>
+	</select>
+	
+	<insert id= "insertEvent" parameterType="EventVO">
+		<![CDATA[	
+			INSERT INTO event(event_serial, status) VALUES(#{event_serial}, true)
+		]]>	
+	</insert>
+	
+	
+		
+	<insert id= "insertEventDetail" parameterType="EventVO">
+		<![CDATA[	
+			INSERT INTO event_detail(event_serial, start_date, end_date, event_title, description, image, img_title)
+			         VALUES(#{event_serial}, TO_DATE(#{start_date}, 'YYYY-MM-DD'),  TO_DATE(#{end_date}, 'YYYY-MM-DD'), #{event_title}, #{description}, #{image}, #{img_title})
+		]]>	
+	</insert>
+	
+	
+	<update id="updateEvent" parameterType="EventVO">
+		<![CDATA[	
+			UPDATE event SET 
+			   	status =  #{status}
+			   	where seq=#{seq}
+			   	    and event_serial=#{event_serial}
+		]]>
+	</update>
+	
+	<update id="updateEventDetail" parameterType="EventVO">
+		UPDATE event_detail 
+		SET description=  #{description}, 
+		    event_title = #{event_title},
+			start_date=TO_DATE(#{start_date}, 'YYYY-MM-DD'), 
+			end_date=TO_DATE(#{end_date}, 'YYYY-MM-DD')
+		  <if test ="image neq null and image neq ''"> 
+	        ,image = #{image}
+	      </if>
+	        <if test ="img_title  neq null and img_title  neq ''"> 
+	        ,  img_title = #{img_title}
+	      </if>
+	      
+	    WHERE event_serial = #{event_serial}
+	</update>
+	
+	<update id="eventStatus" parameterType="EventVO">
+		<![CDATA[
+		UPDATE event
+		SET status= NOT status 
+		WHERE seq=#{seq}
+		]]>
+	</update>
+	
+	<delete id="deleteEvent" parameterType="EventVO">
+		<![CDATA[
+			DELETE FROM event WHERE seq=#{seq}
+		]]>
+	</delete>
+
+</mapper>

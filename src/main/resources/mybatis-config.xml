@@ -20,6 +20,8 @@
 		<typeAlias type="com.bkc.subpages.brand.whybkc.vo.RealchickenVO" alias="RealchickenVO"/>
 		<typeAlias type="com.bkc.subpages.brand.whybkc.vo.MaterialVO" alias="MaterialVO"/>
 		<typeAlias type="com.bkc.subpages.brand.whybkc.vo.ContributionVO" alias="ContributionVO"/>
+		<typeAlias type="com.bkc.event.vo.EventVO" />
+		<typeAlias type="com.bkc.event.vo.StoreVO" />
 		<typeAlias type="com.bkc.delivery.vo.CautionVO" alias="CautionVO"/>
 		<typeAlias type="com.bkc.delivery.vo.DvProductVO" alias="DvProductVO"/>
 	</typeAliases>

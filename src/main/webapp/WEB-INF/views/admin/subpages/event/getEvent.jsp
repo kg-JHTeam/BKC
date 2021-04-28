@@ -11,7 +11,31 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>공지사항 수정</title>
+<title>이벤트 등록</title>
+<style>
+
+#imgbox{
+	width: 100%;
+	height: 300px;
+}
+
+#imgbox2{
+	width: 100%;
+	height: auto;
+}
+</style>
+<script>
+function deleteEvent(seq){
+	   var check = confirm("정말 삭제하시겠습니까");
+	   var contextpath = "<c:out value='${contextPath}'/>";
+	   if(check==true){	 
+	         window.location.href= contextpath+"deleteEventDB.ad?seq=${event.seq}";
+	   } 
+	   else{
+	      return;
+	   }
+	}
+</script>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -22,18 +46,15 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">공지사항 수정</h1>
-					<!-- 공지사항 목록 -->
+					<h1 class="mt-4">이벤트 상세보기</h1>
+					<!-- 이벤트 목록 -->
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table mr-1"></i> 공지사항 수정
+							<i class="fas fa-table mr-1"></i> 이벤트 상세
 						</div>
 						<div class="card-body">
 
 							<div class="row">
-								<div class="col-lg-12">
-									<h1 class="page-header">게시글 수정</h1>
-								</div>
 								<!-- /.col-lg-12 -->
 							</div>
 							<!-- /.row -->
@@ -46,38 +67,54 @@
 										<!-- /.panel-heading -->
 										<div class="panel-body">
 
-											<form role="form" action="${pageContext.request.contextPath }/admin/updateNoticeDB.ad" method="post">
+											<form role="form" action="/admin/getEvent.ad" method="post">
+												
 												<div class="form-row">
 													
 													<div class="form-group col-md-12">
 														<label>제목</label> <input class="form-control"
-															name='title' value = '<c:out value="${notice.title}"/>' >
+															name='title' value = '<c:out value="${event.event_title}"/>' readonly="readonly">
 													</div>
+													
 												</div>
 												<div class="form-row">
 													<div class="form-group col-md-6">
-														<label>게시일</label> <input class="form-control"
-															name='post_date' value = '<c:out value="${notice.post_date}"/>' >
+														<label>시작일</label> <input class="form-control"
+															name='post_date' value = '<c:out value="${event.start_date}"/>' readonly="readonly">
 													</div>
 													
 													<div class="form-group col-md-6">
-														<label>조회수</label> <input class="form-control"
-															name='hits' value = '<c:out value="${notice.hits}"/>' readonly="readonly" >
+														<label>종료일</label> <input class="form-control"
+															name='hits' value = '<c:out value="${event.end_date}"/>' readonly="readonly">
+													</div>
+												</div>
+												<div class="form-group">
+													<label>배너 이미지</label>
+													<div id=imgbox>
+													<img src="${event.img_title}">
+													</div>
+												</div>
+											
+												<div class="form-group">
+													<label>이미지</label>
+													<div id=imgbox2>
+														<img src="${event.image}" style="width:40%; height: auto;">
 													</div>
 												</div>
 												<div class="form-group">
 													<label>내용</label>
-													<textarea class="form-control" rows="20" name='contents' value='<c:out value= "${notice.contents}"/>' >${notice.contents}</textarea>
+													<textarea class="form-control" rows="10" name='description' value='<c:out value= "${event.description}"/>' readonly="readonly" >${event.description}
+													</textarea>
 												</div>
 
 												<div class="form-group">
 													<label>작성자</label> <input class="form-control"
-														name='writer' value='관리자' readonly='readonly' >
+														name='writer' value='관리자' readonly="readonly">
 												</div>
-												<button type="button" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath }/admin/noticelist.ad?'">목록 가기</button>
-												<button type="submit" class="btn btn-primary">수정</button>
-												<button type="reset" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/admin/deleteNoticeDB.ad?seq=${adNoticeList.seq}'">삭제</button>
-											</form>
+												<button type="button" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath }/admin/eventlist.ad?'">목록 가기</button>
+												<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/admin/updateEvent.ad?seq=${event.seq}'">수정</button>
+												<button type="reset" class="btn btn-danger" onclick="javascript:deleteEvent(${event.seq}); return false;">삭제</button>
+											</form>																
 										</div>
 										<!-- end panel-body -->
 									</div>
