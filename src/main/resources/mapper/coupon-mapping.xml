@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="UserCouponDAO">
+<!-- 쿠폰 관련  -->
+<mapper namespace="CouponDAO">
 	<resultMap type="CouponVO" id="CouponVO">
 		<result property="coupon_number" column="COUPON_NUMBER" />
 		<result property="coupon_serial" column="COUPON_SERIAL" />
 		<result property="userid" column="USERID" />
 	</resultMap>
-	<select id="getCouponListById" resultType="CouponVO">
-		<![CDATA[
-		SELECT * FROM user_coupon WHERE userid = #{userid}  
-		]]>
-	</select>
+	
 	<select id="getCouponList" resultType="CouponVO">
 		<![CDATA[
-			SELECT * FROM user_coupon  
+			SELECT * FROM coupon  
 		]]>
 	</select>
 

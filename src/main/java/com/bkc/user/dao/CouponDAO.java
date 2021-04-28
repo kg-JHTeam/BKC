@@ -7,9 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.bkc.user.vo.CouponVO;
 
 @Repository
-public interface UserCouponDAO {
-
-	public List<CouponVO> getCouponListById(String userid);
+public interface CouponDAO {
 
 	public List<CouponVO> getCouponList();
 }
