@@ -19,6 +19,11 @@
 			SELECT * FROM coupon WHERE coupon_serial=#{coupon_serial}
 		]]>
 	</select>
+	<select id="getCouponByTitle" resultType="CouponVO">
+		<![CDATA[
+			SELECT * FROM coupon WHERE coupon_title=#{coupon_title}
+		]]>
+	</select>
 	<insert id="couponUpload">
 		<![CDATA[
 		INSERT INTO coupon(

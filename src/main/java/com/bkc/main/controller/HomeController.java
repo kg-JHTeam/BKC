@@ -34,7 +34,7 @@ public class HomeController {
 	private YoutubeService youtubeService;
 
 	public HomeController() {
-		System.out.println("HomeController 실행");
+		//System.out.println("HomeController 실행");
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)

@@ -19,4 +19,6 @@ public interface CouponDAO {
 
 	public int couponDelete(String coupon_serial);
 
+	public CouponVO getCouponByTitle(String coupon_title);
+
 }

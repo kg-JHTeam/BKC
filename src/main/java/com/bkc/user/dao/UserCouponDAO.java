@@ -10,5 +10,11 @@ import com.bkc.user.vo.UserCouponVO;
 public interface UserCouponDAO {
 
 	public List<UserCouponVO> getUserCouponList();
+
+	public List<UserCouponVO> getUserHavingCouponDetail(String userid);
+
+	public int deleteUserCoupon(int coupon_seq);
+
+	public int insertUserCoupon(UserCouponVO usercoupon);
 	
 }

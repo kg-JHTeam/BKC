@@ -55,7 +55,7 @@ public class DeliveryController {
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		model.addAttribute("user", user);
-
+		
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);

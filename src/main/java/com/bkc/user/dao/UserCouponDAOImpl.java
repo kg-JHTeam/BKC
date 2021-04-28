@@ -19,4 +19,19 @@ public class UserCouponDAOImpl implements UserCouponDAO {
 		return sqlSession.selectList("getUserCouponList");
 	}
 
+	@Override
+	public List<UserCouponVO> getUserHavingCouponDetail(String userid) {
+		return sqlSession.selectList("getUserHavingCouponDetail", userid);
+	}
+
+	@Override
+	public int deleteUserCoupon(int coupon_seq) {
+		return sqlSession.insert("deleteUserCoupon", coupon_seq);
+	}
+
+	@Override
+	public int insertUserCoupon(UserCouponVO usercoupon) {
+		return sqlSession.insert("insertUserCoupon", usercoupon);
+	}
+
 }

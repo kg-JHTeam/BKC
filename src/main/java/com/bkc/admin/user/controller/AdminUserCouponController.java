@@ -1,6 +1,9 @@
 package com.bkc.admin.user.controller;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bkc.admin.board.banner.vo.CheckVO;
 import com.bkc.user.service.CouponService;
@@ -26,13 +30,12 @@ public class AdminUserCouponController {
 	@Autowired
 	private CouponService couponService;
 
-	@Autowired 
+	@Autowired
 	private UserCouponService usercouponService;
-	
+
 	// 관리자 페이지 쿠폰 리스트 출력.
 	@RequestMapping(value = "/admin/couponlist.ad", method = RequestMethod.GET)
 	public String showCouponlist(Model model) {
-		System.out.println("관리자 메뉴 쿠폰 리스트 출력 ");
 		// 모든 쿠폰 전부 출력
 		List<CouponVO> coupons = couponService.getCouponList();
 		model.addAttribute("coupons", coupons);
@@ -42,27 +45,31 @@ public class AdminUserCouponController {
 	// 관리자 페이지 쿠폰 리스트 출력.
 	@RequestMapping(value = "/admin/couponUserlist.ad", method = RequestMethod.GET)
 	public String showCouponUserlist(Model model) {
-		System.out.println("모든 유저 쿠폰 리스트 출력 ");
-		
 		// 모든 유저쿠폰 전부 출력
 		List<UserCouponVO> usercoupons = usercouponService.getUserCouponList();
 		model.addAttribute("usercoupons", usercoupons);
 		return "admin/subpages/coupon/couponUserlist";
 	}
-	
+
 	// 관리자 페이지 쿠폰 배포 페이지로.
 	@RequestMapping(value = "/admin/couponRelease.ad", method = RequestMethod.GET)
 	public String showCouponRelease(Model model) {
+
+		// 쿠폰
 		List<CouponVO> coupons = couponService.getCouponList();
 		model.addAttribute("coupons", coupons);
-		
-		//회원이고 비회원이 아닌 사람 조회시킴. 
+
+		// 회원이 가지고 있는 모든 쿠폰 리스트
+		List<UserCouponVO> usercoupons = usercouponService.getUserCouponList();
+		model.addAttribute("usercoupons", usercoupons);
+
+		// 회원이고 비회원이 아닌 사람 조회시킴.
 		List<UserVO> users = userService.getUserHavingCouponList();
 		model.addAttribute("users", users);
-		
+
 		return "admin/subpages/coupon/couponReleasepage";
 	}
-	
+
 	// 모든 쿠폰 업로드 페이지로 이동
 	@RequestMapping(value = "/admin/couponUploadpage.ad", method = RequestMethod.GET)
 	public String couponUploadpage(Model model) {
@@ -114,7 +121,7 @@ public class AdminUserCouponController {
 
 		CheckVO check = new CheckVO();
 		check.setSuccess("true");
-		
+
 		if (couponService.couponUpdate(vo) == 1) {
 			check.setSuccess("uploadtrue");
 		} else {
@@ -151,4 +158,102 @@ public class AdminUserCouponController {
 		return "admin/subpages/coupon/couponlist";
 	}
 
+	// 본인이 가지고 있는 쿠폰 출력
+	// userHavingCouponDetail.ad
+	@RequestMapping(value = "/admin/userHavingCouponDetail.ad", method = RequestMethod.GET)
+	public String showUserHavingCouponDetail(Model model, @RequestParam String userid) {
+		// user가 가지고 있는 쿠폰 모두 출력
+		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(userid);
+		model.addAttribute("usercoupons", usercoupons);
+		model.addAttribute("userid", userid);
+
+		return "admin/subpages/coupon/userHavingCouponDetail";
+	}
+
+	// usercoupon 삭제
+	@RequestMapping(value = "/admin/deleteUserCoupon.ad", method = RequestMethod.GET)
+	public String deleteUserCoupon(Model model, @RequestParam int coupon_seq, @RequestParam String userid) {
+
+		CheckVO check = new CheckVO();
+		check.setSuccess("true");
+
+		if (usercouponService.deleteUserCoupon(coupon_seq) == 1) {
+			check.setSuccess("true");
+		} else {
+			check.setSuccess("false");
+		}
+		model.addAttribute("check", check);
+
+		return "redirect:/admin/userHavingCouponDetail.ad?userid=" + userid;
+	}
+
+	// AJAX 호출 (체크된 회원에 쿠폰 배포)
+	@RequestMapping(value = "/admin/releaseCoupon.ad", method = RequestMethod.POST)
+	@ResponseBody
+	public Object releaseCoupon(@RequestParam(value = "userArray[]") List<String> userArray,
+			@RequestParam(value = "coupon_title") String coupon_title) {
+
+		System.out.println(coupon_title);
+		CouponVO coupon = couponService.getCouponByTitle(coupon_title);
+		UserCouponVO usercoupon = new UserCouponVO();
+		usercoupon.setCoupon_serial(coupon.getCoupon_serial());
+		usercoupon.setStartdate(new Date()); // 현재 날짜 넣기
+
+		for (String user : userArray) {
+			usercoupon.setUserid(user);
+			try {
+				if (usercouponService.insertUserCoupon(usercoupon) == 1) {
+					System.out.println(user + "에 배포 성공");
+				} else {
+					System.out.println(user + "에 배포 실패");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("이미 있는 값");
+			}
+		}
+
+		// 리턴값
+		Map<String, Object> retVal = new HashMap<String, Object>();
+
+		// 성공했다고 처리
+		retVal.put("code", "OK");
+		retVal.put("message", "배포에 성공 하였습니다.");
+		return retVal;
+	}
+
+	// AJAX 호출 (모든사람에게 쿠폰 배포)
+	@RequestMapping(value = "/admin/allreleaseCoupon.ad", method = RequestMethod.POST)
+	@ResponseBody
+	public Object allreleaseCoupon(@RequestParam(value = "coupon_title") String coupon_title) {
+		List<UserVO> users = userService.getUserHavingCouponList();
+
+		CouponVO coupon = couponService.getCouponByTitle(coupon_title);
+		UserCouponVO usercoupon = new UserCouponVO();
+		usercoupon.setCoupon_serial(coupon.getCoupon_serial());
+		usercoupon.setStartdate(new Date()); // 현재 날짜 넣기
+
+		for (int i = 0; i < users.size(); i++) {
+			UserVO user = users.get(i);
+			String userid = user.getUserid();
+			usercoupon.setUserid(userid);
+			try {
+				if (usercouponService.insertUserCoupon(usercoupon) == 1) {
+					System.out.println(userid + "에 배포 성공");
+				} else {
+					System.out.println(userid + "에 배포 실패");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("이미 있는 값");
+			}
+		}
+		// 리턴값
+		Map<String, Object> retVal = new HashMap<String, Object>();
+
+		// 성공했다고 처리
+		retVal.put("code", "OK");
+		retVal.put("message", "모든 회원에 쿠폰 배포 성공 하였습니다.");
+		return retVal;
+	}
 }
