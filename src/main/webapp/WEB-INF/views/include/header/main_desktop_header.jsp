@@ -29,12 +29,12 @@
                         <li><a href="${contextPath}/menuInform/beerZone.do">비어존메뉴</a></li>
                     </ul>
                 </li>
-                <li class="menu-title"><a href="${contextPath}"/>매장소개</a>
+                <li class="menu-title"><a href="#">매장소개</a>
                     <ul class="sub-con">
                         <li><a href="${contextPath}/map/store.do">매장찾기</a></li>
                     </ul>
                 </li>
-                <li class="menu-title"><a href="${contextPath}/">이벤트</a>
+                <li class="menu-title"><a href="#">이벤트</a>
                     <ul class="sub-con">
                         <li><a href="${contextPath}/event/eventPageAll.do">이벤트</a></li>
                         <li><a href="${contextPath}/event/eventPageNew.do">신규매장</a></li>

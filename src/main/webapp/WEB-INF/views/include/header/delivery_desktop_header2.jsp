@@ -26,7 +26,7 @@
                         <a href="${contextPath}/delivery/mybkc.do">
                             <span>MYBKC</span>
                         </a>
-                        <a href="${contextPath}/notice.do">
+                        <a href="${contextPath}/customerService/notice.do">
                             <span>고객센터</span>
                         </a>
                     </div>
