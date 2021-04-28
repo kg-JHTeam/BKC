@@ -134,7 +134,7 @@
                         </div>
                     </div>
                     <div class="c_btn">
-                        <a href="#" class="btn01">
+                        <a href="${contextPath}/delivery/orderList.do" class="btn01">
                             <span>전체보기</span>
                         </a>
                     </div>
