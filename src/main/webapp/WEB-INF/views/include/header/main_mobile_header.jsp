@@ -31,7 +31,7 @@
                     </li>
                     <li><a href="#">매장소개</a><span></span>
                         <ul>
-                            <li><a href="#">매장찾기</a></li>
+                            <li><a href="${contextPath}/map/store.do">매장찾기</a></li>
                         </ul>
                     </li>
                     <li><a href="#">이벤트</a><span></span>
@@ -49,9 +49,9 @@
                     </li>
                     <li><a href="#">고객센터</a>
                         <ul>
-                            <li><a href="#">공지사항</a></li>
+                            <li><a href="${contextPath}/customerService/notice.do">공지사항</a></li>
                             <li><a href="#">BKC앱이용안내</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="${contextPath}/customerService/faq.do">FAQ</a></li>
                             <li><a href="#">문의</a></li>
                             <li><a href="#">가맹점모집</a></li>
                             <li><a href="#">인재채용</a></li>
