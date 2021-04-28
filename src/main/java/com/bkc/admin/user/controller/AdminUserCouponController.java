@@ -15,6 +15,7 @@ import com.bkc.user.service.UserCouponService;
 import com.bkc.user.service.UserService;
 import com.bkc.user.vo.CouponVO;
 import com.bkc.user.vo.UserCouponVO;
+import com.bkc.user.vo.UserVO;
 
 @Controller
 public class AdminUserCouponController {
@@ -42,21 +43,26 @@ public class AdminUserCouponController {
 	@RequestMapping(value = "/admin/couponUserlist.ad", method = RequestMethod.GET)
 	public String showCouponUserlist(Model model) {
 		System.out.println("모든 유저 쿠폰 리스트 출력 ");
-
+		
 		// 모든 유저쿠폰 전부 출력
 		List<UserCouponVO> usercoupons = usercouponService.getUserCouponList();
 		model.addAttribute("usercoupons", usercoupons);
-		
 		return "admin/subpages/coupon/couponUserlist";
 	}
 	
-	// 관리자 페이지 쿠폰 리스트 출력.
+	// 관리자 페이지 쿠폰 배포 페이지로.
 	@RequestMapping(value = "/admin/couponRelease.ad", method = RequestMethod.GET)
 	public String showCouponRelease(Model model) {
 		List<CouponVO> coupons = couponService.getCouponList();
 		model.addAttribute("coupons", coupons);
-		return "admin/subpages/coupon/couponlist";
+		
+		//회원이고 비회원이 아닌 사람 조회시킴. 
+		List<UserVO> users = userService.getUserHavingCouponList();
+		model.addAttribute("users", users);
+		
+		return "admin/subpages/coupon/couponReleasepage";
 	}
+	
 	// 모든 쿠폰 업로드 페이지로 이동
 	@RequestMapping(value = "/admin/couponUploadpage.ad", method = RequestMethod.GET)
 	public String couponUploadpage(Model model) {
@@ -108,7 +114,7 @@ public class AdminUserCouponController {
 
 		CheckVO check = new CheckVO();
 		check.setSuccess("true");
-
+		
 		if (couponService.couponUpdate(vo) == 1) {
 			check.setSuccess("uploadtrue");
 		} else {
@@ -143,7 +149,6 @@ public class AdminUserCouponController {
 		List<CouponVO> coupons = couponService.getCouponList();
 		model.addAttribute("coupons", coupons);
 		return "admin/subpages/coupon/couponlist";
-
 	}
 
 }

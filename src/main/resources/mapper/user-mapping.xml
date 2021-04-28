@@ -59,6 +59,13 @@
 		]]>
 	</select>
 	
+	<!-- 일반회원이면서 회원  -->
+	<select id="getUserHavingCouponList" resultType="UserVO">
+		<![CDATA[
+		SELECT * FROM usermember WHERE usergrade = 3 and regist_type = 1
+		]]>
+	</select>
+	
 	<!-- Crud -->
 	<!-- 회원가입 -->  
 	<insert id="userInsert">

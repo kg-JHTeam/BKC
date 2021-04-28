@@ -33,6 +33,11 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectList("getManagerUserList");
 	}
 	
+	@Override
+	public List<UserVO> getUserHavingCouponList() {
+		return sqlSession.selectList("getUserHavingCouponList");
+	}
+	
 	//비회원 출력
 	@Override
 	public List<UserVO> getNonUserList() {
@@ -78,5 +83,4 @@ public class UserDAOImpl implements UserDAO {
 	public List<String> selectUserAuthOne(String username) {
 		return null;
 	}
-
 }

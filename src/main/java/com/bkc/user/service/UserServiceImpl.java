@@ -46,6 +46,11 @@ public class UserServiceImpl implements UserService {
 		return userDao.getUserByNameAndPhone(name, phone);
 	}
 
+	@Override
+	public List<UserVO> getUserHavingCouponList() {
+		return userDao.getUserHavingCouponList();
+	}
+	
 	// 회원조회 - Admin
 	@Override
 	public List<UserVO> getUserList() {
