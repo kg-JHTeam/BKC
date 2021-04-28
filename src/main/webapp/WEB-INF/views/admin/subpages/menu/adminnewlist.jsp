@@ -7,22 +7,23 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
+<!-- favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
 <title>BKC 홈페이지 관리자 페이지</title>
 <style>
-#bannerimgCol {
+#menuimgCol {
 	text-align: center;
 }
 
-#bannerimg {
-	width: 385.2px;
-	height: 231.6px;
+#menuimg {
+	width: 233px;
+	height: 160px;
 }
 
-#insertBanner {
+#insertmenu {
 	position: relative;
 	margin-bottom: 0.5%;
 	margin-left: 91%
@@ -31,10 +32,7 @@
 
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
-	s
-</script>
-
+<script src="${contextPath}/resources/js/admin/menu/menu.js"></script>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -54,27 +52,18 @@
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
-							<!-- 카테고리 선택 s -->
-							<div class="mb-3">
-								<div class="col-sm-3">
-									<div class="small mb-1"></div>
-									<div class="dropdown mb-4">
-										<span class="form_select" style="width: 300px"> <select
-											class="btn btn-primary dropdown-toggle" id="select1"
-											name="select" style="width: 150px">
-												<option value="chiken">치킨메뉴</option>
-												<option value="sidemenu">사이드 메뉴</option>
-												<option value="beerzone">비어존</option>
-										</select>
-										</span>
-									</div>
-								</div>
-							</div>
 							<!-- 카테고리 선택  -->
-							<form action="/menu.ad">
+							<form action="#">
 								<div align="right">
-									<input type="submit" class="btn btn-info btn-icon-split"
-										style="padding: 5px" value="메뉴 등록">
+									<select class="btn btn-info dropdown-toggle" id="select1"
+										name="select" style="width: 150px" onchange="chageSelect()">
+										<option value="all" >전체조회</option>
+										<option value="chicken">치킨메뉴</option>
+										<option value="sidemenu">사이드 메뉴</option>
+										<option value="beerzone">비어존</option>
+										<option value="newmenu" selected>new메뉴</option>
+									</select> <input class="btn btn-success" type="button"style="padding: 5px" value="메뉴업로드" onclick="location.href='${contextPath}/admin/menuUploadpage.ad'"
+									id="insertMenu">
 								</div>
 								<div class="my-2"></div>
 								<!-- 리스트 보여주는 table -->
@@ -83,21 +72,31 @@
 									<thead>
 										<tr align="center">
 											<th width="15%">메뉴이름</th>
-											<th width="15%">code</th>
-											<th width="35%">메뉴 설명</th>
 											<th width="25%">이미지</th>
-											<th width="10%">판매상태</th>
+											<th width="20%">가격</th>
+											<th width="20%">판매상태</th>
+											<th width="20%">수정삭제</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${getMenuAdList}"
-											var="getMenuAdList">
-											<tr>
-												<td>${getMenuAdList.product_name}</td>
-												<td>${getMenuAdList.description}</td>
-												<td><a type="hidden"
-													href="/menuDetail.ad?code=${getMenuAdList.product_serial}&select=${select}">${getMenuAdList.product_serial}</a></td>
-												<td><img src="${getMenuAdList.path}" width="200px"></td>
+										<c:forEach items="${adnewlist}" var="adnewlist">
+											<tr align="center">
+												<td>${adnewlist.product_name}</td>
+												<td id="menuimgCol"><a href="${adnewlist.path}"
+													target="_blank"> <img src="${adnewlist.path}"
+														alt="메뉴사진" id="menuimg"
+														class="img-responsive center-block" />
+												</a></td>
+												<td>${adnewlist.price}원</td>
+												<td><c:choose>
+														<c:when test="${adnewlist.use_status eq true }">
+															<input class="btn btn-info" type="button" value="판매중" onclick="javascript:status(${adnewlist.use_status} ,${adnewlist.product_serial})" id="${adnewlist.product_serial}" />
+														</c:when>
+														<c:otherwise>
+															<input class="btn btn-danger" type="button" value="판매중지" onclick="javascript:status(${adnewlist.use_status} ,${adnewlist.product_serial})" id="${adnewlist.product_serial}" />
+														</c:otherwise>
+													</c:choose></td>
+												<td><input class="btn btn-primary" type="button" value="수정" onClick="location.href='${contextPath}/admin/menuDetail.ad?product_serial=${adnewlist.product_serial}'" /></td>
 											</tr>
 										</c:forEach>
 									</tbody>

@@ -36,7 +36,7 @@
 	
 	<update id="updateNotice">
 		<![CDATA[	
-			UPDATE notice SET title=#{title}, contents=#{contents}, post_date=#{post_date}
+			UPDATE notice SET title=#{title}, contents=#{contents}, post_date=#{post_date} WHERE seq=#{seq}
 		]]>
 	</update>
 	

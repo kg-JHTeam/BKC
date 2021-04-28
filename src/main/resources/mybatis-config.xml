@@ -8,9 +8,7 @@
 		<typeAlias type="com.bkc.admin.board.banner.vo.BannerVO" alias="BannerVO" />
 		<typeAlias type="com.bkc.menuInform.vo.ProductVO" alias="ProductVO"/>
 		<typeAlias type="com.bkc.customerService.vo.FaqVO" alias="FaqVO" />
-		<typeAlias type="com.bkc.admin.board.businessInformation.vo.BusinessInformationVO" alias="BusinessInformationVO" />
-		<typeAlias type="com.bkc.admin.board.menuInfom.vo.MenuAdVO" alias="MenuAdVO"/>
-		
+		<typeAlias type="com.bkc.admin.board.businessInformation.vo.BusinessInformationVO" alias="BusinessInformationVO" />	
 		<typeAlias type="com.bkc.admin.board.term.vo.TermVO" alias="TermVO"/>
 		<typeAlias type="com.bkc.admin.board.term.vo.TermEmailVO" alias="TermEmailVO"/>
 		<typeAlias type="com.bkc.admin.board.term.vo.TermPrivacyVO" alias="TermPrivacyVO"/>

@@ -36,7 +36,7 @@
                         <a href="${contextPath }/">
                             HOME
                         </a>
-                        <a href="${contextPath }/menuInform/beerZone.do">
+                        <a href="${contextPath }/menuInform/newMenu.do">
                         	메뉴소개
                         </a>
                     </div>
@@ -47,8 +47,8 @@
                     <div class="menu_subtitWrap">
                         <h3 class="page_tit">메뉴소개</h3>
                         <div class="tab01">
-                            <ul>
-                               <li class="off">
+                            <ul>                        
+                               <li class="on">
                                     <button type="button">
                                         <a href="${contextPath}/menuInform/newMenu.do">new메뉴</a>
                                     </button>
@@ -62,31 +62,30 @@
                                     <button type="button">
                                         <a href="${contextPath}/menuInform/sideMenu.do">사이드 메뉴</a>
                                     </button>
-                                </li>                               
-                                <li class="on">
+                                </li>
+                                <li class="off">
                                     <button type="button">
                                         <a href="${contextPath}/menuInform/beerZone.do">비어존 메뉴</a>
                                     </button>
-                                </li>
-                                
+                                </li>                             
                             </ul>
                         </div>
                     </div>
                     <div class="tab_cont">
                         <ul class="menu_list">
-                        <c:forEach var="beerzoneList" items="${beerzoneList}">
+                        <c:forEach var="newmenuList" items="${newmenuList}">
                             <li>
                                 <div class="menu_list_img">
                                     <span>
-                                        <img src="${beerzoneList.path}" class style="display: inline; opacity: 1;" >
+                                        <img src="${newmenuList.path}" class style="display: inline; opacity: 1;" >
                                     </span>
                                 </div>
                                 <div class="cont">
                                     <p class="tit">
-                                        <strong>${beerzoneList.product_name}</strong>
+                                        <strong>${newmenuList.product_name}</strong>
                                     </p>
                                 </div>
-                                <a href="${contextPath}/menuInform/beerzonedetail.do?product_serial=${beerzoneList.product_serial}" class="btn_detail">
+                                <a href="${contextPath}/menuInform/newmenudetail.do?product_serial=${newmenuList.product_serial}" class="btn_detail">
                            
                                     <span>Details</span>
                                 </a>         
