@@ -50,6 +50,11 @@
 						<h3 class="page_tit">메뉴소개</h3>
 						<div class="tab01">
 							<ul>
+								<li class="off">
+									<button type="button">
+										<a href="${contextPath}/menuInform/newMenu.do">new메뉴</a>
+									</button>
+								</li>
 								<li class="on">
 									<button type="button">
 										<a href="${contextPath}/menuInform/chickenMenu.do">치킨메뉴</a>

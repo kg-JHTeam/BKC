@@ -58,4 +58,17 @@ public class ProductDAOImpl implements ProductDAO {
 		System.out.println("getBeerzone()수행  ");
 		return sqlSession.selectOne("getBeerzone", product_serial);
 	}
+
+	//신메뉴리스트
+	@Override
+	public List<ProductVO> getNewmenuList() {
+		System.out.println("getNewmenuList()수행  ");
+		return sqlSession.selectList("getNewmenuList");
+	}
+	//신메뉴디테일
+	@Override
+	public ProductVO getNewmenu(int product_serial) {
+		System.out.println("getNewmenu()수행  ");
+		return sqlSession.selectOne("getNewmenu", product_serial);
+	}
 }

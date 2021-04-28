@@ -21,4 +21,9 @@ public interface ProductService {
 	public List<ProductVO> getBeerzoneList();
 	//비어존 디테일
 	public ProductVO getBeerzone(int product_serial);
+	//신메뉴 리스트
+	public List<ProductVO> getNewmenuList();
+	
+	//신메뉴 디테일
+	public ProductVO getNewmenu(int product_serial);
 }

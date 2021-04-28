@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.bkc.menuInform.dao.ProductDAO;
 import com.bkc.menuInform.vo.ProductVO;
 
@@ -52,6 +51,18 @@ public class ProductServiceImpl implements ProductService {
 	public ProductVO getBeerzone(int product_serial) {
 		
 		return  productDao.getBeerzone(product_serial);
+	}
+	//신메뉴 리스트
+	@Override
+	public List<ProductVO> getNewmenuList() {
+		
+		return  productDao.getNewmenuList();
+	}
+	//신메뉴디테일
+	@Override
+	public ProductVO getNewmenu(int product_serial) {
+		
+		return productDao.getNewmenu(product_serial);
 	}
 
 }

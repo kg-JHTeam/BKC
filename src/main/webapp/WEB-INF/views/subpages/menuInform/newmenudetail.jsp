@@ -50,10 +50,10 @@
 
 					<a href="${contextPath }/"> <span>HOME</span>
 					</a> <a href="#" class="arrow"> <span>메뉴소개</span>
-					</a> <a href="${contextPath}/menuInform/sideMenu.do" class="arrow">
-						<span>사이드메뉴</span>
+					</a> <a href="${contextPath}/menuInform/newMenu.do" class="arrow">
+						<span>new메뉴</span>
 					</a> <a href="#" class="arrow">
-					 <span>${sidemenu.product_name}</span>
+					 <span>${newmenu.product_name}</span>
 					</a>
 
 				</div>
@@ -63,10 +63,10 @@
 			<div class="menudetailweb_container">
 
 				<div class="intro_txt">
-					<strong class="tit"> <span>${sidemenu.product_name}</span>
+					<strong class="tit"> <span>${newmenu.product_name}</span>
 					</strong>
 					<p class="subtxt">
-						<span>${sidemenu.description}</span>
+						<span>${newmenu.description}</span>
 					</p>
 				</div>
 
@@ -74,7 +74,7 @@
 		</div>
 		<div class="menuInformdetail_subinfoWrap">
 			<div class="web_container">
-				<a href="${contextPath}/menuInform/sideMenu.do" class="btn_back">
+				<a href="${contextPath}/menuInform/newMenu.do" class="btn_back">
 					<span>메뉴 목록으로 돌아가기</span>
 				</a> <a href="#" class="allergy">
 					<button type="button" class="allergy_btn">
@@ -92,15 +92,15 @@
 
 					<li>
 						<div class="prd_img">
-							<span> <img src="${sidemenu.path}">
+							<span> <img src="${newmenu.path}">
 							</span>
 						</div>
 						<div class="cont">
 							<p class="tit">
-								<strong>${sidemenu.product_name}</strong>
+								<strong>${newmenu.product_name}</strong>
 							</p>
 							<p class="tit_content">
-								<span>${sidemenu.description}</span>
+								<span>${newmenu.description}</span>
 							</p>
 						</div>
 					</li>
@@ -111,13 +111,13 @@
 		<div class="other_menuWrap">
 			<div class="web_container">
 				<div class="titbox">
-					<h3>사이드메뉴의 다른 메뉴</h3>
+					<h3>신메뉴의 다른 메뉴</h3>
 					<div class="slide">
 						<div class="othermenu_slider">
 							<div class="slider prd_img responsive">
-								<c:forEach var="vo" items="${ sidemenuList}">
+								<c:forEach var="vo" items="${ newmenuList}">
 									<a
-										href="${contextPath}/menuInform/sidemenudetail.do?product_serial=${vo.product_serial}"
+										href="${contextPath}/menuInform/newmenudetail.do?product_serial=${vo.product_serial}"
 										class="btn_detail"> <span style="display: block;">
 											<img src="${vo.path}">
 											<div class="cont">
