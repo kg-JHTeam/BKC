@@ -37,12 +37,14 @@ button {
 
 .locationWrap {
     position: relative;
-    padding: 10px;
+    padding: 10px 0;
+    line-height: 38px;
     padding-left: 45px;
     color: #fff;
     background: black;
     font-weight: bold;
     z-index: 2;
+   
 }
 
 .locationWrap>ul>li {

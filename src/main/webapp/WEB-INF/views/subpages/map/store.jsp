@@ -24,6 +24,7 @@
 <!-- js -->
 
 <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
+<script src="${contextPath}/resources/js/include/main-gnb.js"></script>
 <script src="${contextPath}/resources/js/subpages/map/menu.js"></script>
 
 </head>
