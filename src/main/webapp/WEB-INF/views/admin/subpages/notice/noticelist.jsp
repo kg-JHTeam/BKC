@@ -12,6 +12,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>BKC 홈페이지 관리자 페이지</title>
+
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -22,27 +23,26 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">게시글 상세조회</h1>
+					<h1 class="mt-4">공지사항 목록</h1>
 					<!-- 공지사항 목록 -->
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table mr-1"></i> 게시글 상세조회
+							<i class="fas fa-table mr-1"></i> 목록
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
 								<table class="table table-bordered" id="dataTable" width="100%">
 									<thead>
-										<tr>
-											<th>NO</th>
-											<th>게시날짜</th>
+										<tr>		
 											<th>제목</th>
+											<th>게시일</th>
 											<th>작성자</th>
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach var="adNoticeList" items="${adNoticeList}">
 											<tr>
-												<td><c:out value="${adNoticeList.seq}"/></td>
+												
 												<td><a type="hidden" href="${contextPath }/admin/getNotice.ad?seq=${adNoticeList.seq}">${adNoticeList.title }</a></td>
 												<td>${adNoticeList.post_date}</td>
 												<td>관리자</td>

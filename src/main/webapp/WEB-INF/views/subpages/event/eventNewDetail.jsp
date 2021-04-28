@@ -44,19 +44,15 @@
 				<h3 class="page_tit">이벤트</h3>
 				<!-- 이벤트 제목, 이미지, 내용 -->
 				<div class="ev_tit WEB">
-					<h4 class="title">${event.event_title}</h4>
+					<h4 class="title">${store.store_name} GRAND OPEN</h4>
 					<div class="valid">
-						<p class="start">${event.start_date}</p> ~ 
-						<p class="end">${event.end_date}</p>
+						<p class="start">${store.store_open}</p> ~ 
 					</div>
 				</div>
 				<div class="ev_con">
-					<a href="${event.image}" target="_blank"> <img src="${event.image}" style="width:100%; height: auto;" alt="이미지" class="detail"/></a>
-					<div class="ev_txt">
-						<p class="contents">${event.description}</p>
-					</div>
+					<img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/detail/new_detail.png" style="z-index: -1;">
+					<div style="position: absolute; left: 500px; top: 260px; font-size: 4rem; color:#6F3C2F; display: block">${store.store_name }</div>
 					<img class="qr" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/event/detail/evenr_qr.png"> 
-					<img class="ad" src="image/appDownload.PNG">
 				</div>
 				
 			</div>

@@ -32,7 +32,7 @@
 
 							<div class="row">
 								<div class="col-lg-12">
-									<h1 class="page-header">Notice Register</h1>
+									<h1 class="page-header"></h1>
 								</div>
 								<!-- /.col-lg-12 -->
 							</div>
@@ -42,28 +42,28 @@
 								<div class="col-lg-12">
 									<div class="panel panel-default">
 
-										<div class="panel-heading">Notice Register</div>
+										<div class="panel-heading"></div>
 										<!-- /.panel-heading -->
 										<div class="panel-body">
 
-											<form role="form" action="${pageContext.request.contextPath }/admin/insertNoticeDB.ad" method="post">
+											<form role="form" action="${pageContext.request.contextPath }/admin/insertNoticeDB.ad" method="post" enctype="multipart/form-data">
 												<div class="form-group">
-													<label>Title</label> <input class="form-control"
+													<label>제목</label> <input class="form-control"
 														name='title'>
 												</div>
 
 												<div class="form-group">
-													<label>Text area</label>
-													<textarea class="form-control" rows="3" name='contents'></textarea>
+													<label>내용</label>
+													<textarea class="form-control" rows="20" name='contents'></textarea>
 												</div>
 
 												<div class="form-group">
-													<label>Writer</label> <input class="form-control"
-														name='writer'>
+													<label>작성자</label> <input class="form-control"
+														name='writer' value='관리자' readonly="readonly">
 												</div>
+												<button type="button" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath }/admin/noticelist.ad?'">목록 가기</button>
 												<button type="submit" class="btn btn-primary">등록</button>
-												<button type="reset" class="btn btn-primary">초기화
-													Button</button>
+												<button type="reset" class="btn btn-danger">초기화</button>
 											</form>
 										</div>
 										<!-- end panel-body -->

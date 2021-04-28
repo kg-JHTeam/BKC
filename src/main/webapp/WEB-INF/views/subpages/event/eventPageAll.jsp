@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -70,56 +71,27 @@
 						<button type="button">이벤트</button>
 					</li>
 					<li>
-						<button type="button" onclick="location.href='${pageContext.request.contextPath }/event/eventPageNew.do'">신규매장</button>
+						<button type="button" onclick="location.href='${pageContext.request.contextPath}/event/eventPageNew.do'">신규매장</button>
 					</li>
 				</ul>
 				<div class="tab_cont m_bg_basic">
-					<div class="nodata" style="display: none;">
-						<span>이벤트가 없습니다</span>
-					</div>
 					<ul class="eventBox">
-						<li>
-							<button>
-								<span> <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/footer/footerimg.png" style="display: inline; opacity: 1;">
-								</span>
-							</button>
-							<p>
-								<span>2021.04.01~2021.04.30</span>
-							</p>
-						</li>
-						<li>
-							<button>
-								<span> <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/footer/footerimg.png" style="display: inline; opacity: 1;">
-								</span>
-							</button>
-							<p>
-								<span>2021.04.01~2021.04.30</span>
-							</p>
-						</li>
-						<li>
-							<button>
-								<span> <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/footer/footerimg.png" style="display: inline; opacity: 1;">
-								</span>
-							</button>
-							<p>
-								<span>2021.04.01~2021.04.30</span>
-							</p>
-						</li>
-						<li>
-							<button>
-								<span> <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/footer/footerimg.png" style="display: inline; opacity: 1;">
-								</span>
-							</button>
-							<p>
-								<span>2021.04.01~2021.04.30</span>
-							</p>
-						</li>
+						<c:forEach var="eventList" items="${eventList}">
+								<li>
+									<div class="event_list_img">
+										 <img src="${eventList.img_title}" style="display: inline; opacity: 1;">	
+									</div>
+									<div class="cont">
+										<p class="tit">
+											<a type="hidden" href="${pageContext.request.contextPath}/event/eventDetail.do?seq=${eventList.seq}">
+												<strong>${eventList.start_date}</strong> ~ 
+												<strong>${eventList.end_date}</strong>
+											</a>
+										</p>
+									</div>							
+								</li>
+							</c:forEach>
 					</ul>
-					<div class="c_btn">
-						<button type="button" class="btn01 more">
-							<span> 더보기 </span>
-						</button>
-					</div>
 				</div>
 			</div>
 		</div>

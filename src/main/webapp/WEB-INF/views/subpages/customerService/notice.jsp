@@ -33,7 +33,7 @@
 
 <script type="text/javascript">
 function goPaging(page) {
-	location.href = "${pageContext.request.contextPath }/customerService/notice.do?+page="+page;
+	location.href = "${pageContext.request.contextPath }/customerService/notice.do?+pageNum="+page;
 	
 }
 </script>

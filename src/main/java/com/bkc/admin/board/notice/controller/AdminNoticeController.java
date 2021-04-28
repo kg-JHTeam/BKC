@@ -16,11 +16,6 @@ public class AdminNoticeController {
 	
 	@Autowired
 	private AdminNoticeService adNoticeService;
-
-	@Autowired
-	public void setAdminNoticeService(AdminNoticeService adNoticeService) {
-		this.adNoticeService=adNoticeService;
-	}
 	
 	//게시판 목록보기
 	@RequestMapping(value="/admin/noticelist.ad", method=RequestMethod.GET)
