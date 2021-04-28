@@ -36,7 +36,7 @@
                         <a href="${contextPath}/delivery/delivery.do">
                             <span>딜리버리</span>
                         </a>
-                        <a href="#" class="gotomenu">
+                        <a href="${contextPath}/delivery/mybkc.do" class="gotomenu">
                             <span>MYBKC</span>
                         </a>
                         <a href="${contextPath}/delivery/orderList.do" class="gotomenu">
