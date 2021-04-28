@@ -77,14 +77,14 @@ function deleteCoupon(coupon_serial){
 								<input class="btn btn-success" type="button" value="쿠폰 업로드"
 									onclick="location.href='${contextPath}/admin/couponUploadpage.ad'"
 									id="insertBanner">
-								<table class="table" id="dataTable" width="100%">
+								<table class="table table-bordered" id="dataTable" width="100%">
 									<thead>
 										<tr>
 											<th>쿠폰 시리얼</th>
 											<th>쿠폰 이름</th>
 											<th>카테고리</th>
 											<th>할인 가격</th>
-											<th>수정 및 삭제</th>
+											<th>수정</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -97,8 +97,8 @@ function deleteCoupon(coupon_serial){
 												<td>
 												<input class="btn btn-primary" type="button" value="수정"
 																onclick="location.href='${contextPath}/admin/couponUpdatepage.ad?coupon_serial=${coupon.coupon_serial}'" />
-												<input class="btn btn-danger" type="button" value="삭제"
-																onclick="javascript:deleteCoupon(${coupon.coupon_serial})" />
+												<!-- input class="btn btn-danger" type="button" value="발행중지"
+																onclick="javascript:deleteCoupon('${coupon.coupon_serial}')" /> -->
 												</td>
 											</tr>
 										</c:forEach>
@@ -114,7 +114,7 @@ function deleteCoupon(coupon_serial){
 		</div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		crossorigin="anonymous"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
@@ -132,6 +132,5 @@ function deleteCoupon(coupon_serial){
 		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
 		crossorigin="anonymous"></script>
 	<script src="${contextPath }/resources/assets/demo/datatables-demo.js"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </body>
 </html>

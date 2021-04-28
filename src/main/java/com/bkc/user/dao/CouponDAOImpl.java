@@ -36,7 +36,7 @@ public class CouponDAOImpl implements CouponDAO {
 
 	@Override
 	public int couponDelete(String coupon_serial) {
-		return sqlSession.insert("couponUpload", coupon_serial);
+		return sqlSession.insert("couponDelete", coupon_serial);
 	}
 
 	@Override

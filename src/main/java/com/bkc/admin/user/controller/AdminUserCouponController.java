@@ -143,7 +143,7 @@ public class AdminUserCouponController {
 		// 쿠폰 업로드 로직 만들기
 		CouponVO coupon = couponService.getCouponBySerial(coupon_serial);
 		model.addAttribute("coupon", coupon);
-
+		
 		CheckVO check = new CheckVO();
 		check.setSuccess("true");
 
@@ -152,6 +152,7 @@ public class AdminUserCouponController {
 		} else {
 			check.setSuccess("deletefalse");
 		}
+		
 		// 모든 쿠폰 전부 출력
 		List<CouponVO> coupons = couponService.getCouponList();
 		model.addAttribute("coupons", coupons);

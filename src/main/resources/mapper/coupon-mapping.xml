@@ -41,7 +41,7 @@
 	<insert id="couponDelete" >
 		<![CDATA[
 		DELETE FROM public.coupon
-		WHEREcoupon_serial=#{coupon_serial};
+		WHERE coupon_serial=#{coupon_serial};
 		]]>
 	</insert>
 </mapper>
