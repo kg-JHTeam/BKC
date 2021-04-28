@@ -340,10 +340,9 @@ public class UserController {
 
 	// 회원 수정
 	@RequestMapping("/modifyuser")
-	public String modifyUser(Model model, @Valid UserVO user, BindingResult result) {
+	public String modifyUser(Model model) {
 
-		// @Valid를 통해 자동 객체 검증
-		return "modifyuser";
+		return "delivery/userChange";
 	}
 
 	// 회원 탈퇴
