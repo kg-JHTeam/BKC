@@ -107,7 +107,7 @@
                                             </dl>
                                         </div>
                                     </div>
-                                    <a href="#" class="btn_detail">
+                                    <a href="${contextPath}/delivery/orderDetail.do" class="btn_detail">
                                         <span>Details</span>
                                     </a>
                                 </li>
@@ -139,7 +139,7 @@
                                             </dl>
                                         </div>
                                     </div>
-                                    <a href="#" class="btn_detail">
+                                    <a href="href="${contextPath}/delivery/orderDetail.do" class="btn_detail">
                                         <span>Details</span>
                                     </a>
                                 </li>
