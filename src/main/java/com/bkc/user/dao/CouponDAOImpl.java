@@ -9,15 +9,10 @@ import org.springframework.stereotype.Repository;
 import com.bkc.user.vo.CouponVO;
 
 @Repository
-public class UserCouponDAOImpl implements UserCouponDAO {
+public class CouponDAOImpl implements CouponDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-
-	@Override
-	public List<CouponVO> getCouponListById(String userid) {
-		return sqlSession.selectList("getCouponListById", userid);
-	}
 
 	@Override
 	public List<CouponVO> getCouponList() {

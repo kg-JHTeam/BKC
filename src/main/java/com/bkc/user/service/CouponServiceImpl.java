@@ -5,20 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bkc.user.dao.UserCouponDAO;
+import com.bkc.user.dao.CouponDAO;
 import com.bkc.user.vo.CouponVO;
 
 @Service
-public class UserCouponServiceImpl implements UserCouponService {
+public class CouponServiceImpl implements CouponService {
 
 	@Autowired
-	private UserCouponDAO couponDao;
+	private CouponDAO couponDao;
 	
-	@Override
-	public List<CouponVO> getCouponListById(String userid) {
-		return couponDao.getCouponListById(userid);
-	}
-
+	//등록된 쿠폰 출력 
 	@Override
 	public List<CouponVO> getCouponList() {
 		return couponDao.getCouponList();

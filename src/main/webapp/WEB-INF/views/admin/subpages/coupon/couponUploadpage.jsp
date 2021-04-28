@@ -11,30 +11,19 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <title>BKC 홈페이지 관리자 페이지</title>
-
-<style>
-#bannerimgCol {
-	text-align: center;
+<script>
+//업로드 성공하면 성공 
+window.onload = function(){
+	var chk = "<c:out value='${check.success}'/>"
+	if(chk=="true"){
+		alert("배너 업로드 성공");
+	} else if(chk=="false"){
+		alert("배너 업로드 실패");
+	} 
 }
-
-#bannerimg {
-	width: 385.2px;
-	height: 231.6px;
-}
-
-#insertBanner {
-	position: relative;
-	margin-bottom: 0.5%;
-	margin-left: 91%
-}
-</style>
-
+</script>
 </head>
-
-
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
 	<jsp:include page="../../include/firstHeader.jsp" />
@@ -44,41 +33,51 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">쿠폰 리스트</h1>
+					<h1 class="mt-4">쿠폰 등록</h1>
 					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-table mr-1"></i>쿠폰 리스트
-						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<input class="btn btn-success" type="button" value="쿠폰 업로드"
-									onclick="location.href='${contextPath}/admin/couponUploadpage.ad'"
-									id="insertBanner">
-								<table class="table" id="dataTable" width="100%">
-									<thead>
-										<tr>
-											<th>쿠폰 이름</th>
-											<th>카테고리</th>
-											<th>할인 가격</th>
-											<th>수정 및 삭제</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="coupon" items="${coupons}">
-											<tr>
-												<td>${coupon.coupon_title}</td>
-												<td>${coupon.coupon_category}</td>
-												<td>${coupon.price }</td>
-												<td>
-												<input class="btn btn-primary" type="button" value="수정"
-																onclick="" />
-												<input class="btn btn-danger" type="button" value="삭제"
-																onclick="" />
-												</td>
-											</tr>
-										</c:forEach>
-									</tbody>
-								</table>
+								<form action="${contextPath}/admin/couponUpload.ad" method="post">
+									<div class="container-fluid">
+										<br>
+										<!-- DataTales Example -->
+										<div class="card shadow mb-4">
+											<div class="card-header py-3">
+												<h6 class="m-1 font-weight-bold text-primary">쿠폰 등록</h6>
+											</div>
+											<div class="card-body">
+												<!-- 전체 frame -->
+												<ul>
+													<!-- 쿠폰 제목 -->
+													<li>
+														<div>
+															<div class="index">제목</div>
+															<input class="title_text" type="text" name="title" style="width: 50%" required /><br/>
+														</div>
+													</li><br/>
+													<!-- 베너 내용 -->
+													<li>
+														<div>
+															<div class="index">내용</div>
+															<input type="text" name="content" style="width: 50%;" required /><br/>
+														</div>
+													</li>
+												</ul>
+												<div align="center">
+													<input style="padding: 5px"
+														class="btn btn-primary btn-icon-split" type="submit"
+														 value="쿠폰 등록하기" />
+												</div>
+												<div align="right">
+													<a href="${contextPath }/admin/couponlist.ad"
+														class="btn btn-success btn-icon-split"> <span
+														class="text">목록가기</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -107,6 +106,5 @@
 		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
 		crossorigin="anonymous"></script>
 	<script src="${contextPath }/resources/assets/demo/datatables-demo.js"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </body>
 </html>
