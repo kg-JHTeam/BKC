@@ -4,12 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.bkc.user.vo.CouponVO;
+import com.bkc.user.vo.UserCouponVO;
 
 @Repository
 public interface UserCouponDAO {
 
-	public List<CouponVO> getCouponListById(String userid);
-
-	public List<CouponVO> getCouponList();
+	public List<UserCouponVO> getUserCouponList();
+	
 }

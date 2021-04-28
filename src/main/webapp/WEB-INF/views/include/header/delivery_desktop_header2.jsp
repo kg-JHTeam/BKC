@@ -23,7 +23,7 @@
                         <a href="${contextPath}/login">
                             <span>로그아웃</span>
                         </a>
-                        <a href="#">
+                        <a href="${contextPath}/delivery/mybkc.do">
                             <span>MYBKC</span>
                         </a>
                         <a href="${contextPath}/notice.do">
@@ -34,7 +34,7 @@
                         <p>
                             <span>${user.name }</span> 님 안녕하세요
                         </p>
-                        <a href="#">
+                        <a href="${contextPath}/delivery/mybkc.do">
                             <strong>MYBKC 바로가기</strong>
                         </a>
                     </div>

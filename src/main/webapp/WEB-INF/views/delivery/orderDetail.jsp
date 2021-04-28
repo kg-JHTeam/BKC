@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 	<!-- font google web font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -36,7 +36,7 @@
                         <a href="${contextPath}/delivery/delivery.do">
                             <span>딜리버리</span>
                         </a>
-                        <a href="#" class="gotomenu">
+                        <a href="${contextPath}/delivery/mybkc.do" class="gotomenu">
                             <span>MYBKC</span>
                         </a>
                         <a href="${contextPath}/delivery/orderList.do" class="gotomenu">

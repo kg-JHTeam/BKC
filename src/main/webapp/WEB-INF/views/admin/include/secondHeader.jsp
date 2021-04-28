@@ -41,11 +41,9 @@
                             </a>
                             <div class="collapse" id="collapseCoupons" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                	<a class="nav-link" href="#">쿠폰배포 </a>
-                                    <a class="nav-link" href="#">새 쿠폰 추가 </a>
-                                    <a class="nav-link" href="${contextPath}/admin/couponlist.ad">쿠폰 리스트</a>
-                                    <a class="nav-link" href="#">쿠폰 수정</a>
-                                    <a class="nav-link" href="#">쿠폰 삭제</a>
+                                	<a class="nav-link" href="${contextPath}/admin/couponlist.ad">쿠폰 리스트</a>
+                                	<a class="nav-link" href="${contextPath}/admin/couponUserlist.ad">회원 소지 쿠폰 리스트</a>
+                                	<a class="nav-link" href="${contextPath}/admin/couponRelease.ad">쿠폰 배포</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

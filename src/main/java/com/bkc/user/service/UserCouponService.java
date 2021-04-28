@@ -4,14 +4,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.bkc.user.vo.CouponVO;
+import com.bkc.user.vo.UserCouponVO;
 
 @Service
 public interface UserCouponService {
+	
+	//모든 회원이 가진 쿠폰 리스트 출력
+	public List<UserCouponVO> getUserCouponList();
 
-	//쿠폰 리스트 받아오기 
-	public List<CouponVO> getCouponListById(String userid);
-
-	//모든 쿠폰리스트 받아오기 
-	public List<CouponVO> getCouponList();
 }
