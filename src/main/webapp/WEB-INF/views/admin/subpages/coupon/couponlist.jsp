@@ -31,7 +31,30 @@
 	margin-left: 91%
 }
 </style>
-
+<script>
+//업로드 성공하면 성공 
+window.onload = function(){
+	var chk = "<c:out value='${check.success}'/>"
+	if(chk=="updatetrue"){
+		alert("쿠폰 수정 성공");
+	} else if(chk=="updatefalse"){
+		alert("쿠폰 수정 실패");
+	} else if(chk=="deletetrue"){
+		alert("쿠폰 삭제 성공");
+	} else if(chk=="deletefalse"){
+		alert("쿠폰 삭제 실패");
+	} 
+}
+//쿠폰 삭제 - 동기 처리 
+function deleteCoupon(coupon_serial){
+	if(!confirm("삭제를 하시겠습니까?")) {
+		return;
+	} else{
+		var contextpath = "<c:out value='${contextPath}'/>";
+	    window.location.href= contextpath+"/admin/couponDelete.ad?coupon_serial="+coupon_serial;
+	}
+}
+</script>
 </head>
 
 
@@ -57,6 +80,7 @@
 								<table class="table" id="dataTable" width="100%">
 									<thead>
 										<tr>
+											<th>쿠폰 시리얼</th>
 											<th>쿠폰 이름</th>
 											<th>카테고리</th>
 											<th>할인 가격</th>
@@ -66,14 +90,15 @@
 									<tbody>
 										<c:forEach var="coupon" items="${coupons}">
 											<tr>
+												<td>${coupon.coupon_serial}</td>
 												<td>${coupon.coupon_title}</td>
 												<td>${coupon.coupon_category}</td>
 												<td>${coupon.price }</td>
 												<td>
 												<input class="btn btn-primary" type="button" value="수정"
-																onclick="" />
+																onclick="location.href='${contextPath}/admin/couponUpdatepage.ad?coupon_serial=${coupon.coupon_serial}'" />
 												<input class="btn btn-danger" type="button" value="삭제"
-																onclick="" />
+																onclick="javascript:deleteCoupon(${coupon.coupon_serial})" />
 												</td>
 											</tr>
 										</c:forEach>

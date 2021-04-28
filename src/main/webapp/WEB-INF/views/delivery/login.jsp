@@ -91,7 +91,7 @@
                                 </label>
                                 <label>
                                 	<!-- 자동로그인 구현  -->
-                                    <input name="remember-me" type="checkbox" name="box" class="autologin_check">
+                                    <input name="remember-me" type="checkbox" id="remember" name="remember" class="autologin_check">
                                     <span>자동 로그인</span>
                                 </label>
                             </div>

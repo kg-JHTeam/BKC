@@ -66,7 +66,6 @@ window.onload = function(){
 															<option value="chicken_menu">치킨메뉴</option>
 															<option value="side_menu">사이드 메뉴</option>
 															<option value="beerzone">비어존</option>
-
 														</select>																	
 													</div>
 												</li>

@@ -19,4 +19,24 @@ public class CouponDAOImpl implements CouponDAO {
 		return sqlSession.selectList("getCouponList");
 	}
 
+	@Override
+	public int couponUpload(CouponVO vo) {
+		return sqlSession.insert("couponUpload",vo);
+	}
+
+	@Override
+	public CouponVO getCouponBySerial(String coupon_serial) {
+		return sqlSession.selectOne("getCouponBySerial", coupon_serial);
+	}
+
+	@Override
+	public int couponUpdate(CouponVO vo) {
+		return sqlSession.insert("couponUpdate",vo);
+	}
+
+	@Override
+	public int couponDelete(String coupon_serial) {
+		return sqlSession.insert("couponUpload", coupon_serial);
+	}
+
 }

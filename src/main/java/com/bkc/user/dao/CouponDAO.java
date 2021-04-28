@@ -10,4 +10,13 @@ import com.bkc.user.vo.CouponVO;
 public interface CouponDAO {
 
 	public List<CouponVO> getCouponList();
+
+	public int couponUpload(CouponVO vo);
+
+	public CouponVO getCouponBySerial(String coupon_serial);
+			
+	public int couponUpdate(CouponVO vo);
+
+	public int couponDelete(String coupon_serial);
+
 }
