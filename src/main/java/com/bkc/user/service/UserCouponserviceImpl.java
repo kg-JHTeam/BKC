@@ -19,4 +19,21 @@ public class UserCouponserviceImpl implements UserCouponService {
 		return usercouponDao.getUserCouponList();
 	}
 
+	@Override
+	public List<UserCouponVO> getUserHavingCouponDetail(String userid) {
+		return usercouponDao.getUserHavingCouponDetail(userid);
+	}
+
+	@Override
+	public int deleteUserCoupon(int coupon_seq) {
+		return usercouponDao.deleteUserCoupon(coupon_seq);
+	}
+
+	@Override
+	public int insertUserCoupon(UserCouponVO usercoupon) {
+		return usercouponDao.insertUserCoupon(usercoupon);
+	}
+
+
+
 }

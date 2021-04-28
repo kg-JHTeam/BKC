@@ -39,4 +39,9 @@ public class CouponDAOImpl implements CouponDAO {
 		return sqlSession.insert("couponUpload", coupon_serial);
 	}
 
+	@Override
+	public CouponVO getCouponByTitle(String coupon_title) {
+		return sqlSession.selectOne("getCouponByTitle", coupon_title);
+	}
+
 }

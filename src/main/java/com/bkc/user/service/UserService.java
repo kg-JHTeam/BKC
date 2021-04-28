@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import com.bkc.user.vo.UserCouponVO;
 import com.bkc.user.vo.UserVO;
 
 @Service

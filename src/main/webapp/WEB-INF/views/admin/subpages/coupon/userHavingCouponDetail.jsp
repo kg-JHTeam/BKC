@@ -11,25 +11,34 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <title>BKC 홈페이지 관리자 페이지</title>
-	<style>
-	#bannerimgCol {
-		text-align: center;
+<style>
+#tmp {
+	position: relative;
+	margin-bottom: 0.5%;
+	margin-left: 88%
+}
+</style>
+<script>
+//업로드 성공하면 성공 
+window.onload = function(){
+	var chk = "<c:out value='${check.success}'/>"
+	if(chk=="true"){
+		alert("쿠폰 삭제");
+	} else if(chk=="false"){
+		alert("쿠폰 삭제 실패 ");
+	} 
+}
+
+function deleteUserCoupon(coupon_seq, userid) {
+	if(!confirm("쿠폰 삭제를 하시겠습니까?")) {
+		return;
+	} else{
+		var contextpath = "<c:out value='${contextPath}'/>";
+	    window.location.href= contextpath+"/admin/deleteUserCoupon.ad?coupon_seq="+coupon_seq+"&userid="+userid;
 	}
-	
-	#bannerimg {
-		width: 385.2px;
-		height: 231.6px;
-	}
-	
-	#insertBanner {
-		position: relative;
-		margin-bottom: 0.5%;
-		margin-left: 91%
-	}
-	</style>
+}
+</script>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -40,33 +49,37 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">유저 쿠폰 리스트</h1>
+					<h1 class="mt-4">회원 쿠폰</h1>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table mr-1"></i>유저 쿠폰 리스트
+							<i class="fas fa-table mr-1"></i> ${userid} 가 소지한 쿠폰 리스트
 						</div>
 						<div class="card-body">
-							<div class="table-responsive" >
-								<table class="table table-bordered" id="dataTable" width="100%">
-									<thead>
-										<tr>
-											<th>쿠폰 넘버</th>
-											<th>쿠폰 시리얼</th>
-											<th>소지자 아이디</th>
-											<th>쿠폰 발급일</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="usercoupon" items="${usercoupons}">
+							<div class="table-responsive">
+								<input class="btn btn-success" type="button" value="쿠폰 배포 페이지로"
+									onclick="location.href='${contextPath }/admin/couponRelease.ad'"
+									id="tmp">
+									<table class="table table-bordered" id="dataTable" width="100%">
+										<thead>
 											<tr>
-												<td>${usercoupon.coupon_number}</td>
-												<td>${usercoupon.coupon_serial}</td>
-												<td>${usercoupon.userid}</td>
-												<td>${usercoupon.startdate}</td>
+												<th>쿠폰 등록 날짜</th>
+												<th>쿠폰 시리얼</th>
+												<th>삭제하기</th>
 											</tr>
-										</c:forEach>
-									</tbody>
-								</table>
+										</thead>
+										<tbody>
+											<c:forEach var="usercoupon" items="${usercoupons}">
+												<tr>
+													<td>${usercoupon.startdate}</td>
+													<td>${usercoupon.coupon_serial}</td>
+													<td>
+														<input class="btn btn-danger" type="button" value="쿠폰 삭제"
+														onclick="javascript:deleteUserCoupon(${usercoupon.coupon_seq}, '${userid}');"/>
+													</td>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
 							</div>
 						</div>
 					</div>
@@ -95,6 +108,5 @@
 		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
 		crossorigin="anonymous"></script>
 	<script src="${contextPath }/resources/assets/demo/datatables-demo.js"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </body>
 </html>

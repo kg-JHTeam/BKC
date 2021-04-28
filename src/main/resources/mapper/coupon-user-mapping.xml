@@ -17,4 +17,26 @@
 			SELECT * FROM user_coupon WHERE coupon_serial=#{coupon_serial}
 		]]>
 	</select>
+	
+	<select id="getUserHavingCouponDetail" resultType="UserCouponVO">
+		<![CDATA[
+			SELECT * FROM user_coupon WHERE userid=#{userid}
+		]]>
+	</select>
+	
+	<insert id="deleteUserCoupon" >
+		<![CDATA[
+			DELETE FROM user_coupon
+			WHERE coupon_seq = #{coupon_seq}
+		]]>
+	</insert>
+	
+	
+	<insert id="insertUserCoupon" >
+		<![CDATA[
+			INSERT INTO user_coupon(startdate, coupon_serial, userid)
+			VALUES (#{startdate}, #{coupon_serial}, #{userid});
+		]]>
+	</insert>
+	
 </mapper>

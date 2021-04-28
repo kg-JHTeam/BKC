@@ -23,4 +23,7 @@ public interface CouponService {
 
 	//쿠폰 삭제
 	public int couponDelete(String coupon_serial);
+
+	//제목으로 가져오기 
+	public CouponVO getCouponByTitle(String coupon_title);
 }

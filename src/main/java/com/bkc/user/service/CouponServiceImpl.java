@@ -43,4 +43,9 @@ public class CouponServiceImpl implements CouponService {
 	public int couponDelete(String coupon_serial) {
 		return couponDao.couponDelete(coupon_serial);
 	}
+
+	@Override
+	public CouponVO getCouponByTitle(String coupon_title) {
+		return couponDao.getCouponByTitle(coupon_title);
+	}
 }
