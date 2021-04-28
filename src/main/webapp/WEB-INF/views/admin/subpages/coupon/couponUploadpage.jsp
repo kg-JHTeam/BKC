@@ -17,9 +17,9 @@
 window.onload = function(){
 	var chk = "<c:out value='${check.success}'/>"
 	if(chk=="true"){
-		alert("배너 업로드 성공");
+		alert("쿠폰 업로드 성공");
 	} else if(chk=="false"){
-		alert("배너 업로드 실패");
+		alert("쿠폰 업로드 실패");
 	} 
 }
 </script>
@@ -44,24 +44,40 @@ window.onload = function(){
 										<div class="card shadow mb-4">
 											<div class="card-header py-3">
 												<h6 class="m-1 font-weight-bold text-primary">쿠폰 등록</h6>
-											</div>
-											<div class="card-body">
-												<!-- 전체 frame -->
-												<ul>
-													<!-- 쿠폰 제목 -->
-													<li>
-														<div>
-															<div class="index">제목</div>
-															<input class="title_text" type="text" name="title" style="width: 50%" required /><br/>
-														</div>
-													</li><br/>
-													<!-- 베너 내용 -->
-													<li>
-														<div>
-															<div class="index">내용</div>
-															<input type="text" name="content" style="width: 50%;" required /><br/>
-														</div>
+											</div><br><br>
+											<ul>
+												<!-- 카테고리 -->
+												<li>
+													<div>
+														<p>적용 카테고리</p>
+														<select class="btn btn-secondary dropdown-toggle" id="coupon_category" name="coupon_category" style="width: 150px" onchange="chageType()"required>
+															<option value="all" selected>전체 메뉴</option>
+															<option value="chicken_menu">치킨메뉴</option>
+															<option value="side_menu">사이드 메뉴</option>
+															<option value="beerzone">비어존</option>
+														</select>
+													</div>
+													<br>
+												</li>
+													<!-- 쿠폰이름 -->
+													<li><div>
+															<div class="index">쿠폰시리얼</div>
+															<input class="title_text" type="text" name="coupon_serial" style="width: 50%" required /><br/>
+														</div><br>
 													</li>
+													<!-- 이름 -->
+													<li><div>
+															<div class="index">쿠폰이름</div>
+															<input class="title_text" type="text" name="coupon_title" style="width: 50%" required /><br/>
+														</div><br>
+													</li>
+													<!-- 할인가격  -->
+													<li>
+														<div>
+															<div class="index">할인 가격</div>
+															<input type="text" name="price" style="width: 50%;" required /><br/>
+														</div>
+													</li><br>
 												</ul>
 												<div align="center">
 													<input style="padding: 5px"
@@ -74,7 +90,6 @@ window.onload = function(){
 														class="text">목록가기</span>
 													</a>
 												</div>
-											</div>
 										</div>
 									</div>
 								</form>

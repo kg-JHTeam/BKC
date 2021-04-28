@@ -5,6 +5,7 @@
 	<typeAliases>
 		<typeAlias type="com.bkc.user.vo.UserVO" alias="UserVO" />
 		<typeAlias type="com.bkc.user.vo.CouponVO" alias="CouponVO"/>
+		<typeAlias type="com.bkc.user.vo.UserCouponVO" alias="UserCouponVO"/>
 		<typeAlias type="com.bkc.customerService.vo.NoticeVO" alias="NoticeVO" />
 		<typeAlias type="com.bkc.admin.board.banner.vo.BannerVO" alias="BannerVO" />
 		<typeAlias type="com.bkc.menuInform.vo.ProductVO" alias="ProductVO"/>
