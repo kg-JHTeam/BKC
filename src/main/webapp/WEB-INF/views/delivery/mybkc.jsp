@@ -31,7 +31,7 @@
 	<!-- contents 부분 -->
         <div class="contentsWrap">
             <div class="locationWrap">
-                <div class="web_container">
+                <div class="web_container2">
                     <div class="page_navi">
                         <a href="${contextPath}/delivery/delivery.do">
                             <span>딜리버리</span>
@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="contentsBox01 bg_w">
-                <div class="web_container">
+                <div class="web_container2">
                     <div class="subtitWrap">
                         <h2 class="page_tit st02">MYBKC</h2>
                     </div>
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div class="contentsBox01 bg_b">
-                <div class="web_container container01">
+                <div class="web_container2 container01">
                     <h3 class="tit01 tit_ico list">
                         <span>최근 주문내역</span>
                     </h3>

@@ -34,14 +34,14 @@ strong {
     background: #ffa423;
 }
 
-.locationWrap>.web_container {
+.locationWrap>.web_container2 {
     overflow: hidden;
     max-width: 1184px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.locationWrap>.web_container>.page_navi {
+.locationWrap>.web_container2>.page_navi {
     float: left;
     font-size: .875rem;
 }
@@ -50,7 +50,7 @@ strong {
     color: #fff;
 }
 
-.locationWrap>.web_container>.page_navi>* {
+.locationWrap>.web_container2>.page_navi>* {
     float: left;
 }
 
@@ -122,7 +122,7 @@ strong {
     background: #fff;
 }
 
-.web_container {
+.web_container2 {
     max-width: 1184px;
     margin: 0 auto;
     padding: 0 20px;
@@ -225,7 +225,7 @@ strong {
     background: #f2ebe6;
 }
 
-.web_container.container01 {
+.web_container2.container01 {
     padding-left: 16px;
     padding-right: 16px;
 }
@@ -234,7 +234,7 @@ strong {
     padding: 20px 0;
 }
 
-.web_container {
+.web_container2 {
     max-width: 1184px;
     margin: 0 auto;
 }
