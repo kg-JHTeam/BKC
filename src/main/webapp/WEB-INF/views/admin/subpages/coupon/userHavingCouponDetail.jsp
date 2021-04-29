@@ -63,7 +63,7 @@ function deleteUserCoupon(coupon_seq, userid) {
 										<thead>
 											<tr>
 												<th>쿠폰 등록 날짜</th>
-												<th>쿠폰 시리얼</th>
+												<th>쿠폰 넘버</th>
 												<th>삭제하기</th>
 											</tr>
 										</thead>
@@ -71,7 +71,7 @@ function deleteUserCoupon(coupon_seq, userid) {
 											<c:forEach var="usercoupon" items="${usercoupons}">
 												<tr>
 													<td>${usercoupon.startdate}</td>
-													<td>${usercoupon.coupon_serial}</td>
+													<td>${usercoupon.coupon_number}</td>
 													<td>
 														<input class="btn btn-danger" type="button" value="쿠폰 삭제"
 														onclick="javascript:deleteUserCoupon(${usercoupon.coupon_seq}, '${userid}');"/>

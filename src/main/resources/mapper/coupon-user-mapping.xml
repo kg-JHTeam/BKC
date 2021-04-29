@@ -33,10 +33,16 @@
 	</insert>
 	
 	
+	<!-- 쿠폰 생성 -->
 	<insert id="insertUserCoupon" >
 		<![CDATA[
-			INSERT INTO user_coupon(startdate, coupon_serial, userid)
-			VALUES (#{startdate}, #{coupon_serial}, #{userid});
+			INSERT INTO user_coupon(startdate, coupon_serial, userid, coupon_number)
+			VALUES (
+				#{startdate}, #{coupon_serial}, #{userid}, 
+				(SELECT (SELECT coupon_serial from coupon where coupon_serial = #{coupon_serial}) 
+    			|| (SELECT trunc(random() * 999999 + 1)::TEXT)
+				as coupon_number)
+				)
 		]]>
 	</insert>
 	

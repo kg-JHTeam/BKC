@@ -1,5 +1,7 @@
 package com.bkc.admin.user.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -192,13 +194,20 @@ public class AdminUserCouponController {
 	@RequestMapping(value = "/admin/releaseCoupon.ad", method = RequestMethod.POST)
 	@ResponseBody
 	public Object releaseCoupon(@RequestParam(value = "userArray[]") List<String> userArray,
-			@RequestParam(value = "coupon_title") String coupon_title) {
+			@RequestParam(value = "coupon_title") String coupon_title) throws ParseException {
 
 		System.out.println(coupon_title);
 		CouponVO coupon = couponService.getCouponByTitle(coupon_title);
 		UserCouponVO usercoupon = new UserCouponVO();
 		usercoupon.setCoupon_serial(coupon.getCoupon_serial());
-		usercoupon.setStartdate(new Date()); // 현재 날짜 넣기
+		
+		//시간 바꿔서 시간 저장
+		String pattern = "yyyy-MM-dd";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		String tmp = simpleDateFormat.format(new Date());
+		
+		Date date = simpleDateFormat.parse(tmp);
+		usercoupon.setStartdate(date); // 현재 날짜 넣기
 
 		for (String user : userArray) {
 			usercoupon.setUserid(user);
