@@ -116,6 +116,17 @@ public class DeliveryController {
 		return "delivery/mybkc";
 	}
 	
+	//mySet페이지 이동
+	@RequestMapping(value = "/mySet.do", method = RequestMethod.GET)
+	public String mySet(Model model) {
+		System.out.println("mySet페이지로 이동");
+		
+		//푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		return "delivery/mySet";
+	}
+	
 	//유의사항 관리자 리스트
 	@RequestMapping(value = "/admin/cautionList.ad", method = {RequestMethod.GET})
 	public String CautionList(CautionVO cautionVO, Model model) {
