@@ -250,7 +250,7 @@ window.onload = function(){
 							<dt class="WEB">이메일 주소</dt>
 							<dd>
 								<div class="inpbox st02">
-								<input type="text" placeholder="이메일 주소를 입력해 주세요" id="email" name="userid" class="st02" 
+								<input type="text" placeholder="이메일 주소를 입력해 주세요" id="email" name="email" class="st02" 
 										autocapitalize="off" autocomplete="off"
 										placeholder="이메일 주소를 입력해 주세요" />
 								</div>

@@ -14,12 +14,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.bkc.user.dao.GuestUserDAO;
+import com.bkc.user.vo.GuestVO;
 
 @Service
-public class GuestUserServiceImpl implements GuestUserService {
+public class GuestUserServiceImpl implements GuestService {
 
-	//@Autowired
-	//private GuestUserDAO guestUserDao;
+	@Autowired
+	private GuestUserDAO guestUserDao;
 
 	@Inject
 	private BCryptPasswordEncoder passwordEncoder;
@@ -28,7 +29,7 @@ public class GuestUserServiceImpl implements GuestUserService {
 	private JavaMailSender mailSender;
 
 	@Override
-	public String sendVerifyEmail(String userid) {
+	public String sendVerifyEmail(String email) {
 		
 		Random random = new Random();
 		int range = (int) Math.pow(10, 6);
@@ -39,7 +40,7 @@ public class GuestUserServiceImpl implements GuestUserService {
 		MimeMessagePreparator preparator = new MimeMessagePreparator() {
 
 			// 이메일에 인증 메일을 보낸다.
-			String mailTo = userid;
+			String mailTo = email;
 
 			String content = "<div style = font-family: 'Apple SD Gothic Neo', 'sans-serif' !important; width: 540px; height: 600px; border-top: 4px solid #ffd84a; margin: 100px auto; padding: 30px 0; box-sizing: border-box;'>"
 					+ "<h1 style='margin: 0; padding: 0 5px; font-size: 28px; font-weight: 400;'>"
@@ -60,12 +61,17 @@ public class GuestUserServiceImpl implements GuestUserService {
 		};
 		try {
 			mailSender.send(preparator);
-			System.out.println(userid + " | 비회원 인증 메일전송.");
+			System.out.println(email + " | 비회원 인증 메일전송.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		return checkNumber;
+	}
+
+	@Override
+	public int insert(GuestVO guest) {
+		return guestUserDao.insert(guest);
 	}
 
 }

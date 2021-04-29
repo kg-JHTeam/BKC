@@ -29,7 +29,6 @@ window.onload = function(){
 		alert("쿠폰 삭제 실패 ");
 	} 
 }
-
 function deleteUserCoupon(coupon_seq, userid) {
 	if(!confirm("쿠폰 삭제를 하시겠습니까?")) {
 		return;
@@ -81,7 +80,7 @@ function deleteUserCoupon(coupon_seq, userid) {
 												</tr>
 											</c:forEach>
 										</tbody>
-									</table>
+								</table>
 							</div>
 						</div>
 					</div>
