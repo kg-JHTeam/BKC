@@ -71,4 +71,9 @@ public class ProductDAOImpl implements ProductDAO {
 		System.out.println("getNewmenu()수행  ");
 		return sqlSession.selectOne("getNewmenu", product_serial);
 	}
+
+	@Override
+	public ProductVO getMenuBySerial(int product_serial) {
+		return sqlSession.selectOne("getMenuBySerial", product_serial);
+	}
 }

@@ -33,7 +33,6 @@ import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.user.service.GuestService;
 import com.bkc.user.service.UserService;
 import com.bkc.user.vo.GuestVO;
-import com.bkc.user.vo.UserVO;
 
 @Controller
 public class GuestController {
@@ -107,6 +106,7 @@ public class GuestController {
 		}
 	}
 	
+	//guest를 세션에 넣어두고 주문할 수 있도록 보낸다. 
 	@RequestMapping(value = "/guestDelivery", method = { RequestMethod.GET, RequestMethod.POST })
 	public String goGuestDeliveryPage(Model model, HttpSession session) {
 		String guest = (String) session.getAttribute("guest"); 

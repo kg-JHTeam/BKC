@@ -7,11 +7,12 @@ public class ProductVO {
 	private int price;
 	private boolean use_status;
 	private String type_serial;
-	private String product_name;
+	private String product_name; 
 	private String path;
 	private String description;
 	private int img_seq;
 	MultipartFile menu;
+	
 	public int getProduct_serial() {
 		return product_serial;
 	}
