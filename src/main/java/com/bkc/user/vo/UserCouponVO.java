@@ -10,7 +10,14 @@ public class UserCouponVO {
 	private int coupon_seq; //pk
 	
 	private Date endDate;//여기서만
+	private String coupon_title; 
 	
+	public String getCoupon_title() {
+		return coupon_title;
+	}
+	public void setCoupon_title(String coupon_title) {
+		this.coupon_title = coupon_title;
+	}
 	public Date getEndDate() {
 		return endDate;
 	}

@@ -35,6 +35,11 @@
 	
 	//전체에 배포 
 	function releaseAll(){
+		if(couponTitle==""){
+			alert("배포할 쿠폰을 선택하세요.");
+			return;
+		}
+		
 		var input = confirm( "'"+couponTitle +"'"+ " 쿠폰을 배포하시겠습니까?");
 		if(input == true){
 			  var objParams = {
@@ -62,14 +67,22 @@
 	}
 	
 	function releaseCheck(){
+		if(couponTitle==null){
+			alert("배포할 쿠폰을 선택하세요.");
+			return;
+		}
+		var userArray = [];
+        $('input[name="check"]:checked').each(function(i){//체크된 리스트 저장
+      	  userArray.push($(this).val());
+        });
+        if(userArray.length == 0){
+        	alert("배포할 회원을 선택하세요.");
+        	return;
+        }
+        
 		var input = confirm( "'"+couponTitle +"'"+ " 쿠폰을 배포하시겠습니까?");
 		if(input == true){
 			//check된 리스트 저장.
-			  var userArray = [];
-              $('input[name="check"]:checked').each(function(i){//체크된 리스트 저장
-            	  userArray.push($(this).val());
-              });
-              
 			  var objParams = {
                       "coupon_title"      : couponTitle, // 유저 저장
                       "userArray" 		  : userArray    // 유저리스트 저장

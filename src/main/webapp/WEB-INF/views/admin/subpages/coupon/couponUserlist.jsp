@@ -51,7 +51,7 @@
 									<thead>
 										<tr>
 											<th>쿠폰 넘버</th>
-											<th>쿠폰 시리얼</th>
+											<th>쿠폰 종류 </th>
 											<th>소지자 아이디</th>
 											<th>쿠폰 발급일</th>
 										</tr>
@@ -60,7 +60,7 @@
 										<c:forEach var="usercoupon" items="${usercoupons}">
 											<tr>
 												<td>${usercoupon.coupon_number}</td>
-												<td>${usercoupon.coupon_serial}</td>
+												<td>${usercoupon.coupon_title}</td>
 												<td>${usercoupon.userid}</td>
 												<td>${usercoupon.startdate}</td>
 											</tr>
