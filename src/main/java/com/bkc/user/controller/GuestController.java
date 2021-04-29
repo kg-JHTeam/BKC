@@ -30,24 +30,27 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bkc.admin.board.banner.vo.CheckVO;
 import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
-import com.bkc.user.service.GuestUserService;
+import com.bkc.user.service.GuestService;
 import com.bkc.user.service.UserService;
+import com.bkc.user.vo.GuestVO;
 import com.bkc.user.vo.UserVO;
 
 @Controller
-public class GuestUserController {
+public class GuestController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-
 	@Autowired
-	private GuestUserService guestUserService;
+	private GuestService guestService;
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private BusinessInformationService biService;
+
+	@Inject
+	private BCryptPasswordEncoder passwordEncoder;
 
 	// 비회원 주문페이지로 이동.
 	@RequestMapping(value = "/guestUserPage", method = { RequestMethod.GET, RequestMethod.POST })
@@ -64,55 +67,50 @@ public class GuestUserController {
 	@RequestMapping(value = "/guestemail", method = { RequestMethod.GET, RequestMethod.POST })
 	public String goGuestUserEmailVerify(@RequestParam String email) {
 
-		// userid 에 인증번호를 보낸다.
-		String checkNumber = guestUserService.sendVerifyEmail(email);
-		System.out.println(email + "|"  + checkNumber);
-		
+		String checkNumber = guestService.sendVerifyEmail(email);
+		System.out.println(email + "|" + checkNumber);
+
 		// 메시지 보내기 성공 및 전송결과 출력
 		return checkNumber;
 	}
 
-	// 이메일 인증 처리 완료 하고 비회원 회원가입 처리
+	// 이메일 인증 처리 완료 하고 비회원 회원가입 처리 -- 하고 바로 로그인 시키기.
 	@RequestMapping(value = "/guestUserJoin", method = { RequestMethod.GET, RequestMethod.POST })
-	public String goGuestUserJoin(Model model, 
-			@RequestParam String username, @RequestParam String userid, @RequestParam String password
-			) {
-		
+	public String goGuestUserJoin(HttpSession session,
+			Model model, @RequestParam String username, @RequestParam String password,
+			@RequestParam String email) {
+
 		CheckVO check = new CheckVO();
-		check.setSuccess("default");  //성공햇는지 확인
+		check.setSuccess("default"); // 성공햇는지 확인
 
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
-		
-		try {
-			
-			//1. 비회원으로 회원가입을 시키고
-			UserVO user = new UserVO();
-			user.setUserid(userid);
-			user.setName(username);
-			user.setUsergrade(3); //set user
-			user.setRegist_type(2); //비회원은 2
-			user.setPassword(password);
-			user.setPhone("default");
-			user.setEnabled(true);
-			
-			// 내부적으로 BCryptPasswordEncoder로 암호화 로직 수행
-			userService.insert(user);
-			
-			//2. 로그인을 시켜서 주문을 하도록 보낸다.
+
+		// 1. 비회원으로 회원가입을 시키고
+		GuestVO guest = new GuestVO();
+		guest.setEmail(email);
+		guest.setUsername(username);
+
+		// 회원 임시 비밀번호 세팅 - 암호화 시킴
+		String pwd = passwordEncoder.encode(password);
+		guest.setPassword(pwd);
+		session.setAttribute("guest", email);
+		 
+		// 내부적으로 BCryptPasswordEncoder로 암호화 로직 수행
+		if (guestService.insert(guest) == 1) {
+			check.setSuccess("1");
 			System.out.println("비회원 완료 ");
-			return "delivery/login";
-			
-		} catch (DataIntegrityViolationException e) {
-			e.printStackTrace();
-			check.setSuccess("1");		//이미 회원입니다.  
-			model.addAttribute("check", check);
-			return "delivery/guestUserPage"; //redirect
-		} catch (Exception e) {
-			e.printStackTrace();
-			check.setSuccess("3");	//다른에러 
-			model.addAttribute("check", check);
-			return "delivery/guestUserPage"; //redirect
+			return "redirect:/guestDelivery";
+		} else {
+			check.setSuccess("3"); // 다른에러
+			return "delivery/guestUserPage"; // redirect
 		}
+	}
+	
+	@RequestMapping(value = "/guestDelivery", method = { RequestMethod.GET, RequestMethod.POST })
+	public String goGuestDeliveryPage(Model model, HttpSession session) {
+		String guest = (String) session.getAttribute("guest"); 
+		model.addAttribute("guest", guest);
+		return "guest/guestdelivery";
 	}
 }

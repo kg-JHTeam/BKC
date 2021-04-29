@@ -4,6 +4,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.bkc.user.vo.UserVO" alias="UserVO" />
+		<typeAlias type="com.bkc.user.vo.GuestVO" alias="GuestVO" />
 		<typeAlias type="com.bkc.user.vo.CouponVO" alias="CouponVO"/>
 		<typeAlias type="com.bkc.user.vo.UserCouponVO" alias="UserCouponVO"/>
 		<typeAlias type="com.bkc.customerService.vo.NoticeVO" alias="NoticeVO" />

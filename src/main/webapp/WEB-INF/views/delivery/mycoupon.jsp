@@ -22,7 +22,7 @@
     <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
     <script src="${contextPath}/resources/js/delivery/mybkc.js"></script>
 	
-	<title>마이비케이씨</title>
+	<title>쿠폰</title>
 	<style>
 	.info #dl1 {
     	width: 20%;

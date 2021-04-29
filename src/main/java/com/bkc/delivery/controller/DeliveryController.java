@@ -160,7 +160,7 @@ public class DeliveryController {
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		model.addAttribute("user", user);
-
+ 
 		// 쿠폰 넣기
 		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(user.getUserid());
 		model.addAttribute("usercoupons", usercoupons);
