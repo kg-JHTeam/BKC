@@ -20,5 +20,4 @@ public interface UserCouponService {
 
 	//쿠폰 배포 
 	public int insertUserCoupon(UserCouponVO usercoupon);
-
 }

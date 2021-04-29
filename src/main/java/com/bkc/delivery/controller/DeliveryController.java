@@ -22,7 +22,10 @@ import com.bkc.delivery.vo.CautionVO;
 import com.bkc.delivery.vo.DvProductVO;
 import com.bkc.menuInform.service.ProductService;
 import com.bkc.menuInform.vo.ProductVO;
+import com.bkc.user.service.CouponService;
+import com.bkc.user.service.UserCouponService;
 import com.bkc.user.service.UserService;
+import com.bkc.user.vo.UserCouponVO;
 import com.bkc.user.vo.UserVO;
 
 @Controller
@@ -41,6 +44,12 @@ public class DeliveryController {
 	@Autowired
 	private DvProductService pService;
 
+	@Autowired
+	private CouponService couponService;
+
+	@Autowired
+	private UserCouponService usercouponService;
+
 	// 회원 주문 페이지로 이동
 	@RequestMapping(value = "/delivery.do", method = RequestMethod.GET)
 	public String delivery(CautionVO cautionVO, Model model) {
@@ -55,31 +64,31 @@ public class DeliveryController {
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		model.addAttribute("user", user);
-		
+
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
-		
-		//치킨메뉴
+
+		// 치킨메뉴
 		List<DvProductVO> chickendv = pService.getChickenMenudv();
 		System.out.println(chickendv);
 		model.addAttribute("chickendv", chickendv);
-		
-		//사이드메뉴
+
+		// 사이드메뉴
 		List<DvProductVO> sidedv = pService.getSideMenudv();
 		System.out.println(sidedv);
 		model.addAttribute("sidedv", sidedv);
-		
-		//비어존
+
+		// 비어존
 		List<DvProductVO> beerdv = pService.getBeerZonedv();
 		System.out.println(beerdv);
 		model.addAttribute("beerdv", beerdv);
-		
-		//new메뉴
+
+		// new메뉴
 		List<DvProductVO> newdv = pService.getNewdv();
 		System.out.println(newdv);
 		model.addAttribute("newdv", newdv);
-		
+
 		return "delivery/delivery";
 	}
 
@@ -87,6 +96,12 @@ public class DeliveryController {
 	@RequestMapping(value = "/orderList.do", method = RequestMethod.GET)
 	public String orderList(Model model) {
 		System.out.println("회원 주문내역 페이지 이동");
+
+		// 현재 로그인한 사용자 추가
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+		model.addAttribute("user", user);
 
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
@@ -98,26 +113,68 @@ public class DeliveryController {
 	@RequestMapping(value = "/orderDetail.do", method = RequestMethod.GET)
 	public String orderDetail(Model model) {
 		System.out.println("회원 주문상세 페이지 이동");
+		// 현재 로그인한 사용자 추가
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+		model.addAttribute("user", user);
 
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 		return "delivery/orderDetail";
 	}
-	
-	//mybkc 페이지로 이동
+
+	// mybkc 페이지로 이동
 	@RequestMapping(value = "/mybkc.do", method = RequestMethod.GET)
 	public String mybkc(Model model) {
 		System.out.println("mybkc페이지로 이동");
+
+		// 현재 로그인한 사용자 추가
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+		model.addAttribute("user", user);
+
+		// 쿠폰 넣기
+		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(user.getUserid());
+		int couponcount = usercoupons.size();
+		model.addAttribute("couponcount", couponcount);
 		
-		//푸터추가
+		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 		return "delivery/mybkc";
 	}
-	
-	//유의사항 관리자 리스트
-	@RequestMapping(value = "/admin/cautionList.ad", method = {RequestMethod.GET})
+
+	// my쿠폰 페이지로 이동.
+	@RequestMapping(value = "/mycoupon.do", method = RequestMethod.GET)
+	public String mycoupon(Model model) {
+		System.out.println("mybkc페이지로 이동");
+
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
+		// 현재 로그인한 사용자 추가
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+		model.addAttribute("user", user);
+
+		// 쿠폰 넣기
+		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(user.getUserid());
+		model.addAttribute("usercoupons", usercoupons);
+
+		//쿠폰 갯수 포내주기
+		int couponcount = usercoupons.size();
+		model.addAttribute("couponcount", couponcount);
+		
+		return "delivery/mycoupon";
+	}
+
+	// 유의사항 관리자 리스트
+	@RequestMapping(value = "/admin/cautionList.ad", method = { RequestMethod.GET })
 	public String CautionList(CautionVO cautionVO, Model model) {
 
 		// 유의사항
@@ -173,13 +230,9 @@ public class DeliveryController {
 	// 유의사항 삭제
 	@RequestMapping(value = "/admin/CautionDelete.ad", method = RequestMethod.GET)
 	public String FaqDelete(Model model, @RequestParam("seq") int seq) {
-
 		cService.CautionDelete(seq);
-
 		System.out.println("삭제 완료");
-
 		return "redirect:/delivery/admin/cautionList.ad";
 	}
 
-	
 }

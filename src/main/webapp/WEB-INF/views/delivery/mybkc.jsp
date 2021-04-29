@@ -63,7 +63,7 @@
                     <div class="mybkc_info">
                         <div class="member_info">
                             <p class="user">
-                                <strong>User(DB) 님!</strong>
+                                <strong>${user.name } 님!</strong>
                                 <span>반갑습니다</span>
                             </p>
                             <a href="#">
@@ -74,8 +74,8 @@
                             <dl class="info_coupon">
                                 <dt>나의 쿠폰</dt>
                                 <dd>
-                                    <strong>0장</strong>
-                                    <a href="#" class="btn_detail">
+									<strong> ${couponcount}장</strong>
+                                    <a href="${contextPath}/delivery/mycoupon.do" class="btn_detail">
                                         <span>details</span>
                                     </a>
                                 </dd>
@@ -138,7 +138,7 @@
                             <span>전체보기</span>
                         </a>
                     </div>
-                    <di class="qmenuWrap02">
+                    <div class="qmenuWrap02">
                         <ul>
                             <li class="qmenu_myset">
                                 <a href="#">
