@@ -20,7 +20,7 @@
                         <a href="${contextPath}/">
                             <span>브랜드홈</span>
                         </a>
-                        <a href="${contextPath}/login">
+                        <a href="${contextPath}/logout">
                             <span>로그아웃</span>
                         </a>
                         <a href="${contextPath}/delivery/mybkc.do">
@@ -50,20 +50,32 @@
                                 <dt>
                                     <strong>딜리버리 주문내역</strong>
                                 </dt>
-                                <dd>주문내역이 없습니다.(DB)</dd>
+                                <dd>주문내역이 없습니다.</dd>
                             </dl>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href= "${contextPath}/delivery/cart.do">
                         <div class="personal_cart">
                             <dl>
                                 <dt>
                                     <strong>카트</strong>
                                     <em class="count" style="display: none;">
-                                        <span>0</span>
+                                        <span>${cart.productCount}</span>
                                     </em>
                                 </dt>
-                                <dd>카트에 담은 상품이 없습니다.(DB)</dd>
+                                <dd>
+                                <c:choose>
+							         <c:when test = "${cart.productCount <= 0}">
+							        	 카트에 담은 상품이 없습니다.
+							         </c:when>
+							         <c:when test = "${cart.productCount == 1}">
+							        	${cart.productMainTitle}
+							         </c:when>
+							         <c:otherwise>
+							        	${cart.productMainTitle} 외  ${cart.productCount-1}
+							         </c:otherwise>
+							     </c:choose>
+                                </dd>
                             </dl>
                         </div>
                     </a>

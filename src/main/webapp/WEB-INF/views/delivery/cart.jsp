@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-카트에 뭐가 나오는지..? : ${cart }
+카트에 뭐가 나오는지..? : ${cart.products } <br>
+카트에 있는 갯수 : ${cart.productCount }<br>
+
+<a href="javascript:histroy.back()">뒤로</a>
 </body>
 </html>

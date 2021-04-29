@@ -13,6 +13,21 @@ public class ProductVO {
 	private int img_seq;
 	MultipartFile menu;
 	
+	//cart를 위해
+	private int count; //갯수
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public void plusOne() {
+		this.count++;;
+	}
+	public void minusOne() {
+		this.count--;;
+	}
+	//카트관련 메서드 끝
 	public int getProduct_serial() {
 		return product_serial;
 	}
