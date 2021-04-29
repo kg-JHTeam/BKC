@@ -141,7 +141,7 @@
                     <div class="qmenuWrap02">
                         <ul>
                             <li class="qmenu_myset">
-                                <a href="#">
+                                <a href="${contextPath}/delivery/mySet.do">
                                     <span>MY 세트</span>
                                 </a>
                             </li>

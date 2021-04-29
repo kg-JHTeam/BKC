@@ -146,8 +146,7 @@ public class DeliveryController {
 		model.addAttribute("bi", bi);
 		return "delivery/mybkc";
 	}
-
-	// my쿠폰 페이지로 이동.
+  // my쿠폰 페이지로 이동.
 	@RequestMapping(value = "/mycoupon.do", method = RequestMethod.GET)
 	public String mycoupon(Model model) {
 		System.out.println("mybkc페이지로 이동");
@@ -172,9 +171,21 @@ public class DeliveryController {
 		
 		return "delivery/mycoupon";
 	}
-
-	// 유의사항 관리자 리스트
-	@RequestMapping(value = "/admin/cautionList.ad", method = { RequestMethod.GET })
+  
+  //mySet페이지 이동
+	@RequestMapping(value = "/mySet.do", method = RequestMethod.GET)
+	public String mySet(Model model) {
+		System.out.println("mySet페이지로 이동");
+		
+		//푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		return "delivery/mySet";
+	}
+	
+	
+	//유의사항 관리자 리스트
+	@RequestMapping(value = "/admin/cautionList.ad", method = {RequestMethod.GET})
 	public String CautionList(CautionVO cautionVO, Model model) {
 
 		// 유의사항
