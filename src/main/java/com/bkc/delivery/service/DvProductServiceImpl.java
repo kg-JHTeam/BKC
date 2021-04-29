@@ -16,31 +16,22 @@ public class DvProductServiceImpl implements DvProductService {
 	// 치킨메뉴
 	@Override
 	public List<DvProductVO> getChickenMenudv() {
-
 		return dao.getChickenMenudv();
 	}
 
 	// 사이드메뉴
 	@Override
 	public List<DvProductVO> getSideMenudv() {
-
 		return dao.getSideMenudv();
 	}
 
 	@Override
 	public List<DvProductVO> getBeerZonedv() {
-		
 		return dao.getBeerZonedv();
 	}
 
 	@Override
 	public List<DvProductVO> getNewdv() {
-		
 		return dao.getNewdv();
 	}
-
-	
-
-	
-
 }

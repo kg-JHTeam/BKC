@@ -24,4 +24,6 @@ public interface ProductDAO {
 	public List<ProductVO> getNewmenuList();
 	//사이드메뉴 디테일
 	public ProductVO getNewmenu(int product_serial);
+	
+	public ProductVO getMenuBySerial(int product_serial);
 }
