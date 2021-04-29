@@ -69,6 +69,7 @@ public class AdminUserCouponController {
 		List<UserVO> users = userService.getUserHavingCouponList();
 		model.addAttribute("users", users);
 
+		//
 		return "admin/subpages/coupon/couponReleasepage";
 	}
 
@@ -145,7 +146,7 @@ public class AdminUserCouponController {
 		// 쿠폰 업로드 로직 만들기
 		CouponVO coupon = couponService.getCouponBySerial(coupon_serial);
 		model.addAttribute("coupon", coupon);
-		
+
 		CheckVO check = new CheckVO();
 		check.setSuccess("true");
 
@@ -154,7 +155,7 @@ public class AdminUserCouponController {
 		} else {
 			check.setSuccess("deletefalse");
 		}
-		
+
 		// 모든 쿠폰 전부 출력
 		List<CouponVO> coupons = couponService.getCouponList();
 		model.addAttribute("coupons", coupons);
@@ -167,6 +168,7 @@ public class AdminUserCouponController {
 	public String showUserHavingCouponDetail(Model model, @RequestParam String userid) {
 		// user가 가지고 있는 쿠폰 모두 출력
 		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(userid);
+
 		model.addAttribute("usercoupons", usercoupons);
 		model.addAttribute("userid", userid);
 
@@ -201,14 +203,10 @@ public class AdminUserCouponController {
 		UserCouponVO usercoupon = new UserCouponVO();
 		usercoupon.setCoupon_serial(coupon.getCoupon_serial());
 		
-		//시간 바꿔서 시간 저장
-		String pattern = "yyyy-MM-dd";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-		String tmp = simpleDateFormat.format(new Date());
+		//날짜 지정
+		Date date = new Date(System.currentTimeMillis());
+		usercoupon.setStartdate(date);
 		
-		Date date = simpleDateFormat.parse(tmp);
-		usercoupon.setStartdate(date); // 현재 날짜 넣기
-
 		for (String user : userArray) {
 			usercoupon.setUserid(user);
 			try {

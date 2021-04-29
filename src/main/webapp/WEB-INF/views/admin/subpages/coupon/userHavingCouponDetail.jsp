@@ -64,6 +64,7 @@ function deleteUserCoupon(coupon_seq, userid) {
 											<tr>
 												<th>쿠폰 등록 날짜</th>
 												<th>쿠폰 넘버</th>
+												<th>쿠폰 내용</th>
 												<th>삭제하기</th>
 											</tr>
 										</thead>
@@ -72,6 +73,7 @@ function deleteUserCoupon(coupon_seq, userid) {
 												<tr>
 													<td>${usercoupon.startdate}</td>
 													<td>${usercoupon.coupon_number}</td>
+													<td>${usercoupon.coupon_title}</td>
 													<td>
 														<input class="btn btn-danger" type="button" value="쿠폰 삭제"
 														onclick="javascript:deleteUserCoupon(${usercoupon.coupon_seq}, '${userid}');"/>

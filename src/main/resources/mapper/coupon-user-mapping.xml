@@ -9,7 +9,8 @@
 
 	<select id="getUserCouponList" resultType="UserCouponVO">
 		<![CDATA[
-			SELECT * FROM user_coupon  
+			SELECT user_coupon.*, coupon.coupon_title 
+			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
 		]]>
 	</select>
 	
@@ -21,7 +22,9 @@
 	
 	<select id="getUserHavingCouponDetail" resultType="UserCouponVO">
 		<![CDATA[
-			SELECT * FROM user_coupon WHERE userid=#{userid}
+			SELECT user_coupon.*, coupon.coupon_title 
+			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
+			WHERE userid=#{userid}
 		]]>
 	</select>
 	
@@ -38,7 +41,7 @@
 		<![CDATA[
 			INSERT INTO user_coupon(startdate, coupon_serial, userid, coupon_number)
 			VALUES (
-				#{startdate}, #{coupon_serial}, #{userid}, 
+				NOW(), #{coupon_serial}, #{userid}, 
 				(SELECT (SELECT coupon_serial from coupon where coupon_serial = #{coupon_serial}) 
     			|| (SELECT trunc(random() * 999999 + 1)::TEXT)
 				as coupon_number)
