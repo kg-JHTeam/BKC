@@ -360,19 +360,19 @@ public class UserController {
 
 	// 소셜로그인 //
 	// naver login
-	@GetMapping("/naverLogin")
+	@GetMapping("/naver")
 	@ResponseBody
 	public String naverLogin(HttpSession session, Model model) {
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
 		return naverAuthUrl;
 	}
 
-	@GetMapping("/naverLoginProc")
-	public void naverLoginProc(String code, String state, HttpSession session, HttpServletResponse response)
+	// naver login proc
+	@GetMapping("/naverlogin")
+	public void naverSignin(String code, String state, HttpSession session, HttpServletResponse response)
 			throws Exception {
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverLoginBO.getAccessToken(session, code, state);
-
 		// 로그인 사용자 정보를 읽어온다.
 		JSONParser jsonParser = new JSONParser();
 		JSONObject jsonObject = (JSONObject) jsonParser.parse(naverLoginBO.getUserProfile(oauthToken));
@@ -380,19 +380,33 @@ public class UserController {
 		String email = (String) jsonObject.get("email");
 		String name = (String) jsonObject.get("name");
 
-		UserVO vo = userService.getUserById(email);
-		boolean flag = loginUtil.socialLoginProc(email, name, "naver", vo);
+		UserVO user = userService.getUserById(email);
+		boolean flag = loginUtil.socialLoginProc(email, name, "naver", user);
 		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+
+		String url = (String) session.getAttribute("prevURI");
+		session.removeAttribute("prevURI");
+		if (url == null)
+			url = "/";
 
 		if (!flag) {
+			// 폼없이 바로 로그인 하기
 			loginUtil.loginWithoutForm(email);
-			vo = userService.getUserById(email);
-			session.setAttribute("id", vo.getUserid());
+			user = userService.getUserById(email);
+
+			// 로그인한 정보를 세션에다 넣음.
+			session.setAttribute("id", user.getUserid());
 			session.setAttribute("email", email);
-			session.setAttribute("platform", vo.getRegist_type());
+			session.setAttribute("platform", user.getRegist_type());
+			out.println("<script>window.opener.location.href='/bkc/delivery/delivery.do';self.close();</script>");
 		} else {
 			naverLoginBO.deleteToken(oauthToken.getAccessToken());
+			out.println(
+					"<script>alert('이미 가입하신 이메일 입니다.');window.opener.location.href='/signin';self.close();</script>");
 		}
+		out.flush();
+
 	}
 
 	// kakao login
@@ -412,51 +426,51 @@ public class UserController {
 
 		// 여러 json객체 중 access_token을 가져온다
 		accessToken = jsonToken.get("access_token");
-		
-		
+
 		// access_token을 통해 사용자 정보 요청
 		JsonNode userInfo = KakaoUserInfo.getKakaoUserInfo(accessToken);
-		
-		System.out.println("code : " + code  +"userInfo  : " + userInfo  + "jsonToekn  : " + jsonToken );
+
+		System.out.println("code : " + code + "userInfo  : " + userInfo + "jsonToekn  : " + jsonToken);
 		// 유저정보 카카오에서 가져오기 Get properties
 		JsonNode properties = userInfo.path("properties");
 		JsonNode kakao_account = userInfo.path("kakao_account");
 
 		String name = properties.path("nickname").asText();
 		String email = kakao_account.path("email").asText();
-		
-		//소셜로그인으로 로그인할 경우 이메일을 통해서 회원을 하나 가져옴. 
+
+		// 소셜로그인으로 로그인할 경우 이메일을 통해서 회원을 하나 가져옴.
 		UserVO vo = userService.getUserById(email);
-		
+
 		System.out.println("name : " + name + "| email :" + email);
-		
-		//성공하면 flag => true || 실패하면 flag => false
-		//이미 일반회원가입을 한경우가 있을거고, 회원가입이 안된상태인 경우도 있을 거다. 
+
+		// 성공하면 flag => true || 실패하면 flag => false
+		// 이미 일반회원가입을 한경우가 있을거고, 회원가입이 안된상태인 경우도 있을 거다.
 		boolean flag = loginUtil.socialLoginProc(email, name, "kakao", vo);
-		
+
 		System.out.println("flag" + flag);
-		
+
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		
+
 		String url = (String) session.getAttribute("prevURI");
 		session.removeAttribute("prevURI");
-		if(url == null) url = "/bkc";
-		
+		if (url == null)
+			url = "/bkc";
+
 		if (!flag) {
-			//폼없이 바로 로그인 하기 
+			// 폼없이 바로 로그인 하기
 			loginUtil.loginWithoutForm(email);
 			vo = userService.getUserById(email);
 
-			//로그인한 정보를 세션에다 넣음.
+			// 로그인한 정보를 세션에다 넣음.
 			session.setAttribute("id", vo.getUserid());
 			session.setAttribute("email", email);
 			session.setAttribute("platform", vo.getRegist_type());
-			
-			out.println("<script>window.opener.location.href='" + url + "';self.close();</script>");
+			out.println("<script>window.opener.location.href='/bkc/delivery/delivery.do';self.close();</script>");
 		} else {
 			KakaoLoginApi.deleteToken(code, accessToken);
-			out.println("<script>alert('이미 가입하신 이메일 입니다.');window.opener.location.href='/bkc/delivery/delivery.do';self.close();</script>");
+			out.println(
+					"<script>alert('이미 가입하신 이메일 입니다.');window.opener.location.href='/bkc/delivery/delivery.do';self.close();</script>");
 		}
 		out.flush();
 	}
