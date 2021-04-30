@@ -1,6 +1,7 @@
 package com.bkc.user.controller;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -38,17 +39,22 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import com.bkc.admin.board.banner.vo.CheckVO;
 import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
+import com.bkc.menuInform.vo.ProductVO;
 import com.bkc.user.common.LoginUtil;
 import com.bkc.user.kakao.KakaoLoginApi;
 import com.bkc.user.kakao.KakaoUserInfo;
 import com.bkc.user.naver.NaverLoginBO;
 import com.bkc.user.service.UserService;
+import com.bkc.user.vo.CartVO;
 import com.bkc.user.vo.SendMessageVO;
 import com.bkc.user.vo.UserVO;
 
 import org.codehaus.jackson.JsonNode;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
+
+import net.sf.json.JSON;
+import net.sf.json.JSONArray;
 
 @Controller
 public class UserController {
@@ -66,10 +72,10 @@ public class UserController {
 
 	@Autowired
 	private NaverLoginBO naverLoginBO;
-	
+
 	@Autowired
 	private LoginUtil loginUtil;
-	
+
 	public boolean socialLoginProc(String email, String name, String type, UserVO vo) {
 		boolean flag = false;
 		if (vo == null) {
@@ -331,7 +337,7 @@ public class UserController {
 
 			// 비밀번호 변경 완료 된후 findepwdsuccess page로 이동
 			return "delivery/findpwdsuccess";
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "redirect:/userfind";
@@ -366,13 +372,14 @@ public class UserController {
 			throws Exception {
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverLoginBO.getAccessToken(session, code, state);
+
 		// 로그인 사용자 정보를 읽어온다.
 		JSONParser jsonParser = new JSONParser();
 		JSONObject jsonObject = (JSONObject) jsonParser.parse(naverLoginBO.getUserProfile(oauthToken));
 		jsonObject = (JSONObject) jsonObject.get("response");
 		String email = (String) jsonObject.get("email");
 		String name = (String) jsonObject.get("name");
-		
+
 		UserVO vo = userService.getUserById(email);
 		boolean flag = loginUtil.socialLoginProc(email, name, "naver", vo);
 		response.setContentType("text/html; charset=utf-8");
@@ -389,45 +396,68 @@ public class UserController {
 	}
 
 	// kakao login
-	@GetMapping("/kakaoLoginin")
+	@GetMapping("/kakao")
 	@ResponseBody
 	public String kakaoLoginin() {
+		System.out.println("카카오로그인 실행");
 		return KakaoLoginApi.getAuthorizationUrl();
 	}
 
-	@GetMapping("/kakaoLogininProc")
+	@GetMapping("/kakaologin")
 	public void kakaoLogininProc(String code, HttpServletResponse response, HttpSession session) throws Exception {
 		JsonNode accessToken;
-		 
-        // JsonNode트리형태로 토큰받아온다
-        JsonNode jsonToken = KakaoLoginApi.getKakaoAccessToken(code);
-        
-        // 여러 json객체 중 access_token을 가져온다
-        accessToken = jsonToken.get("access_token");
-        
-        // access_token을 통해 사용자 정보 요청
-        JsonNode userInfo = KakaoUserInfo.getKakaoUserInfo(accessToken);
-        
-        // 유저정보 카카오에서 가져오기 Get properties
-        JsonNode properties = userInfo.path("properties");
-        JsonNode kakao_account = userInfo.path("kakao_account");
+
+		// JsonNode트리형태로 토큰받아온다
+		JsonNode jsonToken = KakaoLoginApi.getKakaoAccessToken(code);
+
+		// 여러 json객체 중 access_token을 가져온다
+		accessToken = jsonToken.get("access_token");
 		
+		
+		// access_token을 통해 사용자 정보 요청
+		JsonNode userInfo = KakaoUserInfo.getKakaoUserInfo(accessToken);
+		
+		System.out.println("code : " + code  +"userInfo  : " + userInfo  + "jsonToekn  : " + jsonToken );
+		// 유저정보 카카오에서 가져오기 Get properties
+		JsonNode properties = userInfo.path("properties");
+		JsonNode kakao_account = userInfo.path("kakao_account");
+
 		String name = properties.path("nickname").asText();
 		String email = kakao_account.path("email").asText();
+		
+		//소셜로그인으로 로그인할 경우 이메일을 통해서 회원을 하나 가져옴. 
 		UserVO vo = userService.getUserById(email);
 		
+		System.out.println("name : " + name + "| email :" + email);
+		
+		//성공하면 flag => true || 실패하면 flag => false
+		//이미 일반회원가입을 한경우가 있을거고, 회원가입이 안된상태인 경우도 있을 거다. 
 		boolean flag = loginUtil.socialLoginProc(email, name, "kakao", vo);
+		
+		System.out.println("flag" + flag);
+		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
-
+		
+		String url = (String) session.getAttribute("prevURI");
+		session.removeAttribute("prevURI");
+		if(url == null) url = "/bkc";
+		
 		if (!flag) {
+			//폼없이 바로 로그인 하기 
 			loginUtil.loginWithoutForm(email);
 			vo = userService.getUserById(email);
+
+			//로그인한 정보를 세션에다 넣음.
 			session.setAttribute("id", vo.getUserid());
 			session.setAttribute("email", email);
 			session.setAttribute("platform", vo.getRegist_type());
+			
+			out.println("<script>window.opener.location.href='" + url + "';self.close();</script>");
 		} else {
 			KakaoLoginApi.deleteToken(code, accessToken);
+			out.println("<script>alert('이미 가입하신 이메일 입니다.');window.opener.location.href='/bkc/delivery/delivery.do';self.close();</script>");
 		}
+		out.flush();
 	}
 }

@@ -178,9 +178,7 @@ window.onload = function(){
                                     </p>
                                     <p class="price">
                                         <strong>
-                                        <em>
-                                            <span>&#8361; ${sidedv.price}</span>
-                                        </em>
+                                        <em><span>&#8361; ${sidedv.price}</span></em>
                                     </strong>
                                     </p>
                                 </div>

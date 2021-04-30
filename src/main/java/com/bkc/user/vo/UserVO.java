@@ -49,12 +49,9 @@ public class UserVO implements UserDetails{
 	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
 		this.authorities = authorities;
 	}
-
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-        
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();   
-        
         //기본적으로 ROLE_USER
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         return authorities;
