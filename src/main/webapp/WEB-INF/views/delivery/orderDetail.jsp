@@ -88,12 +88,7 @@
                         <div class="titbox tit01">
                             <h3 class="tit_ico list">
                                 <span>주문내역</span>
-                            </h3>
-                            <div class="rcen_btn">
-                                <button type="button" class="btn_my">
-                                    <span>MY세트 등록</span>
-                                </button>
-                            </div>
+                            </h3>                            
                         </div>
                         <ul class="order_list">
                             <li>

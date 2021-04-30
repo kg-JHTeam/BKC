@@ -386,6 +386,8 @@ strong {
 }
 
 .qmenuWrap02 {
+	display: flex;
+	justify-content:center;
     margin: -10px 0 20px;
 }
 
@@ -395,7 +397,6 @@ strong {
 
 .qmenuWrap02 li {
     position: relative;
-    float: left;
     width: 50%;
     height: 104px;
 }
@@ -411,15 +412,12 @@ strong {
 }
 
 .qmenuWrap02 a {
+	width: 430px;
     display: block;
     height: 100%;
     font-weight: 700;
     font-size: 1.875em;
     text-align: center;
-}
-
-.qmenuWrap02 .qmenu_myset a>* {
-    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/myset3.png) no-repeat 99%;
 }
 
 .qmenuWrap02 a>* {

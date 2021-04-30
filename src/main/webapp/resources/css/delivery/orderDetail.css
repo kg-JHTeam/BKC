@@ -230,28 +230,6 @@ strong {
     padding: 0;
 }
 
-.rcen_btn {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.btn_my {
-    position: relative;
-    display: inline-block;
-    width: 44px;
-    height: 44px;
-    text-indent: -9999em;
-    background: #2e2e2e url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/myset1.png) no-repeat 50%;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.btn_my.on {
-    background: #2e2e2e url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/myset2.png) no-repeat 50%;
-}
-
 .order_list {
     padding: 4px 64px 2px;
     background: #fff;

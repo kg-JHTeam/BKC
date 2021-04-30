@@ -140,11 +140,6 @@
                     </div>
                     <div class="qmenuWrap02">
                         <ul>
-                            <li class="qmenu_myset">
-                                <a href="${contextPath}/delivery/mySet.do">
-                                    <span>MY 세트</span>
-                                </a>
-                            </li>
                             <li class="qmenu_myplace">
                                 <a href="#">
                                     <span>MY 배달지</span>
