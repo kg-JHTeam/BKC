@@ -1,12 +1,15 @@
 package com.bkc.user.vo;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 
 import com.bkc.menuInform.vo.ProductVO;
 
 //딜리버리 카트 -> DB에서 가 아닌 세션에서 전달된다. 
 //왔다갔따해도 사라지지 않게 세션에 넣어둠. 
 public class CartVO {
+	// product serial 로 들어감. 
 	// Product_Serail, Product
 	private HashMap<Integer, ProductVO> products = new HashMap<Integer, ProductVO>();// HashMap생성
 
@@ -18,6 +21,19 @@ public class CartVO {
 
 	//가장 처음 주문한 상품의 이름
 	private String productMainTitle;
+	
+	//ProductVO Key
+	private List<Integer> keyset;
+	
+	//ProductVO value
+	
+	public List<Integer> getKeyset() {
+		return keyset;
+	}
+	
+	public void setKeyset(List<Integer> keyset) {
+		this.keyset = keyset;
+	}
 	
 	public String getProductMainTitle() {
 		return productMainTitle;
@@ -73,6 +89,8 @@ public class CartVO {
 		products.remove(product_serial);
 	}
 
+	//product 자체에 갯수 매개변수가 있다. 
+	
 	// 상품 + || - 버튼 관련
 	// 상품 하나 + 시킴
 	public void plusOne(int product_serial) {
@@ -85,7 +103,7 @@ public class CartVO {
 
 	// 상품 하나 - 시킴
 	public void minusOne(int product_serial) {
-		// serial을 받아와서 product를 빼온다.
+		// serial을 받아와서 product를 빼온다.s
 		ProductVO product = products.get(product_serial);
 
 		// 갯수 하나 증가시킴.

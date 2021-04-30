@@ -14,7 +14,7 @@ public class ProductVO {
 	MultipartFile menu;
 	
 	//cart를 위해
-	private int count; //갯수
+	private int count = 0; //갯수
 	public int getCount() {
 		return count;
 	}
@@ -88,7 +88,10 @@ public class ProductVO {
 	public String toString() {
 		return "ProductVO [product_serial=" + product_serial + ", price=" + price + ", use_status=" + use_status
 				+ ", type_serial=" + type_serial + ", product_name=" + product_name + ", path=" + path
-				+ ", description=" + description + ", img_seq=" + img_seq + ", menu=" + menu + "]";
+				+ ", description=" + description + ", img_seq=" + img_seq + ", menu=" + menu + ", count=" + count + "]";
 	}
+
+	
+	
 	
 }
