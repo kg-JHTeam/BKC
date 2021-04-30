@@ -4,7 +4,9 @@
 	<!-- serial로 메뉴 조회  -->
 	<select id="getMenuBySerial" resultType="ProductVO">
 		<![CDATA[
-			select * from product WHERE product_serial =  #{product_serial}
+			select * from product P
+			inner join product_image I on P.product_serial = I.product_serial
+			WHERE P.product_serial = #{product_serial}
 		]]>
 	</select>
 	<!-- 전체 사이드메뉴 조회 -->
