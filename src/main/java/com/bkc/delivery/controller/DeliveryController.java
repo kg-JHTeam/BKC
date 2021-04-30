@@ -314,7 +314,6 @@ public class DeliveryController {
 
 				// 처음 .세션을 설정한다. 카트에는 하나만 들어간다.
 				session.setAttribute("cart", cart);
-				System.out.println("첫 카트");
 			}
 
 			// 세션
@@ -330,13 +329,11 @@ public class DeliveryController {
 				
 				if(products.size() <= 1) {
 					cart.setProductMainTitle(product.getProduct_name());
-					System.out.println(product.getProduct_name() + " mainTitle 변경 ");
 				}
 				
 				// 갯수넣기
 				cart.setProductCount(products.size());
 				session.setAttribute("cart", cart);
-				System.out.println("첫 카트가 아닙니다.");
 			}
 		}
 
@@ -396,7 +393,6 @@ public class DeliveryController {
 		session.setAttribute("cart", cart);
 		model.addAttribute("cart", cart);
 		
-		System.out.println("세션값을 확인해보자 : "+cart.toString());
 		// 성공했다고 처리
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		
@@ -409,6 +405,7 @@ public class DeliveryController {
 	 * Guest 딜리버리
 	 */
 	// guest를 세션에 넣어두고 주문할 수 있도록 보낸다.
+	
 	@RequestMapping(value = "/guestDelivery", method = { RequestMethod.GET, RequestMethod.POST })
 	public String goGuestDeliveryPage(Model model, HttpSession session) {
 		String guest = (String) session.getAttribute("guest");

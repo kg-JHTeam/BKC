@@ -25,8 +25,6 @@ $(document).ready(function() {
         $(".tab_cont > ul").hide();
         $(".tab_cont > ul").eq(idx).show();
     })
-
-
 });
 
 //팝업창
