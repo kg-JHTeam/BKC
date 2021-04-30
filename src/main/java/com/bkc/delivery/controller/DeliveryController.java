@@ -1,8 +1,10 @@
 package com.bkc.delivery.controller;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpSession;
@@ -17,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bkc.admin.board.banner.vo.CheckVO;
 import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
@@ -31,6 +34,7 @@ import com.bkc.user.service.CouponService;
 import com.bkc.user.service.UserCouponService;
 import com.bkc.user.service.UserService;
 import com.bkc.user.vo.CartVO;
+import com.bkc.user.vo.CouponVO;
 import com.bkc.user.vo.GuestVO;
 import com.bkc.user.vo.UserCouponVO;
 import com.bkc.user.vo.UserVO;
@@ -324,7 +328,7 @@ public class DeliveryController {
 			}
 		}
 
-		// seq값 가지고 들어오는 경우
+		// seq값 가지고 들어오는 경우 
 		else {
 			// 메뉴 가져옴.
 			ProductVO product = productService.getMenuBySerial(seq);
@@ -343,7 +347,7 @@ public class DeliveryController {
 				System.out.println("첫 카트");
 			}
 
-			// 세션
+			// 세션 
 			else {
 				// 세션에서 카트에 들어가 있는 걸 받아온다.
 				cart = (CartVO) session.getAttribute("cart");
@@ -379,13 +383,41 @@ public class DeliveryController {
 		return "/delivery/cart";
 	}
 
-	/*
-	 * 
-	 * Guest 딜리버리
-	 * 
-	 * 
-	 */
+	// 갯수 세션 변경 
+	@RequestMapping(value = "/cartcount.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object countProduct(@RequestParam(value = "key") Integer key,
+			@RequestParam(value="count") int count, Model model , HttpSession session) {
+		
+		//목표 : 키 받아서 거기에 대한 product의 갯수를 변경시킨다.
+		// 1) 세션에서 카트에 들어가 있는 걸 받아온다.
+		System.out.println("key: " + key + " || count :"  + count) ;
+		cart = (CartVO) session.getAttribute("cart");
+		System.out.println("cart 세션 값 : " + cart.toString());
+		
+		HashMap<Integer, ProductVO> productTmp = cart.getProducts();
+		System.out.println("productTMp : " + productTmp.toString());
+		ProductVO product = productTmp.get(key);
+		product.setCount(count);
+		
+		// 2) 세션 변경시키기
+		session.setAttribute("cart", cart);
+		System.out.println("변경시킨 상품 : " + product.toString());
+		System.out.println("변경시킨 세션 : " + cart.toString());
+		
+		model.addAttribute("cart", cart);
+		
+		// 성공했다고 처리
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		
+		retVal.put("code", "OK");
+		retVal.put("message", "ok 성공");
+		return retVal;
+	}
 
+	/*
+	 * Guest 딜리버리
+	 */
 	// guest를 세션에 넣어두고 주문할 수 있도록 보낸다.
 	@RequestMapping(value = "/guestDelivery", method = { RequestMethod.GET, RequestMethod.POST })
 	public String goGuestDeliveryPage(Model model, HttpSession session) {

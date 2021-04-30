@@ -23,7 +23,6 @@ public class MenuInformController {
 	@RequestMapping(value = "/chickenMenu.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String getChickenMenuList(Model model) {
 		List<ProductVO> chickenMenuList = productService.getChickenMenuList();
-		System.out.println(chickenMenuList);
 		model.addAttribute("chickenMenuList", chickenMenuList);
 		return "subpages/menuInform/chickenMenu";
 	}
@@ -44,7 +43,6 @@ public class MenuInformController {
 	@RequestMapping(value = "/beerZone.do", method = { RequestMethod.GET, RequestMethod.POST })
 	private String getBeerzoneList(Model model) {
 		List<ProductVO> beerzoneList = productService.getBeerzoneList();
-		System.out.println();
 		model.addAttribute("beerzoneList", beerzoneList);
 		return "subpages/menuInform/beerZone";
 
