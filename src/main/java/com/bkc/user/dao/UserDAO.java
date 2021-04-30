@@ -42,4 +42,6 @@ public interface UserDAO {
 
 	public List<UserVO> getUserHavingCouponList();
 
+	public int socialInsert(UserVO user);
+
 }

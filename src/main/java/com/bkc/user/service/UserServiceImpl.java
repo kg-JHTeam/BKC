@@ -33,7 +33,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private JavaMailSender mailSender;
 
-
 	// id를 통해 user조회
 	@Override
 	public UserVO getUserById(String userid) {
@@ -72,14 +71,14 @@ public class UserServiceImpl implements UserService {
 	// 회원가입
 	public boolean insert(UserVO user) {
 		System.out.println("암호화 전 비밀번호  : " + user.getPassword());
-
 		// BCryptPasswordEncoder로 암호화 로직 수행
 		String encPassword = passwordEncoder.encode(user.getPassword()); // 비밀번호 암호화 수행.
 		user.setPassword(encPassword.trim()); // 비밀번호 암호화 시켜서 넣기.
 		System.out.println("암호화된 비밀번호 : " + user.getPassword()); // 검사
 		return userDao.insertUser(user);
 	}
-
+	
+	
 	// 회원수정
 	@Override
 	public void update(UserVO user) {
@@ -186,7 +185,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void updatePlatForm(String email, String type) {
-		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int socialInsert(UserVO user) {
+		return userDao.socialInsert(user);
 	}
 }

@@ -55,4 +55,7 @@ public interface UserService {
 	//네이버 카카오 변경
 	public void updatePlatForm(String email, String type);
 
+	//소셜로그인
+	public int socialInsert(UserVO user);
+	
 }

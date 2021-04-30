@@ -83,4 +83,9 @@ public class UserDAOImpl implements UserDAO {
 	public List<String> selectUserAuthOne(String username) {
 		return null;
 	}
+
+	@Override
+	public int socialInsert(UserVO user) {
+		return sqlSession.insert("socialInsert");
+	}
 }

@@ -75,7 +75,14 @@
 		VALUES (#{userid}, #{password}, #{name}, #{sms_agree}, #{email_agree}, #{phone}, #{regist_type});
 		]]>
 	</insert>
-	
+	<!-- 소셜 로그인 -->
+	<insert id="socialInsert">
+		<![CDATA[
+		INSERT INTO usermember(
+		userid, name, regist_type, sms_agree, email_agree, usergrade)
+		VALUES (#{userid},  #{name}, #{regist_type}, 'true', 'true', 3);
+		]]>
+	</insert>
 	<!-- crUd -->
 	<insert id="updatePasswd">
 		<![CDATA[

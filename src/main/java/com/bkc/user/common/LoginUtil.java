@@ -1,9 +1,5 @@
 package com.bkc.user.common;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,7 +18,6 @@ public class LoginUtil {
 	public void loginWithoutForm(String email) {
 		UserVO user = service.getUserById(email);
 		int role = user.getUsergrade();
-		
 		String roles = "ROLE_USER";
 		switch(role) {
 			case 1 : roles = "ROLE_USER"; break;
@@ -38,17 +33,25 @@ public class LoginUtil {
 	
 	public boolean socialLoginProc(String email, String name, String type, UserVO user) {
 		boolean flag = false;
+		System.out.println("들어온정보 : " + email + " " + name + " " + type  +"  ");
+		
+		//카카오톡 이메일로, 회원가입이 안된 경우 
 		if (user == null) {
 			user = new UserVO();
 			user.setUserid(email);
 			user.setName(name);
 			user.setPlatFormType(type);
-			service.insert(user);
+			service.socialInsert(user);
 			return flag;
-		} else if(email.equals(user.getUserid()) && !type.equals(user.getPlatFormType()) && !user.getPlatFormType().equals("")) {
+		} 
+		
+		//카카오톡 이메일로 회원가입이 되어있는 경우  
+		else if(email.equals(user.getUserid())) { 
 			service.updatePlatForm(email, type);
 			return flag;
-		} else if(email.equals(user.getUserid())  && user.getPlatFormType().equals("")){
+		} 
+		
+		else if(email.equals(user.getUserid())  && user.getPlatFormType().equals("")){
 			System.out.println("duplicate email");
 			flag = true;
 			return flag;
