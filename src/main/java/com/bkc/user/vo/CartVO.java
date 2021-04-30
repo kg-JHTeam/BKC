@@ -10,7 +10,7 @@ import com.bkc.menuInform.vo.ProductVO;
 //왔다갔따해도 사라지지 않게 세션에 넣어둠. 
 public class CartVO {
 	// product serial 로 들어감. 
-	// Product_Serail, Product
+	// Product_serial, Product
 	private HashMap<Integer, ProductVO> products = new HashMap<Integer, ProductVO>();// HashMap생성
 
 	// 상품의 총갯수

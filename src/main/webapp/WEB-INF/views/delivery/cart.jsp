@@ -22,24 +22,25 @@
 	
 	<title>카트</title>
 	<script>
-	//MY세트 등록
-	$(document).ready(function() {
-	    $('.btn_my').on('click', function() {
-	        $('.btn_my').toggleClass('on');
-	    })
-	});
+	//양식 다시제출 없애기
+	if (window.history.replaceState) {
+	        window.history.replaceState(null, null, window.location.href );
+	}
 	
-	//전체선택 클릭시 다른것도 같이 클릭
-	$(document).ready(function() {
-	    $(".check02").change(function() {
-	        if ($(".check02").is(":checked")) {
-	            $(".checkmenu").prop("checked", true);
-	        }
-	    });
-	});
+	//최종 가격 구하기
+	var total = 0;
+	window.onload = function(){
+		//카트에 담기 모든 가격 
+		var totalCartCost = parseInt(document.getElementById("totalCartCost").innerHTML);
+		var productsPrice =  document.getElementsByClassName('productsPrice');
+		for(let i = 0 ;i< productsPrice.length; i++){
+			totalCartCost += parseInt(productsPrice[i].innerHTML);
+		}
+		document.getElementById("totalCartCost").innerHTML = totalCartCost;
+		total = totalCartCost;
+	}
 	
-	//최종 가격
-	var totalCartCost = document.getElementById("totalCartCost");
+	//메뉴별 최종 가격
 	function fnCalCount(type, ths, key) {
 		var parent = ths.parentNode;
 		var child= parent.childNodes[3];
@@ -49,7 +50,9 @@
 		var oneCost = document.getElementById("oneProductCost"+key).innerHTML;
 		var totalProductCost = document.getElementById("totalProductCost"+key);
 		
-		console.log("productCount " + productCount + "하나 가격 "  + oneCost);
+		var totalCartCost = parseInt(document.getElementById("totalCartCost").innerHTML);
+		var productsPrice =  document.getElementsByClassName('productsPrice');
+		
 	    //plus인 경우
 	    if (type == 'p') {
 	    	if(productCount >= 10){
@@ -58,46 +61,71 @@
 	    	}
 	    	//숫자 증가
 	    	child.value++;
+	    	
 	    	totalProductCost.innerHTML = oneCost * child.value;
+	    	total += parseInt(oneCost);
+	    	document.getElementById("totalCartCost").innerHTML = total;
 	    } 
 	    //minus인 경우 
 	    else {
 	    	if(productCount <= 1){
 	    		return;
 	    	}
-	    	console.log("minus");
 	    	child.value--;
 	    	totalProductCost.innerHTML = oneCost * child.value;
+	    	total -= parseInt(oneCost);
+	    	document.getElementById("totalCartCost").innerHTML = total;
 	    }
+	    //1번)
+	 	// 갯수넣은값 바로 세션에 추가해야된당.... 
+	 	
+	 	// Ajax로 보내야되는 값. 
+	 	// 1. product 의 갯수 값을 변경시킴. - key값과, 갯수값을 보내준다. => 총가격을 알아서 해줄듯 하다. 
+	 	// 2. cart의 총가격을 알아서 변경됨. 
+	 	
+	    var objParams = {
+                "key"      : key,   //key값
+                "count"    : child.value  //갯수
+        };
+		  
+		  $.ajax({
+            url         :   "/bkc/delivery/cartcount.do",
+            dataType    :   "json",
+            contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+            type        :   "post", //post로 보냄
+            data        :   objParams,
+            success     :   function(retVal){
+                if(retVal.code == "OK") {
+                	console.log("걍성공");
+                } else {
+                	console.log("걍성공2");
+                }
+            },
+            error       :   function(request, status, error){
+            	console.log("걍 실패");
+            }
+        });
+	 	
 	}
 
 	//x버튼 클릭시 해당 부분 삭제
-	function deleteRow(ths) {
+	function deleteRow(ths, key) {
+		//하나의 가격 
+		var totalProductCost = document.getElementById("totalProductCost"+key).innerHTML;
+		total -= parseInt(totalProductCost);
+    	document.getElementById("totalCartCost").innerHTML = total;
+		
 	    var ths = $(ths);
 	    ths.parents(".contWrap").remove();
+	    
+	    //2번)
+		// 지워졌을때 바로 세션에 추가해야된당.... 
+	 	
+	 	//Ajax로 보내야되는 값. 
+	 	//1. product를 cart에서 지워주도록 key값을 보내주고 삭제시키게한다. 
+	 	
 	}
 	
-	// 체크된 체크박스 삭제
-	$(document).ready(function() {
-	    // 체크된 체크박스 삭제 
-	    $('.btn04').click(function() {
-	        // var nodata = document.getElementsByClassName('.nodata');
-	        // var container02 = document.getElementsByClassName('.container02');
-	        if (confirm("삭제하시겠습니까?")) {
-	            $("input[name=menu]:checked").each(function() {
-	                var ths = $(this)
-	                ths.parents(".contWrap").remove();
-	                // if ($('.contWrap').length == 0) {
-	                //     nodata.style.display = 'block';
-	                //     container02.style.display = 'none';
-	                // }
-	            });
-	        } else {
-	            return false;
-	        }
-	    });
-
-	});
 	//Goto Page Top
 	$(function() {
 	    $(window).scroll(function() {
@@ -161,22 +189,6 @@
                         </div>
                     </div>
                     <div class="container02 cartWrap">
-                        <div class="allchk01">
-                            <label>
-                                <input type="checkbox" class="check02" onclick='selectAll(this.checked);'>
-                                <span>전체선택
-                                    <span></span>
-                                </span>
-                            </label>
-                            <div class="rcen_btn">
-                                <button type="button" class="btn_my">
-                                    <span>MY세트 등록</span>
-                                </button>
-                                <button type="button" class="btn04">
-                                    <span>삭제</span>
-                                </button>
-                            </div>
-                        </div>
                         
                         <!-- 카트리스트  -->
                         <ul class="cart_list01">
@@ -186,7 +198,6 @@
                                 <div class="cont">
 	                                	<div class="menu_titWrap">
 	                                        <label class="menu_name">
-	                                            <input type="checkbox" name="menu" title="선택" class="checkmenu">
 	                                            <span class="tit">
 	                                                <strong>
 	                                                    <span>${products.value.product_name}</span>
@@ -211,7 +222,7 @@
                                             <button type="button"  class="btn_minus" onclick="fnCalCount('m', this, ${products.key});">
                                                 <span>-</span>
                                             </button>
-                                            <input type="number" id="count${products.key}" class="first_menu" readonly="readonly" value="1">
+                                            <input type="number" id="count${products.key}" class="first_menu" readonly="readonly" class="tempCost" value="${products.value.count}">
                                             <button type="button" class="btn_plus" onclick="fnCalCount('p', this, ${products.key});">
                                                 <span>+</span>
                                             </button>
@@ -224,7 +235,7 @@
                                         <dd>
                                             <strong>
                                                 <em>
-                                                    <span id="totalProductCost${products.key}">${products.value.price}</span>	<!-- 갯수에 따른 금액 -->
+                                                    <span class="productsPrice" id="totalProductCost${products.key}">${products.value.price*products.value.count}</span>	<!-- 갯수에 따른 금액 -->
                                                     <span class="unit">원</span>
                                                 </em>
                                             </strong>
@@ -246,7 +257,7 @@
                                     </dl>
                                     
                                 </div>
-                                <button type="button" class="btn_del02" onclick="deleteRow(this);">
+                                <button type="button" class="btn_del02" onclick="deleteRow(this, ${products.key} );">
                                     <span>Delete menu</span>
                                 </button>
                             </li>
@@ -262,7 +273,7 @@
                                 <dd>
                                     <strong>
                                         <em>
-                                            <span id="totalCartCost">총가격이 나와야함. </span>
+                                            <span id="totalCartCost">0</span>
                                             <span class="unit">원</span>
                                         </em>
                                     </strong>

@@ -113,7 +113,10 @@ li{
                                     </strong>
                                     </p>
                                 </div>
-                                <a href="${contextPath}/delivery/cart.do?seq=${newdv.product_serial}" class="btn_detail">
+                                <form name="myForm${newdv.product_serial}" action="${contextPath}/delivery/cart.do" method="POST">
+									<input type="hidden" name="seq" value="${newdv.product_serial}" />
+								</form>
+                                <a href="#" onclick="javascript:document.myForm${newdv.product_serial}.submit();" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>
@@ -145,7 +148,10 @@ li{
                                     </strong>
                                     </p>
                                 </div>
-                                <a href="${contextPath}/delivery/cart.do?seq=${chickendv.product_serial}" class="btn_detail">
+                                <form name="myForm${chickendv.product_serial}" action="${contextPath}/delivery/cart.do" method="POST">
+									<input type="hidden" name="seq" value="${chickendv.product_serial}" />
+								</form>
+                                <a href="#" onclick="javascript:document.myForm${chickendv.product_serial}.submit();" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                                  
@@ -176,7 +182,10 @@ li{
                                     </strong>
                                     </p>
                                 </div>
-                                <a href="${contextPath}/delivery/cart.do?seq=${sidedv.product_serial}" class="btn_detail">
+                               	<form name="myForm${sidedv.product_serial}" action="${contextPath}/delivery/cart.do" method="POST">
+									<input type="hidden" name="seq" value="${sidedv.product_serial}}" />
+								</form>
+                                <a href="#" onclick="javascript:document.myForm${sidedv.product_serial}.submit();" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>
@@ -205,7 +214,7 @@ li{
                                     </strong>
                                     </p>
                                 </div>
-                                <a href="${contextPath}/delivery/cart.do?seq=${beerdv.product_serial}" class="btn_detail">
+                                <a href="#" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>
