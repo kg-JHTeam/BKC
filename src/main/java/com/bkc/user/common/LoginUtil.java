@@ -25,7 +25,6 @@ public class LoginUtil {
 			case 3 : roles = "ROLE_ADMIN"; break;
 			default : roles = "ROLE_USER";
 		}
-		//
 		
 		Authentication auth = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 		SecurityContextHolder.getContext().setAuthentication(auth);

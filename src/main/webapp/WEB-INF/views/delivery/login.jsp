@@ -45,6 +45,21 @@ function loginWithKakao() {
 	       }
 	   });
 	}
+function loginWithNaver() {
+    $.ajax({
+        url: '/bkc/naver',
+        type: 'get',
+        async: false,
+        dataType: 'text',
+        success: function (res) {
+            let _left = (window.screen.width/2) - (500/2);
+   			let _top = (window.screen.height/2) - (700/2);
+			console.log(_left);
+			console.log(_top);
+			window.open(res, 'Toosome', "width=500, height=700, location=no, menubar=no, top=" + _top + ", left=" + _left);
+        }
+    });
+}
 
 </script>
 </head>
@@ -134,7 +149,7 @@ function loginWithKakao() {
 					<div class="simple_login">
 						<h3 class="simplelogin_tit tit_ico lock">간편로그인</h3>
 						<ul class="list">
-							<li class="naver"><a href="#" onclick="loginWithKakao()">
+							<li class="naver"><a href="#" onclick="loginWithNaver()">
 									<span>네이버 로그인</span>
 							</a></li>
 							<li class="kakao"><a href="#" onclick="loginWithKakao()">
