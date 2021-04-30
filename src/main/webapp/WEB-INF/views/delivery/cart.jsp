@@ -76,16 +76,10 @@
 	    	total -= parseInt(oneCost);
 	    	document.getElementById("totalCartCost").innerHTML = total;
 	    }
-	    //1번)
-	 	// 갯수넣은값 바로 세션에 추가해야된당.... 
-	 	
-	 	// Ajax로 보내야되는 값. 
-	 	// 1. product 의 갯수 값을 변경시킴. - key값과, 갯수값을 보내준다. => 총가격을 알아서 해줄듯 하다. 
-	 	// 2. cart의 총가격을 알아서 변경됨. 
-	 	
+	    
 	    var objParams = {
-                "key"      : key,   //key값
-                "count"    : child.value  //갯수
+                "key"      : key,   	  // key값
+                "count"    : child.value  // 갯수
         };
 		  
 		  $.ajax({
@@ -124,6 +118,24 @@
 	 	//Ajax로 보내야되는 값. 
 	 	//1. product를 cart에서 지워주도록 key값을 보내주고 삭제시키게한다. 
 	 	
+	    var objParams = {
+                "key"      : key,   	  // key값 - 이값을 주고 세션에서 없애버린다.
+        };
+		  
+		  $.ajax({
+            url         :   "/bkc/delivery/cartkeydelete.do",
+            dataType    :   "json",
+            contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+            type        :   "post", //post로 보냄
+            data        :   objParams,
+            success     :   function(){
+                	console.log("걍성공");
+            },
+            error       :   function(){
+            		console.log("걍 실패");
+            }
+        });
+		  
 	}
 	
 	//Goto Page Top

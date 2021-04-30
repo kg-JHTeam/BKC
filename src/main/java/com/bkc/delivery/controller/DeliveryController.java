@@ -369,22 +369,14 @@ public class DeliveryController {
 	public Object countProduct(@RequestParam(value = "key") Integer key,
 			@RequestParam(value="count") int count, Model model , HttpSession session) {
 		
-		//목표 : 키 받아서 거기에 대한 product의 갯수를 변경시킨다.
 		// 1) 세션에서 카트에 들어가 있는 걸 받아온다.
-		System.out.println("key: " + key + " || count :"  + count) ;
 		cart = (CartVO) session.getAttribute("cart");
-		System.out.println("cart 세션 값 : " + cart.toString());
-		
 		HashMap<Integer, ProductVO> productTmp = cart.getProducts();
-		System.out.println("productTMp : " + productTmp.toString());
 		ProductVO product = productTmp.get(key);
 		product.setCount(count);
 		
 		// 2) 세션 변경시키기
 		session.setAttribute("cart", cart);
-		System.out.println("변경시킨 상품 : " + product.toString());
-		System.out.println("변경시킨 세션 : " + cart.toString());
-		
 		model.addAttribute("cart", cart);
 		
 		// 성공했다고 처리
@@ -394,7 +386,31 @@ public class DeliveryController {
 		retVal.put("message", "ok 성공");
 		return retVal;
 	}
-
+	
+	// 메뉴 삭제 
+	@RequestMapping(value = "/cartkeydelete.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object countProduct(@RequestParam(value = "key") Integer key,  Model model , HttpSession session) {
+		
+		// 1) 세션에서 카트에 들어가 있는 걸 받아온다.
+		cart = (CartVO) session.getAttribute("cart");
+		HashMap<Integer, ProductVO> productTmp = cart.getProducts();
+		//삭제시킴
+		productTmp.remove(key);
+		
+		// 2) 세션 변경시키기
+		session.setAttribute("cart", cart);
+		model.addAttribute("cart", cart);
+		
+		// 성공했다고 처리
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		
+		retVal.put("code", "OK");
+		retVal.put("message", "ok 성공");
+		return retVal;
+	}
+	
+	
 	/*
 	 * Guest 딜리버리
 	 */
