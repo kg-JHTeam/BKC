@@ -30,6 +30,24 @@
 	//최종 가격 구하기
 	var total = 0;
 	window.onload = function(){
+		
+		//아무것도 없는 경우
+		var count = "<c:out value='${cart.productCount}'/>";
+		var zero = document.getElementById("zerocart");
+		var notzero = document.getElementById("existcart");
+		
+		//아무것도없으면
+		if(count == 0){
+			zero.style.display ='';
+			notzero.style.display ='none';
+		} 
+		//있으면
+		else{
+			zero.style.display ='none';
+			notzero.style.display ='';
+		}
+		//아무것도 없는 상태 끝. 
+		
 		//카트에 담기 모든 가격 
 		var totalCartCost = parseInt(document.getElementById("totalCartCost").innerHTML);
 		var productsPrice =  document.getElementsByClassName('productsPrice');
@@ -61,7 +79,6 @@
 	    	}
 	    	//숫자 증가
 	    	child.value++;
-	    	
 	    	totalProductCost.innerHTML = oneCost * child.value;
 	    	total += parseInt(oneCost);
 	    	document.getElementById("totalCartCost").innerHTML = total;
@@ -112,12 +129,24 @@
 	    var ths = $(ths);
 	    ths.parents(".contWrap").remove();
 	    
-	    //2번)
+	  	//아무것도 없는 경우
+		var count =  parseInt(document.getElementById("totalCartCost").innerHTML);
+		var zero = document.getElementById("zerocart");
+		var notzero = document.getElementById("existcart");
+		
+		//아무것도없으면
+		if(count == 0){
+			zero.style.display ='';
+			notzero.style.display ='none';
+		} 
+		//있으면
+		else{
+			zero.style.display ='none';
+			notzero.style.display ='';
+		}
+		//아무것도 없는 상태 끝.
 		// 지워졌을때 바로 세션에 추가해야된당.... 
-	 	
-	 	//Ajax로 보내야되는 값. 
-	 	//1. product를 cart에서 지워주도록 key값을 보내주고 삭제시키게한다. 
-	 	
+	 	// product를 cart에서 지워주도록 key값을 보내주고 삭제시키게한다. 
 	    var objParams = {
                 "key"      : key,   	  // key값 - 이값을 주고 세션에서 없애버린다.
         };
@@ -192,16 +221,17 @@
                     <div class="subtitWrap">
                         <h2 class="page_tit">딜리버리 카트</h2>
                     </div>
-                    <div class="nodata" style="display: none;">
+                    <!-- 이게 없을 경우  -->
+                    <div class="nodata" style="display: none;" id="zerocart">
                         <span class="txt_c01">카트에 담긴 메뉴가 없습니다.</span>
                         <div class="c_btncart">
-                            <button type="button" class="btn01 ico add">
+                            <button type="button" class="btn01 ico add" onclick="location.href='${contextPath}/delivery/delivery.do'">
                                 <span>메뉴추가</span>
                             </button>
                         </div>
                     </div>
-                    <div class="container02 cartWrap">
-                        
+                    <!-- 이게 있을 경우  -->
+                    <div class="container02 cartWrap" id="existcart">
                         <!-- 카트리스트  -->
                         <ul class="cart_list01">
                         	<!-- 여기서부터  -->  
@@ -275,10 +305,7 @@
                             </li>
 							</c:forEach>
 							<!-- 여기 까지  -->                            
-                            
                         </ul>
-                        
-                        
                         <div class="sumWrap">
                             <dl>
                                 <dt>총 주문금액</dt>
@@ -311,7 +338,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
      <!-- footer -->
     <jsp:include page="../include/footer/delivery_desktop_footer.jsp"/>
