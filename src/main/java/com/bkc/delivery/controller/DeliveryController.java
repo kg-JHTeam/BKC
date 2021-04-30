@@ -1,7 +1,9 @@
 package com.bkc.delivery.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -57,13 +59,13 @@ public class DeliveryController {
 
 	@Autowired
 	private ProductService productService;
-	
-	//카트리스트
-	private CartVO cart = new CartVO();  //list로되어 있는 카트 
-	
+
+	// 카트리스트
+	private CartVO cart = new CartVO(); // list로되어 있는 카트
+
 	// 회원 주문 페이지로 이동
 	@RequestMapping(value = "/delivery.do", method = RequestMethod.GET)
-	public String delivery(CautionVO cautionVO, Model model) {
+	public String delivery(CautionVO cautionVO, Model model,HttpSession session) {
 		System.out.println("delivery 페이지 이동");
 
 		// 유의사항 화면출력
@@ -100,12 +102,18 @@ public class DeliveryController {
 		System.out.println(newdv);
 		model.addAttribute("newdv", newdv);
 
+		// 카트 추가
+		CartVO cart = new CartVO();
+		if (session.getAttribute("cart") == null) {} 
+		else { cart = (CartVO) session.getAttribute("cart");}
+		model.addAttribute("cart", cart);
+
 		return "delivery/delivery";
 	}
 
 	// 주문내역 페이지로 이동
 	@RequestMapping(value = "/orderList.do", method = RequestMethod.GET)
-	public String orderList(Model model) {
+	public String orderList(Model model, HttpSession session) {
 		System.out.println("회원 주문내역 페이지 이동");
 
 		// 현재 로그인한 사용자 추가
@@ -117,12 +125,19 @@ public class DeliveryController {
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
+
+		// 카트 추가
+		CartVO cart = new CartVO();
+		if (session.getAttribute("cart") == null) {} 
+		else { cart = (CartVO) session.getAttribute("cart");}
+		model.addAttribute("cart", cart);
+
 		return "delivery/orderList";
 	}
 
 	// 주문상세 페이지로 이동
 	@RequestMapping(value = "/orderDetail.do", method = RequestMethod.GET)
-	public String orderDetail(Model model) {
+	public String orderDetail(Model model, HttpSession session) {
 		System.out.println("회원 주문상세 페이지 이동");
 		// 현재 로그인한 사용자 추가
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -133,12 +148,19 @@ public class DeliveryController {
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
+
+		// 카트 추가
+		CartVO cart = new CartVO();
+		if (session.getAttribute("cart") == null) {} 
+		else { cart = (CartVO) session.getAttribute("cart");}
+		model.addAttribute("cart", cart);
+
 		return "delivery/orderDetail";
 	}
 
 	// mybkc 페이지로 이동
 	@RequestMapping(value = "/mybkc.do", method = RequestMethod.GET)
-	public String mybkc(Model model) {
+	public String mybkc(Model model, HttpSession session) {
 		System.out.println("mybkc페이지로 이동");
 
 		// 현재 로그인한 사용자 추가
@@ -155,12 +177,19 @@ public class DeliveryController {
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
+
+		// 카트 추가
+		CartVO cart = new CartVO();
+		if (session.getAttribute("cart") == null) {} 
+		else { cart = (CartVO) session.getAttribute("cart");}
+		model.addAttribute("cart", cart);
+
 		return "delivery/mybkc";
 	}
 
 	// my쿠폰 페이지로 이동.
 	@RequestMapping(value = "/mycoupon.do", method = RequestMethod.GET)
-	public String mycoupon(Model model) {
+	public String mycoupon(Model model, HttpSession session) {
 		System.out.println("mybkc페이지로 이동");
 
 		// 푸터추가
@@ -181,17 +210,30 @@ public class DeliveryController {
 		int couponcount = usercoupons.size();
 		model.addAttribute("couponcount", couponcount);
 
+		// 카트 추가
+		CartVO cart = new CartVO();
+		if (session.getAttribute("cart") == null) {} 
+		else { cart = (CartVO) session.getAttribute("cart");}
+		model.addAttribute("cart", cart);
+
 		return "delivery/mycoupon";
 	}
 
 	// mySet페이지 이동
 	@RequestMapping(value = "/mySet.do", method = RequestMethod.GET)
-	public String mySet(Model model) {
+	public String mySet(Model model, HttpSession session) {
 		System.out.println("mySet페이지로 이동");
 
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
+
+		// 카트 추가
+		CartVO cart = new CartVO();
+		if (session.getAttribute("cart") == null) {} 
+		else {cart = (CartVO) session.getAttribute("cart");}
+		model.addAttribute("cart", cart);
+
 		return "delivery/mySet";
 	}
 
@@ -202,8 +244,6 @@ public class DeliveryController {
 		// 유의사항
 		List<CautionVO> CautionList = cService.CautionList(cautionVO);
 		model.addAttribute("CautionList", CautionList);
-
-		System.out.println("d");
 		return "/admin/delivery/cautionList";
 	}
 
@@ -257,50 +297,79 @@ public class DeliveryController {
 		return "redirect:/delivery/admin/cautionList.ad";
 	}
 
-	// 카트에 담기 
+	// 카트에 담기 | 장바구니 세션값을 변경해주는 곳 
 	@RequestMapping(value = "/cart.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String showCart(HttpSession session, Model model, 
-			@RequestParam(value= "seq", required = false) int seq ) {
-
+	public String showCart(HttpSession session, Model model, @RequestParam(value = "seq", defaultValue = "0") int seq) {
 		System.out.println(seq);
-		
-		// 처음 들어온 경우가 아닐 경우.
-		if(session.getAttribute("cart") == null) {
-			
-			//가져온 메뉴 카트에 추가 
-			ProductVO product = productService.getMenuBySerial(seq);
-			cart.add(product);
-			int count = cart.getProductCount();
-			
-			//처음 .세션을 설정한다. 
-			//카트에는 하나만 들어간다. 
-			session.setAttribute("cart", cart);
-			System.out.println("첫 카트");
-			
-			//끝 
-		} 
-		// 세션
-		else {
-			//카트에 들어가 있는 걸 받아온다. 
-			CartVO cart = (CartVO) session.getAttribute("cart");
-			
-			//카트에 뭐가있는지 확인.
-			//System.out.println(cart.getProducts());
-			
-			session.setAttribute("cart", cart);
-			System.out.println("첫 카트 아니지롱");
+
+		CartVO cart = new CartVO();
+		// seq값 없이 들어오는 경우
+		if (seq == 0) {
+			// 세션이 아예없다면,
+			if (session.getAttribute("cart") == null) {} 
+			else { // 세션이 있다면
+				cart = (CartVO) session.getAttribute("cart");
+			}
 		}
-		
+
+		// seq값 가지고 들어오는 경우
+		else {
+			// 메뉴 가져옴.
+			ProductVO product = productService.getMenuBySerial(seq);
+			System.out.println(product.toString());
+
+			// 처음 들어온 경우일경우
+			if (session.getAttribute("cart") == null) {
+				// 가져온 메뉴 카트에 추가
+				cart.addFirst(seq, product);
+
+				HashMap<Integer, ProductVO> products = cart.getProducts();
+				cart.setProductCount(products.size());
+
+				// 처음 .세션을 설정한다. 카트에는 하나만 들어간다.
+				session.setAttribute("cart", cart);
+				System.out.println("첫 카트");
+			}
+
+			// 세션
+			else {
+				// 세션에서 카트에 들어가 있는 걸 받아온다.
+				cart = (CartVO) session.getAttribute("cart");
+
+				// 카트갯수 ++ 처음이 아닌 경우 카트에 추가한다.
+				// 카트에 메뉴를 추가시킨다.
+				cart.addProduct(seq, product);
+
+				HashMap<Integer, ProductVO> products = cart.getProducts();
+
+				// 카트에 뭐가있는지 확인.
+				Set keyset = products.keySet();
+				System.out.println("Key set values are" + keyset);
+
+				// 갯수넣기
+				cart.setProductCount(products.size());
+				session.setAttribute("cart", cart);
+				System.out.println("첫 카트가 아닙니다.");
+			}
+		}
+
 		// 현재 로그인한 사용자 추가
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		model.addAttribute("user", user);
 		model.addAttribute("cart", cart);
-		
+
 		return "/delivery/cart";
 	}
-		
+
+	/*
+	 * 
+	 * Guest 딜리버리
+	 * 
+	 * 
+	 */
+
 	// guest를 세션에 넣어두고 주문할 수 있도록 보낸다.
 	@RequestMapping(value = "/guestDelivery", method = { RequestMethod.GET, RequestMethod.POST })
 	public String goGuestDeliveryPage(Model model, HttpSession session) {

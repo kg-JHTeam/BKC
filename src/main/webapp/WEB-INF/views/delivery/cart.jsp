@@ -24,6 +24,7 @@
 	<title>카트</title>
 </head>
 <body>
+
 	<div class="subWrap02">
 	<!-- delivery desktop header -->
 	<jsp:include page="../include/header/delivery_desktop_header2.jsp"/>

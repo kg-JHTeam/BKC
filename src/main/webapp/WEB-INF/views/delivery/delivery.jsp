@@ -205,7 +205,7 @@ li{
                                     </strong>
                                     </p>
                                 </div>
-                                <a href="#" class="btn_detail">
+                                <a href="${contextPath}/delivery/cart.do?seq=${beerdv.product_serial}" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>
