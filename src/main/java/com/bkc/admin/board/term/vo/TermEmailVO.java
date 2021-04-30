@@ -28,7 +28,6 @@ public class TermEmailVO {
 		this.content01 = content01;
 	}
 	
-	//toString
 	@Override
 	public String toString() {
 		return "TermEmailVO [seq=" + seq + ", regdate=" + regdate + ", content01=" + content01 + "]";

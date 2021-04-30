@@ -24,9 +24,7 @@ public class AdminEventController {
 	//이벤트 목록보기
 	@RequestMapping(value="/admin/eventlist.ad", method=RequestMethod.GET)
 	private String getAdEventList(EventVO event, Model model) {
-		
 		List<EventVO> adEventList = adEventService.getAdEventList(event);
-		
 		model.addAttribute("adEventList", adEventList);
 		System.out.println(adEventList);
 		return "admin/subpages/event/eventlist";
@@ -35,7 +33,6 @@ public class AdminEventController {
 	//이벤트 상세보기
 	@RequestMapping(value="/admin/getEvent.ad")	
 	private String getAdEvent(int seq, Model model) {
-		
 		EventVO vo = adEventService.getAdEvent(seq);
 		model.addAttribute("event", vo);
 		return "admin/subpages/event/getEvent";
@@ -71,7 +68,6 @@ public class AdminEventController {
 	//이벤트 수정
 	@RequestMapping(value="/admin/updateEventDB.ad", method ={RequestMethod.POST })
 	private String updateEventDB(EventVO event) {
-		System.out.println(event);
 		int result = adEventService.updateEvent(event);	
 		if(result == 1) {
 			

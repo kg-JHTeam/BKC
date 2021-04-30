@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.bkc.event.vo.StoreVO;
 
 @Repository
-public class AdminStoreDAOImpl implements AdminStoreDAO{
-	
+public class AdminStoreDAOImpl implements AdminStoreDAO {
+
 	@Autowired
 	private SqlSession sqlSession;
 

@@ -70,7 +70,6 @@ public class DeliveryController {
 	// 회원 주문 페이지로 이동
 	@RequestMapping(value = "/delivery.do", method = RequestMethod.GET)
 	public String delivery(CautionVO cautionVO, Model model, HttpSession session) {
-		System.out.println("delivery 페이지 이동");
 
 		// 유의사항 화면출력
 		List<CautionVO> CautionList = cService.CautionList(cautionVO);
@@ -88,22 +87,18 @@ public class DeliveryController {
 
 		// 치킨메뉴
 		List<DvProductVO> chickendv = pService.getChickenMenudv();
-		System.out.println(chickendv);
 		model.addAttribute("chickendv", chickendv);
 
 		// 사이드메뉴
 		List<DvProductVO> sidedv = pService.getSideMenudv();
-		System.out.println(sidedv);
 		model.addAttribute("sidedv", sidedv);
 
 		// 비어존
 		List<DvProductVO> beerdv = pService.getBeerZonedv();
-		System.out.println(beerdv);
 		model.addAttribute("beerdv", beerdv);
 
 		// new메뉴
 		List<DvProductVO> newdv = pService.getNewdv();
-		System.out.println(newdv);
 		model.addAttribute("newdv", newdv);
 
 		// 카트 추가
@@ -120,8 +115,6 @@ public class DeliveryController {
 	// 주문내역 페이지로 이동
 	@RequestMapping(value = "/orderList.do", method = RequestMethod.GET)
 	public String orderList(Model model, HttpSession session) {
-		System.out.println("회원 주문내역 페이지 이동");
-
 		// 현재 로그인한 사용자 추가
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = (UserDetails) principal;
@@ -296,8 +289,6 @@ public class DeliveryController {
 	// 카트에 담기 | 장바구니 세션값을 변경해주는 곳
 	@RequestMapping(value = "/cart.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String showCart(HttpSession session, Model model, @RequestParam(value = "seq", defaultValue = "0") int seq) {
-		System.out.println(seq);
-
 		CartVO cart = new CartVO();
 		// seq값 없이 들어오는 경우
 		if (seq == 0) {
@@ -308,11 +299,10 @@ public class DeliveryController {
 			}
 		}
 
-		// seq값 가지고 들어오는 경우 
+		// seq값 가지고 들어오는 경우
 		else {
 			// 메뉴 가져옴.
 			ProductVO product = productService.getMenuBySerial(seq);
-			System.out.println(product.toString());
 
 			// 처음 들어온 경우일경우
 			if (session.getAttribute("cart") == null) {
@@ -327,7 +317,7 @@ public class DeliveryController {
 				System.out.println("첫 카트");
 			}
 
-			// 세션 
+			// 세션
 			else {
 				// 세션에서 카트에 들어가 있는 걸 받아온다.
 				cart = (CartVO) session.getAttribute("cart");
@@ -337,11 +327,12 @@ public class DeliveryController {
 				cart.addProduct(seq, product);
 
 				HashMap<Integer, ProductVO> products = cart.getProducts();
-
-				// 카트에 뭐가있는지 확인.
-				Set keyset = products.keySet();
-				System.out.println("Key set values are" + keyset);
-
+				
+				if(products.size() <= 1) {
+					cart.setProductMainTitle(product.getProduct_name());
+					System.out.println(product.getProduct_name() + " mainTitle 변경 ");
+				}
+				
 				// 갯수넣기
 				cart.setProductCount(products.size());
 				session.setAttribute("cart", cart);
@@ -363,45 +354,49 @@ public class DeliveryController {
 		return "/delivery/cart";
 	}
 
-	// 갯수 세션 변경 
+	// 갯수 세션 변경
 	@RequestMapping(value = "/cartcount.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object countProduct(@RequestParam(value = "key") Integer key,
-			@RequestParam(value="count") int count, Model model , HttpSession session) {
-		
+	public Object countProduct(@RequestParam(value = "key") Integer key, @RequestParam(value = "count") int count,
+			Model model, HttpSession session) {
+
 		// 1) 세션에서 카트에 들어가 있는 걸 받아온다.
 		cart = (CartVO) session.getAttribute("cart");
 		HashMap<Integer, ProductVO> productTmp = cart.getProducts();
 		ProductVO product = productTmp.get(key);
 		product.setCount(count);
-		
+
 		// 2) 세션 변경시키기
 		session.setAttribute("cart", cart);
 		model.addAttribute("cart", cart);
-		
+
 		// 성공했다고 처리
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		
+
 		retVal.put("code", "OK");
 		retVal.put("message", "ok 성공");
 		return retVal;
 	}
-	
-	// 메뉴 삭제 
+
+	// 메뉴 삭제
 	@RequestMapping(value = "/cartkeydelete.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Object countProduct(@RequestParam(value = "key") Integer key,  Model model , HttpSession session) {
 		
 		// 1) 세션에서 카트에 들어가 있는 걸 받아온다.
 		cart = (CartVO) session.getAttribute("cart");
-		HashMap<Integer, ProductVO> productTmp = cart.getProducts();
+		HashMap<Integer, ProductVO> products = cart.getProducts();
+		
 		//삭제시킴
-		productTmp.remove(key);
+		products.get(key).setCount(0);
+		products.remove(key);
+		cart.minusProductCount();
 		
 		// 2) 세션 변경시키기
 		session.setAttribute("cart", cart);
 		model.addAttribute("cart", cart);
 		
+		System.out.println("세션값을 확인해보자 : "+cart.toString());
 		// 성공했다고 처리
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		
@@ -409,8 +404,7 @@ public class DeliveryController {
 		retVal.put("message", "ok 성공");
 		return retVal;
 	}
-	
-	
+
 	/*
 	 * Guest 딜리버리
 	 */

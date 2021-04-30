@@ -15,7 +15,7 @@ public class CartVO {
 
 	// 상품의 총갯수
 	private int productCount = 0; //기본값이 0 
-
+	
 	// 카트에 있는 모든 상품의 총합계
 	private int totalcost;
 
@@ -24,8 +24,6 @@ public class CartVO {
 	
 	//ProductVO Key
 	private List<Integer> keyset;
-	
-	//ProductVO value
 	
 	public List<Integer> getKeyset() {
 		return keyset;
@@ -59,7 +57,11 @@ public class CartVO {
 	public void setTotalcost(int totalcost) {
 		this.totalcost = totalcost;
 	}
-
+	
+	public void minusProductCount() {
+		this.productCount--;
+	}
+	
 	// 처음에 값하나 추가.
 	public void addFirst(int product_serial, ProductVO product) {
 		product.setCount(1);
@@ -71,7 +73,7 @@ public class CartVO {
 	// 처음이 아닌 경우 값 하나 추가.
 	public void addProduct(int product_serial, ProductVO product) {
 		product.plusOne();
-		
+		productCount++;
 		// Hashmap에 들어감.
 		products.put(product_serial, product); // 값 추가
 	}
@@ -90,7 +92,6 @@ public class CartVO {
 	}
 
 	//product 자체에 갯수 매개변수가 있다. 
-	
 	// 상품 + || - 버튼 관련
 	// 상품 하나 + 시킴
 	public void plusOne(int product_serial) {

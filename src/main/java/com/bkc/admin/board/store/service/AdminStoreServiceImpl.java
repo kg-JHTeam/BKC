@@ -9,8 +9,8 @@ import com.bkc.admin.board.store.dao.AdminStoreDAO;
 import com.bkc.event.vo.StoreVO;
 
 @Service
-public class AdminStoreServiceImpl implements AdminStoreService{
-	
+public class AdminStoreServiceImpl implements AdminStoreService {
+
 	@Autowired
 	private AdminStoreDAO adStoreDao;
 
@@ -27,7 +27,6 @@ public class AdminStoreServiceImpl implements AdminStoreService{
 	@Override
 	public int insertStore(StoreVO store) {
 		return adStoreDao.insertStore(store);
-
 	}
 
 	@Override

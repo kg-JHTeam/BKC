@@ -8,6 +8,7 @@ import com.bkc.admin.board.term.vo.TermEmailVO;
 
 @Repository
 public class TermEmailDAOImpl implements TermEmailDAO {
+	
 	@Autowired
 	private SqlSession sqlSession;
 

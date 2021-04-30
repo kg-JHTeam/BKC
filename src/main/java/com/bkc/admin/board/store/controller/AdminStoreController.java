@@ -26,7 +26,6 @@ public class AdminStoreController {
 		List<StoreVO> adStoreList = adStoreService.getAdStoreList(store);
 
 		model.addAttribute("adStoreList", adStoreList);
-		System.out.println(adStoreList);
 		return "admin/subpages/store/storelist";
 	}
 
@@ -67,7 +66,7 @@ public class AdminStoreController {
 	}
 
 	// 신규매장 수정
-	@RequestMapping(value = "/admin/updateStoreDB.ad", method = {RequestMethod.POST })
+	@RequestMapping(value = "/admin/updateStoreDB.ad", method = { RequestMethod.POST })
 	private String updateStoreDB(StoreVO store) {
 		int result = adStoreService.updateStore(store);
 		if (result == 1) {
@@ -88,9 +87,9 @@ public class AdminStoreController {
 		}
 		return "redirect:/admin/storelist.ad";
 	}
-	
-	//신규매장 삭제
-	@RequestMapping(value="/admin/deleteStoreDB.ad", method={RequestMethod.GET, RequestMethod.POST})
+
+	// 신규매장 삭제
+	@RequestMapping(value = "/admin/deleteStoreDB.ad", method = { RequestMethod.GET, RequestMethod.POST })
 	private String deleteStoreDB(int store_serial) {
 		if (adStoreService.deleteStore(store_serial) == 1) {
 			System.out.println("삭제 성공");

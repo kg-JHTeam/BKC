@@ -158,7 +158,6 @@ li{
                             </li>
                              </c:forEach>
                         </ul>
-                     
                         <ul class="prdmenu_list">
                            <c:forEach var="sidedv" items="${sidedv}">
                                 <li>
@@ -183,7 +182,7 @@ li{
                                     </p>
                                 </div>
                                	<form name="myForm${sidedv.product_serial}" action="${contextPath}/delivery/cart.do" method="POST">
-									<input type="hidden" name="seq" value="${sidedv.product_serial}}" />
+									<input type="hidden" name="seq" value="${sidedv.product_serial}" />
 								</form>
                                 <a href="#" onclick="javascript:document.myForm${sidedv.product_serial}.submit();" class="btn_detail">
                                     <span>Details</span>
@@ -205,13 +204,6 @@ li{
                                     </p>
                                     <p class="menu_info">
                                         <span>${beerdv.description}</span>
-                                    </p>
-                                    <p class="price">
-                                        <strong>
-                                        <em>
-                                            <span>&#8361; ${beerdv.price}</span>
-                                        </em>
-                                    </strong>
                                     </p>
                                 </div>
                                 <a href="#" class="btn_detail">

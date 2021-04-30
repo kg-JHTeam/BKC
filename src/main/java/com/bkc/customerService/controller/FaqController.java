@@ -63,12 +63,8 @@ public class FaqController {
 	//삭제
 	@RequestMapping(value = "/admin/FaqDelete.ad", method = RequestMethod.GET)
 	public String FaqDelete(Model model, @RequestParam("seq") int seq){
-		
 		service.FaqDelete(seq);
-		
-		
 		System.out.println("삭제 완료");
-		
 		return "redirect:/admin/faqlist.ad";
 	}
 	
@@ -79,9 +75,7 @@ public class FaqController {
 		faqVO.setCategory(category);
 		faqVO.setTitle(title);
 		faqVO.setContents(contents);
-		
 		service.FaqInsert(faqVO);
-		
 		return "redirect:/admin/faqlist.ad";
 	}
 	//업로드
@@ -93,22 +87,18 @@ public class FaqController {
 	//수정화면출력
 	@RequestMapping(value = "/admin/faqDetail.ad", method = RequestMethod.GET)
 	public String showFaq(Model model, @RequestParam("seq") int seq) {
-		
 		FaqVO faqVO = service.getFaq(seq);
 		model.addAttribute("faqVO", faqVO);
-		
 		return "admin/subpages/faq/faqContent";
 	}
 	//수정
 	@RequestMapping(value = "/admin/modifyFaq.ad", method = RequestMethod.GET)
 	public String modifyFaq(@RequestParam("title") String title, @RequestParam("contents") String contents, @RequestParam("category") String category, Model model, @RequestParam("seq") int seq) {
-		
 		FaqVO faqVO = service.getFaq(seq);
 		faqVO.setTitle(title);
 		faqVO.setCategory(category);
 		faqVO.setContents(contents);
 		faqVO.setSeq(seq);
-		
 		service.updateFaq(faqVO);
 		
 		model.addAttribute("faqVO", faqVO);

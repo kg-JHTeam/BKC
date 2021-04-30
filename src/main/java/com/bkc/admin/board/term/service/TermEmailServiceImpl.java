@@ -8,6 +8,7 @@ import com.bkc.admin.board.term.vo.TermEmailVO;
 
 @Service
 public class TermEmailServiceImpl implements TermEmailService {
+	
 	@Autowired
 	private TermEmailDAO termEmailDao;
 	

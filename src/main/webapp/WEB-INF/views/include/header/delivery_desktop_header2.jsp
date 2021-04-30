@@ -54,7 +54,7 @@
                             </dl>
                         </div>
                     </a>
-                    <a href= "${contextPath}/delivery/cart.do">
+                    <a href="${contextPath}/delivery/cart.do">
                         <div class="personal_cart">
                             <dl>
                                 <dt>

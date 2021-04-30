@@ -25,7 +25,6 @@ public class AdminNoticeController {
 		List<NoticeVO> adNoticeList = adNoticeService.getAdNoticeList(notice);
 		
 		model.addAttribute("adNoticeList", adNoticeList);
-		System.out.println(adNoticeList);
 		return "admin/subpages/notice/noticelist";
 	}
 	

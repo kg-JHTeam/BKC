@@ -8,6 +8,7 @@ import com.bkc.admin.board.term.vo.TermPrivacyVO;
 
 @Repository
 public class TermPrivacyDAOImpl implements TermPrivacyDAO {
+	
 	@Autowired
 	private SqlSession sqlSession;
 	
@@ -20,7 +21,6 @@ public class TermPrivacyDAOImpl implements TermPrivacyDAO {
 	//관리자 개인정보 취급 방침 게시글 조회
 	@Override
 	public TermPrivacyVO getTermPrivacyList(TermPrivacyVO termPrivacy) {
-		System.out.println("개인정보 취급 방침 관리자 게시글 조회");
 		return sqlSession.selectOne("getTermPrivacyList", termPrivacy);
 	}
 
@@ -28,7 +28,6 @@ public class TermPrivacyDAOImpl implements TermPrivacyDAO {
 	@Override
 	public void updateTermPrivacy(TermPrivacyVO termPrivacy) {
 		sqlSession.insert("updateTermPrivacy", termPrivacy);
-		System.out.println("개인정보 취급 방침 관리자 게시글 수정 완료");
 	}
 
 }
