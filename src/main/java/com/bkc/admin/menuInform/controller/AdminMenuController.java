@@ -28,7 +28,6 @@ public class AdminMenuController {
 	// 전체리스트출력
 	@RequestMapping(value = "/admin/adminAllList.ad", method = RequestMethod.GET)
 	public String showallList(Model model) {
-		System.out.println("showallList");
 		List<ProductVO> allList = admenuService.getallList();
 		model.addAttribute("allList", allList);
 		return "admin/subpages/menu/adminAllList";
@@ -69,7 +68,6 @@ public class AdminMenuController {
 	// changeUseStatus.ad
 	@RequestMapping(value = "/admin/changeUseStatus.ad", method = RequestMethod.GET)
 	public String changeUseStatus(Model model, @RequestParam("product_serial") int product_serial) {
-		System.out.println("changeUseStatus");
 		admenuService.changeUseStatus(product_serial);
 		return "redirect:/admin/adminAllList.ad";
 	}
@@ -78,7 +76,6 @@ public class AdminMenuController {
 	@RequestMapping(value = "/admin/menuDetail.ad", method = RequestMethod.GET)
 	public String getMenu(Model model, @RequestParam("product_serial") int product_serial) {
 		ProductVO menu = admenuService.getMenu(product_serial);
-		System.out.println("showMenu");
 		model.addAttribute("menu", menu);
 		return "admin/subpages/menu/menuAdContent";
 	}

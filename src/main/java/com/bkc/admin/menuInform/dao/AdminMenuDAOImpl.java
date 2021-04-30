@@ -41,7 +41,6 @@ public class AdminMenuDAOImpl implements AdminMenuDAO {
 	// 신메뉴조회
 	@Override
 	public List<ProductVO> getnewList() {
-
 		return sqlSession.selectList("getnewList");
 	}
 
@@ -54,21 +53,18 @@ public class AdminMenuDAOImpl implements AdminMenuDAO {
 	// 메뉴상세
 	@Override
 	public ProductVO getMenu(int product_serial) {
-
 		return sqlSession.selectOne("getMenu", product_serial);
 	}
 
 	// 메뉴삭제
 	@Override
 	public int deleteMenu(int product_serial) {
-
 		return sqlSession.insert("deleteMenu", product_serial);
 	}
 
 	// 메뉴등록
 	@Override
 	public int insertMenu(ProductVO vo) {
-
 		return sqlSession.insert("insertMenu", vo);
 	}
 
@@ -81,14 +77,12 @@ public class AdminMenuDAOImpl implements AdminMenuDAO {
 	// 메뉴수정
 	@Override
 	public int updateMenu(ProductVO vo) {
-
 		return sqlSession.insert("updateMenu", vo);
 	}
 
 	// 메뉴이미지 수정
 	@Override
 	public int updateMenuimg(ProductVO vo) {
-
 		return sqlSession.insert("updateMenuimg", vo);
 	}
 

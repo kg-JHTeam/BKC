@@ -19,5 +19,4 @@ public class ErrorController {
 	public String error500() {
 		return "error/error500";
 	}
-
 }

@@ -9,6 +9,8 @@ import com.bkc.menuInform.vo.ProductVO;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+	
+	@Autowired
 	private ProductDAO productDao;
 
 	@Autowired

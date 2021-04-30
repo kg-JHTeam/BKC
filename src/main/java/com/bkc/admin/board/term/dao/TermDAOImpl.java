@@ -8,6 +8,7 @@ import com.bkc.admin.board.term.vo.TermVO;
 
 @Repository
 public class TermDAOImpl implements TermDAO{
+	
 	@Autowired
 	private SqlSession sqlSession;
 	

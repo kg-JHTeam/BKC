@@ -30,6 +30,7 @@ public class HomeController {
 	// 푸터
 	@Autowired
 	private BusinessInformationService biService;
+	
 	@Autowired
 	private YoutubeService youtubeService;
 

@@ -35,14 +35,12 @@ public class AdminMenuServiceImpl implements AdMenuService {
 	// 사이드메뉴리스트
 	@Override
 	public List<ProductVO> getsideList() {
-
 		return adminmenuDao.getsideList();
 	}
 
 	// 신메뉴리스트
 	@Override
 	public List<ProductVO> getnewList() {
-
 		return adminmenuDao.getnewList();
 	}
 
@@ -58,13 +56,13 @@ public class AdminMenuServiceImpl implements AdMenuService {
 		return adminmenuDao.getMenu(product_serial);
 	}
 
-//메뉴삭제
+	//메뉴삭제
 	@Override
 	public int deleteMenu(int product_serial) {
 		return adminmenuDao.deleteMenu(product_serial);
 	}
 
-//메뉴추가
+	//메뉴추가
 	@Override
 	public int insertMenu(ProductVO vo) {
 		int result = adminmenuDao.insertMenu(vo);
@@ -74,8 +72,7 @@ public class AdminMenuServiceImpl implements AdMenuService {
 		return result;
 	}
 
-//메뉴수정
-
+	//메뉴수정
 	@Override
 	public int updateMenu(ProductVO vo) {
 		int result = adminmenuDao.updateMenu(vo);
@@ -83,7 +80,5 @@ public class AdminMenuServiceImpl implements AdMenuService {
 			result = adminmenuDao.updateMenuimg(vo);
 		}
 		return result;
-
 	}
-
 }

@@ -9,6 +9,7 @@ import com.bkc.admin.board.term.vo.TermVO;
 
 @Service
 public class TermServiceImpl implements TermService{
+	
 	@Autowired
 	private TermDAO termDao;
 	
@@ -29,7 +30,4 @@ public class TermServiceImpl implements TermService{
 	public void updateTerm(TermVO term) {
 		termDao.updateTerm(term);
 	}
-	
-		
-
 }

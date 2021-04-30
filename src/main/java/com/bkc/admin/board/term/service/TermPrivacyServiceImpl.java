@@ -8,6 +8,7 @@ import com.bkc.admin.board.term.vo.TermPrivacyVO;
 
 @Service
 public class TermPrivacyServiceImpl implements TermPrivacyService {
+	
 	@Autowired
 	private TermPrivacyDAO termPrivacyDao;
 	
