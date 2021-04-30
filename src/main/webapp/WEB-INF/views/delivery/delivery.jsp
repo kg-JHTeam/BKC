@@ -23,10 +23,15 @@
 	
 	<title>딜리버리</title>
 	<style>
-li{
-   list-style:none;
-   }
+li {
+	list-style: none;
+}
 </style>
+<script>
+window.onload = function(){
+	$("#newMenu").show(); 
+}
+</script>
 </head>
 <body>
 	<div class="subWrap02">
@@ -90,7 +95,7 @@ li{
                         </div>
                     </div>
                     <div class="tab_cont">
-                        <ul class="prdmenu_list">
+                        <ul class="prdmenu_list" id="newMenu">
                           <c:forEach var="newdv" items="${newdv}">
                             <li>
                                 <div class="prd_img">
@@ -127,11 +132,9 @@ li{
                            <c:forEach var="chickendv" items="${chickendv}">
                             <li>                           
                                 <div class="prd_img">
-                                   
                                     <span>
                                     <img src="${chickendv.path}" alt="치킨메뉴" style="display: inline; opacity: 1;">
                                 </span>
-                               
                                 </div>
                                 <div class="cont">
                                     <p class="tit">
