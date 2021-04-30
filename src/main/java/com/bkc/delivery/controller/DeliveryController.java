@@ -65,7 +65,7 @@ public class DeliveryController {
 
 	// 회원 주문 페이지로 이동
 	@RequestMapping(value = "/delivery.do", method = RequestMethod.GET)
-	public String delivery(CautionVO cautionVO, Model model,HttpSession session) {
+	public String delivery(CautionVO cautionVO, Model model, HttpSession session) {
 		System.out.println("delivery 페이지 이동");
 
 		// 유의사항 화면출력
@@ -104,8 +104,10 @@ public class DeliveryController {
 
 		// 카트 추가
 		CartVO cart = new CartVO();
-		if (session.getAttribute("cart") == null) {} 
-		else { cart = (CartVO) session.getAttribute("cart");}
+		if (session.getAttribute("cart") == null) {
+		} else {
+			cart = (CartVO) session.getAttribute("cart");
+		}
 		model.addAttribute("cart", cart);
 
 		return "delivery/delivery";
@@ -128,8 +130,10 @@ public class DeliveryController {
 
 		// 카트 추가
 		CartVO cart = new CartVO();
-		if (session.getAttribute("cart") == null) {} 
-		else { cart = (CartVO) session.getAttribute("cart");}
+		if (session.getAttribute("cart") == null) {
+		} else {
+			cart = (CartVO) session.getAttribute("cart");
+		}
 		model.addAttribute("cart", cart);
 
 		return "delivery/orderList";
@@ -151,8 +155,10 @@ public class DeliveryController {
 
 		// 카트 추가
 		CartVO cart = new CartVO();
-		if (session.getAttribute("cart") == null) {} 
-		else { cart = (CartVO) session.getAttribute("cart");}
+		if (session.getAttribute("cart") == null) {
+		} else {
+			cart = (CartVO) session.getAttribute("cart");
+		}
 		model.addAttribute("cart", cart);
 
 		return "delivery/orderDetail";
@@ -180,8 +186,10 @@ public class DeliveryController {
 
 		// 카트 추가
 		CartVO cart = new CartVO();
-		if (session.getAttribute("cart") == null) {} 
-		else { cart = (CartVO) session.getAttribute("cart");}
+		if (session.getAttribute("cart") == null) {
+		} else {
+			cart = (CartVO) session.getAttribute("cart");
+		}
 		model.addAttribute("cart", cart);
 
 		return "delivery/mybkc";
@@ -212,8 +220,10 @@ public class DeliveryController {
 
 		// 카트 추가
 		CartVO cart = new CartVO();
-		if (session.getAttribute("cart") == null) {} 
-		else { cart = (CartVO) session.getAttribute("cart");}
+		if (session.getAttribute("cart") == null) {
+		} else {
+			cart = (CartVO) session.getAttribute("cart");
+		}
 		model.addAttribute("cart", cart);
 
 		return "delivery/mycoupon";
@@ -279,7 +289,7 @@ public class DeliveryController {
 		return "redirect:/delivery/admin/cautionList.ad";
 	}
 
-	// 카트에 담기 | 장바구니 세션값을 변경해주는 곳 
+	// 카트에 담기 | 장바구니 세션값을 변경해주는 곳
 	@RequestMapping(value = "/cart.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String showCart(HttpSession session, Model model, @RequestParam(value = "seq", defaultValue = "0") int seq) {
 		System.out.println(seq);
@@ -288,8 +298,8 @@ public class DeliveryController {
 		// seq값 없이 들어오는 경우
 		if (seq == 0) {
 			// 세션이 아예없다면,
-			if (session.getAttribute("cart") == null) {} 
-			else { // 세션이 있다면
+			if (session.getAttribute("cart") == null) {
+			} else { // 세션이 있다면
 				cart = (CartVO) session.getAttribute("cart");
 			}
 		}
@@ -342,6 +352,10 @@ public class DeliveryController {
 		model.addAttribute("user", user);
 		model.addAttribute("cart", cart);
 
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
 		return "/delivery/cart";
 	}
 
@@ -357,6 +371,10 @@ public class DeliveryController {
 	public String goGuestDeliveryPage(Model model, HttpSession session) {
 		String guest = (String) session.getAttribute("guest");
 		model.addAttribute("guest", guest);
+
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
 		return "guest/guestdelivery";
 	}
 }
