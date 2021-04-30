@@ -219,24 +219,6 @@ public class DeliveryController {
 		return "delivery/mycoupon";
 	}
 
-	// mySet페이지 이동
-	@RequestMapping(value = "/mySet.do", method = RequestMethod.GET)
-	public String mySet(Model model, HttpSession session) {
-		System.out.println("mySet페이지로 이동");
-
-		// 푸터추가
-		BusinessInformationVO bi = biService.getBusinessInformation(1);
-		model.addAttribute("bi", bi);
-
-		// 카트 추가
-		CartVO cart = new CartVO();
-		if (session.getAttribute("cart") == null) {} 
-		else {cart = (CartVO) session.getAttribute("cart");}
-		model.addAttribute("cart", cart);
-
-		return "delivery/mySet";
-	}
-
 	// 유의사항 관리자 리스트
 	@RequestMapping(value = "/admin/cautionList.ad", method = { RequestMethod.GET })
 	public String CautionList(CautionVO cautionVO, Model model) {
