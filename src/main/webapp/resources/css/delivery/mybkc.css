@@ -1,0 +1,454 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+
+/* 전체 css*/
+
+.subWrap2 {
+    margin: 0 auto;
+    padding: 168px 0 272px;
+}
+
+/* content부분 */
+
+.contnetsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+span {
+    font-weight: bold;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.locationWrap {
+    height: 58px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #ffa423;
+}
+
+.locationWrap>.web_container2 {
+    overflow: hidden;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.locationWrap>.web_container2>.page_navi {
+    float: left;
+    font-size: .875rem;
+}
+
+.locationWrap a {
+    color: #fff;
+}
+
+.locationWrap>.web_container2>.page_navi>* {
+    float: left;
+}
+
+.page_navi:first-child::before {
+    display: none;
+}
+
+.gotomenu::after {
+    content: "";
+    float: left;
+    width: 38px;
+    height: 38px;
+    margin: 0 12px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+}
+
+.locationWrap .location {
+    float: right;
+    font-size: .875rem;
+}
+
+.location>* {
+    display: inline-block;
+    margin-left: 24px;
+    padding-left: 22px;
+    vertical-align: top;
+}
+
+.location .addr {
+    max-width: 200px;
+    margin: 0;
+    text-overflow: ellipsis;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/location.png) no-repeat 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.location .shop {
+    padding-left: 26px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/near.png) no-repeat 0;
+}
+
+.location .btn {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.location .addrchange {
+    display: inline-block;
+    width: 56px;
+    height: 34px;
+    padding: 0;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+    line-height: 34px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+
+/* mybkc 페이지 contents */
+
+.contentsBox01 {
+    padding: 50px 0 45px;
+}
+
+.bg_w {
+    background: #fff;
+}
+
+.web_container2 {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+
+@media screen and (min-width: 767px) {
+    .subtitWrap .page_tit.st02 {
+        padding: 20px 0 23px;
+        border-bottom: 3px solid #000;
+    }
+}
+
+.page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+
+.mybkc_info {
+    padding: 16px 0 30px;
+    overflow: hidden;
+}
+
+.mybkc_info .member_info {
+    width: 34%;
+}
+
+.mybkc_info>* {
+    float: left;
+}
+
+.mybkc_info .member_info .user {
+    font-size: 1.875rem;
+}
+
+.mybkc_info .member_info .user strong {
+    margin-right: .5em;
+}
+
+.mybkc_info .member_info a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 35px 5px 0;
+    font-weight: 700;
+    font-size: 1.375rem;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/right1.png) no-repeat 90%;
+}
+
+.mybkc_info .coupon_info {
+    width: 66%;
+    font-size: 1.875rem;
+}
+
+.mybkc_info .coupon_info>* {
+    position: relative;
+    float: right;
+    width: 50%;
+    height: 74px;
+    padding-left: 25%;
+    border-left: 1px solid #f2f2f2;
+    box-sizing: border-box;
+}
+
+.mybkc_info .coupon_info>::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/coupon.png) no-repeat 50%;
+}
+
+.mybkc_info .coupon_info dt {
+    font-size: 1.5rem;
+    opacity: .7;
+}
+
+.mybkc_info .coupon_info dd {
+    margin-top: 18px;
+    line-height: 100%;
+}
+
+.btn_detail {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-indent: -99999em;
+    background: transparent;
+}
+
+.bg_b {
+    background: #f2ebe6;
+}
+
+.web_container2.container01 {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.container01 {
+    padding: 20px 0;
+}
+
+.web_container2 {
+    max-width: 1184px;
+    margin: 0 auto;
+}
+
+.tit01:first-child {
+    margin-top: 0;
+}
+
+.tit_ico {
+    position: relative;
+    padding-left: 50px;
+    line-height: 40px;
+}
+
+.tit01 {
+    margin: 45px 0 17px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #2e2e2e;
+}
+
+.tit_ico.list::before {
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/order/order.png);
+}
+
+.tit_ico::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+.tit_ico>* {
+    margin: 0;
+    padding: 0;
+}
+
+.tit01.tit_ico+.container02 {
+    margin-top: 8px;
+}
+
+@media screen and (min-width: 767px) {
+    .container02.pd02 {
+        padding: 55px 64px;
+    }
+    .container02.pd02 .titbox {
+        margin: -55px -64px 20px;
+    }
+}
+
+.order_list_sum {
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+}
+
+.container02 {
+    position: relative;
+    margin: 15px 0;
+    font-size: 1.375rem;
+}
+
+.container02>.titbox:first-child {
+    font-size: 1.375rem;
+    background: #f8f8f8;
+}
+
+.order_list_sum .titbox {
+    position: relative;
+    padding: 32px 64px 28px!important;
+}
+
+.order_list_sum .tit {
+    margin: 0;
+    font-size: 1.375rem;
+}
+
+.order_list_sum .tit .tag {
+    position: absolute;
+    right: 64px;
+    top: 50%;
+    margin-top: -16px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0 5px;
+    font-size: 1rem;
+    color: #fff;
+    line-height: normal;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/order/orderright.png) no-repeat 0, url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/order/orderleft.png) no-repeat 100%;
+    background-size: auto 100%, auto 100%;
+}
+
+.tag>* {
+    height: 32px;
+    padding: 4px 5px;
+    line-height: 26px;
+    background: #762824;
+    box-sizing: border-box;
+}
+
+.order_list_sum .cont {
+    padding-top: 22px;
+}
+
+.order_list_sum .cont .info {
+    display: table;
+    width: 100%;
+    font-size: 1.375rem;
+}
+
+.order_list_sum .cont .info>* {
+    display: table-cell;
+    padding-right: 10px;
+    vertical-align: top;
+}
+
+.order_list_sum .cont .info dt {
+    opacity: .6;
+}
+
+.order_list_sum .cont .info dd {
+    margin-top: 15px;
+}
+
+.c_btn {
+    margin: 40px 0 80px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.btn01 {
+    display: inline-block;
+    width: 256px;
+    height: 68px;
+    font-size: 1.5rem;
+    padding: 12px 10px 10px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    line-height: 46px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/btn-black.png) no-repeat 50%;
+    background-size: 100% 100%;
+    border-radius: 0;
+}
+
+.qmenuWrap02 {
+	display: flex;
+	justify-content:center;
+    margin: -10px 0 20px;
+}
+
+.qmenuWrap02 ul {
+    overflow: hidden;
+}
+
+.qmenuWrap02 li {
+    position: relative;
+    width: 50%;
+    height: 104px;
+}
+
+.qmenuWrap02 li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: #e6dfda;
+}
+
+.qmenuWrap02 a {
+	width: 430px;
+    display: block;
+    height: 100%;
+    font-weight: 700;
+    font-size: 1.875em;
+    text-align: center;
+}
+
+.qmenuWrap02 a>* {
+    display: inline-block;
+    padding-right: 35%;
+    line-height: 104px;
+    background-repeat: no-repeat;
+    background-position: 99%;
+    white-space: nowrap;
+}
+
+.qmenuWrap02 .qmenu_myplace a>* {
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/mylocation.png) no-repeat 99%;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+/* 모바일용 CSS */
+
+@media all and(max-width:765px) {}

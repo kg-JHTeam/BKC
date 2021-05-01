@@ -26,7 +26,6 @@
 				 	 WHEN USERGRADE='03' THEN 'ROLE_USER'
 				END authority 
 				FROM usermember WHERE USERID =?" />
-			
 			<password-encoder ref="bcryptPasswordEncoder"
 				hash="bcrypt" />
 		</authentication-provider>
@@ -68,12 +67,11 @@
 		<!-- 로그아웃 -->
 		<logout invalidate-session="true" />
 		
-		<!-- 자동로그인 구현  
-		<remember-me key="bkc" remember-me-parameter="remember" token-validity-seconds="604800" /> -->
+		<!-- 자동로그인 구현  -->
+		<remember-me key="bkc" remember-me-parameter="remember" token-validity-seconds="604800" /> 
             
 		<!-- csrf 토큰 막음 -->
 		<csrf disabled="true" />
-		
 	</http>
 
 </beans:beans>

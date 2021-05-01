@@ -19,17 +19,13 @@ public class AdminHomeController {
 	
 	@RequestMapping(value = "/admin.ad", method = RequestMethod.GET)
 	public String adminPage() {
-		System.out.println("/admin.ad");
 		return "admin/adminPage";
 	}
 	
 	@RequestMapping(value = "/goAdminPage.ad", method = RequestMethod.GET)
 	public String goAdminPage(Model model) {
-		System.out.println("/goAdminPage.ad");
-		
 		List<UserVO> users = userService.getUserList();
 		model.addAttribute("users", users);
-		
 		return "admin/dist/index";
 	}
 }

@@ -10,13 +10,9 @@ import com.bkc.customerService.vo.NoticeVO;
 
 @Service
 public class AdminNoticeServiceImpl implements AdminNoticeService {
-
-	private AdminNoticeDAO adNoticeDao;
-
+	
 	@Autowired
-	public void setAdNoticeDao(AdminNoticeDAO adNoticeDao) {
-		this.adNoticeDao = adNoticeDao;
-	}
+	private AdminNoticeDAO adNoticeDao;
 
 	// 게시글 목록조회
 	@Override

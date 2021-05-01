@@ -52,8 +52,8 @@
 					</a> <a href="#" class="arrow"> <span>메뉴소개</span>
 					</a> <a href="${contextPath}/menuInform/sideMenu.do" class="arrow">
 						<span>사이드메뉴</span>
-					</a> <a href="${contextPath}/menuInform/sidemenudetail.do"
-						class="arrow"> <span>${sidemenu.product_name}</span>
+					</a> <a href="#" class="arrow">
+					 <span>${sidemenu.product_name}</span>
 					</a>
 
 				</div>

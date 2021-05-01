@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductDAO">
+	<!-- serial로 메뉴 조회  -->
+	<select id="getMenuBySerial" resultType="ProductVO">
+		<![CDATA[
+			select * from product P
+			inner join product_image I on P.product_serial = I.product_serial
+			WHERE P.product_serial = #{product_serial}
+		]]>
+	</select>
+	<!-- 전체 사이드메뉴 조회 -->
+	<select id="getSidemenuList" resultType="ProductVO">
+		<![CDATA[
+		select 
+		* from product P inner join product_image I on P.product_serial = I.product_serial where type_serial='side_menu';
+		]]>
+	</select>
+	<!-- 사이드메뉴 디테일 -->
+	<select id="getSidemenu" resultType="ProductVO">
+		select
+		path, product_name, description
+		from
+		product P inner join product_image I on P.product_serial = I.product_serial
+		where P.product_serial= #{product_serial};
+	</select>
+	<!-- 전체 치킨 메뉴 조회 -->
+	<select id="getChickenMenuList" resultType="ProductVO">
+		select
+		* from product P inner join product_image I on P.product_serial =
+		I.product_serial where type_serial='chicken_menu';
+	</select>
+	<!-- 치킨메뉴 디테일 -->
+	<select id="getChickenMenu" resultType="ProductVO">
+		select
+		path, product_name, description
+		from
+		product P inner join product_image I on P.product_serial = I.product_serial
+		where P.product_serial= #{product_serial};
+	</select>
+	<!-- 비어존 리스트 -->
+	<select id="getBeerzoneList" resultType="ProductVO">
+		select
+		* from product P inner join product_image I on P.product_serial =
+		I.product_serial where type_serial='beerzone';
+	</select>
+	<!-- 비어존 디테일 -->
+	<select id="getBeerzone" resultType="ProductVO">
+		select
+		path, product_name, description
+		from
+		product P inner join product_image I on P.product_serial = I.product_serial
+		where P.product_serial= #{product_serial};
+	</select>
+	<!-- 신메뉴 리스트 -->
+	<select id="getNewmenuList" resultType="ProductVO">
+		select
+		* from product P inner join product_image I on P.product_serial =
+		I.product_serial where type_serial='new_menu';
+	</select>
+	<!-- 신메뉴 디테일 -->
+	<select id="getNewmenu" resultType="ProductVO">
+		select
+		path, product_name, description
+		from
+		product P inner join product_image I on P.product_serial = I.product_serial
+		where P.product_serial= #{product_serial};
+	</select>
+</mapper>

@@ -1,7 +1,8 @@
 package com.bkc.user.controller;
 
-import java.io.IOException;
-import java.sql.SQLException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,13 +39,22 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import com.bkc.admin.board.banner.vo.CheckVO;
 import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
-import com.bkc.user.service.KakaoAPI;
+import com.bkc.menuInform.vo.ProductVO;
+import com.bkc.user.common.LoginUtil;
+import com.bkc.user.kakao.KakaoLoginApi;
+import com.bkc.user.kakao.KakaoUserInfo;
+import com.bkc.user.naver.NaverLoginBO;
 import com.bkc.user.service.UserService;
-import com.bkc.user.vo.NaverLoginBO;
+import com.bkc.user.vo.CartVO;
 import com.bkc.user.vo.SendMessageVO;
 import com.bkc.user.vo.UserVO;
+
+import org.codehaus.jackson.JsonNode;
+
 import com.github.scribejava.core.model.OAuth2AccessToken;
-import com.thoughtworks.qdox.parser.ParseException;
+
+import net.sf.json.JSON;
+import net.sf.json.JSONArray;
 
 @Controller
 public class UserController {
@@ -60,7 +71,30 @@ public class UserController {
 	private BusinessInformationService biService;
 
 	@Autowired
-	private KakaoAPI kakao;
+	private NaverLoginBO naverLoginBO;
+
+	@Autowired
+	private LoginUtil loginUtil;
+
+	public boolean socialLoginProc(String email, String name, String type, UserVO vo) {
+		boolean flag = false;
+		if (vo == null) {
+			vo = new UserVO();
+			vo.setUserid(email);
+			vo.setName(name);
+			vo.setPlatFormType(type);
+			userService.insert(vo);
+			return flag;
+		} else if (email.equals(vo.getUserid()) && !type.equals(vo.getRegist_type())
+				&& !vo.getPlatFormType().equals("")) {
+			userService.updatePlatForm(email, type);
+			return flag;
+		} else if (email.equals(vo.getUserid()) && vo.getPlatFormType().equals("")) {
+			flag = true;
+			return flag;
+		}
+		return flag;
+	}
 
 	// login 처리
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
@@ -76,37 +110,6 @@ public class UserController {
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 		return "delivery/login";
-	}
-
-
-
-	// 네이버 로그인 처리
-	@GetMapping("/callback.do")
-	public String callback(@RequestParam String code, @RequestParam String state, HttpSession session,
-			HttpServletResponse servletResponse, Model model)
-			throws IOException, org.json.simple.parser.ParseException {
-
-		NaverLoginBO naverLoginBO = null;
-		OAuth2AccessToken oauthToken = naverLoginBO.getAccessToken(session, code, state);
-
-		// 로그인 사용자 정보를 읽어온다.
-		String apiResult = naverLoginBO.getUserProfile(oauthToken);
-		System.out.println(apiResult.toString());
-
-		// 내가 원하는 정보 (이름)만 JSON타입에서 String타입으로 바꿔 가져오기 위한 작업
-		JSONParser parser = new JSONParser();
-		Object obj = null;
-
-		try {
-			obj = parser.parse(apiResult);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-		JSONObject jsonobj = (JSONObject) obj;
-		JSONObject response = (JSONObject) jsonobj.get("response");
-
-		return "/delivery/delivery";
 	}
 
 	// 회원가입 페이지로 이동
@@ -183,7 +186,7 @@ public class UserController {
 
 			userService.insert(user);
 			userService.sendJoinMail(user); // 이메일 전송
-			
+
 			check.setSuccess("0");
 			model.addAttribute("check", check);
 			return "delivery/joinsucess";
@@ -305,7 +308,7 @@ public class UserController {
 				name = (String) redirectMap.get("name"); // 오브젝트 타입이라 캐스팅해줌
 				userid = (String) redirectMap.get("userid");
 			}
-			
+
 			// 이메일을 통해 UserVO 얻음.
 			UserVO vo = userService.getUserById(userid);
 
@@ -334,6 +337,7 @@ public class UserController {
 
 			// 비밀번호 변경 완료 된후 findepwdsuccess page로 이동
 			return "delivery/findpwdsuccess";
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "redirect:/userfind";
@@ -342,10 +346,9 @@ public class UserController {
 
 	// 회원 수정
 	@RequestMapping("/modifyuser")
-	public String modifyUser(Model model, @Valid UserVO user, BindingResult result) {
+	public String modifyUser(Model model) {
 
-		// @Valid를 통해 자동 객체 검증
-		return "modifyuser";
+		return "delivery/userChange";
 	}
 
 	// 회원 탈퇴
@@ -353,5 +356,122 @@ public class UserController {
 	public String deleteUser(Model model, @Valid UserVO user, BindingResult result) {
 		// 회원 탈퇴 하지만 enabled만 유효하지 않게 설정 1-> 0 유효하지 않은 회원
 		return "deleteuser";
+	}
+
+	// 소셜로그인 //
+	// naver login
+	@GetMapping("/naver")
+	@ResponseBody
+	public String naverLogin(HttpSession session, Model model) {
+		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+		return naverAuthUrl;
+	}
+
+	// naver login proc
+	@GetMapping("/naverlogin")
+	public void naverSignin(String code, String state, HttpSession session, HttpServletResponse response)
+			throws Exception {
+		OAuth2AccessToken oauthToken;
+		oauthToken = naverLoginBO.getAccessToken(session, code, state);
+		// 로그인 사용자 정보를 읽어온다.
+		JSONParser jsonParser = new JSONParser();
+		JSONObject jsonObject = (JSONObject) jsonParser.parse(naverLoginBO.getUserProfile(oauthToken));
+		jsonObject = (JSONObject) jsonObject.get("response");
+		String email = (String) jsonObject.get("email");
+		String name = (String) jsonObject.get("name");
+
+		UserVO user = userService.getUserById(email);
+		boolean flag = loginUtil.socialLoginProc(email, name, "naver", user);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+
+		String url = (String) session.getAttribute("prevURI");
+		session.removeAttribute("prevURI");
+		if (url == null)
+			url = "/";
+
+		if (!flag) {
+			// 폼없이 바로 로그인 하기
+			loginUtil.loginWithoutForm(email);
+			user = userService.getUserById(email);
+
+			// 로그인한 정보를 세션에다 넣음.
+			session.setAttribute("id", user.getUserid());
+			session.setAttribute("email", email);
+			session.setAttribute("platform", user.getRegist_type());
+			out.println("<script>window.opener.location.href='/bkc/delivery/delivery.do';self.close();</script>");
+		} else {
+			naverLoginBO.deleteToken(oauthToken.getAccessToken());
+			out.println(
+					"<script>alert('이미 가입하신 이메일 입니다.');window.opener.location.href='/signin';self.close();</script>");
+		}
+		out.flush();
+
+	}
+
+	// kakao login
+	@GetMapping("/kakao")
+	@ResponseBody
+	public String kakaoLoginin() {
+		System.out.println("카카오로그인 실행");
+		return KakaoLoginApi.getAuthorizationUrl();
+	}
+
+	@GetMapping("/kakaologin")
+	public void kakaoLogininProc(String code, HttpServletResponse response, HttpSession session) throws Exception {
+		JsonNode accessToken;
+
+		// JsonNode트리형태로 토큰받아온다
+		JsonNode jsonToken = KakaoLoginApi.getKakaoAccessToken(code);
+
+		// 여러 json객체 중 access_token을 가져온다
+		accessToken = jsonToken.get("access_token");
+
+		// access_token을 통해 사용자 정보 요청
+		JsonNode userInfo = KakaoUserInfo.getKakaoUserInfo(accessToken);
+
+		System.out.println("code : " + code + "userInfo  : " + userInfo + "jsonToekn  : " + jsonToken);
+		// 유저정보 카카오에서 가져오기 Get properties
+		JsonNode properties = userInfo.path("properties");
+		JsonNode kakao_account = userInfo.path("kakao_account");
+
+		String name = properties.path("nickname").asText();
+		String email = kakao_account.path("email").asText();
+
+		// 소셜로그인으로 로그인할 경우 이메일을 통해서 회원을 하나 가져옴.
+		UserVO vo = userService.getUserById(email);
+
+		System.out.println("name : " + name + "| email :" + email);
+
+		// 성공하면 flag => true || 실패하면 flag => false
+		// 이미 일반회원가입을 한경우가 있을거고, 회원가입이 안된상태인 경우도 있을 거다.
+		boolean flag = loginUtil.socialLoginProc(email, name, "kakao", vo);
+
+		System.out.println("flag" + flag);
+
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+
+		String url = (String) session.getAttribute("prevURI");
+		session.removeAttribute("prevURI");
+		if (url == null)
+			url = "/bkc";
+
+		if (!flag) {
+			// 폼없이 바로 로그인 하기
+			loginUtil.loginWithoutForm(email);
+			vo = userService.getUserById(email);
+
+			// 로그인한 정보를 세션에다 넣음.
+			session.setAttribute("id", vo.getUserid());
+			session.setAttribute("email", email);
+			session.setAttribute("platform", vo.getRegist_type());
+			out.println("<script>window.opener.location.href='/bkc/delivery/delivery.do';self.close();</script>");
+		} else {
+			KakaoLoginApi.deleteToken(code, accessToken);
+			out.println(
+					"<script>alert('이미 가입하신 이메일 입니다.');window.opener.location.href='/bkc/delivery/delivery.do';self.close();</script>");
+		}
+		out.flush();
 	}
 }

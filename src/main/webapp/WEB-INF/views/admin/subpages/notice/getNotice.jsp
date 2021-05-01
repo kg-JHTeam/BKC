@@ -12,6 +12,18 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>공지사항 등록</title>
+<script>
+function deleteNotice(seq){
+	   var check = confirm("정말 삭제하시겠습니까");
+	   var contextpath = "<c:out value='${contextPath}'/>";
+	   if(check==true){	 
+	         window.location.href= contextpath+"deleteNoticeDB.ad?seq=${notice.seq}";
+	   } 
+	   else{
+	      return;
+	   }
+	}
+</script>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -22,11 +34,11 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">공지사항 등록</h1>
+					<h1 class="mt-4">공지사항 상세보기</h1>
 					<!-- 공지사항 목록 -->
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table mr-1"></i> 공지사항 등록
+							<i class="fas fa-table mr-1"></i> 공지사항 상세
 						</div>
 						<div class="card-body">
 
@@ -43,14 +55,11 @@
 										<!-- /.panel-heading -->
 										<div class="panel-body">
 
-											<form role="form" action="/admin/getNotice.ad" method="post">'
+											<form role="form" action="/admin/getNotice.ad" method="post">
 												<div class="form-row">
-													<div class="form-group col-md-6">
-														<label>NO.</label> <input class="form-control"
-															name='rn' value = '<c:out value="${notice.seq}"/>' readonly="readonly">
-													</div>
-													<div class="form-group col-md-6">
-														<label>Title</label> <input class="form-control"
+													
+													<div class="form-group col-md-12">
+														<label>제목</label> <input class="form-control"
 															name='title' value = '<c:out value="${notice.title}"/>' readonly="readonly">
 													</div>
 												</div>
@@ -66,18 +75,18 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<label>Text area</label>
-													<textarea class="form-control" rows="3" name='contents' value='<c:out value= "${notice.contents}"/>' readonly="readonly">${notice.contents}</textarea>
+													<label>내용</label>
+													<textarea class="form-control" rows="20" name='contents' value='<c:out value= "${notice.contents}"/>' readonly="readonly">${notice.contents}</textarea>
 												</div>
 
 												<div class="form-group">
 													<label>작성자</label> <input class="form-control"
 														name='writer' value='관리자' readonly="readonly">
 												</div>
-												<button type="button" class="btn btn-info" onclick="location.href='${pageContext.request.contextPath }/admin/noticelist.ad?'">목록</button>
+												<button type="button" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath }/admin/noticelist.ad?'">목록 가기</button>
 												<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath }/admin/updateNotice.ad?seq=${notice.seq}'">수정</button>
-												<button type="reset" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/admin/deleteNoticeDB.ad?seq=${notice.seq}'">삭제</button>
-											</form>
+												<button type="reset" class="btn btn-danger" onclick="javascript:deleteNotice(${notice.seq}); return false;">삭제</button>
+											</form>																
 										</div>
 										<!-- end panel-body -->
 									</div>

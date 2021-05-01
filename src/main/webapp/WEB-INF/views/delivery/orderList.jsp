@@ -36,7 +36,7 @@
                         <a href="${contextPath}/delivery/delivery.do">
                             <span>딜리버리</span>
                         </a>
-                        <a href="#" class="gotomenu">
+                        <a href="${contextPath}/delivery/mybkc.do" class="gotomenu">
                             <span>MYBKC</span>
                         </a>
                         <a href="${contextPath}/delivery/orderList.do" class="gotomenu">
@@ -107,7 +107,7 @@
                                             </dl>
                                         </div>
                                     </div>
-                                    <a href="#" class="btn_detail">
+                                    <a href="${contextPath}/delivery/orderDetail.do" class="btn_detail">
                                         <span>Details</span>
                                     </a>
                                 </li>
@@ -139,7 +139,7 @@
                                             </dl>
                                         </div>
                                     </div>
-                                    <a href="#" class="btn_detail">
+                                    <a href="href="${contextPath}/delivery/orderDetail.do" class="btn_detail">
                                         <span>Details</span>
                                     </a>
                                 </li>

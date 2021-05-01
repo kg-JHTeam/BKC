@@ -134,6 +134,9 @@ function displayPlaces(places) {
                 .addListener(marker, 'click', function() {
                     displayInfowindow(marker, title);
                 });
+            itemEl.onclick =  function () {
+                displayInfowindow(marker, title);
+            };
         })(marker, places[i].place_name);
 
         fragment.appendChild(itemEl);

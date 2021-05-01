@@ -41,11 +41,9 @@
                             </a>
                             <div class="collapse" id="collapseCoupons" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                	<a class="nav-link" href="#">쿠폰배포 </a>
-                                    <a class="nav-link" href="#">새 쿠폰 추가 </a>
-                                    <a class="nav-link" href="#">쿠폰 리스트</a>
-                                    <a class="nav-link" href="#">쿠폰 수정</a>
-                                    <a class="nav-link" href="#">쿠폰 삭제</a>
+                                	<a class="nav-link" href="${contextPath}/admin/couponlist.ad">쿠폰 리스트</a>
+                                	<a class="nav-link" href="${contextPath}/admin/couponUserlist.ad">회원 쿠폰 리스트</a>
+                                	<a class="nav-link" href="${contextPath}/admin/couponRelease.ad">회원 쿠폰 배포</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -73,10 +71,10 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseSubpage" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="${contextPath}/admin/menuListAd.ad">BKC 메뉴 관리</a>
-                                            <a class="nav-link" href="">BKC 이벤트 게시판 관리</a>
-                                            <a class="nav-link" href="">BKC 신규매장 게시판 관리</a>
-                                            <a class="nav-link" href="">공지사항 게시판 관리</a>
+                                            <a class="nav-link" href="${contextPath}/admin/adminAllList.ad">BKC 메뉴 관리</a>
+                                            <a class="nav-link" href="${contextPath }/admin/eventlist.ad">BKC 이벤트 게시판 관리</a>
+                                            <a class="nav-link" href="${contextPath }/admin/storelist.ad">BKC 신규매장 게시판 관리</a>
+                                            <a class="nav-link" href="${contextPath }/admin/noticelist.ad">공지사항 게시판 관리</a>
                                             <a class="nav-link" href="${contextPath }/admin/faqlist.ad">FAQ 게시판 관리</a>
                                             <a class="nav-link" href="">신제품 게시판 관리</a>
                                             <a class="nav-link" href="">광고 게시판 관리</a>
@@ -93,6 +91,7 @@
                                             <a class="nav-link" href="">주문리스트</a>
                                             <a class="nav-link" href="">주문취소리스트</a>
                                             <a class="nav-link" href="">결제관리</a>
+                                            <a class="nav-link" href="${contextPath}/delivery/admin/cautionList.ad">이용약관</a>
                                         </nav>
                                     </div>
                                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseFooter" aria-expanded="false" aria-controls="pagesCollapseError">
@@ -136,7 +135,5 @@
                     </div>
                 </nav>
             </div>
-            
-            
 </body>
 </html>

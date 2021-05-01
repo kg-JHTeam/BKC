@@ -11,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>공지사항 등록</title>
+<title>공지사항 수정</title>
 </head>
 <body class="sb-nav-fixed">
 	<!-- firstHeader -->
@@ -22,7 +22,7 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">공지사항 등록</h1>
+					<h1 class="mt-4">공지사항 수정</h1>
 					<!-- 공지사항 목록 -->
 					<div class="card mb-4">
 						<div class="card-header">
@@ -46,14 +46,11 @@
 										<!-- /.panel-heading -->
 										<div class="panel-body">
 
-											<form role="form" action="${pageContext.request.contextPath }/admin/updateNoticeDB.ad" method="post">'
+											<form role="form" action="${pageContext.request.contextPath }/admin/updateNoticeDB.ad" method="post">
 												<div class="form-row">
-													<div class="form-group col-md-6">
-														<label>NO.</label> <input class="form-control"
-															name='seq' value = '<c:out value="${notice.seq}"/>' >
-													</div>
-													<div class="form-group col-md-6">
-														<label>Title</label> <input class="form-control"
+													
+													<div class="form-group col-md-12">
+														<label>제목</label> <input class="form-control"
 															name='title' value = '<c:out value="${notice.title}"/>' >
 													</div>
 												</div>
@@ -69,15 +66,16 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<label>Text area</label>
-													<textarea class="form-control" rows="3" name='contents' value='<c:out value= "${notice.contents}"/>' >${notice.contents}</textarea>
+													<label>내용</label>
+													<textarea class="form-control" rows="20" name='contents' value='<c:out value= "${notice.contents}"/>' >${notice.contents}</textarea>
 												</div>
 
 												<div class="form-group">
 													<label>작성자</label> <input class="form-control"
-														name='writer' value='관리자' >
+														name='writer' value='관리자' readonly='readonly' >
 												</div>
-												<button type="submit" class="btn btn-success">수정</button>
+												<button type="button" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath }/admin/noticelist.ad?'">목록 가기</button>
+												<button type="submit" class="btn btn-primary">수정</button>
 												<button type="reset" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/admin/deleteNoticeDB.ad?seq=${adNoticeList.seq}'">삭제</button>
 											</form>
 										</div>

@@ -22,7 +22,7 @@
                 <div>
                     <div><a href="${contextPath}/"><span>브랜드홈</span></a></div>
                     <div class="top_login"><a href="${contextPath}/delivery/delivery.do"><span>로그인</span></a></div>
-                    <div><a href="#"><span>고객센터</span></a></div>
+                    <div><a href="${contextPath}/customerService/notice.do"><span>고객센터</span></a></div>
                 </div>
                 <div class="signup">
                     <img class="button_black" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png" alt="button-black">

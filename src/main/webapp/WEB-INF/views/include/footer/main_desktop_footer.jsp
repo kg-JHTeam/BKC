@@ -14,32 +14,31 @@
      <div class="footer-menu-zone">
             <div class="content-wrap">
                 <div>
-                    <a href="${contextPath}/menu/menu.do"><span>메뉴</span></a><br><br>
-                    <a href="${contextPath}/menu/menu.do">치킨메뉴</a><br><br>
-                    <a href="${contextPath}/menu/menu.do">사이드메뉴</a><br><br>
-                    <a href="${contextPath}/menu/menu.do">비어존메뉴</a><br><br>
+                    <a href="#"><span>메뉴</span></a><br><br>
+                   <a href="${contextPath}/menuInform/newMenu.do">new메뉴</a><br><br>
+                   <a href="${contextPath}/menuInform/chickenMenu.do">치킨메뉴</a><br><br>
+                    <a href="${contextPath}/menuInform/sideMenu.do">사이드메뉴</a><br><br>
+                   <a href="${contextPath}/menuInform/beerZone.do">비어존메뉴</a><br><br>
                 </div>
                 <div>
-                    <a href=""><span>매장</span></a><br><br>
-                    <a href="">매장찾기</a><br><br>
+                    <a href="#"><span>매장</span></a><br><br>
+                    <a href="${contextPath}/map/store.do">매장찾기</a><br><br>
                 </div>
                 <div>
-                    <a href=""><span>이벤트</span></a><br><br>
-                    <a href="">이벤트</a><br><br>
-                    <a href="">신규매장</a><br><br>
+                    <a href="#"><span>이벤트</span></a><br><br>
+                    <a href="${contextPath}/event/eventPageAll.do">이벤트</a><br><br>
+                    <a href="${contextPath}/event/eventPageNew.do">신규매장</a><br><br>
                 </div>
                 <div>
                     <a href="#"><span>BRAND</span></a><br><br>
                     <a href="${contextPath}/brand/brandStory.do">BKC 스토리</a><br><br>
-                    <a href="">CEO 인사말</a><br><br>
-                    <a href="">연혁</a><br><br>
                     <a href="${contextPath}/brand/whybkc.do">WHY BKC</a><br><br>
                     <a href="${contextPath}/brand/newsNewItem.do">BKC NEWS</a><br><br>
                 </div>
                 <div class="last-div">
                     <a href=""><span>고객센터</span></a><br><br>
                     <a href="${contextPath}/customerService/notice.do">공지사항</a><br><br>
-                    <a href="">BKC앱이용안내</a><br><br>
+                    <a href="#">BKC앱이용안내</a><br><br>
                     <a href="${contextPath}/customerService/faq.do">FAQ</a><br><br>
                     <a href="">문의</a><br><br>
                     <a href="${contextPath}/customerService/chain.do">가맹점모집</a><br><br>

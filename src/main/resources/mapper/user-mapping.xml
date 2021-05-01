@@ -59,6 +59,13 @@
 		]]>
 	</select>
 	
+	<!-- 일반회원이면서 회원  -->
+	<select id="getUserHavingCouponList" resultType="UserVO">
+		<![CDATA[
+		SELECT * FROM usermember WHERE usergrade = 3 and regist_type = 1
+		]]>
+	</select>
+	
 	<!-- Crud -->
 	<!-- 회원가입 -->  
 	<insert id="userInsert">
@@ -68,7 +75,14 @@
 		VALUES (#{userid}, #{password}, #{name}, #{sms_agree}, #{email_agree}, #{phone}, #{regist_type});
 		]]>
 	</insert>
-	
+	<!-- 소셜 로그인 -->
+	<insert id="socialInsert">
+		<![CDATA[
+		INSERT INTO usermember(
+		userid, name, regist_type, sms_agree, email_agree, usergrade)
+		VALUES (#{userid},  #{name}, #{regist_type}, 'true', 'true', 3);
+		]]>
+	</insert>
 	<!-- crUd -->
 	<insert id="updatePasswd">
 		<![CDATA[

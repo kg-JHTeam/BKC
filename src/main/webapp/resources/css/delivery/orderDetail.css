@@ -1,0 +1,528 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+
+/* 전체 css*/
+
+.subWrap2 {
+    margin: 0 auto;
+    padding: 168px 0 272px;
+}
+
+/* content부분 */
+
+.contnetsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+span {
+    font-weight: bold;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.locationWrap {
+    height: 58px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #ffa423;
+}
+
+.locationWrap>.web_container {
+    overflow: hidden;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.locationWrap>.web_container>.page_navi {
+    float: left;
+    font-size: .875rem;
+}
+
+.locationWrap a {
+    color: #fff;
+}
+
+.locationWrap>.web_container>.page_navi>* {
+    float: left;
+}
+
+.page_navi:first-child::before {
+    display: none;
+}
+
+.gotomenu::after {
+    content: "";
+    float: left;
+    width: 38px;
+    height: 38px;
+    margin: 0 12px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+}
+
+.locationWrap .location {
+    float: right;
+    font-size: .875rem;
+}
+
+.location>* {
+    display: inline-block;
+    margin-left: 24px;
+    padding-left: 22px;
+    vertical-align: top;
+}
+
+.location .addr {
+    max-width: 200px;
+    margin: 0;
+    text-overflow: ellipsis;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/location.png) no-repeat 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.location .shop {
+    padding-left: 26px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/near.png) no-repeat 0;
+}
+
+.location .btn {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.location .addrchange {
+    display: inline-block;
+    width: 56px;
+    height: 34px;
+    padding: 0;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+    line-height: 34px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+
+/* 주문 상세 페이지 contents */
+
+.contentsBox01 {
+    padding: 50px 0 45px;
+    min-height: 100%;
+    color: #000;
+    background: #f2ebe6;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+.bg_w {
+    background: #fff;
+}
+
+.contentsBox01>.web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.web_container>.container01 {
+    padding: 20px 0;
+}
+
+.web_container>.container01>.orderstatusWrap {
+    margin-bottom: -5px;
+    padding-top: 20px;
+    background: #fff;
+}
+
+.resultBox.delivery {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/delivery/delivery_complete.png);
+}
+
+.resultBox {
+    min-height: 165px;
+    padding: 10px 240px 0 0;
+    font-size: 2.5rem;
+    background-repeat: no-repeat;
+    background-position: 90%;
+}
+
+.resultBox .txt_stat {
+    font-weight: 700;
+    color: #ffa423;
+    font-style: normal;
+}
+
+.resultBox .c_btn {
+    margin-top: 20px;
+    text-align: left;
+    margin: 40px 0 80px;
+    overflow: hidden;
+}
+
+.c_btn:last-child {
+    margin-bottom: 0;
+}
+
+.btn01 {
+    display: inline-block;
+    width: 256px;
+    height: 68px;
+    font-size: 1.5rem;
+    padding: 12px 10px 10px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    line-height: 46px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/btn-black.png) no-repeat 50%;
+    background-size: 100% 100%;
+    border-radius: 0;
+    border: none;
+}
+
+.tit01:first-child {
+    margin-top: 0;
+}
+
+.titbox {
+    position: relative;
+    padding-right: 5em;
+}
+
+.tit01 {
+    margin: 45px 0 17px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #2e2e2e;
+}
+
+.tit_ico {
+    position: relative;
+    padding-left: 50px;
+    line-height: 40px;
+}
+
+.tit_ico.list::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/order/order.png);
+}
+
+.tit_ico::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+.tit_ico>* {
+    margin: 0;
+    padding: 0;
+}
+
+.order_list {
+    padding: 4px 64px 2px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+}
+
+.order_list>li {
+    position: relative;
+    min-height: 224px;
+    padding-left: 315px;
+    border-bottom: 2px dashed #e6e6e6;
+}
+
+.order_list .prd_img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 254px;
+    height: 167px;
+    margin-top: -83.5px;
+}
+
+.order_list .prd_img>span {
+    display: block;
+}
+
+.order_list .cont {
+    padding: 52px 0 16px;
+}
+
+.order_list .tit {
+    position: relative;
+    padding-right: 3em;
+    font-size: 1.75rem;
+}
+
+.order_list .price {
+    font-size: 1.75rem;
+}
+
+.order_list .menu_info {
+    margin-top: 20px;
+    font-size: 1.125rem;
+    color: #737373;
+    line-height: 167%;
+}
+
+.order_list .order_count {
+    position: absolute;
+    right: 0;
+    top: 54px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0 5px;
+    font-size: 1rem;
+    color: #fff;
+    line-height: normal;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/order/orderright.png) no-repeat 0, url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/order/orderleft.png) no-repeat 100%;
+    background-size: auto 100%, auto 100%;
+}
+
+.tag>* {
+    height: 38px;
+    padding: 4px 5px;
+    line-height: 26px;
+    box-sizing: border-box;
+}
+
+.tag_brown {
+    display: inline-block;
+    padding: 0 5px;
+    font-size: 1rem;
+    color: #fff;
+    line-height: normal;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/order/orderright.png) no-repeat 0, url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/order/orderleft.png) no-repeat 100%;
+    background-size: auto 100%, auto 100%;
+    background: #762824;
+    height: 38px;
+    padding: 4px 5px;
+    line-height: 26px;
+    box-sizing: border-box;
+}
+
+.tag.st03 {
+    color: #2e2e2e;
+    background: #e8e8e8;
+}
+
+.tit_ico.chicken::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/myset3.png);
+    background-size: 40px;
+}
+
+.tit_ico::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+.tit01.tit_ico+.container02 {
+    margin-top: 8px;
+}
+
+@media screen and (min-width: 767px) {
+    .container02.pd02 {
+        padding: 55px 64px;
+    }
+}
+
+.order_list_sum {
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+}
+
+.container02 {
+    position: relative;
+    margin: 15px 0;
+    font-size: 1.375rem;
+    background: #fff;
+}
+
+.order_list_sum .titbox02 {
+    position: relative;
+    margin-top: -55px;
+    padding: 32px 4em 28px 0;
+    border-bottom: 2px dashed #e6e6e6;
+}
+
+.order_list_sum .titbox02 .tit {
+    font-size: 1.75rem;
+}
+
+.order_list_sum .tit {
+    margin: 0;
+}
+
+.order_list_sum .titbox02 .tag_brown {
+    right: 0;
+}
+
+.order_list_sum .tit .tag_brown {
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+}
+
+.order_list_sum .cont {
+    padding-top: 22px;
+}
+
+.order_list_sum .cont .info {
+    display: table;
+    width: 100%;
+    font-size: 1.375rem;
+}
+
+.order_list_sum .cont .info>* {
+    display: table-cell;
+    padding-right: 10px;
+    vertical-align: top;
+}
+
+.order_list_sum .cont .info dt {
+    opacity: .6;
+}
+
+.order_list_sum .cont .info dd {
+    margin-top: 15px;
+}
+
+.order_list_sum .cont .info>:last-child {
+    padding-right: 0;
+}
+
+.order_list_sum .cont .info>* {
+    vertical-align: top;
+}
+
+.tit_ico.money::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/payment_log.png);
+}
+
+@media screen and (min-width: 769px) {
+    .order_payment_list.w_st02 {
+        padding-bottom: 95px;
+    }
+    .order_payment_list.w_st02>div {
+        display: table;
+        width: 100%;
+        font-size: 1.375rem;
+    }
+    .order_payment_list.w_st02 dl {
+        display: table-cell;
+        width: auto;
+        margin: 0;
+        padding-right: 16px;
+        vertical-align: top;
+        border: none;
+    }
+    .order_payment_list.w_st02 dt {
+        opacity: .6;
+        display: block;
+        text-align: left;
+    }
+    .order_payment_list.w_st02 dd {
+        margin-top: 15px;
+        display: block;
+        text-align: left;
+    }
+    .order_payment_list.w_st02 dl::after {
+        display: none;
+    }
+    .order_payment_list.w_st02 .tot02 {
+        position: absolute;
+        left: 64px;
+        right: 64px;
+        bottom: 0;
+        height: 107px;
+        padding: 0;
+        text-align: right;
+        border-top: 2px dashed #e5e5e5;
+    }
+    .order_payment_list.w_st02 .tot02>* {
+        display: inline;
+        font-size: 1.375rem;
+        line-height: 107px;
+        opacity: 1;
+    }
+    .order_payment_list.w_st02 .tot02 dd {
+        margin-left: .5em;
+        font-size: 2.375rem;
+    }
+}
+
+.order_payment_list dl {
+    display: table;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1.375rem;
+}
+
+.order_payment_list dt {
+    padding: 1px 0;
+    vertical-align: middle;
+}
+
+.order_payment_list dd {
+    font-weight: 700;
+    padding: 1px 0;
+    vertical-align: middle;
+}
+
+.order_payment_list .group {
+    position: relative;
+    padding-bottom: 17px;
+}
+
+.order_payment_list .group::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    bottom: 0;
+    border-bottom: 2px dashed #e6e6e6;
+}
+
+.tot02 em {
+    color: #ffa423;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+/* 모바일용 CSS */
+
+@media all and(max-width:765px) {}

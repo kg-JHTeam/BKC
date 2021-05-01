@@ -30,11 +30,12 @@ public class HomeController {
 	// 푸터
 	@Autowired
 	private BusinessInformationService biService;
+	
 	@Autowired
 	private YoutubeService youtubeService;
 
 	public HomeController() {
-		System.out.println("HomeController 실행");
+		//System.out.println("HomeController 실행");
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)

@@ -51,8 +51,8 @@
 					</a> <a href="#" class="arrow"> <span>메뉴소개</span>
 					</a> <a href="${contextPath}/menuInform/beerZone.do" class="arrow">
 						<span>비어존메뉴</span>
-					</a> <a href="${contextPath}/menuInform/beerzonedetail.do"
-						class="arrow"> <span>${beerzone.product_name}</span>
+					</a> <a href="#" class="arrow">
+						 <span>${beerzone.product_name}</span>
 					</a>
 				</div>
 			</div>

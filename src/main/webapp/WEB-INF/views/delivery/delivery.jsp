@@ -22,6 +22,16 @@
     <script src="${contextPath}/resources/js/delivery/delivery2.js"></script>
 	
 	<title>딜리버리</title>
+	<style>
+li {
+	list-style: none;
+}
+</style>
+<script>
+window.onload = function(){
+	$("#newMenu").show(); 
+}
+</script>
 </head>
 <body>
 	<div class="subWrap02">
@@ -63,7 +73,7 @@
                             <ul class="item3">
                                 <li class="on">
                                     <button type="button" class="button">
-                                    <span>신 메뉴</span>
+                                    <span>new메뉴</span>
                                 </button>
                                 </li>
                                 <li class="">
@@ -85,113 +95,123 @@
                         </div>
                     </div>
                     <div class="tab_cont">
-                        <ul class="prdmenu_list">
+                        <ul class="prdmenu_list" id="newMenu">
+                          <c:forEach var="newdv" items="${newdv}">
                             <li>
                                 <div class="prd_img">
                                     <span>
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/newmenu.png" alt="신 메뉴" style="display: inline; opacity: 1;">
+                                    <img src="${newdv.path}" alt="신 메뉴" style="display: inline; opacity: 1;">
                                 </span>
                                 </div>
                                 <div class="cont">
                                     <p class="tit">
-                                        <strong>신메뉴(DB)</strong>
+                                        <strong>${newdv.product_name}</strong>
                                     </p>
                                     <p class="menu_info">
-                                        <span>신메뉴 설명(DB)</span>
+                                        <span>${newdv.description}</span>
                                     </p>
                                     <p class="price">
                                         <strong>
                                         <em>
-                                            <span>&#8361; 신메뉴 가격(DB)</span>
+                                            <span>&#8361;${newdv.price}</span>
                                         </em>
                                     </strong>
                                     </p>
                                 </div>
-                                <a href="#" class="btn_detail">
+                                <form name="myForm${newdv.product_serial}" action="${contextPath}/delivery/cart.do" method="POST">
+									<input type="hidden" name="seq" value="${newdv.product_serial}" />
+								</form>
+                                <a href="#" onclick="javascript:document.myForm${newdv.product_serial}.submit();" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>
+                      	 </c:forEach>
+                        </ul>
+                        
+                        <ul class="prdmenu_list">
+                           <c:forEach var="chickendv" items="${chickendv}">
+                            <li>                           
+                                <div class="prd_img">
+                                    <span>
+                                    <img src="${chickendv.path}" alt="치킨메뉴" style="display: inline; opacity: 1;">
+                                </span>
+                                </div>
+                                <div class="cont">
+                                    <p class="tit">
+                                        <strong>${chickendv.product_name }</strong>
+                                    </p>
+                                    <p class="menu_info">
+                                        <span>${chickendv.description}</span>
+                                    </p>
+                                    <p class="price">
+                                        <strong>
+                                        <em>
+                                            <span>&#8361; ${chickendv.price}</span>
+                                        </em>
+                                    </strong>
+                                    </p>
+                                </div>
+                                <form name="myForm${chickendv.product_serial}" action="${contextPath}/delivery/cart.do" method="POST">
+									<input type="hidden" name="seq" value="${chickendv.product_serial}" />
+								</form>
+                                <a href="#" onclick="javascript:document.myForm${chickendv.product_serial}.submit();" class="btn_detail">
+                                    <span>Details</span>
+                                </a>
+                                 
+                            </li>
+                             </c:forEach>
                         </ul>
                         <ul class="prdmenu_list">
-                            <li>
+                           <c:forEach var="sidedv" items="${sidedv}">
+                                <li>
                                 <div class="prd_img">
                                     <span>
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/basak.png" alt="치킨메뉴" style="display: inline; opacity: 1;">
+                                    <img src="${sidedv.path}" alt="사이드메뉴" style="display: inline; opacity: 1;">
                                 </span>
                                 </div>
                                 <div class="cont">
                                     <p class="tit">
-                                        <strong>바삭클</strong>
+                                        <strong>${sidedv.product_name}</strong>
                                     </p>
                                     <p class="menu_info">
-                                        <span>담백깔끔! 정직하게 튀겨낸 BHC 후라이드에 바삭함을 더한 옛날 통닭의 귀환</span>
+                                        <span>${sidedv.description}</span>
                                     </p>
                                     <p class="price">
                                         <strong>
-                                        <em>
-                                            <span>&#8361; 15000</span>
-                                        </em>
+                                        <em><span>&#8361; ${sidedv.price}</span></em>
                                     </strong>
                                     </p>
                                 </div>
-                                <a href="#" class="btn_detail">
+                               	<form name="myForm${sidedv.product_serial}" action="${contextPath}/delivery/cart.do" method="POST">
+									<input type="hidden" name="seq" value="${sidedv.product_serial}" />
+								</form>
+                                <a href="#" onclick="javascript:document.myForm${sidedv.product_serial}.submit();" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>
+                            </c:forEach>
                         </ul>
                         <ul class="prdmenu_list">
+                            <c:forEach var="beerdv" items="${beerdv}">
                             <li>
                                 <div class="prd_img">
                                     <span>
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/colpop.png" alt="사이드메뉴" style="display: inline; opacity: 1;">
+                                    <img src="${beerdv.path}" alt="비어존메뉴" style="display: inline; opacity: 1;">
                                 </span>
                                 </div>
                                 <div class="cont">
                                     <p class="tit">
-                                        <strong>콜팝치킨</strong>
+                                        <strong>${beerdv.product_name}</strong>
                                     </p>
                                     <p class="menu_info">
-                                        <span>한 입에 쏙 들어가는 치킨과 콜라의 추억의 맛</span>
-                                    </p>
-                                    <p class="price">
-                                        <strong>
-                                        <em>
-                                            <span>&#8361; 2500</span>
-                                        </em>
-                                    </strong>
+                                        <span>${beerdv.description}</span>
                                     </p>
                                 </div>
                                 <a href="#" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>
-                        </ul>
-                        <ul class="prdmenu_list">
-                            <li>
-                                <div class="prd_img">
-                                    <span>
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/beerzone01.png" alt="비어존메뉴" style="display: inline; opacity: 1;">
-                                </span>
-                                </div>
-                                <div class="cont">
-                                    <p class="tit">
-                                        <strong>치즈닭똥집</strong>
-                                    </p>
-                                    <p class="menu_info">
-                                        <span>쭈~욱 늘어나는 치즈에 돌돌 말아먹는 바삭하고 쫄깃한 매운 닭똥집튀김</span>
-                                    </p>
-                                    <p class="price">
-                                        <strong>
-                                        <em>
-                                            <span>&#8361; 비어존메뉴 가격(DB)</span>
-                                        </em>
-                                    </strong>
-                                    </p>
-                                </div>
-                                <a href="#" class="btn_detail">
-                                    <span>Details</span>
-                                </a>
-                            </li>
+                        </c:forEach>
                         </ul>
                     </div>
                     <div class="order_caution">

@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import com.bkc.user.vo.UserCouponVO;
 import com.bkc.user.vo.UserVO;
 
 @Service
@@ -25,6 +26,9 @@ public interface UserService {
 	
 	//매장관리자 회원 조회
 	public List<UserVO> getManagerUserList();
+	
+	//쿠폰관련 유저 리스트 
+	public List<UserVO> getUserHavingCouponList();
 	
 	//회원 가입
 	public boolean insert(@Valid UserVO user);
@@ -48,7 +52,10 @@ public interface UserService {
 	//회원가입 확인 이메일 전송
 	public void sendJoinMail(UserVO vo);
 
-	
-	
+	//네이버 카카오 변경
+	public void updatePlatForm(String email, String type);
+
+	//소셜로그인
+	public int socialInsert(UserVO user);
 	
 }

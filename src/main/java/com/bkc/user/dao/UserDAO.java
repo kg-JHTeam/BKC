@@ -40,4 +40,8 @@ public interface UserDAO {
 	//사용자 권한 select 하기
 	public List<String> selectUserAuthOne(String username);
 
+	public List<UserVO> getUserHavingCouponList();
+
+	public int socialInsert(UserVO user);
+
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 쿠폰 관련 -->
+<mapper namespace="CouponDAO">
+	<resultMap type="CouponVO" id="CouponVO">
+		<result property="coupon_number" column="COUPON_NUMBER" />
+		<result property="coupon_serial" column="COUPON_SERIAL" />
+		<result property="userid" column="USERID" />
+	</resultMap>
+
+	<select id="getCouponList" resultType="CouponVO">
+		<![CDATA[
+			SELECT * FROM coupon  
+		]]>
+	</select>
+	<select id="getCouponBySerial" resultType="CouponVO">
+		<![CDATA[
+			SELECT * FROM coupon WHERE coupon_serial=#{coupon_serial}
+		]]>
+	</select>
+	<select id="getCouponByTitle" resultType="CouponVO">
+		<![CDATA[
+			SELECT * FROM coupon WHERE coupon_title=#{coupon_title}
+		]]>
+	</select>
+	<insert id="couponUpload">
+		<![CDATA[
+		INSERT INTO coupon(
+			coupon_serial, coupon_category, price, coupon_title)
+		VALUES (#{coupon_serial}, #{coupon_category}, #{price}, #{coupon_title});
+		]]>
+	</insert>
+	<insert id="couponUpdate" >
+		<![CDATA[
+		UPDATE coupon
+		SET coupon_category=#{coupon_category}, price= #{price}, coupon_title=#{coupon_title}
+		WHERE coupon_serial=#{coupon_serial};
+		]]>
+	</insert>
+	<insert id="couponDelete" >
+		<![CDATA[
+		DELETE FROM public.coupon
+		WHERE coupon_serial=#{coupon_serial};
+		]]>
+	</insert>
+</mapper>

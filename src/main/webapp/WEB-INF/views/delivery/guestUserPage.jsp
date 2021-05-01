@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="ko">
@@ -30,12 +31,23 @@
 <!-- kakao login -->
 <title>로그인</title>
 <script>
+//업로드 성공하면 성공 
+window.onload = function(){
+	var check = "<c:out value='${check.success}'/>"
+	
+	if(check=="1"){
+		alert("이미 회원입니다.");
+	} else if(check=="3"){
+		alert("비회원 등록에 실패하였습니다.");
+	}
+}
+
 	var checkTimer = false; //default
 	var checkCount = 3; //인증번호 재전송 횟수 
 	var timer;
 	var checkNumber; //인증번호 
 	var valid = false;
-	
+	var check = false;
 	$('.acc_tit .btn_acc').click(function() {
 		$('acc_list').addClass('open');
 	});
@@ -76,11 +88,15 @@
 			function() {
 				var email = document.getElementById("email").value;
 				var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-				
+				var name = document.getElementById("username").value;
 				
 				//개인정보 인증을 누른 경우 
 				if(!$("#customerCheck").is(":checked")){
 					alert("개인정보취급방침에 동의하여주십시오.");
+					return;
+				}
+				if(name==""){
+					alert("이름을 제대로 입력해주세요");
 					return;
 				}
 				//이메일 형식에 맞는 경우. 
@@ -113,13 +129,15 @@
 								$("#check04").css("display","block");
 
 								checkNumber = result; //전역변수로 넣어둔다.
+								check = true;
+								
 								}
 							}
 							});
 						}
-						else {
-							alert("이용약관에 동의해주세요.");
-						}
+				else {
+					alert("이메일을 확인해주세요.");
+				}
 			});
 
 		//인증번호 확인 버튼 
@@ -152,7 +170,26 @@
 				return;
 			}
 		});
-	}) //function 끝
+	}) 
+	
+	function submitValid() {
+		//1. 인증완료가 되지않은 경우 return 해준다.
+		if(check == false){
+			alert("인증을 먼저 완료해주세요.");
+			return;
+		} 
+		var p1 =document.getElementById("p1").value;
+		var p2 =document.getElementById("p2").value;
+		
+		//2. 인증유무 검증 
+		if(p1==p2){
+			document.getElementById("guestForm").submit();
+		} else{
+			alert("비밀번호가 불일치합니다. ");
+			return;
+		}
+	}
+	//function00 끝
 </script>
 </head>
 <body>
@@ -168,7 +205,7 @@
 				<li><a href="${contextPath}/login">로그인</a></li>
 			</ul>
 		</nav>
-		<div class="contentsBox01">
+		<form class="contentsBox01" method="post" action="${contextPath}/guestUserJoin" id="guestForm">
 			<div class="web_container02 container01">
 				<h2 class="tit02 WEB">비회원 주문</h2>
 				<h2 class="tit01 tit_ico man">
@@ -195,14 +232,14 @@
 				<h2 class="tit01 tit_ico setting">
 					<img src=""> <span>비회원 설정</span>
 				</h2>
+				<form></form>
 				<div class="container02">
 					<div class="dlist01">
 						<dl>
 							<dt class="WEB">이름</dt>
 							<dd>
 								<div class="inpbox st02">
-									<input type="text" placeholder="받는 분의 이름을 입력해 주세요."
-										class="st02" name="name" id="name">
+									<input type="text" placeholder="받는 분의 이름을 입력해 주세요." class="st02" name="username" id="username"/>
 									<button type="button" class="btn_de101" style="display: none;">
 										<span>입력 텍스트 삭제</span>
 									</button>
@@ -213,8 +250,9 @@
 							<dt class="WEB">이메일 주소</dt>
 							<dd>
 								<div class="inpbox st02">
-									<input type="text" placeholder="이메일 주소를 입력해 주세요" id="email"
-										class="st02" name="email" method="post">
+								<input type="text" placeholder="이메일 주소를 입력해 주세요" id="email" name="email" class="st02" 
+										autocapitalize="off" autocomplete="off"
+										placeholder="이메일 주소를 입력해 주세요" />
 								</div>
 							</dd>
 						</dl>
@@ -266,14 +304,14 @@
 							<dt class="WEB vtop">비밀번호</dt>
 							<dd>
 								<div class="inpbox">
-									<input placeholder="4~6자리 이내의 숫자로만 입력하세요." maxlength="6"
-										type="password" class="st02">
+									<input placeholder="비밀번호를 입력하세요." maxlength="6" id="p1" name="password"
+										type="password" class="st02" />
 									<button type="button" tabindex="-1" class="btn_view01">
 										<span>입력 텍스트 보기</span>
 									</button>
 								</div>
 								<div class="inpbox">
-									<input placeholder="비밀번호를 다시 입력하세요." maxlength="6"
+									<input placeholder="비밀번호를 다시 입력하세요." maxlength="6" id="p2"
 										type="password" class="st02">
 									<button type="button" tabindex="-1" class="btn_view01">
 										<span>입력 텍스트 보기</span>
@@ -286,13 +324,13 @@
 				<p class="MOB txt04">주문 내역 확인을 위한 비밀번호를 입력하세요.</p>
 				<div class="c_btn">
 					<div>
-						<button type="button" class="btn01 1 m_btn01">
+						<button type="button" class="btn01 1 m_btn01" onclick="submitValid()">
 							<span>비회원 주문</span>
 						</button>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 
 	<!-- delivery-desktop-footer -->
