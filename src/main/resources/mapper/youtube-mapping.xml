@@ -15,16 +15,27 @@
 		]]>
 	</select>
 	
+    <select id="getYoutubeHome" resultMap="YoutubeVO">
+	    <![CDATA[
+	    SELECT IMG_SEQ, TITLE, substring(cast(date as character varying), 1,4) as date, CONTENT, PATH, USE_STATUS FROM YOUTUBE
+	    ]]>
+	    <if test="date neq null and date neq ''">
+		   WHERE CAST(date AS character varying) BETWEEN #{date} || '-01-01' AND #{date}  || '-12-31'
+		</if>
+	</select>
+    
 	<select id="getYoutubeUsedList" resultType="YoutubeVO">
 		<![CDATA[
 			SELECT * FROM youtube where use_status = 'true'
 		]]>
 	</select>
+	
 	<select id="getYoutube" resultType="YoutubeVO">
 		<![CDATA[
 			SELECT * FROM youtube where use_status = 'true'
 		]]>
 	</select>
+	
 	<select id="getYoutubeBySeq" resultType="YoutubeVO">
 		<![CDATA[
 		SELECT * FROM youtube where img_seq=#{img_seq}

@@ -9,9 +9,12 @@ import com.bkc.youtube.vo.YoutubeVO;
 @Repository
 public interface YoutubeDAO {
 	
-	// 유튜브 광고 정보 조회
+	// 유튜브 광고 (관리자) 정보 조회
 	public List<YoutubeVO> getYoutubeList();
 	
+	// 유튜브 광고 (홈페이지) 정보 조회
+	public List<YoutubeVO> getYoutubeHome(YoutubeVO youtubeVO);
+
 	// 사용중인 광고 리스트 조회
 	public List<YoutubeVO> getYoutubeUsedList();
 	
@@ -35,6 +38,5 @@ public interface YoutubeDAO {
 
 	// 유튜브 광고 수정
 	public int updateYoutube(YoutubeVO vo);
-
 
 }
