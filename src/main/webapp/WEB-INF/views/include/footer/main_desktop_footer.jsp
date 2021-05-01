@@ -42,8 +42,8 @@
                     <a href="">BKC앱이용안내</a><br><br>
                     <a href="${contextPath}/customerService/faq.do">FAQ</a><br><br>
                     <a href="">문의</a><br><br>
-                    <a href="">가맹점모집</a><br><br>
-                    <a href="">인재채용</a><br><br>
+                    <a href="${contextPath}/customerService/chain.do">가맹점모집</a><br><br>
+                    <a href="${contextPath}/customerService/recruit.do">인재채용</a><br><br>
                 </div>
             </div>
      </div>
