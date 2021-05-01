@@ -14,6 +14,9 @@ public interface YoutubeService {
 
 	// 전체 유튜브 광고 정보 조회
 	public List<YoutubeVO> getYoutubeList();
+	
+	// 전체 유튜브 광고 (홈페이지) 정보 조회
+	public List<YoutubeVO> getYoutubeHome(YoutubeVO youtubeVO);
 
 	// 유튜브 광고 정보 상세 조회
 	public YoutubeVO getYoutubeBySeq(int img_seq);

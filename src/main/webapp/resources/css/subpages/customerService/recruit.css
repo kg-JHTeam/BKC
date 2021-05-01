@@ -118,7 +118,9 @@ select {
     z-index: 50;
 }
 
-
+.msgbox p {
+    display: block;
+}
 /* 데스크 탑용 CSS*/
 @media(min-width: 766px) {
 
@@ -212,11 +214,10 @@ select {
     margin-top: 40px;
     background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/emlpoyment.png") no-repeat;
     background-position: 50% left;
-    background-size: 50% auto;
+    background-size: 60% auto;
     word-wrap: normal;
     word-break: keep-all;
     position: relative;
-    text-align: center;
 }
 
 .recruit-wrap > .msgbox > h5 {
@@ -229,7 +230,12 @@ select {
     font-size: 1.5rem;
 }
 
-
+.recruit-wrap > .msgbox > p > span {
+    display: block;
+}
+.recruit-wrap > .msgbox {
+    margin-top: 10px;
+}
 }
 
 /*모바일용*/

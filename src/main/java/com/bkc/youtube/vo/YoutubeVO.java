@@ -8,18 +8,10 @@ public class YoutubeVO {
 	private String content;
 	private String title;
 	private String path;
-	private Date date;
+	private String date;
 
 	public int getImg_seq() {
 		return img_seq;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 	public void setImg_seq(int img_seq) {
@@ -56,6 +48,14 @@ public class YoutubeVO {
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	@Override
