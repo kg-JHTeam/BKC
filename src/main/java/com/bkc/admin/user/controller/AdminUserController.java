@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,12 +53,12 @@ public class AdminUserController {
 		// 성공했다고 처리
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		UserVO user = userService.getUserById(userid);
-		
+
 		try {
-			if(userService.changeEnabled(user) == 1 ) { 
+			if (userService.changeEnabled(user) == 1) {
 				retVal.put("code", "OK");
 				retVal.put("message", "ok 성공");
-			} else { 
+			} else {
 				retVal.put("code", "NO");
 				retVal.put("message", "실패");
 			}
@@ -73,14 +74,36 @@ public class AdminUserController {
 	@RequestMapping(value = "/admin/sendSMS.ad", method = RequestMethod.POST)
 	public Object sendSMStoUser(@RequestParam String userid, @RequestParam String text) {
 
-		System.out.println(userid + " 11 " + text);
 		System.out.println("문자메시지 전송 controller 실행");
-
+		UserVO user = userService.getUserById(userid);
+		
 		// 성공했다고 처리
 		Map<String, Object> retVal = new HashMap<String, Object>();
 
-		retVal.put("code", "OK");
-		retVal.put("message", "ok 성공");
+		// 보낼 사람 : userid
+		// 보낼 문자 : text
+		// 문자 전송 로직 실행
+		String api_key = "NCSGGM7FUQCUJQMR"; // 위에서 받은 api key를 추가
+		String api_secret = "5PENVLCAQYEN4ZTLNQRO3BGXYRFICZJL"; // 위에서 받은 api secret를 추가
+		com.bkc.user.sms.Coolsms coolsms = new com.bkc.user.sms.Coolsms(api_key, api_secret);
+
+		HashMap<String, String> set = new HashMap<String, String>();
+		set.put("to", user.getPhone()); // 수신번호
+		set.put("from", "01063135712"); // 발신번호, jsp에서 전송한 발신번호를 받아 map에 저장한다.
+		set.put("text", text); // 문자내용, jsp에서 전송한 문자내용을 받아 map에 저장한다.
+		set.put("type", "sms"); // 문자 타입
+
+		JSONObject result = coolsms.send(set); // 보내기&전송결과받기
+		// results 이게 인증 번호임.
+		if ((boolean) result.get("status") == true) {
+			retVal.put("code", "OK");
+			retVal.put("message", "ok 성공");
+			System.out.println(" 성공");
+		} else {
+			retVal.put("code", "NO");
+			retVal.put("message", "실패");
+			System.out.println(" 실패");
+		}
 		return retVal;
 	}
 
