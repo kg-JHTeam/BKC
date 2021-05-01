@@ -184,12 +184,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void updatePlatForm(String email, String type) {
-		
-	}
+	public void updatePlatForm(String email, String type) {}
 
 	@Override
 	public int socialInsert(UserVO user) {
 		return userDao.socialInsert(user);
+	}
+
+	@Override
+	public int changeEnabled(UserVO user) {
+		return userDao.changeEnabled(user);
 	}
 }

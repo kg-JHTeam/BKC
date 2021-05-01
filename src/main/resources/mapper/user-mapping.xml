@@ -92,4 +92,12 @@
 		WHERE userid=#{userid};
 		]]>
 	</insert>
+	<insert id="changeEnabled">
+		<![CDATA[
+		UPDATE 
+			usermember
+		SET enabled='true'
+			WHERE userid=#{userid};
+		]]>
+	</insert>
 </mapper>

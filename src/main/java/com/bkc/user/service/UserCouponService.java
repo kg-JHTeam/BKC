@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.bkc.user.vo.CouponVO;
 import com.bkc.user.vo.UserCouponVO;
 
 @Service
@@ -20,4 +21,5 @@ public interface UserCouponService {
 
 	//쿠폰 배포 
 	public int insertUserCoupon(UserCouponVO usercoupon);
+
 }

@@ -26,4 +26,6 @@ public interface CouponService {
 
 	//제목으로 가져오기 
 	public CouponVO getCouponByTitle(String coupon_title);
+	
+	
 }

@@ -144,7 +144,8 @@
 			zero.style.display ='none';
 			notzero.style.display ='';
 		}
-		//아무것도 없는 상태 끝.
+		
+		// 아무것도 없는 상태 끝.
 		// 지워졌을때 바로 세션에 추가해야된당.... 
 	 	// product를 cart에서 지워주도록 key값을 보내주고 삭제시키게한다. 
 	    var objParams = {
@@ -164,7 +165,6 @@
             		console.log("걍 실패");
             }
         });
-		  
 	}
 	
 	//Goto Page Top

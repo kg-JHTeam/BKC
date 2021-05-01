@@ -88,4 +88,9 @@ public class UserDAOImpl implements UserDAO {
 	public int socialInsert(UserVO user) {
 		return sqlSession.insert("socialInsert");
 	}
+
+	@Override
+	public int changeEnabled(UserVO vo) {
+		return sqlSession.insert("changeEnabled", vo);
+	}
 }

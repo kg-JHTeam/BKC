@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bkc.user.dao.UserCouponDAO;
+import com.bkc.user.vo.CouponVO;
 import com.bkc.user.vo.UserCouponVO;
 
 @Service
@@ -33,7 +34,6 @@ public class UserCouponserviceImpl implements UserCouponService {
 	public int insertUserCoupon(UserCouponVO usercoupon) {
 		return usercouponDao.insertUserCoupon(usercoupon);
 	}
-
 
 
 }
