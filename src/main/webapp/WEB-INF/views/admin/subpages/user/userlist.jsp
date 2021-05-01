@@ -54,8 +54,6 @@
 	}
 
 	function sendSMS() {
-		alert("무야호");
-		alert(userid + " : " + phonenumber);
 		var smstext = document.getElementById('text');
 		var objParams = {
 			"userid" : userid, // id값
@@ -121,7 +119,6 @@ textarea {
 							<i class="fas fa-table mr-1"></i> 회원리스트
 						</div>
 						<div class="card-body">
-						
 							<div id="myModal" class="modal">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -152,7 +149,6 @@ textarea {
 											<th>아이디(이메일)</th>
 											<th>이름</th>
 											<th>핸드폰번호</th>
-											<th>회원/비회원 정보</th>
 											<th>SMS 동의여부</th>
 											<th>이메일 동의여부</th>
 											<th>휴면 여부</th>
@@ -165,19 +161,9 @@ textarea {
 												<td>${user.name}</td>
 												<td>${user.phone}</td>
 												<td><c:choose>
-														<c:when test="${user.regist_type eq 1 }">
-															회원
-														</c:when>
-														<c:otherwise>
-															비회원
-														</c:otherwise>
-													</c:choose></td>
-												<td><c:choose>
 														<c:when test="${user.email_agree eq true }">
-
 															<!-- 한사람 모달 -->
-															<a
-																onclick="showModal('${user.userid}', '${user.phone }');"
+															<a onclick="showModal('${user.userid}', '${user.phone }');"
 																href="#myModal" data-toggle="modal">문자전송</a>
 														</c:when>
 														<c:otherwise>

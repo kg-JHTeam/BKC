@@ -71,8 +71,8 @@
 	<insert id="userInsert">
 		<![CDATA[
 		INSERT INTO usermember(
-		userid, password, name, sms_agree, email_agree, phone, regist_type)
-		VALUES (#{userid}, #{password}, #{name}, #{sms_agree}, #{email_agree}, #{phone}, #{regist_type});
+		userid, password, name, sms_agree, email_agree, phone, regist_type ,enabled )
+		VALUES (#{userid}, #{password}, #{name}, #{sms_agree}, #{email_agree}, #{phone}, #{regist_type}, true);
 		]]>
 	</insert>
 	<!-- 소셜 로그인 -->

@@ -74,7 +74,6 @@ public class AdminUserController {
 	@RequestMapping(value = "/admin/sendSMS.ad", method = RequestMethod.POST)
 	public Object sendSMStoUser(@RequestParam String userid, @RequestParam String text) {
 
-		System.out.println("문자메시지 전송 controller 실행");
 		UserVO user = userService.getUserById(userid);
 		
 		// 성공했다고 처리
@@ -90,19 +89,15 @@ public class AdminUserController {
 		HashMap<String, String> set = new HashMap<String, String>();
 		set.put("to", user.getPhone()); // 수신번호
 		set.put("from", "01063135712"); // 발신번호, jsp에서 전송한 발신번호를 받아 map에 저장한다.
-		set.put("text", text); // 문자내용, jsp에서 전송한 문자내용을 받아 map에 저장한다.
-		set.put("type", "sms"); // 문자 타입
-
+		set.put("text", text);
+		set.put("type", "sms"); 
 		JSONObject result = coolsms.send(set); // 보내기&전송결과받기
-		// results 이게 인증 번호임.
 		if ((boolean) result.get("status") == true) {
 			retVal.put("code", "OK");
 			retVal.put("message", "ok 성공");
-			System.out.println(" 성공");
 		} else {
 			retVal.put("code", "NO");
 			retVal.put("message", "실패");
-			System.out.println(" 실패");
 		}
 		return retVal;
 	}
