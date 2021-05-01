@@ -71,6 +71,7 @@ function sendSMS(userid){
     });
 }
 
+//모달창 마다 아이디를 다르게 줘야함. 
 $(document).ready(function(){
 	//문자 보내기 모달창
     function alignModal(){
@@ -79,7 +80,6 @@ $(document).ready(function(){
         // Applying the top margin on modal dialog to align it vertically center
         modalDialog.css("margin-top", Math.max(0, ($(window).height() - modalDialog.height()) / 2));
     }
-    
     // Align modal when it is displayed
     $(".modal").on("shown.bs.modal", alignModal);
     
@@ -125,7 +125,7 @@ textarea{
 											<th>이름</th>
 											<th>핸드폰번호</th>
 											<th>회원/비회원 정보</th>
-											<th>SNS 동의여부</th>
+											<th>SMS 동의여부</th>
 											<th>이메일 동의여부</th>
 											<th>휴면 여부</th>
 										</tr>
@@ -149,12 +149,12 @@ textarea{
 												<td><c:choose>
 														<c:when test="${user.email_agree eq true }">
 														 	<!-- 한사람 모달 -->
-															 <a href="#myModal" data-toggle="modal">문자전송</a>
-															<div id="myModal" class="modal">
-																<div class="modal-dialog">
+															<a href="#myModal${user.userid}" data-toggle="modal">문자전송</a>
+															<div id="myModal${user.userid}" class="modal">
+																<div class="modal-dialog${user.userid}">
 																	<div class="modal-content">
 																		<div class="modal-header">
-																			<h4 class="modal-title">${user.userid}에 문자 보내기 </h4>
+																			<h4 class="modal-title">${user.phone}로 문자 보내기 </h4>
 																			<button type="button" class="close" data-dismiss="modal"
 																				aria-hidden="true">&times;</button>
 																		</div>
@@ -216,8 +216,6 @@ textarea{
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
 		crossorigin="anonymous"></script>
-	<script src="${contextPath }/resources/assets/demo/chart-area-demo.js"></script>
-	<script src="${contextPath }/resources/assets/demo/chart-bar-demo.js"></script>
 	<script
 		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
 		crossorigin="anonymous"></script>
