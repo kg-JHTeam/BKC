@@ -22,11 +22,11 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">비회원 리스트</h1>
+					<h1 class="mt-4">회원 리스트</h1>
 					<!-- 회원 리스트  -->
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table mr-1"></i> 비회원 리스트 리스트
+							<i class="fas fa-table mr-1"></i> 회원리스트
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -37,17 +37,15 @@
 											<th>이름</th>
 											<th>핸드폰번호</th>
 											<th>이메일 동의여부</th>
-											<th>SNS 동의여부</th>
-											<th>탈퇴/휴면 여부</th>
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach var="user" items="${users}">
 											<tr>
-												<td><c:out value="${user.userid}"/></td>
+												<td><c:out value="${user.userid}" /></td>
 												<td>${user.name}</td>
 												<td>${user.phone}</td>
-												<td><c:choose>
+												<c:choose>
 														<c:when test="${user.sms_agree eq true }">
 															동의
 														</c:when>
@@ -61,14 +59,6 @@
 														</c:when>
 														<c:otherwise>
 															미동의
-														</c:otherwise>
-													</c:choose></td>
-												<td><c:choose>
-														<c:when test="${user.enabled eq true }">
-															-
-														</c:when>
-														<c:otherwise>
-															휴면회원
 														</c:otherwise>
 													</c:choose></td>
 											</tr>

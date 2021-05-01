@@ -28,10 +28,6 @@
                                     <a class="nav-link" href="${contextPath}/admin/userManagerlist.ad">매장관리자 리스트 </a>
                                     <a class="nav-link" href="${contextPath}/admin/userlist.ad">회원 리스트</a>
                                     <a class="nav-link" href="${contextPath}/admin/userNonlist.ad">비회원 리스트</a>
-                                    <a class="nav-link" href="${contextPath}/admin/userSignoutList.ad">탈퇴회원 리스트</a>
-                                    <a class="nav-link" href="${contextPath}/admin/userDormantlist.ad">휴면회원 리스트</a>
-                                    <a class="nav-link" href="#">e-mail 관리</a>
-                                    <a class="nav-link" href="#">SMS 관리</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCoupons" aria-expanded="false" aria-controls="collapseLayouts">
@@ -61,8 +57,6 @@
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="${contextPath}/admin/bannerlist.ad">메인배너 관리</a>
                                             <a class="nav-link" href="${contextPath}/admin/youtubeList.ad">유튜브광고 관리</a>
-                                            <a class="nav-link" href="">메인로고 관리</a>
-                                            <a class="nav-link" href="">홈페이지메뉴 관리</a>
                                         </nav>
                                     </div>
                                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseSubpage" aria-expanded="false" aria-controls="pagesCollapseError">

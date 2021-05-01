@@ -45,7 +45,6 @@ window.onload = function(){
 function status(status,id){
    var btn = document.getElementById(id);
    var value = btn.value;
-   
    if(value == "사용"){
       var input = confirm("배너를 사용하지 않겠습니까?");
       if(input == true){
@@ -136,7 +135,7 @@ function deleteBanner(img_seq){
 													target="_blank"> <img src="${banner.path}" alt="이미지"
 														id="bannerimg" class="img-responsive center-block" />
 												</a></td>
-												<td><c:choose>
+												<td id="tt${banner.img_seq}"><c:choose>
 														<c:when test="${banner.use_status eq true }">
 															<input class="btn btn-info" type="button" value="사용"
 																onclick="javascript:status(${banner.use_status} ,${banner.img_seq})"
@@ -149,7 +148,8 @@ function deleteBanner(img_seq){
 															<input type="hidden" name="${_csrf.parameterName}"
 																value="${_csrf.token}" />
 														</c:otherwise>
-													</c:choose></td>
+													</c:choose>
+												</td>
 												<td><input class="btn btn-primary" type="button"
 													value="수정"
 													onClick="location.href='${contextPath}/admin/bannerDetail.ad?seq=${banner.img_seq}'" />

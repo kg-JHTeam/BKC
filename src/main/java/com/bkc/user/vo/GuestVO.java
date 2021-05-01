@@ -36,7 +36,6 @@ public class GuestVO {
 		this.password = password;
 	}
 
-
 	public int getSeq() {
 		return seq;
 	}

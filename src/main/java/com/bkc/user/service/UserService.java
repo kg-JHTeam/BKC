@@ -57,5 +57,8 @@ public interface UserService {
 
 	//소셜로그인
 	public int socialInsert(UserVO user);
+
+	//변경 
+	public int changeEnabled(UserVO user);
 	
 }

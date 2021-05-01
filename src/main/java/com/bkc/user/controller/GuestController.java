@@ -34,6 +34,11 @@ import com.bkc.user.service.GuestService;
 import com.bkc.user.service.UserService;
 import com.bkc.user.vo.GuestVO;
 
+/*
+ * 
+ *  Guest로 주문하는 경우는 Spring Security로 막지 않고, 들어갈 수 있게 한다. 
+ *   - 인증을 받은 경우만 들어갈 수 있께 url을 숨긴다. 
+ */
 @Controller
 public class GuestController {
 
@@ -75,9 +80,8 @@ public class GuestController {
 
 	// 이메일 인증 처리 완료 하고 비회원 회원가입 처리 -- 하고 바로 로그인 시키기.
 	@RequestMapping(value = "/guestUserJoin", method = { RequestMethod.GET, RequestMethod.POST })
-	public String goGuestUserJoin(HttpSession session,
-			Model model, @RequestParam String username, @RequestParam String password,
-			@RequestParam String email) {
+	public String goGuestUserJoin(HttpSession session, Model model, @RequestParam String username,
+			@RequestParam String password, @RequestParam String email) {
 
 		CheckVO check = new CheckVO();
 		check.setSuccess("default"); // 성공햇는지 확인
@@ -85,32 +89,32 @@ public class GuestController {
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 
-		// 1. 비회원으로 회원가입을 시키고
 		GuestVO guest = new GuestVO();
 		guest.setEmail(email);
 		guest.setUsername(username);
 
-		// 회원 임시 비밀번호 세팅 - 암호화 시킴
 		String pwd = passwordEncoder.encode(password);
 		guest.setPassword(pwd);
 		session.setAttribute("guest", email);
-		 
+
 		// 내부적으로 BCryptPasswordEncoder로 암호화 로직 수행
+		// session에 넣어버린다.
 		if (guestService.insert(guest) == 1) {
 			check.setSuccess("1");
 			System.out.println("비회원 완료 ");
-			return "redirect:/guestDelivery";
+			return "redirect:/guestDelivery";   //url을 숨기기위함.
 		} else {
 			check.setSuccess("3"); // 다른에러
-			return "delivery/guestUserPage"; // redirect
+			return "delivery/guestUserPage"; // url을 숨기기위함.
 		}
 	}
-	
-	//guest를 세션에 넣어두고 주문할 수 있도록 보낸다. 
+
+	// guest를 세션에 넣어두고 주문할 수 있도록 보낸다.
 	@RequestMapping(value = "/guestDelivery", method = { RequestMethod.GET, RequestMethod.POST })
 	public String goGuestDeliveryPage(Model model, HttpSession session) {
-		String guest = (String) session.getAttribute("guest"); 
+		String guest = (String) session.getAttribute("guest");
 		model.addAttribute("guest", guest);
+		
 		return "guest/guestdelivery";
 	}
 }
