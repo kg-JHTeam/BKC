@@ -185,6 +185,11 @@
 		}
 	
 	</script>
+	<style>
+	#selectedCoupon{
+	font-size:1.4rem;
+	}
+	</style>
 </head>
 <body>
 	<div class="subWrap02">
@@ -343,6 +348,27 @@
                                 </li>
                             </ul>
                             </c:forEach>
+                        </div>
+                        <h2 class="tit01 tit_ico money">
+                            <span>쿠폰 선택</span>
+                        </h2>
+                        <div class="container02">
+                            <div class="order_payment_list">
+                                <dl class="tot">
+                                    <dt>쿠폰 선택하기 </dt>
+                                    <dd>
+                                         <select name="coupon" id="selectedCoupon" style="width:500px;height:50px;">
+                                         	<option value="" selected="selected">없음</option>
+                                         	<c:forEach var="coupon" items="${usercoupons}">
+											    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
+											    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
+											    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
+                                         	</c:forEach>
+										    
+										</select>
+                                    </dd>
+                                </dl>
+                            </div>
                         </div>
                         <h2 class="tit01 tit_ico money">
                             <span>최종 결제금액</span>
