@@ -20,6 +20,8 @@ import com.bkc.admin.board.businessInformation.service.BusinessInformationServic
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.delivery.service.CautionService;
 import com.bkc.delivery.service.DvProductService;
+import com.bkc.delivery.service.MyLocationService;
+import com.bkc.delivery.vo.MyLocationVO;
 import com.bkc.menuInform.service.ProductService;
 import com.bkc.user.service.CouponService;
 import com.bkc.user.service.UserCouponService;
@@ -51,6 +53,9 @@ public class OrderController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private MyLocationService mylocaService;
 
 	// 주문페이지로 이동함.
 	@RequestMapping(value = "/order.do", method = RequestMethod.GET)
@@ -71,6 +76,10 @@ public class OrderController {
 		// 회원이 가지고 있는 쿠폰 보내주기
 		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(user.getUserid());
 		model.addAttribute("usercoupons", usercoupons);
+		
+		//지정 배달지
+		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
+		model.addAttribute("location", location);
 
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);

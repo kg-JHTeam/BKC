@@ -162,9 +162,7 @@ function goPaging(page) {
 						</table>
 						<div class="board_paging">
 							<div class="VuePagination">
-								<ul>
-									${pageing}
-								</ul>
+								<ul>${pageing}</ul>
 							</div>
 						</div>
 					</div>
@@ -172,5 +170,14 @@ function goPaging(page) {
 			</div>
 		</div>
 	</div>
+	<!-- 맨 위로 가기 -->
+	<a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
+
+	<!-- js -->
+	<script src="../resources/js/subpages/event/event.js"></script>
+
+	<!-- main-footer -->
+	<jsp:include page="../../include/footer/main_desktop_footer.jsp" />
+	<jsp:include page="../../include/footer/main_mobile_footer.jsp" />
 </body>
 </html>

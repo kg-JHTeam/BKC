@@ -52,13 +52,13 @@ window.onload = function(){
                     </div>
                     <div class="location">
                         <span class="addr">
-                        <span>서울특별시 서초구 잠원로 117 (잠원동, 아크로리버뷰신반포)(DB)</span>
+                        <span>${location.addr} ${location.addr_detail}</span>
                         </span>
                         <span class="shop">
                         <span>신논현역점(DB)</span>
                         </span>
                         <span class="btn">
-                        <a href="#" class="addrchange">
+                        <a href="${contextPath}/delivery/mylocation.do" class="addrchange">
                             <span>변경</span>
                         </a>
                         </span>
@@ -239,7 +239,7 @@ window.onload = function(){
                             <dt>배달지 주소</dt>
                             <dd>
                                 <strong style="word-break: break-all;">
-                                    <span>서울특별시 서초구 잠원로 117 (잠원동, 아크로리버뷰신반포)(DB)</span>
+                                    <span>${location.addr} ${location.addr_detail}</span>
                                 </strong>
                             </dd>
                             <dd>
@@ -250,7 +250,7 @@ window.onload = function(){
                         <p class="txt02">위 배달지로 주문하시겠습니까?</p>
                     </div>
                     <div class="pop_btn c_btn item2">
-                        <a href="#" class="btn02 dark">
+                        <a href="${contextPath}/delivery/mylocation.do" class="btn02 dark">
                             <span>배달지 변경</span>
                         </a>
                         <a href="#" class="btn02 orange">

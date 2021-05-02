@@ -219,8 +219,37 @@ strong {
     display: inline;
 }
 
-.txt_addr {
-    display: block;
+.addr_new {
+	display: none;
+}
+
+.addr1 {
+	margin: 20px 0;
+	width: 100%;
+	box-sizing: border-box;-webkit-box-sizing:border-box;-moz-box-sizing: border-box;
+	outline: none;
+	background: none;
+    border: none;
+    font-size: 1.75rem;
+}
+
+.detailaddr1 {
+	margin: 20px 0;
+	width: 100%;
+	box-sizing: border-box;-webkit-box-sizing:border-box;-moz-box-sizing: border-box;
+	outline: none;
+	background: none;
+    border: none;
+    font-size: 1.75rem;
+}
+
+.detailaddr2{
+	margin: 20px 0;
+	outline: none;
+	border: none;
+    font-size: 1.75rem;
+    width: auto;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/login/loginline.png) repeat-x 0 100%;
 }
 
 .btn04.h02 {
@@ -279,8 +308,8 @@ input[type=text]:only-child {
     width: 100%;
 }
 
-input[type=text] {
-    outline: none;
+.info_list .tel, .store, .request{
+	outline: none;
     display: inline-block;
     height: 66px;
     margin: 0;

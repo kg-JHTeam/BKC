@@ -5,28 +5,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<!-- font google web font-->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
-	rel="stylesheet">
-<!-- favicon -->
-<link rel="shortcut icon" type="image/x-icon"
-	href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
-<!-- css -->
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/include/delivery-gnb2.css">
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/delivery/order.css">
 
-<!-- js -->
-<script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- font google web font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon"
+    href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
+	<!-- css -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/include/delivery-gnb2.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/delivery/order.css">
+	
+	<!-- js -->
+    <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<title>주문하기</title>
+	
+	<script>
 
-<title>주문하기</title>
-
-<script>
 	//----------------------------------UI관련   Javascript---------------------------------------//
 	//메뉴에 따른 menu tab
 	$(document).ready(function() {
@@ -314,7 +311,60 @@
 		   });
 		}
 	
+	
+	
+	function sample6_execDaumPostcode() {
+        	new daum.Postcode({
+            	oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                    $(".txt_addr").css("display", "none");
+                    $(".addr_new").css("display", "block");
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            	}
+        	}).open();
+    	}
+	
 	</script>
+ 
 <style>
 #selectedCoupon {
 	font-size: 1.4rem;
@@ -330,66 +380,82 @@
 		<!-- contents 부분 -->
 		<div class="contentsWrap">
 			<div class="locationWrap">
-				<div class="web_container">
-					<div class="page_navi">
-						<a href="${contextPath}/delivery/delivery.do"> <span>딜리버리</span>
-						</a> <a href="${contextPath}/delivery/order.do" class="gotomenu">
-							<span>주문하기</span>
-						</a>
-					</div>
-					<div class="location">
-						<span class="addr"> <span>서울특별시 서초구 잠원로 117 (잠원동,
-								아크로리버뷰신반포)(DB)</span>
-						</span> <span class="shop"> <span>신논현역점(DB)</span>
-						</span> <span class="btn"> <a href="#" class="addrchange"> <span>변경</span>
-						</a>
-						</span>
-					</div>
-				</div>
-			</div>
+                <div class="web_container">
+                    <div class="page_navi">
+                        <a href="${contextPath}/delivery/delivery.do">
+                            <span>딜리버리</span>
+                        </a>
+                        <a href="${contextPath}/delivery/order.do" class="gotomenu">
+                            <span>주문하기</span>
+                        </a>
+                    </div>
+                    <div class="location">
+                        <span class="addr">
+                        <span>${location.addr} ${location.addr_detail}</span>
+                        </span>
+                        <span class="shop">
+                        <span>신논현역점(DB)</span>
+                        </span>
+                        <span class="btn">
+                        <a href="${contextPath}/delivery/mylocation.do" class="addrchange">
+                            <span>변경</span>
+                        </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
 			<div class="contentsBox02">
 				<div class="web_container2">
 					<div class="subtitWrap">
-						<h2 class="page_tit">주문하기</h2>
-					</div>
-					<div class="container01 orderWrap">
-						<h2 class="tit01 tit_ico delivery">
-							<span>배달정보</span>
-						</h2>
-						<div class="container02 deli_info01">
-							<div class="addrWrap01">
-								<p class="txt_addr">
-									<span>서울특별시 서초구 잠원로 117 (잠원동, 아크로리버뷰신반포)</span> <span></span>
-								</p>
-								<button type="button" class="btn04 h02">
-									<span>변경</span>
-								</button>
-							</div>
-							<div class="info_list">
-								<dl>
-									<dt>연락처</dt>
-									<dd>
-										<input type="text" maxlength="20" value="${user.phone}">
-									</dd>
-								</dl>
-								<dl>
-									<dt>매장</dt>
-									<dd>
-										<input type="text" readonly="readonly">
-									</dd>
-								</dl>
-								<dl class="memo">
-									<dt>요청사항</dt>
-									<dd>
-										<div class="inp_bytes">
-											<div>
-												<input type="text" placeholder="요청사항을 입력하세요" maxlength="50">
-											</div>
-										</div>
-									</dd>
-								</dl>
-							</div>
-						</div>
+                        <h2 class="page_tit">주문하기</h2>
+                    </div>
+                    <div class="container01 orderWrap">
+                        <h2 class="tit01 tit_ico delivery">
+                            <span>배달정보</span>
+                        </h2>
+                        <div class="container02 deli_info01">
+                            <div class="addrWrap01">
+                                <div class="txt_addr">
+                                    <span>${location.addr} ${location.addr_detail}</span>
+                                    <span></span>
+                                </div>
+                                <form role="form" action="${pageContext.request.contextPath }/delivery/insertOneDB.do" method="post" enctype="multipart/form-data">
+                        			<div class="addr_new">
+                        				<input class="addr1" id="sample6_address" name="addr" type="text" placehoder="'주소'" readonly="readonly">
+										<input class="detailaddr1" id="sample6_extraAddress" name="addr_detail" type="text" placehoder="'상세 주소'" readonly="readonly">
+										<input class="detailaddr2" id="sample6_detailAddress" name="addr_detail" type="text"  placehoder="'상세 주소'" >
+										<input type="hidden" class="detailaddr" id="sample6_postcode" name="zipcode" type="text" placehoder="'우편 번호'">
+									</div>
+								</form>
+                                <button type="button" class="btn04 h02" onclick="javascript: sample6_execDaumPostcode()">
+                                    <span>변경</span>
+                                </button>
+                            </div>
+                            <div class="info_list">
+                                <dl>
+                                    <dt>연락처</dt>
+                                    <dd>
+                                        <input class="tel" type="text" maxlength="20" value="${user.phone}">
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>매장</dt>
+                                    <dd>
+                                        <input class="store" type="text" readonly="readonly">
+                                    </dd>
+                                </dl>
+                                <dl class="memo">
+                                    <dt>요청사항</dt>
+                                    <dd>
+                                        <div class="inp_bytes">
+                                            <div>
+                                                <input class="request" type="text" placeholder="요청사항을 입력하세요" maxlength="50">
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
 						<div class="tit01 tit_ico chicken tit_ordermenu">
 							<h2>
 								<span>주문정보</span>
