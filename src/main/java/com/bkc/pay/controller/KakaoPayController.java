@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bkc.pay.service.KakaoService;
@@ -24,6 +26,7 @@ public class KakaoPayController {
 		return "redirect:" + kakaoservice.kakaoPayReady();
 	}
 
+	
 	@GetMapping("pay/kakaoPaySuccess.do")
 	public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
 		System.out.println("kakaoPaySuccess get............................................");
