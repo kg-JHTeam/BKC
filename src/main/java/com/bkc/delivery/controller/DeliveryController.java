@@ -59,7 +59,7 @@ public class DeliveryController {
 
 	@Autowired
 	private ProductService productService;
-	
+
 	@Autowired
 	private MyLocationService mylocaService;
 
@@ -99,8 +99,8 @@ public class DeliveryController {
 		// new메뉴
 		List<DvProductVO> newdv = pService.getNewdv();
 		model.addAttribute("newdv", newdv);
-		
-		//지정 배달지
+
+		// 지정 배달지
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
 		model.addAttribute("location", location);
 
@@ -128,6 +128,10 @@ public class DeliveryController {
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 
+		// 지정 배달지
+		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
+		model.addAttribute("location", location);
+
 		// 카트 추가
 		CartVO cart = new CartVO();
 		if (session.getAttribute("cart") == null) {
@@ -153,6 +157,10 @@ public class DeliveryController {
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 
+		// 지정 배달지
+		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
+		model.addAttribute("location", location);
+
 		// 카트 추가
 		CartVO cart = new CartVO();
 		if (session.getAttribute("cart") == null) {
@@ -174,8 +182,8 @@ public class DeliveryController {
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		model.addAttribute("user", user);
-		
-		//지정 배달지
+
+		// 지정 배달지
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
 		model.addAttribute("location", location);
 
@@ -213,6 +221,10 @@ public class DeliveryController {
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		model.addAttribute("user", user);
+
+		// 지정 배달지
+		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
+		model.addAttribute("location", location);
 
 		// 쿠폰 넣기
 		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(user.getUserid());
@@ -333,11 +345,11 @@ public class DeliveryController {
 				cart.addProduct(seq, product);
 
 				HashMap<Integer, ProductVO> products = cart.getProducts();
-				
-				if(products.size() <= 1) {
+
+				if (products.size() <= 1) {
 					cart.setProductMainTitle(product.getProduct_name());
 				}
-				
+
 				// 갯수넣기
 				cart.setProductCount(products.size());
 				session.setAttribute("cart", cart);
@@ -350,6 +362,10 @@ public class DeliveryController {
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		model.addAttribute("user", user);
 		model.addAttribute("cart", cart);
+
+		// 지정 배달지
+		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
+		model.addAttribute("location", location);
 
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
@@ -385,42 +401,40 @@ public class DeliveryController {
 	// 메뉴 삭제
 	@RequestMapping(value = "/cartkeydelete.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object countProduct(@RequestParam(value = "key") Integer key,  Model model , HttpSession session) {
-		
+	public Object countProduct(@RequestParam(value = "key") Integer key, Model model, HttpSession session) {
+
 		// 1) 세션에서 카트에 들어가 있는 걸 받아온다.
 		cart = (CartVO) session.getAttribute("cart");
 		HashMap<Integer, ProductVO> products = cart.getProducts();
-		
-		//삭제시킴
+
+		// 삭제시킴
 		products.get(key).setCount(0);
 		products.remove(key);
 		cart.minusProductCount();
-		
+
 		// 2) 세션 변경시키기
 		session.setAttribute("cart", cart);
 		model.addAttribute("cart", cart);
-		
+
 		// 성공했다고 처리
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		
+
 		retVal.put("code", "OK");
 		retVal.put("message", "ok 성공");
 		return retVal;
 	}
-	
-	
 
 	/*
 	 * Guest 딜리버리
 	 */
-	
+
 	// guest를 세션에 넣어두고 주문할 수 있도록 보낸다.
-	
+
 	@RequestMapping(value = "/guestDelivery", method = { RequestMethod.GET, RequestMethod.POST })
 	public String goGuestDeliveryPage(Model model, HttpSession session) {
 		String guest = (String) session.getAttribute("guest");
 		model.addAttribute("guest", guest);
-
+		
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);

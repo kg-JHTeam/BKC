@@ -280,6 +280,10 @@
       	//라디어 버튼에 따라 결제 분기 처리  - 5가지 타입 
       	if(paymentTypeValue == "naver"){
       		 alert("naver 결제로 ! ");
+      		 
+      		 // 엄지현이 작업중인 곳 조심      //
+       		 
+      		 // ----------------- // 
       	} else if(paymentTypeValue == "kakao"){
       		KakaoPay();
       		alert("kakao 결제로 ! ");
@@ -419,14 +423,18 @@
                                     <span>${location.addr} ${location.addr_detail}</span>
                                     <span></span>
                                 </div>
-                                <form role="form" action="${pageContext.request.contextPath }/delivery/insertOneDB.do" method="post" enctype="multipart/form-data">
-                        			<div class="addr_new">
-                        				<input class="addr1" id="sample6_address" name="addr" type="text" placehoder="'주소'" readonly="readonly">
-										<input class="detailaddr1" id="sample6_extraAddress" name="addr_detail" type="text" placehoder="'상세 주소'" readonly="readonly">
-										<input class="detailaddr2" id="sample6_detailAddress" name="addr_detail" type="text"  placehoder="'상세 주소'" >
-										<input type="hidden" class="detailaddr" id="sample6_postcode" name="zipcode" type="text" placehoder="'우편 번호'">
-									</div>
+                                
+                                <!-- 이주현  시작-->
+                                <form id="addressChanged" role="form" action="${pageContext.request.contextPath }/delivery/insertOneDB.do" method="post" enctype="multipart/form-data">
+                        		<div class="addr_new">
+                        			<input class="addr1" id="sample6_address" name="addr" type="text" placehoder="'주소'" readonly="readonly">
+									<input class="detailaddr1" id="sample6_extraAddress" name="addr_detail" type="text" placehoder="'상세 주소'" readonly="readonly">
+									<input class="detailaddr2" id="sample6_detailAddress" name="addr_detail" type="text"  placehoder="'상세 주소'" >
+									<input type="hidden" class="detailaddr" id="sample6_postcode" name="zipcode" type="text" placehoder="'우편 번호'">
+								</div>
 								</form>
+								<!-- 이주현  끝-->
+								
                                 <button type="button" class="btn04 h02" onclick="javascript: sample6_execDaumPostcode()">
                                     <span>변경</span>
                                 </button>
