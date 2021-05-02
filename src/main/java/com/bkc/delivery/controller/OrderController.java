@@ -85,4 +85,6 @@ public class OrderController {
 		model.addAttribute("bi", bi);
 		return "delivery/ordercomplete";
 	}
+	
+	
 }
