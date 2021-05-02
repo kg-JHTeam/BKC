@@ -204,7 +204,6 @@
             	//카트를 확인하면서 카테고리에 맞는 게 있으면 쿠폰가격을 넣고, 카테고리가 다르다면 쿠폰을 넣지 못하게 한다. 
             	var categoryName =  document.getElementsByClassName('categoryName');
             	for(let i = 0 ;i< categoryName.length; i++){
-            		
             		//쿠폰과 맞는 카테고리가 있다면 처리시켜준다. 없으면 끝.
             		if(categoryName[i].value==coupontCategory){
             			//전체 메뉴 쿠폰사용 로직
@@ -220,7 +219,8 @@
             			return; //맞으면 바로 처리 
             		}
         		}
-            	
+            	alert("쿠폰을 사용할 수 없습니다.");
+            	$("#notSelectedCoupon").prop("selected", true);
             },
             error       :   function(request, status, error){
             	console.log("걍 실패");
@@ -408,7 +408,7 @@
                                     <dt>쿠폰 선택하기 </dt>
                                     <dd>
                                          <select onChange="changeCoupon(this);" name="coupon" id="selectedCoupon" style="width:500px;height:50px;">
-	                                         	<option value="" selected="selected">없음</option>
+	                                         	<option value="" selected="selected" id="notSelectedCoupon">없음</option>
 	                                         	<c:forEach var="coupon" items="${usercoupons}">
 											    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
                                          		</c:forEach>
@@ -441,6 +441,12 @@
                                     <dt>할인금액</dt>
                                     <dd>
                                         <span class="unit" id="totalDiscountCost">0</span><span>원</span>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt></dt>
+                                    <dd>
+                                        <span style="color:red;">남은 잔액은 사용 할 수 없습니다.</span>
                                     </dd>
                                 </dl>
                             </div>
