@@ -136,7 +136,7 @@
 							<div class="inpbox">
 								<input class="findaddr" type="text" maxlength="35" placeholder="'주소찾기'를 선택해주세요." id="realAddress">
 							</div>
-							<div class="inpbox"  id="addr_extra"> 
+							<div class="inpbox" id="addr_extra"> 
 								<input class="findaddr" type="text" name="addr_extra" maxlength="50" placeholder="'상세주소입력">
 							</div>
 							<button type="button" class="btn_search01 btn01_m"

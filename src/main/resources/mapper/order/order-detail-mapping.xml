@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OrderDetailDAO">
+	<resultMap type="OrderDetailVO" id="OrderDetailVO">
+		<result property="product_name" column="product_name" />
+		<result property="quantity" column="quantity" />
+		<result property="order_date" column="order_date" />
+		<result property="price" column="price" />
+		<result property="seq" column="seq" />
+		<result property="order_serial" column="order_serial" />
+	</resultMap>
+	
+	<insert id="insertOrderDetail">
+		INSERT INTO order_detail(
+		product_name, quantity, order_date, price, order_serial)
+		VALUES (#{product_name}, #{quantity}, #{order_date}, #{price},#{order_serial});
+	</insert>
+</mapper>

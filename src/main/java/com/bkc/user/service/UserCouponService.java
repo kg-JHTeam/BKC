@@ -25,4 +25,6 @@ public interface UserCouponService {
 	//가격 가져오기 
 	public UserCouponVO getPrice(int coupon_seq);
 
+	public UserCouponVO getUserCouponBySeq(int coupon_seq);
+
 }

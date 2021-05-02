@@ -20,6 +20,14 @@
 		]]>
 	</select>
 	
+	<select id="getUserCouponBySeq" resultType="UserCouponVO">
+		<![CDATA[
+			SELECT * FROM user_coupon
+			INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
+			WHERE user_coupon.coupon_seq= #{coupon_seq}
+		]]>
+	</select>
+	
 	<!-- 가격 가져오기. -->
 		<select id="getPrice" resultType="UserCouponVO">
 		<![CDATA[
