@@ -117,8 +117,11 @@
 	    	
 	    	//진짜최종가격
 			var realTotalCost = document.getElementsByClassName("realTotalCost");
-			realTotalCost[0].innerHTML = total - couponTotal;
-			realTotalCost[1].innerHTML = total - couponTotal;
+			realTotal = total - couponTotal;
+			//-값 안되게 처리
+    		if(realTotal < 0){realTotal = 0;}
+			realTotalCost[0].innerHTML = realTotal;
+			realTotalCost[1].innerHTML = realTotal;
 	    } 
 	    else {
 	    	if(productCount <= 1){
@@ -131,8 +134,11 @@
 	    	
 	    	//진짜최종가격
 			var realTotalCost = document.getElementsByClassName("realTotalCost");
-			realTotalCost[0].innerHTML = total - couponTotal;
-			realTotalCost[1].innerHTML = total - couponTotal;
+			realTotal = total - couponTotal;
+			//-값 안되게 처리
+    		if(realTotal < 0){realTotal = 0;}
+			realTotalCost[0].innerHTML = realTotal;
+			realTotalCost[1].innerHTML = realTotal;
 	    }
 	    
 	    var objParams = {
@@ -162,11 +168,8 @@
 	//쿠폰 변경
 	function changeCoupon(e){
 		const value = e.value;
-		alert("change" + value);
-		
 		//userCoupon 의 pk - value;
 		//value를 가지고 간다. 가격과 카테고리를 다시 가져와야함. 
-		
 		var objParams = {
                 "coupon_seq"      : parseInt(value),   	  // key값
         };
@@ -189,6 +192,9 @@
             		
             		realTotal = total - couponTotal;   //최종 가격 = 전체메뉴가격 - 쿠폰가격
             		
+            		//-값 안되게 처리
+            		if(realTotal < 0){realTotal = 0;}
+		  					  
             		var realTotalCost = document.getElementsByClassName("realTotalCost");
             		realTotalCost[0].innerHTML = realTotal;
             		realTotalCost[1].innerHTML = realTotal;
@@ -205,6 +211,8 @@
                 		document.getElementById("totalDiscountCost").innerHTML = couponTotal;
                 		
                 		realTotal = total - couponTotal;   //최종 가격 = 전체메뉴가격 - 쿠폰가격
+                		//-값 안되게 처리
+                		if(realTotal < 0){realTotal = 0;}
                 		
                 		var realTotalCost = document.getElementsByClassName("realTotalCost");
                 		realTotalCost[0].innerHTML = realTotal;
