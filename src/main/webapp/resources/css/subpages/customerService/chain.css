@@ -111,73 +111,104 @@ select {
 /* 데스크 탑용 CSS*/
 @media(min-width: 766px) {
 
-.web_container {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 20px;
+.locationWrap {
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+    margin: 100px 0 0 0;
+}
+.locationWrap .chain_web_container {
+    overflow: hidden;margin-left: 230px;
+}
+.locationWrap a {
+    color: #fff;
+}
+.page_navi>* {
+    float: left;
+}
+.page_navi {
+    float: left;
+    font-size: 1.1rem;
 }
 
-#contents-wrap {
+.contentsWrap {
     min-height: 450px;
     margin: 0 auto;
 }
-
-.contentsBox > .web_container > .subtitle-wrap {
-    position: relative;
-    margin-bottom: 28px;
-}
-
-.contentsBox > .web_container > .subtitle-wrap > .page_title {
-    width: 15%;
-    height: auto;
+.contentsBox01 {
+	margin: 0 235px;smep
     padding: 50px 0 45px;
-    margin: 15px;
+}
+.notice_web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+.contentsWrap .page_tit {
+    margin-bottom: 15px;
     font-size: 2.5rem;
     line-height: 100%;
 }
-
-.contentsBox > .web_container > .subtitle-wrap > .tabmenu {
-    position: absolute;
-    right: 30;
-    top: 50%;
-    margin: 0 0 20px;
-    overflow: hidden;
-}
-
-.contentsBox > .web_container > .subtitle-wrap > .tabmenu button {
-    height: 35px;
-    font-size: 1.125rem;
-    border-width: 0 0;
-    outline: 0;
-    background-color: rgba(255, 255, 255, 0);
-    color: #b8b8b8;
-}
-
-.contentsBox > .web_container > .subtitle-wrap > .tabmenu button:hover {
-    color: #2e2e2e;
-    right: 0px;
-}
-
-.contentsBox > .web_container > .subtitle-wrap .r_option {
+.subtitWrap .tab01 {
     position: absolute;
     right: 0;
-    bottom: 0;
-    margin-left: 15em;
-    font-size: 1.25rem;
+    top: 50%;
+    margin: -17.5px 0 0;
 }
-
-.contentsBox > .web_container > .subtitle-wrap > .tabmenu li {
+.tab01 {
+    margin-bottom: 20px;
+    overflow: auto;
+}
+.tab01 ul {
+    display: table;
+}
+.tab01 li {
     position: relative;
     display: table-cell;
     padding: 0 18px;
     vertical-align: top;
-    font-weight: 300;
+    white-space: nowrap;
 }
-
-.contentsBox > .web_container > .subtitle-wrap > .tabmenu .on button {
-    border-width: 0 0 3px 0;
+.tab01 li.on a, .tab01 li.on button {
     color: #e22219;
     border-bottom-color: #e22219;
+}
+.subtitWrap .tab01 button {
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 3px 0;
+}
+.tab01 button {
+    height: 54px;
+    padding: 5px 0;
+}
+.tab01 a, .tab01 button {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0;
+}
+button {
+    margin: 0;
+    color: #000;
+    vertical-align: middle;
+    background: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+}
+.hide {
+    position: absolute!important;
+    left: -10000px;
+    top: -10000px;
+    visibility: hidden;
 }
 
 .contentsBox > .web_container > .tab_content {
@@ -313,6 +344,7 @@ font-size: 55px;
     height: auto;
     text-align: center;
     display: table;
+    margin-bottom: 100px;
 }
 
 .form-wrap >.step> li {
