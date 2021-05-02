@@ -1,6 +1,8 @@
 package com.bkc.delivery.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
@@ -64,7 +68,7 @@ public class OrderController {
 		CartVO cart = (CartVO) session.getAttribute("cart");
 		model.addAttribute("cart", cart);
 
-		// 회원이 가지고 있는 쿠폰 보내주기 
+		// 회원이 가지고 있는 쿠폰 보내주기
 		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(user.getUserid());
 		model.addAttribute("usercoupons", usercoupons);
 
@@ -85,6 +89,33 @@ public class OrderController {
 		model.addAttribute("bi", bi);
 		return "delivery/ordercomplete";
 	}
-	
-	
+
+	// 0원짜리 결제
+	@RequestMapping(value = "ordersuccess.do", method = RequestMethod.POST)
+	public String goAjaxOrdercomplete(Model model, HttpSession session) {
+
+		// 현재 로그인한 사용자 추가
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+		model.addAttribute("user", user);
+
+		// 카트 보내기
+		CartVO cart = (CartVO) session.getAttribute("cart");
+		model.addAttribute("cart", cart);
+
+		// orderList
+		// 카트를 보내면, 그게 결제할 것
+
+		// 매장 주소
+		// 자기 주소
+
+		// 리턴값
+
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
+		return "delivery/ordercomplete";
+	}
 }
