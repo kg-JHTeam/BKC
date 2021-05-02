@@ -62,6 +62,7 @@
                     if(extraAddr !== ''){
                         extraAddr = ' (' + extraAddr + ')';
                     }
+                    
                     // 조합된 참고항목을 해당 필드에 넣는다.
                     document.getElementById("sample6_extraAddress").value = extraAddr;
                 
@@ -69,71 +70,39 @@
                     document.getElementById("sample6_extraAddress").value = '';
                 }
 
+                var addressText = "";
+               
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('sample6_postcode').value = data.zonecode;
                 document.getElementById("sample6_address").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById("sample6_detailAddress").focus();
+                
+                addressText=  addr + extraAddr; 
+                document.getElementById("realAddress").value = addressText;
+                
+                document.getElementById("findAddress").style.display ="none";
+                document.getElementById("checkAddress").style.display ="";
+                document.getElementById("detailAddressWarning").style.display ="block";
             }
         }).open();
     }
+
 </script>
+<style>
+.inputWrap{ display: none }
+.inputWrap{ visibility: hidden }
+#detailAddressWarning{
+display: none;
+color:red;
+}
+</style>
 <body>
 	<input type='hidden' name="userid" id="userid" value='<c:out value="${user.getUserid()}"/>'>
 
 	<div class="subWrap02">
-		<!-- 딜리버리 페이지 헤더 이클립스에선 따로 빼놓을 것 -->
-		<div class="headerWrap">
-			<div class="head_menuWrap">
-				<div class="web_container">
-					<h1 class="WEB logo">
-						<span>딜리버리</span>
-					</h1>
-					<div class="WEB utilWrap">
-						<a href="${contextPath}/"> <span>브랜드홈</span>
-						</a> <a href="${contextPath}/login"> <span>로그아웃</span>
-						</a> <a href="${contextPath}/delivery/mybkc.do"> <span>MYBKC</span>
-						</a> <a href="${contextPath}/notice.do"> <span>고객센터</span>
-						</a>
-					</div>
-					<div class="WEB on_cont user">
-						<p>
-							<span>${user.name }</span> 님 안녕하세요
-						</p>
-						<a href="${contextPath}/delivery/mybkc.do"> <strong>MYBKC
-								바로가기</strong>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="WEB on_cont head_personalWrap">
-			<div class="web_container">
-				<div class="personal_logon">
-					<a href="#">
-						<div class="personal_order">
-							<dl>
-								<dt>
-									<strong>딜리버리 주문내역</strong>
-								</dt>
-								<dd>주문내역이 없습니다.(DB)</dd>
-							</dl>
-						</div>
-					</a> <a href="${contextPath}/delivery/cart.do">
-						<div class="personal_cart">
-							<dl>
-								<dt>
-									<strong>카트</strong> <em class="count" style="display: none;">
-										<span>0</span>
-									</em>
-								</dt>
-								<dd>카트에 담은 상품이 없습니다.(DB)</dd>
-							</dl>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
+		<!-- delivery desktop header -->
+		<jsp:include page="../include/header/delivery_desktop_header2.jsp"/>
 		<!-- contents 부분 -->
 		<div class="contentsWrap">
 			<div class="locationWrap">
@@ -156,29 +125,31 @@
 						</span>
 					</div>
 				</div>
-				>
 			</div>
 			<div class="contentsBox02 bg_w">
+				
 				<div class="web_container02">
+					<form role="form" action="${pageContext.request.contextPath }/delivery/insertOneDB.do" method="post">
 					<div class="subtitWrap">
 						<h2 class="page_tit">배달지 검색</h2>
 					</div>
 					<div class="searchWrap02">
 						<div class="r_srch01">
 							<div class="inpbox">
-								<input class="findaddr" type="text" maxlength="50"
-									placeholder="'주소찾기'를 선택해주세요.">
+								<input class="findaddr" type="text" maxlength="50" placeholder="'주소찾기'를 선택해주세요." id="realAddress">
 							</div>
 							<button type="button" class="btn_search01 btn01_m"
-								onclick="javascript: sample6_execDaumPostcode()"><span>주소 찾기</span>
+								onclick="javascript: sample6_execDaumPostcode()" id="findAddress"><span>주소 찾기</span>
 							</button>
+							<button type="submit" class="btn_search01 btnput" style="display:none;" id="checkAddress">이 주소로 배달지 설정</button>
 						</div>
+						<br>
+						<h3 id="detailAddressWarning" > 상세주소를 추가해서 적어주세요. </h3>
 					</div>
-					<form role="form" action="${pageContext.request.contextPath }/delivery/insertOneDB.do" method="post" enctype="multipart/form-data">
-					<input  type='hidden' name ="userid" id ="userid" value='<c:out value="${user.getUserid()}"/>'>
+					<input type='hidden' name ="userid" id ="userid" value='<c:out value="${user.getUserid()}"/>'>
 					<div class="inputWrap">
 						<div class="inpbox2" >
-							<input class="addr" id="sample6_address" name="addr" type="text" placehoder="'주소'">
+							<input class="addr" id="sample6_address" name="addr" type="hidden" placehoder="'주소'"> 
 						</div>
 						<div class="inpbox2" >
 							<input class="detailaddr" id="sample6_extraAddress" name="addr_detail" type="text" placehoder="'상세 주소'">
@@ -189,7 +160,6 @@
 						<div class="inpbox2">
 							<input class="detailaddr" id="sample6_postcode" name="zipcode" type="text" placehoder="'우편 번호'">
 						</div>
-						<button type="submit" class="btn_search01 btnput">이 주소로 배달지 설정</button>
 					</div>
 					</form>
 				</div>
@@ -253,6 +223,7 @@
 		</div>
 	</div>
 	<!-- footer -->
+    <jsp:include page="../include/footer/delivery_desktop_footer.jsp"/>
 	<a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
 </body>
 
