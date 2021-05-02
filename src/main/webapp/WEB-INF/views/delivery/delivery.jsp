@@ -239,7 +239,7 @@ window.onload = function(){
                             <dt>배달지 주소</dt>
                             <dd>
                                 <strong style="word-break: break-all;">
-                                    <span>${location.addr} ${location.addr_detail}</span>
+                                    <span>${location.addr} ${location.addr_detail} ${location.addr_extra}</span>
                                 </strong>
                             </dd>
                             <dd>

@@ -62,7 +62,6 @@ public class OrderController {
 	public String goOrder(Model model, HttpSession session) {
 
 		// 실제로 주문 할 수 있는 페이지
-
 		// 현재 로그인한 사용자 추가
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = (UserDetails) principal;
