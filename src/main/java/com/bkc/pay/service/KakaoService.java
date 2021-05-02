@@ -51,7 +51,7 @@ public class KakaoService {
 	        try {
 	            kakaoPayReadyVO = restTemplate.postForObject(new URI(HOST + "/v1/payment/ready"), body, KakaoPayReadyVO.class);
 	            
-	            System.out.println("" + kakaoPayReadyVO);
+	            System.out.println("되나요.." + kakaoPayReadyVO);
 	            
 	            return kakaoPayReadyVO.getNext_redirect_pc_url();
 	 
@@ -62,7 +62,6 @@ public class KakaoService {
 	           
 	            e.printStackTrace();
 	        }
-	        
 	        return "/pay";
 	        
 	    }
