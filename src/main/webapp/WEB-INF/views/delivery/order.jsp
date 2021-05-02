@@ -18,7 +18,6 @@
 	
 	<!-- js -->
     <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
-    <script src="${contextPath}/resources/js/delivery/order.js"></script>
 	
 	<title>주문하기</title>
 	
@@ -64,32 +63,62 @@
 	});
 	
 	
-	//메뉴별 최종 가격
+	//최종 가격 구하기
+	var total = 0;  //최종 금액의 가격
+	var couponTotal = 0; // 쿠폰의 최종가격
+	var realTotal = 0 ; // 진짜 최종 가격 
+	
+	window.onload = function(){
+		//주문내역 모든 가격 
+		var totalOrderCost = parseInt(document.getElementById("totalOrderCost").innerHTML);
+		var productsPrice =  document.getElementsByClassName('productsPrice');
+		for(let i = 0 ;i< productsPrice.length; i++){
+			totalOrderCost += parseInt(productsPrice[i].innerHTML);
+			console.log(productsPrice[i].innerHTML);
+		}
+		
+		//할인가격 전 최종가격 
+		document.getElementById("totalOrderCost").innerHTML = totalOrderCost;
+		
+		//진짜최종가격
+		var realTotalCost = document.getElementsByClassName("realTotalCost");
+		realTotalCost[0].innerHTML = totalOrderCost;
+		realTotalCost[1].innerHTML = totalOrderCost;
+		
+		total = totalOrderCost;
+	}
+	
+	
+	//갯수 변경 
 	function fnCalCount(type, ths, key) {
 		var parent = ths.parentNode;
 		var child= parent.childNodes[3];
+		
+		//상품의 갯수 
 		var productCount = child.value 
 		
 		//하나의 가격 
 		var oneCost = document.getElementById("oneProductCost"+key).innerHTML;
 		var totalProductCost = document.getElementById("totalProductCost"+key);
 		
-		var totalCartCost = parseInt(document.getElementById("totalCartCost").innerHTML);
+		var totalCartCost = parseInt(document.getElementById("totalOrderCost").innerHTML);
 		var productsPrice =  document.getElementsByClassName('productsPrice');
 		
-	    //plus인 경우
-	    if (type == 'p') {
+		if (type == 'p') {
 	    	if(productCount >= 10){
 	    		alert("10건이상 주문 불가능합니다.\n 단체주문은 문의부탁드립니다." ); 
 	    		return;
 	    	}
-	    	//숫자 증가
 	    	child.value++;
 	    	totalProductCost.innerHTML = oneCost * child.value;
 	    	total += parseInt(oneCost);
-	    	document.getElementById("totalCartCost").innerHTML = total;
+	    	document.getElementById("totalOrderCost").innerHTML = total;
+	    	
+	    	//진짜최종가격
+			var realTotalCost = document.getElementsByClassName("realTotalCost");
+			realTotalCost[0].innerHTML = total;
+			realTotalCost[1].innerHTML = total;
 	    } 
-	    //minus인 경우 
 	    else {
 	    	if(productCount <= 1){
 	    		return;
@@ -97,7 +126,12 @@
 	    	child.value--;
 	    	totalProductCost.innerHTML = oneCost * child.value;
 	    	total -= parseInt(oneCost);
-	    	document.getElementById("totalCartCost").innerHTML = total;
+	    	document.getElementById("totalOrderCost").innerHTML = total;
+	    	
+	    	//진짜최종가격
+			var realTotalCost = document.getElementsByClassName("realTotalCost");
+			realTotalCost[0].innerHTML = total;
+			realTotalCost[1].innerHTML = total;
 	    }
 	    
 	    var objParams = {
@@ -125,6 +159,30 @@
 	 	
 	}
 	
+	/*
+	 	결제관련 Javascript
+	 				
+	*/
+	function payValid(){
+		alert("결제 하자");
+	}
+	
+	
+	function KakaopPay() {
+		  $.ajax({
+		       url: '/bkc/pay/kakaopay.do',
+		       type: 'get',
+		       async: false,
+		       dataType: 'text',
+		       success: function (res) {
+		         let _left = (window.screen.width/2) - (500/2);
+		         let _top = (window.screen.height/2) - (500/2);
+		         console.log(_left);
+		         console.log(_top);
+		         window.open(res, 'BKC', "width=500, height=500, location=no, menubar=no, top=" + _top + ", left=" + _left);
+		       }
+		   });
+		}
 	
 	</script>
 </head>
@@ -260,20 +318,22 @@
                                             <dd>
                                                 <strong>
                                                 <em>
-                                                    <span>${products.value.price*products.value.count}</span>
+                                                    <span class="productsPrice" id="totalProductCost${products.key}">${products.value.price*products.value.count}</span>	<!-- 갯수에 따른 금액 -->
                                                     <span class="unit">원</span>
                                                 </em>
                                             </strong>
                                             </dd>
                                         </dl>
+                                        <!-- 쿠폰 관련  -->
                                         <dl class="discount">
                                             <dt>
                                             <em>쿠폰할인</em>
                                         </dt>
+                                       
                                             <dd>
                                                 <strong>
                                                 <em>
-                                                    -<span>0</span>
+                                                    <span>0</span>
                                                     <span class="unit">원</span>
                                                 </em>
                                             </strong>
@@ -293,7 +353,7 @@
                                     <dt>최종 결제금액</dt>
                                     <dd>
                                         <em>
-                                            <span>15,000</span>
+                                            <span class="realTotalCost">0</span>
                                             <span class="unit">원</span>
                                         </em>
                                     </dd>
@@ -301,15 +361,13 @@
                                 <dl>
                                     <dt>제품금액</dt>
                                     <dd>
-                                        <span>15,000</span>
-                                        <span class="unit">원</span>
+                                        <span class="unit" id="totalOrderCost">0</span><span>원</span>
                                     </dd>
                                 </dl>
                                 <dl>
                                     <dt>할인금액</dt>
                                     <dd>
-                                        <span>0</span>
-                                        <span class="unit">원</span>
+                                        <span class="unit" id="totalDiscountCost">0</span><span>원</span>
                                     </dd>
                                 </dl>
                             </div>
@@ -350,7 +408,7 @@
                                             <span>네이버페이</span>
                                         </label>
                                     </li>
-                                    <li class="kakao">
+                                    <li class="kakao" onclick="javascript:KakaoPay()">
                                         <label>
                                             <input type="radio" name="paymentType">
                                             <span>카카오페이</span>
@@ -396,23 +454,6 @@
                                             <input type="radio" name="paymentType">
                                             <span>현장에서 현금 결제</span>
                                         </label>
-                                        <ul>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox">
-                                                    <span>현금영수증</span>
-                                                </label>
-                                                <span>
-                                                    <input type="tel" placeholder="현금영수증 발급정보 입력" maxlength="20">
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" name="">
-                                                    <span>5만원권</span>
-                                                </label>
-                                            </li>
-                                        </ul>
                                     </li>
                                 </ul>
                             </div>
@@ -421,14 +462,14 @@
                             <dl>
                                 <dt>총 결제금액</dt>
                                 <dd>
-                                    <strong>&#8361;15,000</strong>
+                                    <strong><span>&#8361;</span><span class="realTotalCost">0</span></strong>
                                 </dd>
                             </dl>
                             <div class="c_btn m_item2">
-                                <a href="#" class="btn01">
+                                <a href="${contextPath}/delivery/delivery.do" class="btn01">
                                     <span>취소</span>
                                 </a>
-                                <a href="${contextPath}/delivery/ordercomplete.do" class="btn01 orange">
+                                <a onclick="payValid();" href="#" class="btn01 orange">
                                     <span>결제하기</span>
                                 </a>
                             </div>
