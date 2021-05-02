@@ -29,6 +29,7 @@
 		<typeAlias type="com.bkc.pay.kakao.vo.CardVO" alias="CardVO"/>
 		<typeAlias type="com.bkc.pay.kakao.vo.KakaoPayReadyVO" alias="KakaoPayReadyVO"/>
 		<typeAlias type="com.bkc.pay.kakao.vo.AmountVO" alias="AmountVO"/>
+		<typeAlias type="com.bkc.delivery.vo.MyLocationVO" alias="MyLocationVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

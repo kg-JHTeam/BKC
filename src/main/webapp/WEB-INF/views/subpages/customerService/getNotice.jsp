@@ -120,5 +120,8 @@
 			</div>
 		</div>
 	</div>
+	<!-- main-footer -->
+	<jsp:include page="../../include/footer/main_desktop_footer.jsp" />
+	<jsp:include page="../../include/footer/main_mobile_footer.jsp" />
 </body>
 </html>
