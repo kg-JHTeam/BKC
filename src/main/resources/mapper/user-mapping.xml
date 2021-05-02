@@ -100,4 +100,12 @@
 			WHERE userid=#{userid};
 		]]>
 	</insert>
+		<insert id="deleteUser">
+		<![CDATA[
+		UPDATE 
+			usermember
+		SET enabled='false'
+			WHERE userid=#{userid};
+		]]>
+	</insert>
 </mapper>

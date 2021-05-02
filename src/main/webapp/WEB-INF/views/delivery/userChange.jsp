@@ -64,13 +64,13 @@
 								<dl>
 									<dt>이메일</dt>
 									<dd>
-										<span>df@naver.com</span>
+										<span>${user.userid }</span>
 									</dd>
 								</dl>
 								<dl>
 									<dt>이름</dt>
 									<dd>
-										<span>기진현</span>
+										<span>${user.name }</span>
 									</dd>
 								</dl>
 							</div>
@@ -79,7 +79,7 @@
 									<dt class="vtop">핸드폰</dt>
 									<dd>
 										<div class="vtop m_rbtnWrap">
-											<span>01012345678</span>
+											<span>${user.phone }</span>
 											<button type="button" class="btn04 h02 m_rcen_btn">
 												<span>변경</span>
 											</button>
@@ -87,8 +87,8 @@
 												<span>취소</span>
 											</button>
 										</div>
-										<div class="auth_numWrap" style="display:none;">
-											<div>
+										<div class="auth_numWrap">
+											<div style="display: none;">
 												<input type="text" placeholder="휴대폰 번호를 입력해 주세요">
 												<button type="button" disabled="disabled" class="btn04 h02">
 													<span>인증번호 발송</span>
@@ -112,6 +112,7 @@
 						<h3 class="tit01 tit_ico key">
 							<span>비밀번호 변경</span>
 						</h3>
+						<form name="change" action="${contextPath}/changepassword" method="GET">
 						<div class="container02">
 							<div class="dlist01 m_dlist02">
 								<dl>
@@ -120,7 +121,8 @@
 										<div class="inpbox">
 											<label>
 												<span class="hide">현재 비밀번호</span>
-												<input type="password" placeholder="현재 비밀번호" class="st02">
+												<input type="password" placeholder="현재 비밀번호" class="st02" name="password" id="password">
+												<input type="hidden" id="userid" name="userid" value="${user.userid }" />
 												<button type="button" class="btn_view01">
 													<span>입력 텍스트 보기</span>
 												</button>
@@ -137,7 +139,7 @@
 										<div class="inpbox">
 											<label>
 												<span class="hide">새 비밀번호</span>
-												<input type="password" placeholder="새 비밀번호" class="st02">
+												<input type="password" placeholder="새 비밀번호" name="newPass" id="newPass" class="st02">
 												<button type="button" class="btn_view01">
 													<span>입력 텍스트 보기</span>
 												</button>
@@ -149,7 +151,7 @@
 										<div class="inpbox">
 											<label>
 												<span class="hide">새 비밀번호 확인</span>
-												<input type="password" placeholder="새 비밀번호 확인" class="st02">
+												<input type="password" placeholder="새 비밀번호 확인" name="newPass2" id="newPass2" class="st02">
 												<button type="button" class="btn_view01">
 													<span>입력 텍스트 보기</span>
 												</button>
@@ -177,13 +179,11 @@
 							</ul>
 						</div>
 						<div class="c_btn m_item2">
-							<button type="button" class="btn01 m">
-								<span>취소</span>
-							</button>
-							<button type="button" class="btn01 m red">
+							<button type="button" class="btn01 m red" onclick="changepw()">
 								<span>변경</span>
 							</button>
 						</div>
+						</form>
 						<h3 class="tit01 tit_ico marketing">
 							<span>마케팅 정보 수신동의</span>
 						</h3>
@@ -207,7 +207,7 @@
 						</div>
 						<div class="bot_btn_area">
 							<div class="c_btn m_item2">
-								<a href="#" class="btn01 m">
+								<a href="${contextPath}/delivery/mybkc.do" class="btn01 m">
 									<span>취소</span>
 								</a>
 								<a href="#" class="btn01 m red">
@@ -217,13 +217,14 @@
 							<div class="withdrawal">
 								<a class="btn_withdrawal">
 									<span>
-										회원탈퇴
+										<a href="${contextPath}/deleteuser">회원탈퇴</a>
 									</span>
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -231,4 +232,32 @@
 	<jsp:include page="../include/footer/delivery_desktop_footer.jsp" />
 	<a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
 </body>
+<script>
+function changepw(){
+	var change = document.change;
+	var userid = $('#userid').val();
+	var password = $('#password').val();
+	var newPass = $('#newPass').val();
+	var newPass2 = $('#newPass2').val();
+	
+	if($('#password').val() === ""){
+		alert('비밀번호를 입력해주세요');
+		return false;
+	}
+	if($('#newPass').val() === ""){
+		alert('새 비밀번호를 입력해주세요');
+		return false;
+	}
+	if($('#newPass2').val() === ""){
+		alert('새 비밀번호를 입력해주세요');
+		return false;
+	}
+	if($('#newPass2').val() != $('#newPass').val()){
+		alert('새 비밀번호를 정확히 입력해주세요');
+		return false;
+	} else {
+		change.submit();
+	}
+}
+</script>
 </html>

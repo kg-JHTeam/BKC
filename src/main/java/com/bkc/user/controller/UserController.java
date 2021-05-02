@@ -21,6 +21,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -345,17 +347,64 @@ public class UserController {
 	}
 
 	// 회원 수정
-	@RequestMapping("/modifyuser")
+	@RequestMapping(value ="/modifyuser", method = { RequestMethod.GET, RequestMethod.POST })
 	public String modifyUser(Model model) {
-
+		
+		// 현재 로그인한 사용자 추가
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+		model.addAttribute("user", user);
 		return "delivery/userChange";
 	}
-
+	
+	// 비밀번호 변경
+	@RequestMapping(value = "/changepassword", method = {RequestMethod.GET })
+	public String changepassword(@RequestParam("userid") String userid, @RequestParam("password") String password , @RequestParam("newPass") String newPass, HttpSession session)  throws Exception{
+		
+		UserVO dbuser = userService.getUserById(userid);
+		
+		if(passwordEncoder.matches(password, dbuser.getPassword())) {
+			
+			String pass = passwordEncoder.encode(newPass);
+			dbuser.setPassword(pass);
+			userService.updatePasswd(dbuser);
+			
+			System.out.println(pass + "성공");
+			
+		}
+		
+		return "redirect:/modifyuser";
+	}
+	
+	
 	// 회원 탈퇴
-	@RequestMapping("/deleteuser")
-	public String deleteUser(Model model, @Valid UserVO user, BindingResult result) {
+	@RequestMapping(value = "/deleteuser", method = {RequestMethod.GET })
+	public String deleteUser( Model model) {
 		// 회원 탈퇴 하지만 enabled만 유효하지 않게 설정 1-> 0 유효하지 않은 회원
-		return "deleteuser";
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+		model.addAttribute("user", user);
+		
+		return "delivery/userDelete";
+	}
+	
+	//회원 탈퇴 버튼 클릭
+	@RequestMapping(value = "/deletesubmit", method = {RequestMethod.GET })
+	public String deleteUser(@RequestParam("userid") String userid, @RequestParam("password") String password , Model model) {
+		
+		// 회원 탈퇴 하지만 enabled만 유효하지 않게 설정 1-> 0 유효하지 않은 회원
+		UserVO dbuser = userService.getUserById(userid);
+
+		if(passwordEncoder.matches(password, dbuser.getPassword())) {
+			
+			userService.deleteUser(dbuser);
+			System.out.println("성공");
+			
+		}
+		return "delivery/login";
 	}
 
 	// 소셜로그인 //

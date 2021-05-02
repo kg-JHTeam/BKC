@@ -195,4 +195,9 @@ public class UserServiceImpl implements UserService {
 	public int changeEnabled(UserVO user) {
 		return userDao.changeEnabled(user);
 	}
+	
+	@Override
+	public int deleteUser(UserVO vo) {
+		return userDao.deleteUser(vo);
+	}
 }
