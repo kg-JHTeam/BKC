@@ -21,6 +21,112 @@
     <script src="${contextPath}/resources/js/delivery/order.js"></script>
 	
 	<title>주문하기</title>
+	
+	<script>
+
+	//메뉴에 따른 menu tab
+	$(document).ready(function() {
+	    //$(".tab_cont > ul").hide();
+	    $(".tab01 li").click(function() {
+	        var idx = $(this).index();
+	        $(".tab01 li").removeClass("on");
+	        $(".tab01 li").eq(idx).addClass("on");
+	        $(".payment_tabcont").addClass("w_none");
+	        $(".payment_tabcont").eq(idx).removeClass("w_none");
+	    })
+	});
+
+	//네이버페이 카카오페이 누를시 달라지게
+	$(document).ready(function() {
+	    $('.kakao input[type=radio]').click(function() {
+	        $('.txtlist03 li').hide();
+	    })
+	    $('.naver input[type=radio]').click(function() {
+	        $('.txtlist03 li').show();
+	    })
+	});
+
+	//Goto Page Top
+	$(function() {
+	    $(window).scroll(function() {
+	        if ($(this).scrollTop() > 500) {
+	            $('.btn_top').fadeIn();
+	        } else {
+	            $('.btn_top').fadeOut();
+	        }
+	    });
+	    $(".btn_top").click(function() {
+	        $('html, body').animate({
+	            scrollTop: 0
+	        }, 400);
+	        return false;
+	    });
+	});
+	
+	
+	//메뉴별 최종 가격
+	function fnCalCount(type, ths, key) {
+		var parent = ths.parentNode;
+		var child= parent.childNodes[3];
+		var productCount = child.value 
+		
+		//하나의 가격 
+		var oneCost = document.getElementById("oneProductCost"+key).innerHTML;
+		var totalProductCost = document.getElementById("totalProductCost"+key);
+		
+		var totalCartCost = parseInt(document.getElementById("totalCartCost").innerHTML);
+		var productsPrice =  document.getElementsByClassName('productsPrice');
+		
+	    //plus인 경우
+	    if (type == 'p') {
+	    	if(productCount >= 10){
+	    		alert("10건이상 주문 불가능합니다.\n 단체주문은 문의부탁드립니다." ); 
+	    		return;
+	    	}
+	    	//숫자 증가
+	    	child.value++;
+	    	totalProductCost.innerHTML = oneCost * child.value;
+	    	total += parseInt(oneCost);
+	    	document.getElementById("totalCartCost").innerHTML = total;
+	    } 
+	    //minus인 경우 
+	    else {
+	    	if(productCount <= 1){
+	    		return;
+	    	}
+	    	child.value--;
+	    	totalProductCost.innerHTML = oneCost * child.value;
+	    	total -= parseInt(oneCost);
+	    	document.getElementById("totalCartCost").innerHTML = total;
+	    }
+	    
+	    var objParams = {
+                "key"      : key,   	  // key값
+                "count"    : child.value  // 갯수
+        };
+		  
+		  $.ajax({
+            url         :   "/bkc/delivery/cartcount.do",
+            dataType    :   "json",
+            contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+            type        :   "post", //post로 보냄
+            data        :   objParams,
+            success     :   function(retVal){
+                if(retVal.code == "OK") {
+                	console.log("걍성공");
+                } else {
+                	console.log("걍성공2");
+                }
+            },
+            error       :   function(request, status, error){
+            	console.log("걍 실패");
+            }
+        });
+	 	
+	}
+	
+	
+	</script>
 </head>
 <body>
 	<div class="subWrap02">
@@ -77,7 +183,7 @@
                                 <dl>
                                     <dt>연락처</dt>
                                     <dd>
-                                        <input type="text" maxlength="20">
+                                        <input type="text" maxlength="20" value="${user.phone}">
                                     </dd>
                                 </dl>
                                 <dl>
@@ -104,10 +210,12 @@
                             </h2>
                         </div>
                         <div class="container02 order_accWrap open">
+                        	<c:forEach var="products" items="${cart.products}">
+                        	<!-- 카트 정보  -->
                             <div class="acc_tit">
                                 <p class="tit">
                                     <strong>
-                                        <span>바삭클</span>
+                                        <span>${products.value.product_name}</span>
                                     </strong>
                                 </p>
                             </div>
@@ -118,28 +226,33 @@
                                             <div class="menu_name">
                                                 <p class="tit">
                                                     <strong>
-                                                    <span>바삭클</span>
+                                                    <span>${products.value.product_name}</span>
                                                 </strong>
                                                 </p>
                                                 <span class="price">
                                                 <strong>
-                                                    <span>15,000</span>
+                                                    <span id="oneProductCost${products.key}">${products.value.price}</span>
                                                 </strong>
                                                 </span>
                                             </div>
+                                            <div class="prd_img">
+	                                            <span>
+	                                                <img src='${products.value.path}' alt="제품" style="display: inline; opacity: 1;">
+	                                            </span>
+	                                       	</div>
                                         </div>
                                         <div class="quantity">
-                                            <strong class="tit">수량</strong>
-                                            <div class="num_set">
-                                                <button type="button" class="btn_minus" onclick="fnCalCount('m', this);">
+                                        <strong class="tit">수량</strong>
+                                        <div class="num_set">
+                                            <button type="button"  class="btn_minus" onclick="fnCalCount('m', this, ${products.key});">
                                                 <span>-</span>
                                             </button>
-                                                <input type="number" class="first_menu" readonly="readonly" value="1">
-                                                <button type="button" class="btn_plus" onclick="fnCalCount('p', this);">
+                                            <input type="number" id="count${products.key}" class="first_menu" readonly="readonly" class="tempCost" value="${products.value.count}">
+                                            <button type="button" class="btn_plus" onclick="fnCalCount('p', this, ${products.key});">
                                                 <span>+</span>
                                             </button>
-                                            </div>
                                         </div>
+                                    </div>
                                     </div>
                                     <div class="sumWrap">
                                         <dl>
@@ -147,7 +260,7 @@
                                             <dd>
                                                 <strong>
                                                 <em>
-                                                    <span>15,000</span>
+                                                    <span>${products.value.price*products.value.count}</span>
                                                     <span class="unit">원</span>
                                                 </em>
                                             </strong>
@@ -169,6 +282,7 @@
                                     </div>
                                 </li>
                             </ul>
+                            </c:forEach>
                         </div>
                         <h2 class="tit01 tit_ico money">
                             <span>최종 결제금액</span>

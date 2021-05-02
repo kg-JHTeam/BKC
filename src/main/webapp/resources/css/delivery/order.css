@@ -617,7 +617,14 @@ input[type=number] {
     clear: both;
     height: 0;
 }
-
+.cart_list01 .prd_img {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 254px;
+    height: 191px;
+    overflow: hidden;
+}
 .tit_ico.money::before {
     background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/payment_log.png);
 }
