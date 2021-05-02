@@ -411,9 +411,7 @@
 	                                         	<option value="" selected="selected">없음</option>
 	                                         	<c:forEach var="coupon" items="${usercoupons}">
 											    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
-											    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
-											    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
-                                         	</c:forEach>
+                                         		</c:forEach>
 										</select>
                                     </dd>
                                 </dl>
