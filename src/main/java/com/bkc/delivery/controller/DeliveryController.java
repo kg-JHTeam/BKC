@@ -401,29 +401,12 @@ public class DeliveryController {
 		return retVal;
 	}
 	
-	@RequestMapping(value = "/order.do", method = RequestMethod.GET)
-	public String order(Model model) {
-		System.out.println("주문페이지로 이동");
-		
-		// 푸터추가
-		BusinessInformationVO bi = biService.getBusinessInformation(1);
-		model.addAttribute("bi", bi);
-		return "delivery/order";
-	}
 	
-	@RequestMapping(value = "/ordercomplete.do", method = RequestMethod.GET)
-	public String ordercomplete(Model model) {
-		System.out.println("주문완료 페이지 이동");
-		
-		// 푸터추가
-		BusinessInformationVO bi = biService.getBusinessInformation(1);
-		model.addAttribute("bi", bi);
-		return "delivery/ordercomplete";
-	}
 
 	/*
 	 * Guest 딜리버리
 	 */
+	
 	// guest를 세션에 넣어두고 주문할 수 있도록 보낸다.
 	
 	@RequestMapping(value = "/guestDelivery", method = { RequestMethod.GET, RequestMethod.POST })
