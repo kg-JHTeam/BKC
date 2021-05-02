@@ -28,7 +28,7 @@ public class KakaoService {
 	        RestTemplate restTemplate = new RestTemplate();
 	 
 	        // 서버로 요청할 Header
-	        HttpHeaders headers = new HttpHeaders();
+	       HttpHeaders headers = new HttpHeaders();
 	        headers.add("Authorization", "KakaoAK " + "89ef55f574072cc355be21327caaa212");
 	        headers.add("Accept", MediaType.APPLICATION_JSON_UTF8_VALUE);
 	        headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
@@ -36,7 +36,7 @@ public class KakaoService {
 	        // 서버로 요청할 Body
 	        MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 	        params.add("cid", "TC0ONETIME");
-	        params.add("partner_order_id", "1001");
+	         params.add("partner_order_id", "1001");
 	        params.add("partner_user_id", "gorany");
 	        params.add("item_name", "갤럭시S9");
 	        params.add("quantity", "1");
