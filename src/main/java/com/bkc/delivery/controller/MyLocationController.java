@@ -123,9 +123,38 @@ public class MyLocationController {
 				System.out.println("실패");
 			}
 		}
-
 		return "redirect:/delivery/delivery.do";
 	}
+	
+	//주문페이지에서 배달지 변경 
+	@RequestMapping(value = "/delivery/insertLocation.do")
+	public String insertLocation(Model model, MyLocationVO loca) {
+
+		// 현재 로그인한 사용자 추가
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+
+		int countloca = mylocaService.getCountLoca(user.getUserid());
+
+		if (countloca < 1) {
+			int result = mylocaService.insertLocaOne(loca);
+			if (result == 1) {
+				System.out.println("배달지 등록 성공");
+			} else {
+				System.out.println("실패");
+			}
+		} else {
+			int result = mylocaService.updateLocaOne(loca);
+			if (result == 1) {
+				System.out.println("배달지 변경 성공");
+			} else {
+				System.out.println("실패");
+			}
+		}
+		return "redirect:/delivery/order.do";
+	}	
+		
 
 	// 배달지 삭제
 	@RequestMapping(value = "/delivery/deleteLocaDB.do", method = { RequestMethod.GET, RequestMethod.POST })

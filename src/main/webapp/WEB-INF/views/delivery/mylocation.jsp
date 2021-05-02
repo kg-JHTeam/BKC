@@ -127,7 +127,6 @@ color:red;
 				</div>
 			</div>
 			<div class="contentsBox02 bg_w">
-				
 				<div class="web_container02">
 					<form role="form" action="${pageContext.request.contextPath }/delivery/insertOneDB.do" method="post">
 					<div class="subtitWrap">

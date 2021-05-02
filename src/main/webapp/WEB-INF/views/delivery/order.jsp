@@ -330,8 +330,6 @@
                 //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
                 if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
                     addr = data.roadAddress;
-                    $(".txt_addr").css("display", "none");
-                    $(".addr_new").css("display", "block");
                 } else { // 사용자가 지번 주소를 선택했을 경우(J)
                     addr = data.jibunAddress;
                 }
@@ -357,22 +355,33 @@
                 } else {
                     document.getElementById("sample6_extraAddress").value = '';
                 }
-
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                
+             	// 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('sample6_postcode').value = data.zonecode;
                 document.getElementById("sample6_address").value = addr;
-                // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("sample6_detailAddress").focus();
+                
+                var addressText = addr + " " + extraAddr ;
+                
+                document.getElementById("realAddress").innerHTML = addressText;
+                
+                document.getElementById("findAddress").style.display ="none";
+                document.getElementById("checkAddress").style.display ="";
+                document.getElementById("detailAddress").style.display ="";
+                
+                
             	}
         	}).open();
     	}
-	
 	</script>
  
 <style>
 #selectedCoupon {
 	font-size: 1.4rem;
 	outline: none;
+}
+.inputWrap{ 
+ display: none;
+ visibility: hidden; 
 }
 </style>
 </head>
@@ -414,30 +423,34 @@
                         <h2 class="page_tit">주문하기</h2>
                     </div>
                     <div class="container01 orderWrap">
-                        <h2 class="tit01 tit_ico delivery">
-                            <span>배달정보</span>
-                        </h2>
+                        <h2 class="tit01 tit_ico delivery"><span>배달정보</span></h2>
                         <div class="container02 deli_info01">
                             <div class="addrWrap01">
+                             	<form role="form" action="${contextPath }/delivery/insertLocation.do" method="post">
                                 <div class="txt_addr">
-                                    <span>${location.addr} ${location.addr_detail}</span>
-                                    <span></span>
+                                    <span id="realAddress">${location.addr} ${location.addr_detail}</span>
+                                    <input style="display:none;" class="detailaddr2" id="detailAddress" name="addr_detail" type="text" placeholder="상세주소를 입력해주세요." >
                                 </div>
-                                
-                                <!-- 이주현  시작-->
-                                <form id="addressChanged" role="form" action="${pageContext.request.contextPath }/delivery/insertOneDB.do" method="post" enctype="multipart/form-data">
-                        		<div class="addr_new">
-                        			<input class="addr1" id="sample6_address" name="addr" type="text" placehoder="'주소'" readonly="readonly">
-									<input class="detailaddr1" id="sample6_extraAddress" name="addr_detail" type="text" placehoder="'상세 주소'" readonly="readonly">
-									<input class="detailaddr2" id="sample6_detailAddress" name="addr_detail" type="text"  placehoder="'상세 주소'" >
-									<input type="hidden" class="detailaddr" id="sample6_postcode" name="zipcode" type="text" placehoder="'우편 번호'">
+                        		<input type='hidden' name ="userid" id ="userid" value='<c:out value="${user.getUserid()}"/>'>
+								<div class="inputWrap">
+									<div class="inpbox2" >
+										<input class="addr" id="sample6_address" name="addr" type="hidden" > 
+									</div>
+									<div class="inpbox2" >
+										<input class="detailaddr" id="sample6_extraAddress" name="addr_detail" type="text" >
+									</div>
+									<div class="inpbox2">
+										<input class="detailaddr" id="sample6_detailAddress" name="addr_detail" type="text">
+									</div>					
+									<div class="inpbox2">
+										<input class="detailaddr" id="sample6_postcode" name="zipcode" type="text">
+									</div>
 								</div>
-								</form>
-								<!-- 이주현  끝-->
-								
-                                <button type="button" class="btn04 h02" onclick="javascript: sample6_execDaumPostcode()">
+                                <button id="findAddress" type="button" class="btn04 h02" onclick="javascript: sample6_execDaumPostcode()">
                                     <span>변경</span>
                                 </button>
+                                <button type="submit" class="btn04 h02" style="display:none;" id="checkAddress">이 주소로 배달지 설정</button>
+           						</form>
                             </div>
                             <div class="info_list">
                                 <dl>
