@@ -105,11 +105,9 @@ public class DeliveryController {
 		model.addAttribute("location", location);
 
 		// 카트 추가 잇는지 없는지 확인해서 보내기 
-		CartVO cart = new CartVO();
-		session.setAttribute("cart", cart);
-		
 		cart = new CartVO();
 		if (session.getAttribute("cart") == null) {
+			session.setAttribute("cart", cart);
 		} else {
 			cart = (CartVO) session.getAttribute("cart");
 		}

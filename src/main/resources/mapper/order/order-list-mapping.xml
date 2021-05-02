@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OrderDAO">
+	<resultMap type="OrderVO" id="OrderVO">
+		<result property="order_serial" column="order_serial" />
+		<result property="store_name" column="store_name" />
+		<result property="order_status" column="order_status" />
+		<result property="userid" column="userid" />
+		<result property="coupon_seqs" column="coupon_seq" />
+		<result property="total_price" column="total_price" />
+		<result property="payment_type" column="payment_type" />
+	</resultMap>
+
+	<insert id="insertOrder" parameterType="OrderVO" useGeneratedKeys="true" keyColumn="order_serial" keyProperty="order_serial"> 
+			INSERT INTO 
+				orderlist (store_name, order_status, userid, coupon_seq, payment_type, total_price)
+			VALUES 
+				 (
+				 #{store_name}, 
+				 #{order_status}, 
+				 #{userid}, 
+				 #{coupon_seq}, 
+				 #{payment_type}, 
+				 #{total_price})
+	</insert>
+</mapper>

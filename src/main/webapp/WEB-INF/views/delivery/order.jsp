@@ -170,9 +170,10 @@
 	}
 	
 	//쿠폰 변경
+	var coupon_seq = "-1"; //쿠폰을 사용안함. 
 	function changeCoupon(e){
 		const value = e.value;
-		
+		coupon_seq = value;
 		//쿠폰가격 0으로 처리 
 		if(value == "nothing"){
 			document.getElementById("totalDiscountCost").innerHTML = 0;
@@ -245,16 +246,17 @@
 	/*
 	 	----------------------------------결제관련 Javascript---------------------------------------
 	*/
+	
+	//DB에 보낼거 
 	function payValid(){
 		var contextpath = "<c:out value='${contextPath}'/>";
-       
-		alert("결제 하자");
+		
 		//가격이 0원인 경우 그냥 바로 결제 시킴
 		var realTotalCost = document.getElementsByClassName("realTotalCost");
 		if(realTotalCost[0].innerHTML  == 0){
-			alert("0원이네요 바로 결제 합니다용");
-			//값을 넣어가야지! -> 그냥
-			window.location.href= contextpath+"/delivery/ordersuccess.do"
+			console.log("쿠폰으로 100% 결제")
+			//쿠폰으로 결제하는 경우 ajax로 보낸다.
+			//총주문가격 - 0원 
 			return;
 		}
 		
@@ -270,29 +272,91 @@
                 break;
             }
         }
-        
-        //결제타입을 정하지 않았을 경우 
+      	//결제타입을 정하지 않았을 경우 
         if(paymentType_check==0){
             alert("결제 타입을 선택해주세요");
             return;
         }
-        
+      
+        //------------------------------ 	분기 시작하기전 ajax변수 설정 	------------------------------// 
+        /*
+			1. userid 
+			2. 배달지명	*- ajax로 
+			3. user주소	*- ajax로 
+			4. 연락처		*- ajax로 
+			5. 요청사항	*- ajax로 
+			6. 카트정보		- CartVO를 세션에서 꺼내온다. 						-> 바로 세션삭제
+			7. 쿠폰사용여부	*   - UsercouponVO를 받는다. Usercouponseq를 받아서 	-> 쿠폰사용후 삭제해버림
+			8. 쿠폰가격	*	- UsercouponVO를 받는다. Usercouponseq를 받아서 
+			9. 최종결제가격  - cart에서 꺼낸다. 
+			10. 결제수단     - ajax로 
+		 */
+		 
+		 var storename  = document.getElementById("store").value; 				// "배달지명" 
+		 var useraddress = document.getElementById("realAddress").innerHTML; 		// "고객주소"
+		 var phonenumber = document.getElementById("phonenumber").value;		 	// "연락처"
+		 var description = document.getElementById("description").value;	 		// "요청사항"
+		 var payment_type = "결제수단";  	
+		 var total_price = document.getElementById("realTotalCost").innerHTML; 	
+		 //coupon_seq - 상위에서 등록
+		 storename= "미등록지점";
+		 // "분기별로 입력 한다."
+		 //controller내에서 작업하는 변수
+		 //1. userid - 조인
+		 //2. cart - 조인 
+		 
+		//------------------------------ ------------------------------------------------------------// 
+		
       	//라디어 버튼에 따라 결제 분기 처리  - 5가지 타입 
       	if(paymentTypeValue == "naver"){
       		 alert("naver 결제로 ! ");
-      		 
       		 // 엄지현이 작업중인 곳 조심      //
        		 
       		 // ----------------- // 
       	} else if(paymentTypeValue == "kakao"){
       		KakaoPay();
       		alert("kakao 결제로 ! ");
-      	} else if(paymentTypeValue == "card"){
-      		alert("그냥 카드 결제로 ! ");
-      	} else if(paymentTypeValue == "fieldCard"){
-      		alert("현장에서 카드 결제로 ! ");
-      	} else if(paymentTypeValue == "fieldCash"){
-      		alert("현장에서 현금 결제로 ! ");
+      	} 
+      	
+      	//카드결제 두개 
+      	else if(paymentTypeValue == "card"){
+      		
+      	} 
+      	//현장 카드 결제
+      	else if(paymentTypeValue == "fieldCard"){
+      		
+      	} 
+      	
+      	//현장 현금결제 
+      	else if(paymentTypeValue == "fieldCash"){
+    		payment_type = "현금결제";  
+    		console.log(payment_type);
+      		var objParams = {
+    				"storename" : storename, 
+    				"useraddress" : useraddress, 
+    				"phonenumber" : phonenumber, 
+    				"description" : description, 
+    				"payment_type" : payment_type,
+    				"coupon_seq" : parseInt(coupon_seq),
+    				"total_price" :parseInt(total_price)
+            };
+    		  $.ajax({
+                url         :   "/bkc/delivery/ordersuccess.do",
+                dataType    :   "json",
+                contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+                type        :   "post", //post로 보냄
+                data        :   objParams,
+                success     :   function(retVal){
+                			console.log("성공");
+                },
+                error       :   function(request, status, error){
+                			console.log("결제 실패");
+                			alert("결제가 실패하였습니다.");
+                }
+            });
+      		
+      		
+      		
       	} else{
       		console.log("결제 error");
       	}
@@ -314,8 +378,6 @@
 		       }
 		   });
 		}
-	
-	
 	
 	function sample6_execDaumPostcode() {
         	new daum.Postcode({
@@ -367,8 +429,6 @@
                 document.getElementById("findAddress").style.display ="none";
                 document.getElementById("checkAddress").style.display ="";
                 document.getElementById("detailAddress").style.display ="";
-                
-                
             	}
         	}).open();
     	}
@@ -457,13 +517,13 @@
                                 <dl>
                                     <dt>연락처</dt>
                                     <dd>
-                                        <input class="tel" type="text" maxlength="20" value="${user.phone}">
+                                        <input class="tel" type="text" maxlength="20" value="${user.phone}" id="phonenumber">
                                     </dd>
                                 </dl>
                                 <dl>
                                     <dt>매장</dt>
                                     <dd>
-                                        <input class="store" type="text" readonly="readonly">
+                                        <input class="store" type="text" readonly="readonly" id="store">
                                     </dd>
                                 </dl>
                                 <dl class="memo">
@@ -471,7 +531,7 @@
                                     <dd>
                                         <div class="inp_bytes">
                                             <div>
-                                                <input class="request" type="text" placeholder="요청사항을 입력하세요" maxlength="50">
+                                                <input class="request" type="text" placeholder="요청사항을 입력하세요" maxlength="50" id="description">
                                             </div>
                                         </div>
                                     </dd>
@@ -572,7 +632,7 @@
 								<dl class="tot">
 									<dt>최종 결제금액</dt>
 									<dd>
-										<em> <span class="realTotalCost">0</span> <span
+										<em> <span class="realTotalCost" >0</span> <span
 											class="unit">원</span>
 										</em>
 									</dd>
@@ -676,7 +736,7 @@
 								<dt>총 결제금액</dt>
 								<dd>
 									<strong><span>&#8361;</span><span
-										class="realTotalCost">0</span></strong>
+										class="realTotalCost" id="realTotalCost">0</span></strong>
 								</dd>
 							</dl>
 							<div class="c_btn m_item2">
