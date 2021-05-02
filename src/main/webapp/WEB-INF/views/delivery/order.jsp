@@ -135,6 +135,7 @@
 	    	//진짜최종가격
 			var realTotalCost = document.getElementsByClassName("realTotalCost");
 			realTotal = total - couponTotal;
+			
 			//-값 안되게 처리
     		if(realTotal < 0){realTotal = 0;}
 			realTotalCost[0].innerHTML = realTotal;
@@ -168,6 +169,15 @@
 	//쿠폰 변경
 	function changeCoupon(e){
 		const value = e.value;
+		
+		//쿠폰가격 0으로 처리 
+		if(value == "nothing"){
+			document.getElementById("totalDiscountCost").innerHTML = 0;
+			var realTotalCost = document.getElementsByClassName("realTotalCost");
+    		realTotalCost[0].innerHTML = total;
+    		realTotalCost[1].innerHTML = total;
+		}
+		
 		//userCoupon 의 pk - value;
 		//value를 가지고 간다. 가격과 카테고리를 다시 가져와야함. 
 		var objParams = {
@@ -194,7 +204,7 @@
             		
             		//-값 안되게 처리
             		if(realTotal < 0){realTotal = 0;}
-		  					  
+
             		var realTotalCost = document.getElementsByClassName("realTotalCost");
             		realTotalCost[0].innerHTML = realTotal;
             		realTotalCost[1].innerHTML = realTotal;
@@ -221,6 +231,8 @@
         		}
             	alert("쿠폰을 사용할 수 없습니다.");
             	$("#notSelectedCoupon").prop("selected", true);
+            	document.getElementById("totalDiscountCost").innerHTML = 0;
+            	
             },
             error       :   function(request, status, error){
             	console.log("걍 실패");
@@ -232,6 +244,9 @@
 	*/
 	function payValid(){
 		alert("결제 하자");
+		
+		//결제 분기 처리 
+		
 	}
 	
 	
@@ -255,6 +270,7 @@
 	<style>
 	#selectedCoupon{
 	font-size:1.4rem;
+	outline:none;
 	}
 	</style>
 </head>
@@ -408,7 +424,7 @@
                                     <dt>쿠폰 선택하기 </dt>
                                     <dd>
                                          <select onChange="changeCoupon(this);" name="coupon" id="selectedCoupon" style="width:500px;height:50px;">
-	                                         	<option value="" selected="selected" id="notSelectedCoupon">없음</option>
+	                                         	<option value="nothing" selected="selected" id="notSelectedCoupon">없음</option>
 	                                         	<c:forEach var="coupon" items="${usercoupons}">
 											    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
                                          		</c:forEach>
@@ -487,7 +503,7 @@
                                             <span>네이버페이</span>
                                         </label>
                                     </li>
-                                    <li class="kakao" onclick="javascript:KakaoPay()">
+                                    <li class="kakao">
                                         <label>
                                             <input type="radio" name="paymentType">
                                             <span>카카오페이</span>
