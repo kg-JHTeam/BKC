@@ -404,7 +404,7 @@
                     </div>
                     <div class="location">
                         <span class="addr">
-                        <span>${location.addr} ${location.addr_detail}</span>
+                        <span>${location.addr} ${location.addr_detail} ${location.addr_extra}</span>
                         </span>
                         <span class="shop">
                         <span>신논현역점(DB)</span>
@@ -428,9 +428,10 @@
                             <div class="addrWrap01">
                              	<form role="form" action="${contextPath }/delivery/insertLocation.do" method="post">
                                 <div class="txt_addr">
-                                    <span id="realAddress">${location.addr} ${location.addr_detail}</span>
-                                    <input style="display:none;" class="detailaddr2" id="detailAddress" name="addr_detail" type="text" placeholder="상세주소를 입력해주세요." >
+                                    <span id="realAddress">${location.addr} ${location.addr_detail} ${location.addr_extra}</span>
+                                    <input style="display:none;" class="detailaddr2" id="detailAddress" name="addr_extra" type="text" placeholder="상세주소를 입력해주세요." >
                                 </div>
+                                
                         		<input type='hidden' name ="userid" id ="userid" value='<c:out value="${user.getUserid()}"/>'>
 								<div class="inputWrap">
 									<div class="inpbox2" >

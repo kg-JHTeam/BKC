@@ -114,7 +114,9 @@ public class MyLocationController {
 		UserVO user = userService.getUserById(userDetails.getUsername());
 
 		int countloca = mylocaService.getCountLoca(user.getUserid());
-
+		System.out.println("들어온거 " + loca.toString());
+		
+		
 		if (countloca < 1) {
 			int result = mylocaService.insertLocaOne(loca);
 			if (result == 1) {
@@ -130,6 +132,7 @@ public class MyLocationController {
 				System.out.println("실패");
 			}
 		}
+		System.out.println("새로운조소 "  + loca.toString());
 		return "redirect:/delivery/delivery.do";
 	}
 
@@ -159,6 +162,7 @@ public class MyLocationController {
 				System.out.println("실패");
 			}
 		}
+		System.out.println("새로운조소 "  + loca.toString());
 		return "redirect:/delivery/order.do";
 	}
 

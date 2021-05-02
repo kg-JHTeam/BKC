@@ -82,7 +82,7 @@
                 
                 document.getElementById("findAddress").style.display ="none";
                 document.getElementById("checkAddress").style.display ="";
-                document.getElementById("detailAddressWarning").style.display ="block";
+                document.getElementById("addr_extra").style.display="block";
             }
         }).open();
     }
@@ -91,9 +91,11 @@
 <style>
 .inputWrap{ display: none }
 .inputWrap{ visibility: hidden }
-#detailAddressWarning{
-display: none;
-color:red;
+#addr_extra{
+	display: none;
+}
+*{
+ align:left;
 }
 </style>
 <body>
@@ -112,7 +114,7 @@ color:red;
 					</div>
 					<div class="location">
 						<span class="addr"> 
-							<span>${location.addr} ${location.addr_detail}</span>
+							<span>${location.addr} ${location.addr_detail} ${location.addr_extra}</span>
 						</span> 
 						<span class="shop"> 
 							<span>DB</span>
@@ -132,7 +134,10 @@ color:red;
 					<div class="searchWrap02">
 						<div class="r_srch01">
 							<div class="inpbox">
-								<input class="findaddr" type="text" maxlength="50" placeholder="'주소찾기'를 선택해주세요." id="realAddress">
+								<input class="findaddr" type="text" maxlength="35" placeholder="'주소찾기'를 선택해주세요." id="realAddress">
+							</div>
+							<div class="inpbox"  id="addr_extra"> 
+								<input class="findaddr" type="text" name="addr_extra" maxlength="50" placeholder="'상세주소입력">
 							</div>
 							<button type="button" class="btn_search01 btn01_m"
 								onclick="javascript: sample6_execDaumPostcode()" id="findAddress"><span>주소 찾기</span>
@@ -140,21 +145,20 @@ color:red;
 							<button type="submit" class="btn_search01 btnput" style="display:none;" id="checkAddress">이 주소로 배달지 설정</button>
 						</div>
 						<br>
-						<h3 id="detailAddressWarning" > 상세주소를 추가해서 적어주세요. </h3>
 					</div>
 					<input type='hidden' name ="userid" id ="userid" value='<c:out value="${user.getUserid()}"/>'>
 					<div class="inputWrap">
 						<div class="inpbox2" >
-							<input class="addr" id="sample6_address" name="addr" type="hidden" placehoder="'주소'"> 
+							<input class="addr" id="sample6_address" name="addr" type="hidden"> 
 						</div>
 						<div class="inpbox2" >
-							<input class="detailaddr" id="sample6_extraAddress" name="addr_detail" type="text" placehoder="'상세 주소'">
+							<input class="detailaddr" id="sample6_extraAddress" name="addr_detail" type="text" >
 						</div>
 						<div class="inpbox2">
-							<input class="detailaddr" id="sample6_detailAddress" name="addr_detail" type="text"  placehoder="'상세 주소'">
+							<input class="detailaddr" id="sample6_detailAddress" name="addr_detail" type="text">
 						</div>					
 						<div class="inpbox2">
-							<input class="detailaddr" id="sample6_postcode" name="zipcode" type="text" placehoder="'우편 번호'">
+							<input class="detailaddr" id="sample6_postcode" name="zipcode" type="text" >
 						</div>
 					</div>
 					</form>

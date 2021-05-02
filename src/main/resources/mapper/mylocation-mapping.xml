@@ -20,14 +20,13 @@
 							   addr_name,
 							   addr,
 							   addr_detail,
+							   addr_extra,
 							   userid
 						FROM user_address							
 			        	)A
 	        	)B
 	    	WHERE userid = #{userid} AND addr_type=1
 	</select>
-	
-	
 	<select id="newLocaList" resultType="MyLocationVO">
 		SELECT *
 	   		FROM(
@@ -39,6 +38,7 @@
 							   zipcode,
 							   addr_name,
 							   addr,
+							   addr_extra,
 							   userid
 						FROM user_address							
 			        	)A
@@ -58,7 +58,8 @@
 		UPDATE user_address 
 			SET zipcode=#{zipcode},
 				addr = #{addr},
-				addr_detail = #{addr_detail}
+				addr_detail = #{addr_detail},
+				addr_extra = #{addr_extra}
 		WHERE userid=#{userid} AND addr_type=2
 	</update>
 	
@@ -76,6 +77,7 @@
 				zipcode, 
 				addr, 
 				addr_detail, 
+				addr_extra,
 				userid
 			FROM user_address
 	    	WHERE userid = #{userid} AND addr_type=2
