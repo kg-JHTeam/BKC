@@ -18,4 +18,9 @@ public class OrderDAOImpl implements OrderDAO {
 		sqlSession.insert("insertOrder", order);
 		return order.getOrder_serial();
 	}
+
+	@Override
+	public OrderVO getOrder(int order_serial) {
+		return sqlSession.selectOne("getOrder", order_serial);
+	}
 }

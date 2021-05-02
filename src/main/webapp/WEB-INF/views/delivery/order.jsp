@@ -347,11 +347,13 @@
                 type        :   "post", //post로 보냄
                 data        :   objParams,
                 success     :   function(retVal){
-                			console.log("성공");
+                	        orderSerial = retVal.order_serial; 
+                	        console.log(orderSerial);
+                	        window.location.href= contextpath+"/delivery/ordercomplete.do?order_serial="+orderSerial;
                 },
                 error       :   function(request, status, error){
-                			console.log("결제 실패");
-                			alert("결제가 실패하였습니다.");
+                			console.log("주문 실패");
+                			alert("주문이 실패하였습니다.");
                 }
             });
       		

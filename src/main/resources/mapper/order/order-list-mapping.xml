@@ -9,11 +9,11 @@
 		<result property="coupon_seqs" column="coupon_seq" />
 		<result property="total_price" column="total_price" />
 		<result property="payment_type" column="payment_type" />
+		<result property="address" column="address" />
 	</resultMap>
-
 	<insert id="insertOrder" parameterType="OrderVO" useGeneratedKeys="true" keyColumn="order_serial" keyProperty="order_serial"> 
 			INSERT INTO 
-				orderlist (store_name, order_status, userid, coupon_seq, payment_type, total_price)
+				orderlist (store_name, order_status, userid, coupon_seq, payment_type, total_price, address)
 			VALUES 
 				 (
 				 #{store_name}, 
@@ -21,6 +21,14 @@
 				 #{userid}, 
 				 #{coupon_seq}, 
 				 #{payment_type}, 
-				 #{total_price})
+				 #{total_price},
+				 #{address})
 	</insert>
+	
+	<select id="getOrder" resultType="OrderVO">
+		<![CDATA[
+			SELECT * FROM orderlist where order_serial=	#{order_serial}
+		]]>
+	</select>
+	
 </mapper>

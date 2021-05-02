@@ -18,4 +18,9 @@ public class OrderServiceImpl implements OrderService {
 	public int insertOrder(OrderVO order) {
 		return orderDao.insertOrder(order);
 	}
+
+	@Override
+	public OrderVO getOrder(int order_serial) {
+		return orderDao.getOrder(order_serial);
+	}
 }
