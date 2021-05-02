@@ -66,7 +66,7 @@
                                 <strong>${user.name } 님!</strong>
                                 <span>반갑습니다</span>
                             </p>
-                            <a href="#">
+                            <a href="${contextPath}/modifyuser">
                                 <span>정보변경</span>
                             </a>
                         </div>

@@ -1,0 +1,113 @@
+
+.container02>.titbox:first-child {
+    margin: -20px -50px 20px;
+    padding: 37px 50px;
+    font-size: 1.375rem;
+    background: #f8f8f8;
+}
+.container02 .titbox+.txtlist01, .container03+.txtlist01 {
+    margin-top: 40px;
+}
+.tit_ico.noti:before {
+	background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/myset2.png);
+}
+.tit_ico.withdrawal:before {
+	background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/myset2.png);
+}
+.tit_ico:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+select.st02 {
+    font-weight: 700;
+    font-size: 1.25rem;
+	background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/btn_rotate.png)no-repeat 100%;
+    border-bottom: 2px dashed #e5e5e5;
+}
+select:only-child {
+    display: block;
+    width: 100%;
+}
+select {
+	outline: 0;
+    margin: 0;
+    min-width: 4em;
+    max-width: 100%;
+    height: 64px;
+    padding: 0 32px 3px 0;
+    font-style: normal;
+    font-size: 1.75rem;
+    color: #000;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+	background: url();
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.container02 .dlist01:last-child dl:last-child dt.WEB+dd .inpbox, .container02 .inpbox:last-child {
+    margin-bottom: 30px;
+}
+.container02 .inpbox:only-child {
+    margin: 0;
+}
+.container02 .dlist01 .inpbox {
+    margin-bottom: 0;
+}
+.container02 .inpbox:first-of-type {
+    margin-top: 4px;
+}
+.container02 .inpbox {
+    margin: 4px 4px 13px;
+}
+.txt_chk {
+    margin: 28px 0 60px;
+    font-size: 1.25rem;
+    text-align: right;
+}
+input[type=checkbox], input[type=radio] {
+    position: absolute;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    opacity: 0;
+}
+.btn01.m {
+    width: 216px;
+    height: 68px;
+    font-size: 1.5rem;
+    line-height: 46px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/btn-black.png) no-repeat 50%;
+    background-size: 100% 100%;
+    border-radius: 0;
+}
+.btn01 {
+    display: inline-block;
+    width: 256px;
+    height: 68px;
+    font-size: 1.5rem;
+    padding: 12px 10px 10px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    line-height: 46px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/btn-black.png) no-repeat 50%;
+    background-size: 100% 100%;
+    border-radius: 0;
+}

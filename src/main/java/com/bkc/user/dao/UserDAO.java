@@ -45,5 +45,7 @@ public interface UserDAO {
 	public int socialInsert(UserVO user);
 
 	public int changeEnabled(UserVO user);
+	
+	public int deleteUser(UserVO vo);
 
 }

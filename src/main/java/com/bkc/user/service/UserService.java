@@ -61,4 +61,6 @@ public interface UserService {
 	//변경 
 	public int changeEnabled(UserVO user);
 	
+	//유저 삭제(enabled false로 변경)
+	public int deleteUser(UserVO vo);
 }
