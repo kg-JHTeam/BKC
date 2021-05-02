@@ -38,7 +38,7 @@ function loginWithKakao() {
 	       dataType: 'text',
 	       success: function (res) {
 	         let _left = (window.screen.width/2) - (500/2);
-	            let _top = (window.screen.height/2) - (500/2);
+	          let _top = (window.screen.height/2) - (500/2);
 	         console.log(_left);
 	         console.log(_top);
 	         window.open(res, 'BKC', "width=500, height=500, location=no, menubar=no, top=" + _top + ", left=" + _left);

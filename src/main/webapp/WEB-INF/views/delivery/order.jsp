@@ -22,7 +22,7 @@
 	<title>주문하기</title>
 	
 	<script>
-
+	//----------------------------------UI관련   Javascript---------------------------------------//
 	//메뉴에 따른 menu tab
 	$(document).ready(function() {
 	    //$(".tab_cont > ul").hide();
@@ -34,7 +34,6 @@
 	        $(".payment_tabcont").eq(idx).removeClass("w_none");
 	    })
 	});
-
 	//네이버페이 카카오페이 누를시 달라지게
 	$(document).ready(function() {
 	    $('.kakao input[type=radio]').click(function() {
@@ -44,7 +43,6 @@
 	        $('.txtlist03 li').show();
 	    })
 	});
-
 	//Goto Page Top
 	$(function() {
 	    $(window).scroll(function() {
@@ -63,10 +61,11 @@
 	});
 	
 	
-	//최종 가격 구하기
+	//----------------------------------금액 변경하는  Javascript---------------------------------------//
 	var total = 0;  //최종 금액의 가격
-	var couponTotal = 0; // 쿠폰의 최종가격
+	var couponTotal = 0; // 쿠폰의 최종가격 - 가져온다
 	var realTotal = 0 ; // 진짜 최종 가격 
+	var coupontCategory = ""; //쿠폰카테고리
 	
 	window.onload = function(){
 		//주문내역 모든 가격 
@@ -86,6 +85,8 @@
 		realTotalCost[1].innerHTML = totalOrderCost;
 		
 		total = totalOrderCost;
+		
+		//메뉴 정보를 가져와야함. -> 메뉴 타입.  
 	}
 	
 	
@@ -116,8 +117,8 @@
 	    	
 	    	//진짜최종가격
 			var realTotalCost = document.getElementsByClassName("realTotalCost");
-			realTotalCost[0].innerHTML = total;
-			realTotalCost[1].innerHTML = total;
+			realTotalCost[0].innerHTML = total - couponTotal;
+			realTotalCost[1].innerHTML = total - couponTotal;
 	    } 
 	    else {
 	    	if(productCount <= 1){
@@ -130,8 +131,8 @@
 	    	
 	    	//진짜최종가격
 			var realTotalCost = document.getElementsByClassName("realTotalCost");
-			realTotalCost[0].innerHTML = total;
-			realTotalCost[1].innerHTML = total;
+			realTotalCost[0].innerHTML = total - couponTotal;
+			realTotalCost[1].innerHTML = total - couponTotal;
 	    }
 	    
 	    var objParams = {
@@ -156,19 +157,77 @@
             	console.log("걍 실패");
             }
         });
-	 	
 	}
 	
+	//쿠폰 변경
+	function changeCoupon(e){
+		const value = e.value;
+		alert("change" + value);
+		
+		//userCoupon 의 pk - value;
+		//value를 가지고 간다. 가격과 카테고리를 다시 가져와야함. 
+		
+		var objParams = {
+                "coupon_seq"      : parseInt(value),   	  // key값
+        };
+		
+		  $.ajax({
+            url         :   "/bkc/delivery/couponPrice.do",
+            dataType    :   "json",
+            contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+            type        :   "post", //post로 보냄
+            data        :   objParams,
+            success     :   function(retVal){
+            	couponTotal	= retVal.price;
+            	coupontCategory = retVal.category;
+            	console.log("쿠폰가격 : " + couponTotal + "카테고리" + coupontCategory);
+
+            	//모든 메뉴에 적용되는 쿠폰일 경우 
+            	if(coupontCategory == "all"){
+            		//전체 메뉴 쿠폰사용 로직
+            		document.getElementById("totalDiscountCost").innerHTML = couponTotal;
+            		
+            		realTotal = total - couponTotal;   //최종 가격 = 전체메뉴가격 - 쿠폰가격
+            		
+            		var realTotalCost = document.getElementsByClassName("realTotalCost");
+            		realTotalCost[0].innerHTML = realTotal;
+            		realTotalCost[1].innerHTML = realTotal;
+            		return;
+            	}
+            	
+            	//카트를 확인하면서 카테고리에 맞는 게 있으면 쿠폰가격을 넣고, 카테고리가 다르다면 쿠폰을 넣지 못하게 한다. 
+            	var categoryName =  document.getElementsByClassName('categoryName');
+            	for(let i = 0 ;i< categoryName.length; i++){
+            		
+            		//쿠폰과 맞는 카테고리가 있다면 처리시켜준다. 없으면 끝.
+            		if(categoryName[i].value==coupontCategory){
+            			//전체 메뉴 쿠폰사용 로직
+                		document.getElementById("totalDiscountCost").innerHTML = couponTotal;
+                		
+                		realTotal = total - couponTotal;   //최종 가격 = 전체메뉴가격 - 쿠폰가격
+                		
+                		var realTotalCost = document.getElementsByClassName("realTotalCost");
+                		realTotalCost[0].innerHTML = realTotal;
+                		realTotalCost[1].innerHTML =realTotal;
+            			return; //맞으면 바로 처리 
+            		}
+        		}
+            	
+            },
+            error       :   function(request, status, error){
+            	console.log("걍 실패");
+            }
+        });
+	}
 	/*
-	 	결제관련 Javascript
-	 				
+	 	----------------------------------결제관련 Javascript---------------------------------------
 	*/
 	function payValid(){
 		alert("결제 하자");
 	}
 	
 	
-	function KakaopPay() {
+	function KakaoPay() {
 		  $.ajax({
 		       url: '/bkc/pay/kakaopay.do',
 		       type: 'get',
@@ -274,6 +333,7 @@
                         </div>
                         <div class="container02 order_accWrap open">
                         	<c:forEach var="products" items="${cart.products}">
+                        	<input type="hidden" class="categoryName" value="${products.value.type_serial}"> 
                         	<!-- 카트 정보  -->
                             <div class="acc_tit">
                                 <p class="tit">
@@ -329,42 +389,23 @@
                                             </strong>
                                             </dd>
                                         </dl>
-                                        <!-- 쿠폰 관련  -->
-                                        <dl class="discount">
-                                            <dt>
-                                            <em>쿠폰할인</em>
-                                        </dt>
-                                       
-                                            <dd>
-                                                <strong>
-                                                <em>
-                                                    <span>0</span>
-                                                    <span class="unit">원</span>
-                                                </em>
-                                            </strong>
-                                            </dd>
-                                        </dl>
                                     </div>
                                 </li>
                             </ul>
                             </c:forEach>
                         </div>
-                        <h2 class="tit01 tit_ico money">
-                            <span>쿠폰 선택</span>
-                        </h2>
                         <div class="container02">
                             <div class="order_payment_list">
                                 <dl class="tot">
                                     <dt>쿠폰 선택하기 </dt>
                                     <dd>
-                                         <select name="coupon" id="selectedCoupon" style="width:500px;height:50px;">
-                                         	<option value="" selected="selected">없음</option>
-                                         	<c:forEach var="coupon" items="${usercoupons}">
+                                         <select onChange="changeCoupon(this);" name="coupon" id="selectedCoupon" style="width:500px;height:50px;">
+	                                         	<option value="" selected="selected">없음</option>
+	                                         	<c:forEach var="coupon" items="${usercoupons}">
 											    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
 											    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
 											    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
                                          	</c:forEach>
-										    
 										</select>
                                     </dd>
                                 </dl>

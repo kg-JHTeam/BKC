@@ -16,5 +16,7 @@ public interface UserCouponDAO {
 	public int deleteUserCoupon(int coupon_seq);
 
 	public int insertUserCoupon(UserCouponVO usercoupon);
+
+	public UserCouponVO getPrice(int coupon_seq);
 	
 }
