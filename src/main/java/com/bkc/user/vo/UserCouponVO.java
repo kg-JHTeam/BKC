@@ -12,6 +12,15 @@ public class UserCouponVO {
 	private Date endDate;//여기서만
 	private String coupon_title; 
 	
+	private int price;
+	private String coupon_category;
+	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	public String getCoupon_title() {
 		return coupon_title;
 	}
@@ -59,6 +68,12 @@ public class UserCouponVO {
 	public String toString() {
 		return "UserCouponVO [coupon_number=" + coupon_number + ", startdate=" + startdate + ", coupon_serial="
 				+ coupon_serial + ", userid=" + userid + ", coupon_seq=" + coupon_seq + "]";
+	}
+	public String getCoupon_category() {
+		return coupon_category;
+	}
+	public void setCoupon_category(String coupon_category) {
+		this.coupon_category = coupon_category;
 	}
 	
 }

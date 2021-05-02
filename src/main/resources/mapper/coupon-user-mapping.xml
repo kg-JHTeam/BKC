@@ -9,7 +9,7 @@
 
 	<select id="getUserCouponList" resultType="UserCouponVO">
 		<![CDATA[
-			SELECT user_coupon.*, coupon.coupon_title 
+			SELECT user_coupon.*, coupon.coupon_title , coupon.price
 			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
 		]]>
 	</select>
@@ -20,6 +20,15 @@
 		]]>
 	</select>
 	
+	<!-- 가격 가져오기. -->
+		<select id="getPrice" resultType="UserCouponVO">
+		<![CDATA[
+			SELECT *
+			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
+			WHERE user_coupon.coupon_seq= #{coupon_seq}
+		]]>
+	</select>
+	
 	<select id="getUserHavingCouponDetail" resultType="UserCouponVO">
 		<![CDATA[
 			SELECT user_coupon.*, coupon.coupon_title 
@@ -27,7 +36,6 @@
 			WHERE userid=#{userid}
 		]]>
 	</select>
-	
 	<insert id="deleteUserCoupon" >
 		<![CDATA[
 			DELETE FROM user_coupon

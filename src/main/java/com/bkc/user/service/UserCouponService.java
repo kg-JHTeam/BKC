@@ -22,4 +22,7 @@ public interface UserCouponService {
 	//쿠폰 배포 
 	public int insertUserCoupon(UserCouponVO usercoupon);
 
+	//가격 가져오기 
+	public UserCouponVO getPrice(int coupon_seq);
+
 }
