@@ -26,7 +26,6 @@
 <script src="../resources/js/delivery/mylocation.js"></script>
 <title>배달지설정</title>
 </head>
-
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -99,10 +98,9 @@ color:red;
 </style>
 <body>
 	<input type='hidden' name="userid" id="userid" value='<c:out value="${user.getUserid()}"/>'>
-
+	<jsp:include page="../include/header/delivery_desktop_header2.jsp"/>
 	<div class="subWrap02">
 		<!-- delivery desktop header -->
-		<jsp:include page="../include/header/delivery_desktop_header2.jsp"/>
 		<!-- contents 부분 -->
 		<div class="contentsWrap">
 			<div class="locationWrap">
@@ -113,7 +111,6 @@ color:red;
 						</a>
 					</div>
 					<div class="location">
-						
 						<span class="addr"> 
 							<span>${location.addr} ${location.addr_detail}</span>
 						</span> 
@@ -121,7 +118,7 @@ color:red;
 							<span>DB</span>
 						</span> 
 						<span class="btn"> 
-							<a href="" class="addrchange"> <span>변경</span></a>
+							<a href="" class="addrchange"><span>변경</span></a>
 						</span>
 					</div>
 				</div>

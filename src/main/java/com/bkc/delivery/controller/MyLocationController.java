@@ -2,6 +2,8 @@ package com.bkc.delivery.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +17,7 @@ import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.delivery.service.MyLocationService;
 import com.bkc.delivery.vo.MyLocationVO;
 import com.bkc.user.service.UserService;
+import com.bkc.user.vo.CartVO;
 import com.bkc.user.vo.UserVO;
 
 @Controller
@@ -28,10 +31,10 @@ public class MyLocationController {
 
 	@Autowired
 	private BusinessInformationService biService;
-	
+
 	// 배달지 목록보기
 	@RequestMapping(value = "/delivery/mylocation.do")
-	private String getLocaList(MyLocationVO loca, Model model) {
+	private String getLocaList(MyLocationVO loca, Model model, HttpSession session) {
 
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = (UserDetails) principal;
@@ -53,6 +56,10 @@ public class MyLocationController {
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 
+		// 카트 보내기
+		CartVO cart = (CartVO) session.getAttribute("cart");
+		model.addAttribute("cart", cart);
+
 		return "delivery/mylocation";
 	}
 
@@ -67,7 +74,7 @@ public class MyLocationController {
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
-		
+
 		int countloca = mylocaService.getCountLoca(user.getUserid());
 		System.out.println(countloca);
 		return "delivery/mylocation";
@@ -93,7 +100,7 @@ public class MyLocationController {
 		} else {
 			System.out.println("배달지 5개 초과");
 		}
-		
+
 		return "redirect:/delivery/mylocation.do";
 	}
 
@@ -125,8 +132,8 @@ public class MyLocationController {
 		}
 		return "redirect:/delivery/delivery.do";
 	}
-	
-	//주문페이지에서 배달지 변경 
+
+	// 주문페이지에서 배달지 변경
 	@RequestMapping(value = "/delivery/insertLocation.do")
 	public String insertLocation(Model model, MyLocationVO loca) {
 
@@ -153,8 +160,7 @@ public class MyLocationController {
 			}
 		}
 		return "redirect:/delivery/order.do";
-	}	
-		
+	}
 
 	// 배달지 삭제
 	@RequestMapping(value = "/delivery/deleteLocaDB.do", method = { RequestMethod.GET, RequestMethod.POST })

@@ -69,7 +69,7 @@ public class DeliveryController {
 	// 회원 주문 페이지로 이동
 	@RequestMapping(value = "/delivery.do", method = RequestMethod.GET)
 	public String delivery(CautionVO cautionVO, Model model, HttpSession session) {
-
+		
 		// 유의사항 화면출력
 		List<CautionVO> CautionList = cService.CautionList(cautionVO);
 		model.addAttribute("CautionList", CautionList);
@@ -104,8 +104,11 @@ public class DeliveryController {
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
 		model.addAttribute("location", location);
 
-		// 카트 추가
+		// 카트 추가 잇는지 없는지 확인해서 보내기 
 		CartVO cart = new CartVO();
+		session.setAttribute("cart", cart);
+		
+		cart = new CartVO();
 		if (session.getAttribute("cart") == null) {
 		} else {
 			cart = (CartVO) session.getAttribute("cart");
@@ -249,6 +252,7 @@ public class DeliveryController {
 	@RequestMapping(value = "/admin/cautionList.ad", method = { RequestMethod.GET })
 	public String CautionList(CautionVO cautionVO, Model model) {
 
+		
 		// 유의사항
 		List<CautionVO> CautionList = cService.CautionList(cautionVO);
 		model.addAttribute("CautionList", CautionList);
@@ -313,6 +317,7 @@ public class DeliveryController {
 		if (seq == 0) {
 			// 세션이 아예없다면,
 			if (session.getAttribute("cart") == null) {
+			
 			} else { // 세션이 있다면
 				cart = (CartVO) session.getAttribute("cart");
 			}
@@ -366,7 +371,7 @@ public class DeliveryController {
 		// 지정 배달지
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
 		model.addAttribute("location", location);
-
+		
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
@@ -434,7 +439,7 @@ public class DeliveryController {
 	public String goGuestDeliveryPage(Model model, HttpSession session) {
 		String guest = (String) session.getAttribute("guest");
 		model.addAttribute("guest", guest);
-		
+
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
