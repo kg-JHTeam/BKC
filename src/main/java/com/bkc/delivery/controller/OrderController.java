@@ -103,17 +103,28 @@ public class OrderController {
 		return "delivery/order";
 	}
 
-	// 주문페이지로 이동함.
+	// 주문페이지로 이동함. - post로 변경하기가 필요함. 
 	@RequestMapping(value = "/ordercomplete.do", method = RequestMethod.GET)
-	public String goOrdercomplete(Model model) {
+	public String goOrdercomplete(Model model,
+			@RequestParam(value="order_serial") int order_serial
+			) {
 		System.out.println("주문완료 페이지 이동");
 
+		// order 정보 추가 
+		OrderVO order = orderService.getOrder(order_serial);
+		model.addAttribute("order", order);
+		
+		// user 정보 추가 
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+		model.addAttribute("user", user);
+		
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 		return "delivery/ordercomplete";
 	}
-
 	
 	/*
 	1. userid 
@@ -134,7 +145,7 @@ public class OrderController {
 	@RequestMapping(value = "/ordersuccess.do", method = RequestMethod.POST)
 	public Object goAjaxOrdercomplete(
 			@RequestParam(value="storename") String store_name,
-			@RequestParam(value="useraddress") String useraddress,
+			@RequestParam(value="useraddress") String address,
 			@RequestParam(value="phonenumber") String phonenumber,
 			@RequestParam(value="description") String description,
 			@RequestParam(value="payment_type") String payment_type,
@@ -159,7 +170,7 @@ public class OrderController {
 		String userid = user.getUserid();
 		int order_status = 1; //default 1
 		
-		OrderVO order = new OrderVO(store_name, order_status, userid, coupon_seq, payment_type, total_price);
+		OrderVO order = new OrderVO(store_name, order_status, userid, coupon_seq, payment_type, total_price, address);
 				
 		//orderlist에 주문 추가 
 		int order_serial = orderService.insertOrder(order) ; //order_serial
@@ -196,9 +207,10 @@ public class OrderController {
 			
 			orderDetailService.insertOrderDetail(orderDetail);
 		}
-		
+		//카트 세션 삭제 		- session.removeAttribute("cart");
+					
 		retVal.put("order_serial", order_serial); //주문관련 정보 넣어서 보냄. 
-		retVal.put("message", "ok 성공");
+		retVal.put("message", "결제 성공");
 		return retVal;
 	}
 }

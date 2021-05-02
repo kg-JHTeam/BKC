@@ -64,7 +64,7 @@
                         </h2>
                         <div class="container03 pd02">
                             <p class="txt_info01 w_bold">
-                                <span>000000001</span>
+                                <span>${order.order_serial}</span>
                             </p>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         </h2>
                         <div class="container03 pd02">
                             <p class="txt_info01 w_bold">
-                                <span>서울특별시 서초구 잠원로 117 (잠원동, 아크로리버뷰신반포)</span>
+                                <span>${order.address}</span>
                             </p>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                             <div class="info">
                                 <p class="branch">
                                     <strong>
-                                        <span>종로점</span>
+                                        <span>${order.store_name}</span>
                                     </strong>
                                 </p>
                                 <p class="tel">

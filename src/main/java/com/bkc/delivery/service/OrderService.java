@@ -9,4 +9,6 @@ public interface OrderService {
 
 	public int insertOrder(OrderVO order);
 
+	public OrderVO getOrder(int order_serial);
+
 }
