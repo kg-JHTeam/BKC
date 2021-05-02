@@ -400,6 +400,26 @@ public class DeliveryController {
 		retVal.put("message", "ok 성공");
 		return retVal;
 	}
+	
+	@RequestMapping(value = "/order.do", method = RequestMethod.GET)
+	public String order(Model model) {
+		System.out.println("주문페이지로 이동");
+		
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		return "delivery/order";
+	}
+	
+	@RequestMapping(value = "/ordercomplete.do", method = RequestMethod.GET)
+	public String ordercomplete(Model model) {
+		System.out.println("주문완료 페이지 이동");
+		
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		return "delivery/ordercomplete";
+	}
 
 	/*
 	 * Guest 딜리버리

@@ -324,7 +324,7 @@
                                 <a href="${contextPath}/delivery/delivery.do" class="btn01 m ico add">
                                     <span>메뉴추가</span>
                                 </a>
-                                <a href="#" class="btn01 m orange">
+                                <a href="${contextPath}/delivery/order.do" class="btn01 m orange">
                                     <span>주문하기</span>
                                 </a>
                             </div>
