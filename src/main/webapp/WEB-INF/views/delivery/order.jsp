@@ -599,7 +599,7 @@
 												<dd>
 													<strong> <em> <span class="productsPrice"
 															id="totalProductCost${products.key}">${products.value.price*products.value.count}</span>
-															<!-- 갯수에 따른 금액 --> <span class="unit">원</span>
+															 <span class="unit">원</span>
 													</em>
 													</strong>
 												</dd>

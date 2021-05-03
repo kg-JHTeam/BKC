@@ -114,7 +114,6 @@ public class GuestController {
 	public String goGuestDeliveryPage(Model model, HttpSession session) {
 		String guest = (String) session.getAttribute("guest");
 		model.addAttribute("guest", guest);
-		
 		return "guest/guestdelivery";
 	}
 }

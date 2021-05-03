@@ -22,6 +22,12 @@
     <script src="${contextPath}/resources/js/delivery/orderList.js"></script>
 	
 	<title>주문목록</title>
+	<script>
+	window.onload = function(){
+		//아무것도 없는 경우
+		
+	}
+	</script>
 </head>
 <body>
 	<div class="subWrap02">
@@ -45,13 +51,13 @@
                     </div>
                     <div class="location">
                         <span class="addr">
-                        <span>서울특별시 서초구 잠원로 117 (잠원동, 아크로리버뷰신반포)(DB)</span>
+                        <span>${location.addr} ${location.addr_detail}</span>
                         </span>
                         <span class="shop">
                         <span>신논현역점(DB)</span>
                         </span>
                         <span class="btn">
-                        <a href="#" class="addrchange">
+                        <a href="${contextPath}/delivery/mylocation.do" class="addrchange">
                             <span>변경</span>
                         </a>
                         </span>
@@ -75,31 +81,30 @@
                     <div class="container01">
                         <div class="tab_cont">
                             <h3 class="hide">딜리버리</h3>
-                            <div class="nodata" style="display: none;">
+                            <div class="nodata" style="display: none;" id="zeroDelivery">
                                 <p>주문내역이 없습니다.</p>
                             </div>
-                            
-                            <ul class="order_list">
+                            <ul class="order_list" id="existcart">
                             <c:forEach var="order" items="${orders}">
                                 <li>
                                     <div class="prd_img">
                                         <span>
-                                            <img src=${order.mainMenuImg}" alt="주문상품" style="display: inline; opacity: 1;">
+                                            <img src='${order.path}'" alt="주문상품" style="display: inline; opacity: 1;">
                                         </span>
                                     </div>
                                     <div class="cont">
                                         <p class="tit">
                                             <strong>
-                                            	${order.mainMenu}<!-- 대표 메뉴 이름  -->
+                                            	${order.product_name}<!-- 대표 메뉴 이름  -->
                                             		<c:choose>
-														<c:when test="${order.productCount eq 1 }">
+														<c:when test="${order.productCount eq 0 }">
 														<!-- 주문내역 메뉴 한건  -->
 														</c:when>
 														<c:otherwise>
 														외 ${order.productCount}건
 														</c:otherwise>
 													</c:choose>
-                                            		<span>외 2건</span></strong>
+                                            		</strong>
                                             <em class="tag">
                                                 <span>
                                                 	<c:choose>
@@ -131,7 +136,8 @@
                                             </dl>
                                         </div>
                                     </div>
-                                    <a href="${contextPath}/delivery/orderDetail.do?order_serial="${order.order_serial} class="btn_detail">
+                                    
+                                    <a href="${contextPath}/delivery/orderDetail.do?order_serial=${order.order_serial}" class="btn_detail">
                                         <span>Details</span>
                                     </a>
                                 </li>

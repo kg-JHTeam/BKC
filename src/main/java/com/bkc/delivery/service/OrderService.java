@@ -15,4 +15,6 @@ public interface OrderService {
 
 	public List<OrderVO> getUserOrderList(String userid);
 
+	public void updateProductSerial(OrderVO order);
+
 }

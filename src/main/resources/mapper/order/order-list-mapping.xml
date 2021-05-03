@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="OrderDAO">
 	<resultMap type="OrderVO" id="OrderVO">
+		<result property="description" column="description" />
 		<result property="order_serial" column="order_serial" />
 		<result property="store_name" column="store_name" />
 		<result property="order_status" column="order_status" />
@@ -12,13 +13,16 @@
 		<result property="address" column="address" />
 		<result property="product_serial" column="product_serial" />
 		<result property="order_date" column="order_date" />
+		<result property="phonenumber" column="phonenumber" />
 	</resultMap>
 	
 	<insert id="insertOrder" parameterType="OrderVO" useGeneratedKeys="true" keyColumn="order_serial" keyProperty="order_serial"> 
 			INSERT INTO 
-				orderlist (store_name, order_status, userid, coupon_seq, payment_type, total_price, address, product_serial,order_date)
+				orderlist (phonenumber, description, store_name, order_status, userid, coupon_seq, payment_type, total_price, address, product_serial, order_date)
 			VALUES 
 				 (
+				 #{phonenumber},
+				 #{description},
 				 #{store_name}, 
 				 #{order_status}, 
 				 #{userid}, 
@@ -27,21 +31,28 @@
 				 #{total_price},
 				 #{address},
 				 #{product_serial},
-				 #{order_date})
+				 now())
 	</insert>
-	
+	<update id="updateProductSerial">
+		UPDATE orderlist
+		SET product_serial = #{product_serial}
+		WHERE order_serial = #{order_serial}
+	</update>
 	<select id="getOrder" resultType="OrderVO">
 		<![CDATA[
 			SELECT * FROM orderlist where order_serial=	#{order_serial}
 		]]>
 	</select>
 	
-	<!-- 회원 주문내역 뽑기 List로 출력  // Product와 조인해서 뽑아온다. -->  
+	<!-- 회원 주문내역 뽑기 List로 출력  // Product와 조인한고 Product는 Product_image와 조인해서  뽑아온다. -->  
 	<select id="getUserOrderList" resultType="OrderVO">
 		<![CDATA[
-			SELECT  orderlist.*, product. FROM orderlist 
+			SELECT orderlist.*, product.product_name, product.product_serial, product_image.*  
+			FROM orderlist 
 			INNER JOIN product ON product.product_serial = orderlist.product_serial
-			where orderlist.userid = #{userid}}
+			INNER JOIN product_image ON product.product_serial = product_image.product_serial
+			where orderlist.userid = #{userid}
 		]]>
 	</select>
+	
 </mapper>

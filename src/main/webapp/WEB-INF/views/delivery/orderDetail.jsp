@@ -42,19 +42,19 @@
                         <a href="${contextPath}/delivery/orderList.do" class="gotomenu">
                             <span>주문내역</span>
                         </a>
-                        <a href="${contextPath}/delivery/orderDetail.do" class="gotomenu">
+                        <a href="#" class="gotomenu">
                             <span>주문상세</span>
                         </a>
                     </div>
                     <div class="location">
                         <span class="addr">
-                        <span>서울특별시 서초구 잠원로 117 (잠원동, 아크로리버뷰신반포)(DB)</span>
+                        <span>${location.addr} ${location.addr_detail}</span>
                         </span>
                         <span class="shop">
                         <span>신논현역점(DB)</span>
                         </span>
                         <span class="btn">
-                        <a href="#" class="addrchange">
+                        <a href="${contextPath}/delivery/mylocation.do" class="addrchange">
                             <span>변경</span>
                         </a>
                         </span>
@@ -67,10 +67,22 @@
                         <div class="orderstatusWrap">
                             <div class="resultBox delivery">
                                 <span class="tit">
-                                    <strong>2021.04.27 AM 03:48</strong>
+                                    <strong>${order.order_date}</strong>
                                 </span>
                                 <em class="txt_stat">&nbsp;
-                                    <span>주문완료</span>
+                                <span>
+									<c:choose>
+										<c:when test="${order.order_status eq 1 }">
+										주문접수중
+										</c:when>
+										<c:when test="${order.order_status eq 2 }">
+										배달중
+										</c:when>
+										<c:otherwise>
+										주문완료 
+										</c:otherwise>
+									</c:choose>
+								</span>
                                 </em>
                                 <div class="c_btn">
                                     <a href="#" class="btn01 btn01_m">
@@ -91,54 +103,33 @@
                             </h3>                            
                         </div>
                         <ul class="order_list">
+                        	<c:forEach var="orderDetail" items="${orderDetails}">
                             <li>
                                 <div class="prd_img">
                                     <span>
-                                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/basak.png" alt="제품상세" style="display: inline; opacity: 1;">
+                                        <img src="${orderDetail.path}" alt="제품상세" style="display: inline; opacity: 1;">
                                     </span>
                                 </div>
                                 <div class="cont">
                                     <p class="tit">
-                                        <strong>바삭클</strong>
+                                        <strong>${orderDetail.product_name}</strong>
                                     </p>
                                     <p class="price">
                                         <strong>
-                                            <span>15,000</span>
+                                            <span>${orderDetail.price}</span>
                                             <span class="unit">원</span>
                                         </strong>
                                     </p>
                                     <div class="menu_info">
-                                        <span class="txt">담백깔끔! 정직하게 튀겨낸 BHC 후라이드에 바삭함을 더한 옛날 통닭의 귀환</span>
+                                        <span class="txt">${orderDetail.description}</span>
                                         <span class="order_count tag st03">
-                                            <span>수량 1개</span>
+                                            <span>수량 ${orderDetail.quantity}개</span>
                                         </span>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="prd_img">
-                                    <span>
-                                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/colpop.png" alt="제품상세" style="display: inline; opacity: 1;">
-                                    </span>
-                                </div>
-                                <div class="cont">
-                                    <p class="tit">
-                                        <strong>콜팝치킨</strong>
-                                    </p>
-                                    <p class="price">
-                                        <strong>
-                                            <span>2,500</span>
-                                            <span class="unit">원</span>
-                                        </strong>
-                                    </p>
-                                    <div class="menu_info">
-                                        <span class="txt">한 입에 쏙 들어가는 치킨과 콜라의 추억의 맛</span>
-                                        <span class="order_count tag st03">
-                                            <span>수량 1개</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </li>
+                            </c:forEach>
+                            
                         </ul>
                         <h2 class="tit01 tit_ico chicken">
                             <span>주문정보</span>
@@ -146,9 +137,21 @@
                         <div class="container02 pd02 order_list_sum">
                             <div class="titbox02">
                                 <p class="tit">
-                                    <strong>서울특별시 서초구 잠원로 117 (잠원동, 아크로리버뷰신반포)</strong>
+                                    <strong>${order.address}</strong>
                                     <em class="tag_brown">
-                                        <span>주문완료</span>
+                                        <span>
+                                        <c:choose>
+											<c:when test="${order.order_status eq 1 }">
+											주문접수중
+											</c:when>
+											<c:when test="${order.order_status eq 2 }">
+											배달중
+											</c:when>
+											<c:otherwise>
+											주문완료 
+											</c:otherwise>
+										</c:choose>
+                                        </span>
                                     </em>
                                 </p>
                             </div>
@@ -157,31 +160,31 @@
                                     <dl>
                                         <dt>주문번호</dt>
                                         <dd>
-                                            <strong>000000001</strong>
+                                            <strong>${order.order_serial}</strong>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>주문시간</dt>
                                         <dd>
-                                            <strong>2021.04.27 AM 03:48</strong>
+                                            <strong>${order.order_date}</strong>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>연락처</dt>
                                         <dd>
-                                            <strong>01012345678</strong>
+                                            <strong>${order.phonenumber}</strong>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>매장</dt>
                                         <dd>
-                                            <strong>종로점</strong>
+                                            <strong>${order.store_name}</strong>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>매장 전화번호</dt>
                                         <dd>
-                                            <strong>070-1234-5678</strong>
+                                            <strong>매장번호</strong>
                                         </dd>
                                     </dl>
                                     <dl class="cancelInfo" style="display: none;">
@@ -202,28 +205,55 @@
                                     <dl>
                                         <dt>주문금액</dt>
                                         <dd>
-                                            <span>17,500</span>
+                                            <span>
+                                            <c:choose>
+                                            <c:when test="${order.payment_type eq '1' }">
+												${order.total_price} + ${usedUsercoupon.price}
+											</c:when>
+											<c:otherwise>
+												${order.total_price}
+											</c:otherwise>
+											</c:choose>
+											</span>
                                             <span class="unit">원</span>
                                         </dd>
                                     </dl>
                                     <dl class="group">
                                         <dt>쿠폰</dt>
                                         <dd>
-                                            <span>0</span>
+                                            <span>
+                                            <c:choose>
+                                            <c:when test="${order.payment_type eq '1' }">
+												${usedUsercoupon.price}
+											</c:when>
+											<c:otherwise>
+												0
+											</c:otherwise>
+											</c:choose>
+                                            </span>
                                             <span class="unit">원</span>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>결제방법</dt>
                                         <dd>
-                                            <span>신용카드 결제</span>
+                                            <span>
+		                                        <c:choose>
+													<c:when test="${order.payment_type eq '1' }">
+													쿠폰결제 
+													</c:when>
+													<c:otherwise>
+														${order.payment_type} 
+													</c:otherwise>
+												</c:choose>
+                                            </span>
                                         </dd>
                                     </dl>
                                     <dl class="tot02">
                                         <dt>결제금액</dt>
                                         <dd>
                                             <em>
-                                                <span>17,500</span>
+                                                <span>${order.total_price}</span>
                                                 <span class="unit">원</span>
                                             </em>
                                         </dd>
