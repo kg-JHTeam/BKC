@@ -300,6 +300,7 @@
 		 var total_price = document.getElementById("realTotalCost").innerHTML; 	
 		 //coupon_seq - 상위에서 등록
 		 storename= "미등록지점";
+		 
 		 // "분기별로 입력 한다."
 		 //controller내에서 작업하는 변수
 		 //1. userid - 조인
@@ -344,7 +345,7 @@
                 url         :   "/bkc/delivery/ordersuccess.do",
                 dataType    :   "json",
                 contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
-                type        :   "post", //post로 보냄
+                type        :   "post",
                 data        :   objParams,
                 success     :   function(retVal){
                 	        orderSerial = retVal.order_serial; 
@@ -356,8 +357,6 @@
                 			alert("주문이 실패하였습니다.");
                 }
             });
-      		
-      		
       		
       	} else{
       		console.log("결제 error");

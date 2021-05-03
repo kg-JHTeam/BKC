@@ -23,4 +23,9 @@ public class OrderServiceImpl implements OrderService {
 	public OrderVO getOrder(int order_serial) {
 		return orderDao.getOrder(order_serial);
 	}
+
+	@Override
+	public List<OrderVO> getUserOrderList(String userid) {
+		return orderDao.getUserOrderList(userid);
+	}
 }
