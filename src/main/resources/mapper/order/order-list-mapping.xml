@@ -10,10 +10,13 @@
 		<result property="total_price" column="total_price" />
 		<result property="payment_type" column="payment_type" />
 		<result property="address" column="address" />
+		<result property="product_serial" column="product_serial" />
+		<result property="order_date" column="order_date" />
 	</resultMap>
+	
 	<insert id="insertOrder" parameterType="OrderVO" useGeneratedKeys="true" keyColumn="order_serial" keyProperty="order_serial"> 
 			INSERT INTO 
-				orderlist (store_name, order_status, userid, coupon_seq, payment_type, total_price, address)
+				orderlist (store_name, order_status, userid, coupon_seq, payment_type, total_price, address, product_serial,order_date)
 			VALUES 
 				 (
 				 #{store_name}, 
@@ -22,7 +25,9 @@
 				 #{coupon_seq}, 
 				 #{payment_type}, 
 				 #{total_price},
-				 #{address})
+				 #{address},
+				 #{product_serial},
+				 #{order_date})
 	</insert>
 	
 	<select id="getOrder" resultType="OrderVO">
@@ -31,4 +36,12 @@
 		]]>
 	</select>
 	
+	<!-- 회원 주문내역 뽑기 List로 출력  // Product와 조인해서 뽑아온다. -->  
+	<select id="getUserOrderList" resultType="OrderVO">
+		<![CDATA[
+			SELECT  orderlist.*, product. FROM orderlist 
+			INNER JOIN product ON product.product_serial = orderlist.product_serial
+			where orderlist.userid = #{userid}}
+		]]>
+	</select>
 </mapper>

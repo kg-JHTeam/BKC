@@ -7,7 +7,6 @@ public class OrderDetailVO {
 	//기본 멤버변수 DB관련
 	private String product_name;
 	private int quantity;
-	private Date order_date;
 	private int price;
 	private int seq;			//pk
 	private int order_serial;	//fk 
@@ -23,12 +22,6 @@ public class OrderDetailVO {
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
-	}
-	public Date getOrder_date() {
-		return order_date;
-	}
-	public void setOrder_date(Date order_date) {
-		this.order_date = order_date;
 	}
 	public int getPrice() {
 		return price;
@@ -51,7 +44,7 @@ public class OrderDetailVO {
 	
 	@Override
 	public String toString() {
-		return "OrderDetailVO [product_name=" + product_name + ", quantity=" + quantity + ", order_date=" + order_date
+		return "OrderDetailVO [product_name=" + product_name + ", quantity=" + quantity
 				+ ", price=" + price + ", seq=" + seq + ", order_serial=" + order_serial + "]";
 	}
 	

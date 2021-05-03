@@ -78,72 +78,66 @@
                             <div class="nodata" style="display: none;">
                                 <p>주문내역이 없습니다.</p>
                             </div>
+                            
                             <ul class="order_list">
+                            <c:forEach var="order" items="${orders}">
                                 <li>
                                     <div class="prd_img">
                                         <span>
-                                            <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/basak.png" alt="주문상품" style="display: inline; opacity: 1;">
+                                            <img src=${order.mainMenuImg}" alt="주문상품" style="display: inline; opacity: 1;">
                                         </span>
                                     </div>
                                     <div class="cont">
                                         <p class="tit">
-                                            <strong>바삭클외 2건</strong>
+                                            <strong>
+                                            	${order.mainMenu}<!-- 대표 메뉴 이름  -->
+                                            		<c:choose>
+														<c:when test="${order.productCount eq 1 }">
+														<!-- 주문내역 메뉴 한건  -->
+														</c:when>
+														<c:otherwise>
+														외 ${order.productCount}건
+														</c:otherwise>
+													</c:choose>
+                                            		<span>외 2건</span></strong>
                                             <em class="tag">
-                                                <span>주문완료</span>
+                                                <span>
+                                                	<c:choose>
+														<c:when test="${order.order_status eq 1 }">
+															주문접수중
+														</c:when>
+														<c:when test="${order.order_status eq 2 }">
+														          배달중
+														</c:when>
+														<c:otherwise>
+															주문완료 
+														</c:otherwise>
+													</c:choose>
+                                                </span>
                                             </em>
                                         </p>
                                         <div class="info">
                                             <dl>
                                                 <dt>주문번호</dt>
                                                 <dd>
-                                                    <span>000000002</span>
+                                                    <span>${order.order_serial}</span>
                                                 </dd>
                                             </dl>
                                             <dl>
                                                 <dt>주문시간</dt>
                                                 <dd>
-                                                    <span>2021.04.27 AM 04:48</span>
+                                                    <span>${order.order_date}</span>
                                                 </dd>
                                             </dl>
                                         </div>
                                     </div>
-                                    <a href="${contextPath}/delivery/orderDetail.do" class="btn_detail">
+                                    <a href="${contextPath}/delivery/orderDetail.do?order_serial="${order.order_serial} class="btn_detail">
                                         <span>Details</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <div class="prd_img">
-                                        <span>
-                                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/menu/basak.png" alt="주문상품" style="display: inline; opacity: 1;">
-                                    </span>
-                                    </div>
-                                    <div class="cont">
-                                        <p class="tit">
-                                            <strong>바삭클외 1건</strong>
-                                            <em class="tag">
-                                            <span>주문완료</span>
-                                        </em>
-                                        </p>
-                                        <div class="info">
-                                            <dl>
-                                                <dt>주문번호</dt>
-                                                <dd>
-                                                    <span>000000001</span>
-                                                </dd>
-                                            </dl>
-                                            <dl>
-                                                <dt>주문시간</dt>
-                                                <dd>
-                                                    <span>2021.04.27 AM 03:48</span>
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <a href="href="${contextPath}/delivery/orderDetail.do" class="btn_detail">
-                                        <span>Details</span>
-                                    </a>
-                                </li>
+                                </c:forEach>
                             </ul>
+                            
                             <div class="c_btn">
                                 <div>
                                     <a href="#" class="btn01 more" style="display: none;">

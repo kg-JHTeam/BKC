@@ -1,5 +1,7 @@
 package com.bkc.delivery.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,5 +24,10 @@ public class OrderDAOImpl implements OrderDAO {
 	@Override
 	public OrderVO getOrder(int order_serial) {
 		return sqlSession.selectOne("getOrder", order_serial);
+	}
+
+	@Override
+	public List<OrderVO> getUserOrderList(String userid) {
+		return sqlSession.selectList("getUserOrderList", userid);
 	}
 }

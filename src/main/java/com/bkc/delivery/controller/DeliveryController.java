@@ -116,33 +116,6 @@ public class DeliveryController {
 		return "delivery/delivery";
 	}
 
-	// 주문내역 페이지로 이동
-	@RequestMapping(value = "/orderList.do", method = RequestMethod.GET)
-	public String orderList(Model model, HttpSession session) {
-		// 현재 로그인한 사용자 추가
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		UserDetails userDetails = (UserDetails) principal;
-		UserVO user = userService.getUserById(userDetails.getUsername());
-		model.addAttribute("user", user);
-
-		// 푸터추가
-		BusinessInformationVO bi = biService.getBusinessInformation(1);
-		model.addAttribute("bi", bi);
-
-		// 지정 배달지
-		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
-		model.addAttribute("location", location);
-
-		// 카트 추가
-		CartVO cart = new CartVO();
-		if (session.getAttribute("cart") == null) {
-		} else {
-			cart = (CartVO) session.getAttribute("cart");
-		}
-		model.addAttribute("cart", cart);
-
-		return "delivery/orderList";
-	}
 
 	// 주문상세 페이지로 이동
 	@RequestMapping(value = "/orderDetail.do", method = RequestMethod.GET)
