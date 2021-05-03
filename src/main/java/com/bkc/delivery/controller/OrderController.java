@@ -196,9 +196,9 @@ public class OrderController {
 			// order list에 첫번째 메뉴에 대해서 대표상품으로 등록
 			if (i == 0) {
 				order.setProduct_serial(orderDetail.getProduct_serial());
+				order.setProductCount(productsCount);
 				orderService.updateProductSerial(order); // order_serial
 			}
-
 			orderDetailService.insertOrderDetail(orderDetail);
 		}
 		// 카트 세션 삭제 - session.removeAttribute("cart");

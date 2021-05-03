@@ -101,7 +101,7 @@
 														<!-- 주문내역 메뉴 한건  -->
 														</c:when>
 														<c:otherwise>
-														외 ${order.productCount}건
+														외 ${order.productCount-1}건
 														</c:otherwise>
 													</c:choose>
                                             		</strong>
