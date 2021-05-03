@@ -16,7 +16,7 @@
 	<!-- css -->
 	<link rel="stylesheet" href="${contextPath}/resources/css/include/delivery-gnb2.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/delivery/orderList.css">
-	
+	<link rel="stylesheet" href="${contextPath}/resources/css/delivery/cart.css">
 	<!-- js -->
     <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
     <script src="${contextPath}/resources/js/delivery/orderList.js"></script>
@@ -25,7 +25,20 @@
 	<script>
 	window.onload = function(){
 		//아무것도 없는 경우
-		
+		var count = "<c:out value='${orders[0].productCount}'/>";
+		var zero = document.getElementById("zeroorder");
+		var notzero = document.getElementById("existorder");
+
+		//아무것도없으면
+		if(count <= 0){
+			zero.style.display ='';
+			notzero.style.display ='none';
+		} 
+		//있으면
+		else{
+			zero.style.display ='none';
+			notzero.style.display ='';
+		}
 	}
 	</script>
 </head>
@@ -78,13 +91,13 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="nodata" style="display: none;" id="zeroorder">
+		                  <span class="txt_c01">주문내역이 없습니다.</span>
+		            </div>
                     <div class="container01">
                         <div class="tab_cont">
                             <h3 class="hide">딜리버리</h3>
-                            <div class="nodata" style="display: none;" id="zeroDelivery">
-                                <p>주문내역이 없습니다.</p>
-                            </div>
-                            <ul class="order_list" id="existcart">
+                            <ul class="order_list" id="existorder">
                             <c:forEach var="order" items="${orders}">
                                 <li>
                                     <div class="prd_img">
@@ -97,7 +110,7 @@
                                             <strong>
                                             	${order.product_name}<!-- 대표 메뉴 이름  -->
                                             		<c:choose>
-														<c:when test="${order.productCount eq 0 }">
+														<c:when test="${order.productCount eq 1 }">
 														<!-- 주문내역 메뉴 한건  -->
 														</c:when>
 														<c:otherwise>
