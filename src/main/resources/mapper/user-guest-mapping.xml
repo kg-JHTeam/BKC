@@ -8,7 +8,6 @@
 		<result property="username" column="USERNAME" />
 	</resultMap>
 
-	
 	<insert id="insert">
 		<![CDATA[
 			INSERT INTO guest(
