@@ -54,5 +54,11 @@ public class MyLocationVO {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
+	@Override
+	public String toString() {
+		return "MyLocationVO [addr_name=" + addr_name + ", addr_seq=" + addr_seq + ", zipcode=" + zipcode + ", addr="
+				+ addr + ", addr_detail=" + addr_detail + ", addr_extra=" + addr_extra + ", userid=" + userid + "]";
+	}
+	
 
 }

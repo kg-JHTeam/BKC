@@ -21,8 +21,6 @@ public class TestFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		//System.out.println( ((HttpServletRequest) request).getRequestURL() );
-		
-		
 		chain.doFilter(request, response);
 	}
 

@@ -256,7 +256,7 @@ public class AdminUserCouponController {
 				System.out.println("이미 있는 값");
 			}
 		}
-
+		
 		// 리턴값
 		Map<String, Object> retVal = new HashMap<String, Object>();
 
@@ -283,5 +283,4 @@ public class AdminUserCouponController {
 		retVal.put("message", "모든 회원에 쿠폰 배포 성공 하였습니다.");
 		return retVal;
 	}
-
 }

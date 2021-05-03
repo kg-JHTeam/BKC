@@ -39,4 +39,9 @@ public class UserCouponDAOImpl implements UserCouponDAO {
 		return sqlSession.selectOne("getPrice", coupon_seq);
 	}
 
+	@Override
+	public UserCouponVO getUserCouponBySeq(int coupon_seq) {
+		return sqlSession.selectOne("getUserCouponBySeq", coupon_seq);
+	}
+
 }

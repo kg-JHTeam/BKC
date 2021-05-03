@@ -18,5 +18,7 @@ public interface UserCouponDAO {
 	public int insertUserCoupon(UserCouponVO usercoupon);
 
 	public UserCouponVO getPrice(int coupon_seq);
+
+	public UserCouponVO getUserCouponBySeq(int coupon_seq);
 	
 }

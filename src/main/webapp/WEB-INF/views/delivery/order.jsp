@@ -6,30 +6,24 @@
 <html>
 <head>
 
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<!-- font google web font-->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
-	rel="stylesheet">
-<!-- favicon -->
-<link rel="shortcut icon" type="image/x-icon"
-	href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
-<!-- css -->
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/include/delivery-gnb2.css">
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/delivery/order.css">
-
-<!-- js -->
-<script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
-<script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<title>주문하기</title>
-
-<script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- font google web font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon"
+    href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
+	<!-- css -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/include/delivery-gnb2.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/delivery/order.css">
+	
+	<!-- js -->
+    <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
+	<title>주문하기</title>
+	
+	<script>
 
 	//----------------------------------UI관련   Javascript---------------------------------------//
 	//메뉴에 따른 menu tab
@@ -177,9 +171,10 @@
 	}
 	
 	//쿠폰 변경
+	var coupon_seq = "-1"; //쿠폰을 사용안함. 
 	function changeCoupon(e){
 		const value = e.value;
-		
+		coupon_seq = value;
 		//쿠폰가격 0으로 처리 
 		if(value == "nothing"){
 			document.getElementById("totalDiscountCost").innerHTML = 0;
@@ -252,16 +247,17 @@
 	/*
 	 	----------------------------------결제관련 Javascript---------------------------------------
 	*/
+	
+	//DB에 보낼거 
 	function payValid(){
 		var contextpath = "<c:out value='${contextPath}'/>";
-       
-		alert("결제 하자");
+		
 		//가격이 0원인 경우 그냥 바로 결제 시킴
 		var realTotalCost = document.getElementsByClassName("realTotalCost");
 		if(realTotalCost[0].innerHTML  == 0){
-			alert("0원이네요 바로 결제 합니다용");
-			//값을 넣어가야지! -> 그냥
-			window.location.href= contextpath+"/delivery/ordersuccess.do"
+			console.log("쿠폰으로 100% 결제")
+			//쿠폰으로 결제하는 경우 ajax로 보낸다.
+			//총주문가격 - 0원 
 			return;
 		}
 		
@@ -277,25 +273,92 @@
                 break;
             }
         }
-        
-        //결제타입을 정하지 않았을 경우 
+      	//결제타입을 정하지 않았을 경우 
         if(paymentType_check==0){
             alert("결제 타입을 선택해주세요");
             return;
         }
-        
+      
+        //------------------------------ 	분기 시작하기전 ajax변수 설정 	------------------------------// 
+        /*
+			1. userid 
+			2. 배달지명	*- ajax로 
+			3. user주소	*- ajax로 
+			4. 연락처		*- ajax로 
+			5. 요청사항	*- ajax로 
+			6. 카트정보		- CartVO를 세션에서 꺼내온다. 						-> 바로 세션삭제
+			7. 쿠폰사용여부	*   - UsercouponVO를 받는다. Usercouponseq를 받아서 	-> 쿠폰사용후 삭제해버림
+			8. 쿠폰가격	*	- UsercouponVO를 받는다. Usercouponseq를 받아서 
+			9. 최종결제가격  - cart에서 꺼낸다. 
+			10. 결제수단     - ajax로 
+		 */
+		 
+		 var storename  = document.getElementById("store").value; 				// "배달지명" 
+		 var useraddress = document.getElementById("realAddress").innerHTML; 		// "고객주소"
+		 var phonenumber = document.getElementById("phonenumber").value;		 	// "연락처"
+		 var description = document.getElementById("description").value;	 		// "요청사항"
+		 var payment_type = "결제수단";  	
+		 var total_price = document.getElementById("realTotalCost").innerHTML; 	
+		 //coupon_seq - 상위에서 등록
+		 storename= "미등록지점";
+		 
+		 // "분기별로 입력 한다."
+		 //controller내에서 작업하는 변수
+		 //1. userid - 조인
+		 //2. cart - 조인 
+		 
+		//------------------------------ ------------------------------------------------------------// 
+		
       	//라디어 버튼에 따라 결제 분기 처리  - 5가지 타입 
       	if(paymentTypeValue == "naver"){
-      		alert("naver 결제로 ! ");
+      		 alert("naver 결제로 ! ");
+      		 // 엄지현이 작업중인 곳 조심      //
+       		 
+      		 // ----------------- // 
       	} else if(paymentTypeValue == "kakao"){
       		KakaoPay();
       		alert("kakao 결제로 ! ");
-      	} else if(paymentTypeValue == "card"){
-      		alert("그냥 카드 결제로 ! ");
-      	} else if(paymentTypeValue == "fieldCard"){
-      		alert("현장에서 카드 결제로 ! ");
-      	} else if(paymentTypeValue == "fieldCash"){
-      		alert("현장에서 현금 결제로 ! ");
+      	} 
+      	
+      	//카드결제 두개 
+      	else if(paymentTypeValue == "card"){
+      		
+      	} 
+      	//현장 카드 결제
+      	else if(paymentTypeValue == "fieldCard"){
+      		
+      	} 
+      	
+      	//현장 현금결제 
+      	else if(paymentTypeValue == "fieldCash"){
+    		payment_type = "현금결제";  
+    		console.log(payment_type);
+      		var objParams = {
+    				"storename" : storename, 
+    				"useraddress" : useraddress, 
+    				"phonenumber" : phonenumber, 
+    				"description" : description, 
+    				"payment_type" : payment_type,
+    				"coupon_seq" : parseInt(coupon_seq),
+    				"total_price" :parseInt(total_price)
+            };
+    		  $.ajax({
+                url         :   "/bkc/delivery/ordersuccess.do",
+                dataType    :   "json",
+                contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+                type        :   "post",
+                data        :   objParams,
+                success     :   function(retVal){
+                	        orderSerial = retVal.order_serial; 
+                	        console.log(orderSerial);
+                	        window.location.href= contextpath+"/delivery/ordercomplete.do?order_serial="+orderSerial;
+                },
+                error       :   function(request, status, error){
+                			console.log("주문 실패");
+                			alert("주문이 실패하였습니다.");
+                }
+            });
+      		
       	} else{
       		console.log("결제 error");
       	}
@@ -318,8 +381,6 @@
 		   });
 		}
 	
-	
-	
 	function sample6_execDaumPostcode() {
         	new daum.Postcode({
             	oncomplete: function(data) {
@@ -333,8 +394,6 @@
                 //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
                 if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
                     addr = data.roadAddress;
-                    $(".txt_addr").css("display", "none");
-                    $(".addr_new").css("display", "block");
                 } else { // 사용자가 지번 주소를 선택했을 경우(J)
                     addr = data.jibunAddress;
                 }
@@ -360,22 +419,31 @@
                 } else {
                     document.getElementById("sample6_extraAddress").value = '';
                 }
-
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                
+             	// 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('sample6_postcode').value = data.zonecode;
                 document.getElementById("sample6_address").value = addr;
-                // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("sample6_detailAddress").focus();
+                
+                var addressText = addr + " " + extraAddr ;
+                
+                document.getElementById("realAddress").innerHTML = addressText;
+                
+                document.getElementById("findAddress").style.display ="none";
+                document.getElementById("checkAddress").style.display ="";
+                document.getElementById("detailAddress").style.display ="";
             	}
         	}).open();
     	}
-	
 	</script>
-
+ 
 <style>
 #selectedCoupon {
 	font-size: 1.4rem;
 	outline: none;
+}
+.inputWrap{ 
+ display: none;
+ visibility: hidden; 
 }
 </style>
 </head>
@@ -387,86 +455,91 @@
 		<!-- contents 부분 -->
 		<div class="contentsWrap">
 			<div class="locationWrap">
-				<div class="web_container">
-					<div class="page_navi">
-						<a href="${contextPath}/delivery/delivery.do"> <span>딜리버리</span>
-						</a> <a href="${contextPath}/delivery/order.do" class="gotomenu">
-							<span>주문하기</span>
-						</a>
-					</div>
-					<div class="location">
-						<span class="addr"> <span>${location.addr}
-								${location.addr_detail}</span>
-						</span> <span class="shop"> <span>신논현역점(DB)</span>
-						</span> <span class="btn"> <a
-							href="${contextPath}/delivery/mylocation.do" class="addrchange">
-								<span>변경</span>
-						</a>
-						</span>
-					</div>
-				</div>
-			</div>
+                <div class="web_container">
+                    <div class="page_navi">
+                        <a href="${contextPath}/delivery/delivery.do">
+                            <span>딜리버리</span>
+                        </a>
+                        <a href="${contextPath}/delivery/order.do" class="gotomenu">
+                            <span>주문하기</span>
+                        </a>
+                    </div>
+                    <div class="location">
+                        <span class="addr">
+                        <span>${location.addr} ${location.addr_detail} ${location.addr_extra}</span>
+                        </span>
+                        <span class="shop">
+                        <span>신논현역점(DB)</span>
+                        </span>
+                        <span class="btn">
+                        <a href="${contextPath}/delivery/mylocation.do" class="addrchange">
+                            <span>변경</span>
+                        </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
 			<div class="contentsBox02">
 				<div class="web_container2">
 					<div class="subtitWrap">
-						<h2 class="page_tit">주문하기</h2>
-					</div>
-					<div class="container01 orderWrap">
-						<h2 class="tit01 tit_ico delivery">
-							<span>배달정보</span>
-						</h2>
-						<div class="container02 deli_info01">
-							<div class="addrWrap01">
-								<div class="txt_addr">
-									<span>${location.addr} ${location.addr_detail}</span> <span></span>
-								</div>
-								<form role="form"
-									action="${pageContext.request.contextPath }/delivery/insertOneDB.do"
-									method="post" enctype="multipart/form-data">
-									<div class="addr_new">
-										<input class="addr1" id="sample6_address" name="addr"
-											type="text" placehoder="'주소'" readonly="readonly"> <input
-											class="detailaddr1" id="sample6_extraAddress"
-											name="addr_detail" type="text" placehoder="'상세 주소'"
-											readonly="readonly"> <input class="detailaddr2"
-											id="sample6_detailAddress" name="addr_detail" type="text"
-											placehoder="'상세 주소'"> <input type="hidden"
-											class="detailaddr" id="sample6_postcode" name="zipcode"
-											type="text" placehoder="'우편 번호'">
+                        <h2 class="page_tit">주문하기</h2>
+                    </div>
+                    <div class="container01 orderWrap">
+                        <h2 class="tit01 tit_ico delivery"><span>배달정보</span></h2>
+                        <div class="container02 deli_info01">
+                            <div class="addrWrap01">
+                             	<form role="form" action="${contextPath }/delivery/insertLocation.do" method="post">
+                                <div class="txt_addr">
+                                    <span id="realAddress">${location.addr} ${location.addr_detail} ${location.addr_extra}</span>
+                                    <input style="display:none;" class="detailaddr2" id="detailAddress" name="addr_extra" type="text" placeholder="상세주소를 입력해주세요." >
+                                </div>
+                                
+                        		<input type='hidden' name ="userid" id ="userid" value='<c:out value="${user.getUserid()}"/>'>
+								<div class="inputWrap">
+									<div class="inpbox2" >
+										<input class="addr" id="sample6_address" name="addr" type="hidden" > 
 									</div>
-								</form>
-								<button type="button" class="btn04 h02"
-									onclick="javascript: sample6_execDaumPostcode()">
-									<span>변경</span>
-								</button>
-							</div>
-							<div class="info_list">
-								<dl>
-									<dt>연락처</dt>
-									<dd>
-										<input class="tel" type="text" maxlength="20"
-											value="${user.phone}">
-									</dd>
-								</dl>
-								<dl>
-									<dt>매장</dt>
-									<dd>
-										<input class="store" type="text" readonly="readonly">
-									</dd>
-								</dl>
-								<dl class="memo">
-									<dt>요청사항</dt>
-									<dd>
-										<div class="inp_bytes">
-											<div>
-												<input class="request" type="text" placeholder="요청사항을 입력하세요"
-													maxlength="50">
-											</div>
-										</div>
-									</dd>
-								</dl>
-							</div>
-						</div>
+									<div class="inpbox2" >
+										<input class="detailaddr" id="sample6_extraAddress" name="addr_detail" type="text" >
+									</div>
+									<div class="inpbox2">
+										<input class="detailaddr" id="sample6_detailAddress" name="addr_detail" type="text">
+									</div>					
+									<div class="inpbox2">
+										<input class="detailaddr" id="sample6_postcode" name="zipcode" type="text">
+									</div>
+								</div>
+                                <button id="findAddress" type="button" class="btn04 h02" onclick="javascript: sample6_execDaumPostcode()">
+                                    <span>변경</span>
+                                </button>
+                                <button type="submit" class="btn04 h02" style="display:none;" id="checkAddress">이 주소로 배달지 설정</button>
+           						</form>
+                            </div>
+                            <div class="info_list">
+                                <dl>
+                                    <dt>연락처</dt>
+                                    <dd>
+                                        <input class="tel" type="text" maxlength="20" value="${user.phone}" id="phonenumber">
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>매장</dt>
+                                    <dd>
+                                        <input class="store" type="text" readonly="readonly" id="store">
+                                    </dd>
+                                </dl>
+                                <dl class="memo">
+                                    <dt>요청사항</dt>
+                                    <dd>
+                                        <div class="inp_bytes">
+                                            <div>
+                                                <input class="request" type="text" placeholder="요청사항을 입력하세요" maxlength="50" id="description">
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
 						<div class="tit01 tit_ico chicken tit_ordermenu">
 							<h2>
 								<span>주문정보</span>
@@ -561,7 +634,7 @@
 								<dl class="tot">
 									<dt>최종 결제금액</dt>
 									<dd>
-										<em> <span class="realTotalCost">0</span> <span
+										<em> <span class="realTotalCost" >0</span> <span
 											class="unit">원</span>
 										</em>
 									</dd>
@@ -615,39 +688,32 @@
 								<span>간편하게 결제</span>
 							</h3>
 							<div class="container02">
-							<c:forEach var="products" items="${cart.products}">
-								<input type="hidden" class="categoryName"
-									value="${products.value.type_serial}">
 								<ul class="easy_payment_list">
-									<li class="naver"><label> <input type="radio"
-											name="paymentType" value="naver"> <span>네이버페이</span>
+									<li class="naver"><label> <input type="radio" name="paymentType" value="naver"> <span>네이버페이</span>
+									<li class="kakao"><label> <input type="radio" name="paymentType" value="kakao"> <span>카카오페이</span>
 									</label></li>
-									<script>
-									var oPay = Naver.Pay.create({
-										"mode" : "production", // development or production
-										"clientId" : "u86j4ripEt8LRfPGzQ8" // clientId
-									});
+                       <script>
+                    var oPay = Naver.Pay.create({
+                      "mode" : "production", // development or production
+                      "clientId" : "u86j4ripEt8LRfPGzQ8" // clientId
+                    });
 
-									//직접 만든 네이버페이 결제 버튼에 click 이벤트를 할당하세요.
-									var elNaverPayBtn = document.getElementById("naver");
-									$('.naver input[type=radio]').click(function() {
+                    //직접 만든 네이버페이 결제 버튼에 click 이벤트를 할당하세요.
+                    var elNaverPayBtn = document.getElementById("naver");
+                    $('.naver input[type=radio]').click(function() {
 
-										oPay.open({
-											"merchantUserKey" : "bkc",
-											"merchantPayKey" : "${products.value.type_serial}",
-											"productName" : "${products.value.product_name}",
-											"totalPayAmount" :"${products.value.price}",
-											"taxScopeAmount" : "${products.value.price}",
-											"taxExScopeAmount" : "0",
-											"returnUrl" : "http://localhost:80/bkc/delivery/ordercomplete.do"
-										});
-									});
+                      oPay.open({
+                        "merchantUserKey" : "bkc",
+                        "merchantPayKey" : "${products.value.type_serial}",
+                        "productName" : "${products.value.product_name}",
+                        "totalPayAmount" :"${products.value.price}",
+                        "taxScopeAmount" : "${products.value.price}",
+                        "taxExScopeAmount" : "0",
+                        "returnUrl" : "http://localhost:80/bkc/delivery/ordercomplete.do"
+                      });
+                    });
 									</script>
-									<li class="kakao"><label> <input type="radio"
-											name="paymentType" value="kakao"> <span>카카오페이</span>
-									</label></li>
 								</ul>
-								</c:forEach>
 								<ul class="txtlist03">
 									<li>· 주문 변경 시 카드사 혜택 및 할부 적용 여부는 해당 카드사 정책에 따라 변경될 수 있습니다.</li>
 									<li>· 네이버페이는 네이버ID로 별도 앱 설치 없이 신용카드 또는 은행계좌 정보를 등록하여 네이버페이
@@ -666,8 +732,8 @@
 							</h3>
 							<div class="container02">
 								<div class="check_list01">
-									<label> <input type="radio" name="paymentType"
-										value="card"> <span>신용카드 결제</span>
+									<label> <input type="radio" name="paymentType" value="card">
+										<span>신용카드 결제</span>
 									</label>
 								</div>
 							</div>
@@ -678,11 +744,11 @@
 							</h3>
 							<div class="container02">
 								<ul class="check_list01">
-									<li><label> <input type="radio" name="paymentType"
-											value="fieldCard"> <span>현장에서 신용카드 결제</span>
+									<li><label> <input type="radio" name="paymentType" value="fieldCard">
+											<span>현장에서 신용카드 결제</span>
 									</label></li>
-									<li><label> <input type="radio" name="paymentType"
-											value="fieldCash"> <span>현장에서 현금 결제</span>
+									<li><label> <input type="radio" name="paymentType" value="fieldCash">
+											<span>현장에서 현금 결제</span>
 									</label></li>
 								</ul>
 							</div>
@@ -692,7 +758,7 @@
 								<dt>총 결제금액</dt>
 								<dd>
 									<strong><span>&#8361;</span><span
-										class="realTotalCost">0</span></strong>
+										class="realTotalCost" id="realTotalCost">0</span></strong>
 								</dd>
 							</dl>
 							<div class="c_btn m_item2">

@@ -93,4 +93,8 @@ public class UserDAOImpl implements UserDAO {
 	public int changeEnabled(UserVO vo) {
 		return sqlSession.insert("changeEnabled", vo);
 	}
+	@Override
+	public int deleteUser(UserVO vo) {
+		return sqlSession.insert("deleteUser", vo);
+	}
 }

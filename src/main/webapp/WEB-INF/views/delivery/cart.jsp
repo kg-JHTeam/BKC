@@ -203,13 +203,13 @@
                     </div>
                     <div class="location">
                         <span class="addr">
-                        <span>서울특별시 서초구 잠원로 117 (잠원동, 아크로리버뷰신반포)(DB)</span>
+                        <span>${location.addr} ${location.addr_detail}</span>
                         </span>
                         <span class="shop">
                         <span>신논현역점(DB)</span>
                         </span>
                         <span class="btn">
-                        <a href="#" class="addrchange">
+                        <a href="${contextPath}/delivery/mylocation.do" class="addrchange">
                             <span>변경</span>
                         </a>
                         </span>
@@ -330,7 +330,7 @@
                             </div>
                             <ul class="txtlist01">
                                 <li>
-                                    주문서를 작성하기 전에 선택하신 상품명, 수량 및 가격이 정확한지 확인해주세요.
+                                   	주문서를 작성하기 전에 선택하신 상품명, 수량 및 가격이 정확한지 확인해주세요.
                                 </li>
                             </ul>
                         </div>
