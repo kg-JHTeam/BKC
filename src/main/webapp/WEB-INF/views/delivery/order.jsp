@@ -322,23 +322,73 @@
       	
       	//카드결제 두개 
       	else if(paymentTypeValue == "card"){
-      		
+      		console.log(payment_type);
+      		var objParams = {
+    				"storename" : storename, 
+    				"useraddress" : useraddress, 
+    				"phonenumber" : phonenumber, 
+    				"description" : description, 
+    				"payment_type" : "카드결제",
+    				"coupon_seq" : parseInt(coupon_seq),
+    				"total_price" :parseInt(total_price)
+            };
+    		  $.ajax({
+                url         :   "/bkc/delivery/ordersuccess.do",
+                dataType    :   "json",
+                contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+                type        :   "post",
+                data        :   objParams,
+                success     :   function(retVal){
+                	        orderSerial = retVal.order_serial; 
+                	        console.log(orderSerial);
+                	        window.location.href= contextpath+"/delivery/ordercomplete.do?order_serial="+orderSerial;
+                },
+                error       :   function(request, status, error){
+                			console.log("주문 실패");
+                			alert("주문이 실패하였습니다.");
+                }
+            });
+    		  
       	} 
       	//현장 카드 결제
       	else if(paymentTypeValue == "fieldCard"){
-      		
+      		console.log(payment_type);
+      		var objParams = {
+    				"storename" : storename, 
+    				"useraddress" : useraddress, 
+    				"phonenumber" : phonenumber, 
+    				"description" : description, 
+    				"payment_type" : "현장카드결제",
+    				"coupon_seq" : parseInt(coupon_seq),
+    				"total_price" :parseInt(total_price)
+            };
+    		  $.ajax({
+                url         :   "/bkc/delivery/ordersuccess.do",
+                dataType    :   "json",
+                contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+                type        :   "post",
+                data        :   objParams,
+                success     :   function(retVal){
+                	        orderSerial = retVal.order_serial; 
+                	        console.log(orderSerial);
+                	        window.location.href= contextpath+"/delivery/ordercomplete.do?order_serial="+orderSerial;
+                },
+                error       :   function(request, status, error){
+                			console.log("주문 실패");
+                			alert("주문이 실패하였습니다.");
+                }
+            });
       	} 
       	
       	//현장 현금결제 
       	else if(paymentTypeValue == "fieldCash"){
-    		payment_type = "현금결제";  
     		console.log(payment_type);
       		var objParams = {
     				"storename" : storename, 
     				"useraddress" : useraddress, 
     				"phonenumber" : phonenumber, 
     				"description" : description, 
-    				"payment_type" : payment_type,
+    				"payment_type" : "현금결제",
     				"coupon_seq" : parseInt(coupon_seq),
     				"total_price" :parseInt(total_price)
             };
@@ -359,7 +409,8 @@
                 }
             });
       		
-      	} else{
+      	} 
+      	else{
       		console.log("결제 error");
       	}
     }
