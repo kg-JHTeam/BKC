@@ -183,7 +183,6 @@ public class OrderController {
 		for (int i = 0; i < productsCount; i++) {
 
 			ProductVO product = products.get(keys.get(i));
-
 			int product_serial = product.getProduct_serial();
 			int quantity = product.getCount();
 			int price = product.getPrice() * quantity;
@@ -196,7 +195,7 @@ public class OrderController {
 
 			// order list에 첫번째 메뉴에 대해서 대표상품으로 등록
 			if (i == 0) {
-				order.setProduct_serial(order_serial);
+				order.setProduct_serial(orderDetail.getProduct_serial());
 				orderService.updateProductSerial(order); // order_serial
 			}
 

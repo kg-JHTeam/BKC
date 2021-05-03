@@ -84,11 +84,6 @@
 									</c:choose>
 								</span>
                                 </em>
-                                <div class="c_btn">
-                                    <a href="#" class="btn01 btn01_m">
-                                        <span>그대로 주문하기</span>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -207,11 +202,11 @@
                                         <dd>
                                             <span>
                                             <c:choose>
-                                            <c:when test="${order.payment_type eq '1' }">
-												${order.total_price} + ${usedUsercoupon.price}
+                                            <c:when test="${order.coupon_seq eq -1}">
+												${order.total_price}
 											</c:when>
 											<c:otherwise>
-												${order.total_price}
+												${order.total_price + usedUsercoupon.price}
 											</c:otherwise>
 											</c:choose>
 											</span>
@@ -223,11 +218,11 @@
                                         <dd>
                                             <span>
                                             <c:choose>
-                                            <c:when test="${order.payment_type eq '1' }">
-												${usedUsercoupon.price}
+                                            <c:when test="${order.coupon_seq eq -1}">
+												0
 											</c:when>
 											<c:otherwise>
-												0
+												${usedUsercoupon.price}
 											</c:otherwise>
 											</c:choose>
                                             </span>
