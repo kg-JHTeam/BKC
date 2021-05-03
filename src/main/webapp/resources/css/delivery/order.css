@@ -219,8 +219,37 @@ strong {
     display: inline;
 }
 
-.txt_addr {
-    display: block;
+.addr_new {
+	display: none;
+}
+
+.addr1 {
+	margin: 20px 0;
+	width: 100%;
+	box-sizing: border-box;-webkit-box-sizing:border-box;-moz-box-sizing: border-box;
+	outline: none;
+	background: none;
+    border: none;
+    font-size: 1.75rem;
+}
+
+.detailaddr1 {
+	margin: 20px 0;
+	width: 100%;
+	box-sizing: border-box;-webkit-box-sizing:border-box;-moz-box-sizing: border-box;
+	outline: none;
+	background: none;
+    border: none;
+    font-size: 1.75rem;
+}
+
+.detailaddr2{
+	margin: 20px 0;
+	outline: none;
+	border: none;
+    font-size: 1.75rem;
+    width: auto;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/login/loginline.png) repeat-x 0 100%;
 }
 
 .btn04.h02 {
@@ -279,8 +308,8 @@ input[type=text]:only-child {
     width: 100%;
 }
 
-input[type=text] {
-    outline: none;
+.info_list .tel, .store, .request{
+	outline: none;
     display: inline-block;
     height: 66px;
     margin: 0;
@@ -584,6 +613,7 @@ input[type=number] {
 
 .sumWrap dd {
     padding-left: 20px;
+    padding-right: 20px;
     font-weight: 700;
     font-size: 2rem;
     color: #ffa423;
@@ -617,7 +647,14 @@ input[type=number] {
     clear: both;
     height: 0;
 }
-
+.cart_list01 .prd_img {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 254px;
+    height: 191px;
+    overflow: hidden;
+}
 .tit_ico.money::before {
     background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/payment_log.png);
 }
@@ -638,7 +675,17 @@ input[type=number] {
     margin-bottom: 10px;
     font-size: 1.375rem;
 }
+.order_payment_list dt {
+    display: table-cell;
+    padding: 1px 0;
+    vertical-align: middle;
+}
 
+.order_payment_list dd {
+    display: table-cell;
+    padding: 1px 0;
+    vertical-align: middle;
+}
 .order_payment_list .tot dt {
     font-weight: 700;
     font-size: 1.5rem;
@@ -818,6 +865,10 @@ input[type="radio" i] {
 }
 
 input[type=radio]:checked+::before {
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/checked.png) no-repeat 0;
+}
+
+input[type=radio]+::before {
     background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/loading.png) no-repeat 0;
 }
 

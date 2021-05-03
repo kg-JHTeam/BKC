@@ -1,18 +1,15 @@
 package com.bkc.delivery.controller;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
 import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,21 +18,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bkc.admin.board.banner.vo.CheckVO;
 import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.delivery.service.CautionService;
 import com.bkc.delivery.service.DvProductService;
+import com.bkc.delivery.service.MyLocationService;
 import com.bkc.delivery.vo.CautionVO;
 import com.bkc.delivery.vo.DvProductVO;
+import com.bkc.delivery.vo.MyLocationVO;
 import com.bkc.menuInform.service.ProductService;
 import com.bkc.menuInform.vo.ProductVO;
 import com.bkc.user.service.CouponService;
 import com.bkc.user.service.UserCouponService;
 import com.bkc.user.service.UserService;
 import com.bkc.user.vo.CartVO;
-import com.bkc.user.vo.CouponVO;
-import com.bkc.user.vo.GuestVO;
 import com.bkc.user.vo.UserCouponVO;
 import com.bkc.user.vo.UserVO;
 
@@ -63,6 +59,9 @@ public class DeliveryController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private MyLocationService mylocaService;
 
 	// 카트리스트
 	private CartVO cart = new CartVO(); // list로되어 있는 카트
@@ -100,6 +99,10 @@ public class DeliveryController {
 		// new메뉴
 		List<DvProductVO> newdv = pService.getNewdv();
 		model.addAttribute("newdv", newdv);
+		
+		//지정 배달지
+		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
+		model.addAttribute("location", location);
 
 		// 카트 추가
 		CartVO cart = new CartVO();
@@ -171,6 +174,10 @@ public class DeliveryController {
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		model.addAttribute("user", user);
+		
+		//지정 배달지
+		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
+		model.addAttribute("location", location);
 
 		// 쿠폰 넣기
 		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(user.getUserid());
@@ -401,29 +408,12 @@ public class DeliveryController {
 		return retVal;
 	}
 	
-	@RequestMapping(value = "/order.do", method = RequestMethod.GET)
-	public String order(Model model) {
-		System.out.println("주문페이지로 이동");
-		
-		// 푸터추가
-		BusinessInformationVO bi = biService.getBusinessInformation(1);
-		model.addAttribute("bi", bi);
-		return "delivery/order";
-	}
 	
-	@RequestMapping(value = "/ordercomplete.do", method = RequestMethod.GET)
-	public String ordercomplete(Model model) {
-		System.out.println("주문완료 페이지 이동");
-		
-		// 푸터추가
-		BusinessInformationVO bi = biService.getBusinessInformation(1);
-		model.addAttribute("bi", bi);
-		return "delivery/ordercomplete";
-	}
 
 	/*
 	 * Guest 딜리버리
 	 */
+	
 	// guest를 세션에 넣어두고 주문할 수 있도록 보낸다.
 	
 	@RequestMapping(value = "/guestDelivery", method = { RequestMethod.GET, RequestMethod.POST })

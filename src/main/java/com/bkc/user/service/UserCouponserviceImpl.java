@@ -35,5 +35,9 @@ public class UserCouponserviceImpl implements UserCouponService {
 		return usercouponDao.insertUserCoupon(usercoupon);
 	}
 
+	@Override
+	public UserCouponVO getPrice(int coupon_seq) {
+		return usercouponDao.getPrice(coupon_seq);	
+	}
 
 }

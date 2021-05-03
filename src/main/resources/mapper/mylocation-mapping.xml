@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mylocaDao">
+
+	<select id="getCountLoca" resultType="int">
+		SELECT COUNT(*) FROM user_address
+			WHERE userid = #{userid}
+	</select>
+
+	<select id="getLocaList" resultType="MyLocationVO">
+		SELECT *
+	   		FROM(
+					SELECT A.*,
+				       ROW_NUMBER() over(order by addr_seq desc) as rn
+					FROM(
+						SELECT addr_seq,
+							   addr_type,
+							   zipcode,
+							   addr_name,
+							   addr,
+							   addr_detail,
+							   userid
+						FROM user_address							
+			        	)A
+	        	)B
+	    	WHERE userid = #{userid} AND addr_type=1
+	</select>
+	
+	
+	<select id="newLocaList" resultType="MyLocationVO">
+		SELECT *
+	   		FROM(
+					SELECT A.*,
+				       ROW_NUMBER() over(order by addr_seq desc) as rn
+					FROM(
+						SELECT addr_seq,
+							   addr_type,
+							   zipcode,
+							   addr_name,
+							   addr,
+							   userid
+						FROM user_address							
+			        	)A
+	        	)B
+	    	WHERE userid = #{userid} AND addr_type=0
+	</select>
+		
+		
+	<insert id="insertLoca" parameterType="MyLocationVO">
+		INSERT INTO
+			user_address(addr_name, zipcode, addr, userid, addr_detail, addr_extra)
+			VALUES(#{addr_name},#{zipcode}, #{addr}, #{userid}, #{addr_detail}, #{addr_extra})
+	</insert>
+		
+	
+	<update id="updateLocaOne" parameterType="MyLocationVO">
+		UPDATE user_address 
+			SET zipcode=#{zipcode},
+				addr = #{addr},
+				addr_detail = #{addr_detail}
+		WHERE userid=#{userid} AND addr_type=2
+	</update>
+	
+		
+	<insert id="insertLocaOne" parameterType="MyLocationVO">
+		INSERT INTO
+			user_address(addr_name, zipcode, addr, userid, addr_detail, addr_extra, addr_type)
+			VALUES(#{addr_name},#{zipcode}, #{addr}, #{userid}, #{addr_detail}, #{addr_extra}, 2)
+	</insert>
+	
+	
+	<select id="getLocaOne" resultType="MyLocationVO">
+		SELECT 	addr_seq, 
+				addr_type, 
+				zipcode, 
+				addr, 
+				addr_detail, 
+				userid
+			FROM user_address
+	    	WHERE userid = #{userid} AND addr_type=2
+	</select>
+			
+	
+	<delete id = "deleteLoca" parameterType="MyLocationVO">
+		DELETE FROM user_address WHERE addr_seq=#{addr_seq}
+	</delete>
+
+	
+</mapper>

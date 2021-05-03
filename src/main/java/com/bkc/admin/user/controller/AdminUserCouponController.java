@@ -202,11 +202,11 @@ public class AdminUserCouponController {
 		CouponVO coupon = couponService.getCouponByTitle(coupon_title);
 		UserCouponVO usercoupon = new UserCouponVO();
 		usercoupon.setCoupon_serial(coupon.getCoupon_serial());
-		
-		//날짜 지정
+
+		// 날짜 지정
 		Date date = new Date(System.currentTimeMillis());
 		usercoupon.setStartdate(date);
-		
+
 		for (String user : userArray) {
 			usercoupon.setUserid(user);
 			try {
@@ -256,7 +256,7 @@ public class AdminUserCouponController {
 				System.out.println("이미 있는 값");
 			}
 		}
-		
+
 		// 리턴값
 		Map<String, Object> retVal = new HashMap<String, Object>();
 
@@ -265,4 +265,23 @@ public class AdminUserCouponController {
 		retVal.put("message", "모든 회원에 쿠폰 배포 성공 하였습니다.");
 		return retVal;
 	}
+
+	// 가격가져오기
+	@RequestMapping(value = "/delivery/couponPrice.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object getCouponPrice(@RequestParam(value = "coupon_seq") int coupon_seq) {
+		UserCouponVO vo  = usercouponService.getPrice(coupon_seq);
+		int price = vo.getPrice();
+		String category = vo.getCoupon_category();
+		
+		// 리턴값
+		Map<String, Object> retVal = new HashMap<String, Object>();
+
+		// 성공했다고 처리
+		retVal.put("price", price);
+		retVal.put("category", category);
+		retVal.put("message", "모든 회원에 쿠폰 배포 성공 하였습니다.");
+		return retVal;
+	}
+
 }

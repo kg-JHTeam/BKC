@@ -18,16 +18,12 @@ public class KakaoPayController {
 	private KakaoService kakaoservice;
 
 	@GetMapping("pay/kakaopay.do")
-	public void kakaoPayGet() {
-
-	}
+	public void kakaoPayGet() { }
 
 	@PostMapping("pay/kakaopay.do")
 	public String kakaoPay() {
 		System.out.println("kakaoPay post............................................");
-
 		return "redirect:" + kakaoservice.kakaoPayReady();
-
 	}
 
 	
@@ -35,9 +31,7 @@ public class KakaoPayController {
 	public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
 		System.out.println("kakaoPaySuccess get............................................");
 		System.out.println("kakaoPaySuccess pg_token : " + pg_token);
-
 		model.addAttribute("info", kakaoservice.kakaoPayInfo(pg_token));
-
 	}
 
 }
