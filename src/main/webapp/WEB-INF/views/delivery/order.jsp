@@ -20,6 +20,7 @@
 	<!-- js -->
     <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
 	<title>주문하기</title>
 	
 	<script>
@@ -300,6 +301,7 @@
 		 var total_price = document.getElementById("realTotalCost").innerHTML; 	
 		 //coupon_seq - 상위에서 등록
 		 storename= "미등록지점";
+		 
 		 // "분기별로 입력 한다."
 		 //controller내에서 작업하는 변수
 		 //1. userid - 조인
@@ -344,7 +346,7 @@
                 url         :   "/bkc/delivery/ordersuccess.do",
                 dataType    :   "json",
                 contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
-                type        :   "post", //post로 보냄
+                type        :   "post",
                 data        :   objParams,
                 success     :   function(retVal){
                 	        orderSerial = retVal.order_serial; 
@@ -356,8 +358,6 @@
                 			alert("주문이 실패하였습니다.");
                 }
             });
-      		
-      		
       		
       	} else{
       		console.log("결제 error");
@@ -690,9 +690,29 @@
 							<div class="container02">
 								<ul class="easy_payment_list">
 									<li class="naver"><label> <input type="radio" name="paymentType" value="naver"> <span>네이버페이</span>
-									</label></li>
 									<li class="kakao"><label> <input type="radio" name="paymentType" value="kakao"> <span>카카오페이</span>
 									</label></li>
+                       <script>
+                    var oPay = Naver.Pay.create({
+                      "mode" : "production", // development or production
+                      "clientId" : "u86j4ripEt8LRfPGzQ8" // clientId
+                    });
+
+                    //직접 만든 네이버페이 결제 버튼에 click 이벤트를 할당하세요.
+                    var elNaverPayBtn = document.getElementById("naver");
+                    $('.naver input[type=radio]').click(function() {
+
+                      oPay.open({
+                        "merchantUserKey" : "bkc",
+                        "merchantPayKey" : "${products.value.type_serial}",
+                        "productName" : "${products.value.product_name}",
+                        "totalPayAmount" :"${products.value.price}",
+                        "taxScopeAmount" : "${products.value.price}",
+                        "taxExScopeAmount" : "0",
+                        "returnUrl" : "http://localhost:80/bkc/delivery/ordercomplete.do"
+                      });
+                    });
+									</script>
 								</ul>
 								<ul class="txtlist03">
 									<li>· 주문 변경 시 카드사 혜택 및 할부 적용 여부는 해당 카드사 정책에 따라 변경될 수 있습니다.</li>

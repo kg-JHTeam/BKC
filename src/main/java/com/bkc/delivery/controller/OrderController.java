@@ -163,6 +163,7 @@ public class OrderController {
 		
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		CartVO cart = (CartVO) session.getAttribute("cart");
+
 		UserCouponVO usercoupon = usercouponService.getUserCouponBySeq(coupon_seq);
 		
 		//1. Orderlist 테이블에  추가한다. 
