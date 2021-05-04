@@ -116,8 +116,7 @@ select {
     padding: 50px 0 120px;
 }
 .contentsBox01 {
-    margin: 0 300px;smep
-    padding: 50px 0 45px;
+    margin: 0 19%;
 }
 .bg_w {
     background: #fff;
@@ -129,11 +128,11 @@ select {
     padding-left: 50%;
     font-size: 1.25rem;
     line-height: 140%;
-    background: #fff url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/emlpoyment.png) no-repeat 88px bottom;
+    background: #fff url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/emlpoyment.png) no-repeat left center /contain;
 }.recruit_intro .msgbox .tit {
     margin-bottom: 32px;
     padding-top: 65px;
-    font-size: 3.875rem;
+    font-size: 4rem;
     line-height: 110%;
 }.recruit_intro .msgbox .tit>span, .recruit_intro .msgbox p>span {
     display: inline-block;
@@ -149,6 +148,122 @@ select {
     background: #000;
     margin: 100px 0 0 0;
 }
+.board_list{
+	padding-top:80px;margin: 0 20px;
+}
+
+	/*팝업창-데스크탑*/
+	.popup {
+		transform: translateX(-50%);
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		background: #fff;
+		position: absolute;
+		max-width: 568px;
+		height: 80%;
+		display: none;
+		overflow: hidden;
+		padding: 30px;
+	}
+	.popup .pop_tit {
+		width: 100%;
+	}
+	.agree-cont textarea {
+		width: 90%;
+		height: 100px;
+		resize: none;
+		border: 1px solid #dedede;
+	}
+	.popup-apply {
+		position: relative;
+	}
+	.popup-apply .btn_close {
+		position: absolute;
+		left: 30px;
+		top: 20px;
+	}
+	.popup-apply .popup-agree {
+		margin-top: 10px;
+	}
+	.popup-apply .agree-cont textarea {
+		width: 100%;
+	}
+	.popup-apply .btn_regform_full {
+		text-align: center;
+		margin-top: 15px;
+	}
+	.poptxt {
+		/*margin: 30px;*/
+		position: relative;
+		display: inline-block;
+		width: 100%;
+		font-size: 1.25rem;
+	}
+	.txt {
+		float: right;
+		width: 50%;
+	}
+	.txt p {
+		margin-bottom: 25px;
+	}
+	.poptxt .row+.row {
+		margin-top: 5px;
+	}
+	.poptxt .row input {
+		width: 100%;
+		float: none;
+	}
+	.popup-agree {
+		/*margin: 30px;*/
+		position: relative;
+		display: inline-block;
+		width: 100%;
+		font-size: 0.875rem;
+	}
+	.pop_tit h1 {
+		/*position: absolute;*/
+		width: 100%;
+		height: 40px;
+		text-align: center;
+		border-bottom: 2px #000;
+	}
+	.btn_close {
+		border: none;
+		margin: 5px;
+		outline: none;
+		float: left;
+		position: relative;
+		width: 30px;
+		height: 30px;
+		background:
+			url(" https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/reaction/close.png")
+			no-repeat 50%;
+	}
+
+	/*팝업창 뒷배경*/
+	.popup-wrap {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		display: none;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 999999999999999999999999999999999999;
+	}
+	.btn_top {
+		position: fixed;
+		right: 20px;
+		bottom: 316px;
+		width: 52px;
+		height: 52px;
+		text-indent: -9999em;
+		background:
+			url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png")
+			no-repeat 0 0;
+		z-index: 50;
+	}
 .recruit_intro .step {
     position: relative;
     height: 233px;
@@ -162,7 +277,21 @@ select {
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
-}.recruit_intro .step:after, .recruit_intro .step:before {
+}
+.btn_regform {
+		    margin-top: 20px;
+    position: relative;
+    padding: 12px 10px 10px;
+    min-width: 158px;
+    font-size: 1.125rem;
+    line-height: 26px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_o3.png) no-repeat 0 0;
+    background-size: 100% 100%;
+    color: #fff;
+    float: right;
+    text-align: center;
+	}
+.recruit_intro .step:after, .recruit_intro .step:before {
     content: "";
     position: absolute;
     top: 0;
@@ -190,7 +319,7 @@ background-position: 60% 0;
        background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenterico_branch_step05.png);
 }
 .locationWrap .chain_web_container {
-    overflow: hidden;margin-left: 230px;
+    overflow: hidden;margin: 0 19%;
 }
 .locationWrap a {
     color: #fff;
