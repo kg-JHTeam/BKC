@@ -21,4 +21,5 @@ public interface OrderService {
 
 	public List<OrderVO> getAllOrderListByOrderStatus(int order_status);
 
+	public List<OrderVO> getNotDeliveryUserOrderList(String userid);
 }

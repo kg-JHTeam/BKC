@@ -19,4 +19,6 @@ public interface OrderDAO {
 	public void updateProductSerial(OrderVO order);
 
 	public List<OrderVO> getAllOrderListByOrderStatus(int order_status);
+
+	public List<OrderVO> getNotDeliveryUserOrderList(String userid);
 }

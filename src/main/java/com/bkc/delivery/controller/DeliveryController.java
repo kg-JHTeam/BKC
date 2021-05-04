@@ -23,9 +23,12 @@ import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.delivery.service.CautionService;
 import com.bkc.delivery.service.DvProductService;
 import com.bkc.delivery.service.MyLocationService;
+import com.bkc.delivery.service.OrderDetailService;
+import com.bkc.delivery.service.OrderService;
 import com.bkc.delivery.vo.CautionVO;
 import com.bkc.delivery.vo.DvProductVO;
 import com.bkc.delivery.vo.MyLocationVO;
+import com.bkc.delivery.vo.OrderVO;
 import com.bkc.menuInform.service.ProductService;
 import com.bkc.menuInform.vo.ProductVO;
 import com.bkc.user.service.CouponService;
@@ -62,6 +65,12 @@ public class DeliveryController {
 
 	@Autowired
 	private MyLocationService mylocaService;
+
+	@Autowired
+	private OrderService orderService;
+
+	@Autowired
+	private OrderDetailService orderDetailService;
 
 	// 카트리스트
 	private CartVO cart = new CartVO(); // list로되어 있는 카트
@@ -113,6 +122,20 @@ public class DeliveryController {
 		}
 		model.addAttribute("cart", cart);
 
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
+
 		return "delivery/delivery";
 	}
 
@@ -146,6 +169,20 @@ public class DeliveryController {
 			cart = (CartVO) session.getAttribute("cart");
 		}
 		model.addAttribute("cart", cart);
+
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
 
 		return "delivery/mybkc";
 	}
@@ -186,6 +223,20 @@ public class DeliveryController {
 			cart = (CartVO) session.getAttribute("cart");
 		}
 		model.addAttribute("cart", cart);
+
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
 
 		return "delivery/mycoupon";
 	}
@@ -317,6 +368,20 @@ public class DeliveryController {
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
+		
 		return "/delivery/cart";
 	}
 
