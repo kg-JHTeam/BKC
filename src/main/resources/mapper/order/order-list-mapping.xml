@@ -40,7 +40,20 @@
 	</update>
 	<select id="getOrder" resultType="OrderVO">
 		<![CDATA[
-			SELECT * FROM orderlist where order_serial=	#{order_serial}
+			SELECT 
+				orderlist.productCount,
+				orderlist.order_serial,
+				orderlist.store_name,
+				orderlist.order_status,
+				orderlist.userid,
+				orderlist.coupon_seq,
+				orderlist.payment_type,
+				orderlist.total_price,
+				orderlist.address,
+				orderlist.product_serial,
+				DATE_TRUNC('second', orderlist.order_date::timestamp) as order_date,
+				orderlist.description
+			FROM orderlist where order_serial =	#{order_serial}
 			order by orderlist.order_serial DESC;
 		]]>
 	</select>
@@ -59,9 +72,11 @@
 				orderlist.total_price,
 				orderlist.address,
 				orderlist.product_serial,
-				orderlist.order_date,
+				DATE_TRUNC('second', orderlist.order_date::timestamp)as order_date,
 				orderlist.description, 
-				product.product_name, product.product_serial, product_image.*  
+				product.product_name,
+				product.product_serial,
+				product_image.*  
 			FROM orderlist 
 			INNER JOIN product ON product.product_serial = orderlist.product_serial
 			INNER JOIN product_image ON product.product_serial = product_image.product_serial
@@ -72,7 +87,21 @@
 	
 	<select id="getNotDeliveryUserOrderList" resultType="OrderVO">
 		<![CDATA[
-			SELECT orderlist.*, product.product_name FROM orderlist 
+			SELECT 
+			orderlist.productCount,
+				orderlist.order_serial,
+				orderlist.store_name,
+				orderlist.order_status,
+				orderlist.userid,
+				orderlist.coupon_seq,
+				orderlist.payment_type,
+				orderlist.total_price,
+				orderlist.address,
+				orderlist.product_serial,
+				DATE_TRUNC('second', orderlist.order_date::timestamp) as order_date,
+				orderlist.description, 
+			    product.product_name 
+			FROM orderlist 
 			INNER JOIN product ON product.product_serial = orderlist.product_serial
 			where userid = #{userid} and (order_status = 1 or order_status = 2) 
 			order by orderlist.order_serial DESC;
@@ -83,9 +112,21 @@
 	<select id="getAllOrderList" resultType="OrderVO">
 		<![CDATA[
 			SELECT 
-				orderlist.*,
-				product.product_name, product.product_serial
-			FROM orderlist 
+				orderlist.productCount,
+				orderlist.order_serial,
+				orderlist.store_name,
+				orderlist.order_status,
+				orderlist.userid,
+				orderlist.coupon_seq,
+				orderlist.payment_type,
+				orderlist.total_price,
+				orderlist.address,
+				orderlist.product_serial,
+				DATE_TRUNC('second', orderlist.order_date::timestamp)as order_date,
+				orderlist.description, 
+				product.product_name, 
+				product.product_serial
+				FROM orderlist 
 			INNER JOIN product ON product.product_serial = orderlist.product_serial
 			order by orderlist.order_serial DESC;
 		]]>
@@ -94,8 +135,20 @@
 	<select id="getAllOrderListByOrderStatus" resultType="OrderVO">
 		<![CDATA[
 			SELECT 
-				orderlist.*,
-				product.product_name, product.product_serial
+				orderlist.productCount,
+				orderlist.order_serial,
+				orderlist.store_name,
+				orderlist.order_status,
+				orderlist.userid,
+				orderlist.coupon_seq,
+				orderlist.payment_type,
+				orderlist.total_price,
+				orderlist.address,
+				orderlist.product_serial,
+				DATE_TRUNC('second', orderlist.order_date::timestamp)as order_date,
+				orderlist.description, 
+				product.product_name, 
+				product.product_serial
 			FROM orderlist 
 			INNER JOIN product ON product.product_serial = orderlist.product_serial
 			WHERE orderlist.order_status = #{order_status}
