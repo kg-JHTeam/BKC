@@ -69,7 +69,7 @@ public class DeliveryController {
 	// 회원 주문 페이지로 이동
 	@RequestMapping(value = "/delivery.do", method = RequestMethod.GET)
 	public String delivery(CautionVO cautionVO, Model model, HttpSession session) {
-		
+
 		// 유의사항 화면출력
 		List<CautionVO> CautionList = cService.CautionList(cautionVO);
 		model.addAttribute("CautionList", CautionList);
@@ -104,7 +104,7 @@ public class DeliveryController {
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
 		model.addAttribute("location", location);
 
-		// 카트 추가 잇는지 없는지 확인해서 보내기 
+		// 카트 추가 잇는지 없는지 확인해서 보내기
 		cart = new CartVO();
 		if (session.getAttribute("cart") == null) {
 			session.setAttribute("cart", cart);
@@ -115,6 +115,7 @@ public class DeliveryController {
 
 		return "delivery/delivery";
 	}
+
 	// mybkc 페이지로 이동
 	@RequestMapping(value = "/mybkc.do", method = RequestMethod.GET)
 	public String mybkc(Model model, HttpSession session) {
@@ -130,10 +131,9 @@ public class DeliveryController {
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
 		model.addAttribute("location", location);
 
-		// 쿠폰 넣기
-		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(user.getUserid());
-		int couponcount = usercoupons.size();
-		model.addAttribute("couponcount", couponcount);
+		// 쿠폰 갯수 포내주기
+		List<UserCouponVO> notUsedUserCoupons = usercouponService.getCountUserCouponNotUsed(user.getUserid());
+		model.addAttribute("couponcount", notUsedUserCoupons.size());
 
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
@@ -173,9 +173,11 @@ public class DeliveryController {
 		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(user.getUserid());
 		model.addAttribute("usercoupons", usercoupons);
 
+		model.addAttribute("realcouponcount", usercoupons.size());
 		// 쿠폰 갯수 포내주기
-		int couponcount = usercoupons.size();
-		model.addAttribute("couponcount", couponcount);
+		// 사용할 수 있는 쿠폰만 보내줌 use_status = 1;
+		List<UserCouponVO> notUsedUserCoupons = usercouponService.getCountUserCouponNotUsed(user.getUserid());
+		model.addAttribute("couponcount", notUsedUserCoupons.size());
 
 		// 카트 추가
 		CartVO cart = new CartVO();
@@ -192,7 +194,6 @@ public class DeliveryController {
 	@RequestMapping(value = "/admin/cautionList.ad", method = { RequestMethod.GET })
 	public String CautionList(CautionVO cautionVO, Model model) {
 
-		
 		// 유의사항
 		List<CautionVO> CautionList = cService.CautionList(cautionVO);
 		model.addAttribute("CautionList", CautionList);
@@ -257,7 +258,7 @@ public class DeliveryController {
 		if (seq == 0) {
 			// 세션이 아예없다면,
 			if (session.getAttribute("cart") == null) {
-			
+
 			} else { // 세션이 있다면
 				cart = (CartVO) session.getAttribute("cart");
 			}
@@ -311,7 +312,7 @@ public class DeliveryController {
 		// 지정 배달지
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
 		model.addAttribute("location", location);
-		
+
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);

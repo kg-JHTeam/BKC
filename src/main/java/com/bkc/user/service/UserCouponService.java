@@ -27,4 +27,8 @@ public interface UserCouponService {
 
 	public UserCouponVO getUserCouponBySeq(int coupon_seq);
 
+	public void useUserCoupon(int couponSeq);
+
+	public List<UserCouponVO> getCountUserCouponNotUsed(String userid);
+
 }

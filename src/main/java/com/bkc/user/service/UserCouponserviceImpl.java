@@ -45,4 +45,14 @@ public class UserCouponserviceImpl implements UserCouponService {
 		return usercouponDao.getUserCouponBySeq(coupon_seq);	
 	}
 
+	@Override
+	public void useUserCoupon(int coupon_seq) {
+		usercouponDao.useUserCoupon(coupon_seq);	
+	}
+
+	@Override
+	public List<UserCouponVO> getCountUserCouponNotUsed(String userid) {
+		return usercouponDao.getCountUserCouponNotUsed(userid);
+	}
+
 }

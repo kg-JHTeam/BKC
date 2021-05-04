@@ -8,6 +8,7 @@ public class UserCouponVO {
 	private String coupon_serial; //fk
 	private String userid;//fk
 	private int coupon_seq; //pk
+	private int use_status; 
 	
 	private Date endDate;//여기서만
 	private String coupon_title; 
@@ -15,6 +16,13 @@ public class UserCouponVO {
 	private int price;
 	private String coupon_category;
 	
+	
+	public int getUse_status() {
+		return use_status;
+	}
+	public void setUse_status(int use_status) {
+		this.use_status = use_status;
+	}
 	public int getPrice() {
 		return price;
 	}

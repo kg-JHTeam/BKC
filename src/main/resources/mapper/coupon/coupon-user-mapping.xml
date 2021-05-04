@@ -11,25 +11,31 @@
 		<![CDATA[
 			SELECT user_coupon.*, coupon.coupon_title , coupon.price
 			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
+			order by user_coupon.coupon_serial DESC;
 		]]>
 	</select>
 	
-	<select id="getUserCouponBySerial" resultType="UserCouponVO">
+	
+	<select id="getCountUserCouponNotUsed" resultType="UserCouponVO">
 		<![CDATA[
-			SELECT * FROM user_coupon WHERE coupon_serial=#{coupon_serial}
+			SELECT * FROM user_coupon
+			INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
+			WHERE userid = #{userid} and use_status = 1
 		]]>
 	</select>
+	
 	
 	<select id="getUserCouponBySeq" resultType="UserCouponVO">
 		<![CDATA[
 			SELECT * FROM user_coupon
 			INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
 			WHERE user_coupon.coupon_seq= #{coupon_seq}
+			order by user_coupon.coupon_serial DESC;
 		]]>
 	</select>
 	
 	<!-- 가격 가져오기. -->
-		<select id="getPrice" resultType="UserCouponVO">
+	<select id="getPrice" resultType="UserCouponVO">
 		<![CDATA[
 			SELECT *
 			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
@@ -42,8 +48,16 @@
 			SELECT user_coupon.*, coupon.coupon_title 
 			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
 			WHERE userid=#{userid}
+			order by user_coupon.coupon_serial DESC;
 		]]>
 	</select>
+	<insert id="useUserCoupon" >
+		<![CDATA[
+			UPDATE user_coupon
+			SET use_status= -1
+			WHERE coupon_seq = #{coupon_seq}
+		]]>
+	</insert>
 	<insert id="deleteUserCoupon" >
 		<![CDATA[
 			DELETE FROM user_coupon
@@ -51,13 +65,12 @@
 		]]>
 	</insert>
 	
-	
 	<!-- 쿠폰 생성 -->
 	<insert id="insertUserCoupon" >
 		<![CDATA[
-			INSERT INTO user_coupon(startdate, coupon_serial, userid, coupon_number)
+			INSERT INTO user_coupon(use_status, startdate, coupon_serial, userid, coupon_number)
 			VALUES (
-				NOW(), #{coupon_serial}, #{userid}, 
+				1, NOW(), #{coupon_serial}, #{userid}, 
 				(SELECT (SELECT coupon_serial from coupon where coupon_serial = #{coupon_serial}) 
     			|| (SELECT trunc(random() * 999999 + 1)::TEXT)
 				as coupon_number)
