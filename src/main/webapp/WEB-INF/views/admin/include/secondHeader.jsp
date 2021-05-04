@@ -51,7 +51,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                 	<a class="nav-link" href="${contextPath}/admin/orderlist.ad">주문 리스트</a>
                                 	<a class="nav-link" href="${contextPath}/admin/orderCompleteList.ad">주문 완료 리스트 </a>
-                                	<a class="nav-link" href="${contextPath}/admin/orderCancellationList.ad">주문 취소리스트 </a>
+                                	<a class="nav-link" href="${contextPath}/admin/orderCancellationList.ad">주문 취소 리스트 </a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

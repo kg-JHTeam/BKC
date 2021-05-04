@@ -13,21 +13,7 @@
 <meta name="author" content="" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <title>BKC 홈페이지 관리자 페이지</title>
-<style>
-#insertButton {
-	position: relative;
-	margin-bottom: 0.5%;
-	margin-left: 86%
-}
-
-#releaseButton {
-	position: relative;
-	margin-bottom: 0.5%;
-	margin-left: 86%
-}
-</style>
 <script>
-
 //주문상태 변경 메서드 
 function changeOrderStatus(status, serial){
 	if(status == "1"){
@@ -79,7 +65,6 @@ function changeOrderStatus(status, serial){
 			<main>
 				<div class="container-fluid">
 					<h1 class="mt-4">주문 리스트</h1>
-					<!-- 회원 리스트  -->
 					<div class="card mb-4">
 						<div class="card-header">
 							<i class="fas fa-table mr-1"></i> 주문 리스트
@@ -99,7 +84,6 @@ function changeOrderStatus(status, serial){
 										</tr>
 									</thead>
 									<!-- 상세정보  -->
-									
 									<!-- 
 										order_serial을 누르면 나오는 정보 모달. 
 										1. 주문자 아이디

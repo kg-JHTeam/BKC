@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ContributionDAO">
+	<resultMap type="ContributionVO" id="ContributionVO">
+		<result property="seq" column="seq" />
+		<result property="content" column="content" />
+		<result property="path" column="path" />
+	</resultMap>
+	
+	<select id="ContributionList" resultType="ContributionVO">
+		select * from brand_whybkc_contribution
+	</select>
+	
+	<select id="getContribution" resultType="ContributionVO">
+		<![CDATA[
+			SELECT * FROM brand_whybkc_contribution where seq= #{seq}
+		]]>
+	</select>
+	
+	<delete id="deleteContribution" >
+		<![CDATA[
+			DELETE FROM brand_whybkc_contribution
+			WHERE
+				seq = #{seq}
+		]]>
+	</delete>
+	
+	<insert id="insertContribution" > 
+		<![CDATA[
+			INSERT INTO 
+				brand_whybkc_contribution(seq, content, path)
+			VALUES 
+				(#{seq}, #{content}, #{path});
+		]]>
+	</insert>
+	
+	<insert id="updateContribution">
+		<![CDATA[
+		UPDATE 
+			brand_whybkc_contribution
+		SET  
+			content=#{content}, path=#{path}
+		WHERE seq = #{seq};
+		]]>
+	</insert>
+</mapper>
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="faqDao">
+	
+	<select id="FaqList"  resultType="FaqVO">
+		select ROW_NUMBER() over(order by seq desc) as rn, title, contents, category from faq 
+		WHERE category like '%' || #{category} || '%'
+	</select>
+	
+	<select id="FaqTotalCnt"  resultType="int">
+			SELECT  count(*) seq
+			FROM faq
+			<if test="searchText neq null and searchText neq ''">
+			   WHERE (title like '%' || #{searchText} || '%') or (contents  like '%' || #{searchText} || '%')
+			</if>
+	</select>
+	
+	<select id="AdminFaqList"  resultType="FaqVO">
+		SELECT * FROM faq
+	</select>
+	
+	<insert id="FaqInsert"> 
+		<![CDATA[
+			INSERT INTO 
+				faq(title, contents, category)
+			VALUES 
+				(#{title}, #{contents}, #{category})
+		]]>
+	</insert>
+	
+	<delete id="FaqDelete" >
+		<![CDATA[
+			DELETE FROM faq
+			WHERE
+				seq = #{seq}
+		]]>
+	</delete>
+	
+	<select id="getFaq" resultType="FaqVO">
+		<![CDATA[
+			SELECT * FROM faq where seq= #{seq}
+		]]>
+	</select>
+	
+	<insert id="updateFaq">
+		<![CDATA[
+		UPDATE 
+			faq
+		SET  
+			contents=#{contents}, title=#{title}, category=#{category}
+		WHERE seq = #{seq};
+		]]>
+	</insert>
+</mapper>

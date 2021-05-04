@@ -82,4 +82,16 @@
 			order by orderlist.order_serial DESC;
 		]]>
 	</select>
+	<select id="getAllOrderListByOrderStatus" resultType="OrderVO">
+		<![CDATA[
+			SELECT 
+				orderlist.*,
+				product.product_name, product.product_serial
+			FROM orderlist 
+			INNER JOIN product ON product.product_serial = orderlist.product_serial
+			WHERE orderlist.order_status = #{order_status}
+			order by orderlist.order_serial DESC;
+		]]>
+	</select>
+	
 </mapper>

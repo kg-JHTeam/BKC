@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TermEmailDAO">
+	<resultMap type="TermEmailVO" id="TermEmailVO">
+		<result property="seq" column="seq" />
+		<result property="regdate" column="regdate" />
+		<result property="content01" column="content01" />
+	</resultMap>
+	
+	<select id="getTermEmailList" resultType="TermEmailVO">
+		<![CDATA[
+			SELECT * FROM term_email where seq=1
+		]]>
+	</select>
+	<select id="updateTermEmail">
+		<![CDATA[
+			UPDATE term_email
+				SET regdate=#{regdate}, content01=#{content01} 
+				WHERE seq=1
+		]]>
+	</select>
+</mapper>

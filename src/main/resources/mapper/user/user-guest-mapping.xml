@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="GuestDAO">
+	<resultMap type="GuestVO" id="GuestVO">
+		<result property="email" column="EMAIL" />
+		<result property="password" column="PASSWORD" />
+		<result property="username" column="USERNAME" />
+	</resultMap>
+
+	<insert id="insert">
+		<![CDATA[
+			INSERT INTO guest(
+				username, password, email)
+			VALUES (#{username}, #{password}, #{email});
+		]]>
+	</insert>
+
+</mapper>

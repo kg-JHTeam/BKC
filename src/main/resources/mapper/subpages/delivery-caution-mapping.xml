@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CautionDAO">
+	
+	<select id="CautionList"  resultType="CautionVO">
+		select * from delivery_caution ORDER BY seq DESC;
+	</select>
+	
+	<insert id="CautionInsert"> 
+		<![CDATA[
+			INSERT INTO 
+				delivery_caution(content)
+			VALUES 
+				(#{content})
+		]]>
+	</insert>
+	
+	<delete id="CautionDelete" >
+		<![CDATA[
+			DELETE FROM delivery_caution
+			WHERE
+				seq = #{seq}
+		]]>
+	</delete>
+	
+	<insert id="CautionUpdate">
+		<![CDATA[
+		UPDATE 
+			delivery_caution
+		SET  
+			content=#{content}
+		WHERE seq = #{seq};
+		]]>
+	</insert>
+	
+	<select id="getCaution" resultType="CautionVO">
+		<![CDATA[
+			SELECT * FROM delivery_caution where seq= #{seq}
+		]]>
+	</select>
+	
+</mapper>

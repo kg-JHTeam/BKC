@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="HistoryDAO">
+	<resultMap type="HistoryVO" id="HistoryVO">
+		<result property="seq" column="seq" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+	</resultMap>
+	
+	<select id="HistoryList" resultType="HistoryVO">
+		select * from brand_bkcstory_history ORDER BY seq, title, content DESC;
+	</select>
+	
+	<select id="getHistory" resultType="HistoryVO">
+		<![CDATA[
+			SELECT * FROM brand_bkcstory_history where seq= #{seq}
+		]]>
+	</select>
+	
+	<insert id="updateHistory">
+		<![CDATA[
+			UPDATE
+            brand_bkcstory_history
+         SET 
+            title=#{title}, content=#{content}
+         WHERE
+            seq = #{seq}
+		]]>
+	</insert>
+	
+	<delete id="deleteHistory" >
+		<![CDATA[
+			DELETE FROM brand_bkcstory_history
+			WHERE
+				seq = #{seq}
+		]]>
+	</delete>
+</mapper>

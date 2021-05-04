@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BannerDAO">
+	<resultMap type="BannerVO" id="BannerVO">
+		<result property="title" column="title" />
+		<result property="path" column="path" />
+		<result property="content" column="content" />
+		<result property="use_status" column="use_status" />
+	</resultMap>
+	
+	<select id="getBannerList" resultType="BannerVO">
+		<![CDATA[
+			SELECT * FROM banner 
+		]]>
+	</select>
+	<select id="getBannerUsedList" resultType="BannerVO">
+		<![CDATA[
+			SELECT * FROM banner where use_status = 'true'
+		]]>
+	</select>
+	<select id="getBanner" resultType="BannerVO">
+		<![CDATA[
+			SELECT * FROM banner where img_seq=	#{img_seq}
+		]]>
+	</select>
+	<update id="changeStatus">
+		<![CDATA[
+			UPDATE
+				banner
+			SET use_status =
+				(CASE WHEN use_status=true  THEN false
+					  WHEN use_status=false THEN true
+				END)
+			WHERE
+				img_seq = #{img_seq};
+		]]>
+	</update>
+	<delete id="deleteBanner" >
+		<![CDATA[
+			DELETE FROM banner
+			WHERE
+				img_seq = #{img_seq};
+		]]>
+	</delete>
+	
+	<insert id="insertBanner" > 
+		<![CDATA[
+			INSERT INTO 
+				banner(use_status, content, title, path)
+			VALUES 
+				(#{use_status}, #{content}, #{title}, #{path});
+		]]>
+	</insert>
+	<insert id="updateBanner">
+		<![CDATA[
+		UPDATE 
+			banner
+		SET  
+			content=#{content}, title=#{title}, path=#{path}
+		WHERE img_seq = #{img_seq};
+		]]>
+	</insert>
+	
+</mapper>

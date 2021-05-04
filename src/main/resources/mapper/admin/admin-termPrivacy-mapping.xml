@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TermPrivacyDAO">
+	<resultMap type="TermPrivacyVO" id="TermPrivacyVO">
+		<result property="seq" column="seq" />
+		<result property="regdate" column="regdate" />
+		<result property="content01" column="content01" />
+		<result property="content02" column="content02" />
+		<result property="content03" column="content03" />
+		<result property="content04" column="content04" />
+	</resultMap>
+	
+	<select id="getTermPrivacyList" resultType="TermPrivacyVO">
+		<![CDATA[
+			SELECT * FROM term_privacy where seq=1
+		]]>
+	</select>
+	
+	<select id="updateTermPrivacy">
+		<![CDATA[
+			UPDATE term_privacy 
+				SET regdate=#{regdate}, content01=#{content01}, content02=#{content02}, content03=#{content03}, content04=#{content04} 
+				WHERE seq=1
+		]]>
+	</select>
+</mapper>
