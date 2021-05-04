@@ -39,4 +39,9 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.getAllOrderList();
 	}
 
+	@Override
+	public List<OrderVO> getAllOrderListByOrderStatus(int order_status) {
+		return orderDao.getAllOrderListByOrderStatus(order_status);
+	}
+
 }

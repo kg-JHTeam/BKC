@@ -19,4 +19,6 @@ public interface OrderService {
 
 	public List<OrderVO> getAllOrderList();
 
+	public List<OrderVO> getAllOrderListByOrderStatus(int order_status);
+
 }

@@ -17,4 +17,6 @@ public interface OrderDAO {
 	public List<OrderVO> getAllOrderList();
 
 	public void updateProductSerial(OrderVO order);
+
+	public List<OrderVO> getAllOrderListByOrderStatus(int order_status);
 }

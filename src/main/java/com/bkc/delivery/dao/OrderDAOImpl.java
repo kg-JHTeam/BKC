@@ -40,4 +40,9 @@ public class OrderDAOImpl implements OrderDAO {
 	public List<OrderVO> getAllOrderList() {
 		return sqlSession.selectList("getAllOrderList");
 	}
+
+	@Override
+	public List<OrderVO> getAllOrderListByOrderStatus(int order_status) {
+		return sqlSession.selectList("getAllOrderListByOrderStatus", order_status);
+	}
 }
