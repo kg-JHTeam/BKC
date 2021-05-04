@@ -1,6 +1,7 @@
 package com.bkc.delivery.vo;
 
 import java.sql.Date;
+import java.util.List;
 
 public class OrderVO {
 	
@@ -28,6 +29,8 @@ public class OrderVO {
 	private int productCount; //주문 메뉴 갯수 
 	private String product_name; //타이틀 메뉴 이름 출력 
 	private String path; //타이틀 메뉴 이름 출력
+	
+	private List <OrderDetailVO> orderDetails;
 	
 	public OrderVO() {
 		super();
@@ -167,5 +170,13 @@ public class OrderVO {
 
 	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
+	}
+
+	public List <OrderDetailVO> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List <OrderDetailVO> orderDetails) {
+		this.orderDetails = orderDetails;
 	}
 }

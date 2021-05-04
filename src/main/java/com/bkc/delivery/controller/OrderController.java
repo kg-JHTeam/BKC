@@ -109,7 +109,7 @@ public class OrderController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
@@ -149,7 +149,7 @@ public class OrderController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
@@ -168,12 +168,14 @@ public class OrderController {
 	// 결제처리 AJAX
 	@ResponseBody
 	@RequestMapping(value = "/ordersuccess.do", method = RequestMethod.POST)
-	public Object goAjaxOrdercomplete(@RequestParam(value = "storename") String store_name,
+	public Object goAjaxOrdercomplete(
+			@RequestParam(value = "storename") String store_name,
 			@RequestParam(value = "useraddress") String address,
 			@RequestParam(value = "phonenumber") String phonenumber,
 			@RequestParam(value = "description") String description,
 			@RequestParam(value = "payment_type") String payment_type,
-			@RequestParam(value = "coupon_seq") int coupon_seq, @RequestParam(value = "total_price") int total_price,
+			@RequestParam(value = "coupon_seq") int coupon_seq, 
+			@RequestParam(value = "total_price") int total_price,
 			Model model, HttpSession session) {
 
 		System.out.println("주문실행");
@@ -278,7 +280,7 @@ public class OrderController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
@@ -331,7 +333,7 @@ public class OrderController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
