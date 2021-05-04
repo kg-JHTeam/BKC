@@ -54,6 +54,7 @@
 											<th>쿠폰 종류 </th>
 											<th>소지자 아이디</th>
 											<th>쿠폰 발급일</th>
+											<th>사용여부</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -63,6 +64,16 @@
 												<td>${usercoupon.coupon_title}</td>
 												<td>${usercoupon.userid}</td>
 												<td>${usercoupon.startdate}</td>
+												<td>
+												<c:choose>
+													<c:when test="${usercoupon.use_status eq -1}">
+													   <input type="button" class="btn btn-secondary" value="사용완료" disabled>
+													</c:when>
+													<c:otherwise>
+														<input type="button" class="btn btn-danger" value="미사용">
+													</c:otherwise>
+												</c:choose>
+												</td>
 											</tr>
 										</c:forEach>
 									</tbody>

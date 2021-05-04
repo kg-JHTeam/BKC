@@ -69,7 +69,7 @@ public class AdminOrderController {
 	// 주문 완료 페이지로 이동함.
 	@RequestMapping(value = "/orderCompleteList.ad", method = RequestMethod.GET)
 	public String goAdminOrderCompleteList(Model model) {
-		List <OrderVO> orders = orderService.getAllOrderList();
+		List <OrderVO> orders = orderService.getAllOrderListByOrderStatus(3);
 		for(int i = 0 ; i<orders.size(); i++ ) {
 			OrderVO order = orders.get(i);
 			List<OrderDetailVO> orderDetails = orderDetailService.getOrderDetailListByOrderSerial(order.getOrder_serial());
@@ -82,7 +82,7 @@ public class AdminOrderController {
 	// 주문 취소 페이지로 이동함.
 	@RequestMapping(value = "/orderCancellationList.ad", method = RequestMethod.GET)
 	public String goAdminOrderCancellationList(Model model) {
-		List <OrderVO> orders = orderService.getAllOrderList();
+		List <OrderVO> orders = orderService.getAllOrderListByOrderStatus(-1);
 		for(int i = 0 ; i<orders.size(); i++ ) {
 			OrderVO order = orders.get(i);
 			List<OrderDetailVO> orderDetails = orderDetailService.getOrderDetailListByOrderSerial(order.getOrder_serial());

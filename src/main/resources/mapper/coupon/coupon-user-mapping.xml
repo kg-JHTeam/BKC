@@ -9,25 +9,48 @@
 
 	<select id="getUserCouponList" resultType="UserCouponVO">
 		<![CDATA[
-			SELECT user_coupon.*, coupon.coupon_title , coupon.price
+			SELECT 
+			user_coupon.coupon_number,
+			user_coupon.coupon_serial,
+			user_coupon.userid,
+			user_coupon.coupon_seq,
+			user_coupon.use_status,
+			DATE_TRUNC('second', user_coupon.startdate::timestamp) as startdate,
+			coupon.coupon_title , coupon.price, coupon.coupon_category
 			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
 			order by user_coupon.coupon_serial DESC;
 		]]>
 	</select>
 	
-	
 	<select id="getCountUserCouponNotUsed" resultType="UserCouponVO">
 		<![CDATA[
-			SELECT * FROM user_coupon
+			SELECT 
+			user_coupon.coupon_number,
+			user_coupon.coupon_serial,
+			user_coupon.userid,
+			user_coupon.coupon_seq,
+			user_coupon.use_status,
+			DATE_TRUNC('second', user_coupon.startdate::timestamp) as startdate,
+			coupon.coupon_title , coupon.price, coupon.coupon_category
+			FROM user_coupon
 			INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
 			WHERE userid = #{userid} and use_status = 1
+			order by user_coupon.coupon_serial DESC;
 		]]>
 	</select>
 	
 	
 	<select id="getUserCouponBySeq" resultType="UserCouponVO">
 		<![CDATA[
-			SELECT * FROM user_coupon
+			SELECT
+			user_coupon.coupon_number,
+			user_coupon.coupon_serial,
+			user_coupon.userid,
+			user_coupon.coupon_seq,
+			user_coupon.use_status,
+			DATE_TRUNC('second', user_coupon.startdate::timestamp) as startdate,
+			coupon.coupon_title , coupon.price, coupon.coupon_category
+			FROM user_coupon
 			INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
 			WHERE user_coupon.coupon_seq= #{coupon_seq}
 			order by user_coupon.coupon_serial DESC;
@@ -37,7 +60,15 @@
 	<!-- 가격 가져오기. -->
 	<select id="getPrice" resultType="UserCouponVO">
 		<![CDATA[
-			SELECT *
+			SELECT 
+			user_coupon.coupon_number,
+			user_coupon.coupon_serial,
+			user_coupon.userid,
+			user_coupon.coupon_seq,
+			user_coupon.use_status,
+			user_coupon.coupon_title,
+			DATE_TRUNC('second', user_coupon.startdate::timestamp) as startdate,
+			coupon.coupon_title , coupon.price, coupon.coupon_category
 			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
 			WHERE user_coupon.coupon_seq= #{coupon_seq}
 		]]>
@@ -45,7 +76,14 @@
 	
 	<select id="getUserHavingCouponDetail" resultType="UserCouponVO">
 		<![CDATA[
-			SELECT user_coupon.*, coupon.coupon_title 
+			SELECT 
+			user_coupon.coupon_number,
+			user_coupon.coupon_serial,
+			user_coupon.userid,
+			user_coupon.coupon_seq,
+			user_coupon.use_status,
+			DATE_TRUNC('second', user_coupon.startdate::timestamp) as startdate,
+			coupon.coupon_title , coupon.price, coupon.coupon_category
 			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
 			WHERE userid=#{userid}
 			order by user_coupon.coupon_serial DESC;
