@@ -41,6 +41,7 @@
 	<select id="getOrder" resultType="OrderVO">
 		<![CDATA[
 			SELECT * FROM orderlist where order_serial=	#{order_serial}
+			order by orderlist.order_serial DESC;
 		]]>
 	</select>
 	
@@ -65,6 +66,7 @@
 			INNER JOIN product ON product.product_serial = orderlist.product_serial
 			INNER JOIN product_image ON product.product_serial = product_image.product_serial
 			where orderlist.userid = #{userid}
+			order by orderlist.order_serial DESC;
 		]]>
 	</select>
 	
@@ -77,6 +79,7 @@
 				product.product_name, product.product_serial
 			FROM orderlist 
 			INNER JOIN product ON product.product_serial = orderlist.product_serial
+			order by orderlist.order_serial DESC;
 		]]>
 	</select>
 </mapper>

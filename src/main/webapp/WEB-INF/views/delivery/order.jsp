@@ -311,13 +311,11 @@
 		
       	//라디어 버튼에 따라 결제 분기 처리  - 5가지 타입 
       	if(paymentTypeValue == "naver"){
-      		 alert("naver 결제로 ! ");
       		 // 엄지현이 작업중인 곳 조심      //
        		 
       		 // ----------------- // 
       	} else if(paymentTypeValue == "kakao"){
       		KakaoPay();
-      		alert("kakao 결제로 ! ");
       	} 
       	
       	//카드결제 두개 
@@ -344,7 +342,6 @@
                 	        window.location.href= contextpath+"/delivery/ordercomplete.do?order_serial="+orderSerial;
                 },
                 error       :   function(request, status, error){
-                			console.log("주문 실패");
                 			alert("주문이 실패하였습니다.");
                 }
             });
@@ -352,7 +349,6 @@
       	} 
       	//현장 카드 결제
       	else if(paymentTypeValue == "fieldCard"){
-      		console.log(payment_type);
       		var objParams = {
     				"storename" : storename, 
     				"useraddress" : useraddress, 
@@ -370,7 +366,6 @@
                 data        :   objParams,
                 success     :   function(retVal){
                 	        orderSerial = retVal.order_serial; 
-                	        console.log(orderSerial);
                 	        window.location.href= contextpath+"/delivery/ordercomplete.do?order_serial="+orderSerial;
                 },
                 error       :   function(request, status, error){

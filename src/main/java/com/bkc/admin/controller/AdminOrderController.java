@@ -93,6 +93,17 @@ public class AdminOrderController {
 		order.setOrder_status(order_status+1);
 		orderService.updateProductSerial(order);
 		
+		//쿠폰 사용 완료 시키기 - 배달중으로 변경시키면서, 쿠폰 사용 완료 
+		if(order_status == 1) {
+			int couponSeq = order.getCoupon_seq();
+			
+			if(couponSeq == -1) {}  //쿠폰 사용안한 경우
+			//쿠폰사용한 경우 
+			else {
+				usercouponService.deleteUserCoupon(couponSeq);
+			}
+		}
+		
 		System.out.println(order.toString());
 		retVal.put("order_serial", order_serial); 
 		return retVal;
