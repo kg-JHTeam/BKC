@@ -20,5 +20,9 @@ public interface UserCouponDAO {
 	public UserCouponVO getPrice(int coupon_seq);
 
 	public UserCouponVO getUserCouponBySeq(int coupon_seq);
+
+	public void useUserCoupon(int coupon_seq);
+
+	public List<UserCouponVO> getCountUserCouponNotUsed(String userid);
 	
 }

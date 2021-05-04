@@ -100,7 +100,8 @@ public class AdminOrderController {
 			if(couponSeq == -1) {}  //쿠폰 사용안한 경우
 			//쿠폰사용한 경우 
 			else {
-				usercouponService.deleteUserCoupon(couponSeq);
+				//쿠폰사용 
+				usercouponService.useUserCoupon(couponSeq);
 			}
 		}
 		

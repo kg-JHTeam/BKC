@@ -69,7 +69,6 @@ public class AdminUserCouponController {
 		List<UserVO> users = userService.getUserHavingCouponList();
 		model.addAttribute("users", users);
 
-		//
 		return "admin/subpages/coupon/couponReleasepage";
 	}
 
