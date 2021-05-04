@@ -53,6 +53,16 @@ function changeOrderStatus(status, serial){
         }
     });
 }
+
+$('#exampleModal').on('show.bs.modal', function (event) {
+	  var button = $(event.relatedTarget) // Button that triggered the modal
+	  var recipient = button.data('whatever') // Extract info from data-* attributes
+	  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+	  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+	  var modal = $(this)
+	  modal.find('.modal-title').text('New message to ' + recipient)
+	  modal.find('.modal-body input').val(recipient)
+	})
 </script>
 </head>
 <body class="sb-nav-fixed">
@@ -81,33 +91,22 @@ function changeOrderStatus(status, serial){
 											<th>결제타입</th>
 											<th>총가격</th>
 											<th>주문상태</th>
+											<th>주문상세보기</th>
 										</tr>
 									</thead>
-									<!-- 상세정보  -->
-									<!-- 
-										order_serial을 누르면 나오는 정보 모달. 
-										1. 주문자 아이디
-										2. 주문자 주소
-										3. 주문자 전화번호
-										4. 총가격
-										5. 쿠폰사용여부
-										6. 결제타입
-										7. 상품  - 상품 갯수
-										8. 주문상태 
-									 -->
 									<tbody>
 										<c:forEach var="order" items="${orders}">
 											<tr>
-												<td><a href="#" onclick="checkOrder()">${order.order_serial}</a></td>
+												<td>${order.order_serial}</td>
 												<td>${order.order_date}</td>
 												<td><a href="#" onclick="checkStore()">${order.store_name}</a></td>
 												<td>${order.userid}</td>
 												<td>${order.payment_type}</td>
-												<td>${order.total_price} 원</td>
-												<td>
-												<c:choose>
+												<td>${order.total_price}원</td>
+												<td><c:choose>
 														<c:when test="${order.order_status eq -1 }">
-															<input class="btn btn-warning" type="button" value="주문취소" disabled/>
+															<input class="btn btn-warning" type="button" value="주문취소"
+																disabled />
 														</c:when>
 														<c:when test="${order.order_status eq 1 }">
 															<input class="btn btn-info" type="button" value="주문접수"
@@ -120,14 +119,83 @@ function changeOrderStatus(status, serial){
 																id="${order.order_serial}" />
 														</c:when>
 														<c:otherwise>
-															<input class="btn btn-danger" type="button" value="주문완료" disabled />
+															<input class="btn btn-danger" type="button" value="주문완료"
+																disabled />
 														</c:otherwise>
-													</c:choose>
-												</td>
+													</c:choose></td>
+													<td>
+													<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">상세보기</button>
 											</tr>
 										</c:forEach>
 									</tbody>
 								</table>
+								<!-- 모달 -->		
+								<!-- 상세정보  -->
+									<!-- 
+										order_serial을 누르면 나오는 정보 모달. 
+										1. 주문자 아이디
+										2. 주문자 주소
+										3. 주문자 전화번호
+										4. 총가격
+										5. 쿠폰사용여부
+										6. 결제타입
+										7. 상품  - 상품 갯수
+										8. 주문상태 
+									 -->							
+									<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">주문 상세 보기 </h5>
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									          <span aria-hidden="true">&times;</span>
+									        </button>
+									      </div>
+									      <div class="modal-body">
+									      	  <div class="form-group">
+									            <label for="message-text" class="col-form-label">주문상태</label>
+									            <input type="text" class="form-control" id="recipient-name" disabled>
+									          </div>
+										      <div class="form-group">
+										            <label for="recipient-name" class="col-form-label">주문자 아이디:</label>
+										            <input type="text" class="form-control" id="recipient-name" disabled>
+										      </div>
+										      <div class="form-row">
+										          <div class="form-group col-md-6">
+										            <label for="recipient-name" class="col-form-label">주문자 주소 :</label>
+										            <input type="text" class="form-control" id="recipient-name" disabled>
+										          </div>
+										          <div class="form-group col-md-6">
+										            <label for="recipient-name" class="col-form-label">매장명:</label>
+										            <input type="text" class="form-control" id="recipient-name" disabled>
+										          </div>
+									          </div>
+									          <div class="form-row">
+										          <div class="form-group col-md-6">
+										            <label for="recipient-name" class="col-form-label">쿠폰사용여부:</label>
+										            <input type="text" class="form-control" id="recipient-name" disabled>
+										          </div>
+										          <div class="form-group col-md-6">
+										            <label for="recipient-name" class="col-form-label">결제타입:</label>
+										            <input type="text" class="form-control" id="recipient-name" disabled>
+										          </div>
+									          </div>
+									          
+									          <div class="form-group">
+									            <label for="recipient-name" class="col-form-label">총가격:</label>
+									            <input type="text" class="form-control" id="recipient-name" disabled>
+									          </div>
+									          <div class="form-group">
+									            <label for="message-text" class="col-form-label">주문 상품</label>
+									            <textarea class="form-control" id="message-text" disabled></textarea>
+									          </div>
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
 							</div>
 						</div>
 					</div>
