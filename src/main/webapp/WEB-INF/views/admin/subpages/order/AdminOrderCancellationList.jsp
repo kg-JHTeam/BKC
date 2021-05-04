@@ -40,6 +40,7 @@
 											<th>결제타입</th>
 											<th>총가격</th>
 											<th>주문상태</th>
+											<th>주문상세보기</th>
 										</tr>
 									</thead>
 									<!-- 상세정보  -->
@@ -56,7 +57,7 @@
 									<tbody>
 										<c:forEach var="order" items="${orders}">
 											<tr>
-												<td><a href="#" onclick="checkOrder()">${order.order_serial}</a></td>
+												<td>${order.order_serial}</td>
 												<td>${order.order_date}</td>
 												<td><a href="#" onclick="checkStore()">${order.store_name}</a></td>
 												<td>${order.userid}</td>
@@ -81,6 +82,10 @@
 															<input class="btn btn-danger" type="button" value="주문완료" disabled />
 														</c:otherwise>
 													</c:choose>
+												</td>
+												<td>
+												<button type="button" class="btn btn-secondary"
+														id="openModalBtn">상세보기</button>
 												</td>
 											</tr>
 										</c:forEach>
