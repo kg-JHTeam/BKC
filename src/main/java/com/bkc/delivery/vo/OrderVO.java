@@ -1,6 +1,7 @@
 package com.bkc.delivery.vo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class OrderVO {
@@ -22,7 +23,7 @@ public class OrderVO {
 	
 	private String phonenumber;
 	private int product_serial; //주문한 대표상품 serial 
-	private Date order_date;
+	private Timestamp order_date;
 	private String description;
 	
 	//추가적인 매개변수 
@@ -46,7 +47,13 @@ public class OrderVO {
 		this.total_price = total_price;
 		this.address = address;
 	}
+	public Timestamp getOrder_date() {
+		return order_date;
+	}
 
+	public void setOrder_date(Timestamp order_date) {
+		this.order_date = order_date;
+	}
 	public String getDescription() {
 		return description;
 	}
@@ -71,13 +78,7 @@ public class OrderVO {
 		this.path = path;
 	}
 
-	public Date getOrder_date() {
-		return order_date;
-	}
 
-	public void setOrder_date(Date order_date) {
-		this.order_date = order_date;
-	}
 
 	public int getProductCount() {
 		return productCount;
