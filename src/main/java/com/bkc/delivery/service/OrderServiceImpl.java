@@ -44,4 +44,9 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.getAllOrderListByOrderStatus(order_status);
 	}
 
+	@Override
+	public List<OrderVO> getNotDeliveryUserOrderList(String userid) {
+		return orderDao.getNotDeliveryUserOrderList(userid);
+	}
+
 }

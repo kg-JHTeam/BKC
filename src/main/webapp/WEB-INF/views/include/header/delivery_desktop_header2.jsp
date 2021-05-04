@@ -50,7 +50,7 @@
                                 <dt>
                                     <strong>딜리버리 주문내역</strong>
                                 </dt>
-                                <dd>주문내역이 없습니다.</dd>
+                                <dd>${nowOrderStatus}</dd>
                             </dl>
                         </div>
                     </a>

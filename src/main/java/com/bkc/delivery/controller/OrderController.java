@@ -100,10 +100,24 @@ public class OrderController {
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
+
 		return "delivery/order";
 	}
 
-	// 주문완료 페이지로 이동. 
+	// 주문완료 페이지로 이동.
 	@RequestMapping(value = "/ordercomplete.do", method = RequestMethod.GET)
 	public String goOrdercomplete(Model model, @RequestParam(value = "order_serial") int order_serial) {
 		System.out.println("주문완료 페이지 이동");
@@ -125,6 +139,21 @@ public class OrderController {
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
+
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
+
 		return "delivery/ordercomplete";
 	}
 
@@ -162,7 +191,8 @@ public class OrderController {
 		String userid = user.getUserid();
 		int order_status = 1; // default 1
 
-		OrderVO order = new OrderVO(phonenumber, store_name, order_status, userid, coupon_seq, payment_type, total_price, address);
+		OrderVO order = new OrderVO(phonenumber, store_name, order_status, userid, coupon_seq, payment_type,
+				total_price, address);
 
 		// orderlist에 주문 추가
 		int order_serial = orderService.insertOrder(order); // order_serial
@@ -203,7 +233,7 @@ public class OrderController {
 		}
 		// 카트 세션 삭제 - session.removeAttribute("cart");
 		System.out.println(order.toString());
-		
+
 		retVal.put("order_serial", order_serial); // 주문관련 정보 넣어서 보냄.
 		retVal.put("message", "결제 성공");
 		return retVal;
@@ -222,7 +252,6 @@ public class OrderController {
 		// 사용자가 주문한 내역을 뽑아온다.
 		List<OrderVO> orders = orderService.getUserOrderList(user.getUserid());
 		model.addAttribute("orders", orders);
-		System.out.println(orders.toString());
 
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
@@ -239,6 +268,20 @@ public class OrderController {
 			cart = (CartVO) session.getAttribute("cart");
 		}
 		model.addAttribute("cart", cart);
+
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
 
 		return "delivery/orderList";
 	}
@@ -257,25 +300,41 @@ public class OrderController {
 		// order 정보 추가
 		OrderVO order = orderService.getOrder(order_serial);
 		model.addAttribute("order", order);
-		
+
 		int coupon_seq = order.getCoupon_seq();
 		UserCouponVO usedUsercoupon = usercouponService.getUserCouponBySeq(coupon_seq);
 		model.addAttribute("usedUsercoupon", usedUsercoupon);
-		
-		List <OrderDetailVO> orderDetails = orderDetailService.getOrderDetailListByOrderSerial(order_serial);
+
+		List<OrderDetailVO> orderDetails = orderDetailService.getOrderDetailListByOrderSerial(order_serial);
 		model.addAttribute("orderDetails", orderDetails);
-		
+
 		System.out.println(orderDetails.toString());
-		
-		//잡다한거 추가
+
+		// 잡다한거 추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
 		model.addAttribute("location", location);
 		CartVO cart = new CartVO();
-		if (session.getAttribute("cart") == null) {} 
-		else {cart = (CartVO) session.getAttribute("cart");}
+		if (session.getAttribute("cart") == null) {
+		} else {
+			cart = (CartVO) session.getAttribute("cart");
+		}
 		model.addAttribute("cart", cart);
+
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
 
 		return "delivery/orderDetail";
 	}

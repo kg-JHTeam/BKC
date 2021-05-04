@@ -70,6 +70,14 @@
 		]]>
 	</select>
 	
+	<select id="getNotDeliveryUserOrderList" resultType="OrderVO">
+		<![CDATA[
+			SELECT orderlist.*, product.product_name FROM orderlist 
+			INNER JOIN product ON product.product_serial = orderlist.product_serial
+			where userid = #{userid} and (order_status = 1 or order_status = 2) 
+			order by orderlist.order_serial DESC;
+		]]>
+	</select>
 	
 	<!-- 회원 주문내역 뽑기 List로 출력  // Product와 조인한고 Product는 Product_image와 조인해서  뽑아온다. -->  
 	<select id="getAllOrderList" resultType="OrderVO">

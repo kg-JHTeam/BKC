@@ -45,4 +45,11 @@ public class OrderDAOImpl implements OrderDAO {
 	public List<OrderVO> getAllOrderListByOrderStatus(int order_status) {
 		return sqlSession.selectList("getAllOrderListByOrderStatus", order_status);
 	}
+
+	@Override
+	public List<OrderVO> getNotDeliveryUserOrderList(String userid) {
+		return sqlSession.selectList("getNotDeliveryUserOrderList", userid);
+	}
+
+
 }
