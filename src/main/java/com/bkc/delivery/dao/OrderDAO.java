@@ -14,6 +14,7 @@ public interface OrderDAO {
 
 	public List<OrderVO> getUserOrderList(String userid);
 
-	public void updateProductSerial(OrderVO productsCount);
+	public List<OrderVO> getAllOrderList();
 
+	public void updateProductSerial(OrderVO order);
 }
