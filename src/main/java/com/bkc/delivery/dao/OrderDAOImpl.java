@@ -35,4 +35,9 @@ public class OrderDAOImpl implements OrderDAO {
 	public void updateProductSerial(OrderVO order) {
 		sqlSession.insert("updateProductSerial", order);
 	}
+
+	@Override
+	public List<OrderVO> getAllOrderList() {
+		return sqlSession.selectList("getAllOrderList");
+	}
 }

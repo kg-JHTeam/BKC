@@ -203,9 +203,6 @@ public class AdminUserCouponController {
 		UserCouponVO usercoupon = new UserCouponVO();
 		usercoupon.setCoupon_serial(coupon.getCoupon_serial());
 
-		// 날짜 지정
-		Date date = new Date(System.currentTimeMillis());
-		usercoupon.setStartdate(date);
 
 		for (String user : userArray) {
 			usercoupon.setUserid(user);

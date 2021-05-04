@@ -17,4 +17,6 @@ public interface OrderService {
 
 	public void updateProductSerial(OrderVO order);
 
+	public List<OrderVO> getAllOrderList();
+
 }

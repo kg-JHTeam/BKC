@@ -35,7 +35,7 @@
 	</insert>
 	<update id="updateProductSerial">
 		UPDATE orderlist
-		SET product_serial = #{product_serial}, productCount = #{productCount}
+		SET product_serial = #{product_serial}, productCount = #{productCount}, order_status = #{order_status}
 		WHERE order_serial = #{order_serial}
 	</update>
 	<select id="getOrder" resultType="OrderVO">
@@ -68,4 +68,15 @@
 		]]>
 	</select>
 	
+	
+	<!-- 회원 주문내역 뽑기 List로 출력  // Product와 조인한고 Product는 Product_image와 조인해서  뽑아온다. -->  
+	<select id="getAllOrderList" resultType="OrderVO">
+		<![CDATA[
+			SELECT 
+				orderlist.*,
+				product.product_name, product.product_serial
+			FROM orderlist 
+			INNER JOIN product ON product.product_serial = orderlist.product_serial
+		]]>
+	</select>
 </mapper>

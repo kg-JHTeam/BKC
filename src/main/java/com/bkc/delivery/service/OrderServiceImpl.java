@@ -33,4 +33,10 @@ public class OrderServiceImpl implements OrderService {
 	public void updateProductSerial(OrderVO order) {
 		orderDao.updateProductSerial(order);
 	}
+
+	@Override
+	public List<OrderVO> getAllOrderList() {
+		return orderDao.getAllOrderList();
+	}
+
 }
