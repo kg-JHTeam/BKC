@@ -1,10 +1,11 @@
 package com.bkc.user.vo;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class UserCouponVO {
 	private String coupon_number;
-	private Date startdate;
+	private Timestamp startdate;
 	private String coupon_serial; //fk
 	private String userid;//fk
 	private int coupon_seq; //pk
@@ -47,10 +48,10 @@ public class UserCouponVO {
 	public void setCoupon_number(String coupon_number) {
 		this.coupon_number = coupon_number;
 	}
-	public Date getStartdate() {
+	public Timestamp getStartdate() {
 		return startdate;
 	}
-	public void setStartdate(Date startdate) {
+	public void setStartdate(Timestamp startdate) {
 		this.startdate = startdate;
 	}
 	public String getCoupon_serial() {
