@@ -131,7 +131,7 @@ public class DeliveryController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
@@ -179,7 +179,7 @@ public class DeliveryController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
@@ -233,7 +233,7 @@ public class DeliveryController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
@@ -377,7 +377,7 @@ public class DeliveryController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + productCount;
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
