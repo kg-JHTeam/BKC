@@ -107,6 +107,7 @@
 									앞으로도 계속 될 것입니다.</p>
 							</div>
 						</div>
+						<hr/>
 						<div class="branch-wrapbg">
 							<div class="msgbox">
 								<p class="branch_tit">
@@ -129,6 +130,7 @@
 							<div class="condition">
 								<dl>
 									<dt class="tit01 tit_ico location">
+										<div class="condition-img1 cons"></div>
 										<span>입지 조건</span>
 									</dt>
 									<dd>
@@ -144,6 +146,7 @@
 								</dl>
 								<dl>
 									<dt class="tit01 tit_ico king">
+										<div class="condition-img1 cons"></div>
 										<span>임대 면적</span>
 									</dt>
 									<dd>
@@ -157,17 +160,14 @@
 							</div>
 							<div class="branch_form">
 								<div class="form-wrap">
-									<h5 class="form_tit">가맹점 신청방법</h5>
+									<h4 class="form_tit">가맹점 신청방법</h4>
 									<ul class="step">
 										<li class="step1"><strong>신청서 작성</strong></li>
 										<li class="step2"><strong>신청서 접수</strong></li>
 										<li class="step3"><strong>전화 상담</strong></li>
 										<li class="step4"><strong>대면 상담</strong></li>
-										<li class="c_btn"><a class="btn_regform"> <span>신청서
-													작성</span>
-										</a> <br> <br></li>
 									</ul>
-
+									<a class="btn_regform"> <span>신청서작성</span></a>
 								</div>
 							</div>
 						</div>
