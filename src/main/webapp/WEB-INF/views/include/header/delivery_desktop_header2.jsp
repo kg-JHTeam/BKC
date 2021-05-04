@@ -50,7 +50,16 @@
                                 <dt>
                                     <strong>딜리버리 주문내역</strong>
                                 </dt>
-                                <dd>${nowOrderStatus}</dd>
+                                <dd>
+                                 <c:choose>
+							         <c:when test ="${nowOrderStatus eq '주문내역이 없습니다.'}">
+							        	 <span>${nowOrderStatus}</span>
+							         </c:when>
+							         <c:otherwise>
+							        	<span style="color:#ffa423;">${nowOrderStatus}</span>
+							         </c:otherwise>
+							     </c:choose>
+                                </dd>
                             </dl>
                         </div>
                     </a>
@@ -66,13 +75,13 @@
                                 <dd>
                                 <c:choose>
 							         <c:when test = "${cart.productCount <= 0}">
-							        	 카트에 담은 상품이 없습니다.
+							        	 <span>카트에 담은 상품이 없습니다.</span>
 							         </c:when>
 							         <c:when test = "${cart.productCount == 1}">
-							        	${cart.productMainTitle}
+							        	<span style="color:#ffa423;">${cart.productMainTitle}</span>
 							         </c:when>
 							         <c:otherwise>
-							        	${cart.productMainTitle} 외  ${cart.productCount-1}
+							        	<span style="color:#ffa423;">${cart.productMainTitle} 외  ${cart.productCount-1}</span>
 							         </c:otherwise>
 							     </c:choose>
                                 </dd>

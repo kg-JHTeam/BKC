@@ -268,7 +268,6 @@
         for(var i = 0; i<paymentType.length; i++){
             if(paymentType[i].checked==true){
                 paymentTypeValue = paymentType[i].value;
-                alert(paymentTypeValue);
                 paymentType_check++;
                 break;
             }
@@ -320,7 +319,6 @@
       	
       	//카드결제 두개 
       	else if(paymentTypeValue == "card"){
-      		console.log(payment_type);
       		var objParams = {
     				"storename" : storename, 
     				"useraddress" : useraddress, 

@@ -90,6 +90,7 @@
 			order by orderlist.order_serial DESC;
 		]]>
 	</select>
+	
 	<select id="getAllOrderListByOrderStatus" resultType="OrderVO">
 		<![CDATA[
 			SELECT 
