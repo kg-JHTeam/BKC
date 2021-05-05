@@ -3,6 +3,7 @@ package com.bkc.pay.service;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.annotations.SerializedName;
+
 @Service
 public class NaverService {
 	@SerializedName("name")

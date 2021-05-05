@@ -16,6 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bkc.subpages.controller.CustomerServiceController;
 import com.bkc.user.dao.UserDAO;
@@ -35,35 +36,41 @@ public class UserServiceImpl implements UserService {
 
 	// id를 통해 user조회
 	@Override
+	@Transactional
 	public UserVO getUserById(String userid) {
 		return userDao.getUserById(userid);
 	}
 
 	// name과 phone을 통해 user조회
 	@Override
+	@Transactional
 	public UserVO getUserByNameAndPhone(String name, String phone) {
 		return userDao.getUserByNameAndPhone(name, phone);
 	}
 
 	@Override
+	@Transactional
 	public List<UserVO> getUserHavingCouponList() {
 		return userDao.getUserHavingCouponList();
 	}
 	
 	// 회원조회 - Admin
 	@Override
+	@Transactional
 	public List<UserVO> getUserList() {
 		return userDao.getUserList();
 	}
 
 	// 매장관리자 조회
 	@Override
+	@Transactional
 	public List<UserVO> getManagerUserList() {
 		return userDao.getManagerUserList();
 	}
 
 	// 비회원 조회
 	@Override
+	@Transactional
 	public List<UserVO> getNonUserList() {
 		return userDao.getNonUserList();
 	}
@@ -93,18 +100,21 @@ public class UserServiceImpl implements UserService {
 
 	// 비밀번호 체크
 	@Override
+	@Transactional
 	public UserVO passwdCheck(UserVO vo) {
 		return userDao.passwdCheck(vo);
 	}
 
 	// 비밀번호 변경
 	@Override
+	@Transactional
 	public int updatePasswd(UserVO vo) {
 		return userDao.updatePasswd(vo);
 	}
 
 	// 회원가입 확인 메일 전송 메서드
 	@Override
+	@Transactional
 	public void sendJoinMail(UserVO vo) {
 		String mailTo = vo.getUserid(); // 아이디가 곧 이메일
 		MimeMessagePreparator preparator = new MimeMessagePreparator() {
@@ -135,6 +145,7 @@ public class UserServiceImpl implements UserService {
 
 	// 임시 비밀번호 생성 및 이메일 전송
 	@Override
+	@Transactional
 	public String sendTempPassword(UserVO vo) {
 
 		// 8자리 인증번호 생성후 이메일 전송
@@ -187,6 +198,7 @@ public class UserServiceImpl implements UserService {
 	public void updatePlatForm(String email, String type) {}
 
 	@Override
+	@Transactional
 	public int socialInsert(UserVO user) {
 		return userDao.socialInsert(user);
 	}
