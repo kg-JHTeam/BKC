@@ -217,7 +217,7 @@ function loginWithNaver() {
 							</dl>
 						</div>
 						<div class="lookup_btn">
-							<a href="#" class="lookup_btn01"> <span>조회하기</span>
+							<a href="${contextPath}/guestOrderDetail.do" class="lookup_btn01"> <span>조회하기</span>
 							</a>
 						</div>
 					</div>

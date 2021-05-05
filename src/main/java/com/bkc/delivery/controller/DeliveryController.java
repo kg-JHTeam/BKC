@@ -451,4 +451,6 @@ public class DeliveryController {
 		model.addAttribute("bi", bi);
 		return "guest/guestdelivery";
 	}
+	
+	
 }

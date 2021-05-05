@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>delivery_desktop_header</title>
+<title>guestdelivery_desktop_header</title>
 </head>
 <body>
 	<!-- header -->
@@ -17,18 +17,18 @@
                         <span>딜리버리</span>
                     </h1>
                     <div class="WEB utilWrap">
-                        <a href="#">
+                        <a href="${contextPath}/">
                             <span>브랜드홈</span>
                         </a>
-                        <a href="#">
+                        <a href="${contextPath}/login">
                             <span>로그인</span>
                         </a>
-                        <a href="#">
+                        <a href="${contextPath}/customerService/notice.do">
                             <span>고객센터</span>
                         </a>
                     </div>
                     <div class="WEB on_cont join">
-                        <a href="#" class="btn_join">
+                        <a href="${contextPath}/join" class="btn_join">
                             <strong>회원가입</strong>
                         </a>
                     </div>
@@ -41,14 +41,14 @@
                     <div class="web_container">
                         <div class="personal_logoff">
                             <p>Better & Happier Choice</p>
-                            <a href="#" class="btn_login">
+                            <a href="${contextPath}/join" class="btn_login">
                                 <strong>회원가입하고 혜택받기</strong>
                             </a>
                             <div class="btn_area">
-                                <a href="#">
+                                <a href="${contextPath}/login">
                                     <strong>로그인</strong>
                                 </a>
-                                <a href="#">
+                                <a href="${contextPath}/guestOrderList.do">
                                     <strong>비회원 주문내역</strong>
                                 </a>
                             </div>
