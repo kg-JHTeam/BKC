@@ -179,63 +179,17 @@ public class OrderController {
 			Model model, HttpSession session) {
 
 		System.out.println("주문실행");
-		Map<String, Object> retVal = new HashMap<String, Object>();
-
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		UserDetails userDetails = (UserDetails) principal;
-		UserVO user = userService.getUserById(userDetails.getUsername());
+		
 		CartVO cart = (CartVO) session.getAttribute("cart");
-
-		UserCouponVO usercoupon = usercouponService.getUserCouponBySeq(coupon_seq);
-
-		// 1. Orderlist 테이블에 추가한다.
-		// order_serial storename order_status userid
-		String userid = user.getUserid();
-		int order_status = 1; // default 1
-
-		OrderVO order = new OrderVO(phonenumber, store_name, order_status, userid, coupon_seq, payment_type,
-				total_price, address);
-
-		// orderlist에 주문 추가
-		int order_serial = orderService.insertOrder(order); // order_serial
-
-		// 2. Order Detail 테이블에 추가한다. - 메뉴별로 나눠서 <- order_serial 을 받음
-		HashMap<Integer, ProductVO> products = cart.getProducts();
-
-		// 2.1 products key가져오기
-		Iterator<Integer> iterator = products.keySet().iterator();
-		List<Integer> keys = new ArrayList<Integer>();
-		while (iterator.hasNext()) {
-			keys.add(iterator.next());
-		}
-
-		// 2.2 상품갯수만큼 Order Detail에 저장
-		int productsCount = products.size();
-
-		for (int i = 0; i < productsCount; i++) {
-
-			ProductVO product = products.get(keys.get(i));
-			int product_serial = product.getProduct_serial();
-			int quantity = product.getCount();
-			int price = product.getPrice() * quantity;
-
-			OrderDetailVO orderDetail = new OrderDetailVO();
-			orderDetail.setProduct_serial(product_serial);
-			orderDetail.setQuantity(quantity);
-			orderDetail.setPrice(price);
-			orderDetail.setOrder_serial(order_serial);
-
-			// order list에 첫번째 메뉴에 대해서 대표상품으로 등록
-			if (i == 0) {
-				order.setProduct_serial(orderDetail.getProduct_serial());
-				order.setProductCount(productsCount);
-				orderService.updateProductSerial(order); // order_serial
-			}
-			orderDetailService.insertOrderDetail(orderDetail);
-		}
-		// 카트 세션 삭제 - session.removeAttribute("cart");
-		System.out.println(order.toString());
-
+		
+		//주문 비지니스 로직 
+		int order_serial = orderService.doOrder(
+				store_name,address,phonenumber,description,payment_type,
+				coupon_seq, total_price, cart
+				);
+		
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		
 		retVal.put("order_serial", order_serial); // 주문관련 정보 넣어서 보냄.
 		retVal.put("message", "결제 성공");
 		return retVal;
