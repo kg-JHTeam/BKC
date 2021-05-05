@@ -107,7 +107,7 @@
                                     </strong>
                                     </p>
                                 </div>
-                                <a href="#" class="btn_detail">
+                                <a href="${contextPath}/guestCart.do" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>
@@ -134,7 +134,7 @@
                                     </strong>
                                     </p>
                                 </div>
-                                <a href="#" class="btn_detail">
+                                <a href="${contextPath}/guestCart.do" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>
@@ -161,7 +161,7 @@
                                     </strong>
                                     </p>
                                 </div>
-                                <a href="#" class="btn_detail">
+                                <a href="${contextPath}/guestCart.do" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>
@@ -188,7 +188,7 @@
                                     </strong>
                                     </p>
                                 </div>
-                                <a href="#" class="btn_detail">
+                                <a href="${contextPath}/guestCart.do" class="btn_detail">
                                     <span>Details</span>
                                 </a>
                             </li>

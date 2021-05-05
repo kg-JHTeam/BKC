@@ -1,0 +1,296 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+
+/* 전체 css*/
+
+.subWrap2 {
+    margin: 0 auto;
+    padding: 168px 0 272px;
+}
+
+/* content부분 */
+
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+span {
+    font-weight: bold;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.locationWrap {
+    height: 58px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #ffa423;
+}
+
+.locationWrap>.web_container {
+    overflow: hidden;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.locationWrap>.web_container>.page_navi {
+    float: left;
+    font-size: .875rem;
+}
+
+.locationWrap a {
+    color: #fff;
+}
+
+.locationWrap>.web_container>.page_navi>* {
+    float: left;
+}
+
+.page_navi:first-child::before {
+    display: none;
+}
+
+.gotomenu::after {
+    content: "";
+    float: left;
+    width: 38px;
+    height: 38px;
+    margin: 0 12px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+}
+
+.locationWrap .location {
+    float: right;
+    font-size: .875rem;
+}
+
+.location>* {
+    display: inline-block;
+    margin-left: 24px;
+    padding-left: 22px;
+    vertical-align: top;
+}
+
+.location .addr {
+    max-width: 200px;
+    margin: 0;
+    text-overflow: ellipsis;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/location.png) no-repeat 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.location .shop {
+    padding-left: 26px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/near.png) no-repeat 0;
+}
+
+.location .btn {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.location .addrchange {
+    display: inline-block;
+    width: 56px;
+    height: 34px;
+    padding: 0;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+    line-height: 34px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+
+/* 비회원 주문 내역 페이지 contents */
+
+body {
+    background: #f2ebe6;
+}
+
+.contentsBox01 {
+    padding: 50px 0 45px;
+}
+
+.contentsBox01 .web_container .container01 {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding: 20px 0;
+}
+
+.hide {
+    position: absolute!important;
+    left: -10000px;
+    top: -10000px;
+    visibility: hidden;
+}
+
+.nonmember_order .container02 {
+    margin-top: 18px;
+    padding: 35px 64px;
+    font-size: 1.375rem;
+    position: relative;
+    margin: 15px 0;
+    background: #fff;
+}
+
+.nonmember_order dl {
+    display: table;
+    width: 100%;
+}
+
+.nonmember_order dt {
+    width: 5em;
+    padding-right: 10px;
+    font-weight: 700;
+}
+
+.nonmember_order dd,
+.nonmember_order dt {
+    display: table-cell;
+    padding: 5px 0 26px;
+    vertical-align: middle;
+}
+
+.nonmember_order dd {
+    padding-right: 52px;
+}
+
+.container02 .inpbox:only-child {
+    margin: 0;
+}
+
+.nonmember_order input {
+    outline: none;
+    height: 68px;
+    font-size: 1.375rem;
+}
+
+.inpbox input {
+    width: 100%;
+    padding: 0 25px 3px 5px;
+}
+
+.inpbox input.on {
+    display: inline-block;
+    height: 66px;
+    margin: 0;
+    padding: 3px 10px 3px 4px;
+    font-weight: 400;
+    font-size: 1.375rem;
+    color: #000;
+    vertical-align: middle;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/login/loginline.png) repeat-x 0 100%;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    appearance: none;
+}
+
+input[type=tel],
+input[type=password] {
+    display: inline-block;
+    height: 66px;
+    margin: 0;
+    padding: 3px 10px 3px 4px;
+    font-weight: 400;
+    font-size: 1.375rem;
+    color: #000;
+    vertical-align: middle;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/login/loginline.png) repeat-x 0 100%;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    appearance: none;
+}
+
+.inpbox button {
+    width: 30px;
+    height: 63px;
+    margin: 0;
+}
+
+.inpbox button,
+.inpbox input~* {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.btn_del01 {
+    border: none;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/del_btn.png) no-repeat 50%;
+    background-size: 18px auto;
+}
+
+.inpbox {
+    position: relative;
+}
+
+.btn_view01 {
+    border: none;
+    text-indent: -9999em;
+    width: 40px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/pass_hide.png) no-repeat 50%;
+}
+
+.btn_view01.on {
+    border: none;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/pass_view.png) no-repeat 50%;
+}
+
+.c_btn:last-child {
+    margin-bottom: 0;
+}
+
+.c_btn {
+    margin: 40px 0 80px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.btn01 {
+    display: inline-block;
+    width: 272px;
+    height: 76px;
+    padding: 20px 10px 22px;
+    font-size: 1.625rem;
+    line-height: 34px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/btn-black.png) no-repeat 50%;
+    background-size: 100% 100%;
+    border-radius: 0;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+/* 모바일용 CSS */
+
+@media all and(max-width:765px) {}
