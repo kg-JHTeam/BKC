@@ -133,12 +133,6 @@ public class KakaoPayApprovalVO {
 		this.vat_amount = vat_amount;
 	}
 
-	/**
-	 * public Date getCreate_at() { return create_at; }
-	 * 
-	 * public void setCreate_at(Date create_at) { this.create_at = create_at; }
-	 **/
-
 	public Date getApproved_at() {
 		return approved_at;
 	}
@@ -156,8 +150,5 @@ public class KakaoPayApprovalVO {
 				+ tax_free_amount + ", vat_amount=" + vat_amount + ", create_at=" + create_at + ", approved_at="
 				+ approved_at + "]";
 	}
-
-
-
 
 }

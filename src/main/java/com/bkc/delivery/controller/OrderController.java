@@ -15,6 +15,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +34,7 @@ import com.bkc.delivery.vo.OrderDetailVO;
 import com.bkc.delivery.vo.OrderVO;
 import com.bkc.menuInform.service.ProductService;
 import com.bkc.menuInform.vo.ProductVO;
+import com.bkc.pay.service.KakaoService;
 import com.bkc.user.controller.UserController;
 import com.bkc.user.service.CouponService;
 import com.bkc.user.service.UserCouponService;
@@ -72,6 +75,9 @@ public class OrderController {
 
 	@Autowired
 	private OrderDetailService orderDetailService;
+
+	@Autowired
+	private KakaoService KakaoService;
 
 	// 주문페이지로 이동함.
 	@RequestMapping(value = "/order.do", method = RequestMethod.GET)
@@ -160,8 +166,9 @@ public class OrderController {
 		int order_status = 1; // default 1
 		Calendar cal = Calendar.getInstance();
 		Date order_date = new Date(cal.getTimeInMillis());
-		
-		OrderVO order = new OrderVO(store_name, order_status, userid, coupon_seq, payment_type, total_price, address, order_date);
+
+		OrderVO order = new OrderVO(store_name, order_status, userid, coupon_seq, payment_type, total_price, address,
+				order_date);
 
 		// orderlist에 주문 추가
 		int order_serial = orderService.insertOrder(order); // order_serial
@@ -179,7 +186,7 @@ public class OrderController {
 
 		// 2.2 상품갯수만큼 Order Detail에 저장
 		int productsCount = products.size();
-		
+
 		for (int i = 0; i < productsCount; i++) {
 
 			ProductVO product = products.get(keys.get(i));
@@ -187,7 +194,7 @@ public class OrderController {
 			String product_name = product.getProduct_name();
 			int quantity = product.getCount();
 			int price = product.getPrice() * quantity;
-			
+
 			OrderDetailVO orderDetail = new OrderDetailVO();
 			orderDetail.setProduct_name(product_name);
 			orderDetail.setQuantity(quantity);
@@ -211,17 +218,17 @@ public class OrderController {
 	// 주문내역 페이지로 이동
 	@RequestMapping(value = "/delivery/orderList.do", method = RequestMethod.GET)
 	public String orderList(Model model, HttpSession session) {
-		
+
 		// 현재 로그인한 사용자 추가
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		model.addAttribute("user", user);
 
-		//사용자가 주문한 내역을 뽑아온다.
-		List <OrderVO> orders = orderService.getUserOrderList(user.getUserid());
+		// 사용자가 주문한 내역을 뽑아온다.
+		List<OrderVO> orders = orderService.getUserOrderList(user.getUserid());
 		model.addAttribute("orders", orders);
-		
+
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
@@ -239,5 +246,27 @@ public class OrderController {
 		model.addAttribute("cart", cart);
 
 		return "delivery/orderList";
+	}
+
+	@RequestMapping(value = "/deilvery/order.do", method = RequestMethod.GET)
+	public void kakaoGet() {
+
+	}
+
+	@RequestMapping(value = "/deilvery/order.do", method = RequestMethod.POST)
+	public String kakao() {
+		System.out.println("kakaoPay post............................................");
+
+		return "redirect:" + KakaoService.kakaoPayReady();
+
+	}
+	@RequestMapping(value = "/delivery/ordercomplete.do", method = RequestMethod.GET)
+	
+	public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
+		System.out.println("kakaoPaySuccess get............................................");
+		System.out.println("kakaoPaySuccess pg_token : " + pg_token);
+
+		model.addAttribute("info", KakaoService.kakaoPayInfo(pg_token));
+
 	}
 }
