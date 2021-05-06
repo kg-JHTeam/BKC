@@ -306,7 +306,6 @@ public class OrderController {
 		return retVal;
 	}
   
-  <<<<<<< feature_jihyeon
 	@RequestMapping(value = "/deilvery/order.do", method = RequestMethod.GET)
 	public void kakaoGet() {
 
@@ -326,4 +325,5 @@ public class OrderController {
 		System.out.println("kakaoPaySuccess pg_token : " + pg_token);
 
 		model.addAttribute("info", KakaoService.kakaoPayInfo(pg_token));
+	}
 }
