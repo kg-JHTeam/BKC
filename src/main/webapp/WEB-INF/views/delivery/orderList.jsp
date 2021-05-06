@@ -127,6 +127,9 @@
 														<c:when test="${order.order_status eq 2 }">
 														          배달중
 														</c:when>
+														<c:when test="${order.order_status eq -1 }">
+														          주문취소
+														</c:when>
 														<c:otherwise>
 															주문완료 
 														</c:otherwise>

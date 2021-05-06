@@ -51,5 +51,11 @@ public class OrderDAOImpl implements OrderDAO {
 		return sqlSession.selectList("getNotDeliveryUserOrderList", userid);
 	}
 
+	@Override
+	public int cancelOrder(int order_serial) {
+		System.out.println("주문 취소 실행");
+		return sqlSession.insert("cancelOrder", order_serial);
+	}
+
 
 }

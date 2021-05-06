@@ -21,4 +21,6 @@ public interface OrderDAO {
 	public List<OrderVO> getAllOrderListByOrderStatus(int order_status);
 
 	public List<OrderVO> getNotDeliveryUserOrderList(String userid);
+
+	public int cancelOrder(int order_serial);
 }

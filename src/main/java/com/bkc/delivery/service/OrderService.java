@@ -28,4 +28,6 @@ public interface OrderService {
 	public int doOrder(String store_name, String address, String phonenumber, String description, String payment_type,
 			int coupon_seq, int total_price,  CartVO cart);
 
+	public int cancelOrder(int order_serial);
+
 }
