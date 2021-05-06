@@ -22,6 +22,64 @@
     <script src="${contextPath}/resources/js/delivery/orderDetail.js"></script>
 	
 	<title>주문상세</title>
+	<script>
+	 
+	//주문 취소버튼 구현 
+	window.onload = function(){
+		//아무것도 없는 경우
+		var count = "<c:out value='${order.order_status}'/>";
+		var cancelBtn= document.getElementById("cancelOrder");
+		//주문접수중인 상황이면 
+		if(count == 1){
+			cancelBtn.style.display ='';
+		} 
+		//있으면
+		else{
+			cancelBtn.style.display ='none';
+		}
+	}
+	
+	//주문 취소 메서드 
+	function cancelOrder(){
+		let input = confirm("주문을 취소하겠습니까?");
+		if(input == false){
+			return;
+		}
+		var serial = "<c:out value='${order.order_serial}'/>";
+		var objParams = {
+	            "order_serial"      : parseInt(serial),
+	    };
+		  
+		  $.ajax({
+	        url         :   "/bkc/delivery/cancelOrder.do",
+	        dataType    :   "json",
+	        contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+	        type        :   "post",
+	        data        :   objParams,
+	        success     :   function(retVal){
+	        	alert("주문 취소 되었습니다.");
+	        	var input01= document.getElementById("input01");
+	        	var input02 = document.getElementById("input02");
+	        	input01.innerHTML = "주문취소";
+	        	input02.innerHTML = "주문취소";
+	        	
+	    		var cancelBtn = document.getElementById("cancelOrder");
+	    		cancelBtn.style.display ='none';
+	    		
+	        },
+	        error       :   function(){
+	        	alert("주문 취소가 실패하였습니다. 해당 매장에 연락해주세요.");
+	        }
+	    });
+	}
+	</script>
+	<style>
+	.c_btncart {
+    margin: 40px 0 80px;
+    text-align: center;
+    overflow: hidden;
+	}
+	</style>
 </head>
 <body>
 	<div class="subWrap02">
@@ -70,13 +128,16 @@
                                     <strong>${order.order_date}</strong>
                                 </span>
                                 <em class="txt_stat">&nbsp;
-                                <span>
+                                <span id="input01">
 									<c:choose>
 										<c:when test="${order.order_status eq 1 }">
 										주문접수중
 										</c:when>
 										<c:when test="${order.order_status eq 2 }">
 										배달중
+										</c:when>
+										<c:when test="${order.order_status eq -1 }">
+										주문취소
 										</c:when>
 										<c:otherwise>
 										주문완료 
@@ -134,13 +195,16 @@
                                 <p class="tit">
                                     <strong>${order.address}</strong>
                                     <em class="tag_brown">
-                                        <span>
+                                        <span id="input02">
                                         <c:choose>
 											<c:when test="${order.order_status eq 1 }">
 											주문접수중
 											</c:when>
 											<c:when test="${order.order_status eq 2 }">
 											배달중
+											</c:when>
+											<c:when test="${order.order_status eq -1 }">
+											주문취소
 											</c:when>
 											<c:otherwise>
 											주문완료 
@@ -255,7 +319,16 @@
                                     </dl>
                                 </div>
                             </div>
-                            <div class="c_btn m_itme2"></div>
+                        </div>
+                        <div>	
+						<div class="c_btncart" id= "cancelOrderClass">
+                            <button 
+                            	style="cursor:pointer" id="cancelOrder"
+	                            type="button" class="btn01 ico add" 
+	                            onclick="cancelOrder()">
+                                <span>주문취소</span>
+                            </button>
+                       	 </div>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -148,5 +147,11 @@ public class OrderServiceImpl implements OrderService {
 			System.out.println(order.toString());
 			return order_serial;
 		}
+
+	@Override
+	@Transactional
+	public int cancelOrder(int order_serial) {
+		return orderDao.cancelOrder(order_serial);
+	}
 
 }

@@ -38,6 +38,12 @@
 		SET product_serial = #{product_serial}, productCount = #{productCount}, order_status = #{order_status}
 		WHERE order_serial = #{order_serial}
 	</update>
+	<update id="cancelOrder">
+		UPDATE orderlist
+		SET order_status = -1
+		WHERE order_serial = #{order_serial}
+	</update>
+	
 	<select id="getOrder" resultType="OrderVO">
 		<![CDATA[
 			SELECT 
