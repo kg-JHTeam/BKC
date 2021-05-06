@@ -10,9 +10,21 @@ public class StoreVO {
 	private String store_open;
 	private int rn;
 	private boolean event_yn;
+	public String latitude;
+	public String longtitude;
 	
-	
-	
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongtitude() {
+		return longtitude;
+	}
+	public void setLongtitude(String longtitude) {
+		this.longtitude = longtitude;
+	}
 	public boolean isEvent_yn() {
 		return event_yn;
 	}

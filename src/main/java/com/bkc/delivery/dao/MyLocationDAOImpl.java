@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bkc.delivery.vo.MyLocationVO;
+import com.bkc.event.vo.StoreVO;
 
 @Repository
 public class MyLocationDAOImpl implements MyLocationDAO {
@@ -53,6 +54,19 @@ public class MyLocationDAOImpl implements MyLocationDAO {
 	public int updateLocaOne(MyLocationVO loca) {
 		return sqlSession.update("updateLocaOne", loca);
 	}
+	
+	@Override
+	public int insertStore(MyLocationVO loca) {
+		return sqlSession.insert("insertStore", loca);
+	}
 
-
+	@Override
+	public int updateStore(MyLocationVO loca) {
+		return sqlSession.update("updateStore", loca);
+	}
+	
+	@Override
+	public StoreVO selectStore(StoreVO store) {
+		return sqlSession.selectOne("selectStore", store);
+	}
 }

@@ -2,8 +2,6 @@ package com.bkc.delivery.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,8 +14,9 @@ import com.bkc.admin.board.businessInformation.service.BusinessInformationServic
 import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.delivery.service.MyLocationService;
 import com.bkc.delivery.vo.MyLocationVO;
+import com.bkc.event.service.EventService;
+import com.bkc.event.vo.StoreVO;
 import com.bkc.user.service.UserService;
-import com.bkc.user.vo.CartVO;
 import com.bkc.user.vo.UserVO;
 
 @Controller
@@ -31,10 +30,13 @@ public class MyLocationController {
 
 	@Autowired
 	private BusinessInformationService biService;
-
+	
+	@Autowired
+	private EventService eventService;
+	
 	// 배달지 목록보기
 	@RequestMapping(value = "/delivery/mylocation.do")
-	private String getLocaList(MyLocationVO loca, Model model, HttpSession session) {
+	private String getLocaList(MyLocationVO loca, Model model, StoreVO store) {
 
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = (UserDetails) principal;
@@ -45,20 +47,15 @@ public class MyLocationController {
 		model.addAttribute("user", user);
 
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
-		System.out.println(location);
 		model.addAttribute("location", location);
 
 		List<MyLocationVO> localist = mylocaService.getLocaList(user.getUserid());
 		model.addAttribute("localist", localist);
 		model.addAttribute("user", user);
-
+		
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
-
-		// 카트 보내기
-		CartVO cart = (CartVO) session.getAttribute("cart");
-		model.addAttribute("cart", cart);
 
 		return "delivery/mylocation";
 	}
@@ -74,7 +71,7 @@ public class MyLocationController {
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
-
+		
 		int countloca = mylocaService.getCountLoca(user.getUserid());
 		System.out.println(countloca);
 		return "delivery/mylocation";
@@ -100,43 +97,48 @@ public class MyLocationController {
 		} else {
 			System.out.println("배달지 5개 초과");
 		}
-
+		
 		return "redirect:/delivery/mylocation.do";
 	}
 
 	// 지정 배달지 등록
 	@RequestMapping(value = "/delivery/insertOneDB.do")
-	public String insertLocaOneDB(Model model, MyLocationVO loca) {
+	public String insertLocaOneDB(Model model, MyLocationVO loca, StoreVO store) {
 
 		// 현재 로그인한 사용자 추가
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
+		StoreVO svo = mylocaService.selectStore(store);
+		String store_name = svo.getStore_name();
 
 		int countloca = mylocaService.getCountLoca(user.getUserid());
-		System.out.println("들어온거 " + loca.toString());
-		
-		
+		int result = 0;
+
+		//가까운지점 등록
+		loca.setStore_name(store_name);
+
 		if (countloca < 1) {
-			int result = mylocaService.insertLocaOne(loca);
-			if (result == 1) {
+			result = mylocaService.insertLocaOne(loca);
+			if (result > 0 ) {
 				System.out.println("배달지 등록 성공");
 			} else {
 				System.out.println("실패");
 			}
 		} else {
-			int result = mylocaService.updateLocaOne(loca);
+			result = mylocaService.updateLocaOne(loca);
 			if (result == 1) {
 				System.out.println("배달지 변경 성공");
 			} else {
 				System.out.println("실패");
 			}
 		}
-		System.out.println("새로운조소 "  + loca.toString());
+
+
 		return "redirect:/delivery/delivery.do";
 	}
-
-	// 주문페이지에서 배달지 변경
+	
+	//주문페이지에서 배달지 변경 
 	@RequestMapping(value = "/delivery/insertLocation.do")
 	public String insertLocation(Model model, MyLocationVO loca) {
 
@@ -162,9 +164,9 @@ public class MyLocationController {
 				System.out.println("실패");
 			}
 		}
-		System.out.println("새로운조소 "  + loca.toString());
 		return "redirect:/delivery/order.do";
-	}
+	}	
+		
 
 	// 배달지 삭제
 	@RequestMapping(value = "/delivery/deleteLocaDB.do", method = { RequestMethod.GET, RequestMethod.POST })
@@ -177,5 +179,6 @@ public class MyLocationController {
 		}
 		return "redirect:/delivery/mylocation.do";
 	}
+	
 
 }

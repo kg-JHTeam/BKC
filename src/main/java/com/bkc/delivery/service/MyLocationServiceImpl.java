@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bkc.delivery.dao.MyLocationDAO;
 import com.bkc.delivery.vo.MyLocationVO;
+import com.bkc.event.vo.StoreVO;
 
 @Service
 public class MyLocationServiceImpl implements MyLocationService {
@@ -61,6 +62,23 @@ public class MyLocationServiceImpl implements MyLocationService {
 	@Override
 	public MyLocationVO getLocaOne(String userid) {
 		return locaDao.getLocaOne(userid);
+	}
+	
+	@Transactional
+	@Override
+	public int insertStore(MyLocationVO loca) {
+		return locaDao.insertStore(loca);		
+	}
+
+	@Transactional
+	@Override
+	public int updateStroe(MyLocationVO loca) {
+		return locaDao.updateStore(loca);
+	}
+	
+	@Override
+	public StoreVO selectStore(StoreVO store) {
+		return locaDao.selectStore(store);
 	}
 
 }

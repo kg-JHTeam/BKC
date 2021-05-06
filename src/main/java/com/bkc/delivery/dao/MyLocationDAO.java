@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.bkc.delivery.vo.MyLocationVO;
+import com.bkc.event.vo.StoreVO;
 
 @Repository
 public interface MyLocationDAO {
@@ -28,6 +29,13 @@ public interface MyLocationDAO {
 	
 	//배달지 개수 조회
 	public int getCountLoca(String userid);
+	
+	//매장 매칭
+	public StoreVO selectStore(StoreVO store);
+	
+	//매칭된 매장 등록
+	public int insertStore(MyLocationVO loca);	
+	public int updateStore(MyLocationVO loca);
 	
 	//배달지 삭제
 	public int deleteLoca(int addr_seq);
