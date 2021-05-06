@@ -247,7 +247,8 @@ input[type="checkbox" i] {
 	
 	.branch-wrapbg>.condition {
 		width: 100%;
-		/* 이미지 */
+		background-image:
+			url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_recruit_step.jpg");
 		margin: 1% 0;
 		padding: 50px 0;
 		display: grid;
@@ -268,20 +269,19 @@ input[type="checkbox" i] {
 		margin-bottom: 10px;
 	}
 	.branch-wrapbg>.condition dl .tit01 .cons {
-		width: 40px;
-		height: 40px;
-		background: red;
+		width: 45px;
+		height: 60px;
 		float: left;
 		margin-right: 10px;
 		/* background: no-repeat center /cover; */
 		
-	}/*
+	}
 	.branch-wrapbg>.condition dl .tit01 .cons.condition-img1 {
-		 background-image: 
+		 background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/delivery/delivery_location.png");
 	}
 	.branch-wrapbg>.condition dl .tit01 .cons.condition-img2 {
 		background-image:
-	}  */
+	}  
 	.branch-wrapbg>.condition dl .tit01 span {
 		font-size: 2rem;
 		font-weight: bold;

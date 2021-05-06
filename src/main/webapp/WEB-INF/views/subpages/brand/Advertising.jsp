@@ -13,25 +13,38 @@
 <meta charset="UTF-8">
 
 <!-- jquery -->
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="../resources/jquery/jquery-3.6.0.min.js"></script>
+
 <script type="text/javascript">
 var hiddenSeq = "0";
 $(document).ready(function() {    
 	$('#hiddenSeq').val("");
-// 	alert($('#hiddenSeq').val());
-// 	alert(hiddenSeq);
 	<c:set var="hiddenSeq2" value="0"></c:set>
 });
-	function changeyoutube(img_seq) {
-// 		document.getElementById("hiddenSeq").value = img_seq;
-		$('#hiddenSeq').val(img_seq);
-		hiddenSeq = img_seq;
-// 		alert($('#hiddenSeq').val());
-// 		alert(hiddenSeq);
-		<c:set var="hiddenSeq2" value="img_seq"></c:set>
-	};
+function button1_click(s) {
+	console.log( s + " 버튼을 누르셨습니다.");
+	var objParams = {
+            "img_seq"      : parseInt(s),   	  // key값
+    };
+	  $.ajax({
+        url         :   "/bkc/mainYoutube.do",
+        dataType    :   "json",
+        contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+        type        :   "post", //post로 보냄
+        data        :   objParams,
+        success     :   function(retVal){
+        	alert("성공");
+    		var title = retVal.title;
+    		var path = retVal.path;
+    		var input1 = document.getElementById("input1");
+    	 	var input2 = document.getElementById("input2");
+    	 	input1.innerHTML = title;
+    	 	//input2.src = path;
+        }
+        error       :   function(request, status, error){
+        	console.log("걍 실패");
+        }
+    });
+}
 </script>
 
 <!--css-->
@@ -50,7 +63,7 @@ $(document).ready(function() {
 
 <!-- js -->
 <script src="../resources/js/include/main-gnb.js"></script>
-
+<script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
 <title>BrandStory</title>
 </head>
 <body>
@@ -116,40 +129,16 @@ $(document).ready(function() {
 					</ul>
 					<div class="tab_cont">
 						<div class="new_product">
-<!-- 							<h4 class="MOB m_subtit">신제품 소개</h4> -->
-<%-- 							<p class="youtube_tit">${youtubeAd[0].title}</p> --%>
-<!-- 							<div class="youtube-zone"> -->
-<%-- 								<iframe id="youtube" src="${youtubeAd[0].path}" --%>
-<!-- 									title="YouTube video player" frameborder="0" -->
-<!-- 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" -->
-<!-- 									allowfullscreen> </iframe> -->
-<!-- 							</div> -->
-<%-- 								<c:forEach var="youtubeAd" items="${youtubeAd}">								 --%>
-<%-- 								<c:set var="hiddenSeq1" value="${youtubeAd.img_seq}"/> --%>
-								
-<%-- 								<c:out value="${hiddenSeq1}" /> --%>
-<%-- 								<c:out value="${hiddenSeq2}" /> --%>
-								
-<%-- 								<c:when test="${hiddenSeq2 eq '0'}"> --%>
-<%-- 								<p class="youtube_tit">${youtubeAd[0].title}</p> --%>
-<!-- 								<div class="youtube-zone"> -->
-<%-- 									<iframe id="youtube" src="${youtubeAd[0].path}" --%>
-<!-- 										title="YouTube video player" frameborder="0" -->
-<!-- 										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" -->
-<!-- 										allowfullscreen> </iframe> -->
-<!-- 								</div> -->
-<%-- 								</c:when> --%>
-<%-- 								</c:forEach> --%>
-<%-- 							<c:otherwise> --%>
-<%-- 								<p class="youtube_tit">${youtubeAd[0].title}</p> --%>
-<!-- 								<div class="youtube-zone"> -->
-<%-- 									<iframe id="youtube" src="${youtubeAd[0].path}" --%>
-<!-- 										title="YouTube video player" frameborder="0" -->
-<!-- 										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" -->
-<!-- 										allowfullscreen> </iframe> -->
-<!-- 								</div> -->
-								
-<%-- 								</c:otherwise> --%>
+							<div id="mainYoutube">
+								<h4 class="MOB m_subtit">신제품 소개</h4> 
+	 							<p class="youtube_tit" id="input1">${youtubeAd[0].title}</p> 
+	 							<div class="youtube-zone">
+	 								<iframe id="youtube" src="${youtubeAd[0].path}"  id="input2"
+	 									title="YouTube video player" frameborder="0" 
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+	 									allowfullscreen> </iframe> 
+	 							</div>
+							</div>
 							<div class="tab01 m_shadow">
 								<ul class="tabbar">
 									<li class='on'>
@@ -190,12 +179,13 @@ $(document).ready(function() {
 								<c:forEach var="youtubeAd" items="${youtubeAd}">
 									<li>
 										<div class="prd_img WEB">
-<%-- 										<input type="text" id="hiddenSeq" name="hiddenSeq" value="${youtubeAd.img_seq}"/> --%>
-										<button onclick="changeyoutube('${youtubeAd.img_seq}')"><span><img src="https://d1cua0vf0mkpiy.cloudfront.net/images/web/film/68bca423-2ec1-47fa-b324-7ebcbd76ec56.png"></span></button>
-										</div>
-										<div class="prd_img MOB">
-											<span> <img src="burger.png">
-											</span>
+										<!--  <button onclick="changeyoutube(${youtubeAd.img_seq})">-->
+										<button id="button1" onclick="button1_click(${youtubeAd.img_seq});">버튼1</button>
+										<button id="button11" onclick="button111_click();">
+										<span>
+											<img src="https://d1cua0vf0mkpiy.cloudfront.net/images/web/film/68bca423-2ec1-47fa-b324-7ebcbd76ec56.png">
+										</span>
+										</button>
 										</div>
 										<div class="cont">
 											<p class="tit">
@@ -220,5 +210,9 @@ $(document).ready(function() {
 	<!-- main-footer -->
 	<jsp:include page="../../include/footer/main_desktop_footer.jsp" />
 	<jsp:include page="../../include/footer/main_mobile_footer.jsp" />
+	
+	<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../resources/jquery/jquery-3.6.0.min.js"></script>
 </body>
 </html>

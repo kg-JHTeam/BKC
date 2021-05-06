@@ -37,10 +37,12 @@
 		<div style="height: 100px"></div>	
 		<!-- navigation bar -->
 		<div class="locationWrap">
-			<ul>
-				<li><a href="${contextPath}/">HOME</a></li> >
-				<li><a href="${contextPath}/map/store.do">매장찾기</a></li>
-			</ul>
+            <div class="page_navi">
+				<ul>
+					<li><a href="${contextPath}/">HOME</a></li> >
+					<li><a href="${contextPath}/map/store.do">매장찾기</a></li>
+				</ul>
+			</div>
 		</div>
 		<div class="map_wrap">
 			<div id="map"

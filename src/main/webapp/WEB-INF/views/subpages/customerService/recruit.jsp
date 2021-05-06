@@ -230,73 +230,9 @@
 										</div>
 									</div>
 								</div>
-								<div class="btn_regform_full">
-									<button type="button" class="c_btn_big">
-										<span>신청서 작성</span>
-									</button>
-								</div>
 							</div>
 						</div>
-
-<div class="notice_web_container">
-				<a class="btn_regform"> <span>신청서작성</span></a></div>
-				<div class="tab_cont">
-					<h4 class="hide">공지사항</h4>
-					<div class="board_list">
-						<table class="tlist01">
-							<colgroup>
-								<col style="width: 10%;">
-								<col>
-								<col style="width: 20%;">
-								<col style="width: 20%;">
-							</colgroup>
-							<thead>
-								<tr>
-									<th scope="col">No.</th>
-									<th scope="col">제목</th>
-									<th scope="col">날짜</th>
-									<th scope="col">조회수</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr style="display: none;">
-									<td colspan="4">
-										<div class="nodata">
-											<span>검색 결과가 없습니다.</span>
-										</div>
-									</td>
-								</tr>
-								<c:if test="${totalSize == 0}">
-									<tr>
-										<td colspan="3">등록된 게시물이 없습니다</td>
-									</tr>
-								</c:if>
-								<c:if test="${totalSize > 0}">
-									<c:forEach var="notice" items="${noticeList}"
-										varStatus="status">
-										<tr>
-											<td><span>${notice.rn}</span></td>
-											<td>
-												<div class="title">
-													<a type="hidden" href="getNotice.do?seq=${notice.seq}">${notice.title}</a>
-												</div>
-											</td>
-											<td><span>${notice.post_date}</span></td>
-											<td><span>${notice.hits}</span></td>
-										</tr>
-									</c:forEach>
-								</c:if>
-							</tbody>
-						</table>
-						<div class="board_paging">
-							<div class="VuePagination">
-								<ul>
-									${pageing}
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
+				<a class="btn_regform"> <span>신청서작성</span></a>
 			</div>
 		</div>
 	</div>
