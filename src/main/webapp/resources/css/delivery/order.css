@@ -842,8 +842,8 @@ input[type="radio" i] {
     border: initial;
 }
 
-.easy_payment_list .naver label>span {
-    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/naverpay.png);
+.easy_payment_list .payco label>span {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/payco.png);
 }
 
 .easy_payment_list input:checked+span {
