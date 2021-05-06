@@ -106,10 +106,24 @@ public class OrderController {
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount - 1);
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
+
 		return "delivery/order";
 	}
 
-	// 주문페이지로 이동함. - post로 변경하기가 필요함.
+	// 주문완료 페이지로 이동.
 	@RequestMapping(value = "/ordercomplete.do", method = RequestMethod.GET)
 	public String goOrdercomplete(Model model, @RequestParam(value = "order_serial") int order_serial) {
 		System.out.println("주문완료 페이지 이동");
@@ -124,9 +138,28 @@ public class OrderController {
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		model.addAttribute("user", user);
 
+		// 지정 배달지
+		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
+		model.addAttribute("location", location);
+
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
+
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount - 1);
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
+
 		return "delivery/ordercomplete";
 	}
 
@@ -150,65 +183,13 @@ public class OrderController {
 			Model model, HttpSession session) {
 
 		System.out.println("주문실행");
-		Map<String, Object> retVal = new HashMap<String, Object>();
 
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		UserDetails userDetails = (UserDetails) principal;
-
-		UserVO user = userService.getUserById(userDetails.getUsername());
 		CartVO cart = (CartVO) session.getAttribute("cart");
+		// 주문 비지니스 로직
+		int order_serial = orderService.doOrder(store_name, address, phonenumber, description, payment_type, coupon_seq,
+				total_price, cart);
 
-		UserCouponVO usercoupon = usercouponService.getUserCouponBySeq(coupon_seq);
-
-		// 1. Orderlist 테이블에 추가한다.
-		// order_serial storename order_status userid
-		String userid = user.getUserid();
-		int order_status = 1; // default 1
-		Calendar cal = Calendar.getInstance();
-		Date order_date = new Date(cal.getTimeInMillis());
-
-		OrderVO order = new OrderVO(store_name, order_status, userid, coupon_seq, payment_type, total_price, address,
-				order_date);
-
-		// orderlist에 주문 추가
-		int order_serial = orderService.insertOrder(order); // order_serial
-		System.out.println(order.toString() + "\n order_serial : " + order_serial);
-
-		// 2. Order Detail 테이블에 추가한다. - 메뉴별로 나눠서 <- order_serial 을 받음
-		HashMap<Integer, ProductVO> products = cart.getProducts();
-
-		// 2.1 products key가져오기
-		Iterator<Integer> iterator = products.keySet().iterator();
-		List<Integer> keys = new ArrayList<Integer>();
-		while (iterator.hasNext()) {
-			keys.add(iterator.next());
-		}
-
-		// 2.2 상품갯수만큼 Order Detail에 저장
-		int productsCount = products.size();
-
-		for (int i = 0; i < productsCount; i++) {
-
-			ProductVO product = products.get(keys.get(i));
-
-			String product_name = product.getProduct_name();
-			int quantity = product.getCount();
-			int price = product.getPrice() * quantity;
-
-			OrderDetailVO orderDetail = new OrderDetailVO();
-			orderDetail.setProduct_name(product_name);
-			orderDetail.setQuantity(quantity);
-			orderDetail.setPrice(price);
-			orderDetail.setOrder_serial(order_serial);
-
-			// order list에 첫번째 메뉴에 대해서 대표상품으로 등록
-			if (i == 0) {
-				order.setProduct_serial(order_serial);
-			}
-
-			orderDetailService.insertOrderDetail(orderDetail);
-		}
-		// 카트 세션 삭제 - session.removeAttribute("cart");
+		Map<String, Object> retVal = new HashMap<String, Object>();
 
 		retVal.put("order_serial", order_serial); // 주문관련 정보 넣어서 보냄.
 		retVal.put("message", "결제 성공");
@@ -216,7 +197,7 @@ public class OrderController {
 	}
 
 	// 주문내역 페이지로 이동
-	@RequestMapping(value = "/delivery/orderList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/orderList.do", method = RequestMethod.GET)
 	public String orderList(Model model, HttpSession session) {
 
 		// 현재 로그인한 사용자 추가
@@ -245,9 +226,87 @@ public class OrderController {
 		}
 		model.addAttribute("cart", cart);
 
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount - 1);
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
+
 		return "delivery/orderList";
 	}
 
+	// 주문상세 페이지로 이동
+	@RequestMapping(value = "/orderDetail.do", method = RequestMethod.GET)
+	public String orderDetail(@RequestParam(value = "order_serial") int order_serial, Model model,
+			HttpSession session) {
+
+		// 현재 로그인한 사용자 추가
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+		model.addAttribute("user", user);
+
+		// order 정보 추가
+		OrderVO order = orderService.getOrder(order_serial);
+		model.addAttribute("order", order);
+
+		int coupon_seq = order.getCoupon_seq();
+		UserCouponVO usedUsercoupon = usercouponService.getUserCouponBySeq(coupon_seq);
+		model.addAttribute("usedUsercoupon", usedUsercoupon);
+
+		List<OrderDetailVO> orderDetails = orderDetailService.getOrderDetailListByOrderSerial(order_serial);
+		model.addAttribute("orderDetails", orderDetails);
+
+		System.out.println(orderDetails.toString());
+
+		// 잡다한거 추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
+		model.addAttribute("location", location);
+		CartVO cart = new CartVO();
+		if (session.getAttribute("cart") == null) {
+		} else {
+			cart = (CartVO) session.getAttribute("cart");
+		}
+		model.addAttribute("cart", cart);
+
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount - 1);
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
+
+		return "delivery/orderDetail";
+	}
+
+	// 주문취소 처리
+	@ResponseBody
+	@RequestMapping(value = "/cancelOrder.do", method = RequestMethod.POST)
+	public Object cancelOrder(@RequestParam(value = "order_serial") int order_serial, Model model) {
+		int success = orderService.cancelOrder(order_serial);
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		retVal.put("success", success);
+		return retVal;
+	}
+  
+  <<<<<<< feature_jihyeon
 	@RequestMapping(value = "/deilvery/order.do", method = RequestMethod.GET)
 	public void kakaoGet() {
 
@@ -267,6 +326,4 @@ public class OrderController {
 		System.out.println("kakaoPaySuccess pg_token : " + pg_token);
 
 		model.addAttribute("info", KakaoService.kakaoPayInfo(pg_token));
-
-	}
 }

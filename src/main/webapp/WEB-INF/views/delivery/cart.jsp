@@ -225,7 +225,7 @@
                     <div class="nodata" style="display: none;" id="zerocart">
                         <span class="txt_c01">카트에 담긴 메뉴가 없습니다.</span>
                         <div class="c_btncart">
-                            <button type="button" class="btn01 ico add" onclick="location.href='${contextPath}/delivery/delivery.do'">
+                            <button style="cursor:pointer" type="button" class="btn01 ico add" onclick="location.href='${contextPath}/delivery/delivery.do'">
                                 <span>메뉴추가</span>
                             </button>
                         </div>

@@ -69,7 +69,6 @@ public class AdminUserCouponController {
 		List<UserVO> users = userService.getUserHavingCouponList();
 		model.addAttribute("users", users);
 
-		//
 		return "admin/subpages/coupon/couponReleasepage";
 	}
 
@@ -203,9 +202,6 @@ public class AdminUserCouponController {
 		UserCouponVO usercoupon = new UserCouponVO();
 		usercoupon.setCoupon_serial(coupon.getCoupon_serial());
 
-		// 날짜 지정
-		Date date = new Date(System.currentTimeMillis());
-		usercoupon.setStartdate(date);
 
 		for (String user : userArray) {
 			usercoupon.setUserid(user);
@@ -239,7 +235,6 @@ public class AdminUserCouponController {
 		CouponVO coupon = couponService.getCouponByTitle(coupon_title);
 		UserCouponVO usercoupon = new UserCouponVO();
 		usercoupon.setCoupon_serial(coupon.getCoupon_serial());
-		usercoupon.setStartdate(new Date()); // 현재 날짜 넣기
 
 		for (int i = 0; i < users.size(); i++) {
 			UserVO user = users.get(i);

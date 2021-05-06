@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserCouponDAO">
+	<resultMap type="UserCouponVO" id="UserCouponVO">
+		<result property="coupon_number" column="COUPON_NUMBER" />
+		
+	</resultMap>
+
+	<select id="getUserCouponList" resultType="UserCouponVO">
+		<![CDATA[
+			SELECT 
+			user_coupon.coupon_number,
+			user_coupon.coupon_serial,
+			user_coupon.userid,
+			user_coupon.coupon_seq,
+			user_coupon.use_status,
+			DATE_TRUNC('second', user_coupon.startdate::timestamp) as startdate,
+			coupon.coupon_title , coupon.price, coupon.coupon_category
+			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
+			order by user_coupon.coupon_serial DESC;
+		]]>
+	</select>
+	
+	<select id="getCountUserCouponNotUsed" resultType="UserCouponVO">
+		<![CDATA[
+			SELECT 
+			user_coupon.coupon_number,
+			user_coupon.coupon_serial,
+			user_coupon.userid,
+			user_coupon.coupon_seq,
+			user_coupon.use_status,
+			DATE_TRUNC('second', user_coupon.startdate::timestamp) as startdate,
+			coupon.coupon_title , coupon.price, coupon.coupon_category
+			FROM user_coupon
+			INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
+			WHERE userid = #{userid} and use_status = 1
+			order by user_coupon.coupon_serial DESC;
+		]]>
+	</select>
+	
+	
+	<select id="getUserCouponBySeq" resultType="UserCouponVO">
+		<![CDATA[
+			SELECT
+			user_coupon.coupon_number,
+			user_coupon.coupon_serial,
+			user_coupon.userid,
+			user_coupon.coupon_seq,
+			user_coupon.use_status,
+			DATE_TRUNC('second', user_coupon.startdate::timestamp) as startdate,
+			coupon.coupon_title , coupon.price, coupon.coupon_category
+			FROM user_coupon
+			INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
+			WHERE user_coupon.coupon_seq= #{coupon_seq}
+			order by user_coupon.coupon_serial DESC;
+		]]>
+	</select>
+	
+	<!-- 가격 가져오기. -->
+	<select id="getPrice" resultType="UserCouponVO">
+		<![CDATA[
+			SELECT 
+			user_coupon.coupon_number,
+			user_coupon.coupon_serial,
+			user_coupon.userid,
+			user_coupon.coupon_seq,
+			user_coupon.use_status,
+			DATE_TRUNC('second', user_coupon.startdate::timestamp) as startdate,
+			coupon.coupon_title , coupon.price, coupon.coupon_category
+			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
+			WHERE user_coupon.coupon_seq= #{coupon_seq}
+		]]>
+	</select>
+	
+	<select id="getUserHavingCouponDetail" resultType="UserCouponVO">
+		<![CDATA[
+			SELECT 
+			user_coupon.coupon_number,
+			user_coupon.coupon_serial,
+			user_coupon.userid,
+			user_coupon.coupon_seq,
+			user_coupon.use_status,
+			DATE_TRUNC('second', user_coupon.startdate::timestamp) as startdate,
+			coupon.coupon_title , coupon.price, coupon.coupon_category
+			FROM user_coupon INNER JOIN coupon ON user_coupon.coupon_serial = coupon.coupon_serial
+			WHERE userid=#{userid}
+			order by user_coupon.coupon_serial DESC;
+		]]>
+	</select>
+	<insert id="useUserCoupon" >
+		<![CDATA[
+			UPDATE user_coupon
+			SET use_status= -1
+			WHERE coupon_seq = #{coupon_seq}
+		]]>
+	</insert>
+	<insert id="deleteUserCoupon" >
+		<![CDATA[
+			DELETE FROM user_coupon
+			WHERE coupon_seq = #{coupon_seq}
+		]]>
+	</insert>
+	
+	<!-- 쿠폰 생성 -->
+	<insert id="insertUserCoupon" >
+		<![CDATA[
+			INSERT INTO user_coupon(use_status, startdate, coupon_serial, userid, coupon_number)
+			VALUES (
+				1, NOW(), #{coupon_serial}, #{userid}, 
+				(SELECT (SELECT coupon_serial from coupon where coupon_serial = #{coupon_serial}) 
+    			|| (SELECT trunc(random() * 999999 + 1)::TEXT)
+				as coupon_number)
+				)
+		]]>
+	</insert>
+	
+</mapper>

@@ -274,7 +274,6 @@
         for(var i = 0; i<paymentType.length; i++){
             if(paymentType[i].checked==true){
                 paymentTypeValue = paymentType[i].value;
-                alert(paymentTypeValue);
                 paymentType_check++;
                 break;
             }
@@ -317,35 +316,78 @@
 		
       	//라디어 버튼에 따라 결제 분기 처리  - 5가지 타입 
       	if(paymentTypeValue == "naver"){
-      		 alert("naver 결제로 ! ");
       		 // 엄지현이 작업중인 곳 조심      //
        		 
       		 // ----------------- // 
       	} else if(paymentTypeValue == "kakao"){
       		KakaoPay();
-      		alert("kakao 결제로 ! ");
-      		
       	} 
       	
       	//카드결제 두개 
       	else if(paymentTypeValue == "card"){
-      		
+      		var objParams = {
+    				"storename" : storename, 
+    				"useraddress" : useraddress, 
+    				"phonenumber" : phonenumber, 
+    				"description" : description, 
+    				"payment_type" : "카드결제",
+    				"coupon_seq" : parseInt(coupon_seq),
+    				"total_price" :parseInt(total_price)
+            };
+    		  $.ajax({
+                url         :   "/bkc/delivery/ordersuccess.do",
+                dataType    :   "json",
+                contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+                type        :   "post",
+                data        :   objParams,
+                success     :   function(retVal){
+                	        orderSerial = retVal.order_serial; 
+                	        console.log(orderSerial);
+                	        window.location.href= contextpath+"/delivery/ordercomplete.do?order_serial="+orderSerial;
+                },
+                error       :   function(request, status, error){
+                			alert("주문이 실패하였습니다.");
+                }
+            });
+    		  
       	} 
       	//현장 카드 결제
       	else if(paymentTypeValue == "fieldCard"){
-      		
+      		var objParams = {
+    				"storename" : storename, 
+    				"useraddress" : useraddress, 
+    				"phonenumber" : phonenumber, 
+    				"description" : description, 
+    				"payment_type" : "현장카드결제",
+    				"coupon_seq" : parseInt(coupon_seq),
+    				"total_price" :parseInt(total_price)
+            };
+    		  $.ajax({
+                url         :   "/bkc/delivery/ordersuccess.do",
+                dataType    :   "json",
+                contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+                type        :   "post",
+                data        :   objParams,
+                success     :   function(retVal){
+                	        orderSerial = retVal.order_serial; 
+                	        window.location.href= contextpath+"/delivery/ordercomplete.do?order_serial="+orderSerial;
+                },
+                error       :   function(request, status, error){
+                			console.log("주문 실패");
+                			alert("주문이 실패하였습니다.");
+                }
+            });
       	} 
       	
       	//현장 현금결제 
       	else if(paymentTypeValue == "fieldCash"){
-    		payment_type = "현금결제";  
     		console.log(payment_type);
       		var objParams = {
     				"storename" : storename, 
     				"useraddress" : useraddress, 
     				"phonenumber" : phonenumber, 
     				"description" : description, 
-    				"payment_type" : payment_type,
+    				"payment_type" : "현금결제",
     				"coupon_seq" : parseInt(coupon_seq),
     				"total_price" :parseInt(total_price)
             };
@@ -366,7 +408,8 @@
                 }
             });
       		
-      	} else{
+      	} 
+      	else{
       		console.log("결제 error");
       	}
     }
@@ -618,7 +661,7 @@
 												<dd>
 													<strong> <em> <span class="productsPrice"
 															id="totalProductCost${products.key}">${products.value.price*products.value.count}</span>
-															<!-- 갯수에 따른 금액 --> <span class="unit">원</span>
+															 <span class="unit">원</span>
 													</em>
 													</strong>
 												</dd>

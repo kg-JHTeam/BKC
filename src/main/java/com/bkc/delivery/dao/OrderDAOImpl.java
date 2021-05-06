@@ -30,4 +30,32 @@ public class OrderDAOImpl implements OrderDAO {
 	public List<OrderVO> getUserOrderList(String userid) {
 		return sqlSession.selectList("getUserOrderList", userid);
 	}
+
+	@Override
+	public void updateProductSerial(OrderVO order) {
+		sqlSession.insert("updateProductSerial", order);
+	}
+
+	@Override
+	public List<OrderVO> getAllOrderList() {
+		return sqlSession.selectList("getAllOrderList");
+	}
+
+	@Override
+	public List<OrderVO> getAllOrderListByOrderStatus(int order_status) {
+		return sqlSession.selectList("getAllOrderListByOrderStatus", order_status);
+	}
+
+	@Override
+	public List<OrderVO> getNotDeliveryUserOrderList(String userid) {
+		return sqlSession.selectList("getNotDeliveryUserOrderList", userid);
+	}
+
+	@Override
+	public int cancelOrder(int order_serial) {
+		System.out.println("주문 취소 실행");
+		return sqlSession.insert("cancelOrder", order_serial);
+	}
+
+
 }

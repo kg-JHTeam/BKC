@@ -27,7 +27,6 @@ public class KakaoService {
 	private OrderDetailVO OrderDetailVO;
 	private OrderVO OrderVO;
 	private DvProductVO  DvProductVO;
-
 	public String kakaoPayReady() {
 
 		RestTemplate restTemplate = new RestTemplate();
@@ -54,11 +53,13 @@ public class KakaoService {
 
 		HttpEntity<MultiValueMap<String,String>> body = new HttpEntity<MultiValueMap<String,String>>(params, headers);
 
+
 		try {
 			kakaoPayReadyVO = restTemplate.postForObject(new URI(HOST + "/v1/payment/ready"), body,
 					KakaoPayReadyVO.class);
 
 			System.out.println("" + kakaoPayReadyVO);
+
 
 			return kakaoPayReadyVO.getNext_redirect_pc_url();
 
@@ -69,7 +70,6 @@ public class KakaoService {
 
 			e.printStackTrace();
 		}
-
 		return "/delivery";
 
 	}
@@ -99,6 +99,14 @@ public class KakaoService {
 
 		HttpEntity<MultiValueMap<String,String>> body = new HttpEntity<MultiValueMap<String,String>>(params, headers);
 		HttpEntity<MultiValueMap<String, Integer>> ibody = new HttpEntity<MultiValueMap<String, Integer>>(iparams, headers);
+		params.add("cid", "TC0ONETIME");
+		params.add("tid", kakaoPayReadyVO.getTid());
+		params.add("partner_order_id", "1001");
+		params.add("partner_user_id", "gorany");
+		params.add("pg_token", pg_token);
+		params.add("total_amount", "100");
+
+		HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
 
 		try {
 			kakaoPayApprovalVO = restTemplate.postForObject(new URI(HOST + "/v1/payment/approve"), body,

@@ -16,12 +16,31 @@
 	<!-- css -->
 	<link rel="stylesheet" href="${contextPath}/resources/css/include/delivery-gnb2.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/delivery/orderList.css">
-	
+	<link rel="stylesheet" href="${contextPath}/resources/css/delivery/cart.css">
 	<!-- js -->
     <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
     <script src="${contextPath}/resources/js/delivery/orderList.js"></script>
 	
 	<title>주문목록</title>
+	<script>
+	window.onload = function(){
+		//아무것도 없는 경우
+		var count = "<c:out value='${orders[0].productCount}'/>";
+		var zero = document.getElementById("zeroorder");
+		var notzero = document.getElementById("existorder");
+
+		//아무것도없으면
+		if(count <= 0){
+			zero.style.display ='';
+			notzero.style.display ='none';
+		} 
+		//있으면
+		else{
+			zero.style.display ='none';
+			notzero.style.display ='';
+		}
+	}
+	</script>
 </head>
 <body>
 	<div class="subWrap02">
@@ -45,13 +64,13 @@
                     </div>
                     <div class="location">
                         <span class="addr">
-                        <span>서울특별시 서초구 잠원로 117 (잠원동, 아크로리버뷰신반포)(DB)</span>
+                        <span>${location.addr} ${location.addr_detail}</span>
                         </span>
                         <span class="shop">
                         <span>신논현역점(DB)</span>
                         </span>
                         <span class="btn">
-                        <a href="#" class="addrchange">
+                        <a href="${contextPath}/delivery/mylocation.do" class="addrchange">
                             <span>변경</span>
                         </a>
                         </span>
@@ -72,34 +91,33 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="nodata" style="display: none;" id="zeroorder">
+		                  <span class="txt_c01">주문내역이 없습니다.</span>
+		            </div>
                     <div class="container01">
                         <div class="tab_cont">
                             <h3 class="hide">딜리버리</h3>
-                            <div class="nodata" style="display: none;">
-                                <p>주문내역이 없습니다.</p>
-                            </div>
-                            
-                            <ul class="order_list">
+                            <ul class="order_list" id="existorder">
                             <c:forEach var="order" items="${orders}">
                                 <li>
                                     <div class="prd_img">
                                         <span>
-                                            <img src=${order.mainMenuImg}" alt="주문상품" style="display: inline; opacity: 1;">
+                                            <img src='${order.path}'" alt="주문상품" style="display: inline; opacity: 1;">
                                         </span>
                                     </div>
                                     <div class="cont">
                                         <p class="tit">
                                             <strong>
-                                            	${order.mainMenu}<!-- 대표 메뉴 이름  -->
+                                            	${order.product_name}<!-- 대표 메뉴 이름  -->
                                             		<c:choose>
 														<c:when test="${order.productCount eq 1 }">
 														<!-- 주문내역 메뉴 한건  -->
 														</c:when>
 														<c:otherwise>
-														외 ${order.productCount}건
+														외 ${order.productCount-1}건
 														</c:otherwise>
 													</c:choose>
-                                            		<span>외 2건</span></strong>
+                                            		</strong>
                                             <em class="tag">
                                                 <span>
                                                 	<c:choose>
@@ -108,6 +126,9 @@
 														</c:when>
 														<c:when test="${order.order_status eq 2 }">
 														          배달중
+														</c:when>
+														<c:when test="${order.order_status eq -1 }">
+														          주문취소
 														</c:when>
 														<c:otherwise>
 															주문완료 
@@ -131,7 +152,8 @@
                                             </dl>
                                         </div>
                                     </div>
-                                    <a href="${contextPath}/delivery/orderDetail.do?order_serial="${order.order_serial} class="btn_detail">
+                                    
+                                    <a href="${contextPath}/delivery/orderDetail.do?order_serial=${order.order_serial}" class="btn_detail">
                                         <span>Details</span>
                                     </a>
                                 </li>

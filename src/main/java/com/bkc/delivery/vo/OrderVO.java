@@ -1,6 +1,8 @@
 package com.bkc.delivery.vo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.List;
 
 public class OrderVO {
 	
@@ -19,19 +21,24 @@ public class OrderVO {
 	private String payment_type;	//결제타입 
 	private String address; 	//주소 
 	
+	private String phonenumber;
 	private int product_serial; //주문한 대표상품 serial 
-	private Date order_date;
+	private Timestamp order_date;
+	private String description;
 	
 	//추가적인 매개변수 
 	private int productCount; //주문 메뉴 갯수 
-	private String mainMenu; //타이틀 메뉴 이름 출력 
-	private String mainMenuImg; //타이틀 메뉴 이름 출력
+	private String product_name; //타이틀 메뉴 이름 출력 
+	private String path; //타이틀 메뉴 이름 출력
+	
+	private List <OrderDetailVO> orderDetails;
 	
 	public OrderVO() {
 		super();
 	}
 
-	public OrderVO(String store_name, int order_status, String userid, int coupon_seq, String payment_type, int total_price, String address, Date order_date) {
+	public OrderVO(String phonenumber, String store_name, int order_status, String userid, int coupon_seq, String payment_type, int total_price, String address) {
+		this.setPhonenumber(phonenumber);
 		this.store_name = store_name;
 		this.order_status = order_status;
 		this.userid = userid;
@@ -39,24 +46,39 @@ public class OrderVO {
 		this.payment_type = payment_type;
 		this.total_price = total_price;
 		this.address = address;
-		this.order_date = order_date;
 	}
-
-	public String getMainMenuImg() {
-		return mainMenuImg;
-	}
-
-	public void setMainMenuImg(String mainMenuImg) {
-		this.mainMenuImg = mainMenuImg;
-	}
-
-	public Date getOrder_date() {
+	public Timestamp getOrder_date() {
 		return order_date;
 	}
 
-	public void setOrder_date(Date order_date) {
+	public void setOrder_date(Timestamp order_date) {
 		this.order_date = order_date;
 	}
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getProduct_name() {
+		return product_name;
+	}
+
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+
 
 	public int getProductCount() {
 		return productCount;
@@ -133,22 +155,29 @@ public class OrderVO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
-	public String getMainMenu() {
-		return mainMenu;
-	}
-
-	public void setMainMenu(String mainMenu) {
-		this.mainMenu = mainMenu;
-	}
 	
 	@Override
 	public String toString() {
 		return "OrderVO [order_serial=" + order_serial + ", store_name=" + store_name + ", order_status=" + order_status
 				+ ", userid=" + userid + ", coupon_seq=" + coupon_seq + ", total_price=" + total_price
-				+ ", payment_type=" + payment_type + ", address=" + address + "]";
+				+ ", payment_type=" + payment_type + ", address=" + address + ", product_serial=" + product_serial
+				+ ", order_date=" + order_date + ", description=" + description + ", productCount=" + productCount
+				+ ", product_name=" + product_name + ", path=" + path + "]";
 	}
 
+	public String getPhonenumber() {
+		return phonenumber;
+	}
 
-	
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+
+	public List <OrderDetailVO> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List <OrderDetailVO> orderDetails) {
+		this.orderDetails = orderDetails;
+	}
 }

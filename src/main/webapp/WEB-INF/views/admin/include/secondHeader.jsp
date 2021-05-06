@@ -42,6 +42,18 @@
                                 	<a class="nav-link" href="${contextPath}/admin/couponRelease.ad">회원 쿠폰 배포</a>
                                 </nav>
                             </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-box-open"></i></i></div>
+                                	주문관리 
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                	<a class="nav-link" href="${contextPath}/admin/orderlist.ad">주문 리스트</a>
+                                	<a class="nav-link" href="${contextPath}/admin/orderCompleteList.ad">주문 완료 리스트 </a>
+                                	<a class="nav-link" href="${contextPath}/admin/orderCancellationList.ad">주문 취소 리스트 </a>
+                                </nav>
+                            </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 	홈페이지 관리
@@ -82,9 +94,6 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseDeliverypage" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="">주문리스트</a>
-                                            <a class="nav-link" href="">주문취소리스트</a>
-                                            <a class="nav-link" href="">결제관리</a>
                                             <a class="nav-link" href="${contextPath}/delivery/admin/cautionList.ad">이용약관</a>
                                         </nav>
                                     </div>

@@ -23,9 +23,12 @@ import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.delivery.service.CautionService;
 import com.bkc.delivery.service.DvProductService;
 import com.bkc.delivery.service.MyLocationService;
+import com.bkc.delivery.service.OrderDetailService;
+import com.bkc.delivery.service.OrderService;
 import com.bkc.delivery.vo.CautionVO;
 import com.bkc.delivery.vo.DvProductVO;
 import com.bkc.delivery.vo.MyLocationVO;
+import com.bkc.delivery.vo.OrderVO;
 import com.bkc.menuInform.service.ProductService;
 import com.bkc.menuInform.vo.ProductVO;
 import com.bkc.user.service.CouponService;
@@ -63,13 +66,19 @@ public class DeliveryController {
 	@Autowired
 	private MyLocationService mylocaService;
 
+	@Autowired
+	private OrderService orderService;
+
+	@Autowired
+	private OrderDetailService orderDetailService;
+
 	// 카트리스트
 	private CartVO cart = new CartVO(); // list로되어 있는 카트
 
 	// 회원 주문 페이지로 이동
 	@RequestMapping(value = "/delivery.do", method = RequestMethod.GET)
 	public String delivery(CautionVO cautionVO, Model model, HttpSession session) {
-		
+
 		// 유의사항 화면출력
 		List<CautionVO> CautionList = cService.CautionList(cautionVO);
 		model.addAttribute("CautionList", CautionList);
@@ -104,7 +113,7 @@ public class DeliveryController {
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
 		model.addAttribute("location", location);
 
-		// 카트 추가 잇는지 없는지 확인해서 보내기 
+		// 카트 추가 잇는지 없는지 확인해서 보내기
 		cart = new CartVO();
 		if (session.getAttribute("cart") == null) {
 			session.setAttribute("cart", cart);
@@ -113,37 +122,21 @@ public class DeliveryController {
 		}
 		model.addAttribute("cart", cart);
 
-		return "delivery/delivery";
-	}
-
-
-	// 주문상세 페이지로 이동
-	@RequestMapping(value = "/orderDetail.do", method = RequestMethod.GET)
-	public String orderDetail(Model model, HttpSession session) {
-		System.out.println("회원 주문상세 페이지 이동");
-		// 현재 로그인한 사용자 추가
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		UserDetails userDetails = (UserDetails) principal;
-		UserVO user = userService.getUserById(userDetails.getUsername());
-		model.addAttribute("user", user);
-
-		// 푸터추가
-		BusinessInformationVO bi = biService.getBusinessInformation(1);
-		model.addAttribute("bi", bi);
-
-		// 지정 배달지
-		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
-		model.addAttribute("location", location);
-
-		// 카트 추가
-		CartVO cart = new CartVO();
-		if (session.getAttribute("cart") == null) {
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
 		} else {
-			cart = (CartVO) session.getAttribute("cart");
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
+			}
 		}
-		model.addAttribute("cart", cart);
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
 
-		return "delivery/orderDetail";
+		return "delivery/delivery";
 	}
 
 	// mybkc 페이지로 이동
@@ -161,10 +154,9 @@ public class DeliveryController {
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
 		model.addAttribute("location", location);
 
-		// 쿠폰 넣기
-		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(user.getUserid());
-		int couponcount = usercoupons.size();
-		model.addAttribute("couponcount", couponcount);
+		// 쿠폰 갯수 포내주기
+		List<UserCouponVO> notUsedUserCoupons = usercouponService.getCountUserCouponNotUsed(user.getUserid());
+		model.addAttribute("couponcount", notUsedUserCoupons.size());
 
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
@@ -177,6 +169,20 @@ public class DeliveryController {
 			cart = (CartVO) session.getAttribute("cart");
 		}
 		model.addAttribute("cart", cart);
+
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
 
 		return "delivery/mybkc";
 	}
@@ -204,9 +210,11 @@ public class DeliveryController {
 		List<UserCouponVO> usercoupons = usercouponService.getUserHavingCouponDetail(user.getUserid());
 		model.addAttribute("usercoupons", usercoupons);
 
+		model.addAttribute("realcouponcount", usercoupons.size());
 		// 쿠폰 갯수 포내주기
-		int couponcount = usercoupons.size();
-		model.addAttribute("couponcount", couponcount);
+		// 사용할 수 있는 쿠폰만 보내줌 use_status = 1;
+		List<UserCouponVO> notUsedUserCoupons = usercouponService.getCountUserCouponNotUsed(user.getUserid());
+		model.addAttribute("couponcount", notUsedUserCoupons.size());
 
 		// 카트 추가
 		CartVO cart = new CartVO();
@@ -216,6 +224,20 @@ public class DeliveryController {
 		}
 		model.addAttribute("cart", cart);
 
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
+
 		return "delivery/mycoupon";
 	}
 
@@ -223,7 +245,6 @@ public class DeliveryController {
 	@RequestMapping(value = "/admin/cautionList.ad", method = { RequestMethod.GET })
 	public String CautionList(CautionVO cautionVO, Model model) {
 
-		
 		// 유의사항
 		List<CautionVO> CautionList = cService.CautionList(cautionVO);
 		model.addAttribute("CautionList", CautionList);
@@ -288,7 +309,7 @@ public class DeliveryController {
 		if (seq == 0) {
 			// 세션이 아예없다면,
 			if (session.getAttribute("cart") == null) {
-			
+
 			} else { // 세션이 있다면
 				cart = (CartVO) session.getAttribute("cart");
 			}
@@ -342,11 +363,25 @@ public class DeliveryController {
 		// 지정 배달지
 		MyLocationVO location = mylocaService.getLocaOne(user.getUserid());
 		model.addAttribute("location", location);
-		
+
 		// 푸터추가
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 
+		// 딜리버리 주문내역 있는지 확인 시키기
+		String nowOrderStatus = "주문내역이 없습니다.";
+		List<OrderVO> tmpOrders = orderService.getNotDeliveryUserOrderList(user.getUserid());
+		if (tmpOrders.size() == 0) {
+		} else {
+			OrderVO tmpOrder = tmpOrders.get(0);
+			int productCount = tmpOrder.getProductCount();
+			nowOrderStatus = tmpOrder.getProduct_name();
+			if (productCount != 1) {
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
+			}
+		}
+		model.addAttribute("nowOrderStatus", nowOrderStatus);
+		
 		return "/delivery/cart";
 	}
 
@@ -416,4 +451,6 @@ public class DeliveryController {
 		model.addAttribute("bi", bi);
 		return "guest/guestdelivery";
 	}
+	
+	
 }

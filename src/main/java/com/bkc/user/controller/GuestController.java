@@ -114,7 +114,56 @@ public class GuestController {
 	public String goGuestDeliveryPage(Model model, HttpSession session) {
 		String guest = (String) session.getAttribute("guest");
 		model.addAttribute("guest", guest);
-		
 		return "guest/guestdelivery";
+	}
+	
+	//게스트 카트 페이지로 이동
+	@RequestMapping(value = "/guestCart.do", method = RequestMethod.GET)
+	public String goGuestCartPage(Model model) {
+		
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		return "guest/guestCart";
+	}
+	
+	//주문번호로 주문상세페이지로 가는 비회원 주문내역 페이지로 이동
+	@RequestMapping(value = "/guestOrderList.do", method = RequestMethod.GET)
+	public String goGuestOrderListPage(Model model) {
+		
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		return "guest/guestOrderList";
+	}
+	
+	//비회원 주문내역 페이지에서 조회하기 누르면 주문상세페이지로 이동
+	@RequestMapping(value = "/guestOrderDetail.do", method = RequestMethod.GET)
+	public String goGuestOrderDetailPage(Model model) {
+		
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		return "guest/guestOrderDetail";
+	}
+	
+	//비회원 카트에서 주문하기 누르면 나오는 비회원 주문하기 페이지로 이동
+	@RequestMapping(value = "/guestOrder.do", method = RequestMethod.GET)
+	public String goGuestOrderPage(Model model) {
+		
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		return "guest/guestOrder";
+	}
+	
+	//비회원 주문하기 페이지에서 결제완료 누를시 나오는 비회원 주문완료 페이지로 이동
+	@RequestMapping(value = "/guestOrderComplete.do", method = RequestMethod.GET)
+	public String goGuestOrderCompletePage(Model model) {
+		
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+		return "guest/guestOrderComplete";
 	}
 }

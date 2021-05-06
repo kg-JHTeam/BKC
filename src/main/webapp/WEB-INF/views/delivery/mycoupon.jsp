@@ -36,7 +36,7 @@
 	</style>
 	<script>
 	window.onload = function(){
-		var count = "<c:out value='${couponcount}' />";
+		var count = "<c:out value='${realcouponcount}' />";
 		var zero = document.getElementById("zerccoupon");
 		if(count == 0){
 			zero.style.display ='';
@@ -82,7 +82,7 @@
                 </div>
             </div>
             
-           	<c:set var="count" value="${couponcount}" />
+           			<c:set var="count" value="${couponcount}" />
 			        <div class="contentsBox01">
 						<div class="web_container2">
 							<div class="subtitWrap m_bg_basic">
@@ -112,6 +112,21 @@
 	                                          <dt>쿠폰발행날짜</dt>
 	                                          <dd>
 	                                              <strong>${usercoupon.startdate}</strong>
+	                                          </dd>
+	                                      </dl>
+	                                       <dl id="dl3">
+	                                          <dt>사용여부 </dt>
+	                                          <dd>
+	                                              <strong>
+	                                           	 	<c:choose>
+														<c:when test="${usercoupon.use_status eq -1 }">
+															사용완료
+														</c:when>
+														<c:otherwise>
+															미사용
+														</c:otherwise>
+													</c:choose>  
+	                                              </strong>
 	                                          </dd>
 	                                      </dl>
 	                                  </div>
