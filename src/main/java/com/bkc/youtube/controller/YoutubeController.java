@@ -1,7 +1,11 @@
 package com.bkc.youtube.controller;
 
 import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,8 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bkc.admin.board.banner.vo.CheckVO;
+import com.bkc.user.vo.CartVO;
 import com.bkc.youtube.service.YoutubeService;
 import com.bkc.youtube.vo.YoutubeVO;
 
@@ -55,10 +61,10 @@ public class YoutubeController {
 		return "admin/subpages/youtube/youtubeUploadpage";
 	}
 
-	// Youtube 광고 등록 기능
+	// Youtube 광고 등록 기능 
 	@RequestMapping(value = "/admin/insertYoutube.ad", method = { RequestMethod.POST, RequestMethod.GET })
 	public String insertYoutube(Model model, @RequestParam("title") String title,
-			@RequestParam("content") String content, @RequestParam("path") String path,
+			@RequestParam("content") String content, @RequestParam("path") String path, @RequestParam("date") String date,
 			@RequestParam(value = "use_status", required = false) boolean use_status) {
 
 		YoutubeVO youtubeVO = new YoutubeVO();
@@ -70,7 +76,7 @@ public class YoutubeController {
 
 		// 현재 날짜 등록
 //		Date date = new Date(System.currentTimeMillis());
-//		youtubeVO.setDate(date);
+		youtubeVO.setDate(date);
 
 		CheckVO check = new CheckVO();
 
@@ -146,5 +152,18 @@ public class YoutubeController {
 			System.out.println("Youtube 광고 삭제 실패 ");
 		}
 		return "redirect:/admin/youtubeList.ad";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/mainYoutube.do", method = RequestMethod.POST)
+	public Object setMainYoutube(
+			@RequestParam(value = "img_seq") int img_seq,
+			Model model, HttpSession session) {
+		
+		YoutubeVO vo = ytService.getYoutubeBySeq(img_seq); 
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		retVal.put("title", vo.getTitle());
+		retVal.put("path", vo.getPath());
+		return retVal;
 	}
 }

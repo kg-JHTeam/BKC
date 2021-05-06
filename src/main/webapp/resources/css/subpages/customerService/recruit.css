@@ -272,24 +272,27 @@ select {
     font-size: 1.375rem;
     color: #fff;
     text-align: center;
-    background: brown;
+    background-image:
+			url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_recruit_step.jpg");
     overflow: hidden;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
 }
-.btn_regform {
-		    margin-top: 20px;
-    position: relative;
-    padding: 12px 10px 10px;
-    min-width: 158px;
-    font-size: 1.125rem;
-    line-height: 26px;
-    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_o3.png) no-repeat 0 0;
-    background-size: 100% 100%;
-    color: #fff;
-    float: right;
-    text-align: center;
+.btn_regform {margin: 20px auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 216px;
+		font-size: 2.5rem;
+		height: 68px;
+		line-height: 26px;
+		background:
+			url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_o3.png")
+			no-repeat 0 0;
+		background-size: 100% 100%;
+		color: #fff;
+		cursor: pointer;
 	}
 .recruit_intro .step:after, .recruit_intro .step:before {
     content: "";

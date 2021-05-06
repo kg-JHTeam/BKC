@@ -47,15 +47,18 @@ button {
    
 }
 
-.locationWrap>ul>li {
+.locationWrap>.page_navi>ul>li {
     display: inline-block;
 }
 
-.locationWrap>ul>li>a {
+.locationWrap>.page_navi>ul>li>a {
     color: white;
     text-decoration: none;
 }
 
+.locationWrap>.page_navi{
+	margin: 0 17%;
+}
 
 /*지도 API*/
 

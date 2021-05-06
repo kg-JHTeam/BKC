@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" /><jsp:useBean id="now" class="java.util.Date" />
-<fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss" var="today" />
+<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />
 
 <!DOCTYPE HTML>
 <html lang="ko">
@@ -70,7 +70,7 @@ window.onload = function(){
 													<div>
 														<div class="index">날짜</div>
 														<input type="text" name="date" style="width: 50%;"
-															value="${today}" required disabled/><br />
+															value="${today}" required /><br />
 													</div><br>
 												</li>
 												<!-- 유튜브 광고 경로 -->
