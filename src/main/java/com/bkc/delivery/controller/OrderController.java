@@ -34,7 +34,6 @@ import com.bkc.delivery.vo.OrderDetailVO;
 import com.bkc.delivery.vo.OrderVO;
 import com.bkc.menuInform.service.ProductService;
 import com.bkc.menuInform.vo.ProductVO;
-import com.bkc.pay.service.KakaoService;
 import com.bkc.user.controller.UserController;
 import com.bkc.user.service.CouponService;
 import com.bkc.user.service.UserCouponService;
@@ -76,8 +75,6 @@ public class OrderController {
 	@Autowired
 	private OrderDetailService orderDetailService;
 
-	@Autowired
-	private KakaoService KakaoService;
 
 	// 주문페이지로 이동함.
 	@RequestMapping(value = "/order.do", method = RequestMethod.GET)
@@ -252,6 +249,7 @@ public class OrderController {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
+
 		model.addAttribute("user", user);
 
 		// order 정보 추가
@@ -305,25 +303,5 @@ public class OrderController {
 		retVal.put("success", success);
 		return retVal;
 	}
-  
-	@RequestMapping(value = "/deilvery/order.do", method = RequestMethod.GET)
-	public void kakaoGet() {
-
-	}
-
-	@RequestMapping(value = "/deilvery/order.do", method = RequestMethod.POST)
-	public String kakao() {
-		System.out.println("kakaoPay post............................................");
-
-		return "redirect:" + KakaoService.kakaoPayReady();
-
-	}
-	@RequestMapping(value = "/delivery/ordercomplete.do", method = RequestMethod.GET)
 	
-	public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
-		System.out.println("kakaoPaySuccess get............................................");
-		System.out.println("kakaoPaySuccess pg_token : " + pg_token);
-
-		model.addAttribute("info", KakaoService.kakaoPayInfo(pg_token));
-	}
 }
