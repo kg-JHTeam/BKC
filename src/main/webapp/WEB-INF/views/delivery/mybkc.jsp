@@ -45,7 +45,7 @@
                         <span>${location.addr} ${location.addr_detail}</span>
                         </span>
                         <span class="shop">
-                        <span>신논현역점(DB)</span>
+                        <span>${location.store_name}</span>
                         </span>
                         <span class="btn">
                         <a href="${contextPath}/delivery/mylocation.do" class="addrchange">

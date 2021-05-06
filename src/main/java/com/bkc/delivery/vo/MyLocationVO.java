@@ -9,6 +9,14 @@ public class MyLocationVO {
 	private String addr_detail;
 	private String addr_extra;
 	private String userid;
+	private String store_name;
+	
+	public String getStore_name() {
+		return store_name;
+	}
+	public void setStore_name(String store_name) {
+		this.store_name = store_name;
+	}
 	
 	public String getAddr_name() {
 		return addr_name;
