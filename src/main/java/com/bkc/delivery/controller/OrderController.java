@@ -306,8 +306,8 @@ public class OrderController {
       return retVal;
    }
   
-   @RequestMapping(value = "/deilvery/order.do", method = RequestMethod.GET)
-   public void kakaoGet() {
+	@RequestMapping(value = "/deilvery/order.do", method = RequestMethod.GET)
+	public void kakaoGet() {
 
    }
 
@@ -323,7 +323,6 @@ public class OrderController {
    public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
       System.out.println("kakaoPaySuccess get............................................");
       System.out.println("kakaoPaySuccess pg_token : " + pg_token);
-
-      model.addAttribute("info", KakaoService.kakaoPayInfo(pg_token));
-   }
+		model.addAttribute("info", KakaoService.kakaoPayInfo(pg_token));
+	}
 }
