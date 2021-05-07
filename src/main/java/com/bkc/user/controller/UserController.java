@@ -363,13 +363,10 @@ public class UserController {
 	public String changepassword(@RequestParam("userid") String userid, @RequestParam("password") String password , @RequestParam("newPass") String newPass, HttpSession session)  throws Exception{
 		
 		UserVO dbuser = userService.getUserById(userid);
-		
 		if(passwordEncoder.matches(password, dbuser.getPassword())) {
-			
 			String pass = passwordEncoder.encode(newPass);
 			dbuser.setPassword(pass);
 			userService.updatePasswd(dbuser);
-			
 			System.out.println(pass + "성공");
 			
 		}
@@ -381,8 +378,8 @@ public class UserController {
 	// 회원 탈퇴
 	@RequestMapping(value = "/deleteuser", method = {RequestMethod.GET })
 	public String deleteUser( Model model) {
-		// 회원 탈퇴 하지만 enabled만 유효하지 않게 설정 1-> 0 유효하지 않은 회원
 		
+		// 회원 탈퇴 하지만 enabled만 유효하지 않게 설정 1-> 0 유효하지 않은 회원
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
@@ -399,10 +396,8 @@ public class UserController {
 		UserVO dbuser = userService.getUserById(userid);
 
 		if(passwordEncoder.matches(password, dbuser.getPassword())) {
-			
 			userService.deleteUser(dbuser);
 			System.out.println("성공");
-			
 		}
 		return "delivery/login";
 	}
