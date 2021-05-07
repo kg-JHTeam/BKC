@@ -49,7 +49,6 @@ public class MyLocationVO {
 	public void setAddr_detail(String addr_detail) {
 		this.addr_detail = addr_detail;
 	}
-	
 	public String getAddr_extra() {
 		return addr_extra;
 	}

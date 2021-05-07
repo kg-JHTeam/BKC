@@ -60,6 +60,7 @@
 			SET zipcode=#{zipcode},
 				addr = #{addr},
 				addr_detail = #{addr_detail},
+				addr_extra = #{addr_extra},
 				store_name = #{store_name}
 		WHERE userid=#{userid} AND addr_type=2
 	</update>
@@ -91,6 +92,7 @@
 				zipcode, 
 				addr, 
 				addr_detail, 
+				addr_extra, 
 				userid,
 				store_name
 			FROM user_address
