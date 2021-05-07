@@ -68,10 +68,10 @@
                     </div>
                     <div class="location">
                         <span class="addr">
-                        <span>${location.addr} ${location.addr_detail}</span>
+                        <span>${location.addr} ${location.addr_detail}  ${location.addr_extra}</span>
                         </span>
                         <span class="shop">
-                        <span>신논현역점(DB)</span>
+                        <span>${location.store_name}</span>
                         </span>
                         <span class="btn">
                         <a href="${contextPath}/delivery/mylocation.do" class="addrchange">

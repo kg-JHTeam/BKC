@@ -651,7 +651,7 @@
                         <span>${location.addr} ${location.addr_detail} ${location.addr_extra}</span>
                         </span>
                         <span class="shop">
-                        <span>신논현역점(DB)</span>
+                        <span>${location.store_name}</span>
                         </span>
                         <span class="btn">
                         <a href="${contextPath}/delivery/mylocation.do" class="addrchange">
@@ -707,7 +707,7 @@
                                 <dl>
                                     <dt>매장</dt>
                                     <dd>
-                                        <input class="store" type="text" readonly="readonly" id="store">
+                                        <input class="store" type="text" readonly="readonly" id="store" value="${location.store_name}">
                                     </dd>
                                 </dl>
                                 <dl class="memo">
