@@ -30,4 +30,6 @@ public interface OrderService {
 
 	public int cancelOrder(int order_serial);
 
+	public int getTotalSales();
+
 }

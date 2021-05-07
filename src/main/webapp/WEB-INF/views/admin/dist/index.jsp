@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE HTML>
 <html lang="ko">
@@ -11,6 +12,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
+
+
 <title>BKC 홈페이지 관리자 페이지</title>
 </head>
 <body class="sb-nav-fixed">
@@ -28,8 +31,59 @@
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item active">Dashboard</li>
 					</ol>
+					
+					<div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-blue">
+                              <div class="panel-left pull-left blue">
+                                <i class="fa fa-shopping-cart fa-5x"></i>
+								</div>
+                            <div class="panel-right pull-right"><br>
+							<h3>
+							<fmt:formatNumber value="${totalSales}" pattern="#,###"/>￦
+							</h3>
+							<strong>총 매출액</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-brown">
+                            <div class="panel-left pull-left brown">
+                                <i class="fa fa-users fa-5x"></i>
+                            </div>
+                            <div class="panel-right pull-right"><br>
+							<h3>${userCount }</h3>
+                             <strong>가입자수</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-green">
+                            <div class="panel-left pull-left green">
+                                <i class="fa fa-store fa-5x"></i>
+                            </div>
+                            <div class="panel-right pull-right"><br>
+								<h3>8,457</h3>
+                               <strong>BEST STORE</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-brown">
+                            <div class="panel-left pull-left brown">
+                                <i class="fa fa-thumbs-up fa-5x"></i>
+                            </div>
+                            <div class="panel-right pull-right"><br>
+							<h3>36,752 </h3>
+                             <strong>BEST MENU</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+					 <br><br><br>
 					<!-- 매출 현황 -->
 					<div class="row">
+					 <br><br><br>
 						<div class="col-xl-6">
 							<div class="card mb-4">
 								<div class="card-header">

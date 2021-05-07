@@ -167,4 +167,13 @@
 		]]>
 	</select>
 	
+	<select id="getTotalSales" resultType="Integer">
+		<![CDATA[
+			SELECT 
+				sum(total_price) as total_price
+			FROM orderlist 
+		]]>
+	</select>
+	
+	
 </mapper>

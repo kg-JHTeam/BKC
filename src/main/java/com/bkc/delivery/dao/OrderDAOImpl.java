@@ -57,5 +57,10 @@ public class OrderDAOImpl implements OrderDAO {
 		return sqlSession.insert("cancelOrder", order_serial);
 	}
 
+	@Override
+	public int getTotalSales() {
+		return sqlSession.selectOne("getTotalSales");
+	}
+
 
 }

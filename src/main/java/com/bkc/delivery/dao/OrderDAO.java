@@ -23,4 +23,6 @@ public interface OrderDAO {
 	public List<OrderVO> getNotDeliveryUserOrderList(String userid);
 
 	public int cancelOrder(int order_serial);
+
+	public int getTotalSales();
 }
