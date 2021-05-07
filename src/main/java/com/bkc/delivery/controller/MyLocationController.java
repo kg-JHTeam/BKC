@@ -31,9 +31,6 @@ public class MyLocationController {
 	@Autowired
 	private BusinessInformationService biService;
 	
-	@Autowired
-	private EventService eventService;
-	
 	// 배달지 목록보기
 	@RequestMapping(value = "/delivery/mylocation.do")
 	private String getLocaList(MyLocationVO loca, Model model, StoreVO store) {
