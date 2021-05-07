@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -63,7 +64,10 @@
 												<td>${usercoupon.coupon_number}</td>
 												<td>${usercoupon.coupon_title}</td>
 												<td>${usercoupon.userid}</td>
-												<td>${usercoupon.startdate}</td>
+												<td>
+												<fmt:formatDate type="both" value="${usercoupon.startdate}"
+												pattern="yyyy-MM-dd HH:mm:ss" />
+												</td>
 												<td>
 												<c:choose>
 													<c:when test="${usercoupon.use_status eq -1}">

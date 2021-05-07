@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
@@ -147,7 +148,10 @@
                                             <dl>
                                                 <dt>주문시간</dt>
                                                 <dd>
-                                                    <span>${order.order_date}</span>
+                                                    <span>
+                                                    <fmt:formatDate type="both" value="${order.order_date}"
+													pattern="yyyy-MM-dd HH:mm:ss" />
+                                                    </span>
                                                 </dd>
                                             </dl>
                                         </div>
