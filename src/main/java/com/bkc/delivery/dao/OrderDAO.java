@@ -25,4 +25,6 @@ public interface OrderDAO {
 	public int cancelOrder(int order_serial);
 
 	public int getTotalSales();
+
+	public List<OrderVO> getTotalSalesFromStore();
 }

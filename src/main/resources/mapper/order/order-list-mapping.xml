@@ -171,9 +171,19 @@
 		<![CDATA[
 			SELECT 
 				sum(total_price) as total_price
-			FROM orderlist 
+			FROM orderlist WHERE order_status = 3;
 		]]>
 	</select>
+	<select id="getTotalSalesFromStore" resultType="OrderVO">
+		<![CDATA[
+				select sum(total_price) as total_price, store_name
+				from orderlist
+				group by store_name
+				ORDER BY total_price DESC
+		]]>
+	</select>
+
+	
 	
 	
 </mapper>

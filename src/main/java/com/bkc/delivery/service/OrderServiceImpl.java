@@ -160,4 +160,9 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.getTotalSales();
 	}
 
+	@Override
+	public List<OrderVO> getTotalSalesFromStore() {
+		return orderDao.getTotalSalesFromStore();
+	}
+
 }

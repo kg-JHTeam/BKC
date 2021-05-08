@@ -31,7 +31,6 @@
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item active">Dashboard</li>
 					</ol>
-					
 					<div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="panel panel-primary text-center no-boder bg-color-blue">
@@ -42,7 +41,7 @@
 							<h3>
 							<fmt:formatNumber value="${totalSales}" pattern="#,###"/>￦
 							</h3>
-							<strong>총 매출액</strong>
+							<strong>모든매장 총 매출액 합계</strong>
                             </div>
                         </div>
                     </div>
@@ -53,7 +52,7 @@
                             </div>
                             <div class="panel-right pull-right"><br>
 							<h3>${userCount }</h3>
-                             <strong>가입자수</strong>
+                             <strong>가입회원 수</strong>
                             </div>
                         </div>
                     </div>
@@ -63,7 +62,7 @@
                                 <i class="fa fa-store fa-5x"></i>
                             </div>
                             <div class="panel-right pull-right"><br>
-								<h3>8,457</h3>
+								<h3>${bestStore}</h3>
                                <strong>BEST STORE</strong>
                             </div>
                         </div>

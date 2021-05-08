@@ -55,8 +55,12 @@ public class AdminHomeController {
 		model.addAttribute("totalSales", totalSales);
 		
 		//Best Store - 가장 매출이 높은 매장
-		//가장 많이 팔린 메뉴 
+		List<OrderVO> sumSalesByStores = orderService.getTotalSalesFromStore();
+		String bestStore = sumSalesByStores.get(0).getStore_name();
+		model.addAttribute("bestStore", bestStore);
 		
+		//가장 많이 팔린 메뉴 
+
 		
 		
 		return "admin/dist/index";
