@@ -13,5 +13,7 @@ public interface OrderDetailDAO {
 
 	public List<OrderDetailVO> getOrderDetailListByOrderSerial(int order_serial);
 
+	public List<OrderDetailVO> getBestMenu();
+
 
 }

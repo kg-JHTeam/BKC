@@ -27,4 +27,10 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 		return orderDetailDao.getOrderDetailListByOrderSerial(order_serial);
 	}
 
+	@Transactional
+	@Override
+	public List<OrderDetailVO> getBestMenu() {
+		return orderDetailDao.getBestMenu() ;
+	}
+
 }
