@@ -12,4 +12,6 @@ public interface OrderDetailService {
 	public void insertOrderDetail(OrderDetailVO orderDetail);
 
 	public List<OrderDetailVO> getOrderDetailListByOrderSerial(int order_serial);
+
+	public List<OrderDetailVO> getBestMenu();
 }

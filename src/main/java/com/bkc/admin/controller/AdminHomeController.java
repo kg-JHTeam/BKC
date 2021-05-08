@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.bkc.delivery.service.MyLocationService;
 import com.bkc.delivery.service.OrderDetailService;
 import com.bkc.delivery.service.OrderService;
+import com.bkc.delivery.vo.OrderDetailVO;
 import com.bkc.delivery.vo.OrderVO;
 import com.bkc.menuInform.service.ProductService;
 import com.bkc.user.service.UserService;
@@ -61,7 +62,9 @@ public class AdminHomeController {
 		
 		//가장 많이 팔린 메뉴 
 
-		
+		List<OrderDetailVO> bestMenus = orderDetailService.getBestMenu();
+		String bestMenu = bestMenus.get(0).getProduct_name();
+		model.addAttribute("bestMenu",bestMenu);
 		
 		return "admin/dist/index";
 	}

@@ -73,7 +73,7 @@
                                 <i class="fa fa-thumbs-up fa-5x"></i>
                             </div>
                             <div class="panel-right pull-right"><br>
-							<h3>36,752 </h3>
+							<h3>${bestMenu} </h3>
                              <strong>BEST MENU</strong>
                             </div>
                         </div>
