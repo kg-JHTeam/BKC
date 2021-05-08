@@ -154,4 +154,15 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.cancelOrder(order_serial);
 	}
 
+	@Override
+	@Transactional
+	public int getTotalSales() {
+		return orderDao.getTotalSales();
+	}
+
+	@Override
+	public List<OrderVO> getTotalSalesFromStore() {
+		return orderDao.getTotalSalesFromStore();
+	}
+
 }
