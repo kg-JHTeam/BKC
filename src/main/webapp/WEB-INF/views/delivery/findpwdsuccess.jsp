@@ -74,7 +74,6 @@
 					</div>
 					<div class="c_btn">
 						<div>
-							
 							<button type="button" class="btn01 l" onclick="location.href='${contextPath}/'">
 								<span id="login">Home</span>
 							<button type="button" class="btn01 l" onclick="location.href='${contextPath}/login'">
