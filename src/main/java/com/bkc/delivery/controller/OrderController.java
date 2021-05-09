@@ -171,7 +171,8 @@ public class OrderController {
 	// 결제처리 AJAX
 	@ResponseBody
 	@RequestMapping(value = "/ordersuccess.do", method = RequestMethod.POST)
-	public Object goAjaxOrdercomplete(@RequestParam(value = "storename") String store_name,
+	public Object goAjaxOrdercomplete(
+			@RequestParam(value = "storename") String store_name,
 			@RequestParam(value = "useraddress") String address,
 			@RequestParam(value = "phonenumber") String phonenumber,
 			@RequestParam(value = "description") String description,
@@ -181,6 +182,7 @@ public class OrderController {
 
 		System.out.println("주문실행");
 
+		System.out.println("store_name" + store_name);
 		CartVO cart = (CartVO) session.getAttribute("cart");
 		// 주문 비지니스 로직
 		int order_serial = orderService.doOrder(store_name, address, phonenumber, description, payment_type, coupon_seq,

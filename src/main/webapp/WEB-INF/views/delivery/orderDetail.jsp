@@ -244,12 +244,6 @@
                                             <strong>${order.store_name}</strong>
                                         </dd>
                                     </dl>
-                                    <dl>
-                                        <dt>매장 전화번호</dt>
-                                        <dd>
-                                            <strong>매장번호</strong>
-                                        </dd>
-                                    </dl>
                                     <dl class="cancelInfo" style="display: none;">
                                         <dt>취소사유</dt>
                                         <dd>
