@@ -310,10 +310,9 @@
        var payment_type = "결제수단";     
        var total_price = document.getElementById("realTotalCost").innerHTML;    
        //coupon_seq - 상위에서 등록
-       storename= "미등록지점";
+      
        
       //------------------------------ ------------------------------------------------------------// 
-      
          //라디어 버튼에 따라 결제 분기 처리  - 5가지 타입 
          if(paymentTypeValue == "payco"){
          	//가맹점 식별코드

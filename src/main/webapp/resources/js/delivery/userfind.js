@@ -57,6 +57,7 @@ $(document).ready(function() {
 		if(content2.value.match(regExp) != null){
 			phone1.style.display = "none";
     		phone2.style.display = "none";
+			phone4.style.display = "none";
 		}
 	});
 	
