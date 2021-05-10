@@ -31,9 +31,6 @@ public class MyLocationController {
 	@Autowired
 	private BusinessInformationService biService;
 	
-	@Autowired
-	private EventService eventService;
-	
 	// 배달지 목록보기
 	@RequestMapping(value = "/delivery/mylocation.do")
 	private String getLocaList(MyLocationVO loca, Model model, StoreVO store) {
@@ -109,15 +106,19 @@ public class MyLocationController {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
+		
+		//매장매칭
 		StoreVO svo = mylocaService.selectStore(store);
+		
+		//매장이름
 		String store_name = svo.getStore_name();
-
+		
 		int countloca = mylocaService.getCountLoca(user.getUserid());
 		int result = 0;
 
 		//가까운지점 등록
 		loca.setStore_name(store_name);
-
+		System.out.println("들어온거 " + loca.toString());
 		if (countloca < 1) {
 			result = mylocaService.insertLocaOne(loca);
 			if (result > 0 ) {
@@ -133,7 +134,7 @@ public class MyLocationController {
 				System.out.println("실패");
 			}
 		}
-
+		System.out.println("들어온거 " + loca.toString());
 
 		return "redirect:/delivery/delivery.do";
 	}

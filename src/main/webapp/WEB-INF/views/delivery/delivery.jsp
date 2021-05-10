@@ -52,7 +52,7 @@ window.onload = function(){
                     </div>
                     <div class="location">
                         <span class="addr">
-                        <span>${location.addr} ${location.addr_detail}</span>
+                        <span>${location.addr} ${location.addr_detail}  ${location.addr_extra}</span>
                         </span>
                         <span class="shop">
                         <span>${location.store_name}</span>

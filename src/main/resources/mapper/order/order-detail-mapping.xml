@@ -8,20 +8,35 @@
 		<result property="seq" column="seq" />
 		<result property="order_serial" column="order_serial" />
 	</resultMap>
-	
+
 	<insert id="insertOrderDetail">
 		INSERT INTO order_detail(
-		product_serial, quantity, price, order_serial)
-		VALUES (#{product_serial}, #{quantity}, #{price},#{order_serial});
+		product_serial, quantity,
+		price, order_serial)
+		VALUES (#{product_serial}, #{quantity},
+		#{price},#{order_serial});
 	</insert>
-	
-	<select id="getOrderDetailListByOrderSerial" resultType="OrderDetailVO">
+
+	<select id="getOrderDetailListByOrderSerial"
+		resultType="OrderDetailVO">
 		<![CDATA[
 				SELECT distinct  order_detail.*, product.product_name, product_image.path
 				FROM order_detail 
 				JOIN product ON order_detail.product_serial = product.product_serial
 				JOIN product_image ON product_image.product_serial = product.product_serial
 				where order_serial = #{order_serial}
+		]]>
+	</select>
+
+
+	<select id="getBestMenu" resultType="OrderDetailVO">
+		<![CDATA[
+
+	SELECT sum(product.price* order_detail.quantity), product.product_name
+	FROM order_detail
+	JOIN product ON order_detail.product_serial = product.product_serial
+	group by product.product_name
+	order by sum desc;
 		]]>
 	</select>
 </mapper>

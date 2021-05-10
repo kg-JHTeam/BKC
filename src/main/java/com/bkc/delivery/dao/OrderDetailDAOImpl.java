@@ -24,5 +24,10 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
 		return sqlSession.selectList("getOrderDetailListByOrderSerial", order_serial);
 	}
 
+	@Override
+	public List<OrderDetailVO> getBestMenu() {
+		return sqlSession.selectList("getBestMenu");
+	}
+
 	
 }

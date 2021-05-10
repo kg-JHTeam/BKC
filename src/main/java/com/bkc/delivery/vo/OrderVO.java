@@ -30,7 +30,7 @@ public class OrderVO {
 	private int productCount; //주문 메뉴 갯수 
 	private String product_name; //타이틀 메뉴 이름 출력 
 	private String path; //타이틀 메뉴 이름 출력
-	
+	private String store_call;
 	private List <OrderDetailVO> orderDetails;
 	
 	public OrderVO() {
@@ -179,5 +179,13 @@ public class OrderVO {
 
 	public void setOrderDetails(List <OrderDetailVO> orderDetails) {
 		this.orderDetails = orderDetails;
+	}
+
+	public String getStore_call() {
+		return store_call;
+	}
+
+	public void setStore_call(String store_call) {
+		this.store_call = store_call;
 	}
 }

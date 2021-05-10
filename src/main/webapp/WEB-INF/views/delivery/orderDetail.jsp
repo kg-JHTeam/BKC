@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,7 +107,7 @@
                     </div>
                     <div class="location">
                         <span class="addr">
-                        <span>${location.addr} ${location.addr_detail}</span>
+                        <span>${location.addr} ${location.addr_detail}  ${location.addr_extra}</span>
                         </span>
                         <span class="shop">
                         <span>${location.store_name}</span>
@@ -225,7 +226,10 @@
                                     <dl>
                                         <dt>주문시간</dt>
                                         <dd>
-                                            <strong>${order.order_date}</strong>
+                                            <strong>
+                                            <fmt:formatDate type="both" value="${order.order_date}"
+													pattern="yyyy-MM-dd HH:mm:ss" />
+                                            </strong>
                                         </dd>
                                     </dl>
                                     <dl>
@@ -238,12 +242,6 @@
                                         <dt>매장</dt>
                                         <dd>
                                             <strong>${order.store_name}</strong>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>매장 전화번호</dt>
-                                        <dd>
-                                            <strong>매장번호</strong>
                                         </dd>
                                     </dl>
                                     <dl class="cancelInfo" style="display: none;">

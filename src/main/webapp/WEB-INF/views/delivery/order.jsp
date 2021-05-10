@@ -310,10 +310,9 @@
        var payment_type = "결제수단";     
        var total_price = document.getElementById("realTotalCost").innerHTML;    
        //coupon_seq - 상위에서 등록
-       storename= "미등록지점";
+      
        
       //------------------------------ ------------------------------------------------------------// 
-      
          //라디어 버튼에 따라 결제 분기 처리  - 5가지 타입 
          if(paymentTypeValue == "payco"){
          	//가맹점 식별코드
@@ -651,7 +650,7 @@
                         <span>${location.addr} ${location.addr_detail} ${location.addr_extra}</span>
                         </span>
                         <span class="shop">
-                        <span>신논현역점(DB)</span>
+                        <span>${location.store_name}</span>
                         </span>
                         <span class="btn">
                         <a href="${contextPath}/delivery/mylocation.do" class="addrchange">
@@ -707,7 +706,7 @@
                                 <dl>
                                     <dt>매장</dt>
                                     <dd>
-                                        <input class="store" type="text" readonly="readonly" id="store">
+                                        <input class="store" type="text" readonly="readonly" id="store" value="${location.store_name}">
                                     </dd>
                                 </dl>
                                 <dl class="memo">
