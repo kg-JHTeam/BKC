@@ -13,11 +13,11 @@
 <meta name="author" content="" />
 <title>신규매장 등록</title>
 <script>
-function deleteStore(store_serial){
+function deleteStore(store_name){
 	   var check = confirm("정말 삭제하시겠습니까");
 	   var contextpath = "<c:out value='${contextPath}'/>";
 	   if(check==true){	 
-	         window.location.href= contextpath+"deleteStoreDB.ad?store_serial=${store.store_serial}";
+	         window.location.href= contextpath+"deleteStoreDB.ad?store_name=${store.store_name}";
 	   } 
 	   else{
 	      return;

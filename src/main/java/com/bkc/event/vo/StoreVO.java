@@ -2,7 +2,6 @@ package com.bkc.event.vo;
 
 public class StoreVO {
 	
-	private int store_serial;
 	private String store_name;
 	private String store_call;
 	private String store_address;
@@ -45,12 +44,6 @@ public class StoreVO {
 		this.store_open = store_open;
 	}
 	
-	public int getStore_serial() {
-		return store_serial;
-	}
-	public void setStore_serial(int store_serial) {
-		this.store_serial = store_serial;
-	}
 	public String getStore_name() {
 		return store_name;
 	}
@@ -77,10 +70,10 @@ public class StoreVO {
 	}
 	@Override
 	public String toString() {
-		return "StroeVO [store_serial=" + store_serial + ", store_name=" + store_name + ", store_call=" + store_call
-				+ ", store_address=" + store_address + ", store_status=" + store_status + "]";
+		return "StoreVO [store_name=" + store_name + ", store_call=" + store_call + ", store_address=" + store_address
+				+ ", store_status=" + store_status + ", store_open=" + store_open + ", rn=" + rn + ", event_yn="
+				+ event_yn + ", latitude=" + latitude + ", longtitude=" + longtitude + "]";
 	}
-	
 	
 
 }

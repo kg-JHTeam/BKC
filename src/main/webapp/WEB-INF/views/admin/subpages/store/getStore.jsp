@@ -13,11 +13,11 @@
 <meta name="author" content="" />
 <title>신규매장 등록</title>
 <script>
-function deleteStore(store_serial){
+function deleteStore(store_name){
 	   var check = confirm("정말 삭제하시겠습니까");
 	   var contextpath = "<c:out value='${contextPath}'/>";
 	   if(check==true){	 
-	         window.location.href= contextpath+"deleteStoreDB.ad?store_serial=${store.store_serial}";
+	         window.location.href= contextpath+"deleteStoreDB.ad?store_name=${store.store_name}";
 	   } 
 	   else{
 	      return;
@@ -84,8 +84,8 @@ function deleteStore(store_serial){
 														name='writer' value='관리자' readonly="readonly">
 												</div>
 												<button type="button" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath }/admin/storelist.ad?'">목록 가기</button>
-												<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath }/admin/updateStore.ad?store_serial=${store.store_serial}'">수정</button>
-												<button type="reset" class="btn btn-danger" onclick="javascript:deleteStore(${store.store_serial}); return false;">삭제</button>
+												<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath }/admin/updateStore.ad?store_name=${store.store_name}'">수정</button>
+												<button type=button class="btn btn-danger" onclick="javascript:deleteStore('${store.store_name}')">삭제</button>
 											</form>																
 										</div>
 										<!-- end panel-body -->

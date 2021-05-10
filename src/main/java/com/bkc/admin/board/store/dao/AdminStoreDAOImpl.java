@@ -20,28 +20,28 @@ public class AdminStoreDAOImpl implements AdminStoreDAO {
 	}
 
 	@Override
-	public StoreVO getAdStore(int store_serial) {
-		return sqlSession.selectOne("getAdStore", store_serial);
+	public StoreVO getAdStore(String store_name) {
+		return sqlSession.selectOne("getAdStore", store_name);
 	}
 
 	@Override
-	public int insertStore(StoreVO store) {
-		return sqlSession.insert("insertStore", store);
+	public int adinsertStore(StoreVO store) {
+		return sqlSession.insert("adinsertStore", store);
 	}
 
 	@Override
-	public int updateStore(StoreVO store) {
-		return sqlSession.insert("updateStore", store);
+	public int adupdateStore(StoreVO store) {
+		return sqlSession.insert("adupdateStore", store);
 	}
 
 	@Override
-	public int newStatus(int store_serial) {
-		return sqlSession.update("newStatus", store_serial);
+	public int newStatus(String store_name) {
+		return sqlSession.update("newStatus", store_name);
 	}
 
 	@Override
-	public int deleteStore(int store_serial) {
-		return sqlSession.delete("deleteStore", store_serial);
+	public int deleteStore(String store_name) {
+		return sqlSession.delete("deleteStore", store_name);
 	}
 
 }

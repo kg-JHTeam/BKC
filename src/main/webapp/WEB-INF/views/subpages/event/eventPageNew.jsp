@@ -69,7 +69,7 @@
 								<div class="cont">
 									<p class="tit">
 										<a type="hidden"
-											href="${pageContext.request.contextPath}/event/eventNewDetail.do?store_serial=${storeNewList.store_serial}">
+											href="${pageContext.request.contextPath}/event/eventNewDetail.do?store_name=${storeNewList.store_name}">
 											<strong>${storeNewList.store_open}</strong> ~
 										</a>
 									</p>

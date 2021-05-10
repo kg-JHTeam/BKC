@@ -13,17 +13,17 @@ public interface AdminStoreService {
 	public List<StoreVO> getAdStoreList(StoreVO store);
 	
 	//신규매장 상세 조회
-	public StoreVO getAdStore(int store_serial);
+	public StoreVO getAdStore(String store_name);
 	
 	//신규매장 등록
-	public int insertStore(StoreVO store);
+	public int adinsertStore(StoreVO store);
 	
 	//신규매장 수정
-	public int updateStore(StoreVO store);
+	public int adupdateStore(StoreVO store);
 	
 	//신규매장 이벤트 상태 변경
-	public int newStatus(int store_serial);
+	public int newStatus(String store_name);
 	
 	// 신규매장 삭제
-	public int deleteStore(int store_serial);
+	public int deleteStore(String store_name);
 }
