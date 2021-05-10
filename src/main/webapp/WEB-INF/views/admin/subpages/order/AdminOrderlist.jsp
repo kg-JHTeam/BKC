@@ -141,7 +141,7 @@ function changeOrderStatus(status, serial){
 																			<input type="text" class="form-control" value="주문접수"  disabled>
 																		</c:when>
 																		<c:when test="${order.order_status eq 2 }">
-																			<<input type="text" class="form-control" value="배달중"  disabled>
+																			<input type="text" class="form-control" value="배달중"  disabled>
 																		</c:when>
 																		<c:otherwise>
 																			<input type="text" class="form-control" value="주문완료"  disabled>
