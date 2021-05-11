@@ -224,6 +224,7 @@ public class UserController {
 		set.put("text", "[BKC] 인증번호는 " + results + " 입니다."); // 문자내용, jsp에서 전송한 문자내용을 받아 map에 저장한다.
 		set.put("type", "sms"); // 문자 타입
 
+		System.out.println("인증번호 : " + results );
 		JSONObject result = coolsms.send(set); // 보내기&전송결과받기
 		// results 이게 인증 번호임.
 		if ((boolean) result.get("status") == true) {
