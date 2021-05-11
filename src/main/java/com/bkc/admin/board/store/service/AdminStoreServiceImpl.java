@@ -20,28 +20,28 @@ public class AdminStoreServiceImpl implements AdminStoreService {
 	}
 
 	@Override
-	public StoreVO getAdStore(int store_serial) {
-		return adStoreDao.getAdStore(store_serial);
+	public StoreVO getAdStore(String store_name) {
+		return adStoreDao.getAdStore(store_name);
 	}
 
 	@Override
-	public int insertStore(StoreVO store) {
-		return adStoreDao.insertStore(store);
+	public int adinsertStore(StoreVO store) {
+		return adStoreDao.adinsertStore(store);
 	}
 
 	@Override
-	public int updateStore(StoreVO store) {
-		return adStoreDao.updateStore(store);
+	public int adupdateStore(StoreVO store) {
+		return adStoreDao.adupdateStore(store);
 	}
 
 	@Override
-	public int newStatus(int store_serial) {
-		return adStoreDao.newStatus(store_serial);
+	public int newStatus(String store_name) {
+		return adStoreDao.newStatus(store_name);
 	}
 
 	@Override
-	public int deleteStore(int store_serial) {
-		return adStoreDao.deleteStore(store_serial);
+	public int deleteStore(String store_name) {
+		return adStoreDao.deleteStore(store_name);
 	}
 
 }

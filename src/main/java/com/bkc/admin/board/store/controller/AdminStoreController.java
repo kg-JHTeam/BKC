@@ -31,9 +31,9 @@ public class AdminStoreController {
 
 	// 게시판 상세보기
 	@RequestMapping(value = "/admin/getStore.ad")
-	private String getAdStore(int store_serial, Model model) {
+	private String getAdStore(String store_name, Model model) {
 
-		StoreVO vo = adStoreService.getAdStore(store_serial);
+		StoreVO vo = adStoreService.getAdStore(store_name);
 		model.addAttribute("store", vo);
 		return "admin/subpages/store/getStore";
 	}
@@ -47,8 +47,8 @@ public class AdminStoreController {
 	// 신규매장 생성
 	@RequestMapping(value = "/admin/insertStoreDB.ad", method = { RequestMethod.POST })
 	private String insertStoreDB(StoreVO store) {
-		int result = adStoreService.insertStore(store);
-		if (result == 1) {
+		int result1 = adStoreService.adinsertStore(store);
+		if (result1 == 1) {
 			System.out.println("등록 성공");
 		} else {
 			System.out.println("실패");
@@ -58,29 +58,34 @@ public class AdminStoreController {
 
 	// 신규매장 수정화면
 	@RequestMapping(value = "/admin/updateStore.ad")
-	private String updateStore(int store_serial, Model model) {
+	private String updateStore(String store_name, Model model) {
 
-		StoreVO vo = adStoreService.getAdStore(store_serial);
+		StoreVO vo = adStoreService.getAdStore(store_name);
+		System.out.println(vo);
 		model.addAttribute("store", vo);
 		return "admin/subpages/store/updateStore";
 	}
 
 	// 신규매장 수정
 	@RequestMapping(value = "/admin/updateStoreDB.ad", method = { RequestMethod.POST })
-	private String updateStoreDB(StoreVO store) {
-		int result = adStoreService.updateStore(store);
-		if (result == 1) {
+	private String updateStoreDB(StoreVO store, Model model) {
+		int result2 = adStoreService.adupdateStore(store);
+		System.out.println(store);
+		StoreVO vo = adStoreService.getAdStore(store.getStore_name());
+		System.out.println(vo);
+		model.addAttribute("store", vo);
+		if (result2 == 1) {
 			System.out.println("수정 성공");
 		} else {
 			System.out.println("실패");
-		}
-		return "redirect:/admin/storelist.ad";
+		}	return "redirect:/admin/storelist.ad";
+		
 	}
 
 	// 신규매장 이벤트 상태 변경
 	@RequestMapping(value = "/admin/newStatus.ad", method = RequestMethod.GET)
-	public String newStatus(Model model, @RequestParam("store_serial") int store_serial) {
-		if (adStoreService.newStatus(store_serial) == 1) {
+	public String newStatus(Model model, @RequestParam("store_name") String store_name) {
+		if (adStoreService.newStatus(store_name) == 1) {
 			System.out.println("이벤트 상태 변경 완료");
 		} else {
 			System.out.println("이벤트 상태 변경 실패 ");
@@ -90,8 +95,8 @@ public class AdminStoreController {
 
 	// 신규매장 삭제
 	@RequestMapping(value = "/admin/deleteStoreDB.ad", method = { RequestMethod.GET, RequestMethod.POST })
-	private String deleteStoreDB(int store_serial) {
-		if (adStoreService.deleteStore(store_serial) == 1) {
+	private String deleteStoreDB(Model model, @RequestParam("store_name") String store_name) {
+		if (adStoreService.deleteStore(store_name) == 1) {
 			System.out.println("삭제 성공");
 		} else {
 			System.out.println("실패");

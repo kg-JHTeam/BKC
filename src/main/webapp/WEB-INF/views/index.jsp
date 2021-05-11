@@ -61,24 +61,24 @@
         <!-- SNS zone -->
         <div class="sns-zone">
             <div class="sns">
-                <div>
+                <div><a href="https://www.facebook.com/bhcchicken" target="_blank">
+                    
                     <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/facebook_b.png"
                         alt="facebook">
-                    <a href="https://www.facebook.com/bhcchicken" target="_blank">
                         <span>FACEBOOK</span>
                     </a>
                 </div>
                 <div class="center">
+                    <a href="https://www.youtube.com/user/gnsbhc" target="_blank">
                     <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/youtube_b.png"
                         alt="youtube">
-                    <a href="https://www.youtube.com/user/gnsbhc" target="_blank">
                         <span>YOUTUBE</span>
                     </a>
                 </div>
                 <div>
+                    <a href="https://instagram.com/bhc_chicken_official?igshid=16tcbhequ830e" target="_blank">
                     <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/instagram_b.png"
                         alt="instagram">
-                    <a href="https://instagram.com/bhc_chicken_official?igshid=16tcbhequ830e" target="_blank">
                         <span>INSTAGRAM</span>
                     </a>
                 </div>
@@ -101,7 +101,7 @@
                     <h4>고객님 주변에 있는 BKC를 찾아보세요!</h4>
                     <br>
                     <div class="c_btn_1">
-                        <a href="#">
+                        <a href="${contextPath}/map/store.do">
                             <span>매장 찾기</span>
                         </a>
                     </div>
@@ -119,7 +119,7 @@
                         연중무휴 (매장별로 상이할 수 있습니다.)</p>
                     </div>
                     <div class="content-02">
-                        <p><img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imagesB/buggerking/1/icon/call.png" />
+                        <p>                        <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/call.png" />
                             1599-5577</p>
                     </div>
                 </div>
@@ -200,7 +200,7 @@
                     <h4>고객님 주변에 있는 BKC를 찾아보세요!</h4>
                     <br>
                     <div class="c_btn_1">
-                        <a href="#">
+                        <a href="${contextPath}/map/store.do">
                             <span>매장 찾기</span>
                         </a>
                     </div>

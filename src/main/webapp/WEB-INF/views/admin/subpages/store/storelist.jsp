@@ -15,10 +15,10 @@
 
 <script>
 	function status(event_yn, id){
+		   console.log(id);
+			console.log(event_yn);
 		   var btn = document.getElementById(id);
-		   var value = btn.value;
-		   
-		   if(value == "진행중"){
+		   if(btn.value == "진행중"){
 		      var input = confirm("이벤트를 종료처리 하시겠습니까?");
 		      if(input == true){
 		         
@@ -26,11 +26,11 @@
 		         btn.value = "종료";
 		         
 		         //DB에서 처리
-		         var store_serial = id;
+		         var store_name = id;
 		         var contextpath = "<c:out value='${contextPath}'/>";
 		         
 		         //비동기 처리로 변경 
-		         window.location.href= contextpath+"/admin/newStatus.ad?store_serial="+id;
+		         window.location.href= contextpath+"/admin/newStatus.ad?store_name="+id;
 		      } else{
 		         return;
 		      }
@@ -41,9 +41,9 @@
 		         btn.value = "진행중"
 		         
 		         //DB에서 처리
-		         var store_serial = id;
+		         var store_name = id;
 		         var contextpath = "<c:out value='${contextPath}'/>";
-		         window.location.href= contextpath+"/admin/newStatus.ad?store_serial="+id;
+		         window.location.href= contextpath+"/admin/newStatus.ad?store_name="+id;
 		         
 		      } else{
 		         return;
@@ -83,19 +83,19 @@
 										<c:forEach var="adStoreList" items="${adStoreList}">
 											<tr>
 												<td>${adStoreList.rn}</td>
-												<td><a type="hidden" href="${contextPath }/admin/getStore.ad?store_serial=${adStoreList.store_serial}">${adStoreList.store_name }</a></td>
+												<td><a type="hidden" href="${contextPath }/admin/getStore.ad?store_name=${adStoreList.store_name}">${adStoreList.store_name }</a></td>
 												<td>${adStoreList.store_open}</td>
 												<td>
 													<c:choose>
 														<c:when test="${adStoreList.event_yn eq true }">
 															<input class="btn btn-info" type="button" value="진행중"
-																onclick="javascript:status(${adStoreList.event_yn} ,${adStoreList.store_serial})"
-																id="${adStoreList.store_serial}" />
+																onclick="javascript:status(${adStoreList.event_yn} ,'${adStoreList.store_name}')"
+																id="${adStoreList.store_name}" />
 														</c:when>
 														<c:otherwise>
 															<input class="btn btn-danger" type="button" value="종료"
-																onclick="javascript:status(${adStoreList.event_yn} ,${adStoreList.store_serial})"
-																id="${adStoreList.store_serial}" />
+																onclick="javascript:status(${adStoreList.event_yn} ,'${adStoreList.store_name}')"
+																id="${adStoreList.store_name}" />
 															<input type="hidden" name="${_csrf.parameterName}"
 																value="${_csrf.token}" />
 														</c:otherwise>

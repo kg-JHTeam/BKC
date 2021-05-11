@@ -80,7 +80,7 @@
 			SELECT A.*,
 				       	ROW_NUMBER() over(order by store_open desc) as rn
 					FROM(
-						SELECT  store_serial,
+						SELECT
 								store_name,
 								store_open
 							FROM store 
@@ -92,11 +92,11 @@
 	
 	<select id="getStore" resultType="StoreVO">
 		<![CDATA[
-			SELECT store_serial,
+			SELECT
 				   store_name,
 				   store_open
 				   FROM store   
-				   	WHERE store_serial=#{store_serial}    	
+				   	WHERE store_name=#{store_name}    	
 		]]>
 	</select>
 	
