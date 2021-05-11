@@ -257,7 +257,6 @@ public class StatisticController {
 		param.put("endDate", endDate);
 
 		try {
-
 			List<StatisticVO> chartData = statService.CategorySaleChart(param);
 			List<String> labels = new ArrayList<String>();
 			List<Long> data = new ArrayList<Long>();
