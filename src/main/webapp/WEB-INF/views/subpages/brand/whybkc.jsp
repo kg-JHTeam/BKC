@@ -35,8 +35,8 @@
     	<div class="locationWrap WEB">
           <div class="why_web_container">
              <div class="page_navi">
-             	<a href="#/home" class="arrow" > <span>HOME</span>>
-					</a><a class="arrow"> <span>브랜드스토리 </span>></a>
+             	<a href="#/home" class="arrow" > <span>HOME</span>&nbsp;>&nbsp;
+					</a><a class="arrow"> <span>브랜드스토리 </span>&nbsp;>&nbsp;</a>
 					<a class="arrow"><span> WHY NEWS </span></a>		
              </div>
           </div>

@@ -9,7 +9,7 @@
 nav {
     position: relative;
     top: 175px;
-    padding: 10px;
+    padding: 15px 0;
     padding-left: 45px;
     color: #fff;
     background: #ffa423;
@@ -22,6 +22,14 @@ nav>ul>li {
 
 nav>ul>li>a {
     color: white;
+}
+.gotomenu::after {
+    content: "";
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 0 12px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
 }
 
 

@@ -39,8 +39,8 @@
 			<div class="WEB locationWrap">
 				<div class="Web_container">
 					<div class="page_navi">
-						<a href="${contextPath }/"> HOME </a>> <a
-							href="${contextPath }/menuInform/sideMenu.do"> 메뉴소개 </a>
+						<a href="${contextPath }/"> <span>HOME</span> </a>> <a
+							href="${contextPath }/menuInform/sideMenu.do"><span> 메뉴소개 </span></a>
 					</div>
 				</div>
 			</div>
