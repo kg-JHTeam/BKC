@@ -12,7 +12,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <title>BKC 홈페이지 관리자 페이지</title>
 </head>
@@ -88,22 +89,23 @@
 								<div class="card-header">
 									<i class="fas fa-chart-area mr-1"></i> 월별 매출 현황
 								</div>
-								<div class="card-body">
+								<div class="card-body" style="display: table-cell">
 									<canvas id="myAreaChart" width="100%" height="40"></canvas>
+		
 								</div>
 							</div>
 						</div>
 						<div class="col-xl-6">
 							<div class="card mb-4">
 								<div class="card-header">
-									<i class="fas fa-chart-bar mr-1"></i> 월별 매출 현황
+									<i class="fas fa-chart-area mr-1"></i> 지점별 매출 현황
 								</div>
-								<div class="card-body">
-									<canvas id="myBarChart" width="100%" height="40"></canvas>
+								<div class="card-body" >
+									<div id="chart_div" style="width: 100%; height:230px;"></div>
 								</div>
 							</div>
 						</div>
-					</div>
+				</div>
 
 					<!-- 회원 리스트  -->
 					<div class="card mb-4">
@@ -186,26 +188,170 @@
 			</footer>
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-		crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 	<script src="${contextPath }/resources/js/admin/scripts.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-		crossorigin="anonymous"></script>
-
-	<script src="${contextPath }/resources/assets/demo/chart-area-demo.js"></script>
-	<script src="${contextPath }/resources/assets/demo/chart-bar-demo.js"></script>
-
-	<script
-		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
-		crossorigin="anonymous"></script>
+	<script src="<c:url value='/resources/js/admin/chart/moment.min.js'/>"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+	<script src="<c:url value='/resources/js/admin/chart/chartUtils.js'/>"></script>
+	<script src="<c:url value='/resources/js/admin/chart/chartCommon.js'/>"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 
 	<script src="${contextPath }/resources/assets/demo/datatables-demo.js"></script>
+	<script>
+		var totalChart = null;
+		
+		function initChart2() {
+			makeStoreChart();
+		}
+
+		var data = new Date();
+
+		function initChart() {
+			var dataChartCtx = document.getElementById("myAreaChart").getContext("2d");
+
+			//차트 데이터 초기화  by chartCommon.js
+			var totalChartData = chartDataSet;
+
+			totalChart = new Chart(dataChartCtx, {
+				type: 'line',
+				data: totalChartData,
+				options: chartOptions  // by chartCommon.js
+			});
+
+			makChart();
+			
+		}
+
+		//차트 생성
+		function makChart() {
+
+			//파라미터 생성
+			var param = function () {
+				var now = moment(new Date(new Date().toISOString())).format('YYYY-MM-DD 00:00:00');
+				var startDate = moment(now).format('YYYY') + '-01-01';
+				var endDate =   moment(now).format('YYYY-MM-DD');
+
+				var result = {
+					startDate: startDate,
+					endDate: endDate
+				}
+				//console.log(result);
+				return result;
+			}
+
+			$.ajax({
+				url: '/bkc/admin/dash/chartData.ad',
+				type: "post",
+				dataType: "json",
+				data: param(),
+				success: function (data) {
+					//console.log(data);
+					drawCharts(data);
+
+				},
+				fail: function (data) {
+					console.log(data)
+				},
+				error: function (data, status, error) {
+					console.log(error);
+				}
+			});
+
+		}
+		
+		google.charts.load('current', {'packages':['bar']});
+	    //google.charts.setOnLoadCallback(drawChart);
+
+		function drawCharts(data) {
+
+			if (typeof data != 'undefined') {
+
+				var chartData = chartDataSet;
+				chartData.labels = data.chartLabels;
+				chartData.datasets[0].label = '총매출';
+				chartData.datasets[0].data = data.chartData;
+				chartData.datasets[0]['fill'] = false;
+				chartData.datasets[0]['borderWidth'] = 2;
+				chartData.datasets[0]['cubicInterpolationMode'] = 'monotone';
+
+				totalChart.data = chartData;
+
+				var max = maxValue(data.chartData);
+				console.log(max);
+				var stepSize = getStepSize(max);
+
+				var chartOpt = getChartOption(max, stepSize);
+
+				totalChart.options = chartOpt;
+				totalChart.update();
+
+			}
+		}
+
+		function getChartOption(max, stepSize) {
+			var option = chartOptions;
+			option.scales.yAxes[0].ticks.min = 0;
+			option.scales.yAxes[0].ticks.max = max;
+			option.scales.yAxes[0].ticks.stepSize = stepSize;
+			return option;
+		}
+
+		$(document).ready(function () {
+			initChart();
+			initChart2();
+		});
+		
+		
+		 function makeStoreChart() {
+				$.ajax({
+					url: '/bkc/admin/storelist.ad',
+					type: "post",
+					dataType: "json",
+					data: {
+						month: 6
+					},
+					success: function (data) {
+						console.log(data);
+						drawChartStore(data);
+					},
+					fail: function (data) {
+						console.log(data)					
+					},
+					error: function (data, status, error) {
+						console.log(error);
+					}
+				});
+			}
+		
+		 function drawChartStore(input) {
+
+		    	var chartData = [['Store', '매출']];
+		    	input.data.forEach(function(e){
+		    		console.log(e); 
+		    		chartData.push([e.x,e.yList[0]]);
+		    	});
+		    	var data = google.visualization.arrayToDataTable(chartData);
+		    	
+
+		        var options = {
+		          chart: {
+		            title: '',
+		            subtitle: '',
+		          },
+		          
+		          vAxis: {
+		    			format: 'decimal'
+		    		},
+		    		
+		          bars: 'vertical'
+		        };
+
+		        var chart = new google.charts.Bar(document.getElementById('chart_div'));
+		        chart.draw(data, google.charts.Bar.convertOptions(options));
+		    }
+		 
+	</script>
 </body>
 </html>
