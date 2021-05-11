@@ -2,10 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.SimpleDateFormat"%>
-<%
-	Date nowTime = new Date();
-	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html lang="ko">
@@ -13,15 +9,8 @@
 <meta charset="UTF-8">
 
 <!-- jquery -->
-
 <script type="text/javascript">
-var hiddenSeq = "0";
-$(document).ready(function() {    
-	$('#hiddenSeq').val("");
-	<c:set var="hiddenSeq2" value="0"></c:set>
-});
 function button1_click(s) {
-	console.log( s + " 버튼을 누르셨습니다.");
 	var objParams = {
             "img_seq"      : parseInt(s),   	  // key값
     };
@@ -32,15 +21,14 @@ function button1_click(s) {
         type        :   "post", //post로 보냄
         data        :   objParams,
         success     :   function(retVal){
-        	alert("성공");
     		var title = retVal.title;
     		var path = retVal.path;
     		var input1 = document.getElementById("input1");
-    	 	var input2 = document.getElementById("input2");
+    	 	document.getElementById("input2").src = path;
     	 	input1.innerHTML = title;
-    	 	//input2.src = path;
-        }
-        error       :   function(request, status, error){
+    	 	alert("성공");
+        },
+    	 error       :   function(request, status, error){
         	console.log("걍 실패");
         }
     });
@@ -70,9 +58,6 @@ function button1_click(s) {
 	<!-- main-header -->
 	<jsp:include page="../../include/header/main_desktop_header.jsp" />
 	<jsp:include page="../../include/header/main_mobile_header.jsp" />
-	
-	<input type="text" id="hiddenSeq" name="hiddenSeq" value=""/>
-<%-- 	<c:set var="hiddenSeq1">$('#hiddenSeq').value</c:set> --%>
 	
 	<div class="contentsWrap eventWrap">
 		<div class="locationWrap WEB">
@@ -133,7 +118,7 @@ function button1_click(s) {
 								<h4 class="MOB m_subtit">신제품 소개</h4> 
 	 							<p class="youtube_tit" id="input1">${youtubeAd[0].title}</p> 
 	 							<div class="youtube-zone">
-	 								<iframe id="youtube" src="${youtubeAd[0].path}"  id="input2"
+	 								<iframe id="youtube" src="${youtubeAd[0].path}" id="input2"
 	 									title="YouTube video player" frameborder="0" 
 										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 	 									allowfullscreen> </iframe> 
@@ -180,11 +165,10 @@ function button1_click(s) {
 									<li>
 										<div class="prd_img WEB">
 										<!--  <button onclick="changeyoutube(${youtubeAd.img_seq})">-->
-										<button id="button1" onclick="button1_click(${youtubeAd.img_seq});">버튼1</button>
-										<button id="button11" onclick="button111_click();">
-										<span>
-											<img src="https://d1cua0vf0mkpiy.cloudfront.net/images/web/film/68bca423-2ec1-47fa-b324-7ebcbd76ec56.png">
-										</span>
+										<button id="button1" onclick="button1_click('${youtubeAd.img_seq}');">
+											<span>
+												<img src="https://d1cua0vf0mkpiy.cloudfront.net/images/web/film/68bca423-2ec1-47fa-b324-7ebcbd76ec56.png">
+											</span>
 										</button>
 										</div>
 										<div class="cont">
