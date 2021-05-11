@@ -14,8 +14,11 @@
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i><a class="nav-link" href="${contextPath}/goAdminPage.ad">대쉬보드 </a>
+                            <a class="nav-link" href="${contextPath}/goAdminPage.ad">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i>
+                                	대쉬보드 
                                	</div>
+                              </a>
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
