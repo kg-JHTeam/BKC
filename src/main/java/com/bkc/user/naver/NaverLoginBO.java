@@ -30,7 +30,7 @@ public class NaverLoginBO {
 	//state: 애플리케이션이 생성한 상태 토큰
 	private final static String CLIENT_ID = "QMi2hWfSCYIcaAu5VWGO";
 	private final static String CLIENT_SECRET = "1vaQUk37uZ";
-	private final static String REDIRECT_URI = "http://localhost/bkc/naverlogin";
+	private final static String REDIRECT_URI = "http://ec2-3-34-97-58.ap-northeast-2.compute.amazonaws.com/bkc/naverlogin";
 	private final static String SESSION_STATE = "oauth_state";
 	
 	/* 프로필 조회 API URL */

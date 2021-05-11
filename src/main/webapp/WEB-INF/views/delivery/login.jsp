@@ -57,7 +57,7 @@ function loginWithNaver() {
    			let _top = (window.screen.height/2) - (700/2);
 			console.log(_left);
 			console.log(_top);
-			window.open(res, 'Toosome', "width=500, height=700, location=no, menubar=no, top=" + _top + ", left=" + _left);
+			window.open(res, 'BKC', "width=500, height=700, location=no, menubar=no, top=" + _top + ", left=" + _left);
         }
     });
 }
