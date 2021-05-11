@@ -47,8 +47,8 @@ function goPaging(page) {
 		<div class="locationWrap">
 			<div class="notice_web_container">
 				<div class="page_navi">
-					<a href="#/home"> <span>HOME</span>
-					</a> <span> 고객센터 </span> <span>공지사항</span>
+					<a href="#/home"> <span>HOME &nbsp;</span>>
+					</a> <span>  &nbsp;고객센터 &nbsp;> &nbsp; </span> <span>공지사항</span>
 				</div>
 			</div>
 		</div>

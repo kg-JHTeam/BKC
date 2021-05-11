@@ -35,8 +35,8 @@
 		<div class="locationWrap WEB">
 			<div class="term_web_container">
 				<div class="page_navi">
-					<a href="${contextPath}/"> <span>HOME</span>
-					</a> <span> 개인정보취급방침</span>
+					<a href="${contextPath}/"> <span>HOME &nbsp;</span>>
+					</a> <span>  &nbsp;개인정보취급방침</span>
 				</div>
 			</div>
 		</div>
