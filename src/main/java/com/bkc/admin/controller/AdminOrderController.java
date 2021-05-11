@@ -63,7 +63,7 @@ public class AdminOrderController {
 		}
 		model.addAttribute("orders", orders);
 		
-		return "admin/subpages/order/AdminOrderlist";
+		return "admin/subpages/order/AdminOrderlist"; 
 	}
 
 	// 주문 완료 페이지로 이동함.
