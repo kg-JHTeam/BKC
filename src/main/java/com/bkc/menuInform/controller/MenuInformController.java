@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
+import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.menuInform.service.ProductService;
 import com.bkc.menuInform.vo.ProductVO;
 
@@ -19,11 +21,17 @@ public class MenuInformController {
 	@Autowired
 	private ProductService productService;
 
+	@Autowired
+	private BusinessInformationService biService;
+
 	// 치킨메뉴 게시글 목록 조회
 	@RequestMapping(value = "/chickenMenu.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String getChickenMenuList(Model model) {
 		List<ProductVO> chickenMenuList = productService.getChickenMenuList();
 		model.addAttribute("chickenMenuList", chickenMenuList);
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
 		return "subpages/menuInform/chickenMenu";
 	}
 
@@ -36,6 +44,10 @@ public class MenuInformController {
 		// 밑에부분 사이드메뉴 관련
 		List<ProductVO> chickenMenuList = productService.getChickenMenuList();
 		model.addAttribute("chickenMenuList", chickenMenuList);
+
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
 		return "subpages/menuInform/chickenmenudetail";
 	}
 
@@ -58,7 +70,9 @@ public class MenuInformController {
 		List<ProductVO> beerzoneList = productService.getBeerzoneList();
 		model.addAttribute("beerzoneList", beerzoneList);
 
-		System.out.println("비어존 메뉴 디테일  페이지 실행");
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
 		return "subpages/menuInform/beerzonedetail";
 	}
 
@@ -82,6 +96,9 @@ public class MenuInformController {
 		List<ProductVO> sidemenuList = productService.getSidemenuList();
 		model.addAttribute("sidemenuList", sidemenuList);
 
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
+
 		return "subpages/menuInform/sidemenudetail";
 	}
 
@@ -90,6 +107,9 @@ public class MenuInformController {
 	private String getNewmenuList(Model model) {
 		List<ProductVO> newmenuList = productService.getNewmenuList();
 		model.addAttribute("newmenuList", newmenuList);
+
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
 
 		return "subpages/menuInform/newMenu";
 	}
@@ -104,6 +124,9 @@ public class MenuInformController {
 		// 밑에부분 신메뉴 관련
 		List<ProductVO> newmenuList = productService.getNewmenuList();
 		model.addAttribute("newmenuList", newmenuList);
+
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
 
 		return "subpages/menuInform/newmenudetail";
 	}

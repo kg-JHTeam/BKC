@@ -49,7 +49,7 @@
 				<div class="menudetailpage_navi">
 
 					<a href="${contextPath }/"> <span>HOME</span>
-					</a> <a href="#" class="arrow"> <span>메뉴소개</span>
+					</a>  <a href="#" class="arrow"> <span>메뉴소개</span>
 					</a> <a href="${contextPath}/menuInform/newMenu.do" class="arrow">
 						<span>new메뉴</span>
 					</a> <a href="#" class="arrow">

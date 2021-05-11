@@ -200,7 +200,7 @@
                     <h4>고객님 주변에 있는 BKC를 찾아보세요!</h4>
                     <br>
                     <div class="c_btn_1">
-                        <a href="#">
+                        <a href="${contextPath}/map/store.do">
                             <span>매장 찾기</span>
                         </a>
                     </div>

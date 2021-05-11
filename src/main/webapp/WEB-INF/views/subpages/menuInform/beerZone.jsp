@@ -35,7 +35,7 @@
                     <div class="page_navi">
                         <a href="${contextPath }/">
                             HOME
-                        </a>
+                        </a>>
                         <a href="${contextPath }/menuInform/beerZone.do">
                         	메뉴소개
                         </a>

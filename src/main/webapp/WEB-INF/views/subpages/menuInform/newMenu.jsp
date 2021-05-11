@@ -36,6 +36,7 @@
                         <a href="${contextPath }/">
                             HOME
                         </a>
+                        >
                         <a href="${contextPath }/menuInform/newMenu.do">
                         	메뉴소개
                         </a>
