@@ -156,7 +156,6 @@
                                             </dl>
                                         </div>
                                     </div>
-                                    
                                     <a href="${contextPath}/delivery/orderDetail.do?order_serial=${order.order_serial}" class="btn_detail">
                                         <span>Details</span>
                                     </a>
