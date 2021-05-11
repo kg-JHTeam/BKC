@@ -53,6 +53,7 @@ function changeOrderStatus(status, serial){
         }
     });
 }
+</script>
 
 </head>
 <body class="sb-nav-fixed">
@@ -64,10 +65,11 @@ function changeOrderStatus(status, serial){
 		<div id="layoutSidenav_content">
 			<main>
 			<div class="container-fluid">
-				<h1 class="mt-4">주문 리스트</h1>
+				<h1 class="mt-4">주문 접수 리스트</h1>
 				<div class="card mb-4">
 					<div class="card-header">
-						<i class="fas fa-table mr-1"></i> 주문 리스트
+						<i class="fas fa-table mr-1"></i> 주문 접수 리스트
+
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">

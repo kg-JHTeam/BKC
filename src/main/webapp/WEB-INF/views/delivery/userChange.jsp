@@ -36,7 +36,6 @@
 
 <title>계정</title>
 
-
 <script>
 		var checkNumber; //인증번호 
 		//인증관련 
