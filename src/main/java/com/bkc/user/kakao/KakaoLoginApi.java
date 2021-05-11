@@ -20,7 +20,7 @@ public class KakaoLoginApi {
 
 	private final static String K_CLIENT_ID = "58b56f07d241278f1adbf8155ab6cd91";
 	//kakao login redirect url
-	private final static String K_REDIRECT_URI = "http://localhost/bkc/kakaologin";
+	private final static String K_REDIRECT_URI = "http://ec2-3-34-97-58.ap-northeast-2.compute.amazonaws.com/bkc/kakaologin";
 	public static String getAuthorizationUrl() {
 		String kakaoUrl = "https://kauth.kakao.com/oauth/authorize?" + "client_id=" + K_CLIENT_ID + "&redirect_uri="
 				+ K_REDIRECT_URI + "&response_type=code";
