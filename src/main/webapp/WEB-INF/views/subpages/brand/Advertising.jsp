@@ -7,7 +7,6 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-
 <!-- jquery -->
 <script type="text/javascript">
 function button1_click(s) {

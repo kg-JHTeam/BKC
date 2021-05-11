@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.bkc.user.controller.UserController" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/controller/UserController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="466" width="649" x="3543" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="2" language="java" name="com.bkc.user.dao.CouponDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/dao/CouponDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="246" x="2615" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="3" language="java" name="com.bkc.user.service.UserCouponService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/service/UserCouponService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="214" width="372" x="5140" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="4" language="java" name="com.bkc.user.vo.CartVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/vo/CartVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="484" width="307" x="331" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.bkc.user.kakao.KakaoLoginApi" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/kakao/KakaoLoginApi.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="262" x="678" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.bkc.user.naver.NaverLoginBO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/naver/NaverLoginBO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="304" width="403" x="4285" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="7" language="java" name="com.bkc.user.service.GuestService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/service/GuestService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="199" x="2019" y="1379"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="8" language="java" name="com.bkc.user.dao.UserCouponDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/dao/UserCouponDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="214" width="372" x="4728" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="9" language="java" name="com.bkc.user.dao.UserCouponDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/dao/UserCouponDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="250" width="372" x="4728" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.bkc.user.service.GuestUserServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/service/GuestUserServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="282" x="1858" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.bkc.user.dao.CouponDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/dao/CouponDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="214" width="246" x="2615" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.bkc.user.vo.CouponVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/vo/CouponVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="322" width="213" x="980" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.bkc.user.service.CouponServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/service/CouponServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="196" width="246" x="2901" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.bkc.user.service.UserCouponserviceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/service/UserCouponserviceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="232" width="372" x="5140" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.bkc.user.vo.GuestVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/vo/GuestVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="322" width="171" x="1233" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.bkc.user.naver.NaverLoginAPI.InstanceHolder" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/naver/NaverLoginAPI.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="132" x="5987" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="17" language="java" name="com.bkc.user.dao.UserDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/dao/UserDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="304" width="311" x="3894" y="1379"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="18" language="java" name="com.bkc.user.sms.Https" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/sms/Https.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="250" width="364" x="5552" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.bkc.user.sms.Coolsms" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/sms/Coolsms.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="412" width="395" x="5552" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.bkc.user.kakao.KakaoUserInfo" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/kakao/KakaoUserInfo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="254" x="1444" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.bkc.user.vo.SendMessageVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/vo/SendMessageVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="194" x="1738" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.bkc.user.controller.GuestController" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/controller/GuestController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="304" width="395" x="2180" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.bkc.user.naver.NaverLoginAPI" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/naver/NaverLoginAPI.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="219" x="5987" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="24" language="java" name="com.bkc.user.service.CouponService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/service/CouponService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="246" x="2901" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="25" language="java" name="com.bkc.user.dao.GuestUserDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/dao/GuestUserDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="138" x="1756" y="1379"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="26" language="java" name="com.bkc.user.service.UserService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/service/UserService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="376" width="311" x="3543" y="1379"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="27" language="java" name="com.bkc.user.dao.GuestUserDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/dao/GuestUserDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="164" x="1654" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="com.bkc.user.vo.UserCouponVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/vo/UserCouponVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="646" width="213" x="1972" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.bkc.user.common.LoginUtil" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/common/LoginUtil.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="335" x="3187" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.bkc.user.dao.UserDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/dao/UserDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="340" width="311" x="3934" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.bkc.user.service.UserServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/service/UserServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="430" width="311" x="3583" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="com.bkc.user.vo.UserVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/user/vo/UserVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="916" width="350" x="2225" y="-47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="33">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="34" name="INSTANCE"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="36">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <realization id="37">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <realization id="38">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <association id="40">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="41" name="couponDao"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="44" name="usercouponDao"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="47" name="guestUserDao"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="49">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <association id="50">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="51" name="userService"/>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="53">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="54" name="https"/>      
+      <multiplicity id="55" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="56">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="57" name="naverLoginBO"/>      
+      <multiplicity id="58" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="59">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="24"/>  
+  </realization>  
+  <nesting id="60">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="16"/>  
+  </nesting>  
+  <association id="61">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="62" name="guestService"/>      
+      <multiplicity id="63" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="64">    
+    <bendpoint x="3552" y="909"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="65" name="userService"/>      
+      <multiplicity id="66" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="67">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <realization id="68">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <realization id="69">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <association id="70">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="71" name="loginUtil"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="73">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="74" name="userDao"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="76">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="77" name="service"/>      
+      <multiplicity id="78" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
