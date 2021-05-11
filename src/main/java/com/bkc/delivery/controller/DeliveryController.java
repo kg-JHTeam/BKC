@@ -188,7 +188,9 @@ public class DeliveryController {
 		// 최근 주문내역 보내기.
 		// 사용자가 주문한 내역을 뽑아온다.
 		List<OrderVO> orders = orderService.getUserOrderList(user.getUserid());
-		model.addAttribute("order", orders.get(0));
+		if(orders.size()>0) {
+			model.addAttribute("order", orders.get(0));
+		}
 		
 		return "delivery/mybkc";
 	}
