@@ -50,6 +50,7 @@
                             <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                 	<a class="nav-link" href="${contextPath}/admin/orderlist.ad">주문 리스트</a>
+                                	<a class="nav-link" href="${contextPath}/admin/orderReceiptlist.ad">주문 접수 리스트</a>
                                 	<a class="nav-link" href="${contextPath}/admin/orderCompleteList.ad">주문 완료 리스트 </a>
                                 	<a class="nav-link" href="${contextPath}/admin/orderCancellationList.ad">주문 취소 리스트 </a>
                                 </nav>
