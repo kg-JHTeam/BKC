@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bkc.admin.board.dashboard.dao.DashboardDAO">
+
+
+    <select id="getTotalChartData" parameterType="java.util.HashMap"  resultType="TotalChartDataVO">
+
+        select months as x,
+               sum(total) as y
+        from (
+                 select to_char(order_date, 'YYYY-MM') as months,
+                        total_price as total
+                 from orderlist
+                 where order_date BETWEEN TO_TIMESTAMP(#{startDate}, 'YYYY-MM-DD')
+                           and TO_TIMESTAMP(#{endDate}, 'YYYY-MM-DD')
+						   and order_status=3 
+             )a
+        group by months
+        order by to_date(months, 'YYYY-MM' ) asc
+		
+    </select>
+    
+    <select id="getTotalChartData2" parameterType="java.util.HashMap"  resultType="TotalChartDataVO">
+
+         SELECT days AS  x,
+               SUM(total_price) AS y
+        	FROM (
+                 SELECT TO_CHAR(order_date, 'MM-DD') AS days,
+                        total_price
+                 FROM orderlist
+                 WHERE order_date BETWEEN TO_TIMESTAMP(#{endDate}, 'YYYY-MM-DD')
+                           and TO_TIMESTAMP(#{startDate}, 'YYYY-MM-DD')
+                           and order_status=3
+             )a
+        GROUP BY days
+        ORDER BY TO_DATE(days, 'MM-DD' ) ASC
+
+    </select>
+
+
+</mapper>

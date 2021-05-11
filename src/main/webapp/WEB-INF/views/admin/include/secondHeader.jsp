@@ -121,7 +121,7 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="${contextPath}/admin/salelist.ad">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                	 차트
                             </a>
