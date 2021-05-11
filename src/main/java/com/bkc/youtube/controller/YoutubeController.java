@@ -1,6 +1,5 @@
 package com.bkc.youtube.controller;
 
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bkc.admin.board.banner.vo.CheckVO;
-import com.bkc.user.vo.CartVO;
+import com.bkc.admin.board.businessInformation.service.BusinessInformationService;
+import com.bkc.admin.board.businessInformation.vo.BusinessInformationVO;
 import com.bkc.youtube.service.YoutubeService;
 import com.bkc.youtube.vo.YoutubeVO;
 
@@ -26,11 +26,18 @@ public class YoutubeController {
 	@Autowired
 	private YoutubeService ytService;
 
+	@Autowired
+	private BusinessInformationService biService;
+
 	// Youtube 광고 리스트 (관리자) 출력
 	@RequestMapping(value = "/admin/youtubeList.ad", method = { RequestMethod.POST, RequestMethod.GET })
 	public String showYoutubeList(Model model) {
 		List<YoutubeVO> youtubes = ytService.getYoutubeList();
 		model.addAttribute("youtubes", youtubes);
+
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
 
 		return "admin/subpages/youtube/youtubeList";
 	}
@@ -42,16 +49,18 @@ public class YoutubeController {
 		model.addAttribute("youtubeAd", youtubeAd);
 		model.addAttribute("youtubevo", youtubevo);
 
+		// 푸터추가
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
 		return "subpages/brand/Advertising";
 	}
-	
+
 	// Youtube 광고 정보 상세 출력
 	@RequestMapping(value = "/admin/youtubeContent.ad", method = { RequestMethod.POST, RequestMethod.GET })
 	public String showYoutube(Model model, @RequestParam("img_seq") int img_seq) {
 		YoutubeVO youtube = ytService.getYoutubeBySeq(img_seq);
 		model.addAttribute("youtube", youtube);
 
-		System.out.println(youtube.toString());
 		return "admin/subpages/youtube/youtubeContent";
 	}
 
@@ -61,10 +70,11 @@ public class YoutubeController {
 		return "admin/subpages/youtube/youtubeUploadpage";
 	}
 
-	// Youtube 광고 등록 기능 
+	// Youtube 광고 등록 기능
 	@RequestMapping(value = "/admin/insertYoutube.ad", method = { RequestMethod.POST, RequestMethod.GET })
 	public String insertYoutube(Model model, @RequestParam("title") String title,
-			@RequestParam("content") String content, @RequestParam("path") String path, @RequestParam("date") String date,
+			@RequestParam("content") String content, @RequestParam("path") String path,
+			@RequestParam("date") String date,
 			@RequestParam(value = "use_status", required = false) boolean use_status) {
 
 		YoutubeVO youtubeVO = new YoutubeVO();
@@ -95,11 +105,11 @@ public class YoutubeController {
 			@RequestParam("content") String content, @RequestParam("path") String path) {
 
 		YoutubeVO vo = ytService.getYoutubeBySeq(img_seq);
-		
+
 		vo.setContent(content);
 		vo.setTitle(title);
 		vo.setPath(path);
-		
+
 		CheckVO check = new CheckVO();
 
 		if (ytService.updateYoutube(vo) == 1) {
@@ -112,7 +122,7 @@ public class YoutubeController {
 		model.addAttribute("check", check);
 		return "admin/subpages/youtube/youtubeContent";
 	}
-	
+
 	// Youtube 광고 사용/미사용 변경 기능
 	@RequestMapping(value = "/admin/changeStatusYoutube.ad", method = { RequestMethod.GET, RequestMethod.POST })
 	public String changeStatusYoutube(Model model, @RequestParam("img_seq") int img_seq) {
@@ -151,14 +161,12 @@ public class YoutubeController {
 		}
 		return "redirect:/admin/youtubeList.ad";
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/mainYoutube.do", method = RequestMethod.POST)
-	public Object setMainYoutube(
-			@RequestParam(value = "img_seq") int img_seq,
-			Model model, HttpSession session) {
-		
-		YoutubeVO vo = ytService.getYoutubeBySeq(img_seq); 
+	public Object setMainYoutube(@RequestParam(value = "img_seq") int img_seq, Model model, HttpSession session) {
+
+		YoutubeVO vo = ytService.getYoutubeBySeq(img_seq);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		retVal.put("title", vo.getTitle());
 		retVal.put("path", vo.getPath());
