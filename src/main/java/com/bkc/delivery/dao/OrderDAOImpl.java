@@ -67,5 +67,7 @@ public class OrderDAOImpl implements OrderDAO {
 		return sqlSession.selectList("getTotalSalesFromStore");
 	}
 
+	
+
 
 }
