@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
@@ -92,10 +93,35 @@
                     <div class="container02 pd02 order_list_sum">
                         <div class="titbox">
                             <p class="tit">
-                                <strong>바삭클 외 1건</strong>
+                                <strong>
+                                    ${order.product_name}<!-- 대표 메뉴 이름  -->
+                                    <c:choose>
+									<c:when test="${order.productCount eq 1 }">
+									<!-- 주문내역 메뉴 한건  -->
+									</c:when>
+									<c:otherwise>
+									외 ${order.productCount-1}건
+									</c:otherwise>
+									</c:choose>
+                                 </strong>
                                 <em class="tag">
-                                    <span>주문완료</span>
-                                </em>
+                                 <span>
+	                                  <c:choose>
+									<c:when test="${order.order_status eq 1 }">
+										주문접수중
+									</c:when>
+									<c:when test="${order.order_status eq 2 }">
+									          배달중
+									</c:when>
+									<c:when test="${order.order_status eq -1 }">
+									          주문취소
+									</c:when>
+									<c:otherwise>
+										주문완료 
+									</c:otherwise>
+								</c:choose>
+                             </span>
+                             </em>
                             </p>
                         </div>
                         <div class="cont">
@@ -103,40 +129,32 @@
                                 <dl>
                                     <dt>주문번호</dt>
                                     <dd>
-                                        <strong>000000001</strong>
+                                        <strong>${order.order_serial}</strong>
                                     </dd>
                                 </dl>
                                 <dl>
                                     <dt>매장</dt>
                                     <dd>
-                                        <strong>종로점</strong>
+                                        <strong>${order.store_name}</strong>
                                     </dd>
                                 </dl>
                                 <dl>
                                     <dt>주문시간</dt>
                                     <dd>
-                                        <strong>2021.04.27 AM 03:48</strong>
+                                        <strong>
+                                        <fmt:formatDate type="both" value="${order.order_date}"
+													pattern="yyyy-MM-dd HH:mm:ss" />
+                                        </strong>
                                     </dd>
                                 </dl>
                                 <dl>
                                     <dt>결제수단</dt>
                                     <dd>
-                                        <strong>신용카드 결제</strong>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt>배달 예상시간</dt>
-                                    <dd>
-                                        <strong>55-60</strong>
+                                        <strong>${order.payment_type}</strong>
                                     </dd>
                                 </dl>
                             </div>
                         </div>
-                    </div>
-                    <div class="c_btn">
-                        <a href="${contextPath}/delivery/orderList.do" class="btn01">
-                            <span>전체보기</span>
-                        </a>
                     </div>
                     <div class="qmenuWrap02">
                         <ul>

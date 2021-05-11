@@ -74,8 +74,6 @@ public class YoutubeController {
 		youtubeVO.setPath(path);
 		youtubeVO.setUse_status(use_status);
 
-		// 현재 날짜 등록
-//		Date date = new Date(System.currentTimeMillis());
 		youtubeVO.setDate(date);
 
 		CheckVO check = new CheckVO();
