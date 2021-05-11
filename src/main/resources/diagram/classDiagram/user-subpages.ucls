@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.bkc.subpages.brand.whybkc.dao.RealchickenDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/dao/RealchickenDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="196" width="347" x="8184" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.bkc.subpages.brand.whybkc.dao.MaterialDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/dao/MaterialDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="196" width="272" x="6812" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="3" language="java" name="com.bkc.subpages.brand.bkcstory.dao.HistoryDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/dao/HistoryDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="9160" y="691"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="4" language="java" name="com.bkc.subpages.brand.whybkc.controller.WhybkcController" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/controller/WhybkcController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="304" width="468" x="9255" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="5" language="java" name="com.bkc.subpages.brand.whybkc.service.ContributionService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/service/ContributionService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="160" width="341" x="9864" y="390"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="6" language="java" name="com.bkc.subpages.brand.bkcstory.service.HistoryService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/service/HistoryService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8359" y="702"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="7" language="java" name="com.bkc.subpages.brand.bkcstory.vo.AboutbkcVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/vo/AboutbkcVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="322" width="212" x="1651" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.bkc.subpages.brand.bkcstory.service.AboutbkcServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/service/AboutbkcServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6593" y="698"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.bkc.subpages.brand.whybkc.vo.ContributionVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/vo/ContributionVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2011" y="187"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.bkc.subpages.brand.bkcstory.controller.BkcstoryController" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/controller/BkcstoryController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7660" y="676"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="11" language="java" name="com.bkc.subpages.brand.whybkc.dao.RealchickenDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/dao/RealchickenDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="347" x="8184" y="390"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="12" language="java" name="com.bkc.subpages.brand.whybkc.vo.MaterialVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/vo/MaterialVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2264" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="13" language="java" name="com.bkc.subpages.brand.whybkc.dao.ContributionDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/dao/ContributionDAO.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="160" width="341" x="10250" y="390"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="14" language="java" name="com.bkc.subpages.brand.whybkc.dao.MaterialDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/dao/MaterialDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6698" y="493"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="15" language="java" name="com.bkc.subpages.brand.bkcstory.dao.AboutbkcDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/dao/AboutbkcDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6169" y="693"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="16" language="java" name="com.bkc.subpages.brand.bkcstory.dao.AboutbkcDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/dao/AboutbkcDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5795" y="681"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="17" language="java" name="com.bkc.subpages.brand.whybkc.service.MaterialService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/service/MaterialService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="160" width="272" x="8868" y="390"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="18" language="java" name="com.bkc.subpages.brand.whybkc.vo.RealchickenVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/vo/RealchickenVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2534" y="169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.bkc.subpages.brand.bkcstory.dao.HistoryDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/dao/HistoryDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="9512" y="695"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="20" language="java" name="com.bkc.subpages.brand.bkcstory.service.AboutbkcService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/service/AboutbkcService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7019" y="696"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="21" language="java" name="com.bkc.subpages.controller.MapController" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/controller/MapController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2776" y="172"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="22" language="java" name="com.bkc.subpages.brand.whybkc.service.RealchickenService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/service/RealchickenService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="160" width="347" x="9180" y="390"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="23" language="java" name="com.bkc.subpages.brand.whybkc.service.MaterialServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/service/MaterialServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="178" width="272" x="7463" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.bkc.subpages.brand.bkcstory.service.HistoryServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/service/HistoryServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8682" y="695"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.bkc.subpages.brand.whybkc.dao.ContributionDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/dao/ContributionDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="196" width="341" x="10441" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.bkc.subpages.brand.bkcnews.controller.BkcnewsController" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcnews/controller/BkcnewsController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="124" width="256" x="4789" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.bkc.subpages.brand.whybkc.service.ContributionServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/service/ContributionServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="178" width="341" x="10060" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="com.bkc.subpages.brand.bkcstory.vo.HistoryVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/vo/HistoryVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="268" width="212" x="5085" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.bkc.subpages.controller.StoreController" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/controller/StoreController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="169" x="5337" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="30" language="java" name="com.bkc.subpages.brand.bkcstory.dao" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory/dao" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="55" width="293" x="5546" y="28"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="31" language="java" name="com.bkc.subpages.brand.whybkc.service.RealchickenServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/service/RealchickenServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="178" width="347" x="8571" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="32" language="java" name="com.bkc.subpages.brand.whybkc.controller" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/whybkc/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="55" width="329" x="5879" y="28"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="33" language="java" name="com.bkc.subpages.controller.CustomerServiceController" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/controller/CustomerServiceController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="106" width="220" x="6248" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="34" language="java" name="com.bkc.subpages.brand.bkcstory" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/subpages/brand/bkcstory" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="55" width="264" x="6508" y="28"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <association id="35">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="36" name="contributionService"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="39" name="dao"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="41">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="42" name="chickenservice"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="44">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="45" name="dao"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="47">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <realization id="48">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="13"/>  
+  </realization>  
+  <realization id="49">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <association id="50">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="51" name="aservice"/>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="53">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <realization id="54">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="22"/>  
+  </realization>  
+  <association id="55">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="56" name="dao"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="58">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <realization id="59">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <association id="60">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="61" name="dao"/>      
+      <multiplicity id="62" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="63">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="14"/>  
+  </realization>  
+  <association id="64">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="65" name="dao"/>      
+      <multiplicity id="66" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="68" name="materialservice"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="70">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <realization id="71">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="72">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="73" name="hservice"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
