@@ -9,9 +9,18 @@ public class YoutubeVO {
 	private String title;
 	private String path;
 	private String date;
+	private String thumbnail;
 
 	public int getImg_seq() {
 		return img_seq;
+	}
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 
 	public void setImg_seq(int img_seq) {
@@ -61,7 +70,7 @@ public class YoutubeVO {
 	@Override
 	public String toString() {
 		return "YoutubeVO [img_seq=" + img_seq + ", use_status=" + use_status + ", content=" + content + ", title="
-				+ title + ", path=" + path + ", date=" + date + "]";
+				+ title + ", path=" + path + ", date=" + date + ", thumbnail=" + thumbnail + "]";
 	}
 
 }

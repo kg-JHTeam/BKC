@@ -74,7 +74,7 @@ public class YoutubeController {
 	@RequestMapping(value = "/admin/insertYoutube.ad", method = { RequestMethod.POST, RequestMethod.GET })
 	public String insertYoutube(Model model, @RequestParam("title") String title,
 			@RequestParam("content") String content, @RequestParam("path") String path,
-			@RequestParam("date") String date,
+			@RequestParam("date") String date, @RequestParam("thumbnail") String thumbnail,
 			@RequestParam(value = "use_status", required = false) boolean use_status) {
 
 		YoutubeVO youtubeVO = new YoutubeVO();
@@ -83,6 +83,7 @@ public class YoutubeController {
 		youtubeVO.setTitle(title);
 		youtubeVO.setPath(path);
 		youtubeVO.setUse_status(use_status);
+		youtubeVO.setThumbnail(thumbnail);
 
 		youtubeVO.setDate(date);
 
@@ -101,7 +102,7 @@ public class YoutubeController {
 
 	// Youtube 광고 상세 정보 수정 기능
 	@RequestMapping(value = "/admin/modifyYoutube.ad", method = { RequestMethod.POST, RequestMethod.GET })
-	public String modifyYoutube(Model model, @RequestParam("img_seq") int img_seq, @RequestParam("title") String title,
+	public String modifyYoutube(Model model, @RequestParam("img_seq") int img_seq, @RequestParam("title") String title, @RequestParam("thumbnail") String thumbnail,
 			@RequestParam("content") String content, @RequestParam("path") String path) {
 
 		YoutubeVO vo = ytService.getYoutubeBySeq(img_seq);
@@ -109,6 +110,7 @@ public class YoutubeController {
 		vo.setContent(content);
 		vo.setTitle(title);
 		vo.setPath(path);
+		vo.setThumbnail(thumbnail);
 
 		CheckVO check = new CheckVO();
 

@@ -7,6 +7,7 @@
 		<result property="title" column="title" />
 		<result property="path" column="path" />
 		<result property="date" column="date" />
+		<result property="thumbnail" column="thumbnail" />
 	</resultMap>
 	
 	<select id="getYoutubeList" resultType="YoutubeVO">
@@ -17,7 +18,7 @@
 	
     <select id="getYoutubeHome" resultMap="YoutubeVO">
 	    <![CDATA[
-	    SELECT IMG_SEQ, TITLE, substring(cast(date as character varying), 1,4) as date, CONTENT, PATH, USE_STATUS FROM YOUTUBE
+	    SELECT IMG_SEQ, TITLE, substring(cast(date as character varying), 1,4) as date, CONTENT, PATH, thumbnail, USE_STATUS FROM YOUTUBE
 	    ]]>
 	    <if test="date neq null and date neq ''">
 		   WHERE CAST(date AS character varying) BETWEEN #{date} || '-01-01' AND #{date}  || '-12-31'
@@ -74,8 +75,8 @@
 	<insert id="insertYoutube" parameterType="YoutubeVO"> 
 		<![CDATA[
 			INSERT INTO 
-				youtube(use_status, content, title, path, date)
-				values (#{use_status}, #{content}, #{title}, #{path}, #{date});
+				youtube(use_status, content, title, path, date, thumbnail)
+				values (#{use_status}, #{content}, #{title}, #{path}, #{date}, #{thumbnail});
 		]]>
 	</insert>
 	
@@ -84,7 +85,7 @@
 			UPDATE
 				youtube
 			SET 
-				title=#{title}, path=#{path}, content=#{content}
+				title=#{title}, path=#{path}, content=#{content}, thumbnail=#{thumbnail}
 			WHERE
 				img_seq = #{img_seq}
 		]]>
