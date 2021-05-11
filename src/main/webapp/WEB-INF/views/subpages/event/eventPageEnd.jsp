@@ -38,8 +38,8 @@
 		<div class="locationWrap WEB">
 			<div class="event_web_container">
 				<div class="page_navi">
-					<a href="#/home"> <span>HOME</span>
-					</a> <span> 이벤트 </span> <span> 전체 </span>
+					<a href="#/home" class="arrow"> <span>HOME</span>>
+					</a> <a class="arrow"><span>이벤트</span>></a><a class="arrow"> <span> 종료 </span></a>
 				</div>
 			</div>
 		</div>
@@ -54,13 +54,13 @@
 									<span>전체</span>
 								</button>
 							</li>
-							<li class='on'>
-								<button type="button">
+							<li>
+								<button type="button" onclick="location.href='${pageContext.request.contextPath }/event/eventPageContinue.do'">
 									<span>진행중</span>
 								</button>
 							</li>
-							<li>
-								<button type="button" onclick="location.href='${pageContext.request.contextPath }/event/eventPageEnd.do'">
+							<li class='on'>
+								<button type="button" >
 									<span>종료</span>
 								</button>
 							</li>

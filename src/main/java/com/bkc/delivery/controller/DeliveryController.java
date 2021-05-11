@@ -131,7 +131,7 @@ public class DeliveryController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount - 1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
@@ -179,11 +179,17 @@ public class DeliveryController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount - 1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
-
+		
+		
+		// 최근 주문내역 보내기.
+		// 사용자가 주문한 내역을 뽑아온다.
+		List<OrderVO> orders = orderService.getUserOrderList(user.getUserid());
+		model.addAttribute("order", orders.get(0));
+		
 		return "delivery/mybkc";
 	}
 
@@ -233,7 +239,7 @@ public class DeliveryController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount - 1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
@@ -377,11 +383,11 @@ public class DeliveryController {
 			int productCount = tmpOrder.getProductCount();
 			nowOrderStatus = tmpOrder.getProduct_name();
 			if (productCount != 1) {
-				nowOrderStatus = nowOrderStatus + " 외 " + (productCount -1);
+				nowOrderStatus = nowOrderStatus + " 외 " + (productCount - 1);
 			}
 		}
 		model.addAttribute("nowOrderStatus", nowOrderStatus);
-		
+
 		return "/delivery/cart";
 	}
 
@@ -451,6 +457,5 @@ public class DeliveryController {
 		model.addAttribute("bi", bi);
 		return "guest/guestdelivery";
 	}
-	
-	
+
 }

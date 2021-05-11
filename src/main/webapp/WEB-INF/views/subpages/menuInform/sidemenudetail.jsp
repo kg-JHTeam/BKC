@@ -48,11 +48,14 @@
 			<div class="menudetailcontainer">
 				<div class="menudetailpage_navi">
 
-					<a href="${contextPath }/"> <span>HOME</span>
-					</a> <a href="#" class="arrow"> <span>메뉴소개</span>
-					</a> <a href="${contextPath}/menuInform/sideMenu.do" class="arrow">
+					<a href="${contextPath }/">
+						<span>HOME</span>
+					</a>
+					  <span>메뉴소개</span> 
+					<a href="${contextPath}/menuInform/sideMenu.do" >
 						<span>사이드메뉴</span>
-					</a> <a href="#" class="arrow">
+					</a>  
+					<a> 
 					 <span>${sidemenu.product_name}</span>
 					</a>
 

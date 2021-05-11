@@ -14,8 +14,8 @@
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                               	 대쉬보드
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i><a class="nav-link" href="${contextPath}/goAdminPage.ad">대쉬보드 </a>
+                               	</div>
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -50,6 +50,7 @@
                             <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                 	<a class="nav-link" href="${contextPath}/admin/orderlist.ad">주문 리스트</a>
+                                	<a class="nav-link" href="${contextPath}/admin/orderReceiptlist.ad">주문 접수 리스트</a>
                                 	<a class="nav-link" href="${contextPath}/admin/orderCompleteList.ad">주문 완료 리스트 </a>
                                 	<a class="nav-link" href="${contextPath}/admin/orderCancellationList.ad">주문 취소 리스트 </a>
                                 </nav>
@@ -121,7 +122,7 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="${contextPath}/admin/salelist.ad">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                	 차트
                             </a>

@@ -39,8 +39,8 @@
 		<div class="locationWrap">
             <div class="page_navi">
 				<ul>
-					<li><a href="${contextPath}/">HOME</a></li> >
-					<li><a href="${contextPath}/map/store.do">매장찾기</a></li>
+					<li><a href="${contextPath}/" class="arrow"><span>HOME</span></a> >
+					<a href="${contextPath}/map/store.do" class="arrow"><span>매장찾기</span></a></li>
 				</ul>
 			</div>
 		</div>

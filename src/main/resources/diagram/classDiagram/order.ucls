@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.bkc.delivery.controller.MyLocationController" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/controller/MyLocationController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2422" y="68"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="2" language="java" name="com.bkc.delivery.service.OrderDetailService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/service/OrderDetailService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4096" y="1078"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="3" language="java" name="com.bkc.delivery.controller.DeliveryController" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/controller/DeliveryController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2800" y="167"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="4" language="java" name="com.bkc.delivery.dao.DvProductDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/dao/DvProductDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4809" y="1087"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="5" language="java" name="com.bkc.delivery.vo.MyLocationVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/vo/MyLocationVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="618" y="221"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.bkc.delivery.controller.OrderController" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/controller/OrderController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3270" y="95"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="7" language="java" name="com.bkc.delivery.service" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/service" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="848" y="-21"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="8" language="java" name="com.bkc.delivery.vo.OrderVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/vo/OrderVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7137" y="464"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.bkc.delivery.vo.CautionVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/vo/CautionVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1066" y="59"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.bkc.delivery.dao.OrderDetailDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/dao/OrderDetailDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6756" y="32"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.bkc.delivery.service.OrderServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/service/OrderServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3762" y="131"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="12" language="java" name="com.bkc.delivery.service.OrderService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/service/OrderService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2778" y="1150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="13" language="java" name="com.bkc.delivery.service.DvProductService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/service/DvProductService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3440" y="1087"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="14" language="java" name="com.bkc.delivery.service.DvProductServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/service/DvProductServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4117" y="32"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="15" language="java" name="com.bkc.delivery.dao.CautionDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/dao/CautionDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5748" y="1096"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="16" language="java" name="com.bkc.delivery.dao.OrderDetailDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/dao/OrderDetailDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6250" y="1078"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="17" language="java" name="com.bkc.delivery.service.MyLocationService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/service/MyLocationService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3135" y="1150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="18" language="java" name="com.bkc.delivery.service.MyLocationServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/service/MyLocationServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4421" y="95"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.bkc.delivery.vo.OrderDetailVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/vo/OrderDetailVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7073" y="1276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.bkc.delivery.service.OrderDetailServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/service/OrderDetailServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5745" y="23"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.bkc.delivery.vo.DvProductVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/vo/DvProductVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1750" y="221"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.bkc.delivery.dao.CautionDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/dao/CautionDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6404" y="50"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.bkc.delivery.vo.SalesVO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/vo/SalesVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1945" y="5"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.bkc.delivery.dao.DvProductDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/dao/DvProductDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5395" y="41"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.bkc.delivery.dao.MyLocationDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/dao/MyLocationDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6097" y="104"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="26" language="java" name="com.bkc.delivery.dao.MyLocationDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/dao/MyLocationDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5259" y="1150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="27" language="java" name="com.bkc.delivery.dao.OrderDAO" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/dao/OrderDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4476" y="1141"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="28" language="java" name="com.bkc.delivery.service.CautionService" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/service/CautionService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3744" y="1096"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="29" language="java" name="com.bkc.delivery.service.CautionServiceImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/service/CautionServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5091" y="41"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.bkc.delivery.dao.OrderDAOImpl" project="bkc" 
+    file="/bkc/src/main/java/com/bkc/delivery/dao/OrderDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4756" y="95"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="31">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <realization id="32">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="13"/>  
+  </realization>  
+  <association id="33">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="34" name="orderDetailDao"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="37" name="orderDetailService"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="39">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="40" name="locaDao"/>      
+      <multiplicity id="41" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="42">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="27"/>  
+  </realization>  
+  <association id="43">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="44" name="mylocaService"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="47" name="mylocaService"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="49">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <association id="50">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="51" name="mylocaService"/>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="53">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <realization id="54">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <association id="55">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="56" name="orderDetails"/>      
+      <multiplicity id="57" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="59" name="cService"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="62" name="orderService"/>      
+      <multiplicity id="63" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="64">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="65" name="dao"/>      
+      <multiplicity id="66" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="68" name="mylocaService"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="70">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="28"/>  
+  </realization>  
+  <realization id="71">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <association id="72">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="73" name="dao"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="75">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="76" name="orderDetailService"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="78">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="79" name="pService"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="81">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <association id="82">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="83" name="cService"/>      
+      <multiplicity id="84" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="86" name="orderService"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="88">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="89" name="pService"/>      
+      <multiplicity id="90" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="91">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="92" name="orderDao"/>      
+      <multiplicity id="93" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="94">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="95" name="orderDetailService"/>      
+      <multiplicity id="96" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="97">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
