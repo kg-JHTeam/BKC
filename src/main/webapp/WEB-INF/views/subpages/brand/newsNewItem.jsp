@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -38,8 +41,9 @@
 		<div class="locationWrap WEB">
 			<div class="news_web_container">
 				<div class="page_navi">
-					<a href="#/home"> <span>HOME</span>
-					</a> <span> 브랜드스토리 </span> <span> BKC NEWS </span>
+					<a href="#/home" class="arrow"> <span>HOME</span>>
+					</a><a class="arrow"> <span>브랜드스토리 </span>>
+					</a> <a class="arrow"><span> BKC NEWS </span></a>
 				</div>
 			</div>
 		</div>
@@ -91,86 +95,20 @@
 						<div class="new_product">
 							<h4 class="MOB m_subtit">신제품 소개</h4>
 							<ul class="prdmenu_list">
+							 <c:forEach var="newmenuList" items="${newmenuList}">
 								<li>
 									<div class="prd_img WEB">
-										<span> <img src="burger.png">
-										</span>
-									</div>
-									<div class="prd_img MOB">
-										<span> <img src="burger.png">
+										<span> <img src="${newmenuList.path}">
 										</span>
 									</div>
 									<div class="cont">
-										<p class="tit">
-											<strong>플랜트 바비큐 와퍼</strong>
+										<p class="tit" style="text-align:center;">
+											<strong>${newmenuList.product_name}</strong>
 										</p>
-										<p class="txt_intro">불맛 가득한 식물성 패티와 진한 바비큐 소스의 조화</p>
+										<p class="txt_intro">${newmenuList.description}</p>
 									</div>
 								</li>
-								<li>
-									<div class="prd_img WEB">
-										<span> <img src="burger.png">
-										</span>
-									</div>
-									<div class="prd_img MOB">
-										<span> <img src="burger.png">
-										</span>
-									</div>
-									<div class="cont">
-										<p class="tit">
-											<strong>플랜트 바비큐 와퍼</strong>
-										</p>
-										<p class="txt_intro">불맛 가득한 식물성 패티와 진한 바비큐 소스의 조화</p>
-									</div>
-								</li>
-								<li>
-									<div class="prd_img WEB">
-										<span> <img src="burger.png">
-										</span>
-									</div>
-									<div class="prd_img MOB">
-										<span> <img src="burger.png">
-										</span>
-									</div>
-									<div class="cont">
-										<p class="tit">
-											<strong>바비큐 와퍼</strong>
-										</p>
-										<p class="txt_intro">불맛 가득한 식물성 패티와 진한 바비큐 소스의 조화</p>
-									</div>
-								</li>
-								<li>
-									<div class="prd_img WEB">
-										<span> <img src="burger.png">
-										</span>
-									</div>
-									<div class="prd_img MOB">
-										<span> <img src="burger.png">
-										</span>
-									</div>
-									<div class="cont">
-										<p class="tit">
-											<strong>플랜트 바비큐 와퍼</strong>
-										</p>
-										<p class="txt_intro">불맛 가득한 식물성 패티와 진한 바비큐 소스의 조화</p>
-									</div>
-								</li>
-								<li>
-									<div class="prd_img WEB">
-										<span> <img src="burger.png">
-										</span>
-									</div>
-									<div class="prd_img MOB">
-										<span> <img src="burger.png">
-										</span>
-									</div>
-									<div class="cont">
-										<p class="tit">
-											<strong>플랜트 바비큐 와퍼</strong>
-										</p>
-										<p class="txt_intro">불맛 가득한 식물성 패티와 진한 바비큐 소스의 조화</p>
-									</div>
-								</li>
+								</c:forEach>
 							</ul>
 						</div>
 					</div>
