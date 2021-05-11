@@ -165,7 +165,6 @@ $( document ).ready( function() {
 							var sendMessage = { 
 									"phoneNumber" : phoneNumber,
 							};
-
 							//ajax로 서버로 문자를 보냄.
 							$.ajax({ 
 								url: contextpath+"/sendsms.do", 

@@ -104,7 +104,7 @@
 		<![CDATA[
 		UPDATE 
 			usermember
-		SET enabled='false'
+		SET enabled=#{enabled}
 			WHERE userid=#{userid};
 		]]>
 	</insert>
