@@ -64,27 +64,7 @@
                         </div>
                     </div>
                     <!-- simple join -->
-                    <div class="simple_login">
-                        <h3 class="simplelogin_tit tit_ico lock">간편 회원가입</h3>
-                        <ul class="list">
-                            <li class="naver">
-                                <a href="#">
-                                    <span>네이버</span>
-                                </a>
-                            </li>
-                            <li class="kakao">
-                                <a href="#">
-                                    <span>카카오톡</span>
-                                </a>
-                            </li>
-                            <li class="google">
-                                <a href="#">
-                                    <img src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/google_ico.gif" alt="구글 로고">
-                                    <span>Google 로 로그인</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    
                 </div>
             </div>
         </div>

@@ -36,7 +36,8 @@ nav>ul>li>a {
 }
 
 .content>.content_container {
-    padding: 75px 20px 0;
+	
+    padding: 75px 340px 0;
 }
 
 .content_container {
@@ -87,9 +88,12 @@ em {
 
 .login_container>.login {
     position: initial;
-    width: 50%;
+    width: 100%;
     padding-right: 5.23%;
-    border-right: 1px solid #e5e5e5;
+}
+
+.welcombox{
+	align-content: center;
 }
 
 .login_container>.login>.defaultlogin_tit {
