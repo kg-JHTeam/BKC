@@ -201,8 +201,8 @@ window.onload = function(){
 		<!--navigation bar-->
 		<nav class="locationWrap">
 			<ul>
-				<li><a href="${contextPath}/">HOME</a></li>&nbsp;&nbsp;
-				<li><a href="${contextPath}/login">로그인</a></li>
+				<li><a href="${contextPath}/" >HOME</a></li>
+				<li><a href="${contextPath}/login"  class="gotomenu">로그인</a></li>
 			</ul>
 		</nav>
 		<form class="contentsBox01" method="post" action="${contextPath}/guestUserJoin" id="guestForm">

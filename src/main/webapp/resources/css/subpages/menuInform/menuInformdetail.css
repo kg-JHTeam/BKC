@@ -48,6 +48,9 @@
     background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
 }
 
+span {
+    font-size: 1.1rem;
+}
 
 /* 제목과 이미지 컨텐츠 들어가는 영역 */
 

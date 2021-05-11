@@ -34,10 +34,10 @@
                 <div class="Web_container">
                     <div class="page_navi">
                         <a href="${contextPath }/">
-                            HOME
+                          <span>  HOME</span>
                         </a>>
                         <a href="${contextPath }/menuInform/beerZone.do">
-                        	메뉴소개
+                        	<span>메뉴소개</span>
                         </a>
                     </div>
                 </div>

@@ -47,16 +47,14 @@
 		<div class="menudetaillocationWrap">
 			<div class="menudetailcontainer">
 				<div class="menudetailpage_navi">
-
 					<a href="${contextPath }/">
-						<span>HOME</span>
-					</a>
-					  <span>메뉴소개</span> 
-					<a href="${contextPath}/menuInform/sideMenu.do" >
-						<span>사이드메뉴</span>
-					</a>  
-					<a> 
-					 <span>${sidemenu.product_name}</span>
+                         <span>  HOME </span>&nbsp;
+                       >&nbsp; </a>
+                        <a href="#"><span>메뉴소개</span> &nbsp;>&nbsp;</a>
+					<a href="${contextPath}/menuInform/sideMenu.do">
+						<span>사이드메뉴</span>&nbsp;>&nbsp;</a>
+						<a href="#" >
+					<span> ${sidemenu.product_name}</span>	
 					</a>
 
 				</div>

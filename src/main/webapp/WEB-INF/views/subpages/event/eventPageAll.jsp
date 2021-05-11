@@ -37,8 +37,8 @@
 		<div class="locationWrap WEB">
 			<div class="event_web_container">
 				<div class="page_navi">
-					<a href="#/home" class="arrow" > <span>HOME</span>>
-					</a><a class="arrow"> <span> 이벤트</span>></a> <a class="arrow"><span> 전체 </span></a>
+					<a href="#/home" class="arrow" > <span>HOME</span>&nbsp;>&nbsp;
+					</a><a class="arrow"> <span> 이벤트</span>&nbsp;>&nbsp;</a> <a class="arrow"><span> 전체 </span></a>
 				</div>
 			</div>
 		</div>

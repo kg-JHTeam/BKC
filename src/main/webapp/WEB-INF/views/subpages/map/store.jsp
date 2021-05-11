@@ -38,8 +38,8 @@
 		<!-- navigation bar -->
 		<div class="locationWrap">
             <div class="page_navi">
-				<ul>
-					<li><a href="${contextPath}/" class="arrow"><span>HOME</span></a> >
+				<ul>		
+					<li><a href="${contextPath }/"> <span>HOME</span> </a>>
 					<a href="${contextPath}/map/store.do" class="arrow"><span>매장찾기</span></a></li>
 				</ul>
 			</div>

@@ -21,6 +21,7 @@
     color: #fff;
     line-height: 38px;
     background: #000;
+    
 }
 
 .locationWrap a{
@@ -40,7 +41,7 @@
 
 .locationWrap>.web_container>.page_navi {
     float: left;
-    font-size: .875rem;
+    
 }
 
 .locationWrap>.web_container>.page_navi a {
@@ -54,14 +55,8 @@
 .locationWrap>.web_container>.page_navi>:first-child::before {
     display: none;
 }
-
-.locationWrap>.web_container>.page_navi>:before {
-    content: "";
-    float: left;
-    width: 8px;
-    height: 38px;
-    margin: 0 12px;
-    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+span {
+    font-size: 1.1rem;
 }
 
 

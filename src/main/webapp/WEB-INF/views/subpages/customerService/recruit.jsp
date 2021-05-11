@@ -43,8 +43,8 @@
 		<div class="locationWrap">
 			<div class="chain_web_container">
 				<div class="page_navi">
-					<a href="#/home"> <span>HOME</span>
-					</a> <span> 고객센터 </span> <span>인재채용</span>
+					<a href="#/home"> <span>HOME&nbsp;</span>>
+					</a> <span>&nbsp; 고객센터&nbsp;>&nbsp; </span> <span>인재채용</span>
 				</div>
 			</div>
 		</div>

@@ -39,19 +39,16 @@
          <div class="menudetaillocationWrap">
             <div class="menudetailcontainer">
                 <div class="menudetailpage_navi">
-                    <a href="${contextPath }/">
-                        <span>HOME</span>
-                    </a>
-                    <a href="#" class="arrow">
-                        <span>메뉴소개</span>
-                    </a>
-                    <a href="${contextPath}/menuInform/chickenMenu.do" class="arrow">
-                        <span>치킨메뉴</span>
-                    </a>
-                   <a href="#" class="arrow">
-                        <span>${chickenMenu.product_name}</span>
-                    </a>
-                </div>
+                   <a href="${contextPath }/">
+                           <span> HOME </span>&nbsp;
+                       >&nbsp; </a>
+                        <a href="#"><span>메뉴소개</span> &nbsp;>&nbsp;</a>
+					<a href="${contextPath}/menuInform/chickenMenu.do">
+						<span>치킨메뉴</span>&nbsp;>&nbsp;</a>
+						<a href="#" >
+						<span> ${chickenMenu.product_name}</span>
+					</a>
+                  </div>
             </div>
         </div>
         <div class="menudetailcontentsbox02">

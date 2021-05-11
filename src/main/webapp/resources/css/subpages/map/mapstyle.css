@@ -42,7 +42,6 @@ button {
     padding-left: 45px;
     color: #fff;
     background: black;
-    font-weight: bold;
     z-index: 2;
    
 }
@@ -58,6 +57,9 @@ button {
 
 .locationWrap>.page_navi{
 	margin: 0 17%;
+}
+span {
+    font-size: 1.1rem;
 }
 
 /*지도 API*/

@@ -22,6 +22,7 @@
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/delivery/delivery.css">
 
+
 <!-- js -->
 <script src="${contextPath}/resources/jquery/jquery-3.6.0.min.js"></script>
 <script src="${contextPath}/resources/js/delivery/delivery.js"></script>
@@ -72,8 +73,8 @@ function loginWithNaver() {
 		<!--navigation bar-->
 		<nav class="locationWrap">
 			<ul>
-				<li><a href="${contextPath}/">HOME</a></li>&nbsp;&nbsp;
-				<li><a href="${contextPath}/login">로그인</a></li>
+				<li><a href="${contextPath}/" >HOME</a></li>
+				<li><a href="${contextPath}/login"  class="gotomenu">로그인</a></li>
 			</ul>
 		</nav>
 		<!--content login-->

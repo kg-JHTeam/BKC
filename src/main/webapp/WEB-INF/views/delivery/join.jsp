@@ -30,8 +30,8 @@
 	<!--navigation bar-->
 	<nav class="locationWrap">
 	    <ul>
-	        <li><a href="${contextPath}/">HOME</a></li>&nbsp;&nbsp;
-	        <li><a href="${contextPath}/login">로그인</a></li>&nbsp;&nbsp;
+	        <li><a href="${contextPath}/">HOME</a></li>&nbsp;&nbsp;>
+	        <li><a href="${contextPath}/login">로그인</a></li>&nbsp;&nbsp;>
 	        <li><a href="${contextPath}/join">회원가입</a></li>
 	    </ul>
 	</nav>
