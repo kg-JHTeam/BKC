@@ -63,8 +63,9 @@ function button1_click(s) {
 		<div class="locationWrap WEB">
 			<div class="news_web_container">
 				<div class="page_navi">
-					<a href="#/home"> <span>HOME</span>
-					</a> <span> 브랜드스토리 </span> <span> BKC NEWS </span>
+					<a href="#/home" class="arrow" > <span>HOME</span>>
+					</a><a class="arrow"> <span>브랜드스토리 </span>></a>
+					<a class="arrow"><span> BKC NEWS </span></a>				
 				</div>
 			</div>
 		</div>
