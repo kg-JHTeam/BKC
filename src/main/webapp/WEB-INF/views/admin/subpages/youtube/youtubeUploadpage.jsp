@@ -89,6 +89,14 @@ window.onload = function(){
 															required /><br />
 													</div><br>
 												</li>
+												<!-- 유튜브 썸네일 내용 -->
+												<li>
+													<div>
+														<div class="index">내용</div>
+														<input type="text" name="thumbnail" style="width: 50%;"
+															required /><br />
+													</div><br>
+												</li>
 											</ul>
 											<div align="center">
 												<input style="padding: 5px"

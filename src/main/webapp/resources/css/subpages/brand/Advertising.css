@@ -218,7 +218,6 @@ button {
 }
 
 .prdmenu_list .prd_img {
-	height: 200px;
 	margin: 0 auto;
 	overflow: hidden;text-align: center;
 }
@@ -228,7 +227,6 @@ button {
 }
 
 .prdmenu_list .prd_img img {
-	width: 100%;
 }
 
 img {

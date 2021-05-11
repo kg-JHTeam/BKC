@@ -167,7 +167,7 @@ function button1_click(s) {
 										<!--  <button onclick="changeyoutube(${youtubeAd.img_seq})">-->
 										<button id="button1" onclick="button1_click('${youtubeAd.img_seq}');">
 											<span>
-												<img src="https://d1cua0vf0mkpiy.cloudfront.net/images/web/film/68bca423-2ec1-47fa-b324-7ebcbd76ec56.png">
+												<img src="${youtubeAd.thumbnail}" width=290px height=200px>
 											</span>
 										</button>
 										</div>

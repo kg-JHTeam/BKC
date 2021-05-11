@@ -72,8 +72,12 @@ window.onload = function(){
 										<textarea class="form-control" rows="3" name='content' style="resize:none;">${youtube.content}</textarea>
 									</div>
 									<div class="form-group">
-										<label>썸네일 주소 </label>
+										<label>광고 주소 </label>
 										<input class="form-control" name='path' value="${youtube.path}"/>
+									</div>
+									<div class="form-group">
+										<label>썸네일 주소 </label>
+										<input class="form-control" name='thumbnail' value="${youtube.thumbnail}"/>
 									</div>
 									<div>
 										<button type="button" class="btn btn-success" onclick="window.location.href='${contextPath }/admin/youtubeList.ad'">목록으로</button>
