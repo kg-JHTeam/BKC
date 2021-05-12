@@ -1,0 +1,440 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Do Hyeon', sans-serif;
+
+}
+
+body {
+    min-height: 100%;
+    color: #000;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+li,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+input[type=radio] {
+    position: relative;
+    float: left;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+    color: black;
+    border: none;
+    opacity: 1;
+}
+
+input[type="radio" i] {
+    background-color: initial;
+    cursor: pointer;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0 5px;
+    padding: initial;
+    border: initial;
+}
+
+input[type=text] {
+    float: left;
+    width: auto;
+    height: 40px;
+    margin: 0;
+    padding: 0 25px 3px 0;
+    font-size: 1.25rem;
+    color: #000;
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
+select {
+    overflow: visible !important;
+    display: table-cell;
+}
+
+.rotate {
+    position: relative;
+    outline: 0;
+    width: 25px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_rotate.png") no-repeat 50%;
+    cursor: pointer;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.close {
+    display: block;
+    height: 0;
+}
+
+
+/* 데스크 탑용 CSS*/
+@media(min-width: 766px) {
+
+.locationWrap {
+	height: 38px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+    margin: 100px 0 0 0;
+}
+
+.locationWrap .inquiry_web_container {
+    overflow: hidden;
+}
+.locationWrap a {
+    color: #fff;
+}
+.page_navi>* {
+    float: left;
+}
+.page_navi {
+    float: left;
+    font-size: 1.1rem;
+}
+
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+.inquiry1_web_container {
+	max-width: 1184px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.contentsBox01 {
+    margin: 0 270px;
+    padding: 50px 0 65px;
+}
+.inquiry_web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+}
+.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+.subtitleWrap .page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+.subtitWrap .tab01 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -17.5px 0 0;
+}
+.tab01 {
+    margin-bottom: 20px;
+    overflow: auto;
+    float: right;
+}
+.tab01 ul {
+    display: table;
+}
+.tab01 li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.tab01 li.on a, .tab01 li.on button {
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+
+.tab01 button {
+    height: 54px;
+    padding: 5px 0;
+}
+.tab01 a, .tab01 button {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0;
+}
+button {
+    margin: 0;
+    color: #000;
+    vertical-align: middle;
+    background: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+}
+.hide {
+    position: absolute!important;
+    left: -10000px;
+    top: -10000px;
+    visibility: hidden;
+}
+
+.contentsBox > .web_container > .tab_content {
+    max-width: 1080px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.tab_content > .app-down >.subtitle-wrap {
+    margin-bottom: 27px;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.cs>.cs-wrap > .infotxt {
+    width: 435px;
+    height: 435px;
+    padding: 70px 600px 0 0;
+    font-size: 1.125rem;
+    line-height: 156%;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_CS.jpg") no-repeat 100% 100%;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+.cs >.cs-wrap>.infotxt>.cs_tit {
+    width: 100%;
+    font-weight: 400;
+    font-size: 3rem;
+    text-align: left;
+    color: #773a2c;
+    line-height: 112.5%;
+    margin-bottom: 30px;
+}
+
+.cs>.help-info {
+    width: auto;
+    display: table;
+}
+
+.cs>.help-info > dl {
+    width: 40%;
+    padding: 0 0 10px 190px;
+    font-size: 1.125rem;
+    display: table-cell;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/phone_icon.png") no-repeat 11px 1px;
+}
+
+.cs>.help-info>.cs_email {
+    max-width: 40%;
+    padding: 0 0 10px 190px;
+    font-size: 1.125rem;
+    display: table-cell;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/email_icon.png") no-repeat;
+}
+
+.cs > .help-info >ul >.service {
+    max-width: 100%;
+    padding: 0 0 10px 60px ;
+    font-size: 1.125rem;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/myset3.png") no-repeat;
+    background-size: 48px;
+}
+
+.cs > .help-info >ul >.service {
+    max-width: 100%;
+    padding: 0 0 10px 60px ;
+    font-size: 1.125rem;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/ico_question4.jpg") no-repeat;
+    background-size: 48px;
+}
+
+}
+
+/*모바일용*/
+@media all and (max-width: 765px) {
+
+    #location-wrap {
+        display: none!important;
+    }
+
+    #location-wrap .web_container,
+    .page_navi {
+        display: none;
+        text-align: center;
+    }
+
+    .web_container {
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap > .page_title {
+        margin: 15px;
+        text-align: center;
+        line-height: 100%;
+        font-size: 1.5rem;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap {
+        position: relative;
+        margin-bottom: 28px;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin: 40px 0 20px;
+        overflow-x: auto;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on > .tabmenu > ul {
+        width: 100%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu > li {
+        position: absolute;
+        width: 16.666%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu a > *,
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu button > * {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .tabmenu button {
+        height: 35px;
+        font-size: 1.125rem;
+        border-width: 0 0;
+        outline: 0;
+        background-color: rgba(255, 255, 255, 0);
+        color: #b8b8b8;
+        white-space: nowrap;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap >.tabmenu button:hover {
+        color: #2e2e2e;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .r_option {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-left: 15em;
+        font-size: 1.25rem;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li {
+        position: relative;
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li.on button {
+        border-width: 0 0 3px 0;
+        color: #e22219;
+        border-bottom-color: #e22219;
+    }
+
+    .hide {
+        position: absolute!important;
+        left: -10000px;
+        top: -10000px;
+        visibility: hidden;
+    }
+
+    .cs >.cs-wrap > .infotxt {
+        width: 100%;
+        height: auto;
+        margin: 30px 0;
+        padding: 34px 0 280px;
+        font-size: 1.125rem;
+        line-height: 156%;
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_CS.jpg") no-repeat 100% 100%;
+        background-position: 40% bottom;
+        background-size: 330px auto;
+        word-wrap: normal;
+        word-break: keep-all;
+    }
+
+    .cs >.cs-wrap > .infotxt > .cs_tit {
+        margin-bottom: 30px;
+        font-weight: 400;
+        font-size: 3rem;
+        color: #773a2c;
+        line-height: 110%;
+        text-align: center;
+    }
+
+    .cs >.help-info {
+        width: auto;
+        display: inline-block;
+
+    }
+
+    .cs> .help-info >dl {
+        width: 50%;
+        margin: 10%;
+        padding: 0 0 10px 40%;
+        font-size: 1.125rem;
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/phone_icon.png") no-repeat 11px 1px;
+    }
+
+    .cs >.help-info > .cs_email {
+        max-width: 40%;
+        padding: 0 0 10px 190px;
+        font-size: 1.125rem;
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/email_icon.png") no-repeat;
+    }
+
+    .cs > .help-info >ul {
+        max-width: 40%;
+        padding: 0 0 10px 190px;
+        font-size: 1.125rem;
+        background: url("../CS_UI/img/email_icon.png") no-repeat;
+    }
+    
+}
+
