@@ -61,7 +61,7 @@ function deleteStore(store_name){
 													
 													<div class="form-group col-md-6">
 														<label>매장명</label> <input class="form-control"
-															name='store_name' value = '<c:out value="${store.store_name}"/>' >
+															name='store_name' value = '<c:out value="${store.store_name}"/>' readonly="readonly">
 													</div>
 													<div class="form-group col-md-6">
 														<label>매장 연락처</label> <input class="form-control"

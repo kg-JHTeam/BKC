@@ -30,7 +30,6 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="${contextPath}/admin/userManagerlist.ad">매장관리자 리스트 </a>
                                     <a class="nav-link" href="${contextPath}/admin/userlist.ad">회원 리스트</a>
-                                    <a class="nav-link" href="${contextPath}/admin/userNonlist.ad">비회원 리스트</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCoupons" aria-expanded="false" aria-controls="collapseLayouts">

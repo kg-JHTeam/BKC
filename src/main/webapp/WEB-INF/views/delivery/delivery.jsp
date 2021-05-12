@@ -217,9 +217,6 @@ window.onload = function(){
                     <div class="order_caution">
                         <div class="tit03">
                             <h4 class="WEB">유의사항</h4>
-                            <a href="#" class="btn_infoallergy">
-                                <strong>알레르기 정보</strong>
-                            </a>
                         </div>
                         <ul class="WEB txtlist01">
                             <li>매장상황 및 거리에 따라 배달비가 발생할 수 있습니다.</li>

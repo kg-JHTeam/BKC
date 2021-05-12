@@ -31,6 +31,13 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <title>로그인</title>
 <script>
+window.onload = function(){
+	var chk = "<c:out value='${check.success}'/>"
+	if(chk=="deleteUser"){
+		alert("회원정보 삭제 성공");
+	}
+}
+
 function loginWithKakao() {
 	  $.ajax({
 	     url: '/bkc/kakao',
@@ -166,65 +173,7 @@ function loginWithNaver() {
 		</div>
 		<!--nonmember order-->
 		<div class="nonmember_order-cover"></div>
-		<div class="nonmember_order">
-			<div class="nonmember_container">
-				<div class="menu">
-					<ul class="menu_tab">
-						<li class="on">
-							<button type="button">
-								<span>비회원 주문</span>
-							</button>
-						</li>
-						<li>
-							<button type="button">
-								<span>비회원 주문내역</span>
-							</button>
-						</li>
-					</ul>
-				</div>
-				<div class="menu-contents">
-					<div>
-						<h3 class="hide">비회원 주문</h3>
-						<div class="menu-contents-tit">
-							<p>회원가입 없이 비회원으로 주문이 가능합니다.</p>
-						</div>
-						<div class="nonmemberorder_btn">
-							<a href="${contextPath}/guestUserPage" class="btn_nonmember">
-								<span>비회원 주문</span>
-							</a>
-						</div>
-					</div>
-					<div class="menu2">
-						<div class="nonmember_order_details">
-							<dl>
-								<dt>주문번호</dt>
-								<dd>
-									<div class="inpbox">
-										<input type="tel" class="order_num" placeholder="주문번호 입력">
-										<button type="button" class="btn_del02" style="display: none;">
-											<span>입력 텍스트 삭제</span>
-										</button>
-									</div>
-								</dd>
-								<dt>비밀번호</dt>
-								<dd>
-									<div class="inpbox pass">
-										<input type="password" placeholder="비밀번호">
-										<button type="button" class="btn_view01">
-											<span>입력 텍스트 보기</span>
-										</button>
-									</div>
-								</dd>
-							</dl>
-						</div>
-						<div class="lookup_btn">
-							<a href="${contextPath}/guestOrderDetail.do" class="lookup_btn01"> <span>조회하기</span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 	</div>
 
 	<!-- delivery-desktop-footer -->
