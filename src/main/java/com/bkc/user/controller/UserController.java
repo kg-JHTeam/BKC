@@ -456,16 +456,26 @@ public class UserController {
 
 		UserVO dbuser = userService.getUserById(userid);
 		System.out.println(password + " , " + dbuser.getPassword());
-
+		CheckVO check = new CheckVO();
+		check.setSuccess("true");
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+		model.addAttribute("user", user);
+		
 		if (passwordEncoder.matches(password, dbuser.getPassword())) {
 			dbuser.setEnabled(false); // 변경시킴
 			userService.deleteUser(dbuser);
-			System.out.println("탈퇴 완료");
+			check.setSuccess("deleteUser");
+			model.addAttribute("check", check);
+			return "delivery/login";
 		} else {
 			System.out.println("실패");
+			check.setSuccess("deleteFail");
+			model.addAttribute("check", check);
+			return "delivery/userDelete";
 		}
-		// 탈퇴되면 login 페이지로 보냄
-		return "delivery/login";
 	}
 
 	// 소셜로그인 //

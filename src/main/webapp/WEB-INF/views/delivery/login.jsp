@@ -31,6 +31,13 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <title>로그인</title>
 <script>
+window.onload = function(){
+	var chk = "<c:out value='${check.success}'/>"
+	if(chk=="deleteUser"){
+		alert("회원정보 삭제 성공");
+	}
+}
+
 function loginWithKakao() {
 	  $.ajax({
 	     url: '/bkc/kakao',
