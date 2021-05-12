@@ -156,15 +156,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="qmenuWrap02">
-                        <ul>
-                            <li class="qmenu_myplace">
-                                <a href="#">
-                                    <span>MY 배달지</span>
-                                </a>
-                            </li>
-                        </ul>
-                </div>
+                    
             </div>
         </div>
     </div>
