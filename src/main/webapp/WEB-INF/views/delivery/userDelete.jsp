@@ -36,7 +36,32 @@
 <script src="${contextPath}/resources/js/delivery/delivery.js"></script>
 <script
 	src="${contextPath}/resources/js/delivery/joindetail/joindetail.js"></script>
+<script>
+window.onload = function(){
+	var chk = "<c:out value='${check.success}'/>"
+	if(chk=="deleteFail"){
+		alert("비밀번호가 일치하지 않습니다.");
+	}
+}
 
+function deleteuser(){
+	var deleteu = document.deleteu;
+	var userid = $('#userid').val();
+	var password = $('#password').val();
+	
+	if($('#password').val() === ""){
+		alert('비밀번호를 입력해주세요');
+		return false;
+	}
+	if(!$(':input:checkbox[id=check02]:checked').val()) {   
+		   alert("약관에 동의 해주세요.");
+		   return;
+		}	
+	else {
+		deleteu.submit();
+	}
+}
+</script>
 <title>계정</title>
 </head>
 <body>
@@ -82,26 +107,6 @@
 								</li>
 							</ol>
 						</div>
-						<h2 class="tit01 tit_ico withdrawal">
-							<span>탈퇴 사유</span>
-						</h2>
-						<div class="container02">
-							<div>
-								<select class="st02">
-									<option disabled="disabled" >탈퇴 사유를 선택해주세요.</option>
-									<option value="01">개인정보보호</option>
-									<option value="02">아이디변경</option>
-									<option value="03">사이트이용불만</option>
-									<option value="99">직접입력</option>
-								</select>
-							</div>
-							<div class="inpbox textarea_type" style="display:none;">
-								<div>
-									<textarea rows="5" cols="50" placeholder="탈퇴하시려는 이유에 대해서 입력해 주세요. (최대  1,000자)"></textarea>
-								</div>
-								<div class="page_count">0/1,000자</div>
-							</div>
-						</div>
 						<h2 class="tit01 tit_ico man">
 							<span>계정확인</span>
 						</h2>
@@ -122,13 +127,7 @@
 												<span class="hide">현재 비밀번호</span>
 												<input type="password" placeholder="현재 비밀번호" class="st02" name="password" id="password">
 												<input type="hidden" id="userid" name="userid" value="${user.userid }" />
-												<button type="button" class="btn_view01">
-													<span>입력 텍스트 보기</span>
-												</button>
 											</label>
-											<p class="txt">
-												<span>현재 비밀번호를 입력해 주세요.</span>
-											</p>
 										</div>
 									</dd>
 								</dl>
@@ -160,23 +159,4 @@
 	<jsp:include page="../include/footer/delivery_desktop_footer.jsp" />
 	<a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
 </body>
-<script>
-function deleteuser(){
-	var deleteu = document.deleteu;
-	var userid = $('#userid').val();
-	var password = $('#password').val();
-	
-	if($('#password').val() === ""){
-		alert('비밀번호를 입력해주세요');
-		return false;
-	}
-	if(!$(':input:checkbox[id=check02]:checked').val()) {   
-		   alert("약관에 동의 해주세요.");
-		   return;
-		}	
-	else {
-		deleteu.submit();
-	}
-}
-</script>
 </html>
