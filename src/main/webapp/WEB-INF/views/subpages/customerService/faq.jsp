@@ -110,8 +110,8 @@
                      <span>임대/가맹</span>
                   </label>
                   <label class="switch01">
-                     <input type="radio" onclick="location.href='${pageContext.request.contextPath }/customerService/faq.do?category=버거킹카드'"name="faqcategory" ${Faqvo.category == "버거킹카드" ? "checked" : ""}>
-                     <span>버거킹카드</span>
+                     <input type="radio" onclick="location.href='${pageContext.request.contextPath }/customerService/faq.do?category=BKC카드'"name="faqcategory" ${Faqvo.category == "BKC카드" ? "checked" : ""}>
+                     <span>BKC카드</span>
                   </label>
                   <label class="switch01">
                      <input type="radio" onclick="location.href='${pageContext.request.contextPath }/customerService/faq.do?category=기타'"name="faqcategory">
