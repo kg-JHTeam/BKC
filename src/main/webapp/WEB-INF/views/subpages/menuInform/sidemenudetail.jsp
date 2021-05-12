@@ -77,10 +77,6 @@
 			<div class="web_container">
 				<a href="${contextPath}/menuInform/sideMenu.do" class="btn_back">
 					<span>메뉴 목록으로 돌아가기</span>
-				</a> <a href="#" class="allergy">
-					<button type="button" class="allergy_btn">
-						<span>알레르기 정보</span>
-					</button>
 				</a>
 			</div>
 		</div>
