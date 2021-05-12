@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<!-- favicon -->
+<link rel="shortcut icon" type="image/x-icon"
+    href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
 <!--css-->
 <link rel="stylesheet" href="../resources/css/include/main-gnb.css">
 <link rel="stylesheet"

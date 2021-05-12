@@ -4,21 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- favicon -->
+<link rel="shortcut icon" type="image/x-icon"
+    href="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/favicon.png" />
 <!--css-->
 <link rel="stylesheet" href="../resources/css/include/main-gnb.css">
 <link rel="stylesheet"
-	href="../resources/css/subpages/customerService/appguide.css?v=<%=System.currentTimeMillis() %>" />
-<link rel="stylesheet" type="text/css" href="../resources/slick/slick.css" />
-<link rel="stylesheet" type="text/css" href="../resources/slick/slick-theme.css" />
+	href="../resources/css/subpages/customerService/appguide.css?v=<%=System.currentTimeMillis()%>" />
+<link rel="stylesheet" type="text/css"
+	href="../resources/slick/slick.css" />
+<link rel="stylesheet" type="text/css"
+	href="../resources/slick/slick-theme.css" />
 
 <!--jQuery-->
 <script src="http://code.jquery.com/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
 
 <!--js-->
 <script src="../resources/slick/slick.js"></script>
 <script src="../resources/js/include/main-gnb.js"></script>
-<script src="../resources/js/subpages/customerService/cs.js"></script>
+<script src="../resources/js/customerService/cs.js"></script>
 
 <!--font-->
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -32,23 +36,23 @@
 <title>앱이용안내</title>
 </head>
 <body>
-<!-- main-header -->
+	<!-- main-header -->
 	<jsp:include page="../../include/header/main_desktop_header.jsp" />
 	<jsp:include page="../../include/header/main_mobile_header.jsp" />
 	<div id="contents-wrap">
-		<div class="locationWrap_WEB">
-			<div class="story_web_container">
+		<div class="locationWrap">
+			<div class="appguide1_web_container">
 				<div class="page_navi">
-					<a href="#/home"> <span>HOME</span>
-					</a> <span> 고객센터 </span> <span> 앱이용안내 </span>
+					<a href="#/home"> <span>HOME &nbsp;</span>>
+					</a> <span> &nbsp;고객센터 &nbsp;> &nbsp; </span> <span>공지사항</span>
 				</div>
 			</div>
 		</div>
-		<div class="contentsBox">
-			<div class="web_container">
-				<div class="subtitle-wrap">
-					<h3 class="page_title">고객센터</h3>
-					<div class="tabmenu">
+		<div class="contentsBox01">
+			<div class="appguide_web_container">
+				<div class="subtitleWrap">
+					<h3 class="page_tit">고객센터
+					<div class="tab01">
 						<ul>
 							<li>
 								<button type="button"
@@ -87,7 +91,7 @@
 								</button>
 							</li>
 						</ul>
-					</div>
+					</div></h3>
 				</div>
 				<div class="tab_content">
 					<div class="app-down">
@@ -142,19 +146,16 @@
 							</h4>
 							<p class="txt">bkc 앱으로 편리하게 주문할 수 있는 방법과 고객님이 누릴 수 있는 혜택들을
 								소개해드립니다.</p>
-							<ul class="guide_list">
-								<div class="guide-wrap">
-									<li><a class="delivery"> <strong>딜리버리 <br>이용안내
-										</strong>
-									</a></li>
-									<li><a class="store_search"> <strong>매장찾기<br>
-												이용안내
-										</strong>
-									</a></li>
-									<li><a class="coupon"> <strong>쿠폰 <br>이용안내
-										</strong>
-									</a></li>
-								</div>
+							<ul class="guide-list">
+								<li><a href="javascript:popOpen(0)" class="delivery"><strong>딜리버리
+											<br>이용안내
+									</strong></a></li>
+								<li><a href="javascript:popOpen(3)" class="search"><strong>매장찾기<br>
+											이용안내
+									</strong></a></li>
+								<li><a href="javascript:popOpen(4)" class="coupon"><strong>쿠폰
+											<br>이용안내
+									</strong></a></li>
 							</ul>
 							<div class="web_order_caution">
 								<h4 class="title-wrap">
@@ -191,74 +192,198 @@
 								</div>
 							</div>
 						</div>
-						<div class="popup-wrap">
-							<div class="popup-app">
-								<div class="popup-app_tit">
-									<h1>앱이용안내</h1>
-									<button type="button" class="btn_close"></button>
+						<div class="popWrap m_FullpopWrap">
+							<div class="popbox01 nobtn">
+								<div class="M_headerWrap">
+									<div class="titleBar">
+										<h1 class="page_tit w_alignL">
+											<span>앱 이용방법</span>
+										</h1>
+										<div class="close-box">
+											<a href="#none" class="btn_close btn_head_close"
+												type="button"></a>
+										</div>
+									</div>
 								</div>
-								<div class="popup-tabmenu">
-									<ul>
-										<li class="on">
-											<button type="button">
-												<span>딜리버리 이용안내</span>
-											</button>
-										</li>
-										<li>
-											<button type="button">
-												<span>매장찾기 이용안내</span>
-											</button>
-										</li>
-										<li>
-											<button type="button">
-												<span>쿠폰 이용안내</span>
-											</button>
-										</li>
-									</ul>
-								</div>
-								<div class="popup-tabcont">
-									<div class="on">
-										<div class="slick-delivery">
-											<div>
-												<img
-													src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_delivery.png">
-											</div>
-											<div>
-												<img
-													src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_guide_delivery2.png">
-											</div>
-											<div>
-												<img
-													src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_guide_delivery3.png">
+								<div class="popcont nopadding appguide_contWrap">
+									<div class="tab02" style="margin-left: 0px;">
+										<ul>
+											<li class="on"><a href="#"><span>딜리버리
+														이용안내</span></a></li>
+											<li class=""><a href="#"><span>매장찾기이용안내</span></a></li>
+											<li class=""><a href="#"><span>쿠폰 이용안내</span></a></li>
+										</ul>
+										<div class="btn_area">
+											<a class="btn_prev" href="#none"><span>Previous</span></a> <a
+												class="btn_next" href="#none"><span>Next</span></a>
+										</div>
+									</div>
+									<div class="tab_cont">
+										<div class="tutorial">
+											<div class="slide-list">
+												<div>
+													<div class="cont"
+														style="width: 100%; display: inline-block;">
+														<div class="guide">
+															<dl>
+																<dt>배달지 설정</dt>
+																<dd>
+																	배달받을 곳의 주소를 <br>확인해주세요.
+																</dd>
+															</dl>
+														</div>
+														<div class="guide_image">
+															<img alt="배달지 설정"
+																src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_guide_delivery.png">
+														</div>
+													</div>
+												</div>
+
+												<div>
+													<div class="cont"
+														style="width: 100%; display: inline-block;">
+														<div class="guide">
+															<dl>
+																<dt>메뉴 선택</dt>
+																<dd>딜리버리 메뉴를 선택해 주세요. 재료를 추가 하거나 음료와 사이드를 변경 할 수
+																	있어요.</dd>
+															</dl>
+														</div>
+														<div class="guide_image">
+															<img alt="메뉴 선택"
+																src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_guide_delivery2.png">
+														</div>
+													</div>
+												</div>
+
+												<div>
+													<div class="cont"
+														style="width: 100%; display: inline-block;">
+														<div class="guide">
+															<dl>
+																<dt>카트 담기</dt>
+																<dd>
+																	선택한 메뉴를 카트에 담고 <br>주문금액을 확인해 주세요.
+																</dd>
+															</dl>
+														</div>
+														<div class="guide_image">
+															<img alt="카트 담기"
+																src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_guide_delivery3.png">
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="slick-store">
-										<div>
-											<img
-												src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/img_guide_shop.png">
-										</div>
-										<div>
-											<img
-												src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/img_guide_shop2.png">
-										</div>
-										<div>
-											<img
-												src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/img_guide_shop3.png">
+									<div class="tab_cont" style="display: none;">
+										<div class="tutorial">
+
+											<div class="slide-list">
+												<div>
+													<div class="cont"
+														style="width: 100%; display: inline-block;">
+														<div class="guide">
+															<dl>
+																<dt>가까운 매장</dt>
+																<dd>
+																	위치설정을 켜두시면 현재 내 위치와 <br>가장 가까운 매장을 바로 찾을 수 있어요.
+																</dd>
+															</dl>
+														</div>
+														<div class="guide_image">
+															<img alt="" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_guide_shop.png">
+														</div>
+													</div>
+												</div>
+
+												<div>
+													<div class="cont"
+														style="width: 100%; display: inline-block;">
+														<div class="guide">
+															<dl>
+																<dt>매장명 검색</dt>
+																<dd>
+																	매장이름을 입력하시면 <br>바로 찾을 수 있어요.
+																</dd>
+															</dl>
+														</div>
+														<div class="guide_image">
+															<img alt="" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_guide_shop2.png">
+														</div>
+													</div>
+												</div>
+
+												<div>
+													<div class="cont"
+														style="width: 100%; display: inline-block;">
+														<div class="guide">
+															<dl>
+																<dt>지역검색</dt>
+																<dd>
+																	지역 이름을 선택하시면 <br>지역별 매장을 찾을 수 있어요.
+																</dd>
+															</dl>
+														</div>
+														<div class="guide_image">
+															<img alt="" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_guide_shop3.png">
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
-									<div class="slick-coupon">
-										<div>
-											<img
-												src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/img_guide_coupon.png">
-										</div>
-										<div>
-											<img
-												src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/img_guide_coupon2.png">
-										</div>
-										<div>
-											<img
-												src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/img_guide_coupon3.png">
+									<div class="tab_cont" style="display: none;">
+										<div class="tutorial">
+											<div class="slide-list">
+												<div>
+													<div class="cont"
+														style="width: 100%; display: inline-block;">
+														<div class="guide">
+															<dl>
+																<dt>매장용 쿠폰</dt>
+																<dd>
+																	매장 방문 시 키오스크 에서 쿠폰 바코드를 <br>스캔하시면 쿠폰을 사용하실 수 있어요.
+																</dd>
+															</dl>
+														</div>
+														<div class="guide_image">
+															<img alt="" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_guide_coupon.png">
+														</div>
+													</div>
+												</div>
+
+												<div>
+													<div class="cont"
+														style="width: 100%; display: inline-block;">
+														<div class="guide">
+															<dl>
+																<dt>할인 쿠폰</dt>
+																<dd>할인된 금액으로 주문 하실 수 있어요.</dd>
+															</dl>
+														</div>
+														<div class="guide_image">
+															<img alt="" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_guide_coupon2.png">
+														</div>
+													</div>
+												</div>
+
+												<div>
+													<div class="cont"
+														style="width: 100%; display: inline-block;">
+														<div class="guide">
+															<dl>
+																<dt>딜리버리용 쿠폰</dt>
+																<dd>할인된 금액으로 주문 하실 수 있어요.</dd>
+															</dl>
+														</div>
+														<div class="guide_image">
+															<img alt="" src="https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/img_guide_coupon3.png">
+														</div>
+													</div>
+												</div>
+											</div>
+
 										</div>
 									</div>
 								</div>
@@ -268,7 +393,118 @@
 				</div>
 			</div>
 		</div>
-		</div>
-		<a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
+	</div>
+	<!-- main-footer -->
+	<jsp:include page="../../include/footer/main_desktop_footer.jsp" />
+	<jsp:include page="../../include/footer/main_mobile_footer.jsp" />
+	<a href="#app" class="btn_top" style="opacity: 1; display: inline;">Top</a>
+	<script src="../resources/js/customerService/jquery-3.1.1.min.js"></script>
+	<script src="../resources/js/customerService/jquery-ui-1.12.1.js"></script>
+	<script src="../resources/js/ui.js"></script>
+	<script src="../resources/js/customerService/slick.min.js"></script>
+	<script src="../resources/js/customerService/datepicker.min.js"></script>
+	<script src="../resources/js/customerService/datepicker.ko.js"></script>
+	<script>
+
+	$(window).on('scroll', function () {
+
+		var _current = $(document).scrollTop();
+		var _top = $('a.top-btn')
+		console.log(_current)
+
+		if (_current > 100) {
+			_top.fadeIn();
+		} else {
+			_top.fadeOut();
+
+		}
+	})
+
+	$('.slide-list').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		dots: true,
+		infinite: true,
+	})
+
+
+	$('.popWrap .close-box a').on('click',function (){
+		$('.popWrap').hide();
+	});
+
+	$('.popWrap .tab02 li a').on('click',function (){
+		$('.popWrap .tab02 li').removeClass('on')
+		$(this).parent().addClass('on');
+
+		var _order = $('.popWrap .tab02 li.on').index()
+
+
+		move(_order)
+	})
+
+
+	function popOpen(_order){
+		$('.popWrap').show();
+		$('.popWrap .tab02 li').eq(_order).find('a').trigger('click');
+
+		$('.tab_cont .slide-list').slick('refresh')
+
+
+	}
+
+
+	function move(_order){
+
+		switch (_order){
+			case 0 :
+				$('.popWrap .tab02').css('margin-left',0);
+				$('.tab_cont').hide().eq(_order).show();
+				break;
+			case 3 :
+				$('.popWrap .tab02').css('margin-left',-390);
+				$('.tab_cont').hide().eq(_order).show();
+				break;
+			case 4 :
+				$('.popWrap .tab02').css('margin-left',-390);
+				$('.tab_cont').hide().eq(_order).show();
+				break;
+		}
+
+		$('.tab_cont').eq(_order).find('.slide-list').slick('refresh')
+	}
+
+
+
+
+	$('.popWrap .tab02 .btn_area .btn_prev').on('click',function (){
+
+		var _order = $('.popWrap .tab02 li.on').index()
+
+		if(_order != 0){
+			$('.popWrap .tab02 li').removeClass('on')
+			$('.popWrap .tab02 li').eq(_order-1).addClass('on')
+
+			var _order2 = $('.popWrap .tab02 li.on').index()
+
+			move(_order2)
+		}
+	})
+
+	$('.popWrap .tab02 .btn_area .btn_next').on('click',function (){
+
+
+		var _order = $('.popWrap .tab02 li.on').index()
+
+		if(_order != 2){
+			$('.popWrap .tab02 li').removeClass('on')
+			$('.popWrap .tab02 li').eq(_order+1).addClass('on')
+
+			var _order2 = $('.popWrap .tab02 li.on').index()
+
+			move(_order2)
+		}
+	})
+
+</script>
 </body>
 </html>
