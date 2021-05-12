@@ -38,9 +38,9 @@
                 <div class="last-div">
                     <a href=""><span>고객센터</span></a><br><br>
                     <a href="${contextPath}/customerService/notice.do">공지사항</a><br><br>
-                    <a href="#">BKC앱이용안내</a><br><br>
+                    <a href="${contextPath}/customerService/appguide.do">BKC앱이용안내</a><br><br>
                     <a href="${contextPath}/customerService/faq.do">FAQ</a><br><br>
-                    <a href="">문의</a><br><br>
+                    <a href="${contextPath}/customerService/inquiry.do">문의</a><br><br>
                     <a href="${contextPath}/customerService/chain.do">가맹점모집</a><br><br>
                     <a href="${contextPath}/customerService/recruit.do">인재채용</a><br><br>
                 </div>

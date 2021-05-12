@@ -221,9 +221,9 @@
     	var options = {
     	          title: '메뉴 카테고리별 판매량 비교', 
     	              slices: {
-    	                  0: { color: 'yellow' },
+    	                  0: { color: 'red' },
     	                  1: { color: 'brown' },
-    	                  2: { color: 'red' } 
+    	                  2: { color: 'yellow' } 
     	                }
     	        };
 

@@ -100,8 +100,8 @@
 	SELECT COUNT(od.product_serial) AS y,
 			p.type_serial AS x
 		FROM orderlist ol
-		LEFT JOIN order_detail od ON od.order_serial = ol.order_serial
-		LEFT JOIN product p ON p.product_serial = od.product_serial
+		INNER JOIN order_detail od ON od.order_serial = ol.order_serial
+		INNER JOIN product p ON p.product_serial = od.product_serial
 		WHERE 1=1
               AND order_date BETWEEN TO_TIMESTAMP(#{startDate}, 'YYYY-MM-DD')
                            AND TO_TIMESTAMP(#{endDate}, 'YYYY-MM-DD')
@@ -114,8 +114,8 @@
 	SELECT COUNT(od.product_serial) AS y,
 		   p.product_name AS x 
 		FROM orderlist ol
-		LEFT JOIN order_detail od ON od.order_serial = ol.order_serial
-		LEFT JOIN product p ON p.product_serial = od.product_serial
+		INNER JOIN order_detail od ON od.order_serial = ol.order_serial
+		INNER JOIN product p ON p.product_serial = od.product_serial
 		WHERE 1=1
 		GROUP BY p.product_name
 	</select>
@@ -151,8 +151,8 @@
 	SELECT COUNT(od.product_serial) AS y,
 			p.type_serial AS x
 		FROM orderlist ol
-		LEFT JOIN order_detail od ON od.order_serial = ol.order_serial
-		LEFT JOIN product p ON p.product_serial = od.product_serial
+		INNER JOIN order_detail od ON od.order_serial = ol.order_serial
+		INNER JOIN product p ON p.product_serial = od.product_serial
 		WHERE 1=1
 		GROUP BY p.type_serial
 	</select>
