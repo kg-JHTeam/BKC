@@ -121,7 +121,7 @@
 						<div class="popup-wrap">
 							<div class="popup">
 								<div class="pop_tit">
-									<h1>가맹 신청서</h1>
+									<h1>입사 신청서</h1>
 									<button type="button" class="btn_close"></button>
 								</div>
 								<div class="poptxt">
