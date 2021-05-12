@@ -85,19 +85,6 @@ public class UserServiceImpl implements UserService {
 		return userDao.insertUser(user);
 	}
 	
-	
-	// 회원수정
-	@Override
-	public void update(UserVO user) {
-
-	}
-
-	// 회원삭제
-	@Override
-	public void delete(UserVO user) {
-
-	}
-
 	// 비밀번호 체크
 	@Override
 	@Transactional

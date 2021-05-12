@@ -206,7 +206,9 @@ public class UserController {
 
 	@ResponseBody
 	@RequestMapping(value = "/sendsms.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String sendSms(HttpServletRequest request, SendMessageVO vo) throws Exception {
+	public String sendSms(HttpServletRequest request, SendMessageVO vo,
+			@RequestParam(value = "phoneNumber", required = false) String phoneNumber) throws Exception {
+		System.out.println("send SMS to" + phoneNumber);
 		Random random = new Random();
 
 		int range = (int) Math.pow(10, 6);
@@ -219,10 +221,17 @@ public class UserController {
 		com.bkc.user.sms.Coolsms coolsms = new com.bkc.user.sms.Coolsms(api_key, api_secret);
 
 		HashMap<String, String> set = new HashMap<String, String>();
-		set.put("to", vo.getPhoneNumber()); // 수신번호
-		set.put("from", "01063135712"); // 발신번호, jsp에서 전송한 발신번호를 받아 map에 저장한다.
-		set.put("text", "[BKC] 인증번호는 " + results + " 입니다."); // 문자내용, jsp에서 전송한 문자내용을 받아 map에 저장한다.
-		set.put("type", "sms"); // 문자 타입
+		if (phoneNumber == null) {
+			set.put("to", vo.getPhoneNumber()); // 수신번호
+			set.put("from", "01063135712"); // 발신번호, jsp에서 전송한 발신번호를 받아 map에 저장한다.
+			set.put("text", "[BKC] 인증번호는 " + results + " 입니다."); // 문자내용, jsp에서 전송한 문자내용을 받아 map에 저장한다.
+			set.put("type", "sms"); // 문자 타입
+		} else {
+			set.put("to", phoneNumber); // 수신번호
+			set.put("from", "01063135712"); // 발신번호, jsp에서 전송한 발신번호를 받아 map에 저장한다.
+			set.put("text", "[BKC] 인증번호는 " + results + " 입니다."); // 문자내용, jsp에서 전송한 문자내용을 받아 map에 저장한다.
+			set.put("type", "sms"); // 문자 타입
+		}
 
 		System.out.println("인증번호 : " + results);
 		JSONObject result = coolsms.send(set); // 보내기&전송결과받기
@@ -360,33 +369,72 @@ public class UserController {
 		UserDetails userDetails = (UserDetails) principal;
 		UserVO user = userService.getUserById(userDetails.getUsername());
 		model.addAttribute("user", user);
+		
 		return "delivery/userChange";
 	}
 
+	// 비밀번호 check
+	@RequestMapping(value = "/checkpassword.do", method = { RequestMethod.POST })
+	@ResponseBody
+	public String checkPassword(@RequestParam("password") String password) {
+		String flag = "false";
+
+		System.out.println("들어온 : " + password);
+
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
+		user.getPassword();
+
+		if (passwordEncoder.matches(password, user.getPassword())) {
+			System.out.println("일치");
+			flag = "true";
+		} else {
+			System.out.println("불일치");
+			flag = "false";
+		}
+		return flag;
+	}
+
 	// 비밀번호 변경
-	@RequestMapping(value = "/changepassword", method = { RequestMethod.GET })
-	public String changepassword(@RequestParam("userid") String userid, @RequestParam("password") String password,
-			@RequestParam("newPass") String newPass, HttpSession session, Model model) throws Exception {
+	@RequestMapping(value = "/changepassword.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String changepassword(@RequestParam("phoneNumber") String phone,
+			@RequestParam("newPass") String newPass, Model model) {
 
 		// 푸터 넣기
 		BusinessInformationVO bi = biService.getBusinessInformation(1);
 		model.addAttribute("bi", bi);
 
-		UserVO dbuser = userService.getUserById(userid);
-		if (passwordEncoder.matches(password, dbuser.getPassword())) {
-			String pass = passwordEncoder.encode(newPass);
-			dbuser.setPassword(pass);
-			userService.updatePasswd(dbuser);
-			System.out.println(pass + "성공");
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = (UserDetails) principal;
+		UserVO user = userService.getUserById(userDetails.getUsername());
 
+		// 비밀번호 변경, 휴대폰번호 변경
+		user.setPassword(passwordEncoder.encode(newPass));
+		user.setPhone(phone);
+
+		CheckVO check = new CheckVO();
+		check.setSuccess("true");
+		
+		if (userService.updatePasswd(user) == 1) {
+			check.setSuccess("true");
+		} else {
+			check.setSuccess("false");
 		}
-
+		
+		model.addAttribute("user", user);
+		model.addAttribute("check", check);
+		
 		return "redirect:/modifyuser";
 	}
 
 	// 회원 탈퇴
 	@RequestMapping(value = "/deleteuser", method = { RequestMethod.GET })
 	public String deleteUser(Model model) {
+
+		// 푸터 넣기
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
 
 		// 회원 탈퇴 하지만 enabled만 유효하지 않게 설정 1-> 0 유효하지 않은 회원
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -399,21 +447,24 @@ public class UserController {
 
 	// 회원 탈퇴 버튼 클릭
 	@RequestMapping(value = "/deletesubmit", method = { RequestMethod.GET })
-	public String deleteUser(@RequestParam("userid") String userid,
-			@RequestParam("password") String password,
+	public String deleteUser(@RequestParam("userid") String userid, @RequestParam("password") String password,
 			Model model) {
+
+		// 푸터 넣기
+		BusinessInformationVO bi = biService.getBusinessInformation(1);
+		model.addAttribute("bi", bi);
 
 		UserVO dbuser = userService.getUserById(userid);
 		System.out.println(password + " , " + dbuser.getPassword());
-		
+
 		if (passwordEncoder.matches(password, dbuser.getPassword())) {
-			dbuser.setEnabled(false); //변경시킴 
+			dbuser.setEnabled(false); // 변경시킴
 			userService.deleteUser(dbuser);
 			System.out.println("탈퇴 완료");
 		} else {
 			System.out.println("실패");
 		}
-		//탈퇴되면 login 페이지로 보냄
+		// 탈퇴되면 login 페이지로 보냄
 		return "delivery/login";
 	}
 

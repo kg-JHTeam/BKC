@@ -88,7 +88,7 @@
 		<![CDATA[
 		UPDATE 
 			usermember
-		SET password=#{password}
+		SET password = #{password}, phone = #{phone}
 		WHERE userid=#{userid};
 		]]>
 	</insert>

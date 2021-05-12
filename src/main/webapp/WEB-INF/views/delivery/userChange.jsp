@@ -37,23 +37,65 @@
 <title>계정</title>
 
 <script>
-		var checkNumber; //인증번호 
+window.onload = function(){
+	var chk = "<c:out value='${check.success}'/>"
+	if(chk=="true"){
+		alert("회원정보 수정 성공");
+	} else if(chk=="false"){
+		alert("회원정보 수정 실패");
+	} 
+}
+
+		var contextpath = "<c:out value='${contextPath}'/>";
+		var checkTimer = false; 
+		var timer;
+		
+		//타이머 
+		function startTimer() {
+			checkTimer = true; //작동중
+			var time = 120;
+			var min = "";
+			var sec = "";
+			
+			timer = setInterval(function() {
+				min = parseInt(time / 60);
+				sec = time % 60;
+				if(sec == 0 ) sec = "00";
+				
+				document.getElementById("time").innerHTML = min + ":" + sec;
+				time--;
+
+				//타임 종료시
+				if (time < 0) {
+					clearInterval(timer);
+					document.getElementById("time").inner("시간초과");
+				}
+			}, 1000);
+		}
+		
+		//타이머 끄기
+		function stopTimer() {
+			clearInterval(timer);
+			checkTimer = false;
+			document.getElementById("time").innerHTML = "2:00";
+		}
+		
 		//인증관련 
 		function changePhoneNumber(){
 			var phoneNumberCheckDiv = document.getElementById("phoneNumberCheckDiv");
 			phoneNumberCheckDiv.style.display="";
 		}
 		
+		var phoneNumber;
+		var realNumber; //인증번호 
 		function sendSMS(){
 				//변경할 핸드폰 번호 넘겨주기
-				alert("-휴대폰인증-")
-				var phoneNumber = document.getElementById("changedPhoneNumber").value;
+				phoneNumber = document.getElementById("changedPhoneNumber").value;
 				var checkNumber = document.getElementById("checkNumberDiv");
 				checkNumber.style.display="";
 				var regExp = /(01[016789])([1-9]{1}[0-9]{2,3})([0-9]{4})$/;
 				
 				if(regExp.test(phoneNumber)){
-					alert("start ajax");
 					var sendMessage = { 
 							"phoneNumber" : phoneNumber,
 					};
@@ -65,11 +107,16 @@
 								if (result == "false") { 
 									alert("인증번호 전송 실패");
 								} else { 
+									//성공
 									startTimer(); //타이머 스타트 시킴.
-									checkNumber = result; //전역변수로 넣어둔다.
+									realNumber = result; //전역변수로 넣어둔다.
 									phoneNumberCheck.style.display="";
+									document.getElementById("changedPhoneNumber").style.disabled = "true";
 								} 
-							} 
+							}, 
+							error: function(){
+								alert("전송실패");
+							}
 						});
 					} 
 				else{
@@ -77,21 +124,39 @@
 				}
 		}
 		
-	function checkNumaber(){
-		
+	function checkNumberFunction(){
+		var inputNumber = document.getElementById("inputNumber").value;
+		if(realNumber == inputNumber){
+			alert("인증완료");
+			
+			document.getElementById("userPhone").innerHTML = document.getElementById("changedPhoneNumber").value
+			var phoneNumberCheckDiv = document.getElementById("phoneNumberCheckDiv");
+			var checkNumberDiv = document.getElementById("checkNumberDiv");
+			var changeBtn = document.getElementById("changeBtn");
+			
+			phoneNumberCheckDiv.style.display="none";
+			checkNumberDiv.style.display="none";
+			changeBtn.innerHTML ="인증완료";
+			
+			stopTimer();
+			checkTimer = false;
+			
+		} else{
+			alert("인증번호가 틀렸습니다.");
+		}
 	}
 	
-	//check
-	function changepw() {
-		var change = document.change;
-		var userid = $('#userid').val();
-		var password = $('#password').val();
+	function sumitChange(){
+		//인증완료 유효성검사
+		let check = changeBtn.innerHTML;
+		if(check != "인증완료"){
+			alert("휴대폰 변경 인증을 완료해주세요.");
+			return;
+		}
+		
+		//새비밀번호 일치 유효성검사
 		var newPass = $('#newPass').val();
 		var newPass2 = $('#newPass2').val();
-		if ($('#password').val() === "") {
-			alert('비밀번호를 입력해주세요');
-			return false;
-		}
 		if ($('#newPass').val() === "") {
 			alert('새 비밀번호를 입력해주세요');
 			return false;
@@ -103,14 +168,43 @@
 		if ($('#newPass2').val() != $('#newPass').val()) {
 			alert('새 비밀번호를 정확히 입력해주세요');
 			return false;
-		} else {
-			change.submit();
-		}
+		} 
+		
+		//현재 비밀번호 일치 유효성 검사
+		var password = $('#password').val();
+		var sendMessage = { 
+			"password" : password,
+		};
+		
+		$.ajax({ 
+			url: contextpath+"/checkpassword.do", 
+			data: sendMessage, 
+			type: "post", 
+			success: function(result) { 
+				if(result == "true"){
+				} else if(result == "false"){
+					alert("비밀번호가 틀렸습니다.");
+					return;
+				}
+			}, 
+			error: function(){
+				alert("실패");
+			}
+		});
+		
+        var changeInfo = document.changeInfo;
+        changeInfo.submit();
+        
 	}
+	
 </script>
 <style>
 .auth_numWrap{
 font-size:1rem;
+}
+.timer{
+	font-size:1.2rem;
+	color:red;
 }
 </style>
 </head>
@@ -150,32 +244,31 @@ font-size:1rem;
 									</dd>
 								</dl>
 							</div>
+							
+							<form method="post" name="changeInfo" action="${contextPath}/changepassword.do">
 							<div>
 								<dl class="dlist01 st03">
 									<dt class="vtop">핸드폰</dt>
 									<dd>
 										<div class="vtop m_rbtnWrap">
-											<span>${user.phone }</span>
+											<span id="userPhone">${user.phone }</span>
 											<button type="button" class="btn04 h02 m_rcen_btn" onclick="changePhoneNumber()">
-												<span>변경</span>
-											</button>
-											<button type="button" class="btn04 h02 m_rcen_btn"
-												style="display: none;">
-												<span>취소</span>
+												<span id="changeBtn">변경</span>
 											</button>
 										</div>
 										<div class="auth_numWrap">
 											<div style="display: none;" id="phoneNumberCheckDiv">
-												<input type="text" placeholder="변경할 번호를 입력" id="changedPhoneNumber">
+												<input type="text" placeholder="변경할 번호를 입력" id="changedPhoneNumber" name="phoneNumber">
 												<button type="button" class="btn04 h02" onclick="sendSMS()">
 													<span>인증번호 발송</span>
 												</button>
 											</div>
 											<div style="display:none;" id="checkNumberDiv">
-												<input type="text" placeholder="인증번호 입력">
-												<button type="button" class="btn04 h02" onclick="checkNumber()">
+												<input type="text" placeholder="인증번호 입력" id="inputNumber">
+												<button type="button" class="btn04 h02" onclick="checkNumberFunction()">
 													<span>인증</span>
 												</button>
+												<span class="timer" id="time">2:00</span>
 											</div>
 										</div>
 									</dd>
@@ -185,8 +278,6 @@ font-size:1rem;
 						<h3 class="tit01 tit_ico key">
 							<span>비밀번호 변경</span>
 						</h3>
-						<form name="change" action="${contextPath}/changepassword"
-							method="GET">
 							<div class="container02">
 								<div class="dlist01 m_dlist02">
 									<dl>
@@ -236,31 +327,22 @@ font-size:1rem;
 											</div>
 										</dd>
 									</dl>
+									</form>
 								</div>
-								<ul class="txtlist01">
-									<li><span>비밀번호는 숫자와영문, 특수문자를 조합하여 10~20자리로 입력하세요.</span></li>
-									<li><span>비밀번호는 대소문자 입력을 구분합니다.</span></li>
-									<li><span>띄어쓰기가 들어가거나 로그인 아이디와 같은 비밀번호는 입력하실 수
-											없습니다.</span></li>
-									<li><span>숫자를 연속으로 나열하거나, 키보드 배열, 생년월일과 전화번호 등 추측하기
-											쉬운 정보로 이루어진 비밀번호 조합은 사용하지 않는 것이 안전합니다.</span></li>
-								</ul>
 							</div>
-						</form>
 					
 						<div class="bot_btn_area">
 							<div class="c_btn m_item2">
 								<a href="${contextPath}/delivery/mybkc.do" class="btn01 m">
 									<span>취소</span>
 								</a> 
-								<a href="#" class="btn01 m red"> 
+								<a href="javascript:sumitChange()" class="btn01 m red"> 
 								<span>변경</span>
 								</a>
 							</div>
 							<div class="withdrawal">
 								<a class="btn_withdrawal"> <span> 
-								<a href="${contextPath}/deleteuser">회원탈퇴</a>
-								</span>
+									<a href="${contextPath}/deleteuser">회원탈퇴</a></span>
 								</a>
 							</div>
 						</div>
