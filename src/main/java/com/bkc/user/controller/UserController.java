@@ -425,7 +425,7 @@ public class UserController {
 		model.addAttribute("user", user);
 		model.addAttribute("check", check);
 		
-		return "redirect:/modifyuser";
+		return "delivery/userChange";
 	}
 
 	// 회원 탈퇴
