@@ -119,19 +119,9 @@
                             </a>
                             <div class="collapse" id="collapseStatics" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">매장별 판매 현황 </a>
-                                    <a class="nav-link" href="#">제품별 판매 현황</a>
+                                    <a class="nav-link" href="${contextPath}/admin/salelist.ad"> 차트</a>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="${contextPath}/admin/salelist.ad">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                               	 차트
-                            </a>
-                            <a class="nav-link" href="">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                               	 테이블
-                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

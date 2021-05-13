@@ -100,12 +100,12 @@
 								<div class="card-header">
 									<i class="fas fa-chart-area mr-1"></i> 지점별 매출 현황
 								</div>
-								<div class="card-body" >
-									<div id="chart_div" style="width: 100%; height:230px;"></div>
+								<div class="card-body">
+									<div id="chart_div" style="width: 100%; height:240px;"></div>
 								</div>
 							</div>
 						</div>
-				</div>
+					</div>
 
 					<!-- 회원 리스트  -->
 					<div class="card mb-4">

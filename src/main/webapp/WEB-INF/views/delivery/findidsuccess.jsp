@@ -84,7 +84,7 @@
 						</div>
 						<div class="dlist01">
 							<h3>회원님의 아이디는 다음과 같습니다</h3>
-							<h3>니 아이디 : ${vo.userid}</h3>
+							<h3>회원님의 아이디 : ${vo.userid}</h3>
 						</div>
 					</div>
 					<div class="c_btn">
