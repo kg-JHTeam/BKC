@@ -1,0 +1,353 @@
+@charset "UTF-8";
+
+/* reset */ 
+/* font 설정*/
+
+* {
+    font-family: 'Do Hyeon', sans-serif;
+    font-weight: bold;
+}
+
+
+/* CSS 초기화 */
+
+a,
+div,
+li {
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+body {
+    min-height: 100%;
+    color: #000;
+    background: #fff;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+body,
+html {
+    height: 100%;
+    min-height: 450px;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 900;
+    font-size: 1em;
+}
+
+dd,
+dl,
+dt,
+em,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+ol,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.head_menu:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 0;
+    background: #fff;
+    -webkit-box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+    box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+    z-index: 9999999999999999999999;
+}
+
+.head_menu:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 5px;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    border: none
+}
+
+/* header */
+/* 헤더 부분 */
+
+.head-menu {
+    position: fixed;
+    z-index: 1;
+    background: #f2ebe6;
+    margin: 0px;
+    padding: 0px;
+    background: #1d1d1b;
+    text-align: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 50;
+    width: 100%;
+    display: flex;
+    height: 175px;
+    font-weight: bold;
+}
+
+.head-menu>.head-container {
+    width: 80%;
+}
+
+.head-menu>.head-util {
+    width: 20%;
+    position: absolute;
+    font-size: 0.9rem;
+    text-align: center;
+    align-items: center;
+    display: inline-block;
+    color: white;
+    left: 75%;
+    top: 10%;
+    right: 0;
+    vertical-align: top;
+}
+
+.head-menu>.head-container>div {
+    position: absolute;
+    top: 70px;
+    left: 2.5rem;
+}
+
+.head-menu>.head-container>div>img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.head-menu>.head-container>div>span {
+    position: absolute;
+    top: 0.3rem;
+    left: 5.4rem;
+    font-size: 3rem;
+    text-align: center;
+    align-items: center;
+    display: inline-block;
+    color: white;
+}
+
+.head-menu>.head-util>div>div {
+    text-align: center;
+    width: 33.3333%;
+    float: left;
+}
+
+.top_login {
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+}
+
+.head-menu>.head-util>div>div>a {
+    color: white;
+}
+
+.head-menu>.head-util>.signup {
+    position: absolute;
+    top: 68px;
+    right: 10px;
+}
+
+.head-menu>.head-util>.signup>.button_black {
+    width: 160px;
+    height: 50px;
+}
+
+.head-menu>.head-util>.signup>.rightarrow {
+    position: absolute;
+    top: 1.2em;
+    left: 8.3em;
+}
+
+.head-menu>.head-util>.signup>a {
+    color: white;
+}
+
+.head-menu>.head-util>.signup>a>span {
+    position: absolute;
+    top: 0.7rem;
+    left: 2.1rem;
+    text-align: center;
+    align-items: center;
+    display: inline-block;
+    font-size: 1.25rem;
+}
+/*footer*/
+/*  - ------------------푸터 시작--------------------- */
+
+.footer {
+    position: relative;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+}
+
+.footer>.web_container {
+    background: #1d1d1b;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-right: 4%;
+    padding-left: 4%;
+    justify-content: space-around;
+    color: #818181;
+}
+
+.footer>.web_container>.copyright {
+    width: 70%;
+    background: #1d1d1b;
+    align-items: right;
+    text-align: left;
+}
+
+.footer>.web_container>.copyright>.logo {
+    padding-bottom: 1.2rem;
+}
+
+.footer>.web_container>.copyright>.logo>img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.footer>.web_container>.copyright>.sns {
+    padding-top: 1.2rem;
+}
+
+.footer>.web_container>.footer_menu {
+    font-size: 1rem;
+    width: 30%;
+    background: #1d1d1b;
+    text-align: center;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3%;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1>div {
+    width: 30%;
+    text-align: center;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1>div>a {
+    color: #818181;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1>.c_btn_1_item :hover {
+    color: white;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1>#c_btn_1_center {
+    width: 40%;
+    text-align: center;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1>.c_btn_1_line {
+    width: 10%;
+    text-align: center;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3%;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_2>div {
+    width: 50%;
+    text-align: center;
+    background: #818181;
+    border: #292929;
+    border-radius: 10px;
+    border-width: thick;
+    border-style: solid;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_2>div>a {
+    color: white;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_2>div :hover {
+    color: black;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_2>div {
+    text-align: center;
+}
+
+
+/*.footer-cover {
+    width: 100%;
+    height: 300px;
+    visibility: visible;
+}*/
+/* ---------------------위에가 데스크 탑용 ---------------------CSS*/
+/*mobile css*/
+

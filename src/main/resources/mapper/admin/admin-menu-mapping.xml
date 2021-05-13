@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdminMenuDAO">
+	<resultMap type="ProductVO" id="ProductVO">
+		<result property="product_name" column="product_name" />
+		<result property="path" column="path" />
+		<result property="description" column="description" />
+		<result property="use_status" column="use_status" />
+		<result property="price" column="price" />
+		<result property="type_serial" column="type_serial" />
+	</resultMap>
+
+	<!-- 전체 메뉴 -->
+	<select id="getallList" resultType="ProductVO">
+		<![CDATA[
+		select 
+			* from product P inner join product_image I on P.product_serial = I.product_serial ;
+		]]>
+	</select>
+
+	<!-- 치킨메뉴 -->
+	<select id="getchickenList" resultType="ProductVO">
+		<![CDATA[
+		select 
+		* from product P inner join product_image I on P.product_serial = I.product_serial where type_serial='chicken_menu';
+		]]>
+	</select>
+	
+	<!-- 비어존메뉴 -->
+	<select id="getbeerList" resultType="ProductVO">
+		<![CDATA[
+		select 
+		* from product P inner join product_image I on P.product_serial = I.product_serial where type_serial='beerzone';
+		]]>
+	</select>
+	<!-- 사이드메뉴 -->
+	<select id="getsideList" resultType="ProductVO">
+		<![CDATA[
+		select 
+		* from product P inner join product_image I on P.product_serial = I.product_serial where type_serial='side_menu';
+		]]>
+	</select>
+	
+	<!-- 신메뉴 -->
+	<select id="getnewList" resultType="ProductVO">
+		<![CDATA[
+		select 
+		* from product P inner join product_image I on P.product_serial = I.product_serial where type_serial='new_menu';
+		]]>
+	</select>
+	
+	<!-- 판매중 미판매중 변경  -->
+	<update id="changeUseStatus">
+		<![CDATA[
+			UPDATE
+				product
+			SET use_status =
+				(CASE WHEN use_status=true  THEN false
+					  WHEN use_status=false THEN true
+				END)
+			WHERE
+				product_serial = #{product_serial};
+		]]>
+	</update>
+	
+	<!-- 메뉴디테일 -->
+	<select id="getMenu" resultType="ProductVO">
+		select
+		* from product P inner join product_image I on P.product_serial = I.product_serial where P.product_serial= #{product_serial};
+	</select>
+	
+	<!-- 메뉴삭제 -->
+	<delete id="deleteMenu" >
+		<![CDATA[
+			delete from product where product_serial = #{product_serial};
+			
+		]]>
+	</delete>
+<!-- 메뉴등록 -->
+		<insert id="insertMenu" > 
+		<![CDATA[
+			INSERT INTO 
+				product( use_status,type_serial, description, product_name, price)
+			VALUES 
+				( #{use_status},#{type_serial}, #{description}, #{product_name},#{price});
+		]]>
+	</insert>
+	<!-- 메뉴이미지 등록 -->
+	<insert id="insertMenuimg" > 
+		<![CDATA[
+			insert into product_image values('${path}', currval('product_seq'));
+		]]>
+	</insert>
+	<!-- 메뉴수정 -->
+	<update id="updateMenu">
+	<![CDATA[
+	UPDATE
+		product
+			SET
+			product_name=#{product_name} , description=#{description} , price=#{price}, type_serial=#{type_serial}
+				
+			WHERE
+				product_serial = #{product_serial};
+	]]>
+	
+	</update>
+	
+	<!-- 메뉴사진수정 -->
+	<update id="updateMenuimg">
+	<![CDATA[
+	UPDATE
+		product_image
+			SET
+			path=#{path} 				
+			WHERE
+				product_serial = #{product_serial};
+	]]>
+	
+	</update>
+	
+	
+</mapper>

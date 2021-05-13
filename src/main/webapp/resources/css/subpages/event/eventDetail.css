@@ -1,0 +1,274 @@
+section {
+    width: 100vw;
+}
+button {
+    vertical-align: middle;
+    margin: 0;
+    color: #000;
+    background: none;
+    outline: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+}
+.contentsBox01 {
+	position:relative;
+	top:100px;
+    width: 100%;
+    padding: 50px 0 200px;
+}
+
+.contentsBox01 > .web_container {
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.contentsBox01 > .web_container > .subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+    margin-left: 17%;
+    margin-right: 17%;
+}
+.contentsBox01 > .web_container > .subtitWrap > .page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+.contentsBox01 > .web_container > .subtitWrap > .ev_tit.WEB {
+    position: relative;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #e5e5e5;
+    background: #fafafa;
+    padding: 30px 20px;
+}
+
+.contentsBox01 > .web_container > .subtitWrap > .ev_tit.WEB > .title {
+	font-size: 2rem;
+	text-align: left;
+}
+
+.contentsBox01 > .web_container > .subtitWrap > .ev_tit.WEB  >.valid {
+	margin-top: 5px;
+	display: table;
+	float: left;
+}
+
+.contentsBox01 > .web_container > .subtitWrap > .ev_tit.WEB .start {
+	display: table-cell;
+	font-size: 1.125rem;
+	color: #b8b8b8;
+}
+
+.contentsBox01 > .web_container > .subtitWrap > .ev_tit.WEB .end {
+	display: table-cell;
+	font-size: 1.125rem;
+	color: #b8b8b8;
+}
+
+.contentsBox01 > .web_container > .subtitWrap > .ev_con {
+    padding: 40px 17%;
+    border-bottom: 2px solid #000;
+    text-align: center;
+}
+.contentsBox01 > .web_container > .subtitWrap > .ev_con > .ev_txt {
+	margin-top: 30px;
+    padding: 25px 20px;
+    text-align: left;
+}
+.contentsBox01 > .web_container > .subtitWrap > .ev_con > .ev_txt > p {
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+    line-height: 1.5;
+}
+
+.contentsBox01 > .web_container > .subtitWrap > .ev_con > .ev_txt > .prewrap > .ev_tit.MOB {
+    display: none!important;
+}
+.contentsBox01 > .web_container > .subtitWrap > .ev_con > .ev_txt > .prewrap > .ev_tit.MOB > .prewrap {
+    white-space: pre-wrap;
+}
+.contentsBox01.bg_w > .web_container > .subtitWrap > .ev_con > .ev_txt > .one {
+    display: none;
+}
+.contentsBox01 > .web_container > .subtitWrap > .ev_con > .ev_txt > .two {
+display: none;
+}    
+
+.ad {
+    display: none;
+}
+
+.c_btn:last-child {
+    margin-bottom: 0;
+}
+.c_btn {
+   text-align: center;
+}
+
+.btn01.m {
+    width: 216px;
+    height: 68px;
+    font-size: 1.5rem;
+    line-height: 46px;
+    background-size: 100% 100%;
+    border-radius: 0;
+}
+
+.eventBox {
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 2.5%;
+    margin-left: 20%;
+}
+.eventBox {
+    margin-top: 0;
+}
+.eventBox li {
+    float: left;
+    width: 90%;
+    margin-bottom: 5%;
+    margin-left: 28%;
+}
+.eventBox li p {
+    font-size: 1.625rem;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url("image/top.png") no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+@media all and (max-width: 765px) {
+
+    .img {
+        width: 483px;
+        height: 483px;
+    }
+    .ev_detail .ev_txt {
+        background: #fff;
+        margin-top: 10px;
+    }
+    .ev_detail .ev_txt {
+        width: 100%;
+        padding: 25px 20px;
+        text-align: left;
+    }
+    .ev_txt > p {
+        font-size: 1.0rem;
+        padding-bottom: 20px;
+        line-height: 1.5;
+    }
+    .ev_con {
+        padding: 40px 0 0;
+        border-bottom: 0 solid #000;
+        text-align: center;
+    }
+    .ad {
+        display: block;
+        margin-left: 5%;
+    }
+    .c_btn {
+        display: none;
+    }
+    .btn_top {
+        display: none;
+    }
+    .qr {
+        display: none;
+    }
+    .MOB {
+        display: block!important;
+    }
+    .ev_tit.WEB {
+        display: none;
+    }
+    .contentsBox01 {
+        padding: 0!important;
+    }
+    .web_container,
+    .web_container02 {
+        min-width: 320px;
+        padding: 0;
+    }
+    .tab_storyWrap {
+        margin-top: 0;
+    }
+    .subtitWrap {
+        min-height: 56px;
+        margin: 0;
+        padding: 20px 0 10px;
+        background: #fff;
+    }
+    .subtitWrap .page_tit {
+        margin: 0;
+        padding: 0 16px 10px;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    
+    
+    
+    
+    .subtitWrap .tab01:last-child {
+        margin-bottom: -10px;
+    }
+    .subtitWrap .tab01 {
+        position: static;
+        margin: 0;
+    }
+    .tab01 ul {
+        display: table;
+        width: 100%;
+        background: #fff;
+    }
+    .tab01 li {
+        display: table-cell;
+        padding: 0;
+    }
+    .subtitWrap .tab01 button {
+        height: 56px;
+        border-width: 3px 0;
+        font-size: 1rem;
+    }
+    .tab_storyWrap {
+        margin-top: 0;
+    }
+    .tab_storyBtn {
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .tab_storyBtn li {
+        position: relative;
+        border: none;
+    }
+    .tab_storyBtn li.on button {
+        border: 0;
+        color: #000;
+        background: none;
+    }
+    .tab_storyBtn li button {
+        padding: 15px 0;
+        font-size: 0.938em;
+        background: none;
+    }
+    .tab_storyBtn li:before {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -6px;
+        content: "";
+        width: 1px;
+        height: 12px;
+        background: #e4e4e4;
+    }
+}

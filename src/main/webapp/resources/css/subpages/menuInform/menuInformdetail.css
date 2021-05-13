@@ -1,0 +1,318 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+.menudetailWrap {
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+/* 검은색 네비게이션 관련 css */
+
+.menudetaillocationWrap {
+    height: 38px;
+    padding: 10px 0 8px;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+}
+
+.menudetaillocationWrap>.menudetailcontainer {
+    overflow: hidden;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.menudetaillocationWrap>.menudetailcontainer>.menudetailpage_navi {
+    float: left;
+    font-size: .875rem;
+}
+
+.menudetailpage_navi a {
+    color: #fff;
+}
+
+.menudetailpage_navi>* {
+    float: left;
+}
+
+.menudetailpage_navi>.arrow>::before {
+    content: "";
+    float: left;
+    width: 8px;
+    height: 38px;
+    margin: 0 12px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+}
+
+span {
+    font-size: 1.1rem;
+}
+
+/* 제목과 이미지 컨텐츠 들어가는 영역 */
+
+.menudetailcontentsbox02 {
+    height: 200px;
+    color: #000;
+    background: #fff;
+    /*background: #130101 url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_prd2.png) no-repeat 50%;*/
+}
+
+.menudetailcontentsbox02>.menudetailweb_container {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.menudetailcontentsbox02>.menudetailweb_container>.intro_txt {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    width: 55%;
+    transform: translateY(-50%);
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+.menudetailcontentsbox02>.menudetailweb_container>.intro_txt>.tit {
+    font-weight: bold;
+    display: block;
+    font-size: 3.75rem;
+    line-height: 100%;
+}
+
+.menudetailcontentsbox02>.menudetailweb_container>.intro_txt .subtxt {
+    margin-top: 14px;
+    font-size: 1.375rem;
+}
+
+
+/* subinfo영역 */
+
+.menuInformdetail_subinfoWrap {
+    height: 88px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_menubar1.png) repeat top;
+}
+
+.menuInformdetail_subinfoWrap>.web_container {
+    position: relative;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 20px 0 20px;
+}
+
+.menuInformdetail_subinfoWrap>.web_container>.btn_back {
+    display: inline-block;
+    height: 48px;
+    padding-left: 28px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #fff;
+    line-height: 48px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/left_w_s.png) no-repeat 0;
+}
+
+.allergy {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -25px;
+    overflow: hidden;
+}
+
+.allergy>.allergy_btn {
+    float: left;
+    height: 44px;
+    padding: 5px 17px 5px 19px;
+    font-size: 1.25rem;
+    color: #252423;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.allergy>.allergy_btn>* {
+    position: relative;
+    display: inline-block;
+    padding-right: 28px;
+}
+
+.allergy>.allergy_btn>::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    width: 60px;
+    height: 54px;
+    margin-top: -27px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/allergie/allergie_icon.PNG) no-repeat 100%;
+}
+
+
+/* menudetail contents 부분 */
+
+.menudetailcontents {
+    padding: 50px 0 45px;
+    background: #fff;
+}
+
+.menudetailcontents>.web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.menudetailcontents>.web_container>.txt_menudetailintro {
+    padding: 60px 50px;
+    font-size: 1.75rem;
+    line-height: 150%;
+    text-align: center;
+}
+
+.prd_submenu {
+    text-align: center;
+    margin-top: 60px;
+    padding-bottom: 46px;
+    overflow: hidden;
+}
+
+.prd_submenu li:last-child {
+    border-right: none;
+}
+
+.prd_submenu li {
+    position: relative;
+    float: none;
+    display: inline-block;
+    width: 33%;
+    margin: 0 -2px;
+    vertical-align: top;
+}
+
+.prd_submenu .prd_img {
+    max-width: 296px;
+    height: 194px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+
+.prd_img img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+    border: none;
+}
+
+.prd_submenu .cont {
+    min-height: 165px;
+    padding: 40px 10px 10px;
+    text-align: center;
+}
+
+.prd_submenu .tit {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.prd_submenu .tit>* {
+    display: block;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.prd_submenu .tit_content {
+    margin-top: 20px;
+    font-size: 1.25rem;
+}
+
+
+/* other_menu 슬라이더 부분 */
+
+.other_menuWrap {
+    padding: 0;
+    background: #f2ebe6;
+}
+
+.other_menuWrap>.web_container {
+    position: relative;
+    padding: 75px 0 0;
+    text-align: center;
+    max-width: 1184px;
+    margin: 0 auto;
+}
+
+.other_menuWrap>.web_container>.titbox {
+    padding: 0;
+    font-size: 2.25rem;
+    text-align: center;
+    position: relative;
+}
+
+.othermenu_slider {
+    position: static;
+    height: 290px;
+    margin-top: 55px;
+    padding: 0 0 40px;
+}
+
+.othermenu_slider .prd_img {
+    max-width: 800px;
+    height: 142px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.othermenu_slider .prd_img img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+    border: none;
+}
+
+.othermenu_slider .cont {
+    padding: 20px 15px;
+}
+
+.othermenu_slider .cont .tit {
+	width: 170px;
+	height: 45px;
+}
+.othermenu_slider .cont .tit strong {
+    font-size: 1.375rem;
+    line-height: 45px;
+}
+
+.othermenu_slider .btn_detail {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}

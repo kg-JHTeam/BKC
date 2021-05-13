@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.bkc.user.vo.UserVO" alias="UserVO" />
+		<typeAlias type="com.bkc.user.vo.GuestVO" alias="GuestVO" />
+		<typeAlias type="com.bkc.user.vo.CouponVO" alias="CouponVO"/>
+		<typeAlias type="com.bkc.user.vo.UserCouponVO" alias="UserCouponVO"/>
+		<typeAlias type="com.bkc.customerService.vo.NoticeVO" alias="NoticeVO" />
+		<typeAlias type="com.bkc.admin.board.banner.vo.BannerVO" alias="BannerVO" />
+		<typeAlias type="com.bkc.menuInform.vo.ProductVO" alias="ProductVO"/>
+		<typeAlias type="com.bkc.customerService.vo.FaqVO" alias="FaqVO" />
+		<typeAlias type="com.bkc.admin.board.businessInformation.vo.BusinessInformationVO" alias="BusinessInformationVO" />	
+		<typeAlias type="com.bkc.admin.board.term.vo.TermVO" alias="TermVO"/>
+		<typeAlias type="com.bkc.admin.board.term.vo.TermEmailVO" alias="TermEmailVO"/>
+		<typeAlias type="com.bkc.admin.board.term.vo.TermPrivacyVO" alias="TermPrivacyVO"/>
+		<typeAlias type="com.bkc.youtube.vo.YoutubeVO" alias="YoutubeVO" />
+		<typeAlias type="com.bkc.subpages.brand.bkcstory.vo.AboutbkcVO" alias="AboutbkcVO"/>
+		<typeAlias type="com.bkc.subpages.brand.bkcstory.vo.HistoryVO" alias="HistoryVO"/>
+		<typeAlias type="com.bkc.subpages.brand.whybkc.vo.RealchickenVO" alias="RealchickenVO"/>
+		<typeAlias type="com.bkc.subpages.brand.whybkc.vo.MaterialVO" alias="MaterialVO"/>
+		<typeAlias type="com.bkc.subpages.brand.whybkc.vo.ContributionVO" alias="ContributionVO"/>
+		<typeAlias type="com.bkc.event.vo.EventVO" alias="EventVO"/>
+		<typeAlias type="com.bkc.event.vo.StoreVO" alias="StoreVO"/>
+		<typeAlias type="com.bkc.delivery.vo.CautionVO" alias="CautionVO"/>
+		<typeAlias type="com.bkc.delivery.vo.DvProductVO" alias="DvProductVO"/>
+		<typeAlias type="com.bkc.delivery.vo.MyLocationVO" alias="MyLocationVO"/>
+		<typeAlias type="com.bkc.delivery.vo.OrderDetailVO" alias="OrderDetailVO"/>
+		<typeAlias type="com.bkc.delivery.vo.OrderVO" alias="OrderVO"/>
+		<typeAlias type="com.bkc.admin.statistic.vo.StatisticVO" alias="StatisticVO"/>
+		<typeAlias type="com.bkc.admin.board.dashboard.vo.TotalChartDataVO" alias="TotalChartDataVO"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+</configuration>

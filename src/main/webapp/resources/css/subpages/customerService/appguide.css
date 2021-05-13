@@ -1,0 +1,1086 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Do Hyeon', sans-serif;
+
+}
+
+body {
+    min-height: 100%;
+    color: #000;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+li,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+input[type=radio] {
+    position: relative;
+    float: left;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+    color: black;
+    border: none;
+    opacity: 1;
+}
+
+input[type="radio" i] {
+    background-color: initial;
+    cursor: pointer;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0 5px;
+    padding: initial;
+    border: initial;
+}
+
+input[type=text] {
+    float: left;
+    width: auto;
+    height: 40px;
+    margin: 0;
+    padding: 0 25px 3px 0;
+    font-size: 1.25rem;
+    color: #000;
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
+select {
+    overflow: visible !important;
+    display: table-cell;
+}
+
+.rotate {
+    position: relative;
+    outline: 0;
+    width: 25px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_rotate.png") no-repeat 50%;
+    cursor: pointer;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.close {
+    display: block;
+    height: 0;
+}
+
+
+.locationWrap {
+	height: 38px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+    margin: 100px 0 0 0;
+}
+
+.locationWrap .notice_web_container {
+    overflow: hidden;
+}
+.locationWrap a {
+    color: #fff;
+}
+.page_navi>* {
+    float: left;
+}
+.page_navi {
+    float: left;
+    font-size: 1.1rem;
+}
+
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+.appguide1_web_container {
+	max-width: 1184px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.contentsBox01 {
+    margin: 0 270px;
+    padding: 50px 0 65px;
+}
+.appguide_web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+}
+.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+.subtitleWrap .page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+.subtitWrap .tab01 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -17.5px 0 0;
+}
+.tab01 {
+    margin-bottom: 20px;
+    overflow: auto;
+    float: right;
+}
+.tab01 ul {
+    display: table;
+}
+.tab01 li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.tab01 li.on a, .tab01 li.on button {
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+
+.tab01 button {
+    height: 54px;
+    padding: 5px 0;
+}
+.tab01 a, .tab01 button {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0;
+}
+button {
+    margin: 0;
+    color: #000;
+    vertical-align: middle;
+    background: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+}
+.hide {
+    position: absolute!important;
+    left: -10000px;
+    top: -10000px;
+    visibility: hidden;
+}
+
+
+.contentsBox > .web_container > .tab_content {
+    max-width: 1080px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.tab_content > .app-down >.subtitle-wrap {
+    margin-bottom: 27px;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+
+.tab_content > .app-down >.txt {
+    font-size: 1.1rem;
+}
+
+.tab_content > .app-guide {
+    margin: 30px 0;
+    padding: 0;
+    text-align: center;
+}
+
+.tab_content > .app-guide >.app-down-img > img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+}
+
+.tab_content > .app-down >.store-down {
+    margin-bottom: 30px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.tab_content > .app-down >.store-down >.store_down {
+    position: relative;
+    float: left;
+    width: 60%;
+    height: auto;
+    padding: 80px 150px 0 0;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: left;
+    word-break: break-all;
+}
+
+.tab_content > .app-down >.store-down> .store_down> dd> .btn_area > a {
+    width: 204px;
+    height: 64px;
+    margin: 10px 20px 10px 0;
+    text-indent: -9999em;
+    display: inline-block;
+
+}    
+
+.tab_content > .app-down >.store-down > dl:last-child {
+    position: relative;
+    float: right;
+    width: 40%;
+    height: auto;
+    padding: 80px 0 0;
+    text-align: center;
+    word-break: break-all;
+}
+
+.tab_content > .app-down >.store-down > dl > dt {
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 1.875rem;
+    white-space: nowrap;
+}
+
+.tab_content > .app-down >.store-down > dl > dd > p {
+    max-width: 60%;
+    font-size: 1.25rem;
+}
+
+.tab_content > .app-down >.store-down > dl:last-child > dd > p {
+    max-width: 400px;
+
+}
+
+.tab_content > .app-down >.store-down > dl :last-child >dt {
+    position: absolute;
+    text-align: center;
+    float: right;
+}
+
+.tab_content > .app-down >.store-down> .store_down> dd> .btn_area > a {
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_googleplay.png") no-repeat 0 0;
+}
+
+.tab_content > .app-down >.store-down> .store_down> dd> .btn_area > a:last-child {
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_appstore.png") no-repeat 0 0;
+}
+
+.tab_content > .app-down >.store-down > dl:last-child > dd >.QRcode > img {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.contentsBox > .web_container > .tab_content > .app-down >.app-guide {
+    padding: 50px 0 0;
+}
+
+.tab_content > .app-down >.app-guide> .subtitle-wrap {
+    width: 100%;
+    text-align: left;
+    margin-top: 60px;
+    margin-bottom: 27px;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab_content > .app-down >.app-guide> p {
+    text-align: left;
+    margin-bottom: 50px;
+    position: relative;
+    font-size: 1.25rem;
+}
+
+.tab_content > .app-down >.app-guide>.guide_list>.guide-wrap {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.tab_content > .app-down >.app-guide>.guide_list>.guide-wrap li{
+    display: inline-block;
+    text-align: center;
+    min-width: 21%;
+    padding: 0 3px;
+}
+
+.contentsBox > .web_container > .tab_content > .app-down >.app-guide>.guide_list>li {
+    display: inline-block;
+    min-width: 21%;
+    padding: 0 3px;
+}
+
+.tab_content > .app-down >.app-guide>.guide_list>.delivery, .store_search, .coupon {
+    display: block;
+    width: 218px;
+    height: 90px;
+    margin: 0 auto;
+    padding-top: 135px;
+    font-size: 1.125rem;
+    color: #89513a;
+    text-align: center;
+    line-height: 123%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.guide-list li {
+    display: inline-block;
+    min-width: 31%;
+    margin-bottom: 37px;
+    padding: 0 3px;
+}
+
+.guide-list li a {
+    display: block;
+    width: 218px;
+    height: 220px;
+    margin: 0 auto;
+    padding-top: 135px;
+    font-size: 1.125rem;
+    color: #89513a;
+    text-align: center;
+    line-height: 123%;
+    background-repeat: no-repeat;
+    background-position: top;
+    cursor: pointer;
+}
+
+.app-guide .guide-list .delivery {
+    background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_appguide_delivery.png");
+}
+
+.app-guide .guide-list .search {
+    background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_appguide_search.png");
+}
+
+.app-guide .guide-list .coupon {
+    background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_appguide_coupon.png");
+}
+
+.popWrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: none;
+}
+
+}
+span, div, a {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+.popWrap .popbox01.popbox01.nobtn {
+    padding-bottom: 0;
+}
+
+.popWrap .popbox01 {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    width: 568px;
+    max-height: 90%;
+    margin-left: -284px;
+    padding-bottom: 84px;
+    background: #fff;
+    overflow: auto;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.popWrap .titleBar {
+    text-align: left;
+    position: relative;
+}
+
+.popWrap .titleBar .page_tit {
+    height: 104px;
+    margin: 0;
+    padding: 20px 70px 20px 40px;
+    font-size: 1.875rem;
+    line-height: 63px;
+    background: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.popWrap .popcont .tab02 {
+    position: relative;
+    padding-right: 121px;
+    background: #000;
+    border-bottom: 1px solid #eee9e7;
+    overflow: hidden;
+    transition: all 0.3s linear;
+}
+
+.popWrap .popcont .tab02 ul {
+    min-width: 100%;
+    white-space: nowrap;
+}
+
+.popWrap .popcont .tab02 ul li {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.popWrap .popcont .tab02 ul li.on a {
+    color: #fff;
+}
+
+
+
+.popWrap .popcont .tab02 ul li:first-child {
+    padding-left: 15px;
+}
+
+.popWrap .popcont .tab02 ul li a {
+    display: flex;
+    align-items: center;
+    height: 71px;
+    line-height: 71px;
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.popWrap .popcont .tab02 .btn_area {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+.popWrap .popcont .tab02 .btn_area a {
+    float: left;
+    width: 61px;
+    height: 100%;
+    text-indent: -9999em;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/left_w.png") no-repeat 50%;
+    border-left: 1px solid #333;
+}
+
+.popWrap .popcont .tab_cont {
+    background-color: #f2ebe6;
+}
+
+.popWrap .popcont .tab02 .btn_area a.btn_next {
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/right_w_2.png") no-repeat 50%;
+}
+
+.popWrap .titleBar .close-box a.btn_close {
+    width: 100px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    outline: none;
+    text-indent: -9999em;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/reaction/close.png") no-repeat 50%;
+}
+
+.popWrap button {
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.popWrap .popcont .tab_cont {
+    background-color: #f2ebe6;
+}
+
+.popWrap .popcont .tab_cont .tutorial {
+    position: relative;
+    height: 650px;
+    overflow: hidden;
+}
+
+.popWrap .popcont .tab_cont .tutorial .cont {
+    position: relative;
+    height: 650px;
+    padding-bottom: 475px;
+    text-align: center;
+}
+
+.popWrap .popcont .tab_cont .tutorial .cont .guide {
+    position: relative;
+    height: 20%;
+    letter-spacing: -.03em;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+.popWrap .popcont .tab_cont .tutorial .cont .guide dl {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    right: 16px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.popWrap .popcont .tab_cont .tutorial .cont .guide dt {
+    margin-bottom: 7px;
+    font-weight: 700;
+    font-size: 1.75rem;
+}
+
+.popWrap .popcont .tab_cont .tutorial .cont .guide dd {
+    font-size: 1.375rem;
+    line-height: 137%;
+}
+
+.popWrap .popcont .tab_cont .tutorial .cont .guide_image {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 470px;
+}
+
+.popWrap .popcont .tab_cont .tutorial .cont .guide_image img {
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+}
+
+
+.popWrap .popcont .tab_cont .tutorial .slick-dots {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 460px;
+    height: auto;
+    text-align: center;
+    transform: none;
+    width: auto;
+}
+
+.popWrap .popcont .tab_cont .tutorial .slick-dots .slick-active button {
+    background: #fff;
+}
+
+.popWrap .popcont .tab_cont .tutorial .slick-prev:before {
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    text-indent: -9999em;
+    z-index: 10;
+    left: 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAASCAYAAACAa1QyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODAxMzg1QzMwRkZCMTFFOTkxRTg5NUQ3MEIwQUQ4M0YiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODAxMzg1QzQwRkZCMTFFOTkxRTg5NUQ3MEIwQUQ4M0YiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MDEzODVDMTBGRkIxMUU5OTFFODk1RDcwQjBBRDgzRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MDEzODVDMjBGRkIxMUU5OTFFODk1RDcwQjBBRDgzRiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsYoigoAAADKSURBVHjalNM9CsJAEIbhVTsbD2AhivgDFpEIQYgsFh7S03gKrUUJ+IMxRsVO/RYmsCwzGx14muDLmiGrVPl0YANraP/we9WDPXzIDro1TzCEFTStZw2oS8EIjtYJhRdoLhjDmQmesOCCCaRMcJdOmELGBDeIuWAGORNcIeKCPjyY4AIhF1ShQtx5E3G0cFpKyxEnppd2w4yWJE4kbDCnZYkT0hLc0Pz9uS8M4CR8FdoXmu/vwITLsqsxgMQKtv/cqeIStsyDrwADAGivWhMCwURPAAAAAElFTkSuQmCC) no-repeat 50%;
+}
+
+.popWrap .popcont .tab_cont .tutorial .slick-next:before {
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    text-indent: -9999em;
+    z-index: 10;
+    right: 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAASCAYAAABvqT8MAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEI0MzE3QjkwRkZCMTFFOTgxOTNCRjlDNEJDRTEzRTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEI0MzE3QkEwRkZCMTFFOTgxOTNCRjlDNEJDRTEzRTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4QjQzMTdCNzBGRkIxMUU5ODE5M0JGOUM0QkNFMTNFNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4QjQzMTdCODBGRkIxMUU5ODE5M0JGOUM0QkNFMTNFNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Ptn8pZ0AAACwSURBVHjaYmCAgHAgfgfEC4GYlYEAiAXiP0D8H4rXAzEbPg0fkRTD8BYgZseloQeLBhDeAcRc2DQwAnE/Dk17cWkCgQ4cmg4BMS8uTc04NB0DYn5cmqpxaDoFxIK4NJXisokJh4Z/UAXogAWb4gocpp8FYmF0xXU4FJ8AYgF0xS04FB/BFkJdOBQfAGIeYhXvwRXLb7Eo3g7EnLjCPAoteW8mlLxBIBSagZYSUgwQYAAdel6g/Kur2gAAAABJRU5ErkJggg==) no-repeat 50%;
+}
+
+
+
+
+.app-guide> .web_order_caution>.title-wrap {
+    width: 100%;
+    text-align: left;
+    margin-top: 60px;
+    margin-bottom: 37px;
+    font-size: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid #000;
+}
+
+
+
+.web_order_caution>.subtxt>.subtitle1,
+.web_order_caution>.subtxt>.subtitle2,
+.web_order_caution>.subtxt>.subtitle3 {
+    padding: 0 0 0 12px;
+    text-align: left;
+    font-size: 1.25rem;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.web_order_caution>.subtxt>.txtlist1 li,
+.web_order_caution>.subtxt>.txtlist2 li,
+.web_order_caution>.subtxt>.txtlist3 li {
+    text-align: left;
+    position: relative;
+    padding-left: 12px;
+}
+
+.web_order_caution>.btn_caution {
+    position: relative;
+        outline: 0;
+        width: 25px;
+        height: 20px;
+        border: none;
+        outline: none;
+        background: url(" https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/btn_rotate.png") no-repeat 50%;
+        cursor: pointer;
+}
+
+}
+
+/*모바일용*/
+@media all and (max-width: 765px) {
+
+    #location-wrap {
+        display: none!important;
+    }
+
+    #location-wrap .web_container,
+    .page_navi {
+        display: none;
+        text-align: center;
+    }
+
+    .web_container {
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap > .page_tit {
+        margin: 15px;
+        text-align: center;
+        line-height: 100%;
+        font-size: 1.5rem;
+    }
+
+    .contentsBox> .web_container > .subtitle-wrap {
+        position: relative;
+        margin-bottom: 28px;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap > .tabmenu {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin: 40px 0 20px;
+        overflow-x: auto;
+    }
+
+    .contentsBox > .web_container > .tab_content> .on > .tabmenu > ul {
+        width: 100%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu > li {
+        position: absolute;
+        width: 16.666%;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu a > *,
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu button > * {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .tabmenu button {
+        height: 35px;
+        font-size: 1.125rem;
+        border-width: 0 0;
+        outline: 0;
+        background-color: rgba(255, 255, 255, 0);
+        color: #b8b8b8;
+        white-space: nowrap;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap >.tabmenu button:hover {
+        color: #2e2e2e;
+    }
+
+    .contentsBox > .web_container >.subtitle-wrap > .r_option {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-left: 15em;
+        font-size: 1.25rem;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li {
+        position: relative;
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
+    }
+
+    .contentsBox > .web_container > .subtitle-wrap >.tabmenu li.on button {
+        border-width: 0 0 3px 0;
+        color: #e22219;
+        border-bottom-color: #e22219;
+    }
+
+    .hide {
+        position: absolute!important;
+        left: -10000px;
+        top: -10000px;
+        visibility: hidden;
+    }
+
+    .contentsBox > .web_container > .tab_content >.app-down {
+        margin: 30px 0;
+        padding: 34px 0;
+        text-align: center;
+    }
+
+    .contentsBox > .web_container > .tab_content >.app-down > h4 {
+        font-size: 2rem;
+    }
+
+    .tab_content > .app-down > .app-down-img > img {
+        max-width: 100%;
+        max-height: auto;
+        vertical-align: top;
+    }
+
+    .tab_content > .app-down >.store-down {
+        width: auto;
+        height: auto;
+        margin-bottom: 30px;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .app-down >.store-down> .store_down> dd> .btn_area {
+        width: auto;
+        height: auto;
+        margin: 0;
+        position: relative;
+    }
+
+    .app-down >.store-down> .store_down> dd> .btn_area > a {
+        width: 204px;
+        height: 70px;
+        position: relative;
+        margin: 0 5px;
+        text-indent: -9999em;
+        display: inline-block;
+    }
+
+    .tab_content > .app-down >.store-down > .store_down {
+        position: relative;
+        float: none;
+        width: 100%;
+        min-height: 140px;
+        padding: 24px 0 16px;
+        -webkit-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        word-break: break-all;
+    }
+
+    .tab_content > .app-down >.store-down > dl > .store_down {
+        padding-right: 0;
+    }
+
+    .tab_content > .app-down >.store-down > dl > .store-down > dl:last-child {
+        position: relative;
+        float: none;
+        width: 100%;
+        min-height: 140px;
+        padding: 24px 0 16px;
+        -webkit-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        word-break: break-all;
+    }
+
+    .tab_content > .app-down >.store-down > dl > dt {
+        margin: 0;
+        padding: 0;
+        display: block;
+        margin-bottom: 30px;
+        font-weight: 700;
+        font-size: 1.875rem;
+        white-space: nowrap;
+    }
+
+    .tab_content > .app-down > .store-down dl:last-child dt {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        margin: 30px 0;
+        font-weight: 700;
+        font-size: 1.875rem;
+        white-space: nowrap;
+    }
+
+    .tab_content > .app-down > .store-down > dl > dd > p {
+        margin-bottom: 30px;
+    }
+
+    .tab_content > .app-down >.store-down> .store_down> dd> .btn_area > a  {
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_googleplay.png") no-repeat 0 0;
+    }
+    .tab_content > .app-down >.store-down> .store_down> dd> .btn_area > a:last-child {
+        background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/btn_appstore.png") no-repeat 0 0;
+    }
+
+    .app-down > .store-down > dl :last-child > dt {
+        position: absolute;
+        text-align: center;
+        float: right;
+    }
+
+    .app-down >.store-down>.WEB > .QRcode >img {
+        display: inline-block;
+        position: relative;
+        width: 80%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .app-down > .app-guide {
+        padding: 0;
+    }
+
+    .app-down >.app-guide >.subtitle-wrap {
+        width: 100%;
+        margin-top: 60px;
+        margin-bottom: 27px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .app-down >.app-guide> h4{
+        font-size: 2rem;
+    }
+
+    .app-down >.app-guide>.txt {
+        float: left;
+        margin-bottom: 50px;
+        position: relative;
+        font-size: 1.25rem;
+    }
+
+    .app-guide > .guide_list  li {
+        display: inline-block;
+        min-width: 31%;
+        padding: 0 3px;
+    }
+
+    .app-guide > .guide_list  a {
+        display: block;
+        width: 218px;
+        height: 90px;
+        margin: 0 auto;
+        padding-top: 135px;
+        font-size: 1.125rem;
+        color: #89513a;
+        text-align: center;
+        line-height: 123%;
+        background-repeat: no-repeat;
+        background-position: top;
+    }
+
+    .guide_list .delivery {
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_appguide_delivery_mobile.png");
+    }
+
+    .guide_list .store_search {
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_appguide_search_mobile.png");
+    }
+
+    .guide_list .coupon {
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/customercenter/bg_appguide_coupon_mobile.png");
+    }
+
+    .app-down > .popup-wrap {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .app-down > .popup-wrap > .popup-app {
+        margin-left: -250px;
+        left: 50%;
+        top: 5%;
+        background: #fff;
+        position: absolute;
+        width: 500px;
+        height: 90%;
+        display: none;
+        overflow: hidden;
+    }
+
+    .app-down > .popup-wrap > .popup-app > .popup-app_tit {
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        text-align: center;
+        border-bottom: 2px #000;
+    }
+
+    .app-down > .popup-wrap > .popup-app > .popup-app_tit h1 {
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        text-align: center;
+        border-bottom: 2px #000;
+    }
+
+    .app-down > .popup-wrap > .popup-app >.popup-tabmenu ul {
+        top: 50px;
+        position: relative;
+        height: 20px;
+        padding: 10px 0;
+        color: #fff;
+        line-height: 18px;
+        background: #000;
+    }
+
+    .app-down > .popup-wrap > .popup-app >.popup-tabmenu ul li {
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: top;
+        font-weight: 300;
+    }
+
+    .app-down > .popup-wrap > .popup-app > .popup-tabmenu button {
+        height: 20px;
+        font-size: 1.125rem;
+        border-width: 0 0;
+        outline: 0;
+        background-color: rgba(255, 255, 255, 0);
+        color: #fff;
+        white-space: nowrap;
+    }
+
+    .app-down > .popup-wrap > .popup-app > .popup-tabcont {
+        top: 60px;
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .app-guide > .web_order_caution > .title-wrap {
+        width: 100%;
+        text-align: left;
+        margin-top: 60px;
+        margin-bottom: 37px;
+        font-size: 2rem;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 2px solid #000;
+    }
+
+    .app-guide > .web_order_caution > .subtxt {
+        display: none;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+    .app-guide > .web_order_caution > .subtxt > .subtitle1,
+    .app-guide > .web_order_caution > .subtxt > .subtitle2,
+    .app-guide > .web_order_caution > .subtxt > .subtitle3 {
+        text-align: left;
+        font-size: 1.25rem;
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .app-guide > .web_order_caution > .subtxt > .txtlist1 li,
+    .app-guide > .web_order_caution > .subtxt > .txtlist2 li,
+    .app-guide > .web_order_caution > .subtxt > .txtlist3 li {
+        text-align: left;
+        position: relative;
+        padding-left: 12px;
+    }
+
+    .btn_caution {
+        position: relative;
+            outline: 0;
+            width: 25px;
+            height: 20px;
+            border: none;
+            outline: none;
+            background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/btn_rotate.png") no-repeat 50%;
+            cursor: pointer;
+    }
+}
+

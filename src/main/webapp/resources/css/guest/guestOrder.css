@@ -1,0 +1,1132 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+
+/* 전체 css*/
+
+.subWrap2 {
+    margin: 0 auto;
+    padding: 168px 0 272px;
+}
+
+/* content부분 */
+
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+span {
+    font-weight: bold;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.locationWrap {
+    height: 58px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #ffa423;
+}
+
+.locationWrap>.web_container {
+    overflow: hidden;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.locationWrap>.web_container>.page_navi {
+    float: left;
+    font-size: .875rem;
+}
+
+.locationWrap a {
+    color: #fff;
+}
+
+.locationWrap>.web_container>.page_navi>* {
+    float: left;
+}
+
+.page_navi:first-child::before {
+    display: none;
+}
+
+.gotomenu::after {
+    content: "";
+    float: left;
+    width: 38px;
+    height: 38px;
+    margin: 0 12px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+}
+
+.locationWrap .location {
+    float: right;
+    font-size: .875rem;
+}
+
+.location>* {
+    display: inline-block;
+    margin-left: 24px;
+    padding-left: 22px;
+    vertical-align: top;
+}
+
+.location .addr {
+    max-width: 200px;
+    margin: 0;
+    text-overflow: ellipsis;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/location.png) no-repeat 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.location .shop {
+    padding-left: 26px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/near.png) no-repeat 0;
+}
+
+.location .btn {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.location .addrchange {
+    display: inline-block;
+    width: 56px;
+    height: 34px;
+    padding: 0;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+    line-height: 34px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+
+/* 비회원 주문하기 페이지 contents */
+
+.contentsBox02 {
+    font-weight: bold;
+    padding: 50px 0 45px;
+    background: #f2ebe6;
+}
+
+.web_container2 {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.web_container2>.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+
+.subtitWrap>.page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+
+.container01 {
+    padding: 20px 0;
+}
+
+.tit01:first-child {
+    margin-top: 0;
+}
+
+.tit_ico {
+    position: relative;
+    padding-left: 50px;
+    line-height: 40px;
+}
+
+.tit01 {
+    margin: 45px 0 17px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #2e2e2e;
+}
+
+.tit_ico.delivery::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/delivery/delivery_inf.png);
+}
+
+.tit_ico::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+.tit_ico>* {
+    margin: 0;
+    padding: 0;
+}
+
+.tit01.tit_ico+.container02 {
+    margin-top: 8px;
+}
+
+.container02.deli_info01 {
+    padding-top: 20px;
+    padding-bottom: 57px;
+}
+
+.orderWrap .container02 {
+    padding: 60px 64px;
+}
+
+.container02 {
+    position: relative;
+    margin: 15px 0;
+    padding: 20px 50px;
+    font-size: 1.375rem;
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+}
+
+.deli_info01 .addrWrap01 {
+    padding: 45px 4em 45px 0;
+    border-bottom: 1px solid #ededed;
+}
+
+.addrWrap01 {
+    position: relative;
+    font-weight: 700;
+}
+
+.deli_info01 .addrWrap01 .txt_addr {
+    font-weight: 400;
+    font-size: 1.75rem;
+}
+
+.deli_info01 .addrWrap01 .txt_addr>* {
+    display: inline;
+}
+
+.txt_addr {
+    display: block;
+}
+
+.btn04.h02 {
+    min-width: 72px;
+    height: 44px;
+    font-size: 1.25rem;
+}
+
+.addrWrap01 button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn04 {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #fff;
+    background: #2e2e2e;
+    border-radius: 5px;
+}
+
+.deli_info01 .info_list {
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.deli_info01 .info_list dl {
+    float: left;
+    width: 50%;
+}
+
+.deli_info01 .info_list dt {
+    float: left;
+    width: 128px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 66px;
+}
+
+.deli_info01 .info_list dl:first-child dd {
+    padding-right: 17%;
+}
+
+.deli_info01 .info_list dd {
+    margin-left: 128px;
+}
+
+.deli_info01 .info_list input {
+    font-size: 1em;
+}
+
+input[type=text]:only-child {
+    max-width: 100%;
+    width: 100%;
+}
+
+input[type=text] {
+    outline: none;
+    display: inline-block;
+    height: 66px;
+    margin: 0;
+    padding: 3px 10px 3px 4px;
+    font-weight: 400;
+    color: #000;
+    vertical-align: middle;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/login/loginline.png) repeat-x 0 100%;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    appearance: none;
+}
+
+.deli_info01 .info_list dl {
+    float: left;
+    width: 50%;
+}
+
+.deli_info01 .info_list input[readonly] {
+    padding: 0 18px;
+    font-size: 1.375rem;
+    color: #ffa423;
+    background: #f7f7f7;
+}
+
+.deli_info01 .info_list .memo {
+    clear: both;
+    float: none;
+    width: auto;
+    padding-top: 32px;
+}
+
+.tit_ordermenu {
+    padding-right: 67%;
+}
+
+.tit_ico.chicken::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/findstore/kingorder.png);
+}
+
+.tit_ico::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+.order_accWrap.open .acc_tit {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.order_accWrap .acc_tit {
+    font-size: 2.5rem;
+    line-height: 110%;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.acc_tit {
+    position: relative;
+}
+
+.order_accWrap.open .cart_list01 {
+    height: auto;
+}
+
+.order_accWrap .cart_list01 {
+    padding: 0;
+    overflow: hidden;
+}
+
+.order_accWrap.open .cart_list01 li {
+    display: block;
+}
+
+.order_accWrap .cart_list01 li:last-child {
+    border: none;
+}
+
+.order_accWrap .cart_list01>li {
+    margin: 0;
+    box-shadow: none;
+}
+
+.cart_list01>li {
+    position: relative;
+    background: #fff;
+}
+
+.order_accWrap .cart_list01 .cont {
+    padding: 56px 0 0;
+}
+
+.order_accWrap .cart_list01 .menu_titWrap {
+    min-height: 1em;
+    padding: 0 0 40px;
+}
+
+.cart_list01 .menu_titWrap {
+    position: relative;
+    font-weight: 700;
+    font-size: 1.125rem;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.order_accWrap .cart_list01 .menu_name {
+    padding-left: 0;
+}
+
+.cart_list01 .menu_titWrap .menu_name {
+    position: relative;
+    display: block;
+}
+
+.order_accWrap .cart_list01 .menu_name .tit {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    line-height: 110%;
+}
+
+.order_accWrap .cart_list01 .menu_name>* {
+    display: block;
+}
+
+.cart_list01 .menu_titWrap .tit {
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.order_accWrap.open .cart_list01 .price {
+    margin-top: 3px;
+    opacity: 1;
+}
+
+.cart_list01 .price {
+    font-size: 2rem;
+}
+
+.order_accWrap .cart_list01 .quantity {
+    left: 0;
+    bottom: 30px;
+}
+
+.cart_list01 .quantity {
+    position: absolute;
+    left: 64px;
+    bottom: 60px;
+}
+
+.quantity,
+.quantity>* {
+    display: inline-block;
+}
+
+.cart_list01 .quantity .tit {
+    text-align: center;
+    float: left;
+    width: 130px;
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #000;
+    line-height: 39px;
+}
+
+.quantity .tit {
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: .625rem;
+}
+
+.quantity>* {
+    vertical-align: middle;
+}
+
+.cart_list01 .quantity .num_set {
+    float: right;
+}
+
+.num_set {
+    position: relative;
+    display: inline-block;
+    width: 135px;
+    height: 39px;
+    padding: 0 39px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+}
+
+.num_set .btn_minus {
+    left: 0;
+}
+
+.num_set button {
+    position: absolute;
+    top: 0;
+    width: 39px;
+    height: 100%;
+    text-indent: -9999em;
+    background-color: #d9d9d9!important;
+}
+
+.btn_minus {
+    left: -0%;
+    background: #d9d9d9 url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/left_w_s.png) no-repeat 50%;
+}
+
+.num_set input {
+    width: 100%;
+    height: 100%;
+    padding: 0!important;
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-align: center;
+    background: none!important;
+}
+
+input[readonly=readonly] {
+    color: #434343;
+}
+
+input[type=number] {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    appearance: none;
+}
+
+.num_set .btn_plus {
+    right: 0;
+}
+
+.btn_plus {
+    background: #d9d9d9 url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+}
+
+.order_accWrap .cart_list01 .sumWrap {
+    height: 95px;
+    padding: 0;
+}
+
+.cart_list01 .sumWrap {
+    display: table;
+    width: 100%;
+    height: 143px;
+    padding: 12px 64px 12px 50%;
+    background: none;
+    overflow: hidden;
+}
+
+.sumWrap {
+    height: 96px;
+    padding: 12px 55px 12px 44px;
+    background: #fff;
+}
+
+.cart_list01 .sumWrap dl {
+    display: table-row;
+    height: auto;
+}
+
+.sumWrap dl {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.cart_list01 .sumWrap dt {
+    font-size: 1.25rem;
+    text-align: right;
+}
+
+.sumWrap dt {
+    font-weight: 700;
+    font-size: 1.625rem;
+}
+
+.sumWrap dd,
+.sumWrap dt {
+    display: table-cell;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.cart_list01 .sumWrap dd {
+    width: 40%;
+    font-size: 1.75rem;
+    color: #000;
+}
+
+.sumWrap dd {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #ffa423;
+    text-align: right;
+}
+
+.sumWrap em {
+    color: #ffa423;
+}
+
+.cart_list01 .sumWrap .discount {
+    height: auto;
+    margin-top: -30px;
+}
+
+.cart_list01 .sumWrap .discount dt {
+    font-size: 1.125rem;
+}
+
+.discount em {
+    color: #ffa423;
+}
+
+.cart_list01 .sumWrap .discount dd {
+    font-size: 1.5rem;
+}
+
+.cart_list01>li::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+}
+
+.cart_list01 .prd_img {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 254px;
+    height: 191px;
+    overflow: hidden;
+}
+
+.tit_ico.money::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/payment_log.png);
+}
+
+.orderWrap .container02 .order_payment_list {
+    margin: -5px 0;
+}
+
+.order_payment_list .tot {
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px dashed #eee;
+}
+
+.order_payment_list dl {
+    display: table;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1.375rem;
+}
+
+.order_payment_list dt {
+    display: table-cell;
+    padding: 1px 0;
+    vertical-align: middle;
+}
+
+.order_payment_list dd {
+    display: table-cell;
+    padding: 1px 0;
+    vertical-align: middle;
+}
+
+.order_payment_list .tot dt {
+    width: 70%;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.order_payment_list .tot dd,
+.order_payment_list .tot dt {
+    display: table-cell;
+    padding: 1px 0;
+    vertical-align: middle;
+}
+
+.order_payment_list .tot dd {
+    width: 30%;
+    font-size: 2rem;
+}
+
+.order_payment_list dd {
+    font-weight: 700;
+    text-align: right;
+}
+
+.tot em {
+    color: #ffa423;
+}
+
+.order_payment_list dl:last-child {
+    margin: 0;
+}
+
+.titbox {
+    position: relative;
+    padding-right: 5em;
+}
+
+.tit_ico.payment::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/payment_method.png);
+}
+
+.tab01 {
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+.rcen_btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tab01 ul {
+    display: table;
+}
+
+.tab01 li:first-child {
+    padding-left: 0;
+}
+
+.tab01 li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.tab01 li.on button {
+    color: #ffa423;
+    border-bottom-color: #ffa423;
+}
+
+.titbox .tab01 button {
+    height: 45px;
+    border-width: 3px 0;
+}
+
+.tab01 button {
+    height: 54px;
+    padding: 5px 0;
+}
+
+.tab01 button {
+    background: #f2ebe6;
+    display: inline-block;
+    padding: 10px 1px;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0;
+}
+
+.tab01 button>* {
+    vertical-align: middle;
+}
+
+.payment_tabcont .tit01 {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.payment_tabcont .container02 {
+    margin-bottom: -5px;
+    padding-bottom: 32px;
+}
+
+.easy_payment_list li {
+    position: relative;
+    float: left;
+    width: 50%;
+    padding-left: 1px;
+    box-sizing: border-box;
+}
+
+.easy_payment_list li:first-child::before {
+    display: none;
+}
+
+.easy_payment_list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 54px;
+    margin-top: -27px;
+    background: #ededed;
+}
+
+.easy_payment_list label {
+    display: block;
+}
+
+input[type=radio] {
+    position: absolute;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    opacity: 0;
+}
+
+input[type="radio" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: initial;
+    border: initial;
+}
+
+.easy_payment_list .naver label>span {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/naverpay.png);
+}
+
+.easy_payment_list input:checked+span {
+    border-color: red;
+    box-shadow: 0 8px 16px rgb(46 46 46 / 10%);
+}
+
+.easy_payment_list label>span {
+    display: block;
+    height: 68px;
+    padding-left: 40.9%;
+    font-size: 1.25rem;
+    line-height: 64px;
+    background-repeat: no-repeat;
+    background-position: 17.3%;
+    border: 2px solid #fff;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+input[type=radio]:checked+::before {
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/checked.png) no-repeat 0;
+}
+
+input[type=radio]+::before {
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/loading.png) no-repeat 0;
+}
+
+.easy_payment_list label>span::before {
+    display: none;
+}
+
+input[type=checkbox]+::before,
+input[type=radio]+::before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 13px;
+    vertical-align: middle;
+}
+
+.easy_payment_list .kakao label>span {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/appicon/kakaopay.png);
+}
+
+.txtlist03 {
+    padding-top: 40px;
+    margin-top: 40px;
+    font-size: .875rem;
+    color: #737373;
+}
+
+.txtlist03>li {
+    margin: 10px 0;
+    padding-left: .7em;
+    text-indent: -.7em;
+    letter-spacing: -.05em;
+}
+
+@media screen and (min-width: 767px) {
+    .w_none {
+        display: none;
+    }
+}
+
+.tit_ico.phone::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/reaction/mobile.png);
+}
+
+.container02 .check_list01:only-child {
+    margin: -5.5px 0;
+}
+
+.check_list01,
+.check_list01>* {
+    position: relative;
+}
+
+.check_list01 input[type=radio] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+.tit_ico.deliveryman::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/delivery/delivery_headicon.png);
+}
+
+.check_list01>* {
+    margin-bottom: 5px;
+}
+
+.check_list01 li>label,
+.check_list01>label {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding-top: 9px;
+    padding-bottom: 7px;
+}
+
+.check_list01 input[type=radio] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+.check_list01 li ul {
+    margin-top: 10px;
+    padding-left: 50px;
+    overflow: hidden;
+}
+
+.check_list01 li ul li {
+    float: left;
+    min-width: 30%;
+    padding: 5px 20px 5px 0;
+    font-size: 1.3125rem;
+}
+
+.check_list01 input[type=checkbox],
+.check_list01 input[type=radio] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+input[type=tel] {
+    max-width: 100%;
+    width: 100%;
+    display: inline-block;
+    height: 66px;
+    margin: 0;
+    padding: 3px 10px 3px 4px;
+    font-weight: 400;
+    font-size: 1.375rem;
+    color: #000;
+    vertical-align: middle;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/login/loginline.png) repeat-x 0 100%;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+.check_list01 li ul label>span::before {
+    margin-right: 12px;
+}
+
+.check_list01 li>label>span::before {
+    margin-right: 25px;
+}
+
+input[type=checkbox]+::before {
+    content: "";
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/findstore/nocheck.png) no-repeat 0;
+}
+
+input[type=checkbox]:checked+::before {
+    content: "";
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/findstore/yescheck.png);
+}
+
+.totamountWrap {
+    position: relative;
+}
+
+.totamountWrap::after {
+    content: "";
+    position: absolute;
+    left: 64px;
+    top: 0;
+    right: 64px;
+    border-top: 2px dashed #e6e6e6;
+}
+
+.totamountWrap::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -5px;
+    width: 100%;
+    height: 5px;
+    background: #fff;
+}
+
+.totamountWrap dl {
+    position: relative;
+    padding: 25px 64px 55px;
+    line-height: 40px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+}
+
+.totamountWrap dt {
+    float: left;
+    font-weight: 700;
+    font-size: 1.625rem;
+}
+
+.totamountWrap dd {
+    float: right;
+    margin-top: 3px;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #ffa423;
+    line-height: 100%;
+    white-space: nowrap;
+}
+
+.totamountWrap .c_btn {
+    margin-top: 40px;
+    text-align: right;
+}
+
+.c_btn:last-child {
+    margin-bottom: 0;
+}
+
+.c_btn {
+    margin: 40px 0 80px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.totamountWrap .c_btn a {
+    margin-left: 5px;
+}
+
+.btn01 {
+    border: none;
+    display: inline-block;
+    width: 256px;
+    height: 68px;
+    font-size: 1.5rem;
+    padding: 12px 10px 10px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    line-height: 46px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/btn-black.png) no-repeat 50%;
+    background-size: 100% 100%;
+    border-radius: 0;
+}
+
+.btn01.orange {
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_o3.png) no-repeat 50%;
+    background-size: 100% 100%;
+}
+
+.order_caution {
+    margin-top: 55px;
+}
+
+.tit03 {
+    position: relative;
+    margin: 25px 0;
+    padding: 12px 0;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #000;
+}
+
+.tit03>h4 {
+    margin-right: 10em;
+}
+
+.txtlist01 {
+    margin: 7px 0 7px 5px;
+    line-height: 167%;
+}
+
+.txtlist01 li {
+    position: relative;
+    padding-left: 12px;
+}
+
+.txtlist01 li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 12px;
+    height: 1.67em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/mark.png) no-repeat 0;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+/* 모바일용 CSS */
+
+@media all and(max-width:765px) {}

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mylocaDao">
+
+	<select id="getCountLoca" resultType="int">
+		SELECT COUNT(*) FROM user_address
+			WHERE userid = #{userid}
+	</select>
+
+
+	<select id="getLocaList" resultType="MyLocationVO">
+		SELECT *
+	   		FROM(
+					SELECT A.*,
+				       ROW_NUMBER() over(order by addr_seq desc) as rn
+					FROM(
+						SELECT addr_seq,
+							   addr_type,
+							   zipcode,
+							   addr_name,
+							   addr,
+							   addr_detail,
+							   userid
+						FROM user_address							
+			        	)A
+	        	)B
+	    	WHERE userid = #{userid} AND addr_type=1
+	</select>
+	
+	
+	<select id="newLocaList" resultType="MyLocationVO">
+		SELECT *
+	   		FROM(
+					SELECT A.*,
+				       ROW_NUMBER() over(order by addr_seq desc) as rn
+					FROM(
+						SELECT addr_seq,
+							   addr_type,
+							   zipcode,
+							   addr_name,
+							   addr,
+							   userid
+						FROM user_address							
+			        	)A
+	        	)B
+	    	WHERE userid = #{userid} AND addr_type=0
+	</select>
+		
+		
+	<insert id="insertLoca" parameterType="MyLocationVO">
+		INSERT INTO
+			user_address(addr_name, zipcode, addr, userid, addr_detail, addr_extra)
+			VALUES(#{addr_name},#{zipcode}, #{addr}, #{userid}, #{addr_detail}, #{addr_extra})
+	</insert>
+		
+	
+	<update id="updateLocaOne" parameterType="MyLocationVO">
+		UPDATE user_address 
+			SET zipcode=#{zipcode},
+				addr = #{addr},
+				addr_detail = #{addr_detail},
+				addr_extra = #{addr_extra},
+				store_name = #{store_name}
+		WHERE userid=#{userid} AND addr_type=2
+	</update>
+	
+		
+	<insert id="insertLocaOne" parameterType="MyLocationVO">
+		INSERT INTO
+			user_address(addr_name, zipcode, addr, userid, addr_detail, addr_extra, addr_type, store_name)
+			VALUES(#{addr_name},#{zipcode}, #{addr}, #{userid}, #{addr_detail}, #{addr_extra}, 2 , #{store_name})
+	</insert>
+	
+	<insert id="insertStore" parameterType="MyLocationVO">
+		INSERT INTO
+			user_address(store_name) VALUES(#{store_name}) 
+		WHERE addr_seq=currval('addr_seq')
+	</insert>
+
+	
+	<update id="updateStore" parameterType="MyLocationVO">
+		UPDATE user_address
+			SET store_name=#{store_name}
+		WHERE addr_seq=currval('addr_seq')
+	</update>
+
+	
+	<select id="getLocaOne" resultType="MyLocationVO">
+		SELECT 	addr_seq, 
+				addr_type, 
+				zipcode, 
+				addr, 
+				addr_detail, 
+				addr_extra, 
+				userid,
+				store_name
+			FROM user_address
+	    	WHERE userid = #{userid} AND addr_type=2
+	</select>
+			
+	
+	<delete id = "deleteLoca" parameterType="MyLocationVO">
+		DELETE FROM user_address WHERE addr_seq=#{addr_seq}
+	</delete>
+	
+	<select id="selectStore" resultType="StoreVO">
+		SELECT
+				store_name,
+				( 6371
+				* acos( cos( radians(CAST(#{latitude} AS numeric(20, 14))) )
+				* cos( radians( latitude ) )
+				* cos( radians( longtitude ) - radians(CAST(#{longtitude} AS numeric(20, 14))) )
+				+ sin( radians(CAST(#{latitude} AS numeric(20, 14))) )
+				* sin( radians( latitude ) )))
+				AS distance
+			FROM store
+			ORDER BY distance asc
+			LIMIT 1;
+	</select>
+
+	
+</mapper>

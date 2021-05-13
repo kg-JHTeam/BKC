@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="eventDao">	
+
+	<select id="getEventList"  resultType="EventVO">
+		<![CDATA[	
+			SELECT *
+	   		FROM(
+					SELECT A.*,
+				       	ROW_NUMBER() over(order by end_date desc) as rn
+					FROM(
+						SELECT seq,
+								event_title,
+								img_title,
+								start_date,
+								end_date,
+								status
+							FROM event E inner join event_detail D on E.event_serial = D.event_serial
+			        	)A
+	        	)B 
+
+		]]>
+	</select>	
+	
+	<select id="getEventConList" resultType="EventVO">
+		<![CDATA[
+			SELECT *
+	   		FROM(
+					SELECT A.*,
+				       	ROW_NUMBER() over(order by start_date desc) as rn
+					FROM(
+						SELECT seq,
+								event_title,
+								img_title,
+								start_date,
+								end_date,
+								status
+							FROM event E inner join event_detail D on E.event_serial = D.event_serial
+			        	)A
+	        	)B 
+	        	WHERE status='true'
+		]]>
+	</select>
+	
+	<select id="getEventEndList" resultType="EventVO">
+		<![CDATA[
+			SELECT *
+	   		FROM(
+					SELECT A.*,
+				       	ROW_NUMBER() over(order by seq desc) as rn
+					FROM(
+						SELECT seq,
+								event_title,
+								img_title,
+								start_date,
+								end_date,
+								status
+							FROM event E inner join event_detail D on E.event_serial = D.event_serial 
+			        	)A
+	        	)B 
+	        	WHERE status='false'
+		]]>
+	</select>
+	
+	<select id="getEvent"  resultType="EventVO">
+		<![CDATA[	
+			SELECT event_title, 
+				   start_date,
+				   end_date,
+				   description,
+				   image
+				FROM event E join event_detail D on E.event_serial=D.event_serial where E.seq=#{seq}	
+		]]>	
+	</select>
+	
+	
+	<select id="getStoreNewList" resultType="StoreVO">
+		<![CDATA[
+			SELECT A.*,
+				       	ROW_NUMBER() over(order by store_open desc) as rn
+					FROM(
+						SELECT
+								store_name,
+								store_open
+							FROM store 
+							WHERE event_yn = true
+			        	)A
+			        	
+		]]>
+	</select>
+	
+	<select id="getStore" resultType="StoreVO">
+		<![CDATA[
+			SELECT
+				   store_name,
+				   store_open
+				   FROM store   
+				   	WHERE store_name=#{store_name}    	
+		]]>
+	</select>
+	
+</mapper>

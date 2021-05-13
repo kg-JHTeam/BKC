@@ -1,0 +1,335 @@
+/*지도 화면 비율에 맞추기*/
+
+html,
+body {
+    height: 100%;
+    margin: 0%;
+    overflow-y: hidden;
+    min-height: 450px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100%;
+    color: #000;
+    background: #f2ebe6;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+#wrap {
+	width: 100%;
+    overflow: hidden;
+}
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    border: 0;
+    outline: 0;
+}
+
+
+/* navigation  bar 부분 */
+
+.locationWrap {
+    position: relative;
+    padding: 10px 0;
+    line-height: 38px;
+    padding-left: 45px;
+    color: #fff;
+    background: black;
+    z-index: 2;
+   
+}
+
+.locationWrap>.page_navi>ul>li {
+    display: inline-block;
+}
+
+.locationWrap>.page_navi>ul>li>a {
+    color: white;
+    text-decoration: none;
+}
+
+.locationWrap>.page_navi{
+	margin: 0 17%;
+}
+span {
+    font-size: 1.1rem;
+}
+
+/*지도 API*/
+
+.map_wrap,
+.map_wrap * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+    font-size: 12px;
+    z-index: 0;
+}
+
+.map_wrap a,
+.map_wrap a:active,
+.map_wrap a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.map_wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#menu_wrap {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    width: 428px;
+    height: 100%;
+    padding-top: 171px;
+    background: #efefef;
+    border-left: 1px solid #2e2e2e;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 48%);
+    transition: right .3s linear;
+    z-index: 10;
+}
+
+#menu_wrap.on {
+    right: -428px;
+}
+
+#menu_wrap hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    margin: 3px 0;
+}
+
+#menu_wrap>.option {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 171px;
+    background: #fff;
+}
+
+#menu_wrap>.option>.tab01 {
+    margin: 0;
+    overflow: auto;
+}
+
+#menu_wrap>.option>.tab01>ul {
+    width: 100%;
+    display: table;
+}
+
+#menu_wrap>.option>.tab01>.item01>li {
+    white-space: nowrap;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    vertical-align: top;
+}
+
+#menu_wrap>.option>.tab01>.item01>li>.storesearch {
+    color: #838383;
+    font-weight: 700;
+    display: inline-block;
+    border-width: 3px 0;
+    width: 100%;
+    height: 69px;
+    padding: 10px 16px;
+    border: 0 solid #ededed;
+    border-top-color: #fff!important;
+}
+
+#menu_wrap>.option>.tab01>.item01>li>.storesearch>span {
+    font-weight: 700;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 20px;
+}
+
+#menu_wrap>.option>.container01>.r_srch01>form>.submit {
+    padding: 0 10px 20px;
+    height: 54px;
+    width: 54px;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/findstore/search.png") no-repeat;
+    border: hidden;
+}
+
+.container01 {
+    padding: 18px 24px;
+}
+
+.container01>.r_srch01.st02 {
+    padding-right: 62px;
+}
+
+.container01>.r_srch01 {
+    position: relative;
+}
+
+.inpbox {
+    position: relative;
+}
+
+.inpbox>input {
+    width: 100%;
+    padding: 0 25px 3px 5px;
+    outline: none;
+}
+
+.inpbox button {
+    width: 30px;
+    height: 63px;
+    margin: 0;
+}
+
+.inpbox button,
+.inpbox input~* {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-weight: 400;
+    font-size: 1.375rem;
+}
+
+input[type=text] {
+    display: inline-block;
+    height: 66px;
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: #000;
+    vertical-align: middle;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/login/loginline.png) repeat-x 0 100%;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    appearance: none;
+}
+
+.btn_del01 {
+    width: 30px;
+    height: 40px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/login/del_btn.png) no-repeat 50%;
+    background-size: 18px auto;
+}
+
+.container01>.r_srch01 .submit {
+    position: absolute;
+    right: -60px;
+    top: 44%;
+    margin-top: -22px;
+}
+
+.btn_mapsearch_open {
+    position: absolute;
+    left: -12px;
+    top: 130%;
+    width: 25px;
+    height: 64px;
+    /*margin-top: -32px;*/
+    text-indent: -9999em;
+    background: #f8f8f8;
+    border: 1px solid #2e2e2e;
+    border-right-color: #f8f8f8;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.btn_mapsearch_open::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    /* margin: -10px 0 0 -10px; */
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/right2.png) no-repeat 50%;
+}
+
+.btn_mapsearch_open.rotate {
+    transform: translate(-50%, -50%) rotate(180deg);
+    border-left-color: #f8f8f8;
+    border-right-color: #2e2e2e;
+}
+
+#placesList li {
+    list-style: none;
+}
+
+#placesList .item {
+    position: relative;
+    border-bottom: 1px solid #888;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 65px;
+    display: block;
+}
+
+#placesList .item span {
+    display: block;
+    margin-top: 4px;
+}
+
+#placesList .item .info,
+#placesList .item h5 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#placesList .item .info {
+    padding: 10px 0 10px 55px;
+    background-color: white;
+}
+
+#placesList .info h5 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#placesList .info .address {
+    color: darkgray;
+}
+
+#placesList .info .tel {
+    color: #ff8a1c;
+}
+
+#placesList .item .markerbg {
+    float: left;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    margin: 10px 0 0 10px;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/findstore/kingorder.png");
+}
+
+#pagination {
+    margin: 10px auto;
+    text-align: center;
+}
+
+#pagination a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#pagination .on {
+    font-weight: bold;
+    cursor: default;
+    color: #777;
+}

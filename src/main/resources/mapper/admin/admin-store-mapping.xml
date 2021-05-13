@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adStoreDao">
+		
+	<select id="getAdStoreList"  resultType="StoreVO">
+		<![CDATA[
+	   		SELECT *
+	   		FROM(
+					SELECT A.*,
+				       	ROW_NUMBER() over(order by store_open desc) as rn
+					FROM(
+						SELECT
+								store_name,
+								store_open,
+								store_status,
+								event_yn
+							FROM  store
+			        	)A
+	        	)B
+	        	WHERE store_status = 0
+	    ]]>
+	</select>
+	
+	
+	<select id="getAdStore"  resultType="StoreVO">
+	  	<![CDATA[	
+			 select * 
+			 from store
+			 where store_name=#{store_name}
+		]]>
+	</select>
+	
+	<insert id="adinsertStore" parameterType="StoreVO">
+		<![CDATA[	
+			INSERT INTO store(store_name, store_open, store_call, store_address, store_status, event_yn) 
+			VALUES(#{store_name}, TO_DATE(#{store_open}, 'YYYY-MM-DD'), #{store_call}, #{store_address}, 0, 'true')
+		]]>	
+	</insert>
+	
+	
+	<update id="adupdateStore" parameterType="StoreVO">
+		<![CDATA[	
+		UPDATE store 
+		SET store_call = #{store_call},
+			store_open = TO_DATE(#{store_open}, 'YYYY-MM-DD'), 
+			store_address=#{store_address} 
+			WHERE store_name = #{store_name}
+		]]>
+	</update>
+	
+	
+	<update id="newStatus" parameterType="StoreVO">
+		<![CDATA[
+		UPDATE store
+		SET event_yn = NOT event_yn 
+		WHERE store_name = #{store_name}
+		]]>
+	</update>
+	
+	<delete id="deleteStore" parameterType="StoreVO">
+		<![CDATA[
+			DELETE FROM store WHERE store_name=#{store_name}
+		]]>
+	</delete>
+
+</mapper>

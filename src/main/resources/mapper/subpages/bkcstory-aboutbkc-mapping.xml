@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AboutbkcDAO">
+	<resultMap type="AboutbkcVO" id="AboutbkcVO">
+		<result property="seq" column="seq" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="path" column="path" />
+	</resultMap>
+	
+	<select id="AboutbkcList" resultType="AboutbkcVO">
+		select * from brand_bkcstory_aboutbkc
+	</select>
+	
+	<select id="getAboutbkc" resultType="AboutbkcVO">
+		<![CDATA[
+			SELECT * FROM brand_bkcstory_aboutbkc where seq= #{seq}
+		]]>
+	</select>
+	
+	<delete id="deleteAboutbkc" >
+		<![CDATA[
+			DELETE FROM brand_bkcstory_aboutbkc
+			WHERE
+				seq = #{seq}
+		]]>
+	</delete>
+	
+	<insert id="insertAboutbkc" > 
+		<![CDATA[
+			INSERT INTO 
+				brand_bkcstory_aboutbkc(seq, content, title, path)
+			VALUES 
+				(#{seq}, #{content}, #{title}, #{path});
+		]]>
+	</insert>
+	
+	<insert id="updateAboutbkc">
+		<![CDATA[
+		UPDATE 
+			brand_bkcstory_aboutbkc
+		SET  
+			content=#{content}, title=#{title}, path=#{path}
+		WHERE seq = #{seq};
+		]]>
+	</insert>
+</mapper>
+

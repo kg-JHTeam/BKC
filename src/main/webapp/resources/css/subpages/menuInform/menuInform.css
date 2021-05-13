@@ -1,0 +1,225 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+.menuWrap {
+    margin: 0 auto;
+    padding: 120px 0;
+}
+
+.menuContentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+
+/* 검은색 네비게이션 부분*/
+
+.locationWrap {    
+    padding: 10px 8px;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+    
+}
+
+.locationWrap a{
+	color: #fff;
+}
+
+.locationWrap>.web_container {
+    overflow: hidden;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.locationWrap>.Web_container>.page_navi {
+	margin: 0 19%;
+}
+
+.locationWrap>.web_container>.page_navi {
+    float: left;
+    
+}
+
+.locationWrap>.web_container>.page_navi a {
+    color: #fff;
+}
+
+.locationWrap>.web_container>.page_navi>* {
+    float: left;
+}
+
+.locationWrap>.web_container>.page_navi>:first-child::before {
+    display: none;
+}
+span {
+    font-size: 1.1rem;
+}
+
+
+/* 메뉴 컨텐츠 부분 */
+
+.menu_contentsBox01 {
+    padding: 50px 0 45px;
+}
+
+.menu_contentsBox01.bg_w {
+    background: #fff;
+}
+
+.menu_contentsBox01>.menu_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.menu_contentsBox01>.menu_container>.menu_subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+
+.menu_contentsBox01>.menu_container>.menu_subtitWrap>.page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+
+.menu_subtitWrap .tab01 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -17.5px 0 0;
+    overflow: auto;
+}
+
+.menu_subtitWrap .tab01>ul {
+    display: table;
+}
+
+.menu_subtitWrap .tab01>ul>li:first-child {
+    padding-left: 0;
+}
+
+.menu_subtitWrap .tab01>ul>li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.menu_subtitWrap .tab01>ul>li button>a:hover {
+    color: #2e2e2e;
+}
+
+.menu_subtitWrap .tab01>ul>li.off>button {
+    background: #fff;
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 3px 0;
+    padding: 5px 0;
+    display: inline-block;
+    border-top: 0 solid transparent;
+    border: 0;
+    outline: 0;
+}
+
+.menu_subtitWrap .tab01>ul>li.on>button {
+    background: #fff;
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 3px 0;
+    padding: 5px 0;
+    display: inline-block;
+    border-top: 0 solid transparent;
+    outline: 0;
+}
+
+.menu_subtitWrap .tab01>ul>li button>a {
+    font-weight: 700;
+    color: #b8b8b8;
+}
+
+.menu_subtitWrap .tab01>ul>li.on>button>a {
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+
+.menu_subtitWrap .tab01>ul>li.on>button {
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+
+.tab_cont>.menu_list {
+    width: 100%;
+    margin-top: 60px;
+    padding-bottom: 46px;
+    overflow: hidden;
+}
+
+.tab_cont>.menu_list>li {
+    position: relative;
+    float: left;
+    width: 25%;
+    margin-bottom: 8px;
+}
+
+.tab_cont>.menu_list>li>.menu_list_img {
+    width: 100%;
+    position: relative;
+    max-width: 220px;
+    height: 144px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.tab_cont>.menu_list>li>.menu_list_img>span>img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+    border: none;
+}
+
+.menu_list .cont {
+    min-height: 115px;
+    padding: 30px 5px 0;
+    text-align: center;
+}
+
+.menu_list .cont>.tit {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.menu_list .btn_detail {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-indent: -99999em;
+    background: transparent;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+/* 모바일용 CSS */
+
+@media all and(max-width:765px) {}

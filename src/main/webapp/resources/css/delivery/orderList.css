@@ -1,0 +1,331 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+
+/* 전체 css*/
+
+.subWrap2 {
+    margin: 0 auto;
+    padding: 168px 0 272px;
+}
+
+/* content부분 */
+
+.contnetsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+span {
+    font-weight: bold;
+}
+
+.locationWrap {
+    height: 58px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #ffa423;
+}
+
+.locationWrap>.web_container {
+    overflow: hidden;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.locationWrap>.web_container>.page_navi {
+    float: left;
+    font-size: .875rem;
+}
+
+.locationWrap a {
+    color: #fff;
+}
+
+.locationWrap>.web_container>.page_navi>* {
+    float: left;
+}
+
+.page_navi:first-child::before {
+    display: none;
+}
+
+.gotomenu::after {
+    content: "";
+    float: left;
+    width: 38px;
+    height: 38px;
+    margin: 0 12px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+}
+
+.locationWrap .location {
+    float: right;
+    font-size: .875rem;
+}
+
+.location>* {
+    display: inline-block;
+    margin-left: 24px;
+    padding-left: 22px;
+    vertical-align: top;
+}
+
+.location .addr {
+    max-width: 200px;
+    margin: 0;
+    text-overflow: ellipsis;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/location.png) no-repeat 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.location .shop {
+    padding-left: 26px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/near.png) no-repeat 0;
+}
+
+.location .btn {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.location .addrchange {
+    display: inline-block;
+    width: 56px;
+    height: 34px;
+    padding: 0;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+    line-height: 34px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+
+/* 주문 내역 페이지 contents */
+
+.contentsBox01 {
+    padding: 50px 0 45px;
+    background: #f2ebe6;
+}
+
+.contentsBox01>.web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contentsBox01>.web_container>.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+
+.contentsBox01>.web_container>.subtitWrap>.page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+
+.contentsBox01>.web_container>.subtitWrap .tab01 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -17.5px 0 0;
+    overflow: auto;
+}
+
+.tab01>.item2 {
+    display: table;
+}
+
+.tab01>.item2 li:first-child {
+    padding-left: 0;
+}
+
+.tab01>.item2 li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.subtitWrap .tab01 li.on .button {
+    color: #ffa423;
+    border-bottom-color: #ffa423;
+}
+
+.subtitWrap .tab01 .button {
+    display: inline-block;
+    padding: 10px 1px;
+    font-weight: 700;
+    font-size: 1.375rem;
+    background: #f2ebe6;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0;
+}
+
+.subtitWrap .tab01 .button>* {
+    vertical-align: middle;
+}
+
+.container01 {
+    padding: 20px 0;
+}
+
+.container01>.tab_cont {
+    min-height: 100%;
+    color: #000;
+    background: #fff;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+.container01>.tab_cont>.hide {
+    position: absolute!important;
+    left: -10000px;
+    top: -10000px;
+    visibility: hidden;
+}
+
+.container01>.tab_cont .nodata {
+    font-size: 1.5rem;
+    line-height: 150%;
+    padding: 370px 10px 10px;
+    color: #766e69;
+    text-align: center;
+    background: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/bkclogo_bw.png") no-repeat center 150px;
+    z-index: 10;
+}
+
+.container01>.tab_cont .order_list {
+    padding: 4px 64px 2px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+    display: block;
+}
+
+.order_list>li {
+    position: relative;
+    min-height: 224px;
+    padding-left: 315px;
+    border-bottom: 2px dashed #e6e6e6;
+}
+
+.order_list .prd_img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 254px;
+    height: 167px;
+    margin-top: -83.5px;
+}
+
+.order_list .prd_img>span {
+    display: block;
+}
+
+.order_list .prd_img img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+    border: none;
+}
+
+.order_list .cont {
+    padding: 52px 0 16px;
+}
+
+.order_list .tit {
+    position: relative;
+    padding-right: 3em;
+    font-size: 1.75rem;
+}
+
+.order_list .tit .tag {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -16px;
+    font-size: 1.125rem;
+    padding: 0 5px;
+    color: #fff;
+    line-height: normal;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/order/orderright.png) no-repeat 0, url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/order/orderleft.png) no-repeat 100%;
+    background-size: auto 100%, auto 100%;
+}
+
+.tag,
+.tag>* {
+    display: inline-block;
+}
+
+.tag>* {
+    height: 32px;
+    padding: 4px 5px;
+    line-height: 26px;
+    background: #762824;
+    box-sizing: border-box;
+}
+
+.order_list .info {
+    margin-top: 25px;
+    font-size: 1.125rem;
+    color: #737373;
+    line-height: 167%;
+}
+
+.order_list .info::after {
+    content: "";
+    margin: 0 5px 0 3px;
+}
+
+.order_list .info dd {
+    display: inline;
+}
+
+.btn_detail {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-indent: -99999em;
+    background: transparent;
+}
+
+.c_btn:last-child {
+    margin-bottom: 0;
+}
+
+.c_btn {
+    margin: 40px 0 80px;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+/* 모바일용 CSS */
+
+@media all and(max-width:765px) {}

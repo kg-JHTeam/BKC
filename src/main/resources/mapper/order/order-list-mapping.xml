@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OrderDAO">
+	<resultMap type="OrderVO" id="OrderVO">
+		<result property="description" column="description" />
+		<result property="order_serial" column="order_serial" />
+		<result property="store_name" column="store_name" />
+		<result property="order_status" column="order_status" />
+		<result property="userid" column="userid" />
+		<result property="coupon_seqs" column="coupon_seq" />
+		<result property="total_price" column="total_price" />
+		<result property="payment_type" column="payment_type" />
+		<result property="address" column="address" />
+		<result property="product_serial" column="product_serial" />
+		<result property="order_date" column="order_date" />
+		<result property="phonenumber" column="phonenumber" />
+	</resultMap>
+	
+	<insert id="insertOrder" parameterType="OrderVO" useGeneratedKeys="true" keyColumn="order_serial" keyProperty="order_serial"> 
+			INSERT INTO 
+				orderlist (phonenumber, description, store_name, order_status, userid, coupon_seq, payment_type, total_price, address, product_serial, order_date)
+			VALUES 
+				 (
+				 #{phonenumber},
+				 #{description},
+				 #{store_name}, 
+				 #{order_status}, 
+				 #{userid}, 
+				 #{coupon_seq}, 
+				 #{payment_type}, 
+				 #{total_price},
+				 #{address},
+				 #{product_serial},
+				 localtimestamp)
+	</insert>
+	<update id="updateProductSerial">
+		UPDATE orderlist
+		SET product_serial = #{product_serial}, productCount = #{productCount}, order_status = #{order_status}
+		WHERE order_serial = #{order_serial}
+	</update>
+	<update id="cancelOrder">
+		UPDATE orderlist
+		SET order_status = -1
+		WHERE order_serial = #{order_serial}
+	</update>
+	
+	<select id="getOrder" resultType="OrderVO">
+		<![CDATA[
+			SELECT 
+				orderlist.productCount,
+				orderlist.order_serial,
+				orderlist.store_name,
+				orderlist.order_status,
+				orderlist.userid,
+				orderlist.coupon_seq,
+				orderlist.payment_type,
+				orderlist.total_price,
+				orderlist.phonenumber, 
+				orderlist.address,
+				orderlist.product_serial,
+				DATE_TRUNC('second', orderlist.order_date::timestamp) as order_date,
+				orderlist.description
+			FROM orderlist where order_serial =	#{order_serial}
+			order by orderlist.order_serial DESC;
+		]]>
+	</select>
+	
+	<!-- 회원 주문내역 뽑기 List로 출력  // Product와 조인한고 Product는 Product_image와 조인해서  뽑아온다. -->  
+	<select id="getUserOrderList" resultType="OrderVO">
+		<![CDATA[
+			SELECT 
+				orderlist.productCount,
+				orderlist.order_serial,
+				orderlist.store_name,
+				orderlist.order_status,
+				orderlist.userid,
+				orderlist.coupon_seq,
+				orderlist.payment_type,
+				orderlist.total_price,
+				orderlist.address,
+				orderlist.phonenumber, 
+				orderlist.product_serial,
+				DATE_TRUNC('second', orderlist.order_date::timestamp)as order_date,
+				orderlist.description, 
+				product.product_name,
+				product.product_serial,
+				product_image.*  
+			FROM orderlist 
+			INNER JOIN product ON product.product_serial = orderlist.product_serial
+			INNER JOIN product_image ON product.product_serial = product_image.product_serial
+			where orderlist.userid = #{userid}
+			order by orderlist.order_serial DESC;
+		]]>
+	</select>
+	
+	<select id="getNotDeliveryUserOrderList" resultType="OrderVO">
+		<![CDATA[
+			SELECT 
+			orderlist.productCount,
+				orderlist.order_serial,
+				orderlist.store_name,
+				orderlist.order_status,
+				orderlist.userid,
+				orderlist.coupon_seq,
+				orderlist.payment_type,
+				orderlist.total_price,
+				orderlist.address,
+				orderlist.phonenumber, 
+				orderlist.product_serial,
+				DATE_TRUNC('second', orderlist.order_date::timestamp) as order_date,
+				orderlist.description, 
+			    product.product_name 
+			FROM orderlist 
+			INNER JOIN product ON product.product_serial = orderlist.product_serial
+			where userid = #{userid} and (order_status = 1 or order_status = 2) 
+			order by orderlist.order_serial DESC;
+		]]>
+	</select>
+	
+	<!-- 회원 주문내역 뽑기 List로 출력  // Product와 조인한고 Product는 Product_image와 조인해서  뽑아온다. -->  
+	<select id="getAllOrderList" resultType="OrderVO">
+		<![CDATA[
+			SELECT 
+				orderlist.productCount,
+				orderlist.order_serial,
+				orderlist.store_name,
+				orderlist.order_status,
+				orderlist.userid,
+				orderlist.coupon_seq,
+				orderlist.payment_type,
+				orderlist.total_price,
+				orderlist.address,
+				orderlist.product_serial,
+				DATE_TRUNC('second', orderlist.order_date::timestamp)as order_date,
+				orderlist.description,
+				orderlist.phonenumber, 
+				product.product_name, 
+				product.product_serial
+				FROM orderlist 
+			INNER JOIN product ON product.product_serial = orderlist.product_serial
+			order by orderlist.order_serial DESC;
+		]]>
+	</select>
+	
+	<select id="getAllOrderListByOrderStatus" resultType="OrderVO">
+		<![CDATA[
+			SELECT 
+				orderlist.productCount,
+				orderlist.order_serial,
+				orderlist.store_name,
+				orderlist.order_status,
+				orderlist.userid,
+				orderlist.coupon_seq,
+				orderlist.payment_type,
+				orderlist.total_price,
+				orderlist.address,
+				orderlist.phonenumber, 
+				orderlist.product_serial,
+				DATE_TRUNC('second', orderlist.order_date::timestamp)as order_date,
+				orderlist.description, 
+				product.product_name, 
+				product.product_serial
+			FROM orderlist 
+			INNER JOIN product ON product.product_serial = orderlist.product_serial
+			WHERE orderlist.order_status = #{order_status}
+			order by orderlist.order_serial DESC;
+		]]>
+	</select>
+	<select id="getAllOrderListReceipt" resultType="OrderVO">
+		<![CDATA[
+			SELECT 
+				orderlist.productCount,
+				orderlist.order_serial,
+				orderlist.store_name,
+				orderlist.order_status,
+				orderlist.userid,
+				orderlist.coupon_seq,
+				orderlist.payment_type,
+				orderlist.total_price,
+				orderlist.address,
+				orderlist.phonenumber, 
+				orderlist.product_serial,
+				DATE_TRUNC('second', orderlist.order_date::timestamp)as order_date,
+				orderlist.description, 
+				product.product_name, 
+				product.product_serial
+			FROM orderlist 
+			INNER JOIN product ON product.product_serial = orderlist.product_serial
+			WHERE orderlist.order_status = 1 or orderlist.order_status = 2
+			order by orderlist.order_serial DESC;
+		]]>
+	</select>
+	<select id="getTotalSales" resultType="Integer">
+		<![CDATA[
+			SELECT 
+				sum(total_price) as total_price
+			FROM orderlist WHERE order_status = 3;
+		]]>
+	</select>
+	<select id="getTotalSalesFromStore" resultType="OrderVO">
+		<![CDATA[
+				select sum(total_price) as total_price, store_name
+				from orderlist
+				group by store_name
+				ORDER BY total_price DESC
+		]]>
+	</select>
+
+	
+	
+</mapper>

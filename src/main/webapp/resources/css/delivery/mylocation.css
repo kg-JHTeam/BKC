@@ -1,0 +1,738 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+
+/* 전체 css*/
+
+.subWrap2 {
+    margin: 0 auto;
+    padding: 168px 0 272px;
+}
+
+
+/* header 부분 이클립스에선 따로 뺄 것 */
+
+span {
+    font-weight: bold;
+}
+
+.headerWrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 50;
+}
+
+.headerWrap>.head_menuWrap {
+    position: relative;
+    background: #1D1D1B;
+}
+
+.head_menuWrap::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 0;
+    background: #fff;
+    box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+    z-index: 2;
+}
+
+.head_menuWrap::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 5px;
+}
+
+.headerWrap>.head_menuWrap>.web_container {
+    height: 168px;
+    padding-top: 48px;
+    position: relative;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.head_menuWrap>.web_container>.logo {
+    display: inline-block;
+    position: static;
+    width: auto;
+    height: 120px;
+    padding-left: 80px;
+    padding-right: 10px;
+    font-weight: 700;
+    font-size: 2.25rem;
+    color: #fff;
+    text-indent: 0;
+    line-height: 120px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/bkclogo.png) no-repeat 0;
+    background-size: 5rem;
+    cursor: pointer;
+    left: 20px;
+    top: 20px;
+}
+
+.head_menuWrap>.web_container .utilWrap {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    overflow: hidden;
+}
+
+.head_menuWrap>.web_container .utilWrap a {
+    color: #fff;
+    position: relative;
+    display: block;
+    float: left;
+    height: 48px;
+    padding: 0 14px;
+    font-size: .875rem;
+    line-height: 48px;
+}
+
+.head_menuWrap>.web_container .utilWrap a::before {
+    background: #1D1D1B;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 13px;
+    margin-top: -6.5px;
+}
+
+.head_menuWrap>.web_container .WEB.user {
+    position: absolute;
+    right: 20px;
+    bottom: 36px;
+    min-height: 46px;
+    padding: 3px 0 3px 57px;
+    color: #fff;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/member.png) no-repeat 0;
+}
+
+.head_menuWrap>.web_container .WEB.user a {
+    margin-top: 3px;
+    padding-right: 16px;
+    font-weight: 700;
+    color: #fff;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 100%;
+}
+
+.head_personalWrap {
+    margin-top: 168px;
+    height: 124px;
+    font-size: 1.375rem;
+    color: #fff;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_menubar3.gif) repeat-x top;
+}
+
+.head_personalWrap>.web_container {
+    position: relative;
+    height: 100%;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.head_personalWrap>.web_container>* {
+    height: 100%;
+    overflow: hidden;
+}
+
+.personal_logon {
+    position: relative;
+    height: 100%;
+}
+
+.personal_logon::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    margin-left: -1.5px;
+}
+
+.head_personalWrap a {
+    color: #fff;
+}
+
+.personal_logon>* {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.personal_order {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    min-height: 56px;
+    padding-left: 110px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/delivery/deliverywhite.png) no-repeat 0;
+    transform: translateY(-50%);
+}
+
+.personal_order dd {
+    margin-top: 10px;
+    font-size: 1.125rem;
+    line-height: 167%;
+}
+
+.personal_cart {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 41%;
+    padding-left: 95px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/shopping.png) no-repeat 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.personal_cart .count {
+    height: 30px;
+    margin-left: 14px;
+    padding: 0 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    line-height: 30px;
+    background: #1D1D1B;
+}
+
+.personal_cart dt>* {
+    vertical-align: middle;
+}
+
+.personal_cart dd {
+    margin-top: 10px;
+    font-size: 1.125rem;
+}
+
+
+/* content부분 */
+
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+span {
+    font-weight: bold;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.locationWrap {
+    height: 58px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #ffa423;
+}
+
+.locationWrap>.web_container {
+    overflow: hidden;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.locationWrap>.web_container>.page_navi {
+    float: left;
+     font-size: 1.125rem;
+}
+
+.locationWrap a {
+    color: #fff;
+}
+
+.locationWrap>.web_container>.page_navi>* {
+    float: left;
+}
+
+.page_navi:first-child::before {
+    display: none;
+}
+
+.gotomenu::after {
+    content: "";
+    float: left;
+    width: 38px;
+    height: 38px;
+    margin: 0 12px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+}
+
+.locationWrap .location {
+    float: right;
+    font-size: .875rem;
+}
+
+.location>* {
+    display: inline-block;
+    margin-left: 24px;
+    padding-left: 22px;
+    vertical-align: top;
+}
+
+.cont {
+	font-size: 1rem;
+}
+
+.location .addr {
+    max-width: 200px;
+    margin: 0;
+    text-overflow: ellipsis;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/location.png) no-repeat 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.location .shop {
+    padding-left: 26px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/near.png) no-repeat 0;
+}
+
+.location .btn {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.location .addrchange {
+    display: inline-block;
+    width: 56px;
+    height: 34px;
+    padding: 0;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+    line-height: 34px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+
+/* location 페이지 contents */
+
+.contentsBox02 {
+    padding: 50px 0 45px;
+}
+
+.bg_w {
+    background: #fff;
+}
+
+.contentsBox02 .web_container02 {
+    max-width: 776px;
+    margin: 0 auto;
+    padding: 0 8px;
+}
+
+.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+
+.subtitWrap .page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+
+.searchWrap02:last-child {
+    margin-bottom: 0;
+}
+
+.searchWrap02 {
+    position: relative;
+    margin-bottom: 8px;
+    background: #fff;
+}
+
+.r_srch01 {
+    position: relative;
+    padding-right: 166px;
+}
+
+.r_srch02 {
+	position: relative;
+	padding-right: 166px;
+}
+
+.inpbox {
+    position: relative;
+    border: none;
+}
+
+.inpbox2 {
+	display: table-cell;
+	position: relative;
+	border: none;
+}
+
+.findaddr {
+    border: none;
+}
+
+.inpbox input {
+    width: 100%;
+    padding: 0 25px 3px 5px;
+}
+
+.inputWrap {
+	text-align: center;
+}
+
+.inputWrap .inpbox {
+	display: table-cell;
+}
+
+.inputWrap .inpbox2 .de {
+	width: 33%;
+}
+
+input[type=text] {
+    display: inline-block;
+    height: 66px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.375rem;
+    color: #000;
+    vertical-align: middle;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/login/loginline.png) repeat-x 0 100%;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.inpbox button {
+    width: 30px;
+    height: 63px;
+    margin: 0;
+}
+
+.inpbox button,
+.inpbox input~* {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.btn_del01 {
+    border: none;
+    width: 30px;
+    height: 40px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/del_btn.png) no-repeat 50%;
+    background-size: 18px auto;
+}
+
+.r_srch01 button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -22px;
+}
+
+.r_srch02 button {
+	position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -22px;
+}
+
+.btn_search01 {
+    width: 134px;
+    height: 44px;
+    color: #fff;
+    background: #2e2e2e;
+    border-radius: 5px;
+    
+}
+
+.btnput {
+	margin-top: 30px;
+    width: 134px;
+    height: 44px;
+    color: #fff;
+    background: #2e2e2e;
+    border-radius: 5px;
+}
+
+
+.btn_search01 > span{
+    padding-right: 28px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/findstore/search.png) no-repeat 100%;
+    background-size: 30px;
+}
+
+.bg_b {
+    background: #f2ebe6;
+}
+
+.tabfixWrap {
+    position: relative;
+    padding-top: 54px;
+}
+
+.tabfixWrap .tab01 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+.tab01 {
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+.tab01 ul {
+    display: table;
+}
+
+.tab01 li:first-child {
+    padding-left: 0;
+}
+
+.tab01 li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.tab01 button {
+    display: inline-block;
+    padding: 10px 1px;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0;
+}
+
+.tab01 a>*,
+.tab01 button>* {
+    vertical-align: middle;
+}
+
+.tab01 li.on a,
+.tab01 li.on button {
+    color: #ffa423;
+    border-bottom-color: #ffa423;
+}
+
+.tab01 a,
+.tab01 button {
+    background: #f2ebe6;
+    display: inline-block;
+    padding: 10px 1px;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0;
+}
+
+.hide {
+    position: absolute!important;
+    left: -10000px;
+    top: -10000px;
+    visibility: hidden;
+}
+
+.nodata,
+.nodata .tit {
+    font-size: 1.5rem;
+    line-height: 150%;
+}
+
+.nodata {
+    padding: 370px 10px 10px;
+    color: #766e69;
+    text-align: center;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/bkclogo_bw.png) no-repeat center 150px;
+    background-size: 185px;
+    z-index: 10;
+}
+
+.container01 {
+    padding: 20px 0;
+}
+
+.tab_cont {
+	background-color:#F2EBE6
+    padding: 0;
+}
+
+
+.delivery_list>li { 
+    position: relative;
+    padding: 35px 45px;
+    margin: 35px 50px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+}
+
+.delivery_list .addr,
+.delivery_list .nick {
+    margin-right: 60px;
+    font-size: 1.5rem;
+}
+
+.delivery_list .addr > span {
+	font-size: 1.2rem;
+	font-weight: normal;
+}
+
+.delivery_list .addr > em > span {
+	position: absolute;
+	top: 6px;
+	left: 22px;
+	font-weight: normal;
+}
+
+.delivery_list .addr_old {
+    margin-top: 7px;
+}
+
+.addr_old {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, .5);
+}
+
+.addr_old .type {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 4px 8px;
+    font-weight: 700;
+    font-size: .625rem;
+    color: #fff;
+    line-height: 100%;
+    vertical-align: middle;
+    background: #8d8d8d;
+    border-radius: 2px;
+}
+
+.addr_old em {
+    color: #ffa423;
+}
+
+.delivery_list .btn_deatail {
+    width: 85%;
+}
+
+.btn_detail {
+    border: none;
+    outline: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-indent: -99999em;
+    background: transparent;
+}
+
+.delivery_list {
+    padding: 16px;
+}
+
+.myaddrWrap {
+    margin-right: 40px;
+}
+
+.delivery_list .nick {
+    position: relative;
+    display: inline-block;
+    min-width: 3em;
+    margin-right: 11px;
+    padding-right: 15px;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.myaddrWrap>* {
+    display: inline-block;
+}
+
+.delivery_list .nick::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 1px;
+    height: 20px;
+    margin-top: -10px;
+    background: #f2f2f2;
+}
+
+.myaddrWrap .addr {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.25rem;
+}
+
+.delivery_list .btn_del02 {
+    position: absolute;
+    right: 22px;
+    top: 6px;
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+}
+
+.btn_del02 {
+    border: none;
+    width: 10px;
+    height: 10px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/reaction/close.png) no-repeat 30%;
+}
+
+.btn_detail {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-indent: -99999em;
+    background: transparent;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+/* 모바일용 CSS */
+
+@media all and(max-width:765px) {}

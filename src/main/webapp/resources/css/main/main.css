@@ -1,0 +1,507 @@
+@charset "utf-8";
+    /* 모바일 메인 */
+    .m-main-wrap {
+        display: none;
+    }
+    
+    /* - ------------------메인 시작- ---------------------*/
+    /* 이미지 슬라이더 zone */
+    .imgslide-zone{
+        margin:0px;
+        padding:0px;
+        display: flex;
+        flex-direction: row;
+        top:100px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        position: relative;
+        background: #f2ebe6;
+    }
+
+    .imgslide-zone > .slide {
+        width:90%;
+    }
+
+    .imgslide-zone > .slide > ul {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .imgslide-zone > .slide > ul >img  {
+        text-align: center;
+        align-items: center;
+        font-weight: bold;
+        text-align: center;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    /* youtube- zone*/
+    .youtube-zone{
+        display: flex;
+        flex-direction: row;
+        height: 605px;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        position: relative;
+        background: #f2ebe6;
+        margin:0px;
+        padding:0px;
+    }
+
+
+    .youtube-zone #youtube{
+        display: block;
+        width: 90%;
+        height:605px;
+        margin:0 auto;
+    }
+
+    /* sns- zone*/
+    .sns-zone{
+        margin:0px;
+        padding:0px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        position: relative;
+        background: #f2ebe6;
+    }
+
+    .sns-zone > .sns{
+        margin:0px;
+        padding:0px;
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        width:90%;
+        background: #ffd84a;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        height: 200px;
+        color:white;
+    }
+
+    .sns-zone > .sns > div{
+        width : 35%;
+        background: #ffd84a;
+        align-items: center;
+    }
+    .sns-zone > .sns > .center{
+        width : 30%;
+    }
+
+    .sns-zone > .sns > div > img{
+        cursor:pointer;
+    }
+    .sns-zone > .sns > div > a > span{
+        display: block;
+        font-size:1.4rem;
+        top:0px;
+        left:0px;
+        color:white;
+    }
+
+    /* app-delivery-zone */
+    .app-delivery-zone {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        background: #f2ebe6;
+        position: relative;
+    }
+
+    .app-delivery-zone > .center-wrap{
+        height: auto;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        width:90%;
+        height: 430px;
+    }
+
+    .app-delivery-zone > .center-wrap > .app{
+        height:100%;
+        width:50%;
+        background: #ffbd4e;
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/bugerapp.png");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+    .app-delivery-zone > .center-wrap > .delivery{
+        height:100%;
+        width:50%;
+        background: #ffa423;
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/delivery.png");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+
+    /* store-zone */
+    .store-zone{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        background: #f2ebe6;
+    }
+
+    .store-zone > .center-wrap{
+        width:90%;
+        margin: 0 auto;
+        background: white;
+        height:500px;
+    }
+
+    .store-zone > .center-wrap > .content-wrap{
+        margin: 80px 148px 88px;
+        height: 300px;
+        font-weight: bold;
+        font-size:1.5rem;
+    }
+
+    .store-zone > .center-wrap > .content-wrap > h4{
+        font-weight: lighter;
+    }
+
+    .store-zone > .center-wrap > .content-wrap > .c_btn_1 {
+        height:2.6rem;
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_o1.png");
+        background-position: 50% 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .store-zone > .center-wrap > .content-wrap > .c_btn_1  > a{
+        color:white;
+        font-size:1.5rem;
+    }
+    /* delivery-zone */ 
+    .delivery-zone{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        position: relative;
+        background: #f2ebe6;
+    }
+
+    .delivery-zone > .center-wrap{
+        display: flex;
+        flex-direction: row;
+        width:90%;
+        background: black;
+        color:white;
+        height:160px;
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_fire1.png");
+        background-position-y:70%;
+        background-position-x:60%;
+        background-size : cover;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+    }
+    .delivery-zone > .center-wrap > .content-wrap{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        width:100%;
+    }
+
+    .delivery-zone > .center-wrap > .content-wrap >.content-01{
+        margin-left:7rem;
+        width:50%;
+        text-align:left;
+        align-items: left;
+    }
+    .delivery-zone > .center-wrap > .content-wrap >.content-01 > p{
+        font-size:1.05rem;
+    }
+
+    .delivery-zone > .center-wrap > .content-wrap > .content-02{
+        width:50%;
+        font-size:3.2rem;
+        margin-right:7rem;
+        text-align:right;
+        align-items: right;
+    }
+    
+    /* 페이지 위로 올리기 버튼 */
+
+	.btn_top {
+	    position: fixed;
+	    right: 20px;
+	    bottom: 316px;
+	    width: 52px;
+	    height: 52px;
+	    text-indent: -9999em;
+	    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+	    z-index: 50;
+	    display: none;
+	}
+
+    
+
+/* - ------------------메인끝 - ---------------------*/
+/* 화면 너비가 0 ~ 765 : 모바일 */
+@media all and (max-width: 765px) {
+    /* Desktop -> display : none*/
+    .m-main-wrap{
+        display: block;
+    }
+    
+    /* 이미지 슬라이더 zone */
+    .m-imgslide-zone{
+        margin:0px;
+        padding:0px;
+        display: flex;
+        flex-direction: row;
+        top:35px;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        position: relative;
+        width:100%;
+        height:100%;
+    }
+    
+    .m-imgslide-zone > .slide {
+    	width:100%;
+        height:auto;
+    }
+    .m-imgslide-zone > .slide > ul {
+        width: auto;
+    }
+    .imgslide-zone > .slide > ul >img  {
+        text-align: center;
+        align-items: center;
+        font-weight: bold;
+        text-align: center;
+        object-fit: cover;
+        width:auto;
+        height:auto;
+    }
+    
+    /* youtube- zone*/
+    .m-youtube-zone{
+        display: flex;
+        flex-direction: row;
+        top:40px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        position: relative;
+        background: white;
+    }
+
+    .m-youtube-zone > div{
+        width:100%;
+        height:auto;
+    }
+
+    .m-youtube-zone > div > #youtube{
+        width:100%;
+        height:30rem;
+        margin:0px;
+    }
+
+    /* sns- zone*/
+    .m-sns-zone{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        position: relative;
+        background: white;
+    }
+
+    .m-sns-zone > .sns{
+        margin:0px;
+        padding:0px;
+        display: flex;
+        width:100%;
+        background: #ffd84a;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        height: 200px;
+        color:white;
+    }
+
+    .m-sns-zone > .sns > div{
+        width : 35%;
+        align-items: center;
+       
+    }
+    .m-sns-zone > .sns > .center{
+        width : 30%;
+    }
+
+    .m-sns-zone > .sns > div >img{
+        width:75px;
+        height:75px;
+        cursor:pointer;
+    }
+
+    .m-sns-zone > .sns > div >span{
+        display: block;
+        font-size:1.0rem;
+        top:0px;
+        left:0px;
+    }
+
+    
+    /* app-delivery-zone */
+    .m-app-delivery-zone > .center-wrap{
+        height: auto;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        width:100%;
+        height: 410px;
+    }
+   
+    
+    .m-app-delivery-zone > .center-wrap > .app{
+        height:100%;
+        width:50%;
+        background: #ffbd4e;
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/bugerapp.png");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .m-app-delivery-zone > .center-wrap > .delivery{
+        height:100%;
+        width:50%;
+        background: #ffa423;
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/main/delivery.png");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+/*------------------------------------------------------------------수정중...*/
+    /* store-zone */
+    .m-store-zone{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        background: #f2ebe6;
+    }
+
+    .m-store-zone > .center-wrap{
+        width:100%;
+        margin: 0 auto;
+        background: white;
+        height:250px;
+    }
+
+    .m-store-zone > .center-wrap > .content-wrap{
+        margin: 50px 30px 20px;
+        height: 210px;
+        font-weight: bold;
+        font-size:1.0rem;
+    }
+
+    .m-store-zone > .center-wrap > .content-wrap > h4{
+        font-weight: lighter;
+    }
+
+    .m-store-zone > .center-wrap > .content-wrap > .c_btn_1 {
+        height:2.0rem;
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_o1.png");
+        background-position: 50% 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .m-store-zone > .center-wrap > .content-wrap > .c_btn_1  > a{
+        color:white;
+        font-size:1.3rem;
+    }
+
+    /* delivery-zone */ 
+    .m-delivery-zone{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        position: relative;
+        background: white;
+    }
+
+    .m-delivery-zone > .center-wrap{
+        width:100%;
+        width: 100%;
+        height: auto;
+        padding-bottom: 1.4rem;
+        background: black;
+        color:white;
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_fire1.png");
+        background-position-y:70%;
+        background-position-x:60%;
+        background-size : cover;
+        background-repeat: no-repeat;
+    }
+
+    .m-delivery-zone > .center-wrap > .content-wrap{
+        margin-top: 1rem;
+        margin-left:2rem;
+        height: 200px;
+        width:100%;
+        text-align: left;
+        align-items: left;
+    }
+
+    .m-delivery-zone > .center-wrap > .content-wrap > div{
+        font-size: 2.2em;
+        margin-top:2rem;
+        
+    }
+}

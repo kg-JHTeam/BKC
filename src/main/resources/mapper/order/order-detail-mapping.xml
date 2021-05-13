@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OrderDetailDAO">
+	<resultMap type="OrderDetailVO" id="OrderDetailVO">
+		<result property="product_serial" column="product_serial" />
+		<result property="quantity" column="quantity" />
+		<result property="price" column="price" />
+		<result property="seq" column="seq" />
+		<result property="order_serial" column="order_serial" />
+	</resultMap>
+
+	<insert id="insertOrderDetail">
+		INSERT INTO order_detail(
+		product_serial, quantity,
+		price, order_serial)
+		VALUES (#{product_serial}, #{quantity},
+		#{price},#{order_serial});
+	</insert>
+
+	<select id="getOrderDetailListByOrderSerial"
+		resultType="OrderDetailVO">
+		<![CDATA[
+				SELECT distinct  order_detail.*, product.product_name, product_image.path
+				FROM order_detail 
+				JOIN product ON order_detail.product_serial = product.product_serial
+				JOIN product_image ON product_image.product_serial = product.product_serial
+				where order_serial = #{order_serial}
+		]]>
+	</select>
+
+
+	<select id="getBestMenu" resultType="OrderDetailVO">
+		<![CDATA[
+
+	SELECT sum(product.price* order_detail.quantity), product.product_name
+	FROM order_detail
+	JOIN product ON order_detail.product_serial = product.product_serial
+	group by product.product_name
+	order by sum desc;
+		]]>
+	</select>
+</mapper>

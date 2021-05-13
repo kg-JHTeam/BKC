@@ -1,0 +1,581 @@
+@charset "utf-8";
+
+/* reset */ 
+* {
+    margin: 0;
+    padding: 0;
+    border: #000;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+ul,li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+.wrap{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+/* header */
+#header-wrap {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    
+}
+#header-wrap {
+	text-align: center;
+	visibility: visible;
+	margin: 0 auto;
+	height:100px; /*높이 */
+	background: white;
+	position: fixed;
+	z-index: 1000000;
+	top:0;
+}
+
+/* ---------------------데스크 탑용 ---------------------CSS*/
+/* 모바일 reset */
+/* 모바일 헤더 */
+#m-header-wrap {
+    display: none;
+}
+/* 모바일 푸터 가리기*/
+/* 모바일 푸터 */
+.m-footer-wrap {
+    display: none;
+}
+
+
+    #header-wrap .images {
+        width: 25%;
+    }
+
+    #header-wrap > nav {
+        width: 50%;
+        height:100%;
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+
+    nav .nav {
+        width:100%;
+        height:100%;
+    }
+    nav .nav .menu-title{
+        float:left;
+        width: 25%;
+        height:100%;
+        position: relative;
+        
+    }
+
+    nav .nav .menu-title > a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 100px;
+    }
+
+    nav .nav .menu-title .sub-con{
+        position: absolute;
+        display: none;
+        top: 100%;
+        width:100%;
+        height: 300px;
+        z-index: 10;
+       
+    }
+
+    nav .nav .menu-title .sub-con > li{
+        height:50px;
+        width:100%;
+    }
+
+    nav .nav .menu-title .sub-con > li > a{
+        display: block;
+        font-size:1rem;
+        height:100%;
+        font-weight: normal;
+    }
+
+    nav .nav .menu-title .sub-con > li > a:hover{
+        color:gray;
+    }
+
+    nav .nav .menu-title .sub-con > li > a > span >img{
+        top:0;
+       
+    }
+    .full-cover{
+        z-index: 5;
+        position: absolute;
+        top:100%;
+        width:100%;
+        height:360px;
+        display: none;
+        background: rgba(255, 255, 255, 1);
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bugerking1.png");
+        background-position: 92% 100%;
+        background-repeat: no-repeat;
+    }
+    
+    #main-logo {
+        float: right;
+        margin-right: 1rem;
+        padding-right: 1rem;
+        width: 5.65rem;
+        height: 5.65rem;
+    }
+
+    #delivery-logo {
+        float: left;
+        margin-left: 1rem;
+        padding-left: 1rem;
+        width: 3rem;
+    }
+
+    /* 헤더 - 서브 메뉴 */
+    #main{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        align-items: center;
+        background: #faaa4f;
+        text-align: left;
+    }
+
+    /* - ------------------헤더 끝- ---------------------*/ 
+
+   /* 푸터 시작 */
+   /* footer-menu-zone */
+    .footer-menu-zone {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        position: relative;
+        background: #f9f8f4;
+        background-image: url("https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/footer/footerimg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y:100%;
+    }
+   
+    .footer-menu-zone  > .content-wrap{
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        height: 450px;
+        text-align: left;
+        margin-bottom: 11rem;
+    }
+
+    .footer-menu-zone  > .content-wrap > div{
+        padding-left:1rem;
+        margin-top:2rem;
+        width:20%;
+        border-right: 1px dashed #89513a;
+        border-width: thin;
+    }
+
+    .footer-menu-zone  > .content-wrap > .last-div{
+        padding-left:1rem;
+        margin-top:2rem;
+        width:20%;
+        border-right-style: none;
+    }
+
+    .footer-menu-zone  > .content-wrap > div > a{
+        padding-top:1rem;
+        margin-bottom: 2rem;
+        font-size:1.3rem;
+        color:#89513a;
+    }
+    .footer-menu-zone  > .content-wrap > div > a > span{
+        font-weight: bold;
+        font-size:1.95rem;
+        color:#89513a;
+    }
+    
+    /*  - ------------------밑에 푸터 시작--------------------- */
+    .footer{
+        left: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        align-items: center;
+        text-align: left; 
+        position: relative;
+        visibility: visible;
+    }
+    
+    .footer > .web_container {
+        background: #292929;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        padding:2rem;
+        padding-right:4%;
+        padding-left:4%;
+        justify-content: space-around;
+        color:#818181;
+    }
+
+    .footer >.web_container > .copyright {
+        width: 70%;
+        background: #292929;
+        align-items: right;
+        text-align:left;
+        
+    }
+
+    .footer >.web_container > .copyright > .logo{
+        padding-bottom: 1.2rem;
+    }
+
+    .footer >.web_container > .copyright >.logo > img{
+        width: 5rem;
+        height: 5rem;
+    }
+    .footer >.web_container > .copyright >.sns{
+        padding-top: 1.2rem;
+    }
+
+    .footer >.web_container > .footer_menu{
+        font-size: 1rem;
+        width: 30%;
+        background: #292929;
+        text-align:center;
+    }
+    .footer >.web_container > .footer_menu > .c_btn_1{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin: 0 auto;
+        padding:3%;
+    }
+
+    .footer >.web_container > .footer_menu > .c_btn_1 > div{
+        width:30%;
+        text-align: center;
+    }
+    .footer >.web_container > .footer_menu > .c_btn_1 > div > a{
+       color:#818181;
+    }
+
+    .footer >.web_container > .footer_menu > .c_btn_1 > .c_btn_1_item :hover{
+        color:white;
+    }
+
+    .footer >.web_container > .footer_menu > .c_btn_1 > #c_btn_1_center{
+        width:40%;
+        text-align: center;
+    }
+
+    .footer >.web_container > .footer_menu > .c_btn_1 > .c_btn_1_line{
+        width:10%;
+        text-align: center;
+    }
+
+    .footer >.web_container > .footer_menu > .c_btn_2{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin: 0 auto;
+        padding:3%;
+    }
+
+    .footer >.web_container > .footer_menu > .c_btn_2 > div{
+        width:50%;
+        text-align: center;
+        background:#818181;
+        border: #292929;
+        border-radius: 10px; 
+        border-width: thick;
+        border-style: solid;
+        
+    }
+    .footer >.web_container > .footer_menu > .c_btn_2 > div > a{
+        color:white;
+    }
+
+    .footer >.web_container > .footer_menu > .c_btn_2 > div :hover{
+        color:black;
+    }
+    .footer >.web_container > .footer_menu > .c_btn_2 > div {
+        text-align: center;
+    }
+
+ /* - ------------------푸터 끝- ---------------------*/
+
+/* ---------------------모바일 태블릿 용 ---------------------CSS*/
+/* 화면 너비가 0 ~ 765 : 모바일 */
+@media all and (max-width: 765px) {
+    /* Desktop -> display : none*/
+    #main{
+        display: none;
+    }
+    #header-wrap {
+        display: none;
+        text-align: center;
+    }
+    .footer {
+        display:none;
+    }
+    .main-wrap {
+        display: none;
+    }
+    /* - ------------------헤더 시작- ---------------------*/
+    
+    #m-header-wrap {
+        position: fixed;
+        z-index: 4;
+        background: white;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 50px;
+        margin: 0 auto;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .m-toggle-btn {
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.6s;
+        z-index: 5;
+    }
+
+    .m-toggle-btn .bar {
+        width: 30px;
+        height: 4px;
+        background-color: black;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.6s;
+    }
+    .m-toggle-btn .bar.short-bar {
+        top: 45%;
+        width: 15px;
+        left: 12%;
+        transform: translate(0, 0);
+    }
+    .m-toggle-btn .bar.long-bar {
+        top: 30%;
+    }
+    .m-toggle-btn:hover .bar.short-bar {
+        width: 30px;
+    }
+    .m-toggle-btn.on .bar {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    .m-toggle-btn.on .bar.long-bar {
+        transform: translate(-50%, -50%) rotate(315deg);
+    }
+    .m-toggle-btn.on .bar.short-bar {
+        display: none;
+    }
+    .m-fix {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 150%;
+        transition: all 0.6s;
+        background-color: rgba(255, 255, 255, 1);
+        overflow-y: none;
+        
+    }
+    .m-fix.on {
+        right: 0;
+    }
+    .m-fix-menu{
+        position: absolute;
+        top: 50px;
+        width:100%;
+        height:100%;
+        text-align: left;
+        padding-left: 5%;
+        background-color: #f8f8f8;
+    }
+    .m-fix-menu ul > li {
+        font-size: 1.7rem;
+        font-weight: bold;
+        padding: 0.5rem;
+        border-bottom: #ebebeb;
+        border-width: thin;
+        border-bottom-style: solid;
+    }
+    .m-fix-menu ul > li :hover{
+        color:gray;
+    }
+    .m-fix-menu ul > li > ul {
+        display: none;
+    }
+    .m-fix-menu ul > li > ul > li{
+        padding: 0.3rem;
+        padding-left: 5.3%;
+        font-size: 1.4rem;
+        font-weight: lighter;
+        border: none;
+    }
+    .m-images {
+        width: 70%;
+    }
+    .m-images #m-main-logo {
+        width: 2.3rem;
+    }
+    .m-delivery-btn {
+        width: 10%;
+    }
+    .m-delivery-btn #m-delivery-btn-img {
+        width: 1.3rem;
+    }
+    /* - ------------------헤더 끝- ---------------------*/
+    
+     /* - ------------------푸터 시작- ---------------------*/
+     .footer-menu-zone{
+		display:none!important;
+	 }
+     .m-footer-wrap {
+        left: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        align-items: center;
+        background: #292929;
+        color:#818181;
+    }
+
+    .m-footer-wrap > .m-web-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: space-around;
+        align-items: center;
+        background: #292929;
+        color:#818181;
+        text-align: center;
+    }
+
+    .m-footer-wrap > .m-web_container > .footer_menu {
+        margin-top:1.5rem;
+        font-size:1.2rem;
+    }
+    .m-footer-wrap > .m-web_container > .footer_menu > .c_btn_1{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin: 0 auto;
+        padding:1%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .m-footer-wrap > .m-web_container > .footer_menu > .c_btn_1 > div > a{
+       color:#818181;
+    }
+
+    .m-footer-wrap > .m-web_container > .footer_menu > .c_btn_1 > .c_btn_1_item{
+        width:20%;
+    }
+
+    .m-footer-wrap > .m-web_container > .footer_menu > .c_btn_1 > .c_btn_1_item :hover{
+        color:white;
+        text-align: center;
+        align-items: center;
+    }
+
+    .m-footer-wrap > .m-web_container > .footer_menu > .c_btn_1 > #c_btn_1_center{
+        width:40%;
+        text-align: center;
+    }
+
+    .m-footer-wrap > .m-web_container > .footer_menu > .c_btn_1 > .c_btn_1_line{
+        width:10%;
+        text-align: center;
+    }
+
+    .m-footer-wrap > .m-web_container > .footer_menu > .c_btn_2{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin: 0 auto;
+        padding:3%;
+    }
+
+    .m-footer-wrap > .m-web_container > .footer_menu > .c_btn_2 > div{
+        width:50%;
+        text-align: center;
+        background:#818181;
+        border: #292929;
+        border-radius: 10px; 
+        border-width: thick;
+        border-style: solid;
+    }
+
+    .m-footer-wrap > .m-web_container > .footer_menu > .c_btn_2 > div > a{
+        color:white;
+    }
+
+    .m-footer-wrap > .m-web_container > .footer_menu > .c_btn_2 > div :hover{
+        color:black;
+    }
+
+    .m-footer-wrap > .m-web_container > .copyright {
+        margin-bottom: 2rem;
+    }
+    .m-footer-wrap > .m-web_container > .copyright > .sns{
+        margin-top: 1rem;
+    }
+
+    .m-footer-wrap > .m-web_container > .copyright > .logo > img{
+        height: 3rem;
+        width: 3rem;
+    }
+     /* -------------------푸터 끝----------------------*/
+}

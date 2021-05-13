@@ -1,0 +1,370 @@
+/* 네비부분 */
+.locationWrap {
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+    margin: 100px 0 0 0;
+}
+.locationWrap .story_web_container {
+    overflow: hidden;
+}
+.locationWrap a {
+    color: #fff;
+}
+.page_navi>* {
+    float: left;
+}
+.page_navi {
+    float: left;
+    font-size: 1.1rem;
+}
+/* 중간부분 */
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(btn_top.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+button {
+    vertical-align: middle;
+    margin: 0;
+    color: #000;
+    background: none;
+    outline: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+}
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+.contentsWrap .page_tit{
+	margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+.contentsBox01{
+    padding: 50px 0 120px;
+}
+.story_web_container{
+	max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+.subtitWrap .tab01 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -17.5px 0 0;
+}
+.tab01{
+    margin-bottom: 20px;
+    overflow: none;
+}
+.tab01 ul {
+    display: table;
+}
+.tab01 li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.tab01 li:first-child {
+    padding-left: 0;
+}
+.tab01 li.on a, .tab01 li.on button {
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+.subtitWrap .tab01 button {
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 3px 0;
+}
+.tab01 a, .tab01 button{
+    display: inline-block;
+    padding: 10px 1px;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0
+}
+.tab01 button {
+    height: 54px;
+    padding: 5px 0;
+}
+.tab_storyWrap {
+    margin-top: 60px;
+}
+.tab_storyBtn li{
+    float: left;
+    width: 50%;
+    border-bottom: 2px solid #000;
+}
+.tab_storyBtn li button{
+    width: 100%;
+    height: 100%;
+    padding: 23px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: silver;
+    background: #f2f2f2;
+    border-left: 1px solid #fff;
+}
+.tab_storyBtn li.on{
+    border-bottom: none;
+}
+.tab_storyBtn li.on button {
+    border: 2px solid #000;
+    border-bottom: 0;
+    color: #000;
+    background: #fff;
+}
+.tab_storyBtn li.on+li button {
+    border-left: none;
+}
+.tab_storyBtn:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.tab_aboutCon {
+    padding: 48px 20px 0;
+}
+.tab_aboutCon div {
+    padding-bottom: 120px;
+}
+.tab_aboutCon div h3 {
+    font-size: 2.5rem;
+    width: 34%;
+    float: left;
+    line-height: 1.1;
+}
+.tab_aboutCon div p {
+    font-size: 1.125rem;
+    width: 66%;
+    float: right;
+    line-height: 1.6;
+}
+.tab_aboutCon div:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.tab_aboutCon div img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    margin-bottom: 48px;
+}
+.tab_historyWrap {
+    overflow: hidden;
+}
+.tab_historyCon {
+    padding-top: 60px;
+}
+.history_bgBox {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.history_area {
+    max-width: 1184px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+.history_area .yeartit {
+    font-size: 4.5rem;
+    display: flex;
+    vertical-align: top;
+    width: 20%;
+    line-height: 1.1;
+}
+.history_area .yeartext {
+	display: flex;
+	width: 80%;
+	height: 100%;
+	line-height: 2;
+    align-items: center;
+}
+
+
+.MOB {
+    display: none!important;
+}
+.history_area ul li .WEB {
+    display: block;
+}
+.history_area.alignL h4 {
+    float: right;
+    text-align: right;
+}
+.history_area.alignL ul {
+    float: right;
+    padding: 0 50px 0 0;
+}
+.history_area.alignL ul li {
+    text-align: right;
+}
+/* ---------------------모바일 태블릿 용 ---------------------CSS*/
+/* 화면 너비가 0 ~ 765 : 모바일 */
+@media all and (max-width: 765px) {
+	.WEB {
+    display: none!important;
+	}
+	.contentsWrap {
+    padding-top: 57px;
+	}
+    .bdBot {
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .tab01 {
+        overflow: auto;
+    }
+    .m_shadow {
+        -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+        box-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+    }
+    .contentsBox01 {
+        padding: 0!important;
+        margin: 0;
+    }
+    .story_web_container, .web_container02 {
+        min-width: 320px;
+        padding: 0;
+    }
+    .subtitWrap {
+        min-height: 56px;
+        margin: 0;
+        padding: 20px 0 10px;
+        background: #fff;
+    }
+    .subtitWrap .page_tit {
+        margin: 0;
+        padding: 0 16px 10px;
+        font-size: 1.5rem;
+        text-align: center;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .subtitWrap .tab01:last-child {
+        margin-bottom: -10px;
+    }
+    .subtitWrap .tab01 {
+        position: static;
+        margin: 0;
+    }
+    .tab01 ul {
+        display: table;
+        width: 100%;
+        background: #fff;
+    }
+    .tab01 li {
+        display: table-cell;
+        padding: 0;
+    }
+    .tab01 a, .tab01 button {
+        display: block;
+        width: 100%;
+        min-width: 4em;
+        height: 56px;
+        padding: 10px 16px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-align: center;
+        line-height: 20px;
+        border-width: 3px 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .subtitWrap .tab01 button {
+        height: 56px;
+        border-width: 3px 0;
+        font-size: 1rem;
+    }
+    .tab_storyWrap {
+        margin-top: 0;
+    }
+    .tab_storyBtn {
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .tab_storyBtn li {
+        position: relative;
+        border: none;
+    }
+    .tab_storyBtn li.on button {
+        border: 0;
+        color: #000;
+        background: none;
+    }
+    .tab_storyBtn li button {
+        padding: 15px 0;
+        font-size: .938em;
+        background: none;
+        border-bottom: 0;
+    }
+    .tab_storyBtn li:before {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -6px;
+        content: "";
+        width: 1px;
+        height: 12px;
+        background: #e4e4e4;
+    }
+    .tab_aboutCon {
+        padding: 30px 15px 0;
+    }
+    .tab_aboutCon div {
+        padding-bottom: 35px;
+        position: relative;
+    }
+    .tab_aboutCon div:before {
+        padding-top: 56%;
+        position: absolute;
+        top: 45px;
+        left: 0;
+    }
+    .tab_aboutCon div h3 {
+        font-size: 1.375rem;
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+    .tab_aboutCon div p {
+        font-size: .875rem;
+        width: 100%;
+        float: none;
+        padding-top: 60%;
+    }
+    .history_area h4 {
+        font-size: 2.813rem;
+    }
+    .history_area ul {
+        width: 50%;
+    }
+    .history_area ul li:last-child {
+        border-bottom: 1px solid #e5e5e5;
+        margin-bottom: 33px;
+        padding-bottom: 33px;
+    }
+}

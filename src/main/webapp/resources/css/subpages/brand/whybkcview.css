@@ -1,0 +1,551 @@
+/* 네비부분 */
+.locationWrap {
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+    margin: 100px 0 0 0;
+}
+.locationWrap .why_web_container {
+    overflow: hidden;
+}
+.locationWrap a {
+    color: #fff;
+}
+.page_navi>* {
+    float: left;
+}
+.page_navi {
+    float: left;
+    font-size: 1.1rem;
+}
+/* 중간부분 */
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(btn_top.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+button {
+    vertical-align: middle;
+    margin: 0;
+    color: #000;
+    background: none;
+    outline: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+}
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+.contentsBox01{
+    padding: 50px 0 45px;
+}
+.why_web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+.page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+.subtitWrap .tab01 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -17.5px 0 0;
+}
+.tab01{
+    margin-bottom: 20px;
+    overflow: none;
+}
+.tab01 ul {
+    display: table;
+}
+.tab01 li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.tab01 li:first-child {
+    padding-left: 0;
+}
+.tab01 li.on a, .tab01 li.on button {
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+.subtitWrap .tab01 button {
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 3px 0;
+}
+.tab01 a, .tab01 button{
+    display: inline-block;
+    padding: 10px 1px;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0
+}
+.tab01 button {
+    height: 54px;
+    padding: 5px 0;
+}
+
+
+.tab03 {
+    display: table;
+    min-width: 100%;
+}
+.tab03 li.on {
+    border-bottom: none;
+}
+.tab03 li {
+    position: relative;
+    display: table-cell;
+    padding: 0;
+    vertical-align: top;
+    border-bottom: 2px solid #000;
+    white-space: nowrap;
+}
+.tab03 li.on button {
+    border: 2px solid #000;
+    border-bottom: 0;
+    color: #000;
+    background: #fff;
+}
+.tab03 li.on+li button {
+    border-left: none;
+}
+.tab03 li button {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 23px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: silver;
+    background: #f2f2f2;
+    border-left: 1px solid #fff;
+    white-space: nowrap;
+}
+.bg_w {
+    background: #fff;
+}
+.MOB {
+    display: none!important;
+}
+.realChicken {
+	width:100%;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+    display:block;
+}
+.realwhopper_text {
+    padding-bottom: 30px;
+    font-size: 33px;
+}
+.realwhopper_text p {
+    margin-top: 30px;
+}
+.material_intro01 .why_web_container {
+    height: 670px;
+    word-wrap: normal;
+    word-break: keep-all;
+    overflow: hidden;
+}
+.material_intro01 dl {
+    position: relative;
+    float: left;
+    width: 30%;
+}
+.material_intro01 dd {
+    margin-top: 35px;
+    font-size: 1.125rem;
+    line-height: 156%;
+}
+.material_intro01 dl:nth-of-type(2) {
+    margin: 0 5%;
+}
+.material_intro02 {
+    height: 1159px;
+    word-wrap: normal;
+    word-break: keep-all;
+
+}
+.material_intro02 .why_web_container {
+    position: relative;
+    height: 100%;
+    padding-top: 130px;
+    padding-left: 420px;
+}
+.material_intro02 .tit {
+    position: absolute;
+    left: 20px;
+    top: 115px;
+    width: 300px;
+    font-size: 4.5rem;
+    line-height: 111%;
+}
+.material_intro02 .tit>span {
+    display: block;
+}
+.material_intro02 dl {
+    margin-bottom: 95px;
+    font-size: 1.125rem;
+    line-height: 178%;
+}
+.material_intro02 .quality dt {
+    margin-bottom: 35px;
+}
+.material_intro02 .quality dt:before {
+    bottom: -7px;
+}
+.material_intro02 dt {
+    position: relative;
+    height: 50px;
+    margin-bottom: 20px;
+    text-indent: -99999em;
+
+}
+.contribution_swipe {
+    position: relative;
+    padding: 0 50px;
+    font-size: 1.25rem;
+    line-height: 140%;
+    text-align: center;
+}
+.slick-list, .slick-slider {
+    position: relative;
+    display: block;
+}
+.slick-slider {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+.slick-slider .slick-list, .slick-slider .slick-track {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.slick-list {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.slick-slide, .slick-slide>div, .slick-track, .tutorial>*, .tutorial>*>* {
+    height: 100%;
+}
+.slick-initialized .slick-slide {
+    display: block;
+}
+.contribution_swipe .text {
+    min-height: 6em;
+    margin-top: 70px;
+}
+.slick-slide img {
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* ---------------------모바일 태블릿 용 ---------------------CSS*/
+/* 화면 너비가 0 ~ 765 : 모바일 */
+@media all and (max-width: 765px) {
+	.contentsWrap {
+    padding-top: 57px;
+	}
+    .contentsBox01 {
+        padding: 0!important;
+        margin: 0;
+    }
+    .why_web_container {
+        min-width: 320px;
+        padding: 0;
+    }
+    .subtitWrap {
+        min-height: 56px;
+        margin: 0;
+        padding: 20px 0 10px;
+        background: #fff;
+    }
+    .subtitWrap .page_tit {
+        margin: 0;
+        padding: 0 16px 10px;
+        font-size: 1.5rem;
+        text-align: center;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .subtitWrap .tab01:last-child {
+        margin-bottom: -10px;
+    }
+    .subtitWrap .tab01 {
+        position: static;
+        margin: 0;
+    }
+    .bdBot {
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .tab01 {
+        overflow: auto;
+    }
+    .tab01 ul {
+        display: table;
+        width: 100%;
+        background: #fff;
+    }
+    .tab01 li {
+        display: table-cell;
+        padding: 0;
+    }
+    .tab01 a, .tab01 button {
+        display: block;
+        width: 100%;
+        min-width: 4em;
+        height: 56px;
+        padding: 10px 16px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-align: center;
+        line-height: 20px;
+        border-width: 3px 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .subtitWrap .tab01 button {
+        height: 56px;
+        border-width: 3px 0;
+        font-size: 1rem;
+    }
+    .tab03.item5 {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .tab03 {
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .tab03.item5 li {
+        display: block;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 1 33%;
+        flex: 0 1 33%;
+        width: 33.333%;
+    }
+    .tab03 li {
+        position: relative;
+        border: none;
+    }
+    .tab03 li.on button {
+        border: 0;
+        color: #000;
+        background: none;
+    }
+    .tab03 li button {
+        padding: 15px 2px;
+        font-size: .9375rem;
+        background: none;
+        border-bottom: 0;
+    }
+    .tab03 li:before {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -6px;
+        content: "";
+        width: 1px;
+        height: 12px;
+        background: #e4e4e4;
+    }
+    .real .m_subtit {
+        margin: 0;
+        padding: 25px 0;
+    }
+    .m_subtit {
+        margin: 20px 0;
+        font-weight: 700;
+        font-size: 1.375rem;
+        text-align: center;
+    }
+    .MOB {
+        display: block!important;
+    }
+    .MOB img {
+    	display: block;
+    	height: 100%;
+    }
+    .material_intro01 .why_web_container {
+        height: auto;
+    }
+    .material_intro01 dl {
+        position: relative;
+        float: none;
+        width: auto;
+        min-height: 90px;
+        margin-bottom: 30px;
+        padding: 0 16px 0 122px;
+    }
+    .material_intro01 dl.beef dt img {
+    	display: block;
+    	height: 100%;
+    }
+    .material_intro01 dl:before {
+        left: 16px;
+        top: 0;
+        width: 91px;
+        height: 115px;
+        background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/imageK/WhyBKC/%EC%8B%A0%EC%84%A0%ED%95%9C+%EC%9E%AC%EB%A3%8C/oil_icon.png) no-repeat 0 0;
+        background-size: 100% auto;
+    }
+    .material_intro01 dt {
+    	height: 20px;
+	}
+    .material_intro01 dd {
+        margin-top: 10px;
+        font-size: .875rem;
+        line-height: 143%;
+    }
+    .material_intro01 dl.vegetable {
+        min-height: 115px;
+    }
+    .material_intro01 dl:nth-of-type(2) {
+        margin: 0 0 30px;
+    }
+    .WEB {
+        display: none!important;
+    }
+    .material_intro01 dl.pickle dt {
+        height: 44px;
+    }
+    .material_intro01 dl.pickle dt img {
+    	display: block;
+    	height: 100%;
+    }
+    .material_intro02 {
+        height: auto;
+        background-size: auto 100%;
+
+    }
+    .material_intro02 .why_web_container {
+        position: relative;
+        height: auto;
+        padding: 28px 16px;
+        color: #fff;
+    }
+    .material_intro02 .why_web_container {
+        padding-left: 350px;
+    }
+    .material_intro02 .tit {
+        position: static;
+        width: auto;
+        font-size: 1.375rem;
+        text-align: center;
+    }
+    .material_intro02 .tit>span {
+        display: inline;
+    }
+    .material_intro02 dl {
+        max-width: 450px;
+        margin: 20px auto 15px;
+        padding-top: 104px;
+        font-size: .8125rem;
+        line-height: 154%;
+    }
+    .material_intro02 .quality dt {
+        margin-bottom: 15px;
+    }
+    .material_intro02 dt, .material_intro02 dt:before {
+        background-position: top;
+        background-size: auto 100%;
+    }
+    .material_intro02 dt:before {
+        left: 0;
+        bottom: 100%;
+        width: 100%;
+        height: 104px;
+    }
+    .material_intro02 .service {
+        margin-bottom: 30px;
+    }
+    .material_intro02 dt {
+        height: 20px;
+        margin-bottom: 14px;
+        text-indent: -99999em;
+    }
+    .material_intro02 dl:last-child {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .material_intro02 .clean {
+        padding-top: 132px;
+    }
+    .material_intro02 .clean dt {
+        margin-top: 0;
+    }
+    .material_intro02 .clean dt:before {
+        bottom: 100%;
+        height: 132px;
+        background-size: auto 114px;
+    }
+    .contribution {
+        padding: 20px 0;
+    }
+    .contribution .m_subtit {
+        margin: 4px 0 22px;
+    }
+    .contribution_swipe {
+        padding: 0 25px;
+        font-size: .9375rem;
+        line-height: 134%;
+    }
+    .contribution_swipe .image {
+        padding: 0 15px;
+    }
+    .contribution_swipe .text {
+        min-height: 6em;
+        margin-top: 20px;
+    }
+    .slick-slide img{
+    	width:100%;
+	    max-width: 100%;s
+	    max-height: 100%;
+	    vertical-align: top;
+    }
+}

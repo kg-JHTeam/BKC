@@ -1,0 +1,418 @@
+/* 네비부분 */
+.locationWrap {
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+    margin: 100px 0 0 0;
+}
+.locationWrap .news_web_container {
+    overflow: hidden;
+}
+.locationWrap a {
+    color: #fff;
+}
+.page_navi>* {
+    float: left;
+}
+.page_navi {
+    float: left;
+    font-size: 1.1rem;
+}
+/* 중간부분 */
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(btn_top.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+button {
+    vertical-align: middle;
+    margin: 0;
+    color: #000;
+    background: none;
+    outline: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+}
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+.contentsWrap .page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+.eventWrap .contentsBox01{
+    padding: 50px 0 120px;
+}
+.contentsBox01{
+	padding: 50px 0 45px;
+}
+
+.news_web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+.page_tit .contestWrap {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+.subtitWrap .tab01 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -17.5px 0 0;
+}
+.tab01{
+    margin-bottom: 20px;
+    overflow: auto;
+}
+.tab01 ul {
+    display: table;
+}
+.tab01 li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.tab01 li:first-child {
+    padding-left: 0;
+}
+.tab01 li.on a, .tab01 li.on button {
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+.subtitWrap .tab01 button {
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 3px 0;
+}
+.tab01 a, .tab01 button{
+    display: inline-block;
+    padding: 10px 1px;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0
+}
+.tab01 button {
+    height: 54px;
+    padding: 5px 0;
+}
+.tab_storyBtn {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.tab_storyBtn li.on {
+    border-bottom: none;
+}
+.tab_storyBtn li {
+    float: left;
+    width: 50%;
+    border-bottom: 2px solid #000;
+}
+.tab_storyBtn li.on button {
+    border: 2px solid #000;
+    border-bottom: 0;
+    color: #000;
+    background: #fff;
+}
+.tab_storyBtn li button {
+    width: 100%;
+    height: 100%;
+    padding: 23px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: silver;
+    background: #f2f2f2;
+    border-left: 1px solid #fff;
+}
+.tab_storyBtn li.on+li button {
+    border-left: none;
+}
+.tab_storyBtn:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.new_product {
+    padding-bottom: 75px;
+}
+.MOB {
+    display: none!important;
+}
+.new_product .prdmenu_list {
+    padding: 0;
+}
+.prdmenu_list {
+    margin-top: 60px;
+    padding-bottom: 46px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+}
+.new_product .prdmenu_list li:nth-child(4n+1) {
+    clear: both;
+}
+.new_product .prdmenu_list li {
+    margin-bottom: 20px;
+    padding: 0 4px;
+    width: 100%;
+}
+.prdmenu_list li {
+    position: relative;
+    margin-bottom: 8px;
+}
+.prdmenu_list .prd_img {
+    max-width: 220px;
+    height: 144px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.prd_img {
+    position: relative;
+}
+.prdmenu_list .prd_img img {
+    width: 100%;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+}
+.new_product .prdmenu_list .cont {
+    max-width: 85%;
+    font-size: 1.125rem;
+    line-height: 167%;
+    text-align: left;
+}
+.prdmenu_list .cont {
+    min-height: 115px;
+    padding: 30px 5px 0;
+    text-align: center;
+}
+.prdmenu_list .tit {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+strong {
+    font-weight: bold;
+}
+.new_product .prdmenu_list .txt_intro {
+    margin: 12px 0 25px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #89513a;
+    line-height: 140%;
+}
+
+
+/* ---------------------모바일 태블릿 용 ---------------------CSS*/
+/* 화면 너비가 0 ~ 765 : 모바일 */
+@media all and (max-width: 765px) {
+	.contentsWrap {
+    padding-top: 57px;
+}
+    .contentsBox01 {
+        padding: 0!important;
+        margin: 0;
+    }
+    .news_web_container {
+        min-width: 320px;
+        padding: 0;
+    }
+    .subtitWrap {
+        min-height: 56px;
+        margin: 0;
+        padding: 20px 0 10px;
+        background: #fff;
+    }
+    .subtitWrap .page_tit {
+        margin: 0;
+        padding: 0 16px 10px;
+        font-size: 1.5rem;
+        text-align: center;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .subtitWrap .tab01:last-child {
+        margin-bottom: -10px;
+    }
+    .subtitWrap .tab01 {
+        position: static;
+        margin: 0;
+    }
+    .bdBot {
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .tab01 {
+        overflow: auto;
+    }
+    .tab01 ul {
+        display: table;
+        width: 100%;
+        background: #fff;
+    }
+    .tab01 li {
+        display: table-cell;
+        padding: 0;
+    }
+    .tab01 a, .tab01 button {
+        display: block;
+        width: 100%;
+        min-width: 4em;
+        height: 56px;
+        padding: 10px 16px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-align: center;
+        line-height: 20px;
+        border-width: 3px 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .subtitWrap .tab01 button {
+        height: 56px;
+        border-width: 3px 0;
+        font-size: 1rem;
+    }
+    .tab03.item5 {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .tab_storyBtn {
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .m_shadow {
+        -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+        box-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+    }
+    .tab_storyBtn li {
+        position: relative;
+        border: none;
+    }
+    .tab_storyBtn li.on button {
+        border: 0;
+        color: #000;
+        background: none;
+    }
+    .tab_storyBtn li button {
+        padding: 15px 0;
+        font-size: .938em;
+        background: none;
+        border-bottom: 0;
+    }
+    .tab_storyBtn li:before {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -6px;
+        content: "";
+        width: 1px;
+        height: 12px;
+        background: #e4e4e4;
+    }
+    .tab_storyBtn li.on+li button {
+        border-left: none;
+    }
+    .new_product {
+        padding: 0;
+    }
+    .m_subtit {
+        margin: 20px 0;
+        font-weight: 700;
+        font-size: 1.375rem;
+        text-align: center;
+    }
+    .MOB {
+        display: block!important;
+    }
+    .new_product .prdmenu_list {
+        padding: 0 16px 16px;
+    }
+    .prdmenu_list {
+        margin: 0;
+        padding: 0;
+        grid-template-columns: auto auto;
+    }
+    .new_product .prdmenu_list li:nth-child(odd) {
+        clear: both;
+    }
+    .new_product .prdmenu_list li {
+        display: block;
+        padding: 0;
+        border: none;
+    }
+    .prdmenu_list li {
+        position: relative;
+        float: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: auto;
+        min-height: 95px;
+        margin-bottom: 0;
+        padding: 10px 40px 10px 133px;
+        border-bottom: 1px solid #f8f3ed;
+    }
+    .new_product .prdmenu_list .prd_img {
+        position: static;
+        margin: 0 auto;
+    }
+    .prdmenu_list .prd_img {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        width: 116px;
+        height: 76px;
+        margin-top: -38px;
+    }
+    .WEB {
+        display: none!important;
+    }
+    .new_product .prdmenu_list .cont {
+        max-width: 100%;
+        font-size: .75rem;
+        line-height: 150%;
+        text-align: center;
+    }
+    .prdmenu_list .cont {
+        width: 100%;
+        min-height: 1em;
+        padding: 18px 0;
+        color: #2e2e2e;
+        text-align: left;
+    }
+    .menu_sub_list .price, .prdmenu_list .tit {
+        font-size: 1rem;
+    }
+    .new_product .prdmenu_list .txt_intro {
+        margin: 8px 0 10px;
+        font-size: .8125rem;
+    }
+}

@@ -1,0 +1,350 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+
+/* 전체 css*/
+
+.subWrap2 {
+    margin: 0 auto;
+    padding: 168px 0 272px;
+}
+
+/* content부분 */
+
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+span {
+    font-weight: bold;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.locationWrap {
+    height: 58px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #ffa423;
+}
+
+.locationWrap>.web_container {
+    overflow: hidden;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.locationWrap>.web_container>.page_navi {
+    float: left;
+    font-size: .875rem;
+}
+
+.locationWrap a {
+    color: #fff;
+}
+
+.locationWrap>.web_container>.page_navi>* {
+    float: left;
+}
+
+.page_navi:first-child::before {
+    display: none;
+}
+
+.gotomenu::after {
+    content: "";
+    float: left;
+    width: 38px;
+    height: 38px;
+    margin: 0 12px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+}
+
+
+/* 주문완료페이지 contents */
+
+body {
+    background: #f2ebe6;
+}
+
+.contentsBox02 {
+    padding: 50px 0 45px;
+}
+
+.bg_w {
+    background: #fff;
+}
+
+.contentsBox02.bg_w .web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.order_complete {
+    position: relative;
+    height: 344px;
+    margin: -50px 0 -45px;
+    padding: 95px 250px 20px 0;
+    font-size: 1.25rem;
+}
+
+.order_complete::after {
+    content: "";
+    position: absolute;
+    right: 59px;
+    top: 0;
+    width: 163px;
+    height: 100%;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/delivery/delivery_complete.png) no-repeat 0;
+}
+
+.order_complete .tit {
+    margin-bottom: 36px;
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+
+.order_complete .time_info {
+    margin: 36px 0 11px;
+    font-size: 1.625rem;
+    color: #ffa423;
+}
+
+.order_complete .time_info .tt {
+    margin-right: 8px;
+}
+
+.order_complete .time_info .txt {
+    font-weight: 700;
+    color: #ffa423;
+}
+
+.contentsBox02 .web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contentsBox02 .web_container .container02 {
+    padding: 20px 0;
+}
+
+.tit01:first-child {
+    margin-top: 0;
+}
+
+.tit01 {
+    margin: 45px 0 17px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #2e2e2e;
+}
+
+@media screen and (min-width: 767px) {
+    .contentsBox03.pd02 {
+        padding: 55px 64px;
+    }
+}
+
+.tit01+.container03 {
+    margin-top: 12px;
+}
+
+.container03 {
+    position: relative;
+    margin: 15px 0;
+    padding: 20px 50px;
+    font-size: 1.375rem;
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+}
+
+.container03 .txt_info01 {
+    padding: 3px 0;
+    font-size: 1.625rem;
+}
+
+@media screen and (min-width: 767px) {
+    .w_bold {
+        font-weight: 700;
+    }
+}
+
+.tit01:first-child {
+    margin-top: 0;
+}
+
+.tit_ico {
+    position: relative;
+    padding-left: 50px;
+    line-height: 40px;
+}
+
+.tit01 {
+    margin: 45px 0 17px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #2e2e2e;
+}
+
+.tit_ico.location::before {
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/delivery/delivery_location.png) no-repeat;
+    background-size: 30px;
+}
+
+.tit_ico::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+.tit_ico>* {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.tit01.tit_ico+.container03 {
+    margin-top: 8px;
+}
+
+.tit_ico.bkc::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/findstore/kingorder.png);
+}
+
+.tit_ico::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+.order_shop_info .info {
+    padding-bottom: 32px;
+    overflow: hidden;
+}
+
+.order_shop_info .branch {
+    float: left;
+    font-size: 1.625rem;
+}
+
+.order_shop_info .tel {
+    float: right;
+    font-size: 1.625rem;
+}
+
+.order_shop_info .caution {
+    margin-top: 30px;
+    padding-top: 30px;
+    font-size: 1.125rem;
+    line-height: 167%;
+    border-top: 2px solid #f2f2f2;
+}
+
+.order_shop_info .caution em {
+    color: #ffa423;
+}
+
+.info_command_UI {
+    position: relative;
+    margin-top: 45px;
+    padding-right: 450px;
+}
+
+.txtlist01 {
+    margin: 7px 0 7px 5px;
+    line-height: 167%;
+}
+
+.txtlist01 li {
+    position: relative;
+    padding-left: 12px;
+}
+
+.txtlist01 li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 12px;
+    height: 1.67em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/mark.png) no-repeat 0;
+}
+
+.info_command_UI .c_btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: 0;
+    transform: translateY(-50%);
+}
+
+.c_btn {
+    text-align: center;
+    overflow: hidden;
+}
+
+.btn01.orange {
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_o3.png) no-repeat 0 0;
+    background-size: 100% 100%;
+}
+
+.info_command_UI .c_btn a {
+    border: none;
+    width: 216px;
+    margin-left: 10px;
+}
+
+.btn01 {
+    display: inline-block;
+    width: 256px;
+    height: 68px;
+    font-size: 1.5rem;
+    padding: 12px 10px 10px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    line-height: 46px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/btn-black.png) no-repeat 50%;
+    background-size: 100% 100%;
+    border-radius: 0;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+/* 모바일용 CSS */
+
+@media all and(max-width:765px) {}

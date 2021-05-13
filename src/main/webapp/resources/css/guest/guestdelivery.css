@@ -1,0 +1,489 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+
+/* 전체 css*/
+
+.subWrap2 {
+    margin: 0 auto;
+    padding: 168px 0 272px;
+}
+
+
+
+/* content부분 */
+
+.contnetsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+span {
+    font-weight: bold;
+}
+
+.locationWrap {
+    height: 58px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #ffa423;
+}
+
+.locationWrap>.web_container {
+    overflow: hidden;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.locationWrap>.web_container>.page_navi {
+    float: left;
+    font-size: .875rem;
+}
+
+.locationWrap a {
+    color: #fff;
+}
+
+.locationWrap>.web_container>.page_navi>* {
+    float: left;
+}
+
+.page_navi:first-child::before {
+    display: none;
+}
+
+.gotomenu::after {
+    content: "";
+    float: left;
+    width: 38px;
+    height: 38px;
+    margin: 0 12px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+}
+
+.locationWrap .location {
+    float: right;
+    font-size: .875rem;
+}
+
+.location>* {
+    display: inline-block;
+    margin-left: 24px;
+    padding-left: 22px;
+    vertical-align: top;
+}
+
+.location .addr {
+    max-width: 200px;
+    margin: 0;
+    text-overflow: ellipsis;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/location.png) no-repeat 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.location .shop {
+    padding-left: 26px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/near.png) no-repeat 0;
+}
+
+.location .btn {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.location .addrchange {
+    display: inline-block;
+    width: 56px;
+    height: 34px;
+    padding: 0;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+    line-height: 34px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+
+/* 딜리버리 메뉴 컨텐츠 부분 */
+
+.contentsBox01 {
+    padding: 50px 0 45px;
+    background: #fff;
+}
+
+.contentsBox01>.web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contentsBox01>.web_container>.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+
+.contentsBox01>.web_container>.subtitWrap>.page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+
+.contentsBox01>.web_container>.subtitWrap .tab01 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -17.5px 0 0;
+    overflow: auto;
+}
+
+.tab01>.item3 {
+    display: table;
+}
+
+.tab01>.item3 li:first-child {
+    padding-left: 0;
+}
+
+.tab01>.item3 li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.subtitWrap .tab01 li.on .button {
+    color: #ffa423;
+    border-bottom-color: #ffa423;
+}
+
+.subtitWrap .tab01 .button {
+    display: inline-block;
+    padding: 10px 1px;
+    font-weight: 700;
+    font-size: 1.375rem;
+    background: #fff;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0;
+}
+
+.subtitWrap .tab01 .button>* {
+    vertical-align: middle;
+}
+
+.prdmenu_list {
+    margin-top: 60px;
+    padding-bottom: 46px;
+    overflow: hidden;
+}
+
+.prdmenu_list li {
+    position: relative;
+    float: left;
+    width: 25%;
+    margin-bottom: 8px;
+}
+
+.prdmenu_list .prd_img {
+    max-width: 220px;
+    height: 144px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.prdmenu_list .prd_img img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+    border: none;
+}
+
+.prdmenu_list .cont {
+    min-height: 115px;
+    padding: 30px 5px 0;
+    text-align: center;
+}
+
+.prdmenu_list .cont .tit {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.prdmenu_list .cont .menu_info {
+    font-size: 1rem;
+    display: block;
+    margin: 5px 0;
+    font-weight: 400;
+    color: #8d8d8d;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+.prdmenu_list .cont .price {
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #ffa423;
+    white-space: nowrap;
+}
+
+.btn_detail {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-indent: -99999em;
+    background: transparent;
+}
+
+
+/* 유의사항 부분 */
+
+.order_caution>.tit03 {
+    position: relative;
+    margin: 25px 0;
+    padding: 12px 0;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #000;
+}
+
+.order_caution>.tit03>h4 {
+    margin-right: 10em;
+    font-weight: 900;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+.order_caution>.tit03 a {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    height: 1.4em;
+    margin-top: -.7em;
+    font-size: 1.125rem;
+    color: #2e2e2e;
+}
+
+.btn_infoallergy {
+    padding: 0 0 0 24px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/information.png) no-repeat 0;
+    border: none;
+}
+
+.btn_infoallergy>* {
+    position: relative;
+    display: inline-block;
+    padding-right: 20px;
+}
+
+.btn_infoallergy::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/right4.png) no-repeat 100%;
+}
+
+.txtlist01 {
+    margin: 7px 0 7px 5px;
+    line-height: 167%;
+}
+
+.txtlist01 li {
+    position: relative;
+    padding-left: 12px;
+}
+
+.txtlist01 li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 12px;
+    height: 1.67em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/mark.png) no-repeat 0;
+}
+
+
+/* 모달 팝업창 */
+
+.popWrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    z-index: 100;
+}
+
+@media screen and (min-width: 769px) and (max-height: 750px) {
+    .popWrap>.popbox01 {
+        max-height: 90%;
+        padding-bottom: 0;
+        overflow: auto;
+    }
+    .popWrap>.popbox01 .popcont {
+        max-height: inherit!important;
+    }
+    .popWrap>.popbox01 .pop_btn {
+        position: static;
+    }
+}
+
+.popWrap>.popbox01 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 568px;
+    margin-left: -284px;
+    background: #fff;
+    transform: translateY(-50%);
+}
+
+.popWrap>.popbox01>.btn_close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/findstore/close.png) no-repeat 50%;
+    border: none;
+}
+
+.popcont.pd02 {
+    padding: 15px 24px;
+    overflow-y: auto;
+}
+
+.addr_chk {
+    margin: 20px 56px;
+    padding: 92px 0 28px;
+    text-align: center;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/delivery/delivery_location.png) no-repeat top;
+    border-bottom: 1px dashed #e5e5e5;
+}
+
+.addr_chk dt {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #ffa423;
+}
+
+.addr_chk dd {
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 1.875rem;
+    color: #010101;
+    line-height: 127%;
+}
+
+.addr_chk .nick {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.addr_chk .txt {
+    display: block;
+    font-weight: 400;
+    font-size: 1.75rem;
+}
+
+.popWrap .txt02 {
+    font-size: 1.5rem;
+}
+
+.addr_chk+.txt02 {
+    margin: 20px 0;
+}
+
+.txt02 {
+    text-align: center;
+}
+
+.c_btn:last-child {
+    margin-bottom: 0;
+}
+
+.pop_btn {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.c_btn {
+    text-align: center;
+}
+
+.pop_btn.item2 a {
+    float: left;
+    width: 50%;
+    margin: 0;
+}
+
+.btn02.dark {
+    background-color: #2e2e2e;
+}
+
+.pop_btn a {
+    border-radius: 0;
+}
+
+.btn02,
+.btn02.orange {
+    display: inline-block;
+    height: 84px;
+    padding: 20px 10px;
+    font-weight: 700;
+    font-size: 1.625rem;
+    color: #fff;
+    text-align: center;
+    line-height: 44px;
+    background: #ffa423 repeat-x 0 0;
+    background-size: auto 100%;
+}
+
+.c_btn.item2 a:last-child {
+    float: right;
+}
+
+.pop_btn.item2 a {
+    width: 50%;
+    margin: 0;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/up.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+/* 모바일용 CSS */
+
+@media all and(max-width:765px) {}

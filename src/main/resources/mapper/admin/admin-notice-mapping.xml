@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adNoticeDao">
+		
+	<select id="getAdNoticeList"  resultType="NoticeVO">
+		<![CDATA[
+	   		SELECT *
+	   		FROM(
+					SELECT A.*,
+				       	ROW_NUMBER() over(order by seq desc) as rn
+					FROM(
+							SELECT seq,
+							   	title,
+							   	contents,
+							   	post_date
+							FROM notice
+			        	)A
+	        	)B
+	    ]]>
+	</select>
+	
+	<select id="getAdNotice"  resultType="NoticeVO">
+	  	<![CDATA[	
+			 SELECT * FROM notice where seq=#{seq}
+		]]>
+	</select>
+	
+	<insert id= "insertNotice">
+		<![CDATA[	
+			INSERT INTO
+			notice(title, contents, post_date)
+			VALUES(#{title},#{contents}, now() )
+		]]>	
+	</insert>
+	
+	<update id="updateNotice">
+		<![CDATA[	
+			UPDATE notice SET title=#{title}, contents=#{contents}, post_date=#{post_date} WHERE seq=#{seq}
+		]]>
+	</update>
+	
+	<delete id="deleteNotice" >
+		<![CDATA[
+			DELETE FROM notice WHERE seq=#{seq}
+		]]>
+	</delete>
+
+</mapper>

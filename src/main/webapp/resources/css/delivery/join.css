@@ -1,0 +1,301 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+
+/* navigation  bar 부분 */
+
+nav {
+    position: relative;
+    top: 175px;
+    padding: 10px;
+    padding-left: 45px;
+    color: #fff;
+    background: #ffa423;
+    font-weight: bold;
+}
+
+nav>ul>li {
+    display: inline-block;
+}
+
+nav>ul>li>a {
+    color: white;
+}
+
+
+/* content 영역 */
+
+.content {
+    position: relative;
+    top: 175px;
+    padding: 0;
+    height: auto;
+    font-weight: bold;
+}
+
+.content>.content_container {
+	
+    padding: 75px 340px 0;
+}
+
+.content_container {
+    max-width: 1184px;
+    height: 746px;
+    margin: 0 auto;
+}
+
+.content_container>div>.page_tit {
+    font-size: 2.7rem;
+    position: relative;
+    color: #ffa423;
+}
+
+.txt_welcome {
+    margin: 30px 0 0;
+    font-size: 1.5rem;
+}
+
+strong {
+    color: #b8b8b8;
+}
+
+em {
+    color: #ffa423;
+}
+
+.content_container>.page_tit>* {
+    display: block;
+}
+
+
+/* email join */
+
+.login_container {
+    position: relative;
+    min-height: 560px;
+    padding: 45px 0 70px;
+    overflow: hidden;
+}
+
+.login_container>* {
+    float: left;
+    font-weight: bold;
+    min-height: 434px;
+    box-sizing: border-box;
+}
+
+.login_container>.login {
+    position: initial;
+    width: 100%;
+    padding-right: 5.23%;
+}
+
+.welcombox{
+	align-content: center;
+}
+
+.login_container>.login>.defaultlogin_tit {
+    position: inherit;
+    padding-left: 50px;
+    line-height: 40px;
+    margin: 45px 0 17px;
+    margin-top: 0;
+    font-size: 1.125rem;
+    color: #2e2e2e;
+}
+
+.defaultlogin_tit::before {
+    background-image: url(../../delivery_img/login/default_loginico.png);
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 30;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+.hide {
+    position: absolute!important;
+    left: -10000px;
+    top: -10000px;
+    visibility: hidden;
+}
+
+.login>.c_btn {
+    margin-top: 0;
+    padding: 0 4% 0 44px;
+    margin: 30px 0;
+    text-align: left;
+    overflow: hidden;
+}
+
+.login>.c_btn>a {
+    width: 100%;
+    float: left;
+}
+
+.btn02.st03 {
+    height: 72px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 8px;
+    max-width: 450px;
+}
+
+.btn02 {
+    display: inline-block;
+    padding: 20px 10px;
+    font-weight: 700;
+    font-size: 1.625rem;
+    color: #fff;
+    background: #ffa423 url(../../delivery_img/login/emptybg.png) repeat-x 0 0;
+    background-size: auto 100%;
+}
+
+
+/* simple join */
+
+.simple_login {
+    position: inherit;
+    width: 50%;
+    padding-left: 8.74%;
+}
+
+.login_container>.simple_login>.simplelogin_tit {
+    margin-top: 0;
+    font-size: 1.125rem;
+}
+
+.tit_ico {
+    position: relative;
+    padding-left: 50px;
+    line-height: 40px;
+}
+
+.simplelogin_tit {
+    margin: 45px 0 17px;
+    font-weight: 700;
+    color: #2e2e2e;
+    font-size: 1.125rem;
+}
+
+.tit_ico::before {
+    background-image: url(../../delivery_img/login/simple_login.png);
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+.simple_login>.list {
+    max-width: 338px;
+    margin: 15px 0 20px 46px;
+}
+
+.simple_login>.list>li:first-child {
+    background: none;
+}
+
+.simple_login>.list>li {
+    margin-bottom: 12px;
+}
+
+.simple_login>.list>.naver>a {
+    position: relative;
+    display: block;
+    height: 64px;
+    padding: 5px 5px 5px 70px;
+    font-size: 1.25rem;
+    color: hsla(0, 0%, 100%, .8);
+    line-height: 54px;
+    text-align: center;
+    background: #1ec800 url(../../delivery_img/login/naverico.gif) no-repeat 21px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 16%);
+}
+
+.simple_login>.list>li>a::before {
+    content: "";
+    position: absolute;
+    left: 65px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: #fff;
+    opacity: .2;
+}
+
+.simple_login>.list>.kakao>a {
+    position: relative;
+    display: block;
+    height: 64px;
+    padding: 5px 5px 5px 70px;
+    font-size: 1.25rem;
+    line-height: 54px;
+    text-align: center;
+    color: #3c1e20;
+    background: #ffeb00 url(../../delivery_img/login/kakaoico.gif) no-repeat 21px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 16%);
+}
+
+.simple_login>.list>.kakao>a::before {
+    opacity: .6;
+}
+
+.simple_login>.list>.google>a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 64px;
+    padding: 5px 5px 5px 0px;
+    font-size: 1.25rem;
+    line-height: 54px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    background: #de4f3d;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 16%);
+}
+
+.simple_login>.list>.google>a>img {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-top: 7px;
+    margin-left: 15px;
+}
+
+.simple_login>.list>.google>a::before {
+    opacity: .8;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(../../delivery_img/button/btn_top.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+/* 모바일용 CSS */
+
+@media all and(max-width:765px) {}

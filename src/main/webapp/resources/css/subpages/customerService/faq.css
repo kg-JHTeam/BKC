@@ -1,0 +1,274 @@
+/* 네비부분 */
+.locationWrap {
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+    margin: 100px 0 0 0;
+}
+.locationWrap .faq_web_container {
+    overflow: hidden;
+}
+.locationWrap a {
+    color: #fff;
+}
+.page_navi>* {
+    float: left;
+}
+.page_navi {
+    float: left;
+    font-size: 1.1rem;
+}
+
+/* 텝부분 */
+.contentsWrap {
+    min-height: 450px;
+    margin: 0 auto;
+}
+.contentsBox01 {
+    padding: 50px 0 45px;
+}
+.faq_web_container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.subtitWrap {
+    position: relative;
+    margin-bottom: 26px;
+}
+.contentsWrap .page_tit {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    line-height: 100%;
+}
+.subtitWrap .tab01 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -17.5px 0 0;
+}
+.tab01 {
+    margin-bottom: 20px;
+    overflow: auto;
+}
+.tab01 ul {
+    display: table;
+}
+.tab01 li:first-child {
+    padding-left: 0;
+}
+.tab01 li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.subtitWrap .tab01 button {
+    height: 35px;
+    font-size: 1.125rem;
+    border-width: 3px 0;
+}
+.tab01 button {
+    height: 54px;
+    padding: 5px 0;
+}
+.tab01 a, .tab01 button {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0;
+}
+.tab01 li.on a, .tab01 li.on button {
+    color: #e22219;
+    border-bottom-color: #e22219;
+}
+button {
+    margin: 0;
+    color: #000;
+    vertical-align: middle;
+    background: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+}
+.hide {
+    position: absolute!important;
+    left: -10000px;
+    top: -10000px;
+    visibility: hidden;
+}
+
+/* 중간 */
+.faq_category {
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+.faq_category label {
+    float: left;
+    margin-right: 9px;
+}
+.switch01 {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    cursor: pointer;
+}
+.switch01 input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+input[type=checkbox], input[type=radio] {
+    position: absolute;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    opacity: 0;
+}
+.switch01 input:checked+* {
+    background: #2e2e2e;
+}
+.switch01 input+* {
+    display: inline-block;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 1.25rem;
+    color: #fff;
+    text-align: center;
+    line-height: 38px;
+    background: #8d8d8d;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.board_list {
+    padding-bottom: 75px;
+}
+.tlist01.acc_type {
+    table-layout: fixed;
+}
+.tlist01 {
+    border-bottom: 2px solid #000;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+}
+.tlist01 thead tr {
+    background: #fafafa;
+    border: 0 solid #000;
+    border-width: 2px 0;
+    border-bottom-color: #e5e5e5;
+}
+.tlist01 thead th {
+    height: 50px;
+    font-size: 1.25rem;
+    text-align: center;
+}
+button, table td, table th {
+    padding: 0;
+}
+.tlist01 tbody td, .tlist01 tbody th {
+    height: 56px;
+    padding: 10px;
+    font-size: 1.125rem;
+    text-align: center;
+    vertical-align: middle;
+}
+.tlist01.acc_type .acc_tit {
+    padding-right: 30px;
+    text-align: left;
+}
+.acc_tit {
+    position: relative;
+    padding: 10px 20px 10px 0;
+}
+.btn_acc {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-indent: -9999em;
+    outline: 0;
+}
+.tlist01.acc_type .acc_tit .btn_acc:after {
+    right: 0;
+}
+.btn_acc:after {
+    content: "";
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAASCAYAAABM8m7ZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjVCNDhGMERFOTgyMTFFOEIzMTdGMjQ5RDJBQkYyRkUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjVCNDhGMEVFOTgyMTFFOEIzMTdGMjQ5RDJBQkYyRkUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGNUI0OEYwQkU5ODIxMUU4QjMxN0YyNDlEMkFCRjJGRSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGNUI0OEYwQ0U5ODIxMUU4QjMxN0YyNDlEMkFCRjJGRSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PhMiUrAAAAE5SURBVHjaYmBAgEggfgnEV4HYhIF6QB+IzwLxQyAORZfMAOK/QPwfij8CsR0VLLUA4ndI5v4B4jSYZB4Q/0OShOGvQOxJgaVOQPwZi7kgu3JACr5gkYThn0AcQoalvkD8HY+5n0CKduFRAAueBBIsBaWVXwTM3AtSyAfEBwkoBAVPLhGWpkEdis+s40AsCNPABcTbCGgA4Wo8lhbjSCvoPuVB18gGxKuJsLwTiBnR9DYSoW8TEHPgcjUzEM8nwpBpUMtBuJ8I9cuAmJVQPIEMm0SEYYuAeA4R6mZCPUQ0aCHCUEK4B0u0EAXKiEgwuHAdpcUeenH6n4isV0Ctgj4aiH8TYSkoDyczUBn4A/EPAsVrOAONgAuOsv0bEHsz0BhYAfF7tALfgYFOwBCI7wLxAyA2I8cAgAADAMf+5iynvrPsAAAAAElFTkSuQmCC) no-repeat 50%;
+    background-size: 15px auto;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transition: transform .3s linear;
+    -webkit-transition: -webkit-transform .3s linear;
+    transition: -webkit-transform .3s linear;
+    transition: transform .3s linear;
+    transition: transform .3s linear,-webkit-transform .3s linear;
+}
+.acc_cont {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: none;
+}
+.acc_cont td {
+	
+}
+.tlist01.acc_type .acc_cont>* {
+    height: 0;
+    padding: 0;
+    text-align: left;
+    background: #fafafa;
+}
+.tlist01.acc_type .acc_cont .text_area {
+    height: 0;
+    padding: 0 60px;
+    overflow: hidden;
+}
+.board_paging {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* 열었을시 */
+.acc_cont.open {
+	display: table-row;
+}
+.tlist01.acc_type tbody .acc_cont.open>* {
+    height: auto;
+    padding: 45px;
+    font-size: 1.25rem;
+    line-height: 150%;
+    background: #fafafa;
+}
+
+.board_paging li {
+    display: inline-block;
+    vertical-align: middle;
+}
+.board_paging a {
+    display: inline-block;
+    min-width: 1.5em;
+    height: 36px;
+    padding: 0 3px;
+    font-size: 1.25rem;
+    line-height: 36px;
+    text-align: center;
+}

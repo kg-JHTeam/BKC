@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "statDao">
+
+	<select id="getMonthTotal" resultType="Integer">
+	<![CDATA[
+		SELECT SUM(total_price) FROM orderlist 
+		WHERE order_date >= now() - interval '1 months' 
+		AND order_date <= now()
+		AND order_status=3
+	]]>
+	</select>
+	
+	<select id="getDayTotal" resultType="Integer">
+		<![CDATA[
+		SELECT COALESCE(SUM(total_price),0) 
+			FROM orderlist 
+			WHERE order_date >= CURRENT_DATE 
+			AND order_date < CURRENT_DATE+1
+		]]>
+	</select>
+
+	<select id="storeSaleList" resultType="StatisticVO">
+		<![CDATA[
+		SELECT *
+	   		FROM(
+					SELECT A.*,
+				       	ROW_NUMBER() over(order by order_date desc) as rn
+					FROM(
+						SELECT  p.product_serial,
+								P.product_name,
+								O.total_price,
+								O.order_date,
+								O.payment_type,
+								O.store_name
+							FROM product P inner join orderlist O on P.product_serial = O.product_serial
+			        	)A
+	        	)B
+	        	
+		]]>
+	</select>
+	
+	<select id="monthSaleList" resultType="StatisticVO">
+		<![CDATA[
+		SELECT *
+	   		FROM(
+					SELECT A.*,
+				       	ROW_NUMBER() over(order by order_date desc) as rn
+					FROM(
+						SELECT  P.product_serial,
+								P.product_name,
+								P.price,
+								O.order_date,
+								O.payment_type,
+								O.store_name
+							FROM product P inner join orderlist O on P.product_serial = O.product_serial
+			        	)A
+	        	)B
+		WHERE order_date >= current_date - interval '1 months' 
+		AND order_date <= current_date
+		]]>
+	</select>
+	
+	<select id="daySaleList" resultType="StatisticVO">
+	<![CDATA[
+	SELECT *
+			FROM(
+					SELECT A.*,
+						ROW_NUMBER() OVER (ORDER BY order_date desc) as rn
+					FROM(
+						SELECT	product_serial,
+								product_name,
+								total_price,
+								store_name
+							FROM product P inner join orderlist O on P.product_serial = O.product_serial
+						)A
+				)B
+		WHERE order_date >= current_date - interval '1 DAY' 
+		AND order_date <= current_date
+	]]>
+	</select>
+	
+	<select id="productSaleList" resultType="StatisticVO">
+	SELECT *
+			FROM(
+					SELECT A.*,
+						ROW_NUMBER() OVER (ORDER BY order_date desc) as rn
+					FROM(
+						SELECT	product_serial,
+								product_name,
+								total_price,
+								store_name
+							FROM product P inner join orderlist O on P.product_serial = O.product_serial
+						)A
+				)B
+		WHERE product_serial = #{product_serial}
+	</select>
+
+	<select id="categorytSaleChart" resultType="StatisticVO">
+	SELECT COUNT(od.product_serial) AS y,
+			p.type_serial AS x
+		FROM orderlist ol
+		INNER JOIN order_detail od ON od.order_serial = ol.order_serial
+		INNER JOIN product p ON p.product_serial = od.product_serial
+		WHERE 1=1
+              AND order_date BETWEEN TO_TIMESTAMP(#{startDate}, 'YYYY-MM-DD')
+                           AND TO_TIMESTAMP(#{endDate}, 'YYYY-MM-DD')
+              AND order_status=3             
+		GROUP BY p.type_serial	
+	</select>
+	
+	
+	<select id="productSaleChart" resultType = "StatisticVO">
+	SELECT COUNT(od.product_serial) AS y,
+		   p.product_name AS x 
+		FROM orderlist ol
+		INNER JOIN order_detail od ON od.order_serial = ol.order_serial
+		INNER JOIN product p ON p.product_serial = od.product_serial
+		WHERE 1=1
+		GROUP BY p.product_name
+	</select>
+	
+	
+	<select id="storeSaleChart" resultType="StatisticVO">
+	SELECT 	store_name AS  x,
+			sum(total_price) AS y
+		FROM orderlist
+                 WHERE order_date BETWEEN TO_TIMESTAMP(#{startDate}, 'YYYY-MM-DD')
+                           AND TO_TIMESTAMP(#{endDate}, 'YYYY-MM-DD')
+		AND order_status=3
+		GROUP BY store_name
+	</select>
+	
+	
+	<select id ="monthSaleChart" resultType="StatisticVO">
+	SELECT months AS  x,
+               SUM(total_price) AS y
+        FROM (
+                 SELECT TO_CHAR(order_date, 'YYYY-MM') AS months,
+                        TOTAL_PRICE
+                 FROM orderlist
+                 WHERE order_date BETWEEN TO_TIMESTAMP(#{startDate}, 'YYYY-MM-DD')
+                           AND TO_TIMESTAMP(#{endDate}, 'YYYY-MM-DD')
+             	 AND order_status=3
+             )A
+        GROUP BY months
+        ORDER BY TO_DATE(months, 'YYYY-MM' ) ASC
+	</select>
+	
+	<select id = "categorySaleChart" resultType="StatisticVO">
+	SELECT COUNT(od.product_serial) AS y,
+			p.type_serial AS x
+		FROM orderlist ol
+		INNER JOIN order_detail od ON od.order_serial = ol.order_serial
+		INNER JOIN product p ON p.product_serial = od.product_serial
+		WHERE 1=1
+		GROUP BY p.type_serial
+	</select>
+	
+	
+</mapper>

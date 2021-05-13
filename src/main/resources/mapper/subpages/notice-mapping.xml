@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="noticeDao">
+
+
+	<select id="getNoticeTotalCnt" resultType="int">
+	
+			SELECT count(*) cnt
+			FROM notice
+			<if test="searchText neq null and searchText neq ''">
+				WHERE (title like '%' || #{searchText} || '%') or (contents like '%' ||
+				#{searchText} || '%')
+			</if>
+	
+	</select>
+	
+
+	<select id="getNoticeList"  resultType="NoticeVO">
+		
+			SELECT *
+	   		FROM(
+					SELECT A.*,
+				       ROW_NUMBER() over(order by seq desc) as rn
+					FROM(
+						SELECT seq,
+							   title,
+							   contents,
+							   post_date,
+							   hits
+						FROM notice
+							<if test="searchText neq null and searchText neq ''">
+							   WHERE (title like '%' || #{searchText} || '%') or (contents  like '%' || #{searchText} || '%')
+					     	</if>
+			        	)A
+	        	)B
+	    	WHERE rn between  #{start}  and #{end} 
+		
+	</select>
+	
+	<select id="getNotice"  resultType="NoticeVO">
+		<![CDATA[	
+			SELECT * FROM notice WHERE seq=#{seq}	
+		]]>	
+	</select>
+	
+	<update id="updateHits">
+		<![CDATA[	
+			UPDATE notice SET hits=hits+1 where seq=#{seq};
+		]]>
+	</update>
+	
+</mapper>

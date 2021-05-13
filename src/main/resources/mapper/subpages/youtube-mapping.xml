@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="YoutubeDAO">
+	<resultMap type="YoutubeVO" id="YoutubeVO">
+		<result property="use_status" column="use_status" />
+		<result property="content" column="content" />
+		<result property="title" column="title" />
+		<result property="path" column="path" />
+		<result property="date" column="date" />
+		<result property="thumbnail" column="thumbnail" />
+	</resultMap>
+	
+	<select id="getYoutubeList" resultType="YoutubeVO">
+		<![CDATA[
+			SELECT * FROM youtube 
+		]]>
+	</select>
+	
+    <select id="getYoutubeHome" resultMap="YoutubeVO">
+	    <![CDATA[
+	    SELECT IMG_SEQ, TITLE, substring(cast(date as character varying), 1,4) as date, CONTENT, PATH, thumbnail, USE_STATUS FROM YOUTUBE
+	    ]]>
+	    <if test="date neq null and date neq ''">
+		   WHERE CAST(date AS character varying) BETWEEN #{date} || '-01-01' AND #{date}  || '-12-31'
+		</if>
+	</select>
+    
+	<select id="getYoutubeUsedList" resultType="YoutubeVO">
+		<![CDATA[
+			SELECT * FROM youtube where use_status = 'true'
+		]]>
+	</select>
+	
+	<select id="getYoutube" resultType="YoutubeVO">
+		<![CDATA[
+			SELECT * FROM youtube where use_status = 'true'
+		]]>
+	</select>
+	
+	<select id="getYoutubeBySeq" resultType="YoutubeVO">
+		<![CDATA[
+		SELECT * FROM youtube where img_seq=#{img_seq}
+		]]>
+	</select>
+	
+	<update id="changeStatusYoutube">
+		<![CDATA[
+			UPDATE
+				youtube
+			SET use_status =
+				(CASE WHEN use_status=true  THEN false
+					  WHEN use_status=false THEN true
+				END)
+			WHERE
+				img_seq = #{img_seq};
+		]]>
+	</update>
+	<update id="changeAllStatusYoutube">
+		<![CDATA[
+			UPDATE
+				youtube
+			SET use_status = false
+			WHERE
+				img_seq != #{img_seq};
+		]]>
+	</update>
+	<delete id="deleteYoutube" >
+		<![CDATA[
+			DELETE FROM youtube
+			WHERE
+				img_seq = #{img_seq};
+		]]>
+	</delete>
+	
+	<insert id="insertYoutube" parameterType="YoutubeVO"> 
+		<![CDATA[
+			INSERT INTO 
+				youtube(use_status, content, title, path, date, thumbnail)
+				values (#{use_status}, #{content}, #{title}, #{path}, #{date}, #{thumbnail});
+		]]>
+	</insert>
+	
+	<update id="updateYoutube" parameterType="YoutubeVO">
+		<![CDATA[
+			UPDATE
+				youtube
+			SET 
+				title=#{title}, path=#{path}, content=#{content}, thumbnail=#{thumbnail}
+			WHERE
+				img_seq = #{img_seq}
+		]]>
+	</update>
+</mapper>

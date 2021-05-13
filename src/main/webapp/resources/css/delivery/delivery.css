@@ -1,0 +1,716 @@
+/* 기본 CSS*/
+
+
+/* PC 용 CSS*/
+
+
+/* navigation  bar 부분 */
+
+nav {
+    position: relative;
+    top: 175px;
+    padding: 15px 0;
+    padding-left: 45px;
+    color: #fff;
+    background: #ffa423;
+    font-weight: bold;
+}
+
+nav>ul>li {
+    display: inline-block;
+}
+
+nav>ul>li>a {
+    color: white;
+}
+.gotomenu::after {
+    content: "";
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 0 12px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 50%;
+}
+
+
+/* content 영역 */
+
+.content {
+    position: relative;
+    top: 175px;
+    padding: 0;
+    height: auto;
+    font-weight: bold;
+}
+
+.content>.content_container {
+    padding: 75px 20px 0;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/logo/bkc_downbackground.png) no-repeat 100% 100%;
+}
+
+.content_container {
+    max-width: 1184px;
+    height: 746px;
+    margin: 0 auto;
+}
+
+.content_container>.page_tit {
+    font-size: 2.5rem;
+    position: relative;
+}
+
+.content_container>.page_tit>em {
+    margin-bottom: 0.9rem;
+}
+
+.content_container>.page_tit>img {
+    position: absolute;
+    top: -40px;
+    left: 380px;
+    z-index: -1;
+}
+
+em {
+    color: #ffa423;
+}
+
+.content_container>.page_tit>* {
+    display: block;
+}
+
+
+/* default login */
+
+.login_container {
+    position: relative;
+    min-height: 560px;
+    padding: 45px 0 70px;
+    overflow: hidden;
+}
+
+.login_container>* {
+    float: left;
+    font-weight: bold;
+    min-height: 434px;
+    box-sizing: border-box;
+}
+
+.login_container>.login {
+    position: initial;
+    width: 50%;
+    padding-right: 5.23%;
+    border-right: 1px solid #e5e5e5;
+}
+
+.login_container>.login>.defaultlogin_tit {
+    position: inherit;
+    padding-left: 50px;
+    line-height: 40px;
+    margin: 45px 0 17px;
+    margin-top: 0;
+    font-size: 1.125rem;
+    color: #2e2e2e;
+}
+
+.defaultlogin_tit::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/default_loginico.png);
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 30;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+.login_container>.login>.cont {
+    position: inherit;
+    padding: 10px 0 0 50px;
+}
+
+.login_container>.login>.cont>.inpbox {
+    height: 66px;
+    position: inherit;
+}
+
+.inpbox>label {
+    height: 66px;
+    position: inherit;
+    display: block;
+}
+
+label {
+    vertical-align: middle;
+}
+
+.hide {
+    position: absolute!important;
+    left: -10000px;
+    top: -10000px;
+    visibility: hidden;
+}
+
+.login_container>.login>.cont>.inpbox>label>input {
+    padding-left: 12px;
+    font-size: 1.5rem;
+    border: none;
+    outline: 0;
+}
+
+.inpbox>label {
+    height: 66px;
+    position: relative;
+}
+
+.inpbox>label>input {
+    width: 100%;
+    padding: 0 25px 3px 5px;
+}
+
+input[type=text],
+input[type=password],
+input[type=tel] {
+    display: inline-block;
+    height: 66px;
+    margin: 0;
+    font-weight: 400;
+    color: #000;
+    vertical-align: middle;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/loginline.png) repeat-x 0 100%;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+.inpbox>label>button {
+    width: 30px;
+    height: 63px;
+    margin: 0;
+}
+
+.inpbox>label>button,
+.inpbox>label>input~* {
+    position: inherit;
+    left: 425px;
+    top: -65px;
+}
+
+.btn_del01 {
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/del_btn.png) no-repeat 50%;
+    background-size: 18px auto;
+}
+
+button {
+    color: #000;
+    vertical-align: middle;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+}
+
+.btn_view01.on {
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/pass_view.png) no-repeat 50%;
+}
+
+.btn_view01 {
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/pass_hide.png) no-repeat 50%;
+    text-indent: -9999em;
+}
+
+.login_container>.login>.cont>.login_option {
+    margin: 20px 0;
+}
+
+.login_container>.login>.cont>.login_option>label {
+    margin-right: 20px;
+}
+
+label,
+label>span {
+    vertical-align: middle;
+}
+
+input[type=checkbox],
+input[type=radio] {
+    position: absolute;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    opacity: 0;
+}
+
+input[type="checkbox" i] {
+    height: 25px;
+    width: 25px;
+    background-color: initial;
+    cursor: default;
+    box-sizing: border-box;
+    padding: initial;
+}
+
+input[type=checkbox]:checked+::before {
+    content: "";
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn_checbox_checked.png);
+}
+
+input[type=checkbox]+::before {
+    content: "";
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn_checkbox.png) no-repeat 0;
+}
+
+input[type=checkbox]+::before,
+input[type=radio]+::before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 13px;
+    vertical-align: middle;
+}
+
+.login_container>.login>.cont>.login_signup_btn {
+    width: 100%;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.login_signup_btn {
+    overflow: hidden;
+}
+
+.login_container>.login>.cont>.login_signup_btn>a {
+    width: 50%;
+    float: left;
+    width: 216px;
+}
+
+.login_container>.login>.cont>.login_signup_btn>a+a {
+    margin-left: 9px;
+}
+
+.btn01.m.orange {
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/bg_o1.png) no-repeat 0 0;
+    background-size: 100% 100%;
+}
+
+.btn01.m {
+    height: 68px;
+    font-size: 1.5rem;
+    line-height: 46px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png);
+    border-radius: 0;
+}
+
+.btn01 {
+    display: inline-block;
+    padding: 12px 10px 10px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+}
+
+.login_container>.login>.cont>.login_menu {
+    overflow: hidden;
+}
+
+.login_container>.login>.cont>.login_menu>a:first-child {
+    padding-left: 0;
+}
+
+.login_container>.login>.cont>.login_menu>a {
+    position: relative;
+    float: left;
+    padding: 5px 18px;
+    font-size: 1.125rem;
+}
+
+.login_container>.login>.cont>.login_menu>a>span {
+    font-weight: normal;
+}
+
+.login_container>.login>.cont>.login_menu>a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 18px;
+    margin-top: -9px;
+    background: #e8e8e8;
+}
+
+
+/* simple login */
+
+.simple_login {
+    position: inherit;
+    width: 50%;
+    padding-left: 8.74%;
+}
+
+.login_container>.simple_login>.simplelogin_tit {
+    margin-top: 0;
+    font-size: 1.125rem;
+}
+
+.tit_ico {
+    position: relative;
+    padding-left: 50px;
+    line-height: 40px;
+}
+
+.simplelogin_tit {
+    margin: 45px 0 17px;
+    font-weight: 700;
+    color: #2e2e2e;
+    font-size: 1.125rem;
+}
+
+.tit_ico::before {
+    background-image: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/simple_login.png);
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+.simple_login>.list {
+    max-width: 338px;
+    margin: 15px 0 20px 46px;
+}
+
+.simple_login>.list>li:first-child {
+    background: none;
+}
+
+.simple_login>.list>li {
+    margin-bottom: 12px;
+}
+
+.simple_login>.list>.naver>a {
+    position: relative;
+    display: block;
+    height: 64px;
+    padding: 5px 5px 5px 70px;
+    font-size: 1.25rem;
+    color: hsla(0, 0%, 100%, .8);
+    line-height: 54px;
+    text-align: center;
+    background: #1ec800 url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/naverico.gif) no-repeat 21px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 16%);
+}
+
+.simple_login>.list>li>a::before {
+    content: "";
+    position: absolute;
+    left: 65px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: #fff;
+    opacity: .2;
+}
+
+.simple_login>.list>.kakao>a {
+    position: relative;
+    display: block;
+    height: 64px;
+    padding: 5px 5px 5px 70px;
+    font-size: 1.25rem;
+    line-height: 54px;
+    text-align: center;
+    color: #3c1e20;
+    background: #ffeb00 url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/kakaoico.gif) no-repeat 21px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 16%);
+}
+
+.simple_login>.list>.kakao>a::before {
+    opacity: .6;
+}
+
+.simple_login>.list>.google>a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 64px;
+    padding: 5px 5px 5px 0px;
+    font-size: 1.25rem;
+    line-height: 54px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    background: #de4f3d;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 16%);
+}
+
+.simple_login>.list>.google>a>img {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-top: 7px;
+    margin-left: 15px;
+}
+
+.simple_login>.list>.google>a::before {
+    opacity: .8;
+}
+
+
+/* 비회원 주문 */
+
+.nonmember_order-cover {
+    width: 100%;
+    height: 175.5px;
+    visibility: visible;
+}
+
+.nonmember_order {
+    padding: 50px 0 45px;
+    background: #f2ebe6;
+}
+
+.nonmember_container {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding: 20px 0;
+    max-width: 1184px;
+    margin: 0 auto;
+}
+
+
+/* menu tab 관련 */
+
+.menu {
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+.menu>ul {
+    display: table;
+}
+
+.menu>ul>li:first-child {
+    padding-left: 0;
+}
+
+.menu>ul>li {
+    position: relative;
+    display: table-cell;
+    padding: 0 18px;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.menu>.menu_tab>li.on>button {
+    border-bottom-color: #e22219;
+}
+
+.menu>.menu_tab>li.on>button span {
+    color: #e22219;
+}
+
+.meny>.menu_tab>li>button {
+    height: 54px;
+    padding: 5px 0;
+}
+
+.menu button>* {
+    vertical-align: middle;
+}
+
+.menu>.menu_tab>li>button {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: #b8b8b8;
+    border: 0 solid transparent;
+    border-width: 4px 0;
+}
+
+button {
+    margin: 0;
+    vertical-align: middle;
+    background: 0;
+    border: none;
+    outline: 0;
+    overflow: visible;
+    cursor: pointer;
+}
+
+button span {
+    color: #b8b8b8;
+}
+
+button:hover span {
+    color: #000;
+}
+
+
+/* 비회원 주문 */
+
+.nonmember_order .menu-contents-tit {
+    padding: 57px 64px;
+    line-height: 120%;
+    margin-top: 18px;
+    font-size: 1.75rem;
+    position: relative;
+    margin: 15px 0;
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+}
+
+.nonmemberorder_btn {
+    margin: 40px 0 80px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.btn_nonmember {
+    width: 272px;
+    height: 76px;
+    padding: 20px 10px 22px;
+    font-size: 1.625rem;
+    line-height: 34px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png);
+    background-size: 100% 100%;
+    display: inline-block;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    border-radius: 0;
+}
+
+
+/* 비회원 주문 내역*/
+
+.nonmember_order .nonmember_order_details {
+    margin-top: 18px;
+    padding: 35px 64px;
+    font-size: 1.75rem;
+    position: relative;
+    margin: 15px 0;
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+}
+
+.menu2 {
+    display: none;
+}
+
+.nonmember_order dl {
+    display: table;
+    width: 100%;
+}
+
+.nonmember_order dt {
+    width: 5em;
+    padding-right: 10px;
+    font-weight: 700;
+}
+
+.nonmember_order dt,
+.nonmember_order dd {
+    display: table-cell;
+    padding: 5px 0 26px;
+    vertical-align: middle;
+}
+
+.nonmember_order dd {
+    padding-right: 52px;
+}
+
+.nonmember_order_details .inpbox:only-child {
+    margin: 0;
+}
+
+.nonmember_order_details .inpbox {
+    position: relative;
+}
+
+.nonmember_order input {
+    height: 68px;
+    font-size: 1.75rem;
+    border: none;
+    outline: 0;
+}
+
+.nonmember_order dt {
+    width: 5em;
+    padding-right: 10px;
+    font-weight: 700;
+}
+
+.nonmember_order_details>dl>dd>div>button {
+    width: 30px;
+    height: 63px;
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    right: 60px;
+}
+
+.btn_del02 {
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/login/del_btn.png) no-repeat 50%;
+    background-size: 18px auto;
+}
+
+
+/* 비회원 주문 내역-조회하기 버튼 */
+
+.lookup_btn:last-child {
+    margin-bottom: 0;
+}
+
+.lookup_btn {
+    margin: 40px 0 80px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.lookup_btn01 {
+    width: 272px;
+    height: 76px;
+    padding: 20px 10px 22px;
+    font-size: 1.625rem;
+    line-height: 34px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn-black.png) no-repeat 50%;
+    background-size: 100% 100%;
+    display: inline-block;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    border-radius: 0;
+}
+
+
+/* 페이지 위로 올리기 버튼 */
+
+.btn_top {
+    position: fixed;
+    right: 20px;
+    bottom: 316px;
+    width: 52px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/delivery_img/button/btn_top.png) no-repeat 0 0;
+    z-index: 50;
+    display: none;
+}
+
+
+/* 모바일용 CSS */
+
+@media all and(max-width:765px) {}

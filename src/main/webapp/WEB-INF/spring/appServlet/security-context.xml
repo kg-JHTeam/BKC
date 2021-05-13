@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/security https://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<context:component-scan
+		base-package="com.bkc.*.dao" />
+
+	<!-- bcrypt 비밀번호 암호화 -->
+	<beans:bean id="bcryptPasswordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
+	
+	<authentication-manager>
+		<authentication-provider>
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="SELECT USERID as username, PASSWORD, ENABLED FROM usermember WHERE USERID=?"
+				authorities-by-username-query="
+				SELECT USERID as username,
+				CASE WHEN USERGRADE='01' THEN 'ROLE_ADMIN' 
+				 	 WHEN USERGRADE='02' THEN 'ROLE_MANAGER' 
+				 	 WHEN USERGRADE='03' THEN 'ROLE_USER'
+				END authority 
+				FROM usermember WHERE USERID =?" />
+			<password-encoder ref="bcryptPasswordEncoder"
+				hash="bcrypt" />
+		</authentication-provider>
+	</authentication-manager>
+	
+	<!--
+	<beans:bean class="com.bkc.user.CustomAuthenticationProvider"
+		id='customAutProvider'>
+	</beans:bean>
+	<authentication-manager>
+		<authentication-provider ref="customAutProvider"/>
+	</authentication-manager>-->
+
+	<http auto-config="true" use-expressions="true">
+		<!-- 세션 관리 -->
+		<session-management>
+			<!-- 동일 ID의 세션 최대수가 한 개, 그 이상일 경우는 기존 세션 무효화 -->
+			<concurrency-control max-sessions="1"
+				expired-url="/" />
+		</session-management>
+
+		<intercept-url pattern="/resources/**"
+			access="permitAll" />
+		<intercept-url pattern="/" access="permitAll" />
+		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/*.do" access="permitAll" />
+		<intercept-url pattern="/delivery/*.do"
+			access="isAuthenticated()" />	<!-- 딜리버리 관련페이지는 멤버로 로그인을 해야지만 들어 갈 수 있음. -->
+		<intercept-url pattern="/*.mdo"
+			access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" />	<!-- 매장 관리자만 들어갈 수 있음. -->
+		<intercept-url pattern="/*.ad"
+			access="hasRole('ROLE_ADMIN')" />	<!-- 홈페이지 관리자만 들어갈 수 있음. -->
+
+		<!-- 통합 로그인 페이지 -->
+		<form-login login-page="/login"
+			authentication-failure-url="/login?error" username-parameter="userid"
+			password-parameter="password" />
+
+		<!-- 로그아웃 -->
+		<logout invalidate-session="true" />
+		
+		<!-- 자동로그인 구현  -->
+		<remember-me key="bkc" remember-me-parameter="remember" token-validity-seconds="604800" /> 
+            
+		<!-- csrf 토큰 막음 -->
+		<csrf disabled="true" />
+	</http>
+
+</beans:beans>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MaterialDAO">
+	<resultMap type="MaterialVO" id="MaterialVO">
+		<result property="seq" column="seq" />
+		<result property="content" column="content" />
+		<result property="path" column="path" />
+		<result property="path_" column="path_" />
+	</resultMap>
+	
+	<select id="MaterialList" resultType="MaterialVO">
+		select * from brand_whybkc_material
+	</select>
+	
+	<select id="getMaterial" resultType="MaterialVO">
+		<![CDATA[
+			SELECT * FROM brand_whybkc_material where seq= #{seq}
+		]]>
+	</select>
+	
+	<delete id="deleteMaterial" >
+		<![CDATA[
+			DELETE FROM brand_whybkc_material
+			WHERE
+				seq = #{seq}
+		]]>
+	</delete>
+	
+	<insert id="insertMaterial" > 
+		<![CDATA[
+			INSERT INTO 
+				brand_whybkc_material(seq, content, path, path_)
+			VALUES 
+				(#{seq}, #{content}, #{path}, #{path_});
+		]]>
+	</insert>
+	
+	<insert id="updateMaterial">
+		<![CDATA[
+		UPDATE 
+			brand_whybkc_material
+		SET  
+			content=#{content}, path=#{path}, path_=#{path_}
+		WHERE seq = #{seq};
+		]]>
+	</insert>
+</mapper>
+

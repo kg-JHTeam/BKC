@@ -1,0 +1,418 @@
+@charset "UTF-8";
+
+/* reset */ 
+/* font 설정*/
+
+* {
+    font-family: 'Do Hyeon', sans-serif;
+    font-weight: bold;
+}
+
+
+/* CSS 초기화 */
+
+a,
+div,
+li {
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+ul,
+li{
+	list-style-type : none 
+}
+
+div {
+    display: block;
+}
+
+body {
+    min-height: 100%;
+    color: #000;
+    background: #fff;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+body,
+html {
+    height: 100%;
+    min-height: 450px;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 900;
+    font-size: 1em;
+}
+
+dd,
+dl,
+dt,
+em,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+ol,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+/* header 부분 */
+span {
+    font-weight: bold;
+}
+
+.headerWrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 50;
+}
+
+.headerWrap>.head_menuWrap {
+    position: relative;
+    background: #1D1D1B;
+}
+
+.head_menuWrap::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 0;
+    background: #fff;
+    box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+    z-index: 2;
+}
+
+.head_menuWrap::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 5px;
+}
+
+.headerWrap>.head_menuWrap>.web_container {
+    height: 168px;
+    padding-top: 48px;
+    position: relative;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.head_menuWrap>.web_container>.logo {
+    display: inline-block;
+    position: static;
+    width: auto;
+    height: 120px;
+    padding-left: 80px;
+    padding-right: 10px;
+    font-weight: 700;
+    font-size: 2.25rem;
+    color: #fff;
+    text-indent: 0;
+    line-height: 120px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bkclogo/bkclogo.png) no-repeat 0;
+    background-size: 5rem;
+    cursor: pointer;
+    left: 20px;
+    top: 20px;
+}
+
+.head_menuWrap>.web_container .utilWrap {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    overflow: hidden;
+}
+
+.head_menuWrap>.web_container .utilWrap a {
+    color: #fff;
+    position: relative;
+    display: block;
+    float: left;
+    height: 48px;
+    padding: 0 14px;
+    font-size: .875rem;
+    line-height: 48px;
+}
+
+.head_menuWrap>.web_container .utilWrap a::before {
+    background: #1D1D1B;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 13px;
+    margin-top: -6.5px;
+}
+
+.head_menuWrap>.web_container .WEB.user {
+    position: absolute;
+    right: 20px;
+    bottom: 36px;
+    min-height: 46px;
+    padding: 3px 0 3px 57px;
+    color: #fff;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/member.png) no-repeat 0;
+}
+
+.head_menuWrap>.web_container .WEB.user a {
+    margin-top: 3px;
+    padding-right: 16px;
+    font-weight: 700;
+    color: #fff;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/direction/rightarrow.png) no-repeat 100%;
+}
+
+.head_personalWrap {
+    margin-top: 168px;
+    height: 124px;
+    font-size: 1.375rem;
+    color: #fff;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/bg_img/bg_menubar3.gif) repeat-x top;
+}
+
+.head_personalWrap>.web_container {
+    position: relative;
+    height: 100%;
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.head_personalWrap>.web_container>* {
+    height: 100%;
+    overflow: hidden;
+}
+
+.personal_logon {
+    position: relative;
+    height: 100%;
+}
+
+.personal_logon::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    margin-left: -1.5px;
+}
+
+.head_personalWrap a {
+    color: #fff;
+}
+
+.personal_logon>* {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.personal_order {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    min-height: 56px;
+    padding-left: 110px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/delivery/deliverywhite.png) no-repeat 0;
+    transform: translateY(-50%);
+}
+
+.personal_order dd {
+    margin-top: 10px;
+    font-size: 1.125rem;
+    line-height: 167%;
+}
+
+.personal_cart {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 41%;
+    padding-left: 95px;
+    background: url(https://bkcbuc.s3.ap-northeast-2.amazonaws.com/bkc_img/icon/myking/shopping.png) no-repeat 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.personal_cart .count {
+    height: 30px;
+    margin-left: 14px;
+    padding: 0 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    line-height: 30px;
+    background: #1D1D1B;
+}
+
+.personal_cart dt>* {
+    vertical-align: middle;
+}
+
+.personal_cart dd {
+    margin-top: 10px;
+    font-size: 1.125rem;
+}
+
+/*footer*/
+/*  - ------------------푸터 시작--------------------- */
+
+.footer {
+    position: relative;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+}
+
+.footer>.web_container {
+    background: #1d1d1b;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-right: 4%;
+    padding-left: 4%;
+    justify-content: space-around;
+    color: #818181;
+}
+
+.footer>.web_container>.copyright {
+    width: 70%;
+    background: #1d1d1b;
+    align-items: right;
+    text-align: left;
+}
+
+.footer>.web_container>.copyright>.logo {
+    padding-bottom: 1.2rem;
+}
+
+.footer>.web_container>.copyright>.logo>img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.footer>.web_container>.copyright>.sns {
+    padding-top: 1.2rem;
+}
+
+.footer>.web_container>.footer_menu {
+    font-size: 1rem;
+    width: 30%;
+    background: #1d1d1b;
+    text-align: center;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3%;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1>div {
+    width: 30%;
+    text-align: center;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1>div>a {
+    color: #818181;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1>.c_btn_1_item :hover {
+    color: white;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1>#c_btn_1_center {
+    width: 40%;
+    text-align: center;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_1>.c_btn_1_line {
+    width: 10%;
+    text-align: center;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3%;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_2>div {
+    width: 50%;
+    text-align: center;
+    background: #818181;
+    border: #292929;
+    border-radius: 10px;
+    border-width: thick;
+    border-style: solid;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_2>div>a {
+    color: white;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_2>div :hover {
+    color: black;
+}
+
+.footer>.web_container>.footer_menu>.c_btn_2>div {
+    text-align: center;
+}
+
