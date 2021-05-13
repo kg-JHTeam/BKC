@@ -166,7 +166,30 @@
 			order by orderlist.order_serial DESC;
 		]]>
 	</select>
-	
+	<select id="getAllOrderListReceipt" resultType="OrderVO">
+		<![CDATA[
+			SELECT 
+				orderlist.productCount,
+				orderlist.order_serial,
+				orderlist.store_name,
+				orderlist.order_status,
+				orderlist.userid,
+				orderlist.coupon_seq,
+				orderlist.payment_type,
+				orderlist.total_price,
+				orderlist.address,
+				orderlist.phonenumber, 
+				orderlist.product_serial,
+				DATE_TRUNC('second', orderlist.order_date::timestamp)as order_date,
+				orderlist.description, 
+				product.product_name, 
+				product.product_serial
+			FROM orderlist 
+			INNER JOIN product ON product.product_serial = orderlist.product_serial
+			WHERE orderlist.order_status = 1 or orderlist.order_status = 2
+			order by orderlist.order_serial DESC;
+		]]>
+	</select>
 	<select id="getTotalSales" resultType="Integer">
 		<![CDATA[
 			SELECT 

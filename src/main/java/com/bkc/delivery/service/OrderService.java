@@ -34,5 +34,7 @@ public interface OrderService {
 
 	public List<OrderVO> getTotalSalesFromStore();
 
+	public List<OrderVO> getAllOrderListReceipt();
+
 
 }
