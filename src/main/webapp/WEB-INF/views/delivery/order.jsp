@@ -800,7 +800,15 @@
                                  <option value="nothing" selected="selected"
                                     id="notSelectedCoupon">없음</option>
                                  <c:forEach var="coupon" items="${usercoupons}">
-                                    <option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
+                                 
+                                 	<c:choose>
+										<c:when test="${coupon.use_status eq 1 }">
+											<option value="${coupon.coupon_seq}">${coupon.coupon_title}</option>
+										</c:when>
+										<c:otherwise>
+										</c:otherwise>
+									</c:choose>
+                                    
                                  </c:forEach>
                               </select>
                            </dd>

@@ -121,6 +121,7 @@ function changeOrderStatus(status, serial){
 												<button type="button" class="btn btn-secondary"
 													data-toggle="modal" data-target="#s${order.order_serial}"
 													data-id="${order.order_serial}">상세보기</button>
+													
 												<div class="modal fade" id="s${order.order_serial}"
 													tabindex="-1" role="dialog"
 													aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -195,7 +196,7 @@ function changeOrderStatus(status, serial){
 																			</c:when>
 																			<c:otherwise>
 																				<input type="text" class="form-control"
-																					value="쿠폰미사용" disabled>
+																					value="쿠폰사용" disabled>
 																			</c:otherwise>
 																		</c:choose>
 																	</div>
