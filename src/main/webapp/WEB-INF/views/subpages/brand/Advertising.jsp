@@ -34,6 +34,11 @@ function button1_click(s) {
 }
 </script>
 
+<!-- jquery -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../resources/jquery/jquery-3.6.0.min.js"></script>
+
 <!--css-->
 <link rel="stylesheet" href="../resources/css/include/main-gnb.css">
 <link rel="stylesheet"
