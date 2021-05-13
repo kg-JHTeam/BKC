@@ -84,10 +84,10 @@
                 </div>
                 <div class="c_btn_2">
                     <div>
-                        <a href="#">인재채용</a>
+                        <a href="${contextPath}/customerService/recruit.do">인재채용</a>
                     </div>
                     <div>
-                        <a href="#">가맹점모집</a>
+                        <a href="${contextPath}/customerService/chain.do">가맹점모집</a>
                     </div>
                 </div>
             </div>
