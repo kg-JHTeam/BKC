@@ -182,6 +182,8 @@ window.onload = function(){
 			type: "post", 
 			success: function(result) { 
 				if(result == "true"){
+					 var changeInfo = document.changeInfo;
+				        changeInfo.submit();
 				} else if(result == "false"){
 					alert("비밀번호가 틀렸습니다.");
 					return;
@@ -191,10 +193,6 @@ window.onload = function(){
 				alert("실패");
 			}
 		});
-		
-        var changeInfo = document.changeInfo;
-        changeInfo.submit();
-        
 	}
 	
 </script>
