@@ -175,7 +175,7 @@ function changeOrderStatus(status, serial){
 																			<input type="text" class="form-control" value="쿠폰미사용"  disabled>
 																		</c:when>
 																		<c:otherwise>
-																			<input type="text" class="form-control" value="쿠폰미사용"  disabled>
+																			<input type="text" class="form-control" value="쿠폰사용"  disabled>
 																		</c:otherwise>
 																	</c:choose>
 														          </div>

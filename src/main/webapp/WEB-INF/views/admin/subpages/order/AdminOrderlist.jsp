@@ -275,7 +275,7 @@ function acyncpdf(url) {
 																			</c:when>
 																			<c:otherwise>
 																				<input type="text" class="form-control"
-																					value="쿠폰미사용" disabled>
+																					value="쿠폰사용" disabled>
 																			</c:otherwise>
 																		</c:choose>
 																	</div>
