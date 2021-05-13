@@ -98,7 +98,7 @@ public class AdminOrderController {
 	// 주문 취소 페이지로 이동함.
 	@RequestMapping(value = "/orderReceiptlist.ad", method = RequestMethod.GET)
 	public String goAdminOrderReceiptlist(Model model) {
-		List<OrderVO> orders = orderService.getAllOrderListByOrderStatus(1);
+		List<OrderVO> orders = orderService.getAllOrderListReceipt();
 		for (int i = 0; i < orders.size(); i++) {
 			OrderVO order = orders.get(i);
 			List<OrderDetailVO> orderDetails = orderDetailService

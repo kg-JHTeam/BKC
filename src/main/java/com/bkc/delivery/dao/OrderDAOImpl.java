@@ -67,7 +67,9 @@ public class OrderDAOImpl implements OrderDAO {
 		return sqlSession.selectList("getTotalSalesFromStore");
 	}
 
-	
-
+	@Override
+	public List<OrderVO> getAllOrderListReceipt() {
+		return sqlSession.selectList("getAllOrderListReceipt");
+	}
 
 }

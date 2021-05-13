@@ -28,4 +28,6 @@ public interface OrderDAO {
 	public int getTotalSales();
 
 	public List<OrderVO> getTotalSalesFromStore();
+
+	public List<OrderVO> getAllOrderListReceipt();
 }
