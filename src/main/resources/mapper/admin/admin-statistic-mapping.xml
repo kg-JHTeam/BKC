@@ -13,7 +13,7 @@
 	
 	<select id="getDayTotal" resultType="Integer">
 		<![CDATA[
-		SELECT SUM(total_price) 
+		SELECT COALESCE(SUM(total_price),0) 
 			FROM orderlist 
 			WHERE order_date >= CURRENT_DATE 
 			AND order_date < CURRENT_DATE+1
