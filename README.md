@@ -62,9 +62,9 @@
 <br>
 
 ##  :poultry_leg: 화면 구성도
+https://user-images.githubusercontent.com/55049159/118395390-31f55780-b685-11eb-9169-b1a4b47cf0ac.mp4
 
 
-<br>
 
 ___
 
