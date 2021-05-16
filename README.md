@@ -7,7 +7,7 @@
 
 <br>
 
-##  : 프로젝트 사용기술 
+##  :rocket: 프로젝트 사용기술 
 ![image](https://user-images.githubusercontent.com/55049159/118394187-1470bf80-b67e-11eb-9493-6ed220c7767a.png)
 
 
@@ -84,37 +84,39 @@ ___
 ##  :rocket: 팀원 역할
 
 :heavy_check_mark: 
-   <a href="#">최재호(팀장)</a> <br>
+   <a href="https://github.com/jaero0725">최재호(팀장)</a> <br>
    AWS 서버구축 / 프로젝트 구조 설계 / DB설계 / 디자인 <br>
     Client : 스프링 시큐리티, 회원가입, 로그인, 소셜 로그인(카카오, 네이버), 아이디/비밀번호 찾기, 회원정보수정, 회원탈퇴
             쿠폰, 딜리버리 카트, 주문, 결제 (아임포트API – 카카오, 페이코, KG이니시스) <br>
     Admin : 회원관리, 쿠폰관리, 주문관리, 배너관리, 푸터관리, 관리자 페이지 구축 <br>
   
 :heavy_check_mark:
-기진현 <br>
+<a href="https://github.com/JinHyeonGi">기진현</a> <br>
 DB설계 / 디자인	 <br>
 Client : 이벤트/신규 매장 게시판 페이지 제작, coolSMS API, 유튜브광고, 약관(이용약관/개인정보취급방침/이메일약관) 페이지 제작<br>
 Admin : 이벤트/신규 매장 관리, 유튜브광고 관리<br>
 
 :heavy_check_mark: 
-민경민<br>
+<a href="https://github.com/KyungMin-tech">민경민</a><br>
 DB설계 / 디자인(총괄)<br>
 Client : 이용약관게시판, 개인정보취급방침게시판, 이메일약관게시판,매장찾기(카카오지도 API)<br>
 Admin : 이용약관 관리, 개인정보취급방침 관리, 이메일약관 관리<br>
 
 :heavy_check_mark: 
-엄지현 <br>
+<a href="https://github.com/Eom-jihyeonh">엄지현</a> <br>
 DB설계 / 디자인 / 포토샵<br>
 Client : 메뉴리스트, 메뉴상세조회, 매장찾기(카카오지도 API), 카카오 페이API<br>
 Admin : 메뉴관리, pdf생성/다운로드  <br>
 
 :heavy_check_mark: 
-유진원 DB설계 / 디자인	<br>
+<a href="https://github.com/hilu12311">유진원</a> <br>
+DB설계 / 디자인	<br>
 Client : FAQ, BKCSTORY게시판, WHYBKC게시판, BKCNEWS게시판<br>
 Admin : FAQ관리, BKC스토리 관리, WHYBKC 관리, 유의사항<br>
 
 :heavy_check_mark: 
-이주현 DB설계(총괄) / 디자인	<br>
+<a href="https://github.com/J-HLee">이주현</a>
+<br> DB설계(총괄) / 디자인	<br>
 Client : 주소검색(우편번호 API ), 매장 매칭, 공지사항, 신규매장, 이벤트 게시판 관리<br>
 Admin : 공지사항 관리, 이벤트 게시판 관리, 통계처리(구글차트 API, chart.js API)<br>
 
