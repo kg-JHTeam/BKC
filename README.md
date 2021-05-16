@@ -49,7 +49,7 @@
 
 :white_check_mark: master : 제품으로 출시될 수 있는 브랜치를 의미합니다.     
 :white_check_mark: develop : 다음 출시 버전을 개발하는 브랜치입니다. feature에서 리뷰완료한 브랜치를 Merge하고 있습니다.    
-:white_check_mark: feature : 팀원 각자 기능을 개발하는 브랜치 ("feature_팀원이름"으로 규칙을 정하였습니다.)
+:white_check_mark: feature : 팀원 각자 기능을 개발하는 브랜치 
 :white_check_mark: release : 이번 출시 버전을 준비하는 브랜치    
 :white_check_mark: hotfix : 출시 버전에서 발생한 버그를 수정하는 브랜치    
 
