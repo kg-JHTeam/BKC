@@ -8,20 +8,20 @@
 
 <br>
 
-##  :rocket: 프로젝트 사용기술 
+##  :poultry_leg: 프로젝트 사용기술 
 ![image](https://user-images.githubusercontent.com/55049159/118394187-1470bf80-b67e-11eb-9493-6ed220c7767a.png)
 
 
 <br>
 <br>
 
-##  :rocket: 전체 프로젝트의 구조
+##  :poultry_leg: 전체 프로젝트의 구조
 ![image](https://user-images.githubusercontent.com/55049159/118393926-9233cb80-b67c-11eb-9b23-03d04d373365.png)
 
 <br>
 <br>
 
-##  :rocket: USECASE
+##  :poultry_leg: USECASE
 
 ![image](https://user-images.githubusercontent.com/55049159/118394093-8dbbe280-b67d-11eb-9072-b59a9657d6bc.png)
 ![image](https://user-images.githubusercontent.com/55049159/118394101-93b1c380-b67d-11eb-8b62-b714e5f6cec6.png)
@@ -29,7 +29,7 @@
 <br>
 <br>
 
-##  :rocket: 프로젝트 주요 관심사
+##  :poultry_leg: 프로젝트 주요 관심사
 
 :heavy_check_mark: 클린코드를 위한 꾸준한 코드 리팩토링을 진행 중입니다.      
 :heavy_check_mark: 이유와 근거가 명확한 기술의 사용을 지향합니다.    
@@ -61,7 +61,7 @@
 
 <br>
 
-##  :rocket: 화면 구성도
+##  :poultry_leg: 화면 구성도
 
 
 <br>
@@ -73,7 +73,7 @@ ___
 <br>
 <br>
 
-##  :rocket: DB ERD 구조
+##  :poultry_leg: DB ERD 구조
 ![image](https://user-images.githubusercontent.com/55049159/118394023-374ea400-b67d-11eb-92e7-04567dd37feb.png)
 ![image](https://user-images.githubusercontent.com/55049159/118394026-3b7ac180-b67d-11eb-8df8-2667ac33f370.png)
 ![image](https://user-images.githubusercontent.com/55049159/118394034-42a1cf80-b67d-11eb-89e1-9c1e5447ce80.png)
@@ -82,7 +82,7 @@ ___
 <br>
 <br>
 
-##  :rocket: 팀원 역할
+##  :poultry_leg: 팀원 역할
 
 :heavy_check_mark: 
    <a href="https://github.com/jaero0725">최재호(팀장)</a> <br>
