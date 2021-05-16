@@ -121,6 +121,6 @@ Admin : FAQ관리, BKC스토리 관리, WHYBKC 관리, 유의사항<br>
 Client : 주소검색(우편번호 API ), 매장 매칭, 공지사항, 신규매장, 이벤트 게시판 관리<br>
 Admin : 공지사항 관리, 이벤트 게시판 관리, 통계처리(구글차트 API, chart.js API)<br>
 
-##  :poultry_leg: 프레젠테이션 다운로드
+##  :poultry_leg: 프레젠테이션 파일 다운로드
 
-:heavy_check_mark: [BKC ppt.pdf](https://github.com/kg-JHTeam/BKC/files/6489110/BKC.ppt.pdf)
+:heavy_check_mark: [BKC.pdf](https://github.com/kg-JHTeam/BKC/files/6489110/BKC.ppt.pdf)
