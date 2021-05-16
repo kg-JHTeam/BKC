@@ -62,7 +62,8 @@
 <br>
 
 ##  :poultry_leg: 화면 구성도
-:heavy_check_mark: 메인 페이지 
+:heavy_check_mark: 메인 페이지 <br>
+
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/55049159/118395510-bea01580-b685-11eb-93fd-31c4daed36ad.gif)
 
 
