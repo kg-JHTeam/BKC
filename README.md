@@ -100,19 +100,19 @@ ___
    <a href="https://github.com/jaero0725">최재호(팀장)</a> <br>
    AWS 서버구축 / 프로젝트 구조 설계 / DB설계 / 디자인 <br>
     Client : 스프링 시큐리티, 회원가입, 로그인, 소셜 로그인(카카오, 네이버), 아이디/비밀번호 찾기, 회원정보수정, 회원탈퇴
-            쿠폰, 딜리버리 카트, 주문, 결제 (아임포트API – 카카오, 페이코, KG이니시스) <br>
+            쿠폰, 딜리버리 카트, 주문, 결제(아임포트A) <br>
     Admin : 회원관리, 쿠폰관리, 주문관리, 배너관리, 푸터관리, 관리자 페이지 구축 <br>
   
 :heavy_check_mark:
 <a href="https://github.com/JinHyeonGi">기진현</a> <br>
 DB설계 / 디자인	 <br>
-Client : 이벤트/신규 매장 게시판 페이지 제작, coolSMS API, 유튜브광고, 약관(이용약관/개인정보취급방침/이메일약관) 페이지 제작<br>
+Client : coolSMS API, 유튜브광고, 약관(이용약관/개인정보취급방침/이메일약관)<br>
 Admin : 이벤트/신규 매장 관리, 유튜브광고 관리<br>
 
 :heavy_check_mark: 
 <a href="https://github.com/KyungMin-tech">민경민</a><br>
 DB설계 / 디자인(총괄)<br>
-Client : 이용약관게시판, 개인정보취급방침게시판, 이메일약관게시판,매장찾기(카카오지도 API)<br>
+Client : 이용약관게시판, 개인정보취급방침게시판, 이메일약관게시판, 매장찾기(카카오지도 API)<br>
 Admin : 이용약관 관리, 개인정보취급방침 관리, 이메일약관 관리<br>
 
 :heavy_check_mark: 
