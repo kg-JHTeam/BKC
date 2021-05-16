@@ -62,20 +62,20 @@
 <br>
 
 ##  :poultry_leg: 화면 구성도
-:heavy_check_mark: 메인 페이지 <br>
+#### :heavy_check_mark:  메인 페이지 <br>
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/55049159/118395510-bea01580-b685-11eb-93fd-31c4daed36ad.gif)
 
 <br><br>
-:heavy_check_mark: 사이드 페이지 <br>
+#### :heavy_check_mark: 사이드 페이지 <br>
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/55049159/118396126-f8265000-b688-11eb-8fe1-a2befbc4a84e.gif)
 
 <br><br>
-:heavy_check_mark: 딜리버리 페이지 <br>
+#### :heavy_check_mark: 딜리버리 페이지 <br>
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/55049159/118395736-ec398e80-b686-11eb-8916-5b4d4148c4b2.gif)
 
 <br><br>
-:heavy_check_mark: 관리자 페이지 <br>
+#### :heavy_check_mark: 관리자 페이지 <br>
 ![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/55049159/118396146-12602e00-b689-11eb-9183-8db53e9d8f04.gif)
 
 ___
