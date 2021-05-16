@@ -67,7 +67,8 @@
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/55049159/118395510-bea01580-b685-11eb-93fd-31c4daed36ad.gif)
 
 
-
+:heavy_check_mark: 딜리버리 페이지 <br>
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/55049159/118395685-a1b81200-b686-11eb-8098-2fe331021402.gif)
 
 
 ___
