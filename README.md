@@ -48,7 +48,7 @@
 
 :white_check_mark: master : 제품으로 출시될 수 있는 브랜치를 의미합니다.     
 :white_check_mark: develop : 다음 출시 버전을 개발하는 브랜치입니다. feature에서 리뷰완료한 브랜치를 Merge하고 있습니다.    
-:white_check_mark: feature : 팀원 각자 기능을 개발하는 브랜치 - "feature_팀원이름"으로 규칙을 정하였습니다. 
+:white_check_mark: feature : 팀원 각자 기능을 개발하는 브랜치 ("feature_팀원이름"으로 규칙을 정하였습니다.)
 :white_check_mark: release : 이번 출시 버전을 준비하는 브랜치    
 :white_check_mark: hotfix : 출시 버전에서 발생한 버그를 수정하는 브랜치    
 
@@ -84,7 +84,7 @@ ___
 ##  :rocket: 팀원 역할
 
 :heavy_check_mark: 
-   최재호(팀장) <br>
+   <a href="#">최재호(팀장)</a> <br>
    AWS 서버구축 / 프로젝트 구조 설계 / DB설계 / 디자인 <br>
     Client : 스프링 시큐리티, 회원가입, 로그인, 소셜 로그인(카카오, 네이버), 아이디/비밀번호 찾기, 회원정보수정, 회원탈퇴
             쿠폰, 딜리버리 카트, 주문, 결제 (아임포트API – 카카오, 페이코, KG이니시스) <br>
