@@ -11,7 +11,7 @@
 	<properties>
 		<java-version>1.8</java-version>
 		<org.springframework-version>5.3.4</org.springframework-version>
-		<spring-security-version>5.3.9.RELEASE</spring-security-version>
+		<spring-security-version>5.3.10.RELEASE</spring-security-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.7.30</org.slf4j-version>
 	</properties>
